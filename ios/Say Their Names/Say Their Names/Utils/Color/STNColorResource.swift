@@ -14,7 +14,17 @@ public typealias STNColorResource = UIColor
 extension STNColorResource {
     
     // MARK: - Class methods
-    public class var test: UIColor {
-        return self.hexColor(0x000000)
+    public class var stnBlack: UIColor {
+        return self.hexColor(0x101010)
+    }
+    
+    public class var stnWhite: UIColor {
+        return self.hexColor(0xffffff)
+    }
+    
+    public class var stnGray: UIColor {
+        return self.hexColor(0x9C9C9C)
     }
 }
+
+

@@ -24,6 +24,8 @@
 		A9B493F62482EEDB00614597 /* UIColor+STN.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B493F52482EEDB00614597 /* UIColor+STN.swift */; };
 		A9B493F92482EF6500614597 /* STNColorResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B493F82482EF6500614597 /* STNColorResource.swift */; };
 		A9B493FB2482EFFD00614597 /* STNFontResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B493FA2482EFFD00614597 /* STNFontResource.swift */; };
+		A9B493FE2482F53A00614597 /* UIDevice+STN.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B493FD2482F53A00614597 /* UIDevice+STN.swift */; };
+		A9B494002482F57600614597 /* STNSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B493FF2482F57600614597 /* STNSize.swift */; };
 		EE494BD22482DAE3005DF3E3 /* PersonController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE494BD02482DAE3005DF3E3 /* PersonController.swift */; };
 		EE494BD32482DAE3005DF3E3 /* PersonController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE494BD12482DAE3005DF3E3 /* PersonController.xib */; };
 		EE494BD62482DDFB005DF3E3 /* temp.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE494BD52482DDFB005DF3E3 /* temp.xib */; };
@@ -61,6 +63,8 @@
 		A9B493F52482EEDB00614597 /* UIColor+STN.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+STN.swift"; sourceTree = "<group>"; };
 		A9B493F82482EF6500614597 /* STNColorResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STNColorResource.swift; sourceTree = "<group>"; };
 		A9B493FA2482EFFD00614597 /* STNFontResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STNFontResource.swift; sourceTree = "<group>"; };
+		A9B493FD2482F53A00614597 /* UIDevice+STN.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+STN.swift"; sourceTree = "<group>"; };
+		A9B493FF2482F57600614597 /* STNSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STNSize.swift; sourceTree = "<group>"; };
 		EE494BD02482DAE3005DF3E3 /* PersonController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonController.swift; sourceTree = "<group>"; };
 		EE494BD12482DAE3005DF3E3 /* PersonController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PersonController.xib; sourceTree = "<group>"; };
 		EE494BD52482DDFB005DF3E3 /* temp.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = temp.xib; sourceTree = "<group>"; };
@@ -105,17 +109,17 @@
 		5B3ED73E2481C9F50033FF79 /* Say Their Names */ = {
 			isa = PBXGroup;
 			children = (
-				A9B493F42482EEAE00614597 /* Extensions */,
+				5B3ED73F2481C9F50033FF79 /* AppDelegate.swift */,
+				5B3ED7482481CA000033FF79 /* Assets.xcassets */,
 				5B3ED77A24829FA20033FF79 /* Components */,
+				5B3ED7612482923F0033FF79 /* Controller */,
+				A9B493F42482EEAE00614597 /* Extensions */,
+				5B3ED74D2481CA000033FF79 /* Info.plist */,
+				5B3ED74A2481CA000033FF79 /* LaunchScreen.storyboard */,
+				5B3ED7662482928A0033FF79 /* Model */,
+				5B3ED7412481C9F50033FF79 /* SceneDelegate.swift */,
 				5B3ED774248294690033FF79 /* Utils */,
 				EE494BD42482DB0A005DF3E3 /* View */,
-				5B3ED7662482928A0033FF79 /* Model */,
-				5B3ED7612482923F0033FF79 /* Controller */,
-				5B3ED73F2481C9F50033FF79 /* AppDelegate.swift */,
-				5B3ED7412481C9F50033FF79 /* SceneDelegate.swift */,
-				5B3ED7482481CA000033FF79 /* Assets.xcassets */,
-				5B3ED74A2481CA000033FF79 /* LaunchScreen.storyboard */,
-				5B3ED74D2481CA000033FF79 /* Info.plist */,
 			);
 			path = "Say Their Names";
 			sourceTree = "<group>";
@@ -177,6 +181,7 @@
 		5B3ED774248294690033FF79 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				A9B493FC2482F4EA00614597 /* Size */,
 				A9B493F72482EF5300614597 /* Color */,
 				5B3ED775248295E40033FF79 /* Fonts */,
 			);
@@ -205,6 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				A9B493F52482EEDB00614597 /* UIColor+STN.swift */,
+				A9B493FD2482F53A00614597 /* UIDevice+STN.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -215,6 +221,14 @@
 				A9B493F82482EF6500614597 /* STNColorResource.swift */,
 			);
 			path = Color;
+			sourceTree = "<group>";
+		};
+		A9B493FC2482F4EA00614597 /* Size */ = {
+			isa = PBXGroup;
+			children = (
+				A9B493FF2482F57600614597 /* STNSize.swift */,
+			);
+			path = Size;
 			sourceTree = "<group>";
 		};
 		EE494BCD2482DA9A005DF3E3 /* Person */ = {
@@ -343,6 +357,7 @@
 			files = (
 				A9B493FB2482EFFD00614597 /* STNFontResource.swift in Sources */,
 				5B3ED77C24829FF80033FF79 /* CustomNavigationBar.swift in Sources */,
+				A9B493FE2482F53A00614597 /* UIDevice+STN.swift in Sources */,
 				A9B493F62482EEDB00614597 /* UIColor+STN.swift in Sources */,
 				A9B493F92482EF6500614597 /* STNColorResource.swift in Sources */,
 				5B3ED769248292B80033FF79 /* HomeController.swift in Sources */,
@@ -350,6 +365,7 @@
 				5B3ED7402481C9F50033FF79 /* AppDelegate.swift in Sources */,
 				5B3ED7422481C9F50033FF79 /* SceneDelegate.swift in Sources */,
 				EE494BD22482DAE3005DF3E3 /* PersonController.swift in Sources */,
+				A9B494002482F57600614597 /* STNSize.swift in Sources */,
 				5B3ED772248293860033FF79 /* PetitionsController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -504,6 +520,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = H3YM9UX59B;
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = "Say Their Names/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -523,6 +540,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = H3YM9UX59B;
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = "Say Their Names/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
