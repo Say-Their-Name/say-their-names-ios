@@ -9,14 +9,11 @@
 import Foundation
 
 struct Petition: Codable {
-
-    var title = String()
-    var description: String?
-    var link: String?
-
-    init(dictionary: [String: Any]) {
-        self.title = dictionary["title"] as? String ?? ""
-        self.description = dictionary["description"] as? String ?? ""
-        self.link = dictionary["link"] as? String ?? ""
+    var title: String
+    var description: String
+    var link: String
+    
+    enum CodingKeys: String, CodingKey {
+        case title, description, link
     }
 }

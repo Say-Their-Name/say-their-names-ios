@@ -9,29 +9,21 @@
 import Foundation
 
 struct Person: Codable {
-
-    var id = String()
-    var firstName: String?
-    var lastName: String?
-    var age: Int?
-    var children: Int?
-    var location: String?
+    var id: String
+    var fullName: String
+    var age: Int
+    var childrenCount: Int
+    var date: Date
+    var location: String
     var media: [String]
-    var bio: String?
-    var context: String?
+    var bio: String
+    var context: String
     var donations:[Donation]
     var petitions: [Petition]
-
-    init(dictionary: [String: Any]) {
-        self.id = dictionary["id"] as? String ?? ""
-        self.firstName = dictionary["firstName"] as? String ?? ""
-        self.lastName = dictionary["lastName"] as? String ?? ""
-        self.age = dictionary["age"] as? Int ?? 0
-        self.children = dictionary["children"] as? Int ?? 0
-        self.media = dictionary["media"] as? [String] ?? []
-        self.bio = dictionary["bio"] as? String ?? ""
-        self.context = dictionary["context"] as? String ?? ""
-        self.donations = dictionary["donations"] as? [Donation] ?? []
-        self.petitions = dictionary["petitions"] as? [Petition] ?? []
+    
+    enum CodingKeys: String, CodingKey {
+        case id, fullName = "full_name", age, childrenCount = "children_count",
+        date, location, media, bio, context, donations, petitions
     }
 }
+
