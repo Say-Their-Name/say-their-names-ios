@@ -8,43 +8,10 @@
 
 import UIKit
 
-class GradientView: UIView {
-    fileprivate let gradientLayer = CAGradientLayer()
-    
-    override func awakeFromNib() { redraw() }
-    open func redraw() {
-        gradientLayer.frame = frame
-        //        gradientLayer.colors = [UIColor.gradientStart.cgColor, UIColor.gradientEnd.cgColor]
-        gradientLayer.startPoint = CGPoint(x: -0.5, y: 0.2)
-        gradientLayer.endPoint = CGPoint(x: 1, y: 0.5)
-        //        theme_alpha = [1,0]
-        layer.addSublayer(gradientLayer)
-    }
-}
 
 public struct AnchoredConstraints {
     var top, leading, bottom, trailing, width, height: NSLayoutConstraint?
 }
-
-public func createObject<T>(_ setup: ((T) -> Void)) -> T where T: NSObject {
-    let object = T()
-    setup(object)
-    return object
-}
-
-extension UIView {
-    
-    func applyGradient(colours: [UIColor]) -> Void {
-        let gradient: CAGradientLayer = CAGradientLayer()
-        gradient.frame = self.bounds
-        gradient.colors = colours.map { $0.cgColor }
-        gradient.startPoint = CGPoint(x: -0.5, y: 0.2)
-        gradient.endPoint = CGPoint(x: 1, y: 0.5)
-        self.layer.insertSublayer(gradient, at: 0)
-    }
-}
-
-
 
 extension UIView {
     
