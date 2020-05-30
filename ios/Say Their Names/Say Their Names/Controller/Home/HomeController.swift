@@ -14,24 +14,48 @@ class HomeController: UIViewController {
     @IBOutlet weak var locationCollectionView: UICollectionView!
     @IBOutlet weak var peopleCollectionView: UICollectionView!
     
+    private var categoriesIdentifier = "category"
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .red
+        self.navigationController?.navigationBar.barStyle = .black
+        navigationController?.navigationBar.isHidden = true
+        view.backgroundColor = .black
 
         let personController = PersonController(nibName: "PersonController", bundle: nil)
         personController.modalPresentationStyle = .fullScreen
         present(personController, animated: true, completion: nil)
+        
+        setupCategoriesCollectionView()
     }
 
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent}
+    
+    func setupCategoriesCollectionView() {
+        locationCollectionView.delegate = self
+        locationCollectionView.dataSource = self
+        locationCollectionView.register(CategoriesCell.self, forCellWithReuseIdentifier: categoriesIdentifier)
     }
-    */
 
+}
+
+extension HomeController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 7
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = locationCollectionView.dequeueReusableCell(withReuseIdentifier: categoriesIdentifier, for: indexPath) as! CategoriesCell
+        cell.titleLabel.text = "ALL"
+        cell.backgroundColor = .green
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return .init(width: 103, height: 40)
+    }
 }
