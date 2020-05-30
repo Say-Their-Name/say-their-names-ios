@@ -8,19 +8,12 @@
 
 import UIKit
 
-// MARK: - UIColor
-
 extension UIColor {
     
     /// A collection of common colors
-    static let stn: STN = .init()
-}
-
-extension UIColor {
-    
-    final class STN {
-        let black: UIColor = { UIColor.hexColor(0x101010) }()
-        let white: UIColor = { UIColor.hexColor(0xffffff) }()
-        let gray: UIColor = { UIColor.hexColor(0x9C9C9C) }()
+    enum STN {
+        static let black: UIColor = { UIColor.hexColor(0x101010) }()
+        static let white: UIColor = { UIColor.hexColor(0xffffff) }()
+        static let gray: UIColor = { UIColor.hexColor(0x9C9C9C) }()
     }
 }

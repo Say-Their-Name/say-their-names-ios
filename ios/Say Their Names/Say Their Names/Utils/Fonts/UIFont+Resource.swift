@@ -16,13 +16,7 @@ private enum FontName: String {
 extension UIFont {
     
     /// A collection of common fonts
-    static let stn: STN = .init()
-}
-
-extension UIFont {
-    
-    final class STN {
-        let titleFont: UIFont = UIFont.dynamicCustomFont(fontName: FontName.karlaBold.rawValue, textStyle: TextStyle.headline)
+    enum STN {
+        static let titleFont: UIFont = UIFont.dynamicCustomFont(fontName: FontName.karlaBold.rawValue, textStyle: TextStyle.headline)
     }
 }
-
