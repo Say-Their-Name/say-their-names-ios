@@ -9,7 +9,11 @@
 import UIKit
 
 class HomeController: UIViewController {
-
+    
+    let navBar = CustomNavigationBar()
+    @IBOutlet weak var locationCollectionView: UICollectionView!
+    @IBOutlet weak var peopleCollectionView: UICollectionView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .red

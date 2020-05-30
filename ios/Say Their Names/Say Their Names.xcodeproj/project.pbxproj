@@ -18,6 +18,9 @@
 		5B3ED76E2482932A0033FF79 /* DonationsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B3ED76C2482932A0033FF79 /* DonationsController.xib */; };
 		5B3ED772248293860033FF79 /* PetitionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3ED770248293860033FF79 /* PetitionsController.swift */; };
 		5B3ED773248293860033FF79 /* PetitionsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B3ED771248293860033FF79 /* PetitionsController.xib */; };
+		5B3ED778248296F00033FF79 /* Karla-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5B3ED776248296EF0033FF79 /* Karla-Bold.ttf */; };
+		5B3ED779248296F00033FF79 /* Karla-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5B3ED777248296F00033FF79 /* Karla-Regular.ttf */; };
+		5B3ED77C24829FF80033FF79 /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3ED77B24829FF80033FF79 /* CustomNavigationBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +49,9 @@
 		5B3ED76C2482932A0033FF79 /* DonationsController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DonationsController.xib; sourceTree = "<group>"; };
 		5B3ED770248293860033FF79 /* PetitionsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetitionsController.swift; sourceTree = "<group>"; };
 		5B3ED771248293860033FF79 /* PetitionsController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PetitionsController.xib; sourceTree = "<group>"; };
+		5B3ED776248296EF0033FF79 /* Karla-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Karla-Bold.ttf"; sourceTree = "<group>"; };
+		5B3ED777248296F00033FF79 /* Karla-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Karla-Regular.ttf"; sourceTree = "<group>"; };
+		5B3ED77B24829FF80033FF79 /* CustomNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +93,7 @@
 		5B3ED73E2481C9F50033FF79 /* Say Their Names */ = {
 			isa = PBXGroup;
 			children = (
+				5B3ED77A24829FA20033FF79 /* Components */,
 				5B3ED774248294690033FF79 /* Utils */,
 				5B3ED7662482928A0033FF79 /* Model */,
 				5B3ED765248292850033FF79 /* View */,
@@ -171,8 +178,18 @@
 		5B3ED775248295E40033FF79 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				5B3ED776248296EF0033FF79 /* Karla-Bold.ttf */,
+				5B3ED777248296F00033FF79 /* Karla-Regular.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		5B3ED77A24829FA20033FF79 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				5B3ED77B24829FF80033FF79 /* CustomNavigationBar.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,6 +276,8 @@
 				5B3ED74C2481CA000033FF79 /* LaunchScreen.storyboard in Resources */,
 				5B3ED76A248292B80033FF79 /* HomeController.xib in Resources */,
 				5B3ED7492481CA000033FF79 /* Assets.xcassets in Resources */,
+				5B3ED778248296F00033FF79 /* Karla-Bold.ttf in Resources */,
+				5B3ED779248296F00033FF79 /* Karla-Regular.ttf in Resources */,
 				5B3ED76E2482932A0033FF79 /* DonationsController.xib in Resources */,
 				5B3ED773248293860033FF79 /* PetitionsController.xib in Resources */,
 			);
@@ -278,6 +297,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B3ED77C24829FF80033FF79 /* CustomNavigationBar.swift in Sources */,
 				5B3ED769248292B80033FF79 /* HomeController.swift in Sources */,
 				5B3ED76D2482932A0033FF79 /* DonationsController.swift in Sources */,
 				5B3ED7402481C9F50033FF79 /* AppDelegate.swift in Sources */,
