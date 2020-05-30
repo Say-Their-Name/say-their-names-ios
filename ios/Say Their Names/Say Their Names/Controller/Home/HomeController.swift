@@ -18,7 +18,9 @@ class HomeController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .red
 
-        // Do any additional setup after loading the view.
+        let personController = PersonController(nibName: "PersonController", bundle: nil)
+        personController.modalPresentationStyle = .fullScreen
+        present(personController, animated: true, completion: nil)
     }
 
 

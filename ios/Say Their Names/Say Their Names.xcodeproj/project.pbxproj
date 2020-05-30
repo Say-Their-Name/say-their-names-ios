@@ -21,6 +21,9 @@
 		5B3ED778248296F00033FF79 /* Karla-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5B3ED776248296EF0033FF79 /* Karla-Bold.ttf */; };
 		5B3ED779248296F00033FF79 /* Karla-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5B3ED777248296F00033FF79 /* Karla-Regular.ttf */; };
 		5B3ED77C24829FF80033FF79 /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3ED77B24829FF80033FF79 /* CustomNavigationBar.swift */; };
+		EE494BD22482DAE3005DF3E3 /* PersonController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE494BD02482DAE3005DF3E3 /* PersonController.swift */; };
+		EE494BD32482DAE3005DF3E3 /* PersonController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE494BD12482DAE3005DF3E3 /* PersonController.xib */; };
+		EE494BD62482DDFB005DF3E3 /* temp.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE494BD52482DDFB005DF3E3 /* temp.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +55,9 @@
 		5B3ED776248296EF0033FF79 /* Karla-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Karla-Bold.ttf"; sourceTree = "<group>"; };
 		5B3ED777248296F00033FF79 /* Karla-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Karla-Regular.ttf"; sourceTree = "<group>"; };
 		5B3ED77B24829FF80033FF79 /* CustomNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBar.swift; sourceTree = "<group>"; };
+		EE494BD02482DAE3005DF3E3 /* PersonController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonController.swift; sourceTree = "<group>"; };
+		EE494BD12482DAE3005DF3E3 /* PersonController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PersonController.xib; sourceTree = "<group>"; };
+		EE494BD52482DDFB005DF3E3 /* temp.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = temp.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,8 +101,8 @@
 			children = (
 				5B3ED77A24829FA20033FF79 /* Components */,
 				5B3ED774248294690033FF79 /* Utils */,
+				EE494BD42482DB0A005DF3E3 /* View */,
 				5B3ED7662482928A0033FF79 /* Model */,
-				5B3ED765248292850033FF79 /* View */,
 				5B3ED7612482923F0033FF79 /* Controller */,
 				5B3ED73F2481C9F50033FF79 /* AppDelegate.swift */,
 				5B3ED7412481C9F50033FF79 /* SceneDelegate.swift */,
@@ -131,6 +137,7 @@
 			children = (
 				5B3ED767248292B80033FF79 /* HomeController.swift */,
 				5B3ED768248292B80033FF79 /* HomeController.xib */,
+				EE494BCD2482DA9A005DF3E3 /* Person */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -151,13 +158,6 @@
 				5B3ED771248293860033FF79 /* PetitionsController.xib */,
 			);
 			path = Petitions;
-			sourceTree = "<group>";
-		};
-		5B3ED765248292850033FF79 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		5B3ED7662482928A0033FF79 /* Model */ = {
@@ -190,6 +190,23 @@
 				5B3ED77B24829FF80033FF79 /* CustomNavigationBar.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		EE494BCD2482DA9A005DF3E3 /* Person */ = {
+			isa = PBXGroup;
+			children = (
+				EE494BD52482DDFB005DF3E3 /* temp.xib */,
+				EE494BD02482DAE3005DF3E3 /* PersonController.swift */,
+				EE494BD12482DAE3005DF3E3 /* PersonController.xib */,
+			);
+			path = Person;
+			sourceTree = "<group>";
+		};
+		EE494BD42482DB0A005DF3E3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -279,6 +296,8 @@
 				5B3ED778248296F00033FF79 /* Karla-Bold.ttf in Resources */,
 				5B3ED779248296F00033FF79 /* Karla-Regular.ttf in Resources */,
 				5B3ED76E2482932A0033FF79 /* DonationsController.xib in Resources */,
+				EE494BD62482DDFB005DF3E3 /* temp.xib in Resources */,
+				EE494BD32482DAE3005DF3E3 /* PersonController.xib in Resources */,
 				5B3ED773248293860033FF79 /* PetitionsController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -302,6 +321,7 @@
 				5B3ED76D2482932A0033FF79 /* DonationsController.swift in Sources */,
 				5B3ED7402481C9F50033FF79 /* AppDelegate.swift in Sources */,
 				5B3ED7422481C9F50033FF79 /* SceneDelegate.swift in Sources */,
+				EE494BD22482DAE3005DF3E3 /* PersonController.swift in Sources */,
 				5B3ED772248293860033FF79 /* PetitionsController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
