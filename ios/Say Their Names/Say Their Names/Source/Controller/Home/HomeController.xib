@@ -14,6 +14,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeController" customModule="Say_Their_Names" customModuleProvider="target">
             <connections>
+                <outlet property="customNavBar" destination="K8I-m9-BnX" id="MdY-k2-ibb"/>
                 <outlet property="locationCollectionView" destination="hj2-Wj-Vm2" id="iKe-vV-UKM"/>
                 <outlet property="peopleCollectionView" destination="Izk-4B-IhD" id="Gfz-8h-1ic"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -48,6 +49,9 @@
                                 <constraint firstAttribute="height" constant="45" id="uyz-NN-waj"/>
                             </constraints>
                             <state key="normal" image="Simple Search Icon"/>
+                            <connections>
+                                <action selector="searchButtonPressed:" destination="-1" eventType="touchUpInside" id="Tw2-R2-CWy"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

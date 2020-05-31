@@ -10,7 +10,10 @@ import UIKit
 
 class HomeController: UIViewController {
     
+    @IBOutlet weak var customNavBar: UIView!
     let navBar = CustomNavigationBar()
+    let searchBar = CustomSearchBar()
+    
     @IBOutlet weak var locationCollectionView: UICollectionView!
     @IBOutlet weak var peopleCollectionView: UICollectionView!
     
@@ -28,6 +31,7 @@ class HomeController: UIViewController {
         view.backgroundColor = .black
         navigationController?.navigationBar.isHidden = true
         
+        searchBar.setup(withController: self)
         setupLocationCollectionView()
         setupPeopleCollectionView()
     }
@@ -46,6 +50,10 @@ class HomeController: UIViewController {
         peopleCollectionView.register(UINib(nibName: "PersonHeaderCell", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerIdentifier)
     }
 
+    @IBAction func searchButtonPressed(_ sender: Any) {
+        UIImpactFeedbackGenerator().impactOccurred()
+        searchBar.show()
+    }
 }
 
 extension HomeController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
