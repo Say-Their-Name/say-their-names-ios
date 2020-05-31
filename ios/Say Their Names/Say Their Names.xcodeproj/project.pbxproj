@@ -37,7 +37,6 @@
 		A91B07AD24835CF700DB803C /* PersonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B078D24835CF700DB803C /* PersonCell.swift */; };
 		A91B07AE24835CF700DB803C /* PersonHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B078E24835CF700DB803C /* PersonHeaderCell.swift */; };
 		A91B07AF24835CF700DB803C /* PersonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A91B078F24835CF700DB803C /* PersonCell.xib */; };
-		A91B07B024835CF700DB803C /* LocationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A91B079124835CF700DB803C /* LocationCell.xib */; };
 		A91B07B124835CF700DB803C /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B079224835CF700DB803C /* LocationCell.swift */; };
 		A91B07B224835CF700DB803C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B079324835CF700DB803C /* AppDelegate.swift */; };
 		A91B07B324835CF700DB803C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B079424835CF700DB803C /* SceneDelegate.swift */; };
@@ -92,7 +91,6 @@
 		A91B078D24835CF700DB803C /* PersonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonCell.swift; sourceTree = "<group>"; };
 		A91B078E24835CF700DB803C /* PersonHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonHeaderCell.swift; sourceTree = "<group>"; };
 		A91B078F24835CF700DB803C /* PersonCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonCell.xib; sourceTree = "<group>"; };
-		A91B079124835CF700DB803C /* LocationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LocationCell.xib; sourceTree = "<group>"; };
 		A91B079224835CF700DB803C /* LocationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
 		A91B079324835CF700DB803C /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A91B079424835CF700DB803C /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -320,7 +318,6 @@
 		A91B079024835CF700DB803C /* Location */ = {
 			isa = PBXGroup;
 			children = (
-				A91B079124835CF700DB803C /* LocationCell.xib */,
 				A91B079224835CF700DB803C /* LocationCell.swift */,
 			);
 			path = Location;
@@ -442,7 +439,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B3ED74C2481CA000033FF79 /* LaunchScreen.storyboard in Resources */,
-				A91B07B024835CF700DB803C /* LocationCell.xib in Resources */,
 				5B3ED7492481CA000033FF79 /* Assets.xcassets in Resources */,
 				A91B07A124835CF700DB803C /* DonationsController.xib in Resources */,
 				A91B07A224835CF700DB803C /* PetitionsController.xib in Resources */,

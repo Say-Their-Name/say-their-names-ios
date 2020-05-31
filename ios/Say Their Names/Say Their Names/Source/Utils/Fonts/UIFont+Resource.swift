@@ -20,6 +20,7 @@ extension UIFont {
         static let title: UIFont = UIFont.dynamicCustomFont(fontName: FontName.karlaBold.rawValue, textStyle: .title1) // 28
         static let body: UIFont = UIFont.dynamicCustomFont(fontName: FontName.karlaRegular.rawValue, textStyle: .body) // 18 on figma but this yields 17 on default
         static let sectionHeader: UIFont = UIFont.dynamicCustomFont(fontName: FontName.karlaBold.rawValue, textStyle: .body) // 17
+        static let locationText: UIFont = UIFont.dynamicCustomFont(fontName: FontName.karlaBold.rawValue, textStyle: .subheadline) // 15
 
         static let filledButtonTitle: UIFont = UIFont.dynamicCustomFont(fontName: FontName.karlaRegular.rawValue, textStyle: .body) // 17
         static let plainButtonTitle: UIFont = UIFont.dynamicCustomFont(fontName: FontName.karlaRegular.rawValue, textStyle: .title3) // 21 on figma but this yields 20 on default

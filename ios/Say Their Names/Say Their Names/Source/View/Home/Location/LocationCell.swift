@@ -10,12 +10,33 @@ import UIKit
 
 class LocationCell: UICollectionViewCell {
 
-    @IBOutlet weak var titleLabel: UILabel!
+    var titleLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.STN.locationText
+        label.textAlignment = .center
+        return label
+    }()
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        titleLabel.layer.borderColor = #colorLiteral(red: 0.06274509804, green: 0.06274509804, blue: 0.06274509804, alpha: 1)
-        titleLabel.layer.borderWidth = 1
+    override var isSelected: Bool {
+        didSet {
+            backgroundColor = isSelected ? UIColor.STN.black : .clear
+            titleLabel.textColor = isSelected ? UIColor.STN.white : UIColor.STN.black
+        }
     }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        addSubview(titleLabel)
+        titleLabel.fillSuperview()
+        layer.borderColor = UIColor.STN.black.cgColor
+        layer.borderWidth = 1.5
+    }
+    
+    
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
 
 }
