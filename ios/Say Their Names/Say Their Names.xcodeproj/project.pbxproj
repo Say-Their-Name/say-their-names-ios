@@ -94,7 +94,6 @@
 		A91B079324835CF700DB803C /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A91B079424835CF700DB803C /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		B386F9542482FB540037A38D /* UIFontSTNTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontSTNTests.swift; sourceTree = "<group>"; };
-		EE4A9EBD2482F12C002D7154 /* UIView++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView++.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,7 +120,6 @@
 				5B3ED73E2481C9F50033FF79 /* Say Their Names */,
 				5B3ED7552481CA000033FF79 /* Say Their NamesTests */,
 				5B3ED73D2481C9F50033FF79 /* Products */,
-				A9B4940124835B2E00614597 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -159,7 +157,6 @@
 			children = (
 				A91B076524835CF700DB803C /* Utils */,
 				A91B077124835CF700DB803C /* Controller */,
-				A91B077E24835CF700DB803C /* Extensions */,
 				A91B078224835CF700DB803C /* Components */,
 				A91B078524835CF700DB803C /* Model */,
 				A91B078924835CF700DB803C /* View */,
@@ -192,6 +189,9 @@
 			isa = PBXGroup;
 			children = (
 				A91B076924835CF700DB803C /* UIFont++.swift */,
+				A91B077F24835CF700DB803C /* UIFont+STN.swift */,
+				A91B078024835CF700DB803C /* UIColor+STN.swift */,
+				A91B078124835CF700DB803C /* UIDevice+STN.swift */,
 				A91B076A24835CF700DB803C /* UIView++.swift */,
 			);
 			path = Extentions;
@@ -262,16 +262,6 @@
 			path = Petitions;
 			sourceTree = "<group>";
 		};
-		A91B077E24835CF700DB803C /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				A91B077F24835CF700DB803C /* UIFont+STN.swift */,
-				A91B078024835CF700DB803C /* UIColor+STN.swift */,
-				A91B078124835CF700DB803C /* UIDevice+STN.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
 		A91B078224835CF700DB803C /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -336,14 +326,6 @@
 				5B3ED74A2481CA000033FF79 /* LaunchScreen.storyboard */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		A9B4940124835B2E00614597 /* Recovered References */ = {
-			isa = PBXGroup;
-			children = (
-				EE4A9EBD2482F12C002D7154 /* UIView++.swift */,
-			);
-			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 		B386F9532482FB2E0037A38D /* ExtensionsTests */ = {
