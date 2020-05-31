@@ -6,10 +6,6 @@
 //  Copyright © 2020 Franck-Stephane Ndame Mpouli. All rights reserved.
 //
 
-import UIKit
-
-import UIKit
-
 // MARK: - Log
 public struct Log {
     public static var mode: Mode = .none
