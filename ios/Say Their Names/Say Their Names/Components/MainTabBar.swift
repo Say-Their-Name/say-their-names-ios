@@ -62,10 +62,13 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         
         donationsNC.isNavigationBarHidden = true
         donationsNC.tabBarItem.image = #imageLiteral(resourceName: "heart")
+        donationsNC.tabBarItem.selectedImage = UIImage(named: "heart_active")
         donationsNC.tabBarItem.title = "Donations"
+        
 
         petitionsNC.isNavigationBarHidden = true
         petitionsNC.tabBarItem.image = #imageLiteral(resourceName: "edit")
+        petitionsNC.tabBarItem.selectedImage = UIImage(named: "edit_active")
         petitionsNC.tabBarItem.title = "Petitions"
         
         viewControllers = [homeNC, donationsNC, petitionsNC]

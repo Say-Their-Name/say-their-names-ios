@@ -12,7 +12,10 @@ class HomeController: UIViewController {
     
     @IBOutlet weak var customNavBar: UIView!
     let navBar = CustomNavigationBar()
-    let searchBar = CustomSearchBar()
+//<<<<<<< HEAD:ios/Say Their Names/Say Their Names/Source/Controller/Home/HomeController.swift
+//    let searchBar = CustomSearchBar()
+//=======
+//>>>>>>> [UI] Added tab bar active images:ios/Say Their Names/Say Their Names/Controller/Home/HomeController.swift
     
     @IBOutlet weak var locationCollectionView: UICollectionView!
     @IBOutlet weak var peopleCollectionView: UICollectionView!
