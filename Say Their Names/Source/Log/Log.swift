@@ -46,10 +46,8 @@ public struct Log {
         }
         
         if self.mode.contains(.fileName) {
-            let url = URL(string: file)
-            if let filename = url?.deletingPathExtension().lastPathComponent {
-                result += "\(filename)."
-            }
+            let filename = file.lastPathComponent.stringByDeletingPathExtension
+            result += "\(filename)."
         }
         
         if self.mode.contains(.functionName) {
@@ -60,7 +58,7 @@ public struct Log {
             result += "[\(line)]"
         }
         
-        if !result.isEmpty {
+        if result.isNotEmpty {
             result = result.trimmingCharacters(in: .whitespaces)
             result += ": "
         }
