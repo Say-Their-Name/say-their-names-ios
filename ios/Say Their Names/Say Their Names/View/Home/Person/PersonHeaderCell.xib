@@ -24,17 +24,17 @@
                 <rect key="frame" x="0.0" y="0.0" width="340" height="150"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Group 6" translatesAutoresizingMaskIntoConstraints="NO" id="cWb-JY-xrH">
-                        <rect key="frame" x="0.0" y="0.0" width="340" height="150"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Group 6" translatesAutoresizingMaskIntoConstraints="NO" id="cWb-JY-xrH">
+                        <rect key="frame" x="16" y="16" width="308" height="134"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#BLACKLIVESMATTER" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Foa-vl-Pbm">
-                        <rect key="frame" x="24" y="83" width="193" height="23"/>
+                        <rect key="frame" x="32" y="87" width="193" height="23"/>
                         <fontDescription key="fontDescription" name="Karla-Bold" family="Karla" pointSize="19"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How to get involved" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GRU-7r-4UI">
-                        <rect key="frame" x="24" y="114" width="151" height="20"/>
+                        <rect key="frame" x="32" y="114" width="151" height="20"/>
                         <fontDescription key="fontDescription" name="Karla-Regular" family="Karla" pointSize="17"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
@@ -43,13 +43,13 @@
             </view>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="cWb-JY-xrH" secondAttribute="bottom" id="LYF-Po-1Wz"/>
-                <constraint firstItem="cWb-JY-xrH" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="MEd-we-4uI"/>
-                <constraint firstAttribute="trailing" secondItem="cWb-JY-xrH" secondAttribute="trailing" id="Ngl-uU-jxn"/>
-                <constraint firstItem="Foa-vl-Pbm" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="24" id="QhQ-i4-YMO"/>
-                <constraint firstItem="GRU-7r-4UI" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="24" id="eDE-0m-Snw"/>
-                <constraint firstItem="GRU-7r-4UI" firstAttribute="top" secondItem="Foa-vl-Pbm" secondAttribute="bottom" constant="8" id="eE5-yb-iWl"/>
+                <constraint firstItem="cWb-JY-xrH" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="16" id="MEd-we-4uI"/>
+                <constraint firstAttribute="trailing" secondItem="cWb-JY-xrH" secondAttribute="trailing" constant="16" id="Ngl-uU-jxn"/>
+                <constraint firstItem="Foa-vl-Pbm" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="32" id="QhQ-i4-YMO"/>
+                <constraint firstItem="GRU-7r-4UI" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="32" id="eDE-0m-Snw"/>
+                <constraint firstItem="GRU-7r-4UI" firstAttribute="top" secondItem="Foa-vl-Pbm" secondAttribute="bottom" constant="4" id="eE5-yb-iWl"/>
                 <constraint firstAttribute="bottom" secondItem="GRU-7r-4UI" secondAttribute="bottom" constant="16" id="edU-Id-bqd"/>
-                <constraint firstItem="cWb-JY-xrH" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="jow-s7-LIf"/>
+                <constraint firstItem="cWb-JY-xrH" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="16" id="jow-s7-LIf"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <point key="canvasLocation" x="139" y="153"/>
