@@ -14,7 +14,6 @@ class PersonController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        print("Person loaded")
     }
     
     @IBAction func didPressCloseButton() {
