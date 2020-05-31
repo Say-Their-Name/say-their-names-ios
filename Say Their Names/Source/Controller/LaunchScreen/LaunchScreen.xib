@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="LaunchScreen" customModule="Say_Their_Names" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="NT9-Np-wXs">
+                    <rect key="frame" x="144.5" y="385.5" width="125" height="125"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="125" id="Ccy-Px-Wms"/>
+                        <constraint firstAttribute="height" constant="125" id="CsE-bo-hqc"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" red="0.062745098039215685" green="0.062745098039215685" blue="0.062745098039215685" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="NT9-Np-wXs" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="I61-0n-Ljq"/>
+                <constraint firstItem="NT9-Np-wXs" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="vMF-gm-A8D"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="logo" destination="NT9-Np-wXs" id="Xjc-eZ-6AG"/>
+            </connections>
+            <point key="canvasLocation" x="38" y="96"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="logo" width="20" height="29"/>
+    </resources>
+</document>

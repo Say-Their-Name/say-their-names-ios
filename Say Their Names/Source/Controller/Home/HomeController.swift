@@ -14,7 +14,7 @@ private let peopleIdentifier = "PersonCell"
 private let headerIdentifier = "PersonHeaderCell"
 class HomeController: UIViewController {
     
-    
+    var launchScreen: LaunchScreen?
     
     //MARK: - IBOUTLETS
     @IBOutlet weak var customNavBar: UIView!
@@ -22,7 +22,7 @@ class HomeController: UIViewController {
     @IBOutlet weak var peopleCollectionView: UICollectionView!
     //MARK: - CONSTANTS
     private let searchBar = CustomSearchBar()
-    private let locations = ["ALL", "MISSOURI", "TEXAS", "NEW YORK"] // dummy data
+    private let locations = ["ALL", "RECENT", "MISSOURI", "TEXAS", "NEW YORK"] // dummy data
     
     //MARK: - ClASS METHODS
     override func viewDidLoad() {
@@ -31,6 +31,7 @@ class HomeController: UIViewController {
         navigationController?.navigationBar.isHidden = true
         searchBar.setup(withController: self)
         setupCollectionView()
+        showLaunchScreen()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -38,6 +39,12 @@ class HomeController: UIViewController {
         // Select first location by default
         let selectedIndexPath = IndexPath(item: 0, section: 0)
         locationCollectionView.selectItem(at: selectedIndexPath, animated: false, scrollPosition: .centeredVertically)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        removeLaunchScreen()
     }
     
     fileprivate func setupCollectionView() {
@@ -104,5 +111,28 @@ extension HomeController: UICollectionViewDataSource, UICollectionViewDelegateFl
             let personController = PersonController()
             present(personController, animated: true, completion: nil)
         }
+    }
+}
+
+
+// MARK - Launch screen
+extension HomeController {
+    private func showLaunchScreen() {
+        let bundle = Bundle(for: LaunchScreen.self)
+        if let launch = bundle.loadNibNamed("LaunchScreen", owner: self, options: nil)?.first as? LaunchScreen {
+            hideTabBar()
+            view.addSubview(launch)
+            launch.frame = view.bounds
+            launchScreen = launch
+        }
+    }
+    
+    private func removeLaunchScreen() {
+        guard let launchScreen = launchScreen else { return }
+        
+        let completion = {
+            self.revealTabBar()
+        }
+        launchScreen.animate(completion: completion)
     }
 }

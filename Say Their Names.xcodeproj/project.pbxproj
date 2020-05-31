@@ -10,6 +10,10 @@
 		5B3ED7492481CA000033FF79 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B3ED7482481CA000033FF79 /* Assets.xcassets */; };
 		5B3ED74C2481CA000033FF79 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B3ED74A2481CA000033FF79 /* LaunchScreen.storyboard */; };
 		5B3ED7572481CA000033FF79 /* Say_Their_NamesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3ED7562481CA000033FF79 /* Say_Their_NamesTests.swift */; };
+		838141A7248468D5004A8111 /* LaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838141A6248468D5004A8111 /* LaunchScreen.swift */; };
+		838141A9248468DF004A8111 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 838141A8248468DF004A8111 /* LaunchScreen.xib */; };
+		838141AC24846A2E004A8111 /* LaunchScreenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838141AB24846A2E004A8111 /* LaunchScreenTests.swift */; };
+		838141AE24846ADD004A8111 /* UIViewController+TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838141AD24846ADD004A8111 /* UIViewController+TabBar.swift */; };
 		A91B079524835CF700DB803C /* UIColor+Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B076724835CF700DB803C /* UIColor+Resource.swift */; };
 		A91B079624835CF700DB803C /* UIFont++.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B076924835CF700DB803C /* UIFont++.swift */; };
 		A91B079724835CF700DB803C /* UIView++.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B076A24835CF700DB803C /* UIView++.swift */; };
@@ -65,6 +69,10 @@
 		5B3ED7522481CA000033FF79 /* Say Their NamesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Say Their NamesTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B3ED7562481CA000033FF79 /* Say_Their_NamesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Say_Their_NamesTests.swift; sourceTree = "<group>"; };
 		5B3ED7582481CA000033FF79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		838141A6248468D5004A8111 /* LaunchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreen.swift; sourceTree = "<group>"; };
+		838141A8248468DF004A8111 /* LaunchScreen.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
+		838141AB24846A2E004A8111 /* LaunchScreenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenTests.swift; sourceTree = "<group>"; };
+		838141AD24846ADD004A8111 /* UIViewController+TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+TabBar.swift"; sourceTree = "<group>"; };
 		A91B076724835CF700DB803C /* UIColor+Resource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Resource.swift"; sourceTree = "<group>"; };
 		A91B076924835CF700DB803C /* UIFont++.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont++.swift"; sourceTree = "<group>"; };
 		A91B076A24835CF700DB803C /* UIView++.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView++.swift"; sourceTree = "<group>"; };
@@ -151,12 +159,30 @@
 		5B3ED7552481CA000033FF79 /* Say Their NamesTests */ = {
 			isa = PBXGroup;
 			children = (
+				838141AA24846A16004A8111 /* LaunchScreenTests */,
 				B386F956248300E00037A38D /* UtilsTests */,
 				B386F9532482FB2E0037A38D /* ExtensionsTests */,
 				5B3ED7562481CA000033FF79 /* Say_Their_NamesTests.swift */,
 				5B3ED7582481CA000033FF79 /* Info.plist */,
 			);
 			path = "Say Their NamesTests";
+			sourceTree = "<group>";
+		};
+		838141A5248468C3004A8111 /* LaunchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				838141A6248468D5004A8111 /* LaunchScreen.swift */,
+				838141A8248468DF004A8111 /* LaunchScreen.xib */,
+			);
+			path = LaunchScreen;
+			sourceTree = "<group>";
+		};
+		838141AA24846A16004A8111 /* LaunchScreenTests */ = {
+			isa = PBXGroup;
+			children = (
+				838141AB24846A2E004A8111 /* LaunchScreenTests.swift */,
+			);
+			path = LaunchScreenTests;
 			sourceTree = "<group>";
 		};
 		A91B076424835CF700DB803C /* Source */ = {
@@ -200,6 +226,7 @@
 				A91B078024835CF700DB803C /* UIColor+STN.swift */,
 				A91B078124835CF700DB803C /* UIDevice+STN.swift */,
 				A91B076A24835CF700DB803C /* UIView++.swift */,
+				838141AD24846ADD004A8111 /* UIViewController+TabBar.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -225,6 +252,7 @@
 		A91B077124835CF700DB803C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				838141A5248468C3004A8111 /* LaunchScreen */,
 				A91B077224835CF700DB803C /* Home */,
 				A91B077824835CF700DB803C /* Donations */,
 				A91B077B24835CF700DB803C /* Petitions */,
@@ -450,6 +478,7 @@
 				A91B079D24835CF700DB803C /* PersonController.xib in Resources */,
 				A91B079F24835CF700DB803C /* HomeController.xib in Resources */,
 				A91B07AF24835CF700DB803C /* PersonCell.xib in Resources */,
+				838141A9248468DF004A8111 /* LaunchScreen.xib in Resources */,
 				EEC3A1DD2483D6B6001E7754 /* SearchResultCell.xib in Resources */,
 				A91B079B24835CF700DB803C /* Karla-Bold.ttf in Resources */,
 				ED2DEB0B248454FD00EC784E /* CODE_OF_CONDUCT.md in Resources */,
@@ -492,7 +521,9 @@
 				A91B07A624835CF700DB803C /* UIDevice+STN.swift in Sources */,
 				A91B07B224835CF700DB803C /* AppDelegate.swift in Sources */,
 				A91B07AB24835CF700DB803C /* Petition.swift in Sources */,
+				838141A7248468D5004A8111 /* LaunchScreen.swift in Sources */,
 				EEC3A1DC2483D6B6001E7754 /* SearchResultCell.swift in Sources */,
+				838141AE24846ADD004A8111 /* UIViewController+TabBar.swift in Sources */,
 				A91B07A724835CF700DB803C /* MainTabBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -502,6 +533,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B386F9552482FB540037A38D /* UIFontSTNTests.swift in Sources */,
+				838141AC24846A2E004A8111 /* LaunchScreenTests.swift in Sources */,
 				5B3ED7572481CA000033FF79 /* Say_Their_NamesTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
