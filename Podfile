@@ -6,7 +6,10 @@ target 'Say Their Names' do
   use_frameworks!
 
   # Pods for Say Their Names
-
+  pod 'Firebase/Auth'
+  pod 'Firebase/Firestore'
+  pod 'CodableFirebase'
+  
   target 'Say Their NamesTests' do
     inherit! :search_paths
     # Pods for testing

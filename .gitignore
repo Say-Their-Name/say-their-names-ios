@@ -30,3 +30,6 @@ DerivedData/
 
 # DS Files
 .DS_Store
+
+# Pods
+Pods/
