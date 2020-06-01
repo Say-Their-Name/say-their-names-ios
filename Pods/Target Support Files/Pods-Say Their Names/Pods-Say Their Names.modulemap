@@ -1,0 +1,6 @@
+framework module Pods_Say_Their_Names {
+  umbrella header "Pods-Say Their Names-umbrella.h"
+
+  export *
+  module * { export * }
+}
