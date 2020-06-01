@@ -11,11 +11,11 @@ import UIKit
 // MARK: - Service
 
 final class Service {
-    static var shared = Service()
-    public lazy var navigator = Navigator()
-    
+    public lazy var navigator = NavigatorService(service: self)
+    public lazy var image = ImageService(service: self)
+
     // MARK: - Init
-    private init() {
+    init() {
         Log.mode = .all
         Log.print("STN Version: \(Bundle.versionBuildString)")
         Log.print("Starting Services")

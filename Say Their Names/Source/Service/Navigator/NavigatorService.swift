@@ -8,19 +8,19 @@
 
 import UIKit
 
-final class Navigator {
-    public var window: UIWindow!
-    public lazy var rootViewController = MainTabBarController()
+final class NavigatorService: BaseService {
+    public lazy var window = UIWindow()
+    public lazy var rootViewController = MainTabBarController(service: self.service)
     
     // MARK: - Public methods
     
-    public func installWindow(_ window: UIWindow?, withWindowScene: UIWindowScene) {
-        guard let window = window else { return }
-        
-        self.window = window
-        self.window.windowScene = withWindowScene
+    public func installSceneInWindow(_ scene: UIWindowScene) -> UIWindow {
+        self.window.frame = scene.coordinateSpace.bounds
+        self.window.windowScene = scene
         self.window.rootViewController = self.rootViewController
         self.window.makeKeyAndVisible()
+        
+        return self.window
     }
     
     public func setNeedsStatusBarAppearanceUpdate() {
