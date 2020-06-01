@@ -8,6 +8,7 @@
 
 import Foundation
 import Firebase
+import FirebaseFirestoreSwift
 
 /// Class responsible for working with Firebase
 final class FirebaseIntegration {
@@ -27,14 +28,26 @@ final class FirebaseIntegration {
         return Firestore.firestore()
     }
     
-    func read() {
-        db.collection("people").getDocuments() { (querySnapshot, err) in
-            if let err = err {
-                print("Error getting documents: \(err)")
-            } else {
-                for document in querySnapshot!.documents {
-                    print("\(document.documentID) => \(document.data())")
-                }
+    
+    // MARK: - Querying data -
+    
+    // https://firebase.google.com/docs/firestore/query-data/get-data
+    
+    func getPeople(completion: @escaping (Result<[Person], Error>) -> Void) {
+        db.collection("people").getDocuments { (snapshot, error) in
+            if let error = error {
+                completion(.failure(error))
+            } else if let snapshot = snapshot {
+                let people = snapshot.documents.compactMap({ (documentSnapshot: QueryDocumentSnapshot) -> Person? in
+                    do {
+                        return try documentSnapshot.data(as: Person.self)
+                    }
+                    catch {
+                        print(error)
+                        return nil
+                    }
+                })
+                completion(.success(people))
             }
         }
     }

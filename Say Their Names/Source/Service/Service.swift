@@ -23,6 +23,9 @@ final class Service {
         Log.print("STN Version: \(Bundle.versionBuildString)")
         Log.print("Starting Services")
         
-        self.firebaseIntegration.read()
+        // Just for testing
+        self.firebaseIntegration.getPeople { (result: Result<[Person], Error>) in
+            print(result)
+        }
     }
 }
