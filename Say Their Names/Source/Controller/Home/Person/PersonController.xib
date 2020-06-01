@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -59,8 +59,12 @@
                                                             <constraint firstAttribute="width" constant="300" id="qQQ-OT-Lj6"/>
                                                         </constraints>
                                                     </view>
-                                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z19-R7-v8s">
-                                                        <rect key="frame" x="16" y="36" width="21" height="22"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z19-R7-v8s">
+                                                        <rect key="frame" x="16" y="16" width="41" height="41"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="41" id="6wH-Lt-amo"/>
+                                                            <constraint firstAttribute="height" constant="41" id="xmq-CF-NnB"/>
+                                                        </constraints>
                                                         <state key="normal" image="Close Icon"/>
                                                         <connections>
                                                             <action selector="didPressCloseButton" destination="-1" eventType="touchUpInside" id="PpD-Gd-eSi"/>
@@ -68,7 +72,7 @@
                                                     </button>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstItem="Z19-R7-v8s" firstAttribute="top" secondItem="XTB-UT-XKt" secondAttribute="top" constant="36" id="7vA-Hf-ADn"/>
+                                                    <constraint firstItem="Z19-R7-v8s" firstAttribute="top" secondItem="XTB-UT-XKt" secondAttribute="top" constant="16" id="7vA-Hf-ADn"/>
                                                     <constraint firstItem="moz-tW-i7t" firstAttribute="centerY" secondItem="XTB-UT-XKt" secondAttribute="centerY" constant="20" id="G6F-li-AwS"/>
                                                     <constraint firstItem="moz-tW-i7t" firstAttribute="centerX" secondItem="XTB-UT-XKt" secondAttribute="centerX" id="Obm-je-kJ8"/>
                                                     <constraint firstItem="Z19-R7-v8s" firstAttribute="leading" secondItem="XTB-UT-XKt" secondAttribute="leading" constant="16" id="zso-m7-DyW"/>
@@ -115,6 +119,9 @@
                                                     <state key="normal" title="READ MORE -&gt;">
                                                         <color key="titleColor" red="0.062745098040000002" green="0.062745098040000002" blue="0.062745098040000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="didPressReadButton:" destination="-1" eventType="touchUpInside" id="h6s-PI-D4o"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </stackView>

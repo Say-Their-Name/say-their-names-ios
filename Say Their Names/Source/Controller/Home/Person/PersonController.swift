@@ -20,5 +20,10 @@ class PersonController: BaseViewController {
         self.dismiss(animated: true, completion: nil)
     }
 
+    @IBAction func didPressReadButton(_ sender: Any) {
+        let personDetailsController = PersonDetailsController(service: self.service)
+        personDetailsController.isModalInPresentation = true
+        navigationController?.pushViewController(personDetailsController, animated: true)
+      }
     
 }

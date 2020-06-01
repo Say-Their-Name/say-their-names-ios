@@ -20,6 +20,10 @@
 		9E7DBAF7248481DA00635A56 /* FileDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7DBAEF248481DA00635A56 /* FileDataProvider.swift */; };
 		9E7DBAF9248481FC00635A56 /* Operation++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7DBAF8248481FC00635A56 /* Operation++.swift */; };
 		9E7DBAFC2484822A00635A56 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7DBAFB2484822A00635A56 /* Operators.swift */; };
+		7433B6462484B987005140D4 /* PersonDetailsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7433B6442484B987005140D4 /* PersonDetailsController.xib */; };
+		7433B6472484B987005140D4 /* PersonDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7433B6452484B987005140D4 /* PersonDetailsController.swift */; };
+		7433B64A2484BABA005140D4 /* PersonPhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7433B6482484BABA005140D4 /* PersonPhotoCell.xib */; };
+		7433B64B2484BABA005140D4 /* PersonPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7433B6492484BABA005140D4 /* PersonPhotoCell.swift */; };
 		A91B079524835CF700DB803C /* UIColor+Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B076724835CF700DB803C /* UIColor+Resource.swift */; };
 		A91B079624835CF700DB803C /* UIFont++.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B076924835CF700DB803C /* UIFont++.swift */; };
 		A91B079724835CF700DB803C /* UIView++.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B076A24835CF700DB803C /* UIView++.swift */; };
@@ -99,6 +103,11 @@
 		9E7DBAEF248481DA00635A56 /* FileDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileDataProvider.swift; sourceTree = "<group>"; };
 		9E7DBAF8248481FC00635A56 /* Operation++.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Operation++.swift"; sourceTree = "<group>"; };
 		9E7DBAFB2484822A00635A56 /* Operators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
+		7433B6442484B987005140D4 /* PersonDetailsController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonDetailsController.xib; sourceTree = "<group>"; };
+		7433B6452484B987005140D4 /* PersonDetailsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonDetailsController.swift; sourceTree = "<group>"; };
+		7433B6482484BABA005140D4 /* PersonPhotoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonPhotoCell.xib; sourceTree = "<group>"; };
+		7433B6492484BABA005140D4 /* PersonPhotoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonPhotoCell.swift; sourceTree = "<group>"; };
+		A6EFA10FE5B45C7259D80B9C /* Pods_Say_Their_NamesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Say_Their_NamesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A91B076724835CF700DB803C /* UIColor+Resource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Resource.swift"; sourceTree = "<group>"; };
 		A91B076924835CF700DB803C /* UIFont++.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont++.swift"; sourceTree = "<group>"; };
 		A91B076A24835CF700DB803C /* UIView++.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView++.swift"; sourceTree = "<group>"; };
@@ -340,6 +349,8 @@
 		A91B077424835CF700DB803C /* Person */ = {
 			isa = PBXGroup;
 			children = (
+				7433B6442484B987005140D4 /* PersonDetailsController.xib */,
+				7433B6452484B987005140D4 /* PersonDetailsController.swift */,
 				A91B077524835CF700DB803C /* PersonController.xib */,
 				A91B077624835CF700DB803C /* PersonController.swift */,
 			);
@@ -406,6 +417,8 @@
 		A91B078B24835CF700DB803C /* Person */ = {
 			isa = PBXGroup;
 			children = (
+				7433B6492484BABA005140D4 /* PersonPhotoCell.swift */,
+				7433B6482484BABA005140D4 /* PersonPhotoCell.xib */,
 				A91B078C24835CF700DB803C /* PersonHeaderCell.xib */,
 				A91B078D24835CF700DB803C /* PersonCell.swift */,
 				A91B078E24835CF700DB803C /* PersonHeaderCell.swift */,
@@ -605,7 +618,9 @@
 				A91B07CA24847DE500DB803C /* GoogleService-Info.plist in Resources */,
 				5B3ED74C2481CA000033FF79 /* LaunchScreen.storyboard in Resources */,
 				5B3ED7492481CA000033FF79 /* Assets.xcassets in Resources */,
+				7433B6462484B987005140D4 /* PersonDetailsController.xib in Resources */,
 				A91B07A124835CF700DB803C /* DonationsController.xib in Resources */,
+				7433B64A2484BABA005140D4 /* PersonPhotoCell.xib in Resources */,
 				A91B07A224835CF700DB803C /* PetitionsController.xib in Resources */,
 				A91B079A24835CF700DB803C /* Karla-Regular.ttf in Resources */,
 				A91B07AC24835CF700DB803C /* PersonHeaderCell.xib in Resources */,
@@ -713,6 +728,7 @@
 				A91B07AA24835CF700DB803C /* Donation.swift in Sources */,
 				A91B07B124835CF700DB803C /* LocationCell.swift in Sources */,
 				A91B07B324835CF700DB803C /* SceneDelegate.swift in Sources */,
+				7433B6472484B987005140D4 /* PersonDetailsController.swift in Sources */,
 				A91B079524835CF700DB803C /* UIColor+Resource.swift in Sources */,
 				9E7DBAF9248481FC00635A56 /* Operation++.swift in Sources */,
 				9E7DBAF4248481DA00635A56 /* ImageCreationOperation.swift in Sources */,
@@ -723,6 +739,7 @@
 				A91B07C82484751700DB803C /* String+STN.swift in Sources */,
 				A91B07A824835CF700DB803C /* CustomNavigationBar.swift in Sources */,
 				9E7DBAF3248481DA00635A56 /* DownloadOperation.swift in Sources */,
+				7433B64B2484BABA005140D4 /* PersonPhotoCell.swift in Sources */,
 				A91B07A324835CF700DB803C /* PetitionsController.swift in Sources */,
 				A91B079E24835CF700DB803C /* PersonController.swift in Sources */,
 				A91B07C32484719C00DB803C /* Bundle+STN.swift in Sources */,
@@ -823,7 +840,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -877,7 +894,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -938,7 +955,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q93T3ZJQ58;
 				INFOPLIST_FILE = "Say Their NamesTests/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -961,7 +978,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q93T3ZJQ58;
 				INFOPLIST_FILE = "Say Their NamesTests/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
