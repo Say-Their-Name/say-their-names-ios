@@ -12,7 +12,8 @@ import UIKit
 
 final class Service {
     public lazy var navigator = NavigatorService(service: self)
-    
+    public lazy var image = ImageService(service: self)
+
     // MARK: - Init
     init() {
         Log.mode = .all
