@@ -9,5 +9,5 @@
 import UIKit
 
 class BaseViewController: UIViewController {
-    public weak var service: Service!
+    public weak var service: Service?
 }

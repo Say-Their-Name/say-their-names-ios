@@ -9,7 +9,7 @@
 import UIKit
 
 class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
-    public weak var service: Service!
+    public weak var service: Service?
     
     // Params
     private let defaultBarTint: UIColor = .white
@@ -22,7 +22,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
     private let shadowOffset: CGSize = .init(width: 0, height: 10)
 
     required init?(coder: NSCoder) { super.init(coder: coder) }
-    init(service: Service) {
+    init(service: Service?) {
         self.service = service
         super.init(nibName: nil, bundle: nil)
     }

@@ -432,9 +432,9 @@
 		A91B07B624846AFD00DB803C /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				9E7DBAE7248481DA00635A56 /* ImageDownloader */,
-				A91B07B724846B0C00DB803C /* Service.swift */,
 				A91B07CE24849D8400DB803C /* BaseService.swift */,
+				A91B07B724846B0C00DB803C /* Service.swift */,
+				9E7DBAE7248481DA00635A56 /* ImageDownloader */,
 			);
 			path = Service;
 			sourceTree = "<group>";
