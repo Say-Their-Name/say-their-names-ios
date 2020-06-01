@@ -14,13 +14,13 @@ final class NavigatorService: BaseService {
     
     // MARK: - Public methods
     
-    public func installWindow(_ window: UIWindow?, withWindowScene: UIWindowScene) {
-        guard let window = window else { return }
-        
-        self.window = window
-        self.window.windowScene = withWindowScene
+    public func installSceneInWindow(_ scene: UIWindowScene) -> UIWindow {
+        self.window = UIWindow(frame: scene.coordinateSpace.bounds)
+        self.window.windowScene = scene
         self.window.rootViewController = self.rootViewController
         self.window.makeKeyAndVisible()
+        
+        return self.window
     }
     
     public func setNeedsStatusBarAppearanceUpdate() {
