@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PersonDetailsController: UIViewController {
+class PersonDetailsController: BaseViewController {
 
     @IBOutlet weak var mediaCollectionView: UICollectionView!
     

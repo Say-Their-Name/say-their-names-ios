@@ -21,9 +21,9 @@ class PersonController: BaseViewController {
     }
 
     @IBAction func didPressReadButton(_ sender: Any) {
-        let controller = PersonDetailsController(nibName: "PersonDetailsController", bundle: nil)
-        controller.isModalInPresentation = true
-        navigationController?.pushViewController(controller, animated: true)
+        let personDetailsController = PersonDetailsController(service: self.service)
+        personDetailsController.isModalInPresentation = true
+        navigationController?.pushViewController(personDetailsController, animated: true)
       }
     
 }

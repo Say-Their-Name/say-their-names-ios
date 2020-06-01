@@ -102,7 +102,9 @@ extension HomeController: UICollectionViewDataSource, UICollectionViewDelegateFl
         } else {
             // People CollectionView
             let personController = PersonController(service: self.service)
-            present(personController, animated: true, completion: nil)
+            let navigationController = UINavigationController(rootViewController: personController)
+            navigationController.navigationBar.isHidden = true
+            present(navigationController, animated: true, completion: nil)
         }
     }
 }
