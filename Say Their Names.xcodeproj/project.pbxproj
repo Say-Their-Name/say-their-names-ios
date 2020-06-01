@@ -41,15 +41,14 @@
 		A91B07B224835CF700DB803C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B079324835CF700DB803C /* AppDelegate.swift */; };
 		A91B07B324835CF700DB803C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B079424835CF700DB803C /* SceneDelegate.swift */; };
 		A91B07B824846B0C00DB803C /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B07B724846B0C00DB803C /* Services.swift */; };
-		A91B07BA24846CD200DB803C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A91B07B924846CD200DB803C /* GoogleService-Info.plist */; };
 		A91B07BD24846ED700DB803C /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B07BC24846ED700DB803C /* Log.swift */; };
 		A91B07C02484705400DB803C /* Navigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B07BF2484705400DB803C /* Navigator.swift */; };
 		A91B07C32484719C00DB803C /* Bundle+STN.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B07C22484719C00DB803C /* Bundle+STN.swift */; };
 		A91B07C5248471E300DB803C /* ServiceFrameworks.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B07C4248471E300DB803C /* ServiceFrameworks.swift */; };
 		A91B07C82484751700DB803C /* String+STN.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B07C72484751700DB803C /* String+STN.swift */; };
+		A91B07CA24847DE500DB803C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A91B07C924847DE500DB803C /* GoogleService-Info.plist */; };
 		B386F9552482FB540037A38D /* UIFontSTNTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B386F9542482FB540037A38D /* UIFontSTNTests.swift */; };
 		EA8A07BCD35C218CA5E69CEC /* Pods_Say_Their_NamesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A7C6C9D07F911D0BA41942E /* Pods_Say_Their_NamesTests.framework */; };
-		ED2DEB0B248454FD00EC784E /* CODE_OF_CONDUCT.md in Resources */ = {isa = PBXBuildFile; fileRef = ED2DEB0A248454FD00EC784E /* CODE_OF_CONDUCT.md */; };
 		EEC3A1D42483D493001E7754 /* CustomSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC3A1D32483D493001E7754 /* CustomSearchBar.swift */; };
 		EEC3A1DC2483D6B6001E7754 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC3A1DA2483D6B6001E7754 /* SearchResultCell.swift */; };
 		EEC3A1DD2483D6B6001E7754 /* SearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EEC3A1DB2483D6B6001E7754 /* SearchResultCell.xib */; };
@@ -107,12 +106,12 @@
 		A91B079324835CF700DB803C /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A91B079424835CF700DB803C /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		A91B07B724846B0C00DB803C /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
-		A91B07B924846CD200DB803C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A91B07BC24846ED700DB803C /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		A91B07BF2484705400DB803C /* Navigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigator.swift; sourceTree = "<group>"; };
 		A91B07C22484719C00DB803C /* Bundle+STN.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+STN.swift"; sourceTree = "<group>"; };
 		A91B07C4248471E300DB803C /* ServiceFrameworks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceFrameworks.swift; sourceTree = "<group>"; };
 		A91B07C72484751700DB803C /* String+STN.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+STN.swift"; sourceTree = "<group>"; };
+		A91B07C924847DE500DB803C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B386F9542482FB540037A38D /* UIFontSTNTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontSTNTests.swift; sourceTree = "<group>"; };
 		B4C2225CE2734B7F1B4D3F86 /* Pods-Say Their NamesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Say Their NamesTests.debug.xcconfig"; path = "Target Support Files/Pods-Say Their NamesTests/Pods-Say Their NamesTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B7969F7399F9FC25A06F8195 /* Pods_Say_Their_Names.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Say_Their_Names.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -372,9 +371,9 @@
 		A91B07B424835D8700DB803C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				A91B07B924846CD200DB803C /* GoogleService-Info.plist */,
-				5B3ED74D2481CA000033FF79 /* Info.plist */,
 				5B3ED7482481CA000033FF79 /* Assets.xcassets */,
+				A91B07C924847DE500DB803C /* GoogleService-Info.plist */,
+				5B3ED74D2481CA000033FF79 /* Info.plist */,
 				5B3ED74A2481CA000033FF79 /* LaunchScreen.storyboard */,
 			);
 			path = Resources;
@@ -529,7 +528,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A91B07BA24846CD200DB803C /* GoogleService-Info.plist in Resources */,
+				A91B07CA24847DE500DB803C /* GoogleService-Info.plist in Resources */,
 				5B3ED74C2481CA000033FF79 /* LaunchScreen.storyboard in Resources */,
 				5B3ED7492481CA000033FF79 /* Assets.xcassets in Resources */,
 				A91B07A124835CF700DB803C /* DonationsController.xib in Resources */,
@@ -541,7 +540,6 @@
 				A91B07AF24835CF700DB803C /* PersonCell.xib in Resources */,
 				EEC3A1DD2483D6B6001E7754 /* SearchResultCell.xib in Resources */,
 				A91B079B24835CF700DB803C /* Karla-Bold.ttf in Resources */,
-				ED2DEB0B248454FD00EC784E /* CODE_OF_CONDUCT.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
