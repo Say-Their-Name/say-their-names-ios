@@ -16,9 +16,7 @@ class LaunchScreen: UIView {
     
     override init(frame: CGRect) {
           super.init(frame: frame)
-          
-        backgroundColor = UIColor.STN.black
-          
+                    
         loadNib()
         
       }
@@ -34,7 +32,6 @@ class LaunchScreen: UIView {
         if let view = bundle.loadNibNamed("LaunchScreen", owner: nil)?.first as? LaunchScreen {
             addSubview(view)
             view.frame = bounds
-            view.backgroundColor = UIColor.STN.black
         }
       }
     
