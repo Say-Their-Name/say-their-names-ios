@@ -20,5 +20,9 @@ class PersonController: BaseViewController {
         self.dismiss(animated: true, completion: nil)
     }
 
+    @IBAction func didPressReadButton(_ sender: Any) {
+          let controller = PersonDetailsController(nibName: "PersonDetailsController", bundle: nil)
+          present(controller, animated: true, completion: nil)
+      }
     
 }
