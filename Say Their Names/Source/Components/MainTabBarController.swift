@@ -9,7 +9,7 @@
 import UIKit
 
 class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
-    public weak var service: Service?
+    public weak var service: Service!
     
     // Params
     private let defaultBarTint: UIColor = .white
@@ -22,7 +22,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
     private let shadowOffset: CGSize = .init(width: 0, height: 10)
 
     required init?(coder: NSCoder) { super.init(coder: coder) }
-    init(service: Service?) {
+    init(service: Service) {
         self.service = service
         super.init(nibName: nil, bundle: nil)
     }
@@ -54,16 +54,13 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
 
 
     @objc fileprivate func setupTabViews() {
-        let homeController = HomeController()
-        homeController.service = self.service
+        let homeController = BaseViewController.controllerForType(HomeController.self, withService: self.service)
         let homeNC = UINavigationController(rootViewController: homeController)
         
-        let donationsController = DonationsController()
-        donationsController.service = self.service
+        let donationsController = BaseViewController.controllerForType(DonationsController.self, withService: self.service)
         let donationsNC = UINavigationController(rootViewController: donationsController)
         
-        let petitionsController = PetitionsController()
-        petitionsController.service = self.service
+        let petitionsController = BaseViewController.controllerForType(PetitionsController.self, withService: self.service)
         let petitionsNC = UINavigationController(rootViewController: petitionsController)
 
         homeNC.isNavigationBarHidden = true

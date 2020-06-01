@@ -9,5 +9,12 @@
 import UIKit
 
 class BaseViewController: UIViewController {
-    public weak var service: Service?
+    public weak var service: Service!
+    
+    public class func controllerForType<T: BaseViewController>(_ vcType: T.Type, withService: Service) -> T {
+        let controller = vcType.init()
+        controller.service = withService
+        
+        return controller
+    }
 }

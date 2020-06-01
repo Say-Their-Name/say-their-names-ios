@@ -101,8 +101,7 @@ extension HomeController: UICollectionViewDataSource, UICollectionViewDelegateFl
             
         } else {
             // People CollectionView
-            let personController = PersonController()
-            personController.service = self.service
+            let personController = BaseViewController.controllerForType(PersonController.self, withService: self.service)
             present(personController, animated: true, completion: nil)
         }
     }
