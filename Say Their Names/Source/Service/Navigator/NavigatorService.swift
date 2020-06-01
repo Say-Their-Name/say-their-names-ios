@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class Navigator: BaseService {
+final class NavigatorService: BaseService {
     public var window: UIWindow!
     public lazy var rootViewController: MainTabBarController = MainTabBarController(service: self.service)
     

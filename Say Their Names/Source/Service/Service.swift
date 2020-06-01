@@ -11,7 +11,7 @@ import UIKit
 // MARK: - Service
 
 final class Service {
-    public lazy var navigator = Navigator(service: self)
+    public lazy var navigator = NavigatorService(service: self)
     
     // MARK: - Init
     init() {
