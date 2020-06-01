@@ -30,13 +30,13 @@
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5gt-ro-azA" userLabel="Content View">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="820"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="800"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="vLN-b4-YbV">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="756"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="760"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WAx-bJ-RMu">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="756"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="760"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rMu-5B-kuM" userLabel="Share View">
                                                     <rect key="frame" x="24" y="18" width="41" height="59"/>
@@ -196,7 +196,7 @@
                                                     </subviews>
                                                 </stackView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="hEs-Cb-udW" userLabel="Story Stack View">
-                                                    <rect key="frame" x="24" y="311" width="366" height="118.5"/>
+                                                    <rect key="frame" x="24" y="311" width="366" height="138"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MINNESOTA" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vdQ-8S-9aw">
                                                             <rect key="frame" x="0.0" y="0.0" width="96" height="20"/>
@@ -208,7 +208,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q0m-vv-6VO">
-                                                            <rect key="frame" x="0.0" y="34" width="355.5" height="84.5"/>
+                                                            <rect key="frame" x="0.0" y="34" width="355.5" height="104"/>
                                                             <string key="text">The death of George Floyd occurred on May 25, 2020, when Derek Chauvin, a white Minneapolis police officer, kneeled on his neck for at least seven minutes</string>
                                                             <fontDescription key="fontDescription" name="Karla-Regular" family="Karla" pointSize="18"/>
                                                             <color key="textColor" red="0.062745098040000002" green="0.062745098040000002" blue="0.062745098040000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -217,7 +217,7 @@
                                                     </subviews>
                                                 </stackView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="0gB-YA-YJN">
-                                                    <rect key="frame" x="24" y="454.5" width="366" height="197"/>
+                                                    <rect key="frame" x="24" y="474" width="366" height="197"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MEDIA" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gr3-2x-Dxa">
                                                             <rect key="frame" x="0.0" y="0.0" width="366" height="20"/>
@@ -244,14 +244,14 @@
                                                     </subviews>
                                                 </stackView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jl6-Ma-X0k">
-                                                    <rect key="frame" x="0.0" y="667.5" width="414" height="1"/>
+                                                    <rect key="frame" x="0.0" y="687" width="414" height="1"/>
                                                     <color key="backgroundColor" red="0.84705882349999995" green="0.84705882349999995" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="1" id="OgH-7D-gRn"/>
                                                     </constraints>
                                                 </view>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wxH-cx-x8b">
-                                                    <rect key="frame" x="24" y="684.5" width="366" height="46"/>
+                                                    <rect key="frame" x="24" y="704" width="366" height="46"/>
                                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="46" id="x11-EP-h41"/>
@@ -326,6 +326,7 @@
                                                 <constraint firstItem="hEs-Cb-udW" firstAttribute="top" secondItem="rTI-Ib-7Ho" secondAttribute="bottom" constant="25" id="lhY-pw-Gti"/>
                                                 <constraint firstItem="rTI-Ib-7Ho" firstAttribute="leading" secondItem="WAx-bJ-RMu" secondAttribute="leading" constant="24" id="oE7-BL-RaL"/>
                                                 <constraint firstAttribute="trailing" secondItem="hEs-Cb-udW" secondAttribute="trailing" constant="24" id="opD-cS-JvD"/>
+                                                <constraint firstAttribute="bottom" secondItem="wxH-cx-x8b" secondAttribute="bottom" constant="10" id="sWI-kK-yfA"/>
                                                 <constraint firstItem="tjf-Po-8K6" firstAttribute="top" secondItem="WAx-bJ-RMu" secondAttribute="top" constant="18" id="uhp-3h-MGP"/>
                                                 <constraint firstItem="HBK-Ug-GCQ" firstAttribute="leading" secondItem="rTI-Ib-7Ho" secondAttribute="trailing" constant="20" id="uyg-pz-MkA"/>
                                                 <constraint firstItem="rTI-Ib-7Ho" firstAttribute="top" secondItem="rMu-5B-kuM" secondAttribute="bottom" constant="34" id="wIU-x3-oVS"/>
@@ -338,10 +339,10 @@
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             <constraints>
-                                <constraint firstAttribute="bottom" secondItem="vLN-b4-YbV" secondAttribute="bottom" constant="64" id="0qk-Od-ohr"/>
+                                <constraint firstAttribute="bottom" secondItem="vLN-b4-YbV" secondAttribute="bottom" constant="40" id="0qk-Od-ohr"/>
                                 <constraint firstItem="vLN-b4-YbV" firstAttribute="top" secondItem="5gt-ro-azA" secondAttribute="top" id="5XG-zf-fBa"/>
                                 <constraint firstAttribute="trailing" secondItem="vLN-b4-YbV" secondAttribute="trailing" id="BXD-rb-zBa"/>
-                                <constraint firstAttribute="height" constant="820" id="T9N-Eh-Y4Q"/>
+                                <constraint firstAttribute="height" relation="lessThanOrEqual" constant="860" id="T9N-Eh-Y4Q"/>
                                 <constraint firstItem="vLN-b4-YbV" firstAttribute="leading" secondItem="5gt-ro-azA" secondAttribute="leading" id="uqW-yn-8MY"/>
                             </constraints>
                         </view>
