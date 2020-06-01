@@ -21,8 +21,9 @@ class PersonController: BaseViewController {
     }
 
     @IBAction func didPressReadButton(_ sender: Any) {
-          let controller = PersonDetailsController(nibName: "PersonDetailsController", bundle: nil)
-          present(controller, animated: true, completion: nil)
+        let controller = PersonDetailsController(nibName: "PersonDetailsController", bundle: nil)
+        controller.isModalInPresentation = true
+        navigationController?.pushViewController(controller, animated: true)
       }
     
 }

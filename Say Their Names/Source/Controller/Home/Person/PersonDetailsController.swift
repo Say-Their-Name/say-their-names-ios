@@ -20,6 +20,18 @@ class PersonDetailsController: UIViewController {
         let personPhotoCell = UINib(nibName: "PersonPhotoCell", bundle: nil)
         mediaCollectionView.register(personPhotoCell, forCellWithReuseIdentifier: "PersonPhotoCell")
     }
+    
+    @IBAction func didPressBack(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func didPressShare(_ sender: Any) {
+    }
+    
+    @IBAction func didPressBookmark(_ sender: Any) {
+    }
+    
+    
 }
 
 extension PersonDetailsController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
