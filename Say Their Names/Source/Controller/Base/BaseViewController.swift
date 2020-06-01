@@ -9,7 +9,7 @@
 import UIKit
 
 class BaseViewController: UIViewController, BaseNibLoading {
-    public var service: Service
+    let service: Service
     
     required init?(coder: NSCoder) { fatalError("") }
     required init(service: Service) {

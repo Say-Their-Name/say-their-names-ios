@@ -9,7 +9,9 @@
 import UIKit
 
 // MARK: - BaseService
+
 class BaseService {
+    
     public weak var service: Service!
     
     init(service: Service) {

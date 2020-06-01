@@ -9,12 +9,13 @@
 import UIKit
 
 final class NavigatorService: BaseService {
-    public lazy var window = UIWindow()
-    public lazy var rootViewController = MainTabBarController(service: self.service)
+    
+    lazy private(set) var window = UIWindow()
+    lazy private(set) var rootViewController = MainTabBarController(service: self.service)
     
     // MARK: - Public methods
     
-    public func installSceneInWindow(_ scene: UIWindowScene) -> UIWindow {
+    func installSceneInWindow(_ scene: UIWindowScene) -> UIWindow {
         self.window.frame = scene.coordinateSpace.bounds
         self.window.windowScene = scene
         self.window.rootViewController = self.rootViewController
@@ -23,7 +24,7 @@ final class NavigatorService: BaseService {
         return self.window
     }
     
-    public func setNeedsStatusBarAppearanceUpdate() {
+    func setNeedsStatusBarAppearanceUpdate() {
         self.rootViewController.setNeedsStatusBarAppearanceUpdate()
     }
 }
