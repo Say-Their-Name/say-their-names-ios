@@ -9,13 +9,13 @@
 import UIKit
 
 final class NavigatorService: BaseService {
-    public var window: UIWindow!
-    public lazy var rootViewController: MainTabBarController = MainTabBarController(service: self.service)
+    public lazy var window = UIWindow()
+    public lazy var rootViewController = MainTabBarController(service: self.service)
     
     // MARK: - Public methods
     
     public func installSceneInWindow(_ scene: UIWindowScene) -> UIWindow {
-        self.window = UIWindow(frame: scene.coordinateSpace.bounds)
+        self.window.frame = scene.coordinateSpace.bounds
         self.window.windowScene = scene
         self.window.rootViewController = self.rootViewController
         self.window.makeKeyAndVisible()
