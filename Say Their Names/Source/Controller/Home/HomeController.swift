@@ -12,7 +12,7 @@ import UIKit
 private let locationIdentifier = "locationCell"
 private let peopleIdentifier = "PersonCell"
 private let headerIdentifier = "PersonHeaderCell"
-class HomeController: UIViewController {
+class HomeController: BaseViewController {
     
     
     
@@ -102,6 +102,7 @@ extension HomeController: UICollectionViewDataSource, UICollectionViewDelegateFl
         } else {
             // People CollectionView
             let personController = PersonController()
+            personController.service = self.service
             present(personController, animated: true, completion: nil)
         }
     }

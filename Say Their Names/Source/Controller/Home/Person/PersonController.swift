@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PersonController: UIViewController {
+class PersonController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

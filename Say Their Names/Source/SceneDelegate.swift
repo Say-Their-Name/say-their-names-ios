@@ -10,12 +10,13 @@ import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
-
+    var service = Service()
+    
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         self.window = UIWindow(frame: windowScene.coordinateSpace.bounds)
-        Service.shared.navigator.installWindow(window, withWindowScene: windowScene)
+        self.service.navigator.installWindow(self.window, withWindowScene: windowScene)
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
