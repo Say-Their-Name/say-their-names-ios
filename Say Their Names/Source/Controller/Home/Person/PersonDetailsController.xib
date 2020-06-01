@@ -267,8 +267,8 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="34" height="59"/>
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="an0-jw-K9V">
-                                                                    <rect key="frame" x="4" y="16.5" width="26" height="26"/>
-                                                                    <state key="normal" image="Share Icon"/>
+                                                                    <rect key="frame" x="8" y="17.5" width="18.5" height="24"/>
+                                                                    <state key="normal" image="share"/>
                                                                     <connections>
                                                                         <action selector="didPressShare:" destination="-1" eventType="touchUpInside" id="R5f-cb-GoL"/>
                                                                     </connections>
@@ -370,9 +370,9 @@
         </view>
     </objects>
     <resources>
-        <image name="Share Icon" width="26" height="26"/>
         <image name="arrow_left" width="10.5" height="17"/>
         <image name="bookmark_active" width="17" height="22.5"/>
         <image name="man-in-red-jacket-1681010" width="3456" height="5184"/>
+        <image name="share" width="18.5" height="24"/>
     </resources>
 </document>
