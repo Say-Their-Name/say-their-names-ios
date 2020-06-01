@@ -12,8 +12,7 @@ class LaunchScreen: UIView {
 
     @IBOutlet weak var logo: UIImageView!
 
-    var container: UIView?
-
+    
     override init(frame: CGRect) {
           super.init(frame: frame)
 
