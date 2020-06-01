@@ -52,7 +52,7 @@
 		A91B07B324835CF700DB803C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B079424835CF700DB803C /* SceneDelegate.swift */; };
 		A91B07B824846B0C00DB803C /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B07B724846B0C00DB803C /* Service.swift */; };
 		A91B07BD24846ED700DB803C /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B07BC24846ED700DB803C /* Log.swift */; };
-		A91B07C02484705400DB803C /* NavigatorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B07BF2484705400DB803C /* NavigatorService.swift */; };
+		A91B07C02484705400DB803C /* Navigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B07BF2484705400DB803C /* Navigator.swift */; };
 		A91B07C32484719C00DB803C /* Bundle+STN.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B07C22484719C00DB803C /* Bundle+STN.swift */; };
 		A91B07C5248471E300DB803C /* ServiceFrameworks.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B07C4248471E300DB803C /* ServiceFrameworks.swift */; };
 		A91B07C82484751700DB803C /* String+STN.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B07C72484751700DB803C /* String+STN.swift */; };
@@ -130,7 +130,7 @@
 		A91B079424835CF700DB803C /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		A91B07B724846B0C00DB803C /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		A91B07BC24846ED700DB803C /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
-		A91B07BF2484705400DB803C /* NavigatorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatorService.swift; sourceTree = "<group>"; };
+		A91B07BF2484705400DB803C /* Navigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigator.swift; sourceTree = "<group>"; };
 		A91B07C22484719C00DB803C /* Bundle+STN.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+STN.swift"; sourceTree = "<group>"; };
 		A91B07C4248471E300DB803C /* ServiceFrameworks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceFrameworks.swift; sourceTree = "<group>"; };
 		A91B07C72484751700DB803C /* String+STN.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+STN.swift"; sourceTree = "<group>"; };
@@ -452,7 +452,7 @@
 		A91B07BE2484704200DB803C /* Navigator */ = {
 			isa = PBXGroup;
 			children = (
-				A91B07BF2484705400DB803C /* NavigatorService.swift */,
+				A91B07BF2484705400DB803C /* Navigator.swift */,
 			);
 			path = Navigator;
 			sourceTree = "<group>";
@@ -691,7 +691,7 @@
 				A91B07A424835CF700DB803C /* UIFont+STN.swift in Sources */,
 				A91B07D224849E1800DB803C /* BaseViewController.swift in Sources */,
 				9E7DBAF6248481DA00635A56 /* AsyncOperation.swift in Sources */,
-				A91B07C02484705400DB803C /* NavigatorService.swift in Sources */,
+				A91B07C02484705400DB803C /* Navigator.swift in Sources */,
 				A91B07BD24846ED700DB803C /* Log.swift in Sources */,
 				EEC3A1D42483D493001E7754 /* CustomSearchBar.swift in Sources */,
 				9E7DBAF5248481DA00635A56 /* FileDownloader.swift in Sources */,

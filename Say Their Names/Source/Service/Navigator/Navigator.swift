@@ -8,12 +8,19 @@
 
 import UIKit
 
-final class NavigatorService: BaseService {
+final class Navigator: ServiceReferring {
+    weak var service: Service?
     
-    lazy private(set) var window = UIWindow()
-    lazy private(set) var rootViewController = MainTabBarController(service: self.service)
+    let window: UIWindow
+    let rootViewController: MainTabBarController
     
     // MARK: - Public methods
+    
+    init(service: Service) {
+        self.service = service
+        self.rootViewController = MainTabBarController(service: service)
+        self.window = UIWindow()
+    }
     
     func installSceneInWindow(_ scene: UIWindowScene) -> UIWindow {
         self.window.frame = scene.coordinateSpace.bounds

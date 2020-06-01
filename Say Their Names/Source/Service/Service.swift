@@ -8,13 +8,10 @@
 
 import UIKit
 
-// MARK: - Service
-
-/// This is a core class that holds all instances responsible for logic ("services")
-
+/// This is a core class that holds all instances responsible for logic
 final class Service {
-    lazy private(set) var navigator = NavigatorService(service: self)
-    lazy private(set) var image = ImageService(service: self)
+    lazy private(set) var navigator = Navigator(service: self)
+    lazy private(set) var image = ImageService()
 
     // MARK: - Init
     init() {
