@@ -8,11 +8,8 @@
 
 import UIKit
 
-// MARK: - BaseService
-class BaseService {
-    public weak var service: Service!
-    
-    init(service: Service) {
-        self.service = service
-    }
+/// Protocol describing a type that can hold a reference to `Service`
+protocol ServiceReferring {
+    var service: Service? { get }
+    init(service: Service)
 }

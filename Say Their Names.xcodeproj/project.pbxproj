@@ -52,12 +52,12 @@
 		A91B07B324835CF700DB803C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B079424835CF700DB803C /* SceneDelegate.swift */; };
 		A91B07B824846B0C00DB803C /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B07B724846B0C00DB803C /* Service.swift */; };
 		A91B07BD24846ED700DB803C /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B07BC24846ED700DB803C /* Log.swift */; };
-		A91B07C02484705400DB803C /* NavigatorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B07BF2484705400DB803C /* NavigatorService.swift */; };
+		A91B07C02484705400DB803C /* Navigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B07BF2484705400DB803C /* Navigator.swift */; };
 		A91B07C32484719C00DB803C /* Bundle+STN.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B07C22484719C00DB803C /* Bundle+STN.swift */; };
 		A91B07C5248471E300DB803C /* ServiceFrameworks.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B07C4248471E300DB803C /* ServiceFrameworks.swift */; };
 		A91B07C82484751700DB803C /* String+STN.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B07C72484751700DB803C /* String+STN.swift */; };
 		A91B07CA24847DE500DB803C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A91B07C924847DE500DB803C /* GoogleService-Info.plist */; };
-		A91B07CF24849D8400DB803C /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B07CE24849D8400DB803C /* BaseService.swift */; };
+		A91B07CF24849D8400DB803C /* ServiceReferring.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B07CE24849D8400DB803C /* ServiceReferring.swift */; };
 		A91B07D224849E1800DB803C /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B07D124849E1800DB803C /* BaseViewController.swift */; };
 		A91B07D42484C88D00DB803C /* BaseNibLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B07D32484C88D00DB803C /* BaseNibLoading.swift */; };
 		B386F9552482FB540037A38D /* UIFontSTNTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B386F9542482FB540037A38D /* UIFontSTNTests.swift */; };
@@ -130,12 +130,12 @@
 		A91B079424835CF700DB803C /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		A91B07B724846B0C00DB803C /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		A91B07BC24846ED700DB803C /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
-		A91B07BF2484705400DB803C /* NavigatorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatorService.swift; sourceTree = "<group>"; };
+		A91B07BF2484705400DB803C /* Navigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigator.swift; sourceTree = "<group>"; };
 		A91B07C22484719C00DB803C /* Bundle+STN.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+STN.swift"; sourceTree = "<group>"; };
 		A91B07C4248471E300DB803C /* ServiceFrameworks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceFrameworks.swift; sourceTree = "<group>"; };
 		A91B07C72484751700DB803C /* String+STN.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+STN.swift"; sourceTree = "<group>"; };
 		A91B07C924847DE500DB803C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		A91B07CE24849D8400DB803C /* BaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
+		A91B07CE24849D8400DB803C /* ServiceReferring.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceReferring.swift; sourceTree = "<group>"; };
 		A91B07D124849E1800DB803C /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		A91B07D32484C88D00DB803C /* BaseNibLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNibLoading.swift; sourceTree = "<group>"; };
 		B386F9542482FB540037A38D /* UIFontSTNTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontSTNTests.swift; sourceTree = "<group>"; };
@@ -433,7 +433,7 @@
 		A91B07B624846AFD00DB803C /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				A91B07CE24849D8400DB803C /* BaseService.swift */,
+				A91B07CE24849D8400DB803C /* ServiceReferring.swift */,
 				A91B07B724846B0C00DB803C /* Service.swift */,
 				A91B07BE2484704200DB803C /* Navigator */,
 				9E7DBAE7248481DA00635A56 /* ImageDownloader */,
@@ -452,7 +452,7 @@
 		A91B07BE2484704200DB803C /* Navigator */ = {
 			isa = PBXGroup;
 			children = (
-				A91B07BF2484705400DB803C /* NavigatorService.swift */,
+				A91B07BF2484705400DB803C /* Navigator.swift */,
 			);
 			path = Navigator;
 			sourceTree = "<group>";
@@ -691,11 +691,11 @@
 				A91B07A424835CF700DB803C /* UIFont+STN.swift in Sources */,
 				A91B07D224849E1800DB803C /* BaseViewController.swift in Sources */,
 				9E7DBAF6248481DA00635A56 /* AsyncOperation.swift in Sources */,
-				A91B07C02484705400DB803C /* NavigatorService.swift in Sources */,
+				A91B07C02484705400DB803C /* Navigator.swift in Sources */,
 				A91B07BD24846ED700DB803C /* Log.swift in Sources */,
 				EEC3A1D42483D493001E7754 /* CustomSearchBar.swift in Sources */,
 				9E7DBAF5248481DA00635A56 /* FileDownloader.swift in Sources */,
-				A91B07CF24849D8400DB803C /* BaseService.swift in Sources */,
+				A91B07CF24849D8400DB803C /* ServiceReferring.swift in Sources */,
 				A91B079824835CF700DB803C /* STNSize.swift in Sources */,
 				A91B079624835CF700DB803C /* UIFont++.swift in Sources */,
 				A91B079C24835CF700DB803C /* HomeController.swift in Sources */,

@@ -9,7 +9,7 @@
 import UIKit
 
 class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
-    public var service: Service
+    let service: Service
     
     // Params
     private let defaultBarTint: UIColor = .white

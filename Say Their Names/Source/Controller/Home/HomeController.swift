@@ -12,10 +12,9 @@ import UIKit
 private let locationIdentifier = "locationCell"
 private let peopleIdentifier = "PersonCell"
 private let headerIdentifier = "PersonHeaderCell"
+
 class HomeController: BaseViewController {
-    
-    
-    
+        
     //MARK: - IBOUTLETS
     @IBOutlet weak var customNavBar: UIView!
     @IBOutlet weak var locationCollectionView: UICollectionView!
