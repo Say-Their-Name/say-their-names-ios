@@ -8,13 +8,14 @@
 
 import UIKit
 
-class BaseViewController: UIViewController {
-    public weak var service: Service!
+class BaseViewController: UIViewController, BaseNibLoading {
+    public var service: Service
     
-    public class func controllerForType<T: BaseViewController>(_ vcType: T.Type, withService: Service) -> T {
-        let controller = vcType.init()
-        controller.service = withService
+    required init?(coder: NSCoder) { fatalError("") }
+    required init(service: Service) {
+        self.service = service
         
-        return controller
+        let (bundle, name) = type(of: self).bundleAndNibName()
+        super.init(nibName: name, bundle: bundle)
     }
 }
