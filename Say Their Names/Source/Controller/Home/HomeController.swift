@@ -44,6 +44,7 @@ class HomeController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        // To-do: update to make this call once the data is fetched from backend
         removeLaunchScreen()
     }
     
