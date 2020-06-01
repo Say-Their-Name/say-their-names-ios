@@ -8,6 +8,8 @@ target 'Say Their Names' do
   # Pods for Say Their Names
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
+  
+  pod 'FirebaseFirestoreSwift'
   pod 'CodableFirebase'
   
   target 'Say Their NamesTests' do
