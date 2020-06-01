@@ -7,23 +7,30 @@
 //
 
 import Foundation
+import FirebaseFirestore
+import FirebaseFirestoreSwift
 
 struct Person: Codable {
-    var id: String
-    var fullName: String
-    var age: Int
-    var childrenCount: Int
-    var date: Date
-    var location: String
-    var media: [String]
-    var bio: String
-    var context: String
-    var donations: [Donation]
-    var petitions: [Petition]
+    let name: String
+    let age: Int
+    let numberOfChildren: Int
+    
+    // TODO: ensure what timezone dates are in
+    let dateOfIncident: Date
+    let dateOfBirth: Date
+
+    let location: DocumentReference
+    
+//    let media: [String]
+    let picture: String
+    let bio: String
+    let context: String
+    let donations: [DocumentReference]
+    let petitions: [DocumentReference]
     
     enum CodingKeys: String, CodingKey {
-        case id, fullName = "full_name", age, childrenCount = "children_count",
-        date, location, media, bio, context, donations, petitions
+        case /*id,*/ name , age, numberOfChildren = "number_of_children", dateOfBirth = "date_of_birth", 
+        dateOfIncident = "date_of_incident", picture, location, /*media,*/ bio, context, donations, petitions
     }
 }
 

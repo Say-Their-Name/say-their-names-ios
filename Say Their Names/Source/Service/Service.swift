@@ -24,8 +24,16 @@ final class Service {
         Log.print("Starting Services")
         
         // Just for testing
+        // Can be done on the list screen
         self.firebaseIntegration.getPeople { (result: Result<[Person], Error>) in
             print(result)
+            
+            // Just for testing. Can be done on the person screen
+            if let firstPerson = try? result.map({ $0.first }).get() {
+                self.firebaseIntegration.getDonations(person: firstPerson) { (result: Result<[Donation], Error>) in
+                    print(result)
+                }
+            }
         }
     }
 }
