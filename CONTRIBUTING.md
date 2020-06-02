@@ -43,12 +43,14 @@ This project is a classic iOS app project, written in Swift with UIKit, using Xc
 
 ### UI development
 
-This project uses UIKit to develop UIs. Using xibs and programmatic layout are both
-acceptable, however programmatic layout is preferred due to improved maintainability.
-Usage of storyboards is discouraged.
+This project uses UIKit to develop UIs. Using programmatic layout is preferred
+due to improved maintainability and possibility to easily resolve merge conflicts
+from multiple contributors.
+Usage of xibs and storyboards is discouraged, however in rare cases individual xibs
+can be okay for very static UIs.
 
 The app intends to follow iOS best practices such as dark mode, accessibility,
-dynamic text. Please keep those in mind when developing the UI.
+dynamic type. Please keep those in mind when developing the UI.
 Using Auto Layout helps with making interfaces adaptive, so it's encouraged to use it.
 
 ### Unit testing
