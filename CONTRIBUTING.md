@@ -39,7 +39,7 @@ Tag `Say-Their-Name/ios` group as a reviewer, so all iOS contributors get a noti
 
 ## The project
 
-This project is a classic iOS app project, written in Swift with UIKit.
+This project is a classic iOS app project, written in Swift with UIKit, using Xcode 11.5.
 
 ### UI development
 
@@ -70,3 +70,15 @@ reasonable solution :)
 
 Currently CocoaPods is used as a dependency manager. That can be re-evaluated
 when all libraries we use support Carthage or SPM.
+
+`Pods/` folder is checked in to the source control. That is needed so the project
+can be run right away when checking out the repo without the need to install
+additional tools. If there are any uncommitted changes inside the `Pods/`
+folder, they most likely need to be committed.
+
+## Conclusion
+
+Hopefully this document has given you an introduction to the project.
+Feel free to submit Pull Requests to improve this document.
+
+Looking forward to your contributions! 🙌
