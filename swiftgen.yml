@@ -1,0 +1,6 @@
+strings:
+  inputs: Say Their Names/Resources/Base.lproj
+  filter: .+\.strings$
+  outputs:
+    - templateName: structured-swift4
+      output: Say Their Names/Resources/Generated/strings.swift

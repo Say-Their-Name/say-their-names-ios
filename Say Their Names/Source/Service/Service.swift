@@ -8,18 +8,24 @@
 
 import UIKit
 
-// MARK: - Service
-
+/// This is a core class that holds all instances responsible for logic
 final class Service {
-    public lazy var navigator = NavigatorService(service: self)
-    public lazy var image = ImageService(service: self)
-
+    lazy private(set) var navigator = Navigator(service: self)
+    lazy private(set) var image = ImageService()
+    
+    let firebaseIntegration: FirebaseIntegration // TODO: should be hidden behind a protocol
+    
     // MARK: - Init
     init() {
+        self.firebaseIntegration = FirebaseIntegration()
+        
         Log.mode = .all
         Log.print("STN Version: \(Bundle.versionBuildString)")
         Log.print("Starting Services")
         
-        self.startFrameworks()
+        // Just for testing
+        self.firebaseIntegration.getPeople { (result: Result<[Person], Error>) in
+            print(result)
+        }
     }
 }

@@ -18,7 +18,7 @@ struct Person: Codable {
     var media: [String]
     var bio: String
     var context: String
-    var donations:[Donation]
+    var donations: [Donation]
     var petitions: [Petition]
     
     enum CodingKeys: String, CodingKey {

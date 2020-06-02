@@ -10,7 +10,7 @@ import UIKit
 
 /// A service responsible for orchestrating the downloading and caching of
 /// requested `UIImage`s
-final class ImageService: BaseService {
+final class ImageService {
     private let imageCache = ImageCache()
     
     /// Retrieves a `UIImage` from the `ImageCache` by using the path to look
