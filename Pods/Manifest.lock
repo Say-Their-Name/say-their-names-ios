@@ -248,12 +248,14 @@ PODS:
     - nanopb/encode (= 0.3.9011)
   - nanopb/decode (0.3.9011)
   - nanopb/encode (0.3.9011)
+  - SwiftGen (6.1.0)
 
 DEPENDENCIES:
   - CodableFirebase
   - Firebase/Auth
   - Firebase/Firestore
   - FirebaseFirestoreSwift
+  - SwiftGen (~> 6.0)
 
 SPEC REPOS:
   trunk:
@@ -276,6 +278,7 @@ SPEC REPOS:
     - GTMSessionFetcher
     - leveldb-library
     - nanopb
+    - SwiftGen
 
 SPEC CHECKSUMS:
   abseil: 18063d773f5366ff8736a050fe035a28f635fd27
@@ -297,7 +300,8 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 43b8b64263023d4f32caa0b40f4c8bfa3c5f36d8
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
+  SwiftGen: f872ca75cbd17bf7103c17f13dcfa0d9a15667b0
 
-PODFILE CHECKSUM: f3557db440c231512194d916f9f38400fc98a661
+PODFILE CHECKSUM: a85896a731e3caf9adf74b416924bfac1e8d845c
 
 COCOAPODS: 1.9.3

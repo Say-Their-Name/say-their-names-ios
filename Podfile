@@ -11,6 +11,7 @@ target 'Say Their Names' do
   
   pod 'FirebaseFirestoreSwift'
   pod 'CodableFirebase'
+  pod 'SwiftGen', '~> 6.0'
   
   target 'Say Their NamesTests' do
     inherit! :search_paths

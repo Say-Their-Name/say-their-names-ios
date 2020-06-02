@@ -10,10 +10,17 @@
 		5B3ED7492481CA000033FF79 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B3ED7482481CA000033FF79 /* Assets.xcassets */; };
 		5B3ED74C2481CA000033FF79 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B3ED74A2481CA000033FF79 /* LaunchScreen.storyboard */; };
 		5B3ED7572481CA000033FF79 /* Say_Their_NamesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3ED7562481CA000033FF79 /* Say_Their_NamesTests.swift */; };
+		7433B6462484B987005140D4 /* PersonDetailsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7433B6442484B987005140D4 /* PersonDetailsController.xib */; };
+		7433B6472484B987005140D4 /* PersonDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7433B6452484B987005140D4 /* PersonDetailsController.swift */; };
+		7433B64A2484BABA005140D4 /* PersonPhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7433B6482484BABA005140D4 /* PersonPhotoCell.xib */; };
+		7433B64B2484BABA005140D4 /* PersonPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7433B6492484BABA005140D4 /* PersonPhotoCell.swift */; };
 		83E9CAD02484A504001D173A /* LaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E9CACF2484A504001D173A /* LaunchScreen.swift */; };
 		83E9CAD22484A514001D173A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83E9CAD12484A514001D173A /* LaunchScreen.xib */; };
 		83E9CAD42484A5DC001D173A /* UIViewController+TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E9CAD32484A5DC001D173A /* UIViewController+TabBar.swift */; };
 		83E9CAD72484A6A2001D173A /* LaunchScreenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E9CAD62484A6A2001D173A /* LaunchScreenTests.swift */; };
+		9E24499D2485E98C00B149DF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9E24499B2485E98C00B149DF /* Localizable.strings */; };
+		9E2449A02485EA0B00B149DF /* strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E24499F2485EA0B00B149DF /* strings.swift */; };
+		9E2449A32485EA7600B149DF /* Typealiases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2449A22485EA7600B149DF /* Typealiases.swift */; };
 		9E7DBAF0248481DA00635A56 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7DBAE8248481DA00635A56 /* ImageCache.swift */; };
 		9E7DBAF1248481DA00635A56 /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7DBAE9248481DA00635A56 /* ImageService.swift */; };
 		9E7DBAF2248481DA00635A56 /* ImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7DBAEA248481DA00635A56 /* ImageProvider.swift */; };
@@ -24,10 +31,6 @@
 		9E7DBAF7248481DA00635A56 /* FileDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7DBAEF248481DA00635A56 /* FileDataProvider.swift */; };
 		9E7DBAF9248481FC00635A56 /* Operation++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7DBAF8248481FC00635A56 /* Operation++.swift */; };
 		9E7DBAFC2484822A00635A56 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7DBAFB2484822A00635A56 /* Operators.swift */; };
-		7433B6462484B987005140D4 /* PersonDetailsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7433B6442484B987005140D4 /* PersonDetailsController.xib */; };
-		7433B6472484B987005140D4 /* PersonDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7433B6452484B987005140D4 /* PersonDetailsController.swift */; };
-		7433B64A2484BABA005140D4 /* PersonPhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7433B6482484BABA005140D4 /* PersonPhotoCell.xib */; };
-		7433B64B2484BABA005140D4 /* PersonPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7433B6492484BABA005140D4 /* PersonPhotoCell.swift */; };
 		A91B079524835CF700DB803C /* UIColor+Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B076724835CF700DB803C /* UIColor+Resource.swift */; };
 		A91B079624835CF700DB803C /* UIFont++.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B076924835CF700DB803C /* UIFont++.swift */; };
 		A91B079724835CF700DB803C /* UIView++.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B076A24835CF700DB803C /* UIView++.swift */; };
@@ -96,11 +99,18 @@
 		5B3ED7522481CA000033FF79 /* Say Their NamesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Say Their NamesTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B3ED7562481CA000033FF79 /* Say_Their_NamesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Say_Their_NamesTests.swift; sourceTree = "<group>"; };
 		5B3ED7582481CA000033FF79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7433B6442484B987005140D4 /* PersonDetailsController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonDetailsController.xib; sourceTree = "<group>"; };
+		7433B6452484B987005140D4 /* PersonDetailsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonDetailsController.swift; sourceTree = "<group>"; };
+		7433B6482484BABA005140D4 /* PersonPhotoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonPhotoCell.xib; sourceTree = "<group>"; };
+		7433B6492484BABA005140D4 /* PersonPhotoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonPhotoCell.swift; sourceTree = "<group>"; };
 		7A7C6C9D07F911D0BA41942E /* Pods_Say_Their_NamesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Say_Their_NamesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		83E9CACF2484A504001D173A /* LaunchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreen.swift; sourceTree = "<group>"; };
 		83E9CAD12484A514001D173A /* LaunchScreen.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		83E9CAD32484A5DC001D173A /* UIViewController+TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+TabBar.swift"; sourceTree = "<group>"; };
 		83E9CAD62484A6A2001D173A /* LaunchScreenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenTests.swift; sourceTree = "<group>"; };
+		9E24499C2485E98C00B149DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9E24499F2485EA0B00B149DF /* strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = strings.swift; sourceTree = "<group>"; };
+		9E2449A22485EA7600B149DF /* Typealiases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typealiases.swift; sourceTree = "<group>"; };
 		9E7DBAE8248481DA00635A56 /* ImageCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		9E7DBAE9248481DA00635A56 /* ImageService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 		9E7DBAEA248481DA00635A56 /* ImageProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageProvider.swift; sourceTree = "<group>"; };
@@ -111,11 +121,6 @@
 		9E7DBAEF248481DA00635A56 /* FileDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileDataProvider.swift; sourceTree = "<group>"; };
 		9E7DBAF8248481FC00635A56 /* Operation++.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Operation++.swift"; sourceTree = "<group>"; };
 		9E7DBAFB2484822A00635A56 /* Operators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
-		7433B6442484B987005140D4 /* PersonDetailsController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonDetailsController.xib; sourceTree = "<group>"; };
-		7433B6452484B987005140D4 /* PersonDetailsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonDetailsController.swift; sourceTree = "<group>"; };
-		7433B6482484BABA005140D4 /* PersonPhotoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonPhotoCell.xib; sourceTree = "<group>"; };
-		7433B6492484BABA005140D4 /* PersonPhotoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonPhotoCell.swift; sourceTree = "<group>"; };
-		A6EFA10FE5B45C7259D80B9C /* Pods_Say_Their_NamesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Say_Their_NamesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A91B076724835CF700DB803C /* UIColor+Resource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Resource.swift"; sourceTree = "<group>"; };
 		A91B076924835CF700DB803C /* UIFont++.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont++.swift"; sourceTree = "<group>"; };
 		A91B076A24835CF700DB803C /* UIView++.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView++.swift"; sourceTree = "<group>"; };
@@ -258,6 +263,22 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		9E24499E2485E9A000B149DF /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				9E24499F2485EA0B00B149DF /* strings.swift */,
+			);
+			path = Generated;
+			sourceTree = "<group>";
+		};
+		9E2449A12485EA6500B149DF /* Typealiases */ = {
+			isa = PBXGroup;
+			children = (
+				9E2449A22485EA7600B149DF /* Typealiases.swift */,
+			);
+			path = Typealiases;
+			sourceTree = "<group>";
+		};
 		9E7DBAE7248481DA00635A56 /* ImageDownloader */ = {
 			isa = PBXGroup;
 			children = (
@@ -301,6 +322,7 @@
 		A91B076524835CF700DB803C /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				9E2449A12485EA6500B149DF /* Typealiases */,
 				9E7DBAFA2484821C00635A56 /* Operators */,
 				A91B076624835CF700DB803C /* Color */,
 				A91B076824835CF700DB803C /* Extentions */,
@@ -466,10 +488,12 @@
 		A91B07B424835D8700DB803C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				9E24499E2485E9A000B149DF /* Generated */,
 				5B3ED7482481CA000033FF79 /* Assets.xcassets */,
 				A91B07C924847DE500DB803C /* GoogleService-Info.plist */,
 				5B3ED74D2481CA000033FF79 /* Info.plist */,
 				5B3ED74A2481CA000033FF79 /* LaunchScreen.storyboard */,
+				9E24499B2485E98C00B149DF /* Localizable.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -567,6 +591,7 @@
 			buildConfigurationList = 5B3ED75B2481CA000033FF79 /* Build configuration list for PBXNativeTarget "Say Their Names" */;
 			buildPhases = (
 				9B6FBD18D3164ABFC8A39665 /* [CP] Check Pods Manifest.lock */,
+				9E24499A2485E8A500B149DF /* SwiftGen */,
 				5B3ED7382481C9F50033FF79 /* Sources */,
 				5B3ED7392481C9F50033FF79 /* Frameworks */,
 				5B3ED73A2481C9F50033FF79 /* Resources */,
@@ -656,6 +681,7 @@
 				A91B079F24835CF700DB803C /* HomeController.xib in Resources */,
 				83E9CAD22484A514001D173A /* LaunchScreen.xib in Resources */,
 				A91B07AF24835CF700DB803C /* PersonCell.xib in Resources */,
+				9E24499D2485E98C00B149DF /* Localizable.strings in Resources */,
 				EEC3A1DD2483D6B6001E7754 /* SearchResultCell.xib in Resources */,
 				A91B079B24835CF700DB803C /* Karla-Bold.ttf in Resources */,
 			);
@@ -709,6 +735,24 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
+		};
+		9E24499A2485E8A500B149DF /* SwiftGen */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftGen;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "$PODS_ROOT/SwiftGen/bin/swiftgen\n";
 		};
 		B8379B1642ABE1C4B2A6A884 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -765,8 +809,9 @@
 				A91B07D42484C88D00DB803C /* BaseNibLoading.swift in Sources */,
 				A91B07B824846B0C00DB803C /* Service.swift in Sources */,
 				83E9CAD02484A504001D173A /* LaunchScreen.swift in Sources */,
-				A91B07B824846B0C00DB803C /* Services.swift in Sources */,
+				A91B07B824846B0C00DB803C /* Service.swift in Sources */,
 				A91B079924835CF700DB803C /* UIFont+Resource.swift in Sources */,
+				9E2449A02485EA0B00B149DF /* strings.swift in Sources */,
 				A91B07C82484751700DB803C /* String+STN.swift in Sources */,
 				A91B07A824835CF700DB803C /* CustomNavigationBar.swift in Sources */,
 				9E7DBAF3248481DA00635A56 /* DownloadOperation.swift in Sources */,
@@ -788,6 +833,7 @@
 				A91B07AB24835CF700DB803C /* Petition.swift in Sources */,
 				EEC3A1DC2483D6B6001E7754 /* SearchResultCell.swift in Sources */,
 				A91B07A724835CF700DB803C /* MainTabBarController.swift in Sources */,
+				9E2449A32485EA7600B149DF /* Typealiases.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -818,6 +864,14 @@
 				5B3ED74B2481CA000033FF79 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		9E24499B2485E98C00B149DF /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9E24499C2485E98C00B149DF /* Base */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
