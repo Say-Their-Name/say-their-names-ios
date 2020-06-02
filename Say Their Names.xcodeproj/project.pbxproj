@@ -14,6 +14,8 @@
 		7433B6472484B987005140D4 /* PersonDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7433B6452484B987005140D4 /* PersonDetailsController.swift */; };
 		7433B64A2484BABA005140D4 /* PersonPhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7433B6482484BABA005140D4 /* PersonPhotoCell.xib */; };
 		7433B64B2484BABA005140D4 /* PersonPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7433B6492484BABA005140D4 /* PersonPhotoCell.swift */; };
+		74DE10872486DFA300211B83 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DE10852486DFA300211B83 /* SettingsController.swift */; };
+		74DE10882486DFA300211B83 /* SettingsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74DE10862486DFA300211B83 /* SettingsController.xib */; };
 		83E9CAD02484A504001D173A /* LaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E9CACF2484A504001D173A /* LaunchScreen.swift */; };
 		83E9CAD22484A514001D173A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83E9CAD12484A514001D173A /* LaunchScreen.xib */; };
 		83E9CAD42484A5DC001D173A /* UIViewController+TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E9CAD32484A5DC001D173A /* UIViewController+TabBar.swift */; };
@@ -103,6 +105,8 @@
 		7433B6452484B987005140D4 /* PersonDetailsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonDetailsController.swift; sourceTree = "<group>"; };
 		7433B6482484BABA005140D4 /* PersonPhotoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonPhotoCell.xib; sourceTree = "<group>"; };
 		7433B6492484BABA005140D4 /* PersonPhotoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonPhotoCell.swift; sourceTree = "<group>"; };
+		74DE10852486DFA300211B83 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
+		74DE10862486DFA300211B83 /* SettingsController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsController.xib; sourceTree = "<group>"; };
 		7A7C6C9D07F911D0BA41942E /* Pods_Say_Their_NamesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Say_Their_NamesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		83E9CACF2484A504001D173A /* LaunchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreen.swift; sourceTree = "<group>"; };
 		83E9CAD12484A514001D173A /* LaunchScreen.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
@@ -233,6 +237,15 @@
 				5B3ED7582481CA000033FF79 /* Info.plist */,
 			);
 			path = "Say Their NamesTests";
+			sourceTree = "<group>";
+		};
+		74DE10842486DF7400211B83 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				74DE10852486DFA300211B83 /* SettingsController.swift */,
+				74DE10862486DFA300211B83 /* SettingsController.xib */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		83E9CACE2484A4DE001D173A /* Launch */ = {
@@ -377,6 +390,7 @@
 		A91B077124835CF700DB803C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				74DE10842486DF7400211B83 /* Settings */,
 				A91B07D024849E0C00DB803C /* Base */,
 				83E9CACE2484A4DE001D173A /* Launch */,
 				A91B077224835CF700DB803C /* Home */,
@@ -679,6 +693,7 @@
 				A91B07AC24835CF700DB803C /* PersonHeaderCell.xib in Resources */,
 				A91B079D24835CF700DB803C /* PersonController.xib in Resources */,
 				A91B079F24835CF700DB803C /* HomeController.xib in Resources */,
+				74DE10882486DFA300211B83 /* SettingsController.xib in Resources */,
 				83E9CAD22484A514001D173A /* LaunchScreen.xib in Resources */,
 				A91B07AF24835CF700DB803C /* PersonCell.xib in Resources */,
 				9E24499D2485E98C00B149DF /* Localizable.strings in Resources */,
@@ -824,6 +839,7 @@
 				A91B079724835CF700DB803C /* UIView++.swift in Sources */,
 				A91B07AD24835CF700DB803C /* PersonCell.swift in Sources */,
 				9E7DBAF2248481DA00635A56 /* ImageProvider.swift in Sources */,
+				74DE10872486DFA300211B83 /* SettingsController.swift in Sources */,
 				B386F958248526C70037A38D /* Location.swift in Sources */,
 				A91B07A524835CF700DB803C /* UIColor+STN.swift in Sources */,
 				A91B07A024835CF700DB803C /* DonationsController.swift in Sources */,
