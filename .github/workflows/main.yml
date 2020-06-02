@@ -24,6 +24,8 @@ jobs:
 
     # Runs a set of commands using the runners shell
     - name: Build and test
+      shell: bash
       run: |
+        set -x
         sudo xcode-select --switch /Applications/Xcode_11.5.app/Contents/Developer
         xcodebuild test "-workspace" "Say Their Names.xcworkspace" "-scheme" "Say Their Names" -destination 'platform=iOS Simulator,OS=13.5,name=iPhone 11 Pro' | xcpretty "--color"
