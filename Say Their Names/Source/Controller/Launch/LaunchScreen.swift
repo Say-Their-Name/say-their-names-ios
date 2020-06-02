@@ -8,36 +8,29 @@
 
 import UIKit
 
-class LaunchScreen: UIView {
-
+final class LaunchScreen: UIView {
+    
     @IBOutlet weak var logo: UIImageView!
 
-    
+    @available(*, unavailable, message: "Use createFromNib() method instead")
     override init(frame: CGRect) {
-          super.init(frame: frame)
-
-        
-        backgroundColor = UIColor.STN.black
-        
-        loadNib()
-
-      }
-
-      required init?(coder: NSCoder) {
-          super.init(coder: coder)
-
-      }
-
-
-      private func loadNib() {
+        fatalError()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
+    
+    static func createFromNib() -> LaunchScreen? {
         let bundle = Bundle(for: LaunchScreen.self)
-        if let view = bundle.loadNibNamed("LaunchScreen", owner: nil)?.first as? LaunchScreen {
-            addSubview(view)
-            view.frame = bounds
-            view.backgroundColor = UIColor.STN.black
+        guard let view = bundle.loadNibNamed("LaunchScreen", owner: nil)?.first as? LaunchScreen else {
+            print("Can't load `LaunchScreen` from nib")
+            return nil
         }
-      }
-
+        view.backgroundColor = UIColor.STN.black
+        return view
+    }
+    
     public func animate(completion: @escaping () -> Void) {
         UIView.animate(withDuration: 0.5, animations: {
             self.logo.transform = CGAffineTransform(scaleX: 0.7, y: 0.7)
@@ -45,14 +38,12 @@ class LaunchScreen: UIView {
             self.endAnimation(completion: completion)
         }
     }
-
+    
     private func endAnimation(completion: @escaping () -> Void) {
         UIView.animate(withDuration: 0.15, delay: 0, options: .curveEaseIn, animations: {
             self.logo.transform = CGAffineTransform(scaleX: 4, y: 4)
         }) { (_) in
-            self.removeFromSuperview()
             completion()
         }
     }
-
 }
