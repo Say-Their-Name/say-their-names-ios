@@ -6,11 +6,6 @@ target 'Say Their Names' do
   use_frameworks!
 
   # Pods for Say Their Names
-  pod 'Firebase/Auth'
-  pod 'Firebase/Firestore'
-  
-  pod 'FirebaseFirestoreSwift'
-  pod 'CodableFirebase'
   pod 'SwiftGen', '~> 6.0'
   
   target 'Say Their NamesTests' do
