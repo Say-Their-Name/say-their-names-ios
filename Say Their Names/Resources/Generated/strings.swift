@@ -12,8 +12,13 @@ import Foundation
 // swiftlint:disable nesting type_body_length type_name
 internal enum L10n {
 <<<<<<< HEAD
+<<<<<<< HEAD
   /// Home
   internal static let home = L10n.tr("Localizable", "home")
+=======
+  /// Welcome
+  internal static let welcomeTitle = L10n.tr("Localizable", "welcomeTitle")
+>>>>>>> Configure SwiftGen
 =======
   /// Welcome
   internal static let welcomeTitle = L10n.tr("Localizable", "welcomeTitle")
