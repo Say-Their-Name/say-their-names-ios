@@ -63,7 +63,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         let petitionsController = PetitionsController(service: self.service)
         let petitionsNC = UINavigationController(rootViewController: petitionsController)
         
-        let settingsController = UIViewController() // Replace with Settings controller
+        let settingsController = SettingsController(service: self.service) 
         let settingsNC = UINavigationController(rootViewController: settingsController)
             
         homeNC.isNavigationBarHidden = true

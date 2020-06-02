@@ -753,7 +753,7 @@
 		};
 		9E24499A2485E8A500B149DF /* SwiftGen */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 8;
+			buildActionMask = 12;
 			files = (
 			);
 			inputFileListPaths = (
@@ -765,10 +765,9 @@
 			);
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "$PODS_ROOT/SwiftGen/bin/swiftgen\n";
-			showEnvVarsInLog = 0;
 		};
 		B8379B1642ABE1C4B2A6A884 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
