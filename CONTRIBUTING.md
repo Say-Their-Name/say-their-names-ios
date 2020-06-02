@@ -2,8 +2,8 @@
 
 Welcome! Thank you for being here and for willing to contribute to the cause.
 
-Below you will find some information about the project that will help
-get started with your contributions.
+Below you will find some information about the project that will help you
+get started.
 
 ## Community
 
