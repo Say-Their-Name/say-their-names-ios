@@ -19,8 +19,13 @@ class LocationCell: UICollectionViewCell {
     
     override var isSelected: Bool {
         didSet {
-            backgroundColor = isSelected ? UIColor.STN.black : .clear
-            titleLabel.textColor = isSelected ? UIColor.STN.white : UIColor.STN.black
+            if isSelected {
+                backgroundColor = .stn_locationCellBackground
+                titleLabel.textColor = .stn_locationCellForegroundSelected
+            } else {
+                backgroundColor = .clear
+                titleLabel.textColor = .stn_locationCellForegroundDeselected
+            }
         }
     }
     
@@ -28,12 +33,18 @@ class LocationCell: UICollectionViewCell {
         super.init(frame: frame)
         addSubview(titleLabel)
         titleLabel.fillSuperview()
-        layer.borderColor = UIColor.STN.black.cgColor
+        layer.borderColor = UIColor.stn_locationCellBorder.cgColor
         layer.borderWidth = 1.5
     }
-    
-    
-    
+
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+
+        if traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) {
+            layer.borderColor = UIColor.stn_locationCellBorder.cgColor
+        }
+    }
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

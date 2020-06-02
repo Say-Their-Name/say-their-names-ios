@@ -11,11 +11,6 @@ import UIKit
 class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
 
     // Params
-    private let defaultBarTint: UIColor = .white
-    private let defaultTint = UIColor.black
-    private let defaultUnselectedTint = #colorLiteral(red: 0.3803921569, green: 0.3882352941, blue: 0.4666666667, alpha: 0.5681668134)
-
-
     private let shadowRadius: CGFloat = 15
     private let shadowOpacity: Float = 1
     private let shadowOffset: CGSize = .init(width: 0, height: 10)
@@ -34,15 +29,22 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
     }
 
     fileprivate func setupTabBarStyle() {
-        tabBar.isTranslucent = true
+        tabBar.isTranslucent = false
         tabBar.layer.borderWidth = 0.9
-        tabBar.layer.borderColor = #colorLiteral(red: 0.9451505829, green: 0.9451505829, blue: 0.9451505829, alpha: 1)
         tabBar.clipsToBounds = true
-        tabBar.backgroundColor = .white
-        tabBar.barTintColor = defaultBarTint
-        tabBar.tintColor = defaultTint
-        tabBar.unselectedItemTintColor = defaultUnselectedTint
+        tabBar.barTintColor = .stn_mainTabBarBarTint
+        tabBar.layer.borderColor = UIColor.stn_mainTabBarBarTint.cgColor
+        tabBar.tintColor = .stn_mainTabBarTint
+        tabBar.unselectedItemTintColor = .stn_mainTabBarUnselectedItemTint
         UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "Karla-Regular", size: 11)!], for: .normal)
+    }
+
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+
+        if traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) {
+            tabBar.layer.borderColor = UIColor.stn_mainTabBarBarTint.cgColor
+        }
     }
 
 
@@ -79,4 +81,3 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         }
     }
 }
-
