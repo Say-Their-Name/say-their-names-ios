@@ -114,6 +114,7 @@
 		7433B6492484BABA005140D4 /* PersonPhotoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonPhotoCell.swift; sourceTree = "<group>"; };
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
 <<<<<<< HEAD
@@ -121,10 +122,14 @@
 =======
 >>>>>>> Create UI tests
 >>>>>>> Create UI tests
+=======
+=======
+>>>>>>> rebase
 		7A5BFA01248615C100BC265A /* XCUIApplication+SayTheirName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCUIApplication+SayTheirName.swift"; sourceTree = "<group>"; };
 		7A5BFA08248618B100BC265A /* SayTheirNamesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SayTheirNamesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A5BFA0A248618B100BC265A /* SayTheirNamesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SayTheirNamesUITests.swift; sourceTree = "<group>"; };
 		7A5BFA0C248618B100BC265A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
@@ -132,6 +137,8 @@
 >>>>>>> Configure SwiftGen
 =======
 >>>>>>> Create UI tests
+=======
+>>>>>>> rebase
 >>>>>>> Create UI tests
 >>>>>>> Create UI tests
 		7A7C6C9D07F911D0BA41942E /* Pods_Say_Their_NamesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Say_Their_NamesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
