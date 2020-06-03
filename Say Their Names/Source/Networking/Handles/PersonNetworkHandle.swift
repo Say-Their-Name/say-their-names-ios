@@ -16,7 +16,7 @@ final class PersonUrl: BaseNetworkUrl {
 // MARK: - ConfigNetworkHandle<T>
 typealias PersonNetworkHandle<T> = NetworkSession<T>
 extension PersonNetworkHandle {
-    public func fetchAllPeople<P: Person>(completion: @escaping (P?, NetworkError?) -> Swift.Void) {
+    public func fetchAllPeople<P: Person>(completion: @escaping ([P]?, NetworkError?) -> Swift.Void) {
         let task = NetworkTask<Array<P>>(PersonUrl.people, requestType: .get) { (dictionary) in
             guard let dictionary = dictionary as? Dictionary<String, Any>,
                   let data = dictionary["data"] as? Array<Dictionary<String, Any>>
@@ -31,7 +31,7 @@ extension PersonNetworkHandle {
         }
 
         self.load(task) { (people, totalTime, error) in
-
+            DispatchQueue.mainAsync { completion(people, error) }
         }
     }
 }

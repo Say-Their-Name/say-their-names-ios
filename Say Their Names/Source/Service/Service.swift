@@ -22,7 +22,7 @@ final class Service {
         
         self.networkSession.service = self
         
-        // Tesging people
+        // Testing people
         self.networkSession.fetchAllPeople { (people, error) in
             
         }
