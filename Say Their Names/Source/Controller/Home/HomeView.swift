@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeView: UIView {
+final class HomeView: UIView {
 
     let customNavigationBar: UIView = {
         let customNavigationBar = UIView()
