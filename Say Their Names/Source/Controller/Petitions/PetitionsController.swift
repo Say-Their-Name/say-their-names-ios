@@ -11,10 +11,9 @@ import UIKit
 /// Controller responsible for showing the petitions
 final class PetitionsController: BaseViewController {
     
-    private let ui: PetitionsUI
+    private lazy var viewCode = PetitionsViewCode()
     
     required init(service: Service, shouldInitWithNib: Bool) {
-        self.ui = PetitionsUI()
         super.init(service: service, shouldInitWithNib: false)
     }
     
@@ -23,6 +22,6 @@ final class PetitionsController: BaseViewController {
     }
     
     override func loadView() {
-        view = ui
+        view = viewCode
     }
 }
