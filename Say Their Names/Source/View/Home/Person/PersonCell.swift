@@ -8,27 +8,34 @@
 
 import UIKit
 
-class PersonCell: UICollectionViewCell {
+final class PersonCell: UICollectionViewCell {
     static let personIdentifier = "personCell"
-
-    @IBOutlet var personPhotoImageView: UIImageView!
-    @IBOutlet var nameLabel: UILabel!
-    @IBOutlet var dateLabel: UILabel!
+    
+    @IBOutlet weak private var nameLabel: UILabel!
+    @IBOutlet weak private var profileImageView: UIImageView!
+    @IBOutlet weak private var birthdayLabel: UILabel!
+    @IBOutlet weak private var bookmarkButton: UIButton!
+        
+    // MARK:- Lifecycle
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
     
     func configure(with person: Person) {
         let df = DateFormatter()
         df.dateFormat = "dd.MM.yyyy"
         
-        personPhotoImageView.image = #imageLiteral(resourceName: "man-in-red-jacket-1681010")
+        profileImageView.image = #imageLiteral(resourceName: "man-in-red-jacket-1681010")
         // ^Update to default place holder image when resource is added.
         // TO-DO: Use Kilo's ImageDownloader here to DL image
         nameLabel.text = person.fullName
-        dateLabel.text = df.string(from: person.date)
+        birthdayLabel.text = df.string(from: person.date) // TODO: this is NOT a birthday, but incident date
     }
 
+    // MARK:- Handlers
+        
+    @IBAction private func bookmark(_ sender: UIButton) {
+        // TODO: Implement BookMark Handler
+    }
 }

@@ -12,6 +12,7 @@ class PersonController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.accessibilityIdentifier = "personView"
 
         // Do any additional setup after loading the view.
     }

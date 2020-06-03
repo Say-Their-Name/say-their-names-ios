@@ -48,6 +48,8 @@ extension PersonCollectionViewDataSource: UICollectionViewDataSource {
         
         if let personCell = collectionView.dequeueReusableCell(withReuseIdentifier: PersonCell.personIdentifier, for: indexPath) as? PersonCell {
             personCell.configure(with: person)
+            personCell.accessibilityIdentifier = "peopleCell\(indexPath.item)"
+            personCell.isAccessibilityElement = true
             return personCell
         }
         
