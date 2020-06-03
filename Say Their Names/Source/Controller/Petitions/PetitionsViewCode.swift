@@ -29,14 +29,13 @@ final class PetitionsViewCode: UIView {
     }
     
     override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        setupSubviews()
+        super.layoutSubviews()   
     }
     
     /// Configures properties for the view itself
     private func setupSelf() {
         backgroundColor = .systemBackground
+        setupSubviews()
     }
     
     /// Adds and configures constraints for subviews
@@ -51,15 +50,8 @@ private extension PetitionsViewCode {
     
     func setupPetitionsLabel() {
         addSubview(petitionsLabel)
-        
         petitionsLabel.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            petitionsLabel.topAnchor.constraint(equalTo: topAnchor),
-            petitionsLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
-            petitionsLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
-            petitionsLabel.leadingAnchor.constraint(equalTo: leadingAnchor)
-        ])
+        petitionsLabel.fillSuperview()
     }
     
 }
