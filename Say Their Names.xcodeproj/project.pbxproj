@@ -77,6 +77,7 @@
 		B3D6B6A92486EE3300D3118C /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B07B724846B0C00DB803C /* Service.swift */; };
 		C0594BFA248754A200260BAD /* UICollectionView++.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0594BF9248754A200260BAD /* UICollectionView++.swift */; };
 		C0594BFC248754C900260BAD /* UICollectionViewCell++.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0594BFB248754C900260BAD /* UICollectionViewCell++.swift */; };
+		DB90F5DC2488017B005E05C6 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB90F5DB2488017B005E05C6 /* Reusable.swift */; };
 		DB966D652487FA0A00C69117 /* LineCarouselControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB966D612487F9B800C69117 /* LineCarouselControl.swift */; };
 		DB966D662487FA0C00C69117 /* CollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB966D602487F9B700C69117 /* CollectionViewDataSource.swift */; };
 		DB966D672487FA0E00C69117 /* CauroselHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB966D642487F9B800C69117 /* CauroselHeaderView.swift */; };
@@ -190,6 +191,7 @@
 		C0594BFB248754C900260BAD /* UICollectionViewCell++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell++.swift"; sourceTree = "<group>"; };
 		D107CEC59C11537D09D9DB2E /* Pods-Say Their Names.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Say Their Names.release.xcconfig"; path = "Target Support Files/Pods-Say Their Names/Pods-Say Their Names.release.xcconfig"; sourceTree = "<group>"; };
 		D639F16885E8E79F7E336CC2 /* Pods-Say Their Names.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Say Their Names.debug.xcconfig"; path = "Target Support Files/Pods-Say Their Names/Pods-Say Their Names.debug.xcconfig"; sourceTree = "<group>"; };
+		DB90F5DB2488017B005E05C6 /* Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		DB966D602487F9B700C69117 /* CollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CollectionViewDataSource.swift; path = "Say Their Names/Source/Controller/Home/Carousel/Collectionview/CollectionViewDataSource.swift"; sourceTree = SOURCE_ROOT; };
 		DB966D612487F9B800C69117 /* LineCarouselControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LineCarouselControl.swift; path = "Say Their Names/Source/Controller/Home/Carousel/PageControl/LineCarouselControl.swift"; sourceTree = SOURCE_ROOT; };
 		DB966D632487F9B800C69117 /* CarouselCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CarouselCollectionViewCell.swift; path = "Say Their Names/Source/Controller/Home/Carousel/Collectionview/CarouselCollectionViewCell.swift"; sourceTree = SOURCE_ROOT; };
@@ -378,6 +380,7 @@
 		A91B076524835CF700DB803C /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				DB90F5DA2488017B005E05C6 /* Protocols */,
 				A91B076624835CF700DB803C /* Color */,
 				A91B076824835CF700DB803C /* Extentions */,
 				A91B076D24835CF700DB803C /* Fonts */,
@@ -616,6 +619,14 @@
 			children = (
 			);
 			path = UtilsTests;
+			sourceTree = "<group>";
+		};
+		DB90F5DA2488017B005E05C6 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				DB90F5DB2488017B005E05C6 /* Reusable.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		DB966D6C2487FB4A00C69117 /* Collectionview */ = {
@@ -888,6 +899,7 @@
 				A91B07B124835CF700DB803C /* LocationCell.swift in Sources */,
 				A91B07B324835CF700DB803C /* SceneDelegate.swift in Sources */,
 				7433B6472484B987005140D4 /* PersonDetailsController.swift in Sources */,
+				DB90F5DC2488017B005E05C6 /* Reusable.swift in Sources */,
 				A91B079524835CF700DB803C /* UIColor+Resource.swift in Sources */,
 				9E7DBAF9248481FC00635A56 /* Operation++.swift in Sources */,
 				DB966D672487FA0E00C69117 /* CauroselHeaderView.swift in Sources */,
