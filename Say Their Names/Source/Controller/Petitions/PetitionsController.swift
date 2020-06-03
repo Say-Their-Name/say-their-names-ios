@@ -8,8 +8,21 @@
 
 import UIKit
 
-class PetitionsController: BaseViewController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
+/// Controller responsible for showing the petitions
+final class PetitionsController: BaseViewController {
+    
+    private let ui: PetitionsUI
+    
+    required init(service: Service, shouldInitWithNib: Bool) {
+        self.ui = PetitionsUI()
+        super.init(service: service, shouldInitWithNib: false)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError()
+    }
+    
+    override func loadView() {
+        view = ui
     }
 }

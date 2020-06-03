@@ -60,7 +60,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         let donationsController = DonationsController(service: self.service)
         let donationsNC = UINavigationController(rootViewController: donationsController)
         
-        let petitionsController = PetitionsController(service: self.service)
+        let petitionsController = PetitionsController(service: self.service, shouldInitWithNib: false)
         let petitionsNC = UINavigationController(rootViewController: petitionsController)
 
         homeNC.isNavigationBarHidden = true
