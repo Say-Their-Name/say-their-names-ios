@@ -13,8 +13,19 @@ private let locationIdentifier = "locationCell"
 private let peopleIdentifier = "PersonCell"
 private let headerIdentifier = "PersonHeaderCell"
 
-class HomeController: ServiceClientViewController {
+class HomeController: UIViewController, ServiceReferring {
         
+    let service: Service?
+    
+    required init(service: Service) {
+        self.service = service
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     var launchScreen: LaunchScreen?
     
     //MARK: - CONSTANTS
@@ -126,8 +137,10 @@ extension HomeController: UICollectionViewDataSource, UICollectionViewDelegateFl
             // Location CollectionView
             
         } else {
+            guard let service = self.service else { return }
+            
             // People CollectionView
-            let personController = PersonController(service: self.service)
+            let personController = PersonController(service: service)
             let navigationController = UINavigationController(rootViewController: personController)
             navigationController.navigationBar.isHidden = true
             present(navigationController, animated: true, completion: nil)
