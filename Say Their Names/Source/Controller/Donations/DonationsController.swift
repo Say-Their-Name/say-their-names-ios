@@ -9,8 +9,18 @@
 import UIKit
 
 class DonationsController: BaseViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    
+    private lazy var viewCode = DonationsViewCode()
+    
+    required init(service: Service, shouldInitWithNib: Bool) {
+        super.init(service: service, shouldInitWithNib: false)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError()
+    }
+    
+    override func loadView() {
+        view = viewCode
     }
 }
