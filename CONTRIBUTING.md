@@ -1,4 +1,4 @@
-# Say Their Name iOS Contribution Guide
+# Say Their Names iOS Contribution Guide
 
 Welcome! Thank you for being here and for willing to contribute to the cause.
 
@@ -37,9 +37,36 @@ include a screenshot of the change.
 
 Tag `Say-Their-Name/ios` group as a reviewer, so all iOS contributors get a notification.
 
+### Reviewing a PR
+
+Anyone is welcome to chip in with input on pull requests, the more the merrier.
+
+When providing feedback try to be kind and keep in mind that everyone working on
+the project is a volunteer.
+
+When you provide non-critical feedback or optional suggestions, use "Comment" or
+"Approve", reserving "Request Changes" only for critical must-fix issues that
+should block the PR.
+
 ## The project
 
 This project is a classic iOS app project, written in Swift with UIKit, using Xcode 11.5.
+
+### Code style
+
+The code is expected to abide by [Swift API design guidelines](https://swift.org/documentation/api-design-guidelines/),
+though [bikeshedding](https://www.urbandictionary.com/define.php?term=bikeshedding) is highly discouraged.
+
+Use of force-unwrapping is not recommended, at least replace it with `fatalError()`
+with a meaningful error message.
+
+Before making a PR, check that the code has access control (variables that can be private, are),
+variables have meaningful names, etc.
+
+When reviewing PRs, comments about code style are welcome, but keep in mind that
+this project is developed by volunteers from all over the world.
+Due to this there might not always be one consistent style throughout the project
+(at least at first), so please try to be flexible.
 
 ### UI development
 
