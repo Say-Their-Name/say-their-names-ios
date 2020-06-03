@@ -1,6 +1,6 @@
 //
 //  XCUIApplication+Home.swift
-//  Say Their NamesTests
+//  SayTheirNamesTests
 //
 //  Created by Hakeem King on 6/1/20.
 //  Copyright © 2020 Franck-Stephane Ndame Mpouli. All rights reserved.

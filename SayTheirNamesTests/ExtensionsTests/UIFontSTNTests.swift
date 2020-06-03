@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import Say_Their_Names
+@testable import SayTheirNames
 
 class UIFontSTNTests: XCTestCase {
 

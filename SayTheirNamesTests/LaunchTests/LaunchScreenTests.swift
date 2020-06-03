@@ -6,7 +6,7 @@
 //  Copyright © 2020 Franck-Stephane Ndame Mpouli. All rights reserved.
 //
 
-@testable import Say_Their_Names
+@testable import SayTheirNames
 import XCTest
 
 class LaunchScreenTests: XCTestCase {
