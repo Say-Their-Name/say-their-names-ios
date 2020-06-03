@@ -24,7 +24,6 @@ class CollectionViewDataSource<T: CollectionViewCellProtocol>: NSObject, UIColle
     }
 
     // MARK: - Methods
-
     // MARK: - Collection view data source
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         guard let results = resultsData else {return 0}

@@ -44,7 +44,6 @@ class LineCarouselControl: UIControl {
     }
     var currentPage: Int = 0 {
         didSet {
-            print("CurrentPage is \(currentPage)")
             _ = numberOfLines.map { view in
                 if currentPage == view.tag {
                     UIView.animate(withDuration: 0.2, animations: {
