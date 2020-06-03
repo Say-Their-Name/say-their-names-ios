@@ -72,7 +72,7 @@
 		A91B07D42484C88D00DB803C /* BaseNibLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B07D32484C88D00DB803C /* BaseNibLoading.swift */; };
 		A91B08232487717200DB803C /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B081C2487717100DB803C /* Person.swift */; };
 		A91B08432487718100DB803C /* Serialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B082E2487718000DB803C /* Serialization.swift */; };
-		A91B08472487718100DB803C /* PersonNetworkRequestor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B08342487718000DB803C /* PersonNetworkRequestor.swift */; };
+		A91B08472487718100DB803C /* PeopleNetworkRequestor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B08342487718000DB803C /* PeopleNetworkRequestor.swift */; };
 		A91B08482487718100DB803C /* NetworkTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B08352487718000DB803C /* NetworkTask.swift */; };
 		A91B08492487718100DB803C /* NetworkSessionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B08362487718000DB803C /* NetworkSessionMock.swift */; };
 		A91B084A2487718100DB803C /* BaseNetworkUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B08372487718000DB803C /* BaseNetworkUrl.swift */; };
@@ -191,7 +191,7 @@
 		A91B07D32484C88D00DB803C /* BaseNibLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNibLoading.swift; sourceTree = "<group>"; };
 		A91B081C2487717100DB803C /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		A91B082E2487718000DB803C /* Serialization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Serialization.swift; sourceTree = "<group>"; };
-		A91B08342487718000DB803C /* PersonNetworkRequestor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonNetworkRequestor.swift; sourceTree = "<group>"; };
+		A91B08342487718000DB803C /* PeopleNetworkRequestor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleNetworkRequestor.swift; sourceTree = "<group>"; };
 		A91B08352487718000DB803C /* NetworkTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkTask.swift; sourceTree = "<group>"; };
 		A91B08362487718000DB803C /* NetworkSessionMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkSessionMock.swift; sourceTree = "<group>"; };
 		A91B08372487718000DB803C /* BaseNetworkUrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNetworkUrl.swift; sourceTree = "<group>"; };
@@ -652,7 +652,7 @@
 		A91B08302487718000DB803C /* Requestors */ = {
 			isa = PBXGroup;
 			children = (
-				A91B08342487718000DB803C /* PersonNetworkRequestor.swift */,
+				A91B08342487718000DB803C /* PeopleNetworkRequestor.swift */,
 			);
 			path = Requestors;
 			sourceTree = "<group>";
@@ -978,7 +978,7 @@
 				A91B07D42484C88D00DB803C /* BaseNibLoading.swift in Sources */,
 				83E9CAD02484A504001D173A /* LaunchScreen.swift in Sources */,
 				A91B08592487F85E00DB803C /* PeopleDecoder.swift in Sources */,
-				A91B08472487718100DB803C /* PersonNetworkRequestor.swift in Sources */,
+				A91B08472487718100DB803C /* PeopleNetworkRequestor.swift in Sources */,
 				A91B079924835CF700DB803C /* UIFont+Resource.swift in Sources */,
 				9E2449A02485EA0B00B149DF /* strings.swift in Sources */,
 				A91B07C82484751700DB803C /* String+STN.swift in Sources */,

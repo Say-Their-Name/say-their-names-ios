@@ -13,10 +13,10 @@ final class PersonUrl: BaseNetworkUrl {
     class var people: UrlString { return "\(self.base)/api/people" }
 }
 
-// MARK: - PersonNetworkRequestor<T>
+// MARK: - PeopleNetworkRequestor<T>
 
-typealias PersonNetworkRequestor<T> = NetworkSession<T>
-extension PersonNetworkRequestor {
+typealias PeopleNetworkRequestor<T> = NetworkSession<T>
+extension PeopleNetworkRequestor {
     // MARK: - Public methods
     
     public func fetchPeople(completion: @escaping (People?, STNError?) -> Swift.Void) {

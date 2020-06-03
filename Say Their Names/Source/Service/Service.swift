@@ -12,7 +12,7 @@ import UIKit
 final class Service {
     lazy private(set) var navigator = Navigator(service: self)
     lazy private(set) var image = ImageService()
-    lazy private(set) var networkSession = NetworkSession<Data>()
+    lazy private(set) var network = NetworkSession<Data>()
 
     // MARK: - Init
     init() {
@@ -20,6 +20,11 @@ final class Service {
         Log.print("STN Version: \(Bundle.versionBuildString)")
         Log.print("Starting Services")
         
-        self.networkSession.service = self
+        self.network.service = self
+        
+        // Testing people
+        self.network.fetchPeople { (people, error) in
+            
+        }
     }
 }
