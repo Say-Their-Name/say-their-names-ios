@@ -9,12 +9,12 @@
 import Foundation
 
 final class PeopleDecoder {
-    public class func decode(_ data: Any?) -> People? {
+    public class func decode<P: PeopleInterface>(_ data: Any?) -> P? {
         guard let data = data as? Data else { return nil }
         
         do {
             let decoder = JSONDecoder()
-            let people = try decoder.decode(People.self, from: data)
+            let people = try decoder.decode(P.self, from: data)
             
             return people
         }

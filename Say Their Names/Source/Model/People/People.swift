@@ -8,7 +8,12 @@
 
 import Foundation
 
-public struct People: Decodable {
+protocol PeopleInterface: Decodable {
+    var people: Array<Person>? { get set }
+    var links: PeopleLink?  { get set }
+}
+
+public struct People: PeopleInterface {
     var people: Array<Person>?
     var links: PeopleLink?
     

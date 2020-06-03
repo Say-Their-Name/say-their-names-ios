@@ -8,7 +8,13 @@
 
 import Foundation
 
-public struct Images: Codable {
+protocol ImagesInterface: Decodable {
+    var id: Int { get set }
+    var personId: Int { get set }
+    var imageUrl: String? { get set }
+}
+
+public struct Images: ImagesInterface {
     var id: Int = -1
     var personId: Int = -1
     var imageUrl: String?
