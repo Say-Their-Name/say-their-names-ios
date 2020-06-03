@@ -23,7 +23,6 @@ final class HomeView: UIView {
         locationLayout.sectionInset = Self.LocationsSectionInsets
         
         let locationCollectionView = UICollectionView(frame: .zero, collectionViewLayout:locationLayout)
-        locationCollectionView.tag = 0
         locationCollectionView.contentInsetAdjustmentBehavior = .always
         return locationCollectionView
     }()
@@ -34,7 +33,6 @@ final class HomeView: UIView {
         peopleLayout.sectionInset = Self.PeopleSectionInsets
         
         let peopleCollectionView = UICollectionView(frame: .zero, collectionViewLayout:peopleLayout)
-        peopleCollectionView.tag = 1
         peopleCollectionView.contentInsetAdjustmentBehavior = .always
         return peopleCollectionView
     }()
