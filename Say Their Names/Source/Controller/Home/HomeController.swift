@@ -26,7 +26,8 @@ class HomeController: ServiceClientViewController {
     var customNavBar : UIView { homeView.customNavBar }
     var locationCollectionView : UICollectionView { homeView.locationCollectionView }
     var peopleCollectionView : UICollectionView { homeView.peopleCollectionView }
-
+    var searchButton : UIButton { homeView.searchButton }
+    
     override func loadView() {
         self.view = homeView
     }
@@ -39,6 +40,7 @@ class HomeController: ServiceClientViewController {
         searchBar.setup(withController: self)
         setupCollectionView()
         showLaunchScreen()
+        setupSearchButton()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -52,6 +54,10 @@ class HomeController: ServiceClientViewController {
         super.viewDidAppear(animated)
         // To-Do: move this logic to after data is fetched from back-end
         removeLaunchScreen()
+    }
+    
+    private func setupSearchButton() {
+        searchButton.addTarget(self, action: #selector(searchButtonPressed(_:)), for: .touchUpInside)
     }
     
     fileprivate func setupCollectionView() {
