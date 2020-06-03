@@ -20,10 +20,6 @@ class LocationCollectionViewDataSource: NSObject {
         self.locations = locations
     }
     
-    func numberOfItems() -> Int {
-        return locations.count
-    }
-    
 }
 
 extension LocationCollectionViewDataSource: UICollectionViewDataSource {

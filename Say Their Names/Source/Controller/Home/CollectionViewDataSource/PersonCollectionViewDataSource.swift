@@ -25,10 +25,6 @@ class PersonCollectionViewDataSource: NSObject {
         self.people = people
     }
     
-    func numberOfItems() -> Int {
-        return people.count
-    }
-    
     func appendPeople(_ people: [Person]) {
         self.people.append(contentsOf: people)
     }
