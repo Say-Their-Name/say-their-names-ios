@@ -15,11 +15,7 @@ final class PersonCell: UICollectionViewCell {
     @IBOutlet weak private var birthdayLabel: UILabel!
     @IBOutlet weak private var bookmarkButton: UIButton!
     
-    var data: Person? {
-        didSet {
-            //guard let data  = data else {return}
-        }
-    }
+    var person: Person?
     
     // MARK:- Lifecycle
     
