@@ -13,6 +13,8 @@
 		7433B6472484B987005140D4 /* PersonDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7433B6452484B987005140D4 /* PersonDetailsController.swift */; };
 		7433B64A2484BABA005140D4 /* PersonPhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7433B6482484BABA005140D4 /* PersonPhotoCell.xib */; };
 		7433B64B2484BABA005140D4 /* PersonPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7433B6492484BABA005140D4 /* PersonPhotoCell.swift */; };
+		74DE10872486DFA300211B83 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DE10852486DFA300211B83 /* SettingsController.swift */; };
+		74DE10882486DFA300211B83 /* SettingsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74DE10862486DFA300211B83 /* SettingsController.xib */; };
 		7A5BFA0B248618B100BC265A /* SayTheirNamesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5BFA0A248618B100BC265A /* SayTheirNamesUITests.swift */; };
 		7A5BFA12248618C000BC265A /* XCUIApplication+SayTheirName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5BFA01248615C100BC265A /* XCUIApplication+SayTheirName.swift */; };
 		7A5BFA14248618CF00BC265A /* Say_Their_NamesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3ED7562481CA000033FF79 /* Say_Their_NamesTests.swift */; };
@@ -111,6 +113,8 @@
 		7433B6452484B987005140D4 /* PersonDetailsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonDetailsController.swift; sourceTree = "<group>"; };
 		7433B6482484BABA005140D4 /* PersonPhotoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonPhotoCell.xib; sourceTree = "<group>"; };
 		7433B6492484BABA005140D4 /* PersonPhotoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonPhotoCell.swift; sourceTree = "<group>"; };
+		74DE10852486DFA300211B83 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
+		74DE10862486DFA300211B83 /* SettingsController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsController.xib; sourceTree = "<group>"; };
 		7A5BFA01248615C100BC265A /* XCUIApplication+SayTheirName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCUIApplication+SayTheirName.swift"; sourceTree = "<group>"; };
 		7A5BFA08248618B100BC265A /* SayTheirNamesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SayTheirNamesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A5BFA0A248618B100BC265A /* SayTheirNamesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SayTheirNamesUITests.swift; sourceTree = "<group>"; };
@@ -255,6 +259,15 @@
 			path = "Say Their NamesTests";
 			sourceTree = "<group>";
 		};
+		74DE10842486DF7400211B83 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				74DE10852486DFA300211B83 /* SettingsController.swift */,
+				74DE10862486DFA300211B83 /* SettingsController.xib */,
+			);
+			path = Settings;
+      sourceTree = "<group>";
+      };
 		7A5BFA09248618B100BC265A /* SayTheirNamesUITests */ = {
 			isa = PBXGroup;
 			children = (
@@ -407,6 +420,7 @@
 		A91B077124835CF700DB803C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				74DE10842486DF7400211B83 /* Settings */,
 				A91B07D024849E0C00DB803C /* Base */,
 				83E9CACE2484A4DE001D173A /* Launch */,
 				A91B077224835CF700DB803C /* Home */,
@@ -730,6 +744,7 @@
 				A91B07AC24835CF700DB803C /* PersonHeaderCell.xib in Resources */,
 				A91B079D24835CF700DB803C /* PersonController.xib in Resources */,
 				A91B079F24835CF700DB803C /* HomeController.xib in Resources */,
+				74DE10882486DFA300211B83 /* SettingsController.xib in Resources */,
 				83E9CAD22484A514001D173A /* LaunchScreen.xib in Resources */,
 				A91B07AF24835CF700DB803C /* PersonCell.xib in Resources */,
 				9E24499D2485E98C00B149DF /* Localizable.strings in Resources */,
@@ -779,7 +794,7 @@
 		};
 		9E24499A2485E8A500B149DF /* SwiftGen */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			files = (
 			);
 			inputFileListPaths = (
@@ -862,6 +877,7 @@
 				A91B079724835CF700DB803C /* UIView++.swift in Sources */,
 				A91B07AD24835CF700DB803C /* PersonCell.swift in Sources */,
 				9E7DBAF2248481DA00635A56 /* ImageProvider.swift in Sources */,
+				74DE10872486DFA300211B83 /* SettingsController.swift in Sources */,
 				B386F958248526C70037A38D /* Location.swift in Sources */,
 				A91B07A524835CF700DB803C /* UIColor+STN.swift in Sources */,
 				A91B07A024835CF700DB803C /* DonationsController.swift in Sources */,
