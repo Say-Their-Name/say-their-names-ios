@@ -9,18 +9,19 @@
 import UIKit
 
 /// The UI for Donations
-final class DonationsViewCode: UIView {
+final class DonationsView: UIView {
     
     private lazy var donationsLabel: UILabel = {
         let label = UILabel()
         label.text = "Donations"
         label.textAlignment = .center
+        label.translatesAutoresizingMaskIntoConstraints = false
         
         return label
     }()
     
-    init() {
-        super.init(frame: .zero)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         setupSelf()
     }
     
@@ -42,11 +43,10 @@ final class DonationsViewCode: UIView {
 
 // MARK: - Configurations
 
-private extension DonationsViewCode {
+private extension DonationsView {
     
     func setupDonationsLabel() {
         addSubview(donationsLabel)
-        donationsLabel.translatesAutoresizingMaskIntoConstraints = false
         donationsLabel.fillSuperview()
     }
     

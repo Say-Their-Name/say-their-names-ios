@@ -10,7 +10,7 @@ import UIKit
 
 class DonationsController: BaseViewController {
     
-    private lazy var viewCode = DonationsViewCode()
+    private let ui = DonationsView()
     
     required init(service: Service, shouldInitWithNib: Bool) {
         super.init(service: service, shouldInitWithNib: false)
@@ -21,6 +21,6 @@ class DonationsController: BaseViewController {
     }
     
     override func loadView() {
-        view = viewCode
+        view = ui
     }
 }
