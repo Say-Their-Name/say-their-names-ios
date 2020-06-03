@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PersonDetailsController: BaseViewController {
+final class PersonDetailsController: BaseViewController {
 
     @IBOutlet weak var mediaCollectionView: UICollectionView!
     
@@ -16,9 +16,7 @@ class PersonDetailsController: BaseViewController {
         super.viewDidLoad()
         mediaCollectionView.delegate = self
         mediaCollectionView.dataSource = self
-        
-        let personPhotoCell = UINib(nibName: "PersonPhotoCell", bundle: nil)
-        mediaCollectionView.register(personPhotoCell, forCellWithReuseIdentifier: "PersonPhotoCell")
+        mediaCollectionView.register(cellType: PersonPhotoCell.self)
     }
     
     @IBAction func didPressBack(_ sender: Any) {
@@ -41,16 +39,22 @@ extension PersonDetailsController: UICollectionViewDataSource, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PersonPhotoCell", for: indexPath)
+        let cell: PersonPhotoCell = collectionView.dequeueCell(for: indexPath)
+        let personImage = UIImage(named: "man-in-red-jacket-1681010")
+        cell.setImage(personImage)
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 18
+        return cellSpacing
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return PersonPhotoCell.size(collectionView)
     }
-    
+}
+
+// MARK: - Constants used in PersonDetailsController
+private extension PersonDetailsController {
+    var cellSpacing: CGFloat { 15 }
 }
