@@ -34,15 +34,7 @@ final class PersonPhotoCell: UICollectionViewCell {
     
     private func setup() {
         addSubview(personImageView)
-                
-        let constraints = [
-            personImageView.topAnchor.constraint(equalTo: topAnchor),
-            personImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            personImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            personImageView.bottomAnchor.constraint(equalTo: bottomAnchor)
-        ]
-        
-        NSLayoutConstraint.activate(constraints)
+        personImageView.fillSuperview()
     }
     
     func setImage(_ image: UIImage?) {
