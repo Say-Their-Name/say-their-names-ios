@@ -1,18 +1,18 @@
 {
   "images" : [
     {
-      "filename" : "STN-Logo.png",
       "idiom" : "universal",
+      "filename" : "settings 2.png",
       "scale" : "1x"
     },
     {
-      "filename" : "STN-Logo@2x.png",
       "idiom" : "universal",
+      "filename" : "settings 2@2x.png",
       "scale" : "2x"
     },
     {
-      "filename" : "STN-Logo@3x.png",
       "idiom" : "universal",
+      "filename" : "settings 2@3x.png",
       "scale" : "3x"
     }
   ],
