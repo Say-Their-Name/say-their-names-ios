@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -76,10 +76,10 @@
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <connections>
+                <outlet property="birthdayLabel" destination="1Ut-3z-SmT" id="3MV-KN-L6f"/>
                 <outlet property="bookmarkButton" destination="wrh-sd-nIU" id="ife-9F-2Qd"/>
-                <outlet property="dobLabel" destination="1Ut-3z-SmT" id="bva-3o-xBa"/>
-                <outlet property="imgView" destination="6lW-4e-Fcl" id="tSK-qW-CWY"/>
                 <outlet property="nameLabel" destination="Slj-Mj-hpk" id="Ue5-hf-2Li"/>
+                <outlet property="profileImageView" destination="6lW-4e-Fcl" id="9Q4-EO-76q"/>
             </connections>
             <point key="canvasLocation" x="142" y="125"/>
         </collectionViewCell>
