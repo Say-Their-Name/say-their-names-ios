@@ -21,6 +21,8 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
     private let shadowOpacity: Float = 1
     private let shadowOffset: CGSize = .init(width: 0, height: 10)
 
+    private var launchScreen: LaunchScreen?
+    
     required init?(coder aDecoder: NSCoder) { fatalError("") }
     init(service: Service) {
         self.service = service
@@ -33,13 +35,27 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         setupTabBarStyle()
         setupTabBar()
         setupTabViews()
+        showLaunchScreen()	
+        view.isAccessibilityElement = false
     }
-
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        // To-Do: move this logic to after data is fetched from back-end, or when we are ready to reveal the content
+        removeLaunchScreen()
+    }
 
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        if let launchScreen = launchScreen {
+            view.bringSubviewToFront(launchScreen)
+        }
+    }
+    
     fileprivate func setupTabBarStyle() {
         tabBar.isTranslucent = true
         tabBar.layer.borderWidth = 0.9
@@ -51,7 +67,6 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         tabBar.unselectedItemTintColor = defaultUnselectedTint
         UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "Karla-Regular", size: 11)!], for: .normal)
     }
-
 
     @objc fileprivate func setupTabViews() {
         let homeController = HomeController(service: self.service)
@@ -97,3 +112,24 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
     }
 }
 
+
+private extension MainTabBarController {
+    
+    func showLaunchScreen() {
+        guard let launchView = LaunchScreen.createFromNib() else {
+            return
+        }
+        view.addSubview(launchView)
+        launchView.frame = view.bounds
+        launchScreen = launchView
+    }
+    
+    func removeLaunchScreen() {
+        guard let launchView = launchScreen else { return }
+
+        launchView.animate(completion: {
+            launchView.removeFromSuperview()
+            self.launchScreen = nil
+        })
+    }
+}
