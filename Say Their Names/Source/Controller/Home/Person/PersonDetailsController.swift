@@ -17,8 +17,7 @@ class PersonDetailsController: BaseViewController {
         mediaCollectionView.delegate = self
         mediaCollectionView.dataSource = self
         
-        let personPhotoCell = UINib(nibName: "PersonPhotoCell", bundle: nil)
-        mediaCollectionView.register(personPhotoCell, forCellWithReuseIdentifier: "PersonPhotoCell")
+        mediaCollectionView.register(cellType: PersonPhotoCell.self)
     }
     
     @IBAction func didPressBack(_ sender: Any) {
@@ -41,12 +40,13 @@ extension PersonDetailsController: UICollectionViewDataSource, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PersonPhotoCell", for: indexPath)
+        let cell: PersonPhotoCell = collectionView.dequeueCell(for: indexPath)
+        cell.personImage = #imageLiteral(resourceName: "man-in-red-jacket-1681010")
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 18
+        return 15
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
