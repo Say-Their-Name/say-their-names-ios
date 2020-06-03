@@ -24,8 +24,9 @@ class PersonCell: UICollectionViewCell {
         let df = DateFormatter()
         df.dateFormat = "dd.MM.yyyy"
         
-        personPhotoImageView.image = UIImage(named: person.media.first ?? "man-in-red-jacket-1681010")
+        personPhotoImageView.image = #imageLiteral(resourceName: "man-in-red-jacket-1681010")
         // ^Update to default place holder image when resource is added.
+        // TO-DO: Use Kilo's ImageDownloader here to DL image
         nameLabel.text = person.fullName
         dateLabel.text = df.string(from: person.date)
     }

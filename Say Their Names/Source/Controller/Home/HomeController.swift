@@ -117,6 +117,7 @@ extension HomeController: UICollectionViewDelegateFlowLayout {
             
         } else {
             // People CollectionView
+//            let selectedPerson = peopleDataSource.fetchPerson(at: indexPath.item)
             let personController = PersonController(service: self.service)
             let navigationController = UINavigationController(rootViewController: personController)
             navigationController.navigationBar.isHidden = true

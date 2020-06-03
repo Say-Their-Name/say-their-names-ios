@@ -16,6 +16,11 @@ class PersonCollectionViewDataSource: NSObject {
         self.people = people 
     }
     
+    func fetchPerson(at index: Int) -> Person {
+        let person = people[index]
+        return person
+    }
+    
     func setPeople(_ people: [Person]) {
         self.people = people
     }
