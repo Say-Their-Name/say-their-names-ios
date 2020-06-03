@@ -24,6 +24,7 @@
 		9E24499D2485E98C00B149DF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9E24499B2485E98C00B149DF /* Localizable.strings */; };
 		9E2449A02485EA0B00B149DF /* strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E24499F2485EA0B00B149DF /* strings.swift */; };
 		9E2449A32485EA7600B149DF /* Typealiases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2449A22485EA7600B149DF /* Typealiases.swift */; };
+		9E459C5624873BB000309334 /* PetitionsViewCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E459C5524873BB000309334 /* PetitionsViewCode.swift */; };
 		9E7DBAF0248481DA00635A56 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7DBAE8248481DA00635A56 /* ImageCache.swift */; };
 		9E7DBAF1248481DA00635A56 /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7DBAE9248481DA00635A56 /* ImageService.swift */; };
 		9E7DBAF2248481DA00635A56 /* ImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7DBAEA248481DA00635A56 /* ImageProvider.swift */; };
@@ -47,7 +48,6 @@
 		A91B079F24835CF700DB803C /* HomeController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A91B077724835CF700DB803C /* HomeController.xib */; };
 		A91B07A024835CF700DB803C /* DonationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B077924835CF700DB803C /* DonationsController.swift */; };
 		A91B07A124835CF700DB803C /* DonationsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A91B077A24835CF700DB803C /* DonationsController.xib */; };
-		A91B07A224835CF700DB803C /* PetitionsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A91B077C24835CF700DB803C /* PetitionsController.xib */; };
 		A91B07A324835CF700DB803C /* PetitionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B077D24835CF700DB803C /* PetitionsController.swift */; };
 		A91B07A424835CF700DB803C /* UIFont+STN.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B077F24835CF700DB803C /* UIFont+STN.swift */; };
 		A91B07A524835CF700DB803C /* UIColor+STN.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B078024835CF700DB803C /* UIColor+STN.swift */; };
@@ -75,7 +75,7 @@
 		B386F9552482FB540037A38D /* UIFontSTNTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B386F9542482FB540037A38D /* UIFontSTNTests.swift */; };
 		B386F958248526C70037A38D /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = B386F957248526C70037A38D /* Location.swift */; };
 		B3D6B6A92486EE3300D3118C /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B07B724846B0C00DB803C /* Service.swift */; };
-		C0594BF824873CCE00260BAD /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0594BF724873CCE00260BAD /* Reusable.swift */; };
+		B3D6B6AF2487E10100D3118C /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D6B6AE2487E10100D3118C /* Reusable.swift */; };
 		C0594BFA248754A200260BAD /* UICollectionView++.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0594BF9248754A200260BAD /* UICollectionView++.swift */; };
 		C0594BFC248754C900260BAD /* UICollectionViewCell++.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0594BFB248754C900260BAD /* UICollectionViewCell++.swift */; };
 		EA8A07BCD35C218CA5E69CEC /* Pods_Say_Their_NamesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A7C6C9D07F911D0BA41942E /* Pods_Say_Their_NamesTests.framework */; };
@@ -128,6 +128,7 @@
 		9E24499C2485E98C00B149DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9E24499F2485EA0B00B149DF /* strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = strings.swift; sourceTree = "<group>"; };
 		9E2449A22485EA7600B149DF /* Typealiases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typealiases.swift; sourceTree = "<group>"; };
+		9E459C5524873BB000309334 /* PetitionsViewCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetitionsViewCode.swift; sourceTree = "<group>"; };
 		9E7DBAE8248481DA00635A56 /* ImageCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		9E7DBAE9248481DA00635A56 /* ImageService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 		9E7DBAEA248481DA00635A56 /* ImageProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageProvider.swift; sourceTree = "<group>"; };
@@ -151,7 +152,6 @@
 		A91B077724835CF700DB803C /* HomeController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeController.xib; sourceTree = "<group>"; };
 		A91B077924835CF700DB803C /* DonationsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DonationsController.swift; sourceTree = "<group>"; };
 		A91B077A24835CF700DB803C /* DonationsController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DonationsController.xib; sourceTree = "<group>"; };
-		A91B077C24835CF700DB803C /* PetitionsController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PetitionsController.xib; sourceTree = "<group>"; };
 		A91B077D24835CF700DB803C /* PetitionsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetitionsController.swift; sourceTree = "<group>"; };
 		A91B077F24835CF700DB803C /* UIFont+STN.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+STN.swift"; sourceTree = "<group>"; };
 		A91B078024835CF700DB803C /* UIColor+STN.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+STN.swift"; sourceTree = "<group>"; };
@@ -179,9 +179,9 @@
 		A91B07D32484C88D00DB803C /* BaseNibLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNibLoading.swift; sourceTree = "<group>"; };
 		B386F9542482FB540037A38D /* UIFontSTNTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontSTNTests.swift; sourceTree = "<group>"; };
 		B386F957248526C70037A38D /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		B3D6B6AE2487E10100D3118C /* Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		B4C2225CE2734B7F1B4D3F86 /* Pods-Say Their NamesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Say Their NamesTests.debug.xcconfig"; path = "Target Support Files/Pods-Say Their NamesTests/Pods-Say Their NamesTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B7969F7399F9FC25A06F8195 /* Pods_Say_Their_Names.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Say_Their_Names.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C0594BF724873CCE00260BAD /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		C0594BF9248754A200260BAD /* UICollectionView++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView++.swift"; sourceTree = "<group>"; };
 		C0594BFB248754C900260BAD /* UICollectionViewCell++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell++.swift"; sourceTree = "<group>"; };
 		D107CEC59C11537D09D9DB2E /* Pods-Say Their Names.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Say Their Names.release.xcconfig"; path = "Target Support Files/Pods-Say Their Names/Pods-Say Their Names.release.xcconfig"; sourceTree = "<group>"; };
@@ -270,8 +270,8 @@
 				74DE10862486DFA300211B83 /* SettingsController.xib */,
 			);
 			path = Settings;
-      sourceTree = "<group>";
-      };
+			sourceTree = "<group>";
+		};
 		7A5BFA09248618B100BC265A /* SayTheirNamesUITests */ = {
 			isa = PBXGroup;
 			children = (
@@ -356,7 +356,6 @@
 				A91B079424835CF700DB803C /* SceneDelegate.swift */,
 				A91B078224835CF700DB803C /* Components */,
 				A91B077124835CF700DB803C /* Controller */,
-				A91B07C62484725200DB803C /* Frameworks */,
 				A91B07BB24846ECB00DB803C /* Log */,
 				A91B078524835CF700DB803C /* Model */,
 				A91B07B624846AFD00DB803C /* Service */,
@@ -369,13 +368,13 @@
 		A91B076524835CF700DB803C /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				C0594BF62487394F00260BAD /* Protocols */,
-				9E2449A12485EA6500B149DF /* Typealiases */,
-				9E7DBAFA2484821C00635A56 /* Operators */,
+				B3D6B6AD2487E10100D3118C /* Protocols */,
 				A91B076624835CF700DB803C /* Color */,
 				A91B076824835CF700DB803C /* Extentions */,
-				A91B076B24835CF700DB803C /* Size */,
 				A91B076D24835CF700DB803C /* Fonts */,
+				9E7DBAFA2484821C00635A56 /* Operators */,
+				A91B076B24835CF700DB803C /* Size */,
+				9E2449A12485EA6500B149DF /* Typealiases */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -391,14 +390,14 @@
 		A91B076824835CF700DB803C /* Extentions */ = {
 			isa = PBXGroup;
 			children = (
+				A91B07C22484719C00DB803C /* Bundle+STN.swift */,
 				9E7DBAF8248481FC00635A56 /* Operation++.swift */,
-				A91B076924835CF700DB803C /* UIFont++.swift */,
-				A91B077F24835CF700DB803C /* UIFont+STN.swift */,
+				A91B07C72484751700DB803C /* String+STN.swift */,
 				A91B078024835CF700DB803C /* UIColor+STN.swift */,
 				A91B078124835CF700DB803C /* UIDevice+STN.swift */,
+				A91B076924835CF700DB803C /* UIFont++.swift */,
+				A91B077F24835CF700DB803C /* UIFont+STN.swift */,
 				A91B076A24835CF700DB803C /* UIView++.swift */,
-				A91B07C22484719C00DB803C /* Bundle+STN.swift */,
-				A91B07C72484751700DB803C /* String+STN.swift */,
 				83E9CAD32484A5DC001D173A /* UIViewController+TabBar.swift */,
 				C0594BF9248754A200260BAD /* UICollectionView++.swift */,
 				C0594BFB248754C900260BAD /* UICollectionViewCell++.swift */,
@@ -418,8 +417,8 @@
 			isa = PBXGroup;
 			children = (
 				A91B076E24835CF700DB803C /* UIFont+Resource.swift */,
-				A91B076F24835CF700DB803C /* Karla-Regular.ttf */,
 				A91B077024835CF700DB803C /* Karla-Bold.ttf */,
+				A91B076F24835CF700DB803C /* Karla-Regular.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -429,9 +428,9 @@
 			children = (
 				74DE10842486DF7400211B83 /* Settings */,
 				A91B07D024849E0C00DB803C /* Base */,
-				83E9CACE2484A4DE001D173A /* Launch */,
-				A91B077224835CF700DB803C /* Home */,
 				A91B077824835CF700DB803C /* Donations */,
+				A91B077224835CF700DB803C /* Home */,
+				83E9CACE2484A4DE001D173A /* Launch */,
 				A91B077B24835CF700DB803C /* Petitions */,
 			);
 			path = Controller;
@@ -441,8 +440,8 @@
 			isa = PBXGroup;
 			children = (
 				A91B077324835CF700DB803C /* HomeController.swift */,
-				A91B077424835CF700DB803C /* Person */,
 				A91B077724835CF700DB803C /* HomeController.xib */,
+				A91B077424835CF700DB803C /* Person */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -450,10 +449,10 @@
 		A91B077424835CF700DB803C /* Person */ = {
 			isa = PBXGroup;
 			children = (
-				7433B6442484B987005140D4 /* PersonDetailsController.xib */,
+				A91B077624835CF700DB803C /* PersonController.swift */,
 				7433B6452484B987005140D4 /* PersonDetailsController.swift */,
 				A91B077524835CF700DB803C /* PersonController.xib */,
-				A91B077624835CF700DB803C /* PersonController.swift */,
+				7433B6442484B987005140D4 /* PersonDetailsController.xib */,
 			);
 			path = Person;
 			sourceTree = "<group>";
@@ -470,8 +469,8 @@
 		A91B077B24835CF700DB803C /* Petitions */ = {
 			isa = PBXGroup;
 			children = (
-				A91B077C24835CF700DB803C /* PetitionsController.xib */,
 				A91B077D24835CF700DB803C /* PetitionsController.swift */,
+				9E459C5524873BB000309334 /* PetitionsViewCode.swift */,
 			);
 			path = Petitions;
 			sourceTree = "<group>";
@@ -479,9 +478,9 @@
 		A91B078224835CF700DB803C /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				A91B078324835CF700DB803C /* MainTabBarController.swift */,
 				A91B078424835CF700DB803C /* CustomNavigationBar.swift */,
 				EEC3A1D32483D493001E7754 /* CustomSearchBar.swift */,
+				A91B078324835CF700DB803C /* MainTabBarController.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -489,10 +488,10 @@
 		A91B078524835CF700DB803C /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				A91B078624835CF700DB803C /* Person.swift */,
 				A91B078724835CF700DB803C /* Donation.swift */,
-				A91B078824835CF700DB803C /* Petition.swift */,
 				B386F957248526C70037A38D /* Location.swift */,
+				A91B078624835CF700DB803C /* Person.swift */,
+				A91B078824835CF700DB803C /* Petition.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -518,11 +517,11 @@
 		A91B078B24835CF700DB803C /* Person */ = {
 			isa = PBXGroup;
 			children = (
-				7433B6492484BABA005140D4 /* PersonPhotoCell.swift */,
-				A91B078C24835CF700DB803C /* PersonHeaderCell.xib */,
 				A91B078D24835CF700DB803C /* PersonCell.swift */,
 				A91B078E24835CF700DB803C /* PersonHeaderCell.swift */,
+				7433B6492484BABA005140D4 /* PersonPhotoCell.swift */,
 				A91B078F24835CF700DB803C /* PersonCell.xib */,
+				A91B078C24835CF700DB803C /* PersonHeaderCell.xib */,
 			);
 			path = Person;
 			sourceTree = "<group>";
@@ -551,11 +550,10 @@
 		A91B07B624846AFD00DB803C /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				A91B07CE24849D8400DB803C /* ServiceReferring.swift */,
 				A91B07B724846B0C00DB803C /* Service.swift */,
-				A91B07BE2484704200DB803C /* Navigator */,
+				A91B07CE24849D8400DB803C /* ServiceReferring.swift */,
 				9E7DBAE7248481DA00635A56 /* ImageDownloader */,
-				B386F95924852EDD0037A38D /* Firebase */,
+				A91B07BE2484704200DB803C /* Navigator */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -574,13 +572,6 @@
 				A91B07BF2484705400DB803C /* Navigator.swift */,
 			);
 			path = Navigator;
-			sourceTree = "<group>";
-		};
-		A91B07C62484725200DB803C /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Frameworks;
 			sourceTree = "<group>";
 		};
 		A91B07D024849E0C00DB803C /* Base */ = {
@@ -616,17 +607,10 @@
 			path = UtilsTests;
 			sourceTree = "<group>";
 		};
-		B386F95924852EDD0037A38D /* Firebase */ = {
+		B3D6B6AD2487E10100D3118C /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-			);
-			path = Firebase;
-			sourceTree = "<group>";
-		};
-		C0594BF62487394F00260BAD /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				C0594BF724873CCE00260BAD /* Reusable.swift */,
+				B3D6B6AE2487E10100D3118C /* Reusable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -752,7 +736,6 @@
 				5B3ED7492481CA000033FF79 /* Assets.xcassets in Resources */,
 				7433B6462484B987005140D4 /* PersonDetailsController.xib in Resources */,
 				A91B07A124835CF700DB803C /* DonationsController.xib in Resources */,
-				A91B07A224835CF700DB803C /* PetitionsController.xib in Resources */,
 				A91B079A24835CF700DB803C /* Karla-Regular.ttf in Resources */,
 				A91B07AC24835CF700DB803C /* PersonHeaderCell.xib in Resources */,
 				A91B079D24835CF700DB803C /* PersonController.xib in Resources */,
@@ -856,7 +839,6 @@
 				A91B07A924835CF700DB803C /* Person.swift in Sources */,
 				9E7DBAFC2484822A00635A56 /* Operators.swift in Sources */,
 				9E7DBAF1248481DA00635A56 /* ImageService.swift in Sources */,
-				C0594BF824873CCE00260BAD /* Reusable.swift in Sources */,
 				9E7DBAF7248481DA00635A56 /* FileDataProvider.swift in Sources */,
 				A91B07A424835CF700DB803C /* UIFont+STN.swift in Sources */,
 				A91B07D224849E1800DB803C /* BaseViewController.swift in Sources */,
@@ -865,6 +847,7 @@
 				A91B07BD24846ED700DB803C /* Log.swift in Sources */,
 				EEC3A1D42483D493001E7754 /* CustomSearchBar.swift in Sources */,
 				9E7DBAF5248481DA00635A56 /* FileDownloader.swift in Sources */,
+				B3D6B6AF2487E10100D3118C /* Reusable.swift in Sources */,
 				C0594BFA248754A200260BAD /* UICollectionView++.swift in Sources */,
 				A91B07CF24849D8400DB803C /* ServiceReferring.swift in Sources */,
 				A91B079824835CF700DB803C /* STNSize.swift in Sources */,
@@ -897,6 +880,7 @@
 				B386F958248526C70037A38D /* Location.swift in Sources */,
 				A91B07A524835CF700DB803C /* UIColor+STN.swift in Sources */,
 				A91B07A024835CF700DB803C /* DonationsController.swift in Sources */,
+				9E459C5624873BB000309334 /* PetitionsViewCode.swift in Sources */,
 				83E9CAD42484A5DC001D173A /* UIViewController+TabBar.swift in Sources */,
 				9E7DBAF0248481DA00635A56 /* ImageCache.swift in Sources */,
 				A91B07A624835CF700DB803C /* UIDevice+STN.swift in Sources */,
@@ -1082,7 +1066,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = H3YM9UX59B;
+				DEVELOPMENT_TEAM = "";
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = "Say Their Names/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1103,7 +1087,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = H3YM9UX59B;
+				DEVELOPMENT_TEAM = "";
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = "Say Their Names/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1125,7 +1109,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Q93T3ZJQ58;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Say Their NamesTests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1148,7 +1132,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Q93T3ZJQ58;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Say Their NamesTests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
