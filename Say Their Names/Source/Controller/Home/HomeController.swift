@@ -9,13 +9,11 @@
 import UIKit
 
 //MARK: - IDENTIFIERS
-private let locationIdentifier = "locationCell"
-private let peopleIdentifier = "PersonCell"
 private let headerIdentifier = "PersonHeaderCell"
+private let peopleIdentifier = "PersonCell"
 
 class HomeController: BaseViewController {
         
-    
     var launchScreen: LaunchScreen?
     
     //MARK: - IBOUTLETS
@@ -24,7 +22,10 @@ class HomeController: BaseViewController {
     @IBOutlet weak var peopleCollectionView: UICollectionView!
     //MARK: - CONSTANTS
     private let searchBar = CustomSearchBar()
-    private let locations = ["ALL", "MISSOURI", "TEXAS", "NEW YORK"] // dummy data
+    
+    //MARK: - CV Data Sources
+    private let locationsDataSource = LocationCollectionViewDataSource(locations: [])
+    
     
     //MARK: - ClASS METHODS
     override func viewDidLoad() {
@@ -50,9 +51,19 @@ class HomeController: BaseViewController {
     }
     
     fileprivate func setupCollectionView() {
+        
+        // TO-DO: Dummy data for now, should update after API call to get locations
+        let locations: [Location] = [.init(name: "ALL"),
+                         .init(name: "RECENT"),
+                         .init(name: "MISSOURI"),
+                         .init(name: "TEXAS"),
+                         .init(name: "NEW YORK")]
+        
+        locationsDataSource.setLocations(locations)
+        
         locationCollectionView.delegate = self
-        locationCollectionView.dataSource = self
-        locationCollectionView.register(LocationCell.self, forCellWithReuseIdentifier: locationIdentifier)
+        locationCollectionView.dataSource = locationsDataSource
+        locationCollectionView.register(LocationCell.self, forCellWithReuseIdentifier: LocationCell.locationIdentifier)
         
         peopleCollectionView.delegate = self
         peopleCollectionView.dataSource = self
@@ -71,7 +82,10 @@ class HomeController: BaseViewController {
 extension HomeController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return collectionView.tag == 0 ? locations.count : 10
+        if collectionView == locationCollectionView {
+            return locationsDataSource.numberOfItems()
+        }
+        return  10
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
@@ -86,15 +100,8 @@ extension HomeController: UICollectionViewDataSource, UICollectionViewDelegateFl
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if collectionView.tag == 0 {
-            let cell = locationCollectionView.dequeueReusableCell(withReuseIdentifier: locationIdentifier, for: indexPath) as! LocationCell
-            if indexPath.item == 0 { cell.isSelected = true }
-            cell.titleLabel.text = self.locations[indexPath.item]
-            return cell
-        } else {
-            let cell = peopleCollectionView.dequeueReusableCell(withReuseIdentifier: peopleIdentifier, for: indexPath) as! PersonCell
-            return cell
-        }
+        let cell = peopleCollectionView.dequeueReusableCell(withReuseIdentifier: peopleIdentifier, for: indexPath) as! PersonCell
+        return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

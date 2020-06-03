@@ -10,6 +10,8 @@ import UIKit
 
 class LocationCell: UICollectionViewCell {
 
+    static let locationIdentifier = "locationCell"
+    
     var titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.STN.locationText
@@ -38,5 +40,8 @@ class LocationCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
+    func configure(with location: Location) {
+        titleLabel.text = location.name
+    }
 
 }
