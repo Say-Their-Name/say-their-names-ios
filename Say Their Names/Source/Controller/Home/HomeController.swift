@@ -13,18 +13,23 @@ private let locationIdentifier = "locationCell"
 private let peopleIdentifier = "PersonCell"
 private let headerIdentifier = "PersonHeaderCell"
 
-class HomeController: BaseViewController {
+class HomeController: ServiceClientViewController {
         
-    
     var launchScreen: LaunchScreen?
     
     //MARK: - IBOUTLETS
-    @IBOutlet weak var customNavBar: UIView!
-    @IBOutlet weak var locationCollectionView: UICollectionView!
-    @IBOutlet weak var peopleCollectionView: UICollectionView!
     //MARK: - CONSTANTS
     private let searchBar = CustomSearchBar()
     private let locations = ["ALL", "MISSOURI", "TEXAS", "NEW YORK"] // dummy data
+    
+    private let homeView = HomeView()
+    var customNavBar : UIView { homeView.customNavBar }
+    var locationCollectionView : UICollectionView { homeView.locationCollectionView }
+    var peopleCollectionView : UICollectionView { homeView.peopleCollectionView }
+
+    override func loadView() {
+        self.view = homeView
+    }
     
     //MARK: - ClASS METHODS
     override func viewDidLoad() {
