@@ -82,6 +82,16 @@ extension CarouselHeaderView: UICollectionViewDelegate {
 
 extension CarouselHeaderView: UICollectionViewDelegateFlowLayout {
 
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        self.collectionView.scrollToNearestVisibleCollectionViewCell()
+    }
+
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if !decelerate {
+            self.collectionView.scrollToNearestVisibleCollectionViewCell()
+        }
+    }
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
            return CGSize(width: self.collectionView.bounds.width - 20, height: self.collectionView.bounds.height - 20)
        }
@@ -105,12 +115,32 @@ extension CarouselHeaderView: LineCarouselControlProtocol {
 
     func didSelectLineAt(_ index: Int) {
         //move to the correct cell here
-        print("selected \(index)")
-        guard let cell = collectionView.cellForItem(at: IndexPath(item: index, section: 0)) else {return}
-        print("got it")
+        collectionView.scrollToItem(at: IndexPath(item: index, section: 0), at: .centeredHorizontally, animated: true)
     }
 
 }
 
+extension UICollectionView {
+    func scrollToNearestVisibleCollectionViewCell() {
+        self.decelerationRate = UIScrollView.DecelerationRate.fast
+        let visibleCenterPositionOfScrollView = Float(self.contentOffset.x + (self.bounds.size.width / 2))
+        var closestCellIndex = -1
+        var closestDistance: Float = .greatestFiniteMagnitude
+        for i in 0..<self.visibleCells.count {
+            let cell = self.visibleCells[i]
+            let cellWidth = cell.bounds.size.width
+            let cellCenter = Float(cell.frame.origin.x + cellWidth / 2)
 
+            // Now calculate closest cell
+            let distance: Float = fabsf(visibleCenterPositionOfScrollView - cellCenter)
+            if distance < closestDistance {
+                closestDistance = distance
+                closestCellIndex = self.indexPath(for: cell)!.row
+            }
+        }
+        if closestCellIndex != -1 {
+            self.scrollToItem(at: IndexPath(row: closestCellIndex, section: 0), at: .centeredHorizontally, animated: true)
+        }
+    }
+}
 
