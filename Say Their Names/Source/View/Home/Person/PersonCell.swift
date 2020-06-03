@@ -10,10 +10,10 @@ import UIKit
 
 final class PersonCell: UICollectionViewCell {
 
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var imgView: UIImageView!
-    @IBOutlet weak var dobLabel: UILabel!
-    @IBOutlet weak var bookmarkButton: UIButton!
+    @IBOutlet weak private var nameLabel: UILabel!
+    @IBOutlet weak private var profileImageView: UIImageView!
+    @IBOutlet weak private var birthdayLabel: UILabel!
+    @IBOutlet weak private var bookmarkButton: UIButton!
     
     var data: Person? {
         didSet {
