@@ -57,6 +57,7 @@ class HomeController: UIViewController, ServiceReferring {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         // Select first location by default
+        // FIXME: can have multiple selected. need one source-of-truth here.
         let selectedIndexPath = IndexPath(item: 0, section: 0)
         locationCollectionView.selectItem(at: selectedIndexPath, animated: false, scrollPosition: .centeredVertically)
     }
@@ -119,42 +120,37 @@ class HomeController: UIViewController, ServiceReferring {
 //MARK: - UICOLLECTIONVIEW EXTENSION
 extension HomeController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        let width = collectionView.frame.width - 32
-        return collectionView.tag == 0 ? .zero : .init(width: width, height: 170)
+        if collectionView === locationCollectionView {
+            return CGSize.zero
+        }
+        else if collectionView === peopleCollectionView {
+            let width = collectionView.frame.width - 32
+            return CGSize(width: width, height: 170)
+        }
+        else {
+            return CGSize.zero
+        }
     }
-//<<<<<<< HEAD
-//
-//=======
-//
-//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        if collectionView.tag == 0 {
-//            let cell = locationCollectionView.dequeueReusableCell(withReuseIdentifier: locationIdentifier, for: indexPath) as! LocationCell
-//            if indexPath.item == 0 { cell.isSelected = true }
-//            cell.titleLabel.text = self.locations[indexPath.item]
-//            cell.accessibilityIdentifier = "locationCell\(indexPath.item)"
-//            cell.isAccessibilityElement = true
-//            return cell
-//        } else {
-//            let cell = peopleCollectionView.dequeueReusableCell(withReuseIdentifier: peopleIdentifier, for: indexPath) as! PersonCell
-//            cell.accessibilityIdentifier = "peopleCell\(indexPath.item)"
-//            cell.isAccessibilityElement = true
-//            return cell
-//        }
-//    }
-//
-//>>>>>>> development
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = collectionView.frame.width / 2 - 24
-        let locationCellSize = CGSize(width: 103, height: 36)
-        let peopleCellSize = CGSize(width: width, height: 300)
-        return collectionView.tag == 0 ? locationCellSize : peopleCellSize
+        
+        if collectionView === locationCollectionView {
+            return CGSize(width: 103, height: 36)
+        }
+        else if collectionView === peopleCollectionView {
+            let width = collectionView.frame.width / 2 - 24
+            return CGSize(width: width, height: 300)
+        }
+        else {
+            return CGSize.zero
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if collectionView.tag == 0 {
-            // Location CollectionView
-            
-        } else {
+        if collectionView === locationCollectionView {
+            // nothing for now
+        }
+        else if collectionView === peopleCollectionView {
             guard let service = self.service else { return }
             
             // People CollectionView
