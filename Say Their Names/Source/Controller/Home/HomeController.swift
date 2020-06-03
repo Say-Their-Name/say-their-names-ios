@@ -35,6 +35,7 @@ class HomeController: UIViewController, ServiceReferring {
     var locationCollectionView : UICollectionView { homeView.locationCollectionView }
     var peopleCollectionView : UICollectionView { homeView.peopleCollectionView }
     var searchButton : UIButton { homeView.searchButton }
+    override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
     
     
     //MARK: - ClASS METHODS

@@ -28,7 +28,7 @@ extension UIFont {
         static let cardTitle: UIFont = UIFont.dynamicCustomFont(fontName: FontName.karlaBold.rawValue, textStyle: .subheadline) // 15
         static let cardSubitle: UIFont = UIFont.dynamicCustomFont(fontName: FontName.karlaRegular.rawValue, textStyle: .footnote) // 14 on figma but this yields 13 on default
         
-        static let bannerTitle: UIFont = UIFont.dynamicCustomFont(fontName: FontName.karlaBold.rawValue, textStyle: .title3) // 19 on figma but this yields 20 on default
+        static let bannerTitle: UIFont = UIFont.dynamicCustomFont(fontName: FontName.karlaBold.rawValue, textStyle: .title2) // 21 on figma but this yields 22 on default
         static let bannerSubitle: UIFont = UIFont.dynamicCustomFont(fontName: FontName.karlaRegular.rawValue, textStyle: .body) // 17
 
         static let navBarTitle: UIFont = UIFont.dynamicCustomFont(fontName: FontName.karlaRegular.rawValue, textStyle: .title2) // 21 on figma but this yields 22 on default
