@@ -35,8 +35,8 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         setupTabBarStyle()
         setupTabBar()
         setupTabViews()
-        
-        showLaunchScreen()
+        showLaunchScreen()	
+        view.isAccessibilityElement = false
     }
 
     override func viewWillAppear(_ animated: Bool) {
