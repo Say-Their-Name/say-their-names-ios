@@ -34,6 +34,7 @@ class HomeController: BaseViewController {
         searchBar.setup(withController: self)
         setupCollectionView()
         showLaunchScreen()
+        view.isAccessibilityElement = false
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -53,11 +54,15 @@ class HomeController: BaseViewController {
         locationCollectionView.delegate = self
         locationCollectionView.dataSource = self
         locationCollectionView.register(LocationCell.self, forCellWithReuseIdentifier: locationIdentifier)
+        locationCollectionView.isAccessibilityElement = false
+        locationCollectionView.accessibilityIdentifier = "locationCollection"
         
         peopleCollectionView.delegate = self
         peopleCollectionView.dataSource = self
         peopleCollectionView.register(UINib(nibName: peopleIdentifier, bundle: nil), forCellWithReuseIdentifier: peopleIdentifier)
         peopleCollectionView.register(UINib(nibName: headerIdentifier, bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerIdentifier)
+        peopleCollectionView.accessibilityIdentifier = "peopleCollection"
+        peopleCollectionView.isAccessibilityElement = false
     }
     
     //MARK: - IBACTIONS
@@ -90,9 +95,13 @@ extension HomeController: UICollectionViewDataSource, UICollectionViewDelegateFl
             let cell = locationCollectionView.dequeueReusableCell(withReuseIdentifier: locationIdentifier, for: indexPath) as! LocationCell
             if indexPath.item == 0 { cell.isSelected = true }
             cell.titleLabel.text = self.locations[indexPath.item]
+            cell.accessibilityIdentifier = "locationCell\(indexPath.item)"
+            cell.isAccessibilityElement = true
             return cell
         } else {
             let cell = peopleCollectionView.dequeueReusableCell(withReuseIdentifier: peopleIdentifier, for: indexPath) as! PersonCell
+            cell.accessibilityIdentifier = "peopleCell\(indexPath.item)"
+            cell.isAccessibilityElement = true
             return cell
         }
     }
