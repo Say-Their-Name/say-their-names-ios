@@ -8,11 +8,28 @@
 
 import UIKit
 
-class PersonCell: UICollectionViewCell {
+final class PersonCell: UICollectionViewCell {
 
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var imgView: UIImageView!
+    @IBOutlet weak var dobLabel: UILabel!
+    @IBOutlet weak var bookmarkButton: UIButton!
+    
+    var data: Person? {
+        didSet {
+            //guard let data  = data else {return}
+        }
+    }
+    
+    // MARK:- Lifecycle
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
+    // MARK:- Handlers
+        
+    @IBAction func bookmarkButtonDidTouchUpInsde(_ sender: Any) {
+        // TODO: Implement BookMark Handler
+    }
 }
