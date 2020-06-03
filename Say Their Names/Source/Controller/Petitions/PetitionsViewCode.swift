@@ -28,10 +28,6 @@ final class PetitionsViewCode: UIView {
         fatalError()
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()   
-    }
-    
     /// Configures properties for the view itself
     private func setupSelf() {
         backgroundColor = .systemBackground
