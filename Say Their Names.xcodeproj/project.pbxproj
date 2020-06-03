@@ -87,7 +87,7 @@
 		A91B084B2487718100DB803C /* NetworkSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B08392487718000DB803C /* NetworkSession.swift */; };
 		A91B084C2487718100DB803C /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B083B2487718000DB803C /* NetworkError.swift */; };
 		A91B084D2487718100DB803C /* NetworkSessionConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B083C2487718000DB803C /* NetworkSessionConfig.swift */; };
-		A91B084E2487718100DB803C /* OpaError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B083E2487718100DB803C /* OpaError.swift */; };
+		A91B084E2487718100DB803C /* STNError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B083E2487718100DB803C /* STNError.swift */; };
 		A91B084F2487718100DB803C /* BaseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B083F2487718100DB803C /* BaseError.swift */; };
 		A91B0854248771AD00DB803C /* DispatchQueue+STN.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B0850248771AD00DB803C /* DispatchQueue+STN.swift */; };
 		A91B0855248771AD00DB803C /* Data+Stn.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B0851248771AD00DB803C /* Data+Stn.swift */; };
@@ -210,7 +210,7 @@
 		A91B08392487718000DB803C /* NetworkSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkSession.swift; sourceTree = "<group>"; };
 		A91B083B2487718000DB803C /* NetworkError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		A91B083C2487718000DB803C /* NetworkSessionConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkSessionConfig.swift; sourceTree = "<group>"; };
-		A91B083E2487718100DB803C /* OpaError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpaError.swift; sourceTree = "<group>"; };
+		A91B083E2487718100DB803C /* STNError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STNError.swift; sourceTree = "<group>"; };
 		A91B083F2487718100DB803C /* BaseError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseError.swift; sourceTree = "<group>"; };
 		A91B0850248771AD00DB803C /* DispatchQueue+STN.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+STN.swift"; sourceTree = "<group>"; };
 		A91B0851248771AD00DB803C /* Data+Stn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Data+Stn.swift"; sourceTree = "<group>"; };
@@ -704,7 +704,7 @@
 		A91B083D2487718100DB803C /* Error */ = {
 			isa = PBXGroup;
 			children = (
-				A91B083E2487718100DB803C /* OpaError.swift */,
+				A91B083E2487718100DB803C /* STNError.swift */,
 				A91B083F2487718100DB803C /* BaseError.swift */,
 			);
 			path = Error;
@@ -977,7 +977,7 @@
 				9E7DBAF6248481DA00635A56 /* AsyncOperation.swift in Sources */,
 				A91B07C02484705400DB803C /* Navigator.swift in Sources */,
 				A91B07BD24846ED700DB803C /* Log.swift in Sources */,
-				A91B084E2487718100DB803C /* OpaError.swift in Sources */,
+				A91B084E2487718100DB803C /* STNError.swift in Sources */,
 				A91B08492487718100DB803C /* NetworkSessionMock.swift in Sources */,
 				EEC3A1D42483D493001E7754 /* CustomSearchBar.swift in Sources */,
 				9E7DBAF5248481DA00635A56 /* FileDownloader.swift in Sources */,
