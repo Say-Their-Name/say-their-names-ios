@@ -17,7 +17,6 @@ class HomeController: ServiceClientViewController {
         
     var launchScreen: LaunchScreen?
     
-    //MARK: - IBOUTLETS
     //MARK: - CONSTANTS
     private let searchBar = CustomSearchBar()
     private let locations = ["ALL", "MISSOURI", "TEXAS", "NEW YORK"] // dummy data
@@ -28,19 +27,21 @@ class HomeController: ServiceClientViewController {
     var peopleCollectionView : UICollectionView { homeView.peopleCollectionView }
     var searchButton : UIButton { homeView.searchButton }
     
+    
+    //MARK: - ClASS METHODS
+
     override func loadView() {
         self.view = homeView
     }
-    
-    //MARK: - ClASS METHODS
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .black
         navigationController?.navigationBar.isHidden = true
         searchBar.setup(withController: self)
         setupCollectionView()
-        showLaunchScreen()
         setupSearchButton()
+        showLaunchScreen()
     }
     
     override func viewWillAppear(_ animated: Bool) {

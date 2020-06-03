@@ -44,7 +44,6 @@
 		A91B079C24835CF700DB803C /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B077324835CF700DB803C /* HomeController.swift */; };
 		A91B079D24835CF700DB803C /* PersonController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A91B077524835CF700DB803C /* PersonController.xib */; };
 		A91B079E24835CF700DB803C /* PersonController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B077624835CF700DB803C /* PersonController.swift */; };
-		A91B079F24835CF700DB803C /* HomeController_.xib in Resources */ = {isa = PBXBuildFile; fileRef = A91B077724835CF700DB803C /* HomeController_.xib */; };
 		A91B07A024835CF700DB803C /* DonationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B077924835CF700DB803C /* DonationsController.swift */; };
 		A91B07A124835CF700DB803C /* DonationsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A91B077A24835CF700DB803C /* DonationsController.xib */; };
 		A91B07A224835CF700DB803C /* PetitionsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A91B077C24835CF700DB803C /* PetitionsController.xib */; };
@@ -136,7 +135,6 @@
 		A91B077324835CF700DB803C /* HomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		A91B077524835CF700DB803C /* PersonController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonController.xib; sourceTree = "<group>"; };
 		A91B077624835CF700DB803C /* PersonController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonController.swift; sourceTree = "<group>"; };
-		A91B077724835CF700DB803C /* HomeController_.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeController_.xib; sourceTree = "<group>"; };
 		A91B077924835CF700DB803C /* DonationsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DonationsController.swift; sourceTree = "<group>"; };
 		A91B077A24835CF700DB803C /* DonationsController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DonationsController.xib; sourceTree = "<group>"; };
 		A91B077C24835CF700DB803C /* PetitionsController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PetitionsController.xib; sourceTree = "<group>"; };
@@ -396,7 +394,6 @@
 				A91B077324835CF700DB803C /* HomeController.swift */,
 				7C47A93424873F1200B8D3BE /* HomeView.swift */,
 				A91B077424835CF700DB803C /* Person */,
-				A91B077724835CF700DB803C /* HomeController_.xib */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -683,7 +680,6 @@
 				A91B079A24835CF700DB803C /* Karla-Regular.ttf in Resources */,
 				A91B07AC24835CF700DB803C /* PersonHeaderCell.xib in Resources */,
 				A91B079D24835CF700DB803C /* PersonController.xib in Resources */,
-				A91B079F24835CF700DB803C /* HomeController_.xib in Resources */,
 				83E9CAD22484A514001D173A /* LaunchScreen.xib in Resources */,
 				A91B07AF24835CF700DB803C /* PersonCell.xib in Resources */,
 				9E24499D2485E98C00B149DF /* Localizable.strings in Resources */,
