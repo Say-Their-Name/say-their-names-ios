@@ -22,7 +22,7 @@ class HomeController: ServiceClientViewController {
     private let locations = ["ALL", "MISSOURI", "TEXAS", "NEW YORK"] // dummy data
     
     private let homeView = HomeView()
-    var customNavBar : UIView { homeView.customNavBar }
+    var customNavBar : UIView { homeView.customNavigationBar }
     var locationCollectionView : UICollectionView { homeView.locationCollectionView }
     var peopleCollectionView : UICollectionView { homeView.peopleCollectionView }
     var searchButton : UIButton { homeView.searchButton }
