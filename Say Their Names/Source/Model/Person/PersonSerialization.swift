@@ -17,7 +17,7 @@ struct PersonSerializableKeys {
     static let NumberOfChildren = "number_of_children"
     static let Age              = "age"
     static let City             = "city"
-    static let County           = "country"
+    static let Country          = "country"
     static let Biography        = "biography"
     static let context          = "context"
     static let Images           = "images"
@@ -29,6 +29,17 @@ final class PersonSerialization: BaseModelSerialization {
         
         guard let model = model as? PersonInterface else { return }
         model.fullName = dictionary.subscriptObject(PersonSerializableKeys.FullName, defaults: nil)
+        //model.dob = dictionary.subscriptDateObject(PersonSerializableKeys.DOB, defaults: nil)
+        //model.doi = dictionary.subscriptDateObject(PersonSerializableKeys.DOI, defaults: nil)
+        model.childrenCount = dictionary.subscriptObject(PersonSerializableKeys.NumberOfChildren, defaults: 0)
+        model.age = dictionary.subscriptObject(PersonSerializableKeys.Age, defaults: 0)
+        model.city = dictionary.subscriptObject(PersonSerializableKeys.City, defaults: nil)
+        model.country = dictionary.subscriptObject(PersonSerializableKeys.Country, defaults: nil)
+        model.bio = dictionary.subscriptObject(PersonSerializableKeys.Biography, defaults: nil)
+        model.context = dictionary.subscriptObject(PersonSerializableKeys.context, defaults: nil)
+        
+        // Images
+        //model.images = dictionary.subscriptObject(PersonSerializableKeys.context, defaults: nil)
     }
     
     public override class func dictionary<B: BaseModelInterface>(fromModel model: B) -> Serialization.DictionaryType? {

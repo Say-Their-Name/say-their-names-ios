@@ -23,10 +23,11 @@ extension PersonNetworkHandle {
             else { return nil }
             
             var people = [P]()
-            for person in data {
-                let person = P.init(person as Serialization.DictionaryType)
+            for personDict in data {
+                let person = P.init(personDict as Serialization.DictionaryType)
                 people.append(person)
             }
+            
             return people
         }
 

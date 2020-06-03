@@ -43,6 +43,14 @@ extension PersonLoggable {
             \(super.desc())
             Full Name: \(String(describing: self.fullName))
             DOB: \(String(describing: self.dob))
+            DOI: \(String(describing: self.doi))
+            childrenCount: \(String(describing: self.childrenCount))
+            age: \(String(describing: self.age))
+            city: \(String(describing: self.city))
+            country: \(String(describing: self.country))
+            bio: \(String(describing: self.bio))
+            context: \(String(describing: self.context))
+            images: \(String(describing: self.images))
         """
     }
 }
