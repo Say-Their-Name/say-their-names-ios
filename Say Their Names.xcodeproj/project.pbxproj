@@ -19,7 +19,7 @@
 		7A5BFA0B248618B100BC265A /* SayTheirNamesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5BFA0A248618B100BC265A /* SayTheirNamesUITests.swift */; };
 		7A5BFA12248618C000BC265A /* XCUIApplication+SayTheirName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5BFA01248615C100BC265A /* XCUIApplication+SayTheirName.swift */; };
 		7A5BFA14248618CF00BC265A /* Say_Their_NamesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3ED7562481CA000033FF79 /* Say_Their_NamesTests.swift */; };
-		7A5BFA172488315D00BC265A /* DonationsViewCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5BFA162488315D00BC265A /* DonationsViewCode.swift */; };
+		7A5BFA172488315D00BC265A /* DonationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5BFA162488315D00BC265A /* DonationsView.swift */; };
 		7C47A93524873F1200B8D3BE /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C47A93424873F1200B8D3BE /* HomeView.swift */; };
 		83E9CAD02484A504001D173A /* LaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E9CACF2484A504001D173A /* LaunchScreen.swift */; };
 		83E9CAD22484A514001D173A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83E9CAD12484A514001D173A /* LaunchScreen.xib */; };
@@ -126,7 +126,7 @@
 		7A5BFA08248618B100BC265A /* SayTheirNamesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SayTheirNamesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A5BFA0A248618B100BC265A /* SayTheirNamesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SayTheirNamesUITests.swift; sourceTree = "<group>"; };
 		7A5BFA0C248618B100BC265A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7A5BFA162488315D00BC265A /* DonationsViewCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationsViewCode.swift; sourceTree = "<group>"; };
+		7A5BFA162488315D00BC265A /* DonationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationsView.swift; sourceTree = "<group>"; };
 		7A7C6C9D07F911D0BA41942E /* Pods_Say_Their_NamesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Say_Their_NamesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C47A93424873F1200B8D3BE /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		83E9CACF2484A504001D173A /* LaunchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreen.swift; sourceTree = "<group>"; };
@@ -481,7 +481,7 @@
 			isa = PBXGroup;
 			children = (
 				A91B077924835CF700DB803C /* DonationsController.swift */,
-				7A5BFA162488315D00BC265A /* DonationsViewCode.swift */,
+				7A5BFA162488315D00BC265A /* DonationsView.swift */,
 			);
 			path = Donations;
 			sourceTree = "<group>";
@@ -887,7 +887,7 @@
 				5D456A3D248734CA009FAD34 /* PersonCollectionViewDataSource.swift in Sources */,
 				A91B07A824835CF700DB803C /* CustomNavigationBar.swift in Sources */,
 				9E7DBAF3248481DA00635A56 /* DownloadOperation.swift in Sources */,
-				7A5BFA172488315D00BC265A /* DonationsViewCode.swift in Sources */,
+				7A5BFA172488315D00BC265A /* DonationsView.swift in Sources */,
 				7433B64B2484BABA005140D4 /* PersonPhotoCell.swift in Sources */,
 				A91B07A324835CF700DB803C /* PetitionsController.swift in Sources */,
 				A91B079E24835CF700DB803C /* PersonController.swift in Sources */,
