@@ -92,4 +92,9 @@ extension UIView {
             heightAnchor.constraint(equalToConstant: size.height).isActive = true
         }
     }
+
+    public func add<T: UIView>(_ view: T, then closure: ((T) -> Void)) {
+          self.addSubview(view)
+          closure(view)
+      }
 }

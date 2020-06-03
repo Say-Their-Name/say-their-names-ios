@@ -22,6 +22,8 @@ class HomeController: BaseViewController {
     //MARK: - CONSTANTS
     private let searchBar = CustomSearchBar()
     private let locations = ["ALL", "MISSOURI", "TEXAS", "NEW YORK"] // dummy data
+
+    private let carouselData = ["Data", "Data", "Data"] //dummy data
     
     //MARK: - ClASS METHODS
     override func viewDidLoad() {
@@ -49,7 +51,7 @@ class HomeController: BaseViewController {
         peopleCollectionView.delegate = self
         peopleCollectionView.dataSource = self
         peopleCollectionView.register(UINib(nibName: peopleIdentifier, bundle: nil), forCellWithReuseIdentifier: peopleIdentifier)
-        peopleCollectionView.register(UINib(nibName: headerIdentifier, bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerIdentifier)
+        peopleCollectionView.register(CarouselHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerIdentifier)
         peopleCollectionView.accessibilityIdentifier = "peopleCollection"
         peopleCollectionView.isAccessibilityElement = false
     }
@@ -70,7 +72,10 @@ extension HomeController: UICollectionViewDataSource, UICollectionViewDelegateFl
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         if collectionView.tag == 0 { return UICollectionReusableView() }
-        let headerView = peopleCollectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerIdentifier, for: indexPath) as! PersonHeaderCell
+        let headerView = peopleCollectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerIdentifier, for: indexPath) as! CarouselHeaderView
+        let handler = ResultsDataHandler(resultsData: self.carouselData)
+        headerView.resultsHandler = handler
+        headerView.configure()
         return headerView
     }
     

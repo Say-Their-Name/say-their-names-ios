@@ -75,7 +75,13 @@
 		B386F9552482FB540037A38D /* UIFontSTNTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B386F9542482FB540037A38D /* UIFontSTNTests.swift */; };
 		B386F958248526C70037A38D /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = B386F957248526C70037A38D /* Location.swift */; };
 		B3D6B6A92486EE3300D3118C /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B07B724846B0C00DB803C /* Service.swift */; };
-		B3D6B6AF2487E10100D3118C /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D6B6AE2487E10100D3118C /* Reusable.swift */; };
+		DBEE1C7324876498006EABCF /* CauroselHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEE1C7224876498006EABCF /* CauroselHeaderView.swift */; };
+		DBEE1C7524876D66006EABCF /* CollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEE1C7424876D66006EABCF /* CollectionViewDataSource.swift */; };
+		DBEE1C7724876D86006EABCF /* ResultsDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEE1C7624876D86006EABCF /* ResultsDataHandler.swift */; };
+		DBEE1C7924876DB1006EABCF /* CarouselCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEE1C7824876DB1006EABCF /* CarouselCollectionViewCell.swift */; };
+		DBEE1C7B24877466006EABCF /* CarouselPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEE1C7A24877466006EABCF /* CarouselPageControl.swift */; };
+		DBEE1C7D248799C6006EABCF /* LineCarouselControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEE1C7C248799C6006EABCF /* LineCarouselControl.swift */; };
+		C0594BF824873CCE00260BAD /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0594BF724873CCE00260BAD /* Reusable.swift */; };
 		C0594BFA248754A200260BAD /* UICollectionView++.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0594BF9248754A200260BAD /* UICollectionView++.swift */; };
 		C0594BFC248754C900260BAD /* UICollectionViewCell++.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0594BFB248754C900260BAD /* UICollectionViewCell++.swift */; };
 		EA8A07BCD35C218CA5E69CEC /* Pods_Say_Their_NamesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A7C6C9D07F911D0BA41942E /* Pods_Say_Their_NamesTests.framework */; };
@@ -186,6 +192,12 @@
 		C0594BFB248754C900260BAD /* UICollectionViewCell++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell++.swift"; sourceTree = "<group>"; };
 		D107CEC59C11537D09D9DB2E /* Pods-Say Their Names.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Say Their Names.release.xcconfig"; path = "Target Support Files/Pods-Say Their Names/Pods-Say Their Names.release.xcconfig"; sourceTree = "<group>"; };
 		D639F16885E8E79F7E336CC2 /* Pods-Say Their Names.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Say Their Names.debug.xcconfig"; path = "Target Support Files/Pods-Say Their Names/Pods-Say Their Names.debug.xcconfig"; sourceTree = "<group>"; };
+		DBEE1C7224876498006EABCF /* CauroselHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CauroselHeaderView.swift; sourceTree = "<group>"; };
+		DBEE1C7424876D66006EABCF /* CollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewDataSource.swift; sourceTree = "<group>"; };
+		DBEE1C7624876D86006EABCF /* ResultsDataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsDataHandler.swift; sourceTree = "<group>"; };
+		DBEE1C7824876DB1006EABCF /* CarouselCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselCollectionViewCell.swift; sourceTree = "<group>"; };
+		DBEE1C7A24877466006EABCF /* CarouselPageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselPageControl.swift; sourceTree = "<group>"; };
+		DBEE1C7C248799C6006EABCF /* LineCarouselControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineCarouselControl.swift; sourceTree = "<group>"; };
 		ED2DEB0A248454FD00EC784E /* CODE_OF_CONDUCT.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = CODE_OF_CONDUCT.md; sourceTree = "<group>"; };
 		EEC3A1D32483D493001E7754 /* CustomSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSearchBar.swift; sourceTree = "<group>"; };
 		EEC3A1DA2483D6B6001E7754 /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
@@ -439,6 +451,7 @@
 		A91B077224835CF700DB803C /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				DBEE1C712487646A006EABCF /* Carousel */,
 				A91B077324835CF700DB803C /* HomeController.swift */,
 				A91B077724835CF700DB803C /* HomeController.xib */,
 				A91B077424835CF700DB803C /* Person */,
@@ -607,7 +620,25 @@
 			path = UtilsTests;
 			sourceTree = "<group>";
 		};
-		B3D6B6AD2487E10100D3118C /* Protocols */ = {
+		B386F95924852EDD0037A38D /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Firebase;
+			sourceTree = "<group>";
+		};
+		DBEE1C712487646A006EABCF /* Carousel */ = {
+			isa = PBXGroup;
+			children = (
+				DBEE1C7224876498006EABCF /* CauroselHeaderView.swift */,
+				DBEE1C7424876D66006EABCF /* CollectionViewDataSource.swift */,
+				DBEE1C7624876D86006EABCF /* ResultsDataHandler.swift */,
+				DBEE1C7824876DB1006EABCF /* CarouselCollectionViewCell.swift */,
+				DBEE1C7A24877466006EABCF /* CarouselPageControl.swift */,
+				DBEE1C7C248799C6006EABCF /* LineCarouselControl.swift */,
+			);
+			path = Carousel;
+		C0594BF62487394F00260BAD /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
 				B3D6B6AE2487E10100D3118C /* Reusable.swift */,
@@ -835,6 +866,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBEE1C7B24877466006EABCF /* CarouselPageControl.swift in Sources */,
 				B3D6B6A92486EE3300D3118C /* Service.swift in Sources */,
 				A91B07A924835CF700DB803C /* Person.swift in Sources */,
 				9E7DBAFC2484822A00635A56 /* Operators.swift in Sources */,
@@ -850,10 +882,13 @@
 				B3D6B6AF2487E10100D3118C /* Reusable.swift in Sources */,
 				C0594BFA248754A200260BAD /* UICollectionView++.swift in Sources */,
 				A91B07CF24849D8400DB803C /* ServiceReferring.swift in Sources */,
+				DBEE1C7924876DB1006EABCF /* CarouselCollectionViewCell.swift in Sources */,
 				A91B079824835CF700DB803C /* STNSize.swift in Sources */,
 				A91B079624835CF700DB803C /* UIFont++.swift in Sources */,
 				A91B079C24835CF700DB803C /* HomeController.swift in Sources */,
+				DBEE1C7324876498006EABCF /* CauroselHeaderView.swift in Sources */,
 				A91B07AA24835CF700DB803C /* Donation.swift in Sources */,
+				DBEE1C7D248799C6006EABCF /* LineCarouselControl.swift in Sources */,
 				A91B07B124835CF700DB803C /* LocationCell.swift in Sources */,
 				A91B07B324835CF700DB803C /* SceneDelegate.swift in Sources */,
 				7433B6472484B987005140D4 /* PersonDetailsController.swift in Sources */,
@@ -882,11 +917,13 @@
 				A91B07A024835CF700DB803C /* DonationsController.swift in Sources */,
 				9E459C5624873BB000309334 /* PetitionsViewCode.swift in Sources */,
 				83E9CAD42484A5DC001D173A /* UIViewController+TabBar.swift in Sources */,
+				DBEE1C7524876D66006EABCF /* CollectionViewDataSource.swift in Sources */,
 				9E7DBAF0248481DA00635A56 /* ImageCache.swift in Sources */,
 				A91B07A624835CF700DB803C /* UIDevice+STN.swift in Sources */,
 				A91B07B224835CF700DB803C /* AppDelegate.swift in Sources */,
 				A91B07AB24835CF700DB803C /* Petition.swift in Sources */,
 				EEC3A1DC2483D6B6001E7754 /* SearchResultCell.swift in Sources */,
+				DBEE1C7724876D86006EABCF /* ResultsDataHandler.swift in Sources */,
 				A91B07A724835CF700DB803C /* MainTabBarController.swift in Sources */,
 				9E2449A32485EA7600B149DF /* Typealiases.swift in Sources */,
 			);
