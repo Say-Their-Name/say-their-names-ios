@@ -8,8 +8,20 @@
 
 import UIKit
 
-class PetitionsController: BaseViewController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
+/// Controller responsible for showing the petitions
+final class PetitionsController: BaseViewController {
+    
+    private lazy var viewCode = PetitionsViewCode()
+    
+    required init(service: Service, shouldInitWithNib: Bool) {
+        super.init(service: service, shouldInitWithNib: false)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError()
+    }
+    
+    override func loadView() {
+        view = viewCode
     }
 }

@@ -26,8 +26,6 @@ class HomeController: UIViewController, ServiceReferring {
         fatalError("init(coder:) has not been implemented")
     }
 
-    var launchScreen: LaunchScreen?
-    
     //MARK: - CONSTANTS
     private let searchBar = CustomSearchBar()
     private let locations = ["ALL", "MISSOURI", "TEXAS", "NEW YORK"] // dummy data
@@ -52,7 +50,6 @@ class HomeController: UIViewController, ServiceReferring {
         searchBar.setup(withController: self)
         setupCollectionView()
         setupSearchButton()
-        showLaunchScreen()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -60,19 +57,8 @@ class HomeController: UIViewController, ServiceReferring {
         // Select first location by default
         let selectedIndexPath = IndexPath(item: 0, section: 0)
         locationCollectionView.selectItem(at: selectedIndexPath, animated: false, scrollPosition: .centeredVertically)
-        
-        // hide the major parts of the homeview
-        // so the launch screen will appear
-        homeView.hideable.forEach { $0.isHidden = true }
-        
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        // To-Do: move this logic to after data is fetched from back-end
-        removeLaunchScreen()
-    }
-    
+
     private func setupSearchButton() {
         searchButton.addTarget(self, action: #selector(searchButtonPressed(_:)), for: .touchUpInside)
     }
@@ -81,11 +67,15 @@ class HomeController: UIViewController, ServiceReferring {
         locationCollectionView.delegate = self
         locationCollectionView.dataSource = self
         locationCollectionView.register(LocationCell.self, forCellWithReuseIdentifier: locationIdentifier)
+        locationCollectionView.isAccessibilityElement = false
+        locationCollectionView.accessibilityIdentifier = "locationCollection"
         
         peopleCollectionView.delegate = self
         peopleCollectionView.dataSource = self
         peopleCollectionView.register(UINib(nibName: peopleIdentifier, bundle: nil), forCellWithReuseIdentifier: peopleIdentifier)
         peopleCollectionView.register(UINib(nibName: headerIdentifier, bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerIdentifier)
+        peopleCollectionView.accessibilityIdentifier = "peopleCollection"
+        peopleCollectionView.isAccessibilityElement = false
     }
     
     //MARK: - IBACTIONS
@@ -118,9 +108,13 @@ extension HomeController: UICollectionViewDataSource, UICollectionViewDelegateFl
             let cell = locationCollectionView.dequeueReusableCell(withReuseIdentifier: locationIdentifier, for: indexPath) as! LocationCell
             if indexPath.item == 0 { cell.isSelected = true }
             cell.titleLabel.text = self.locations[indexPath.item]
+            cell.accessibilityIdentifier = "locationCell\(indexPath.item)"
+            cell.isAccessibilityElement = true
             return cell
         } else {
             let cell = peopleCollectionView.dequeueReusableCell(withReuseIdentifier: peopleIdentifier, for: indexPath) as! PersonCell
+            cell.accessibilityIdentifier = "peopleCell\(indexPath.item)"
+            cell.isAccessibilityElement = true
             return cell
         }
     }
@@ -145,28 +139,5 @@ extension HomeController: UICollectionViewDataSource, UICollectionViewDelegateFl
             navigationController.navigationBar.isHidden = true
             present(navigationController, animated: true, completion: nil)
         }
-    }
-}
-
-// MARK - Launch screen
-extension HomeController {
-    private func showLaunchScreen() {
-        let bundle = Bundle(for: LaunchScreen.self)
-        if let launch = bundle.loadNibNamed("LaunchScreen", owner: self, options: nil)?.first as? LaunchScreen {
-            hideTabBar()
-            view.addSubview(launch)
-            launch.frame = view.bounds
-            launchScreen = launch
-        }
-    }
-
-    private func removeLaunchScreen() {
-        guard let launchScreen = launchScreen else { return }
-
-        let completion = {
-            self.revealTabBar()
-            self.homeView.hideable.forEach { $0.isHidden = false }
-        }
-        launchScreen.animate(completion: completion)
     }
 }

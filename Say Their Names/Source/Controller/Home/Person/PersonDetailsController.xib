@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -30,13 +30,13 @@
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5gt-ro-azA" userLabel="Content View">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="800"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="838.5"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="vLN-b4-YbV">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="760"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="798.5"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WAx-bJ-RMu">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="760"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="798.5"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rMu-5B-kuM" userLabel="Share View">
                                                     <rect key="frame" x="24" y="18" width="41" height="59"/>
@@ -196,7 +196,7 @@
                                                     </subviews>
                                                 </stackView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="hEs-Cb-udW" userLabel="Story Stack View">
-                                                    <rect key="frame" x="24" y="311" width="366" height="138"/>
+                                                    <rect key="frame" x="24" y="311" width="366" height="118.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MINNESOTA" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vdQ-8S-9aw">
                                                             <rect key="frame" x="0.0" y="0.0" width="96" height="20"/>
@@ -208,7 +208,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q0m-vv-6VO">
-                                                            <rect key="frame" x="0.0" y="34" width="355.5" height="104"/>
+                                                            <rect key="frame" x="0.0" y="34" width="355.5" height="84.5"/>
                                                             <string key="text">The death of George Floyd occurred on May 25, 2020, when Derek Chauvin, a white Minneapolis police officer, kneeled on his neck for at least seven minutes</string>
                                                             <fontDescription key="fontDescription" name="Karla-Regular" family="Karla" pointSize="18"/>
                                                             <color key="textColor" red="0.062745098040000002" green="0.062745098040000002" blue="0.062745098040000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -217,10 +217,10 @@
                                                     </subviews>
                                                 </stackView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="0gB-YA-YJN">
-                                                    <rect key="frame" x="24" y="474" width="366" height="197"/>
+                                                    <rect key="frame" x="20" y="454.5" width="374" height="255"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MEDIA" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gr3-2x-Dxa">
-                                                            <rect key="frame" x="0.0" y="0.0" width="366" height="20"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="374" height="20"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="20" id="vWa-b8-XID"/>
                                                             </constraints>
@@ -229,10 +229,10 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="McM-BW-8Yf">
-                                                            <rect key="frame" x="0.0" y="37" width="366" height="160"/>
+                                                            <rect key="frame" x="0.0" y="37" width="374" height="218"/>
                                                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="160" id="VEi-e5-zya"/>
+                                                                <constraint firstAttribute="height" constant="218" id="VEi-e5-zya"/>
                                                             </constraints>
                                                             <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="FJ0-O1-VaD">
                                                                 <size key="itemSize" width="50" height="50"/>
@@ -244,14 +244,14 @@
                                                     </subviews>
                                                 </stackView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jl6-Ma-X0k">
-                                                    <rect key="frame" x="0.0" y="687" width="414" height="1"/>
+                                                    <rect key="frame" x="0.0" y="725.5" width="414" height="1"/>
                                                     <color key="backgroundColor" red="0.84705882349999995" green="0.84705882349999995" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="1" id="OgH-7D-gRn"/>
                                                     </constraints>
                                                 </view>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wxH-cx-x8b">
-                                                    <rect key="frame" x="24" y="704" width="366" height="46"/>
+                                                    <rect key="frame" x="24" y="742.5" width="366" height="46"/>
                                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="46" id="x11-EP-h41"/>
@@ -315,8 +315,8 @@
                                                 <constraint firstAttribute="trailing" secondItem="wxH-cx-x8b" secondAttribute="trailing" constant="24" id="LFD-9T-5zm"/>
                                                 <constraint firstItem="jl6-Ma-X0k" firstAttribute="leading" secondItem="WAx-bJ-RMu" secondAttribute="leading" id="Mno-9j-3FJ"/>
                                                 <constraint firstItem="tjf-Po-8K6" firstAttribute="leading" relation="lessThanOrEqual" secondItem="Mcw-C1-1WI" secondAttribute="trailing" id="NwL-Lf-u1g"/>
-                                                <constraint firstAttribute="trailing" secondItem="0gB-YA-YJN" secondAttribute="trailing" constant="24" id="Qwn-lG-zPL"/>
-                                                <constraint firstItem="0gB-YA-YJN" firstAttribute="leading" secondItem="WAx-bJ-RMu" secondAttribute="leading" constant="24" id="VX8-bg-lpR"/>
+                                                <constraint firstAttribute="trailing" secondItem="0gB-YA-YJN" secondAttribute="trailing" constant="20" id="Qwn-lG-zPL"/>
+                                                <constraint firstItem="0gB-YA-YJN" firstAttribute="leading" secondItem="WAx-bJ-RMu" secondAttribute="leading" constant="20" id="VX8-bg-lpR"/>
                                                 <constraint firstItem="hEs-Cb-udW" firstAttribute="leading" secondItem="WAx-bJ-RMu" secondAttribute="leading" constant="24" id="W48-Ib-qBD"/>
                                                 <constraint firstItem="wxH-cx-x8b" firstAttribute="top" secondItem="jl6-Ma-X0k" secondAttribute="bottom" constant="16" id="f2G-nl-MEU"/>
                                                 <constraint firstItem="Mcw-C1-1WI" firstAttribute="leading" secondItem="rMu-5B-kuM" secondAttribute="trailing" id="gbe-1K-50k"/>
