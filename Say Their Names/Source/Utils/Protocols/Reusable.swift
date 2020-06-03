@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// Provides a default `reuseIdentifier` to the entities that conform to it.
 protocol Reusable {
     static var reuseIdentifier: String { get }
 }
@@ -15,23 +16,5 @@ protocol Reusable {
 extension Reusable {
     static var reuseIdentifier: String {
         return String(describing: self)
-    }
-}
-
-extension UITableViewCell: Reusable { }
-extension UICollectionViewCell: Reusable { }
-
-extension UICollectionView {
-    
-    func register(cellType type: UICollectionViewCell.Type) {
-        register(type, forCellWithReuseIdentifier: type.reuseIdentifier)
-    }
-
-    func dequeueCell<T: UICollectionViewCell>(for indexPath: IndexPath) -> T {
-        guard let cell = dequeueReusableCell(withReuseIdentifier: T.reuseIdentifier, for: indexPath) as? T else {
-            fatalError("You need to register cell of type `\(T.reuseIdentifier)`")
-        }
-        
-        return cell
     }
 }

@@ -10,14 +10,6 @@ import UIKit
 
 final class PersonPhotoCell: UICollectionViewCell {
     
-    var personImage: UIImage? {
-        didSet {
-            DispatchQueue.main.async {
-                self.personImageView.image = self.personImage
-            }
-        }
-    }
-    
     private let personImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
@@ -42,17 +34,19 @@ final class PersonPhotoCell: UICollectionViewCell {
     
     private func setup() {
         addSubview(personImageView)
-        
-        personImageView.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        
+                
         let constraints = [
-            
+            personImageView.topAnchor.constraint(equalTo: topAnchor),
             personImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
             personImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
             personImageView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ]
         
         NSLayoutConstraint.activate(constraints)
+    }
+    
+    func setImage(_ image: UIImage?) {
+        personImageView.image = image
     }
 }
 

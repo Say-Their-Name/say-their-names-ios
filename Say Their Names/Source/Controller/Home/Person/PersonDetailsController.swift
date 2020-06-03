@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PersonDetailsController: BaseViewController {
+final class PersonDetailsController: BaseViewController {
 
     @IBOutlet weak var mediaCollectionView: UICollectionView!
     
@@ -16,7 +16,6 @@ class PersonDetailsController: BaseViewController {
         super.viewDidLoad()
         mediaCollectionView.delegate = self
         mediaCollectionView.dataSource = self
-        
         mediaCollectionView.register(cellType: PersonPhotoCell.self)
     }
     
@@ -41,16 +40,21 @@ extension PersonDetailsController: UICollectionViewDataSource, UICollectionViewD
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: PersonPhotoCell = collectionView.dequeueCell(for: indexPath)
-        cell.personImage = #imageLiteral(resourceName: "man-in-red-jacket-1681010")
+        let personImage = UIImage(named: "man-in-red-jacket-1681010")
+        cell.setImage(personImage)
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 15
+        return cellSpacing
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return PersonPhotoCell.size(collectionView)
     }
-    
+}
+
+// MARK: - Constants used in PersonDetailsController
+private extension PersonDetailsController {
+    var cellSpacing: CGFloat { 15 }
 }
