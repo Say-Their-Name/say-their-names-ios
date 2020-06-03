@@ -21,6 +21,8 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
     private let shadowOpacity: Float = 1
     private let shadowOffset: CGSize = .init(width: 0, height: 10)
 
+    private var launchScreen: LaunchScreen?
+    
     required init?(coder aDecoder: NSCoder) { fatalError("") }
     init(service: Service) {
         self.service = service
@@ -33,13 +35,27 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         setupTabBarStyle()
         setupTabBar()
         setupTabViews()
+        showLaunchScreen()	
+        view.isAccessibilityElement = false
     }
-
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        // To-Do: move this logic to after data is fetched from back-end, or when we are ready to reveal the content
+        removeLaunchScreen()
+    }
 
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        if let launchScreen = launchScreen {
+            view.bringSubviewToFront(launchScreen)
+        }
+    }
+    
     fileprivate func setupTabBarStyle() {
         tabBar.isTranslucent = true
         tabBar.layer.borderWidth = 0.9
@@ -52,7 +68,6 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "Karla-Regular", size: 11)!], for: .normal)
     }
 
-
     @objc fileprivate func setupTabViews() {
         let homeController = HomeController(service: self.service)
         let homeNC = UINavigationController(rootViewController: homeController)
@@ -60,9 +75,12 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         let donationsController = DonationsController(service: self.service)
         let donationsNC = UINavigationController(rootViewController: donationsController)
         
-        let petitionsController = PetitionsController(service: self.service)
+        let petitionsController = PetitionsController(service: self.service, shouldInitWithNib: false)
         let petitionsNC = UINavigationController(rootViewController: petitionsController)
-
+        
+        let settingsController = SettingsController(service: self.service) 
+        let settingsNC = UINavigationController(rootViewController: settingsController)
+            
         homeNC.isNavigationBarHidden = true
         homeNC.tabBarItem.image = #imageLiteral(resourceName: "gallery")
         homeNC.tabBarItem.title = "Home"
@@ -73,11 +91,16 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         donationsNC.tabBarItem.title = "Donations"
                
         petitionsNC.isNavigationBarHidden = true
-        petitionsNC.tabBarItem.image = #imageLiteral(resourceName: "edit")
-        petitionsNC.tabBarItem.selectedImage = UIImage(named: "edit_active")
+        petitionsNC.tabBarItem.image = #imageLiteral(resourceName: "petition")
+        petitionsNC.tabBarItem.selectedImage = UIImage(named: "petition_active")
         petitionsNC.tabBarItem.title = "Petitions"
         
-        viewControllers = [homeNC, donationsNC, petitionsNC]
+        settingsNC.isNavigationBarHidden = true
+        settingsNC.tabBarItem.image = #imageLiteral(resourceName: "settings")
+        settingsNC.tabBarItem.selectedImage = UIImage(named: "settings_active")
+        settingsNC.tabBarItem.title = "Settings"
+        
+        viewControllers = [homeNC, donationsNC, petitionsNC, settingsNC]
     }
 
     func setupTabBar() {
@@ -89,3 +112,24 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
     }
 }
 
+
+private extension MainTabBarController {
+    
+    func showLaunchScreen() {
+        guard let launchView = LaunchScreen.createFromNib() else {
+            return
+        }
+        view.addSubview(launchView)
+        launchView.frame = view.bounds
+        launchScreen = launchView
+    }
+    
+    func removeLaunchScreen() {
+        guard let launchView = launchScreen else { return }
+
+        launchView.animate(completion: {
+            launchView.removeFromSuperview()
+            self.launchScreen = nil
+        })
+    }
+}
