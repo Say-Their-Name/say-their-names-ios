@@ -191,11 +191,11 @@
 		C0594BFB248754C900260BAD /* UICollectionViewCell++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell++.swift"; sourceTree = "<group>"; };
 		D107CEC59C11537D09D9DB2E /* Pods-Say Their Names.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Say Their Names.release.xcconfig"; path = "Target Support Files/Pods-Say Their Names/Pods-Say Their Names.release.xcconfig"; sourceTree = "<group>"; };
 		D639F16885E8E79F7E336CC2 /* Pods-Say Their Names.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Say Their Names.debug.xcconfig"; path = "Target Support Files/Pods-Say Their Names/Pods-Say Their Names.debug.xcconfig"; sourceTree = "<group>"; };
-		DB966D602487F9B700C69117 /* CollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CollectionViewDataSource.swift; path = "Say Their Names/Source/Controller/Home/Carousel/CollectionViewDataSource.swift"; sourceTree = SOURCE_ROOT; };
-		DB966D612487F9B800C69117 /* LineCarouselControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LineCarouselControl.swift; path = "Say Their Names/Source/Controller/Home/Carousel/LineCarouselControl.swift"; sourceTree = SOURCE_ROOT; };
-		DB966D622487F9B800C69117 /* CarouselPageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CarouselPageControl.swift; path = "Say Their Names/Source/Controller/Home/Carousel/CarouselPageControl.swift"; sourceTree = SOURCE_ROOT; };
-		DB966D632487F9B800C69117 /* CarouselCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CarouselCollectionViewCell.swift; path = "Say Their Names/Source/Controller/Home/Carousel/CarouselCollectionViewCell.swift"; sourceTree = SOURCE_ROOT; };
-		DB966D642487F9B800C69117 /* CauroselHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CauroselHeaderView.swift; path = "Say Their Names/Source/Controller/Home/Carousel/CauroselHeaderView.swift"; sourceTree = SOURCE_ROOT; };
+		DB966D602487F9B700C69117 /* CollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CollectionViewDataSource.swift; path = "Say Their Names/Source/Controller/Home/Carousel/Collectionview/CollectionViewDataSource.swift"; sourceTree = SOURCE_ROOT; };
+		DB966D612487F9B800C69117 /* LineCarouselControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LineCarouselControl.swift; path = "Say Their Names/Source/Controller/Home/Carousel/PageControl/LineCarouselControl.swift"; sourceTree = SOURCE_ROOT; };
+		DB966D622487F9B800C69117 /* CarouselPageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CarouselPageControl.swift; path = "Say Their Names/Source/Controller/Home/Carousel/PageControl/CarouselPageControl.swift"; sourceTree = SOURCE_ROOT; };
+		DB966D632487F9B800C69117 /* CarouselCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CarouselCollectionViewCell.swift; path = "Say Their Names/Source/Controller/Home/Carousel/Collectionview/CarouselCollectionViewCell.swift"; sourceTree = SOURCE_ROOT; };
+		DB966D642487F9B800C69117 /* CauroselHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CauroselHeaderView.swift; path = "Say Their Names/Source/Controller/Home/Carousel/Collectionview/CauroselHeaderView.swift"; sourceTree = SOURCE_ROOT; };
 		DB966D6A2487FA8900C69117 /* ResultsDataHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsDataHandler.swift; sourceTree = "<group>"; };
 		DBBA11722487BA2A001CC480 /* UICollectionView+Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extentions.swift"; sourceTree = "<group>"; };
 		ED2DEB0A248454FD00EC784E /* CODE_OF_CONDUCT.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = CODE_OF_CONDUCT.md; sourceTree = "<group>"; };
@@ -620,15 +620,31 @@
 			path = UtilsTests;
 			sourceTree = "<group>";
 		};
+		DB966D6C2487FB4A00C69117 /* Collectionview */ = {
+			isa = PBXGroup;
+			children = (
+				DB966D6A2487FA8900C69117 /* ResultsDataHandler.swift */,
+				DB966D642487F9B800C69117 /* CauroselHeaderView.swift */,
+				DB966D632487F9B800C69117 /* CarouselCollectionViewCell.swift */,
+				DB966D602487F9B700C69117 /* CollectionViewDataSource.swift */,
+			);
+			path = Collectionview;
+			sourceTree = "<group>";
+		};
+		DB966D6D2487FB5900C69117 /* PageControl */ = {
+			isa = PBXGroup;
+			children = (
+				DB966D622487F9B800C69117 /* CarouselPageControl.swift */,
+				DB966D612487F9B800C69117 /* LineCarouselControl.swift */,
+			);
+			path = PageControl;
+			sourceTree = "<group>";
+		};
 		DBEE1C712487646A006EABCF /* Carousel */ = {
 			isa = PBXGroup;
 			children = (
-				DB966D632487F9B800C69117 /* CarouselCollectionViewCell.swift */,
-				DB966D622487F9B800C69117 /* CarouselPageControl.swift */,
-				DB966D642487F9B800C69117 /* CauroselHeaderView.swift */,
-				DB966D602487F9B700C69117 /* CollectionViewDataSource.swift */,
-				DB966D612487F9B800C69117 /* LineCarouselControl.swift */,
-				DB966D6A2487FA8900C69117 /* ResultsDataHandler.swift */,
+				DB966D6D2487FB5900C69117 /* PageControl */,
+				DB966D6C2487FB4A00C69117 /* Collectionview */,
 			);
 			path = Carousel;
 			sourceTree = "<group>";
