@@ -15,8 +15,8 @@ protocol LineCarouselControlProtocol: class {
 class LineCarouselControl: UIControl {
 
     // MARK: - Properties
-    var pageIndicatorTintColor: UIColor? = .lightGray
-    var currentPageIndicatorTintColor: UIColor? = .darkGray
+    private var pageIndicatorTintColor: UIColor? = .lightGray
+    private var currentPageIndicatorTintColor: UIColor? = .darkGray
     private lazy var stackView = UIStackView.init(frame: self.bounds)
     override var bounds: CGRect {
         didSet{
@@ -35,22 +35,47 @@ class LineCarouselControl: UIControl {
     var numberOfPages: Int = 0 {
         didSet{
             for tag in 0 ..< numberOfPages {
+                print(tag)
                 let line = getLineView()
                 line.tag = tag
-                line.backgroundColor = pageIndicatorTintColor
                 self.numberOfLines.append(line)
             }
-
         }
     }
     var currentPage: Int = 0 {
-        didSet{
+        didSet {
             print("CurrentPage is \(currentPage)")
+            _ = numberOfLines.map { view in
+                if currentPage == view.tag {
+                    UIView.animate(withDuration: 0.2, animations: {
+                        view.backgroundColor = self.currentPageIndicatorTintColor
+                    })
+                    self.sendActions(for: .valueChanged)
+                } else {
+                    view.backgroundColor = self.pageIndicatorTintColor
+                }
+            }
         }
     }
     weak var delegate: LineCarouselControlProtocol?
 
-    //MARK: Helper methods...
+    //MARK:- Intialisers
+    convenience init() {
+        self.init(frame: .zero)
+        setupViews()
+    }
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupViews()
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        print("An error occured")
+    }
+
+    //MARK: methods
     private func getLineView() -> UIView {
         let line = UIView()
         self.setupLineAppearance(line)
@@ -62,29 +87,11 @@ class LineCarouselControl: UIControl {
     private func setupLineAppearance(_ line: UIView) {
         line.transform = .identity
         line.layer.masksToBounds = true
-        line.backgroundColor = pageIndicatorTintColor
-    }
-
-    //MARK:- Intialisers
-    convenience init() {
-        self.init(frame: .zero)
-    }
-
-    init(withNoOfPages pages: Int) {
-        self.numberOfPages = pages
-        self.currentPage = 0
-        super.init(frame: .zero)
-        setupViews()
-    }
-
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setupViews()
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-
+        if currentPage == line.tag {
+            line.backgroundColor = currentPageIndicatorTintColor
+        } else {
+            line.backgroundColor = pageIndicatorTintColor
+        }
     }
 
     private func setupViews() {
@@ -106,7 +113,7 @@ class LineCarouselControl: UIControl {
         self.numberOfLines.forEach {
             NSLayoutConstraint.activate([
                 $0.centerYAnchor.constraint(equalTo: self.stackView.centerYAnchor),
-                $0.heightAnchor.constraint(equalTo: self.stackView.heightAnchor, multiplier: 0.15, constant: 0),
+                $0.heightAnchor.constraint(equalTo: self.stackView.heightAnchor, multiplier: 0.3, constant: 0),
                 $0.widthAnchor.constraint(equalToConstant: 35)
             ])
         }
@@ -116,14 +123,15 @@ class LineCarouselControl: UIControl {
     @objc private func onPageControlTapped(_ sender: UITapGestureRecognizer) {
         guard let selectedLine = sender.view else { return }
         delegate?.didSelectLineAt(selectedLine.tag)
-        _ = numberOfLines.map {
-            setupLineAppearance($0)
-            if $0.tag == selectedLine.tag {
+        _ = numberOfLines.map { view in
+            if view.tag == selectedLine.tag {
                 currentPage = selectedLine.tag
                 UIView.animate(withDuration: 0.2, animations: {
-                    selectedLine.backgroundColor = self.currentPageIndicatorTintColor
+                    view.backgroundColor = self.currentPageIndicatorTintColor
                 })
                 self.sendActions(for: .valueChanged)
+            } else {
+                view.backgroundColor = self.pageIndicatorTintColor
             }
         }
     }

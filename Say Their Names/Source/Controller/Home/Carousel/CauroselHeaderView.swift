@@ -11,7 +11,7 @@ import UIKit
 class CarouselHeaderView: UICollectionReusableView {
 
     // MARK: - Properties
-    var pageControl: LineCarouselControl = LineCarouselControl()
+    var pageControl: LineCarouselControl!
     var collectionView: UICollectionView!
     var collectionViewDataSource: CollectionViewDataSource<CarouselCollectionViewCell>?
     var resultsHandler: ResultsDataHandler?
@@ -30,14 +30,13 @@ class CarouselHeaderView: UICollectionReusableView {
 
     // MARK: - Methods
     func configure() {
-        backgroundColor = .green
         setUpCollectionView()
+        setUpPagingController()
         setUpView()
     }
 
     private func setUpCollectionView() {
         collectionView = UICollectionView(frame: self.frame, collectionViewLayout: createFlowLayout())
-        collectionView.backgroundColor = .yellow
         registerCells()
         setUpDataSource()
         guard let dataSource = collectionViewDataSource else {return}
@@ -54,14 +53,36 @@ class CarouselHeaderView: UICollectionReusableView {
         collectionView.register(CarouselCollectionViewCell.self, forCellWithReuseIdentifier: "CarouselCollectionViewCell")
     }
 
+    private func setUpPagingController() {
+        guard let dataSource = collectionViewDataSource?.resultsData else {return}
+        pageControl = LineCarouselControl()
+        pageControl.numberOfPages = dataSource.count
+    }
+
     private func setUpView() {
         self.add(collectionView) {
-            $0.anchor(top: topAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 0, left: 0, bottom: 20, right: 0))
+            $0.backgroundColor = .white
+            $0.anchor(top: topAnchor,
+                      leading: leadingAnchor,
+                      bottom: bottomAnchor,
+                      trailing: trailingAnchor,
+                      padding: .init(top: 0,
+                                     left: 0,
+                                     bottom: 20,
+                                     right: 0))
         }
         self.add(pageControl) {
             $0.delegate = self
-            $0.numberOfPages = 4
-            $0.anchor(top: collectionView.bottomAnchor, leading: collectionView.leadingAnchor, bottom: bottomAnchor, trailing: collectionView.trailingAnchor, padding: .init(top: 0, left: 0, bottom: 0, right: 0), size: .init(width: bounds.width, height: 20))
+            $0.anchor(top: collectionView.bottomAnchor,
+                      leading: collectionView.leadingAnchor,
+                      bottom: bottomAnchor,
+                      trailing: collectionView.trailingAnchor,
+                      padding: .init(top: 10,
+                                     left: 0,
+                                     bottom: 0,
+                                     right: 0),
+                        size: .init(width: bounds.width,
+                                    height: 20))
         }
     }
 
@@ -73,35 +94,37 @@ class CarouselHeaderView: UICollectionReusableView {
 
 }
 
+// MARK: - Collection view delegate
 extension CarouselHeaderView: UICollectionViewDelegate {
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        //do something here later on with the cells content
         print("*** selected \(indexPath.row)")
       }
+
+    // MARK: - Scroll view delegates
+     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+         self.collectionView.scrollToNearestVisibleCollectionViewCell()
+         guard let indexPath = collectionView.indexPathForItem(at: .init(x: self.collectionView.center.x + self.collectionView.contentOffset.x, y: self.center.y + self.collectionView.contentOffset.y)) else {return}
+         self.pageControl.currentPage = indexPath.item
+     }
+
+     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+         if !decelerate {
+             self.collectionView.scrollToNearestVisibleCollectionViewCell()
+         }
+     }
 }
 
+// MARK: - Collection view flow layout
 extension CarouselHeaderView: UICollectionViewDelegateFlowLayout {
 
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        self.collectionView.scrollToNearestVisibleCollectionViewCell()
-    }
-
-    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        if !decelerate {
-            self.collectionView.scrollToNearestVisibleCollectionViewCell()
-        }
-    }
-
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-           return CGSize(width: self.collectionView.bounds.width - 20, height: self.collectionView.bounds.height - 20)
+           return CGSize(width: self.collectionView.bounds.width - 20, height: self.collectionView.bounds.height)
        }
 
        func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-           return 10
-       }
-
-       func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-           return 10
+           return 3
        }
 
        func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
@@ -111,36 +134,11 @@ extension CarouselHeaderView: UICollectionViewDelegateFlowLayout {
 
 }
 
+// MARK: - Line carousel delegate
 extension CarouselHeaderView: LineCarouselControlProtocol {
 
     func didSelectLineAt(_ index: Int) {
-        //move to the correct cell here
         collectionView.scrollToItem(at: IndexPath(item: index, section: 0), at: .centeredHorizontally, animated: true)
     }
 
 }
-
-extension UICollectionView {
-    func scrollToNearestVisibleCollectionViewCell() {
-        self.decelerationRate = UIScrollView.DecelerationRate.fast
-        let visibleCenterPositionOfScrollView = Float(self.contentOffset.x + (self.bounds.size.width / 2))
-        var closestCellIndex = -1
-        var closestDistance: Float = .greatestFiniteMagnitude
-        for i in 0..<self.visibleCells.count {
-            let cell = self.visibleCells[i]
-            let cellWidth = cell.bounds.size.width
-            let cellCenter = Float(cell.frame.origin.x + cellWidth / 2)
-
-            // Now calculate closest cell
-            let distance: Float = fabsf(visibleCenterPositionOfScrollView - cellCenter)
-            if distance < closestDistance {
-                closestDistance = distance
-                closestCellIndex = self.indexPath(for: cell)!.row
-            }
-        }
-        if closestCellIndex != -1 {
-            self.scrollToItem(at: IndexPath(row: closestCellIndex, section: 0), at: .centeredHorizontally, animated: true)
-        }
-    }
-}
-

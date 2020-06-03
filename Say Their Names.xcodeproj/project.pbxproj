@@ -75,6 +75,7 @@
 		B386F9552482FB540037A38D /* UIFontSTNTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B386F9542482FB540037A38D /* UIFontSTNTests.swift */; };
 		B386F958248526C70037A38D /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = B386F957248526C70037A38D /* Location.swift */; };
 		B3D6B6A92486EE3300D3118C /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B07B724846B0C00DB803C /* Service.swift */; };
+		DBBA11732487BA2A001CC480 /* UICollectionView+Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBA11722487BA2A001CC480 /* UICollectionView+Extentions.swift */; };
 		DBEE1C7324876498006EABCF /* CauroselHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEE1C7224876498006EABCF /* CauroselHeaderView.swift */; };
 		DBEE1C7524876D66006EABCF /* CollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEE1C7424876D66006EABCF /* CollectionViewDataSource.swift */; };
 		DBEE1C7724876D86006EABCF /* ResultsDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEE1C7624876D86006EABCF /* ResultsDataHandler.swift */; };
@@ -192,6 +193,7 @@
 		C0594BFB248754C900260BAD /* UICollectionViewCell++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell++.swift"; sourceTree = "<group>"; };
 		D107CEC59C11537D09D9DB2E /* Pods-Say Their Names.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Say Their Names.release.xcconfig"; path = "Target Support Files/Pods-Say Their Names/Pods-Say Their Names.release.xcconfig"; sourceTree = "<group>"; };
 		D639F16885E8E79F7E336CC2 /* Pods-Say Their Names.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Say Their Names.debug.xcconfig"; path = "Target Support Files/Pods-Say Their Names/Pods-Say Their Names.debug.xcconfig"; sourceTree = "<group>"; };
+		DBBA11722487BA2A001CC480 /* UICollectionView+Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extentions.swift"; sourceTree = "<group>"; };
 		DBEE1C7224876498006EABCF /* CauroselHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CauroselHeaderView.swift; sourceTree = "<group>"; };
 		DBEE1C7424876D66006EABCF /* CollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewDataSource.swift; sourceTree = "<group>"; };
 		DBEE1C7624876D86006EABCF /* ResultsDataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsDataHandler.swift; sourceTree = "<group>"; };
@@ -411,6 +413,7 @@
 				A91B077F24835CF700DB803C /* UIFont+STN.swift */,
 				A91B076A24835CF700DB803C /* UIView++.swift */,
 				83E9CAD32484A5DC001D173A /* UIViewController+TabBar.swift */,
+				DBBA11722487BA2A001CC480 /* UICollectionView+Extentions.swift */,
 				C0594BF9248754A200260BAD /* UICollectionView++.swift */,
 				C0594BFB248754C900260BAD /* UICollectionViewCell++.swift */,
 			);
@@ -926,6 +929,7 @@
 				DBEE1C7724876D86006EABCF /* ResultsDataHandler.swift in Sources */,
 				A91B07A724835CF700DB803C /* MainTabBarController.swift in Sources */,
 				9E2449A32485EA7600B149DF /* Typealiases.swift in Sources */,
+				DBBA11732487BA2A001CC480 /* UICollectionView+Extentions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -23,7 +23,9 @@ class HomeController: BaseViewController {
     private let searchBar = CustomSearchBar()
     private let locations = ["ALL", "MISSOURI", "TEXAS", "NEW YORK"] // dummy data
 
-    private let carouselData = ["Data", "Data", "Data"] //dummy data
+    //Carousel data
+    private let carouselData = ["Data", "Data", "Data", "Data"] //dummy data
+    private var carouselDataResultsHandler: ResultsDataHandler?
     
     //MARK: - ClASS METHODS
     override func viewDidLoad() {
@@ -73,15 +75,15 @@ extension HomeController: UICollectionViewDataSource, UICollectionViewDelegateFl
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         if collectionView.tag == 0 { return UICollectionReusableView() }
         let headerView = peopleCollectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerIdentifier, for: indexPath) as! CarouselHeaderView
-        let handler = ResultsDataHandler(resultsData: self.carouselData)
-        headerView.resultsHandler = handler
+        carouselDataResultsHandler = ResultsDataHandler(resultsData: self.carouselData)
+        headerView.resultsHandler = carouselDataResultsHandler
         headerView.configure()
         return headerView
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         let width = collectionView.frame.width - 32
-        return collectionView.tag == 0 ? .zero : .init(width: width, height: 170)
+        return collectionView.tag == 0 ? .zero : .init(width: width, height: 220)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
