@@ -11,7 +11,11 @@ import UIKit
 class STNError: Error {
     public var code: Int?
     public var message: String?
-    public var description : String {
-        get { return "STNError" }
+    public var description : String?
+    
+    init(code: Int = 0, message: String? = nil, description: String? = nil) {
+        self.code = code
+        self.message = message
+        self.description = description
     }
 }

@@ -16,7 +16,7 @@ class NetworkError: STNError {
         self.type = type
         
         guard let _ = error else { return nil }
-        super.init()
+        super.init(description: error?.localizedDescription)
     }
     
     init?(fromData: Serialization.AnyType?, type: NetworkErrorType = .normal) {
@@ -25,25 +25,13 @@ class NetworkError: STNError {
         guard let data = fromData as? Serialization.DictionaryType else { return nil }
         guard let errors = data["errors"] as? [[String:Any]], let errorDict = errors.first else { return nil }
 
-        super.init()
-        self.message = errorDict.subscriptObject("message", defaults: nil)
-        self.code = errorDict.subscriptObject("code", defaults: 0)
+        super.init(code: errorDict.subscriptObject("code", defaults: 0), message: errorDict.subscriptObject("message", defaults: nil), description: "")
     }
     
     init?(string: String, code: Int, type: NetworkErrorType = .normal) {
         self.type = type
         
-        super.init()
-        self.message = string
-        self.code = code
-    }
-    
-    override var description : String {
-        return """
-        NetworkError
-        Code: \(String(describing: self.code))
-        Message: \(String(describing: self.message))
-        """
+        super.init(code: code, message: string, description: "")
     }
 }
 

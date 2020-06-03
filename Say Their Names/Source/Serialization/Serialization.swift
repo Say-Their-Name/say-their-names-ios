@@ -5,11 +5,10 @@
 //  Copyright © 2020 Franck-Stephane Ndame Mpouli. All rights reserved.
 //
 
-import UIKit
-import CoreData
+import Foundation
 
 // MARK: - Serialization
-class Serialization: NSObject {
+class Serialization {
     public class func jsonString(withData data: Serialization.AnyType) -> Serialization.StringType? {
         do {
             let parsedData = try self.data(withJSONObject: data)

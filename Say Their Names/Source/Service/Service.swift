@@ -21,10 +21,5 @@ final class Service {
         Log.print("Starting Services")
         
         self.networkSession.service = self
-        
-        // Testing people
-        self.networkSession.fetchAllPeople { (people, error) in
-            
-        }
     }
 }

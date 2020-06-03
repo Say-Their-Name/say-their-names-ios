@@ -71,16 +71,8 @@
 		A91B07D224849E1800DB803C /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B07D124849E1800DB803C /* BaseViewController.swift */; };
 		A91B07D42484C88D00DB803C /* BaseNibLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B07D32484C88D00DB803C /* BaseNibLoading.swift */; };
 		A91B08232487717200DB803C /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B081C2487717100DB803C /* Person.swift */; };
-		A91B08242487717200DB803C /* PersonSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B081D2487717100DB803C /* PersonSerialization.swift */; };
-		A91B08252487717200DB803C /* PersonInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B081E2487717100DB803C /* PersonInterface.swift */; };
-		A91B08262487717200DB803C /* BaseModelInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B08202487717100DB803C /* BaseModelInterface.swift */; };
-		A91B08272487717200DB803C /* BaseModelSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B08212487717100DB803C /* BaseModelSerialization.swift */; };
-		A91B08282487717200DB803C /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B08222487717100DB803C /* BaseModel.swift */; };
-		A91B08402487718100DB803C /* Serializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B082B2487718000DB803C /* Serializable.swift */; };
-		A91B08412487718100DB803C /* Mockable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B082C2487718000DB803C /* Mockable.swift */; };
-		A91B08422487718100DB803C /* Convertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B082D2487718000DB803C /* Convertible.swift */; };
 		A91B08432487718100DB803C /* Serialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B082E2487718000DB803C /* Serialization.swift */; };
-		A91B08472487718100DB803C /* PersonNetworkHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B08342487718000DB803C /* PersonNetworkHandle.swift */; };
+		A91B08472487718100DB803C /* PersonNetworkRequestor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B08342487718000DB803C /* PersonNetworkRequestor.swift */; };
 		A91B08482487718100DB803C /* NetworkTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B08352487718000DB803C /* NetworkTask.swift */; };
 		A91B08492487718100DB803C /* NetworkSessionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B08362487718000DB803C /* NetworkSessionMock.swift */; };
 		A91B084A2487718100DB803C /* BaseNetworkUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B08372487718000DB803C /* BaseNetworkUrl.swift */; };
@@ -93,6 +85,10 @@
 		A91B0855248771AD00DB803C /* Data+Stn.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B0851248771AD00DB803C /* Data+Stn.swift */; };
 		A91B0856248771AD00DB803C /* Dictionary+STN.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B0852248771AD00DB803C /* Dictionary+STN.swift */; };
 		A91B0857248771AD00DB803C /* URLRequest+STN.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B0853248771AD00DB803C /* URLRequest+STN.swift */; };
+		A91B08592487F85E00DB803C /* PeopleDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B08582487F85E00DB803C /* PeopleDecoder.swift */; };
+		A91B085F24880D3A00DB803C /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B085E24880D3900DB803C /* Images.swift */; };
+		A91B086124880D5000DB803C /* People.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B086024880D5000DB803C /* People.swift */; };
+		A91B086324880D7100DB803C /* PeopleLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B086224880D7100DB803C /* PeopleLink.swift */; };
 		B386F9552482FB540037A38D /* UIFontSTNTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B386F9542482FB540037A38D /* UIFontSTNTests.swift */; };
 		B386F958248526C70037A38D /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = B386F957248526C70037A38D /* Location.swift */; };
 		B3D6B6A92486EE3300D3118C /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B07B724846B0C00DB803C /* Service.swift */; };
@@ -194,16 +190,8 @@
 		A91B07D124849E1800DB803C /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		A91B07D32484C88D00DB803C /* BaseNibLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNibLoading.swift; sourceTree = "<group>"; };
 		A91B081C2487717100DB803C /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
-		A91B081D2487717100DB803C /* PersonSerialization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonSerialization.swift; sourceTree = "<group>"; };
-		A91B081E2487717100DB803C /* PersonInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonInterface.swift; sourceTree = "<group>"; };
-		A91B08202487717100DB803C /* BaseModelInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseModelInterface.swift; sourceTree = "<group>"; };
-		A91B08212487717100DB803C /* BaseModelSerialization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseModelSerialization.swift; sourceTree = "<group>"; };
-		A91B08222487717100DB803C /* BaseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
-		A91B082B2487718000DB803C /* Serializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Serializable.swift; sourceTree = "<group>"; };
-		A91B082C2487718000DB803C /* Mockable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mockable.swift; sourceTree = "<group>"; };
-		A91B082D2487718000DB803C /* Convertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Convertible.swift; sourceTree = "<group>"; };
 		A91B082E2487718000DB803C /* Serialization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Serialization.swift; sourceTree = "<group>"; };
-		A91B08342487718000DB803C /* PersonNetworkHandle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonNetworkHandle.swift; sourceTree = "<group>"; };
+		A91B08342487718000DB803C /* PersonNetworkRequestor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonNetworkRequestor.swift; sourceTree = "<group>"; };
 		A91B08352487718000DB803C /* NetworkTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkTask.swift; sourceTree = "<group>"; };
 		A91B08362487718000DB803C /* NetworkSessionMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkSessionMock.swift; sourceTree = "<group>"; };
 		A91B08372487718000DB803C /* BaseNetworkUrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNetworkUrl.swift; sourceTree = "<group>"; };
@@ -216,6 +204,10 @@
 		A91B0851248771AD00DB803C /* Data+Stn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Data+Stn.swift"; sourceTree = "<group>"; };
 		A91B0852248771AD00DB803C /* Dictionary+STN.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dictionary+STN.swift"; sourceTree = "<group>"; };
 		A91B0853248771AD00DB803C /* URLRequest+STN.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URLRequest+STN.swift"; sourceTree = "<group>"; };
+		A91B08582487F85E00DB803C /* PeopleDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleDecoder.swift; sourceTree = "<group>"; };
+		A91B085E24880D3900DB803C /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
+		A91B086024880D5000DB803C /* People.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = People.swift; sourceTree = "<group>"; };
+		A91B086224880D7100DB803C /* PeopleLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleLink.swift; sourceTree = "<group>"; };
 		B386F9542482FB540037A38D /* UIFontSTNTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontSTNTests.swift; sourceTree = "<group>"; };
 		B386F957248526C70037A38D /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		B4C2225CE2734B7F1B4D3F86 /* Pods-Say Their NamesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Say Their NamesTests.debug.xcconfig"; path = "Target Support Files/Pods-Say Their NamesTests/Pods-Say Their NamesTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -383,6 +375,7 @@
 				A91B079424835CF700DB803C /* SceneDelegate.swift */,
 				A91B078224835CF700DB803C /* Components */,
 				A91B077124835CF700DB803C /* Controller */,
+				A91B086424880DF200DB803C /* Decoder */,
 				A91B083D2487718100DB803C /* Error */,
 				A91B07C62484725200DB803C /* Frameworks */,
 				A91B07BB24846ECB00DB803C /* Log */,
@@ -519,8 +512,7 @@
 		A91B078524835CF700DB803C /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				A91B081F2487717100DB803C /* Base */,
-				A91B081B2487717100DB803C /* Person */,
+				A91B081B2487717100DB803C /* People */,
 				A91B078724835CF700DB803C /* Donation.swift */,
 				A91B078824835CF700DB803C /* Petition.swift */,
 				B386F957248526C70037A38D /* Location.swift */,
@@ -624,65 +616,45 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
-		A91B081B2487717100DB803C /* Person */ = {
+		A91B081B2487717100DB803C /* People */ = {
 			isa = PBXGroup;
 			children = (
+				A91B086024880D5000DB803C /* People.swift */,
 				A91B081C2487717100DB803C /* Person.swift */,
-				A91B081D2487717100DB803C /* PersonSerialization.swift */,
-				A91B081E2487717100DB803C /* PersonInterface.swift */,
+				A91B085E24880D3900DB803C /* Images.swift */,
+				A91B086224880D7100DB803C /* PeopleLink.swift */,
 			);
-			path = Person;
-			sourceTree = "<group>";
-		};
-		A91B081F2487717100DB803C /* Base */ = {
-			isa = PBXGroup;
-			children = (
-				A91B08202487717100DB803C /* BaseModelInterface.swift */,
-				A91B08212487717100DB803C /* BaseModelSerialization.swift */,
-				A91B08222487717100DB803C /* BaseModel.swift */,
-			);
-			path = Base;
+			path = People;
 			sourceTree = "<group>";
 		};
 		A91B08292487718000DB803C /* Serialization */ = {
 			isa = PBXGroup;
 			children = (
-				A91B082A2487718000DB803C /* Interfaces */,
 				A91B082E2487718000DB803C /* Serialization.swift */,
 			);
 			path = Serialization;
 			sourceTree = "<group>";
 		};
-		A91B082A2487718000DB803C /* Interfaces */ = {
-			isa = PBXGroup;
-			children = (
-				A91B082B2487718000DB803C /* Serializable.swift */,
-				A91B082C2487718000DB803C /* Mockable.swift */,
-				A91B082D2487718000DB803C /* Convertible.swift */,
-			);
-			path = Interfaces;
-			sourceTree = "<group>";
-		};
 		A91B082F2487718000DB803C /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				A91B08302487718000DB803C /* Handles */,
-				A91B08352487718000DB803C /* NetworkTask.swift */,
-				A91B08362487718000DB803C /* NetworkSessionMock.swift */,
 				A91B08372487718000DB803C /* BaseNetworkUrl.swift */,
-				A91B08382487718000DB803C /* Sessions */,
-				A91B083A2487718000DB803C /* Errors */,
 				A91B083C2487718000DB803C /* NetworkSessionConfig.swift */,
+				A91B08362487718000DB803C /* NetworkSessionMock.swift */,
+				A91B08352487718000DB803C /* NetworkTask.swift */,
+				A91B083A2487718000DB803C /* Errors */,
+				A91B08302487718000DB803C /* Requestors */,
+				A91B08382487718000DB803C /* Sessions */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
 		};
-		A91B08302487718000DB803C /* Handles */ = {
+		A91B08302487718000DB803C /* Requestors */ = {
 			isa = PBXGroup;
 			children = (
-				A91B08342487718000DB803C /* PersonNetworkHandle.swift */,
+				A91B08342487718000DB803C /* PersonNetworkRequestor.swift */,
 			);
-			path = Handles;
+			path = Requestors;
 			sourceTree = "<group>";
 		};
 		A91B08382487718000DB803C /* Sessions */ = {
@@ -708,6 +680,14 @@
 				A91B083F2487718100DB803C /* BaseError.swift */,
 			);
 			path = Error;
+			sourceTree = "<group>";
+		};
+		A91B086424880DF200DB803C /* Decoder */ = {
+			isa = PBXGroup;
+			children = (
+				A91B08582487F85E00DB803C /* PeopleDecoder.swift */,
+			);
+			path = Decoder;
 			sourceTree = "<group>";
 		};
 		B13DE7CF27E7C1C98AA12017 /* Frameworks */ = {
@@ -970,36 +950,35 @@
 				9E7DBAF1248481DA00635A56 /* ImageService.swift in Sources */,
 				9E7DBAF7248481DA00635A56 /* FileDataProvider.swift in Sources */,
 				A91B07A424835CF700DB803C /* UIFont+STN.swift in Sources */,
-				A91B08402487718100DB803C /* Serializable.swift in Sources */,
 				A91B084A2487718100DB803C /* BaseNetworkUrl.swift in Sources */,
 				A91B07D224849E1800DB803C /* BaseViewController.swift in Sources */,
 				A91B0855248771AD00DB803C /* Data+Stn.swift in Sources */,
 				9E7DBAF6248481DA00635A56 /* AsyncOperation.swift in Sources */,
 				A91B07C02484705400DB803C /* Navigator.swift in Sources */,
+				A91B085F24880D3A00DB803C /* Images.swift in Sources */,
 				A91B07BD24846ED700DB803C /* Log.swift in Sources */,
+				A91B086124880D5000DB803C /* People.swift in Sources */,
 				A91B084E2487718100DB803C /* STNError.swift in Sources */,
 				A91B08492487718100DB803C /* NetworkSessionMock.swift in Sources */,
 				EEC3A1D42483D493001E7754 /* CustomSearchBar.swift in Sources */,
 				9E7DBAF5248481DA00635A56 /* FileDownloader.swift in Sources */,
-				A91B08272487717200DB803C /* BaseModelSerialization.swift in Sources */,
 				A91B07CF24849D8400DB803C /* ServiceReferring.swift in Sources */,
 				A91B079824835CF700DB803C /* STNSize.swift in Sources */,
 				A91B08432487718100DB803C /* Serialization.swift in Sources */,
 				A91B079624835CF700DB803C /* UIFont++.swift in Sources */,
-				A91B08422487718100DB803C /* Convertible.swift in Sources */,
 				A91B079C24835CF700DB803C /* HomeController.swift in Sources */,
 				A91B07AA24835CF700DB803C /* Donation.swift in Sources */,
 				A91B07B124835CF700DB803C /* LocationCell.swift in Sources */,
 				A91B07B324835CF700DB803C /* SceneDelegate.swift in Sources */,
 				7433B6472484B987005140D4 /* PersonDetailsController.swift in Sources */,
 				A91B079524835CF700DB803C /* UIColor+Resource.swift in Sources */,
+				A91B086324880D7100DB803C /* PeopleLink.swift in Sources */,
 				9E7DBAF9248481FC00635A56 /* Operation++.swift in Sources */,
-				A91B08282487717200DB803C /* BaseModel.swift in Sources */,
 				9E7DBAF4248481DA00635A56 /* ImageCreationOperation.swift in Sources */,
 				A91B07D42484C88D00DB803C /* BaseNibLoading.swift in Sources */,
 				83E9CAD02484A504001D173A /* LaunchScreen.swift in Sources */,
-				A91B08472487718100DB803C /* PersonNetworkHandle.swift in Sources */,
-				A91B08262487717200DB803C /* BaseModelInterface.swift in Sources */,
+				A91B08592487F85E00DB803C /* PeopleDecoder.swift in Sources */,
+				A91B08472487718100DB803C /* PersonNetworkRequestor.swift in Sources */,
 				A91B079924835CF700DB803C /* UIFont+Resource.swift in Sources */,
 				9E2449A02485EA0B00B149DF /* strings.swift in Sources */,
 				A91B07C82484751700DB803C /* String+STN.swift in Sources */,
@@ -1014,13 +993,10 @@
 				A91B07AD24835CF700DB803C /* PersonCell.swift in Sources */,
 				9E7DBAF2248481DA00635A56 /* ImageProvider.swift in Sources */,
 				B386F958248526C70037A38D /* Location.swift in Sources */,
-				A91B08252487717200DB803C /* PersonInterface.swift in Sources */,
 				A91B084C2487718100DB803C /* NetworkError.swift in Sources */,
 				A91B07A524835CF700DB803C /* UIColor+STN.swift in Sources */,
-				A91B08242487717200DB803C /* PersonSerialization.swift in Sources */,
 				A91B07A024835CF700DB803C /* DonationsController.swift in Sources */,
 				A91B0857248771AD00DB803C /* URLRequest+STN.swift in Sources */,
-				A91B08412487718100DB803C /* Mockable.swift in Sources */,
 				83E9CAD42484A5DC001D173A /* UIViewController+TabBar.swift in Sources */,
 				9E7DBAF0248481DA00635A56 /* ImageCache.swift in Sources */,
 				A91B0854248771AD00DB803C /* DispatchQueue+STN.swift in Sources */,
