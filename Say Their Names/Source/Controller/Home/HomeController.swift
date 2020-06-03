@@ -15,9 +15,6 @@ private let headerIdentifier = "PersonHeaderCell"
 
 class HomeController: BaseViewController {
         
-    
-    var launchScreen: LaunchScreen?
-    
     //MARK: - IBOUTLETS
     @IBOutlet weak var customNavBar: UIView!
     @IBOutlet weak var locationCollectionView: UICollectionView!
@@ -33,8 +30,6 @@ class HomeController: BaseViewController {
         navigationController?.navigationBar.isHidden = true
         searchBar.setup(withController: self)
         setupCollectionView()
-        showLaunchScreen()
-        view.isAccessibilityElement = false
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -42,12 +37,6 @@ class HomeController: BaseViewController {
         // Select first location by default
         let selectedIndexPath = IndexPath(item: 0, section: 0)
         locationCollectionView.selectItem(at: selectedIndexPath, animated: false, scrollPosition: .centeredVertically)
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        // To-Do: move this logic to after data is fetched from back-end
-        removeLaunchScreen()
     }
     
     fileprivate func setupCollectionView() {
@@ -124,27 +113,5 @@ extension HomeController: UICollectionViewDataSource, UICollectionViewDelegateFl
             navigationController.navigationBar.isHidden = true
             present(navigationController, animated: true, completion: nil)
         }
-    }
-}
-
-// MARK - Launch screen
-extension HomeController {
-    private func showLaunchScreen() {
-        let bundle = Bundle(for: LaunchScreen.self)
-        if let launch = bundle.loadNibNamed("LaunchScreen", owner: self, options: nil)?.first as? LaunchScreen {
-            hideTabBar()
-            view.addSubview(launch)
-            launch.frame = view.bounds
-            launchScreen = launch
-        }
-    }
-
-    private func removeLaunchScreen() {
-        guard let launchScreen = launchScreen else { return }
-
-        let completion = {
-            self.revealTabBar()
-        }
-        launchScreen.animate(completion: completion)
     }
 }
