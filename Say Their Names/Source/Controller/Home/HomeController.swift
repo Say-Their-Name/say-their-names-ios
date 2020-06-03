@@ -103,7 +103,8 @@ class HomeController: UIViewController, ServiceReferring {
         
         peopleCollectionView.delegate = self
         peopleCollectionView.dataSource = peopleDataSource
-        peopleCollectionView.register(UINib(nibName: peopleIdentifier, bundle: nil), forCellWithReuseIdentifier: PersonCell.personIdentifier)
+        peopleCollectionView.register(PersonCell.self, forCellWithReuseIdentifier: PersonCell.personIdentifier)
+//        peopleCollectionView.register(UINib(nibName: peopleIdentifier, bundle: nil), forCellWithReuseIdentifier: PersonCell.personIdentifier)
         peopleCollectionView.register(UINib(nibName: headerIdentifier, bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerIdentifier)
         peopleCollectionView.accessibilityIdentifier = "peopleCollection"
         peopleCollectionView.isAccessibilityElement = false
