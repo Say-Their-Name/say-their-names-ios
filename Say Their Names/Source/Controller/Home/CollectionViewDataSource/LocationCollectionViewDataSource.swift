@@ -10,7 +10,7 @@ import UIKit
 
 class LocationCollectionViewDataSource: NSObject {
      
-    var locations: [Location]
+    private var locations: [Location]
     
     init(locations: [Location]) {
         self.locations = locations
@@ -25,7 +25,6 @@ class LocationCollectionViewDataSource: NSObject {
     }
     
 }
-
 
 extension LocationCollectionViewDataSource: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

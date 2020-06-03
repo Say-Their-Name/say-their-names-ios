@@ -48,7 +48,7 @@
                         </constraints>
                     </imageView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wrh-sd-nIU">
-                        <rect key="frame" x="157" y="268" width="15" height="22"/>
+                        <rect key="frame" x="142" y="258" width="30" height="42"/>
                         <state key="normal" image="bookmark"/>
                     </button>
                 </subviews>
@@ -67,6 +67,11 @@
                 <constraint firstItem="6lW-4e-Fcl" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="tmb-kr-Xd9"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <connections>
+                <outlet property="dateLabel" destination="1Ut-3z-SmT" id="KCX-eJ-Pdc"/>
+                <outlet property="nameLabel" destination="Slj-Mj-hpk" id="TAX-ma-tls"/>
+                <outlet property="personPhotoImageView" destination="6lW-4e-Fcl" id="lA9-HY-NN2"/>
+            </connections>
             <point key="canvasLocation" x="137.68115942028987" y="152.67857142857142"/>
         </collectionViewCell>
     </objects>

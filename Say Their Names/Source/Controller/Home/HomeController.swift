@@ -25,7 +25,7 @@ class HomeController: BaseViewController {
     
     //MARK: - CV Data Sources
     private let locationsDataSource = LocationCollectionViewDataSource(locations: [])
-    
+    private let peopleDataSource = PersonCollectionViewDataSource()
     
     //MARK: - ClASS METHODS
     override func viewDidLoad() {
@@ -59,15 +59,34 @@ class HomeController: BaseViewController {
                          .init(name: "TEXAS"),
                          .init(name: "NEW YORK")]
         
+        var people: [Person] = []
+        let df = DateFormatter()
+        df.dateFormat = "dd.MM.yyyy"
+        for i in 0..<10 {
+            people.append(Person(
+                id: "id\(i)",
+                fullName: "George Floyd \(i)",
+                age: i,
+                childrenCount: i,
+                date: df.date(from: "25.05.2020") ?? Date(),
+                location: "",
+                media: ["man-in-red-jacket-1681010"],
+                bio: "",
+                context: "",
+                donations: [],
+                petitions: []))
+        }
+        
         locationsDataSource.setLocations(locations)
+        peopleDataSource.setPeople(people)
         
         locationCollectionView.delegate = self
         locationCollectionView.dataSource = locationsDataSource
         locationCollectionView.register(LocationCell.self, forCellWithReuseIdentifier: LocationCell.locationIdentifier)
         
         peopleCollectionView.delegate = self
-        peopleCollectionView.dataSource = self
-        peopleCollectionView.register(UINib(nibName: peopleIdentifier, bundle: nil), forCellWithReuseIdentifier: peopleIdentifier)
+        peopleCollectionView.dataSource = peopleDataSource
+        peopleCollectionView.register(UINib(nibName: peopleIdentifier, bundle: nil), forCellWithReuseIdentifier: PersonCell.personIdentifier)
         peopleCollectionView.register(UINib(nibName: headerIdentifier, bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerIdentifier)
     }
     
@@ -79,31 +98,12 @@ class HomeController: BaseViewController {
 }
 
 //MARK: - UICOLLECTIONVIEW EXTENSION
-extension HomeController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if collectionView == locationCollectionView {
-            return locationsDataSource.numberOfItems()
-        }
-        return  10
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        if collectionView.tag == 0 { return UICollectionReusableView() }
-        let headerView = peopleCollectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerIdentifier, for: indexPath) as! PersonHeaderCell
-        return headerView
-    }
-    
+extension HomeController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         let width = collectionView.frame.width - 32
         return collectionView.tag == 0 ? .zero : .init(width: width, height: 170)
     }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = peopleCollectionView.dequeueReusableCell(withReuseIdentifier: peopleIdentifier, for: indexPath) as! PersonCell
-        return cell
-    }
-    
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = collectionView.frame.width / 2 - 24
         let locationCellSize = CGSize(width: 103, height: 36)
