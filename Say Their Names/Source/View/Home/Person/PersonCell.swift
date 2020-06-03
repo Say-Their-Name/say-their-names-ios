@@ -29,7 +29,7 @@ final class PersonCell: UICollectionViewCell {
 
     // MARK:- Handlers
         
-    @IBAction func bookmarkButtonDidTouchUpInsde(_ sender: Any) {
+    @IBAction private func bookmark(_ sender: UIButton) {
         // TODO: Implement BookMark Handler
     }
 }
