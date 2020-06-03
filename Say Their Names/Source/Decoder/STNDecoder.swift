@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class Decoder {
+final class STNDecoder {
     public class func decode<T: Decodable>(_ data: Any?) -> T? {
         guard let data = data as? Data else { return nil }
         

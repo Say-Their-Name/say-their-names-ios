@@ -11,13 +11,13 @@ import Foundation
 protocol ImagesInterface: Decodable {
     var id: Int { get set }
     var personId: Int { get set }
-    var imageUrl: String? { get set }
+    var imageUrl: String { get set }
 }
 
 public struct Images: ImagesInterface {
-    var id: Int = -1
-    var personId: Int = -1
-    var imageUrl: String?
+    var id: Int
+    var personId: Int
+    var imageUrl: String
 
     private enum CodingKeys: String, CodingKey {
         case id, personId = "person_id", imageUrl = "image_url"

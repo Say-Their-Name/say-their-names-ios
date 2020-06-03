@@ -9,13 +9,13 @@
 import Foundation
 
 protocol PeopleInterface: Decodable {
-    var people: Array<Person>? { get set }
-    var links: PeopleLink?  { get set }
+    var people: Array<Person> { get set }
+    var links: PeopleLink  { get set }
 }
 
 public struct People: PeopleInterface {
-    var people: Array<Person>?
-    var links: PeopleLink?
+    var people: Array<Person>
+    var links: PeopleLink
     
     private enum CodingKeys: String, CodingKey {
         case people = "data", links
