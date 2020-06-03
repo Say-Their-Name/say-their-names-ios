@@ -33,7 +33,6 @@ extension LocationCollectionViewDataSource: UICollectionViewDataSource {
         
         if let locationCell = collectionView.dequeueReusableCell(withReuseIdentifier: LocationCell.locationIdentifier, for: indexPath) as? LocationCell {
             locationCell.configure(with: location)
-//            if indexPath.item == 0 { cell.isSelected = true }
             locationCell.accessibilityIdentifier = "locationCell\(indexPath.item)"
             locationCell.isAccessibilityElement = true
             return locationCell
