@@ -49,6 +49,11 @@ class HomeController: ServiceClientViewController {
         // Select first location by default
         let selectedIndexPath = IndexPath(item: 0, section: 0)
         locationCollectionView.selectItem(at: selectedIndexPath, animated: false, scrollPosition: .centeredVertically)
+        
+        // hide the major parts of the homeview
+        // so the launch screen will appear
+        homeView.hideable.forEach { $0.isHidden = true }
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -147,6 +152,7 @@ extension HomeController {
 
         let completion = {
             self.revealTabBar()
+            self.homeView.hideable.forEach { $0.isHidden = false }
         }
         launchScreen.animate(completion: completion)
     }

@@ -14,6 +14,11 @@ class HomeView: UIView {
     var locationCollectionView: UICollectionView!
     var peopleCollectionView: UICollectionView!
     var searchButton: UIButton!
+    var separator : UIView!
+    
+    var hideable : [UIView] {
+        [customNavBar, locationCollectionView, peopleCollectionView, separator]
+    }
     
     required init?(coder: NSCoder) { fatalError("This should never be called") }
     override init(frame: CGRect) {
@@ -38,6 +43,11 @@ class HomeView: UIView {
         peopleCollectionView.tag = 1
         peopleCollectionView.contentInsetAdjustmentBehavior = .always
         self.peopleCollectionView = peopleCollectionView
+        
+        let separator = UIView()
+        separator.backgroundColor = .systemGray6
+
+        self.separator = separator
         
         let searchButton = UIButton(type: .custom)
         let searchImage = UIImage(named: "Simple Search Icon")!
@@ -82,9 +92,6 @@ class HomeView: UIView {
         let collections = UIView()
         addSubview(collections)
         
-        let separator = UIView()
-        separator.backgroundColor = .systemGray6
-
         locationCollectionView.backgroundColor = .systemBackground
         peopleCollectionView.backgroundColor = .systemBackground
         
