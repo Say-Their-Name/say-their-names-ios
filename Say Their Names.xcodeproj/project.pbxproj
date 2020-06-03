@@ -852,6 +852,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBEE1C7B24877466006EABCF /* CarouselPageControl.swift in Sources */,
 				B3D6B6A92486EE3300D3118C /* Service.swift in Sources */,
 				A91B07A924835CF700DB803C /* Person.swift in Sources */,
 				9E7DBAFC2484822A00635A56 /* Operators.swift in Sources */,
@@ -867,11 +868,14 @@
 				9E7DBAF5248481DA00635A56 /* FileDownloader.swift in Sources */,
 				C0594BFA248754A200260BAD /* UICollectionView++.swift in Sources */,
 				A91B07CF24849D8400DB803C /* ServiceReferring.swift in Sources */,
+				DBEE1C7924876DB1006EABCF /* CarouselCollectionViewCell.swift in Sources */,
 				A91B079824835CF700DB803C /* STNSize.swift in Sources */,
 				DB966D662487FA0C00C69117 /* CollectionViewDataSource.swift in Sources */,
 				A91B079624835CF700DB803C /* UIFont++.swift in Sources */,
 				A91B079C24835CF700DB803C /* HomeController.swift in Sources */,
+				DBEE1C7324876498006EABCF /* CauroselHeaderView.swift in Sources */,
 				A91B07AA24835CF700DB803C /* Donation.swift in Sources */,
+				DBEE1C7D248799C6006EABCF /* LineCarouselControl.swift in Sources */,
 				A91B07B124835CF700DB803C /* LocationCell.swift in Sources */,
 				A91B07B324835CF700DB803C /* SceneDelegate.swift in Sources */,
 				7433B6472484B987005140D4 /* PersonDetailsController.swift in Sources */,
@@ -903,6 +907,7 @@
 				A91B07A024835CF700DB803C /* DonationsController.swift in Sources */,
 				9E459C5624873BB000309334 /* PetitionsViewCode.swift in Sources */,
 				83E9CAD42484A5DC001D173A /* UIViewController+TabBar.swift in Sources */,
+				DBEE1C7524876D66006EABCF /* CollectionViewDataSource.swift in Sources */,
 				9E7DBAF0248481DA00635A56 /* ImageCache.swift in Sources */,
 				A91B07A624835CF700DB803C /* UIDevice+STN.swift in Sources */,
 				A91B07B224835CF700DB803C /* AppDelegate.swift in Sources */,
