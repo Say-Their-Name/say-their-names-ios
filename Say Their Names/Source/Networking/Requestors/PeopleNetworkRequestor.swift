@@ -35,7 +35,7 @@ extension PeopleNetworkRequestor {
     // MARK: - Private methods
     
     private func _fetchPeopleAtUrl(_ url: String, completion: @escaping (People?, STNError?) -> Swift.Void) {
-        let task = NetworkTask<People>(url, parse: false, requestType: .get) { PeopleDecoder.decode($0) }
+        let task = NetworkTask<People>(url, parse: false, requestType: .get) { Decoder.decode($0) }
 
         self.load(task) { (people, totalTime, error) in
             DispatchQueue.mainAsync { completion(people, error) }
