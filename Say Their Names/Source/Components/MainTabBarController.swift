@@ -75,7 +75,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         let donationsController = DonationsController(service: self.service)
         let donationsNC = UINavigationController(rootViewController: donationsController)
         
-        let petitionsController = PetitionsController(service: self.service, shouldInitWithNib: false)
+        let petitionsController = PetitionsController(service: self.service)
         let petitionsNC = UINavigationController(rootViewController: petitionsController)
         
         let settingsController = SettingsController(service: self.service) 
