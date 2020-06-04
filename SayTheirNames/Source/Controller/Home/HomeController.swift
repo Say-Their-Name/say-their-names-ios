@@ -76,11 +76,14 @@ class HomeController: UIViewController, ServiceReferring {
         locationsDataSource.setLocations(locations)
 
         // FIXME: This should be setup in a better place, for now this loads out data
-        self.service.network.fetchPeople { [weak self] (p) in
-            guard let people = p?.all else { return }
-            
-            self?.peopleDataSource.setPeople(people)
-            self?.peopleCollectionView.reloadData()
+        self.service.network.fetchPeople { [weak self] (result) in
+            switch result {
+                case .success(let page):
+                    self?.peopleDataSource.setPeople(page.all)
+                    self?.peopleCollectionView.reloadData()
+                case .failure(let error):
+                    Log.print(error)
+            }
         }
 
         locationCollectionView.delegate = self

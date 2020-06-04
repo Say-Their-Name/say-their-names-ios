@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Alamofire
 
 // MARK: - PetitionUrl
 enum DonationsEnvironment {
@@ -17,7 +18,7 @@ enum DonationsEnvironment {
 extension NetworkRequestor {
     // MARK: - Public methods
     
-    public func fetchDonations(completion: @escaping (DonationsResponsePage?) -> Swift.Void) {
+    public func fetchDonations(completion: @escaping (Result<DonationsResponsePage, AFError>) -> Swift.Void) {
         self.fetchDecodable(DonationsEnvironment.urlString, completion: completion)
     }
 }

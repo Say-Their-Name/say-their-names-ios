@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Alamofire
 
 // MARK: - PetitionEnvironment
 enum PetitionEnvironment {
@@ -17,7 +18,7 @@ enum PetitionEnvironment {
 extension NetworkRequestor {
     // MARK: - Public methods
     
-    public func fetchPetitions(completion: @escaping (PetitionsResponsePage?) -> Swift.Void) {
+    public func fetchPetitions(completion: @escaping (Result<PetitionsResponsePage, AFError>) -> Swift.Void) {
         self.fetchDecodable(PetitionEnvironment.urlString, completion: completion)
     }
 }

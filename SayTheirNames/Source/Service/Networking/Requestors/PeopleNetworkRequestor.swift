@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Alamofire
 
 // MARK: - PersonEnvironment
 enum PersonEnvironment {
@@ -17,13 +18,14 @@ enum PersonEnvironment {
 extension NetworkRequestor {
     // MARK: - Public methods
     
-    public func fetchPeople(completion: @escaping (PersonsResponsePage?) -> Swift.Void) {
+    public func fetchPeople(completion: @escaping (Result<PersonsResponsePage, AFError>) -> Swift.Void) {
         self.fetchDecodable(PersonEnvironment.urlString, completion: completion)
     }
     
-    public func fetchPeopleWithLink(_ peopleLink: Link, completion: @escaping (PersonsResponsePage?) -> Swift.Void) {
+    public func fetchPeopleWithLink(_ peopleLink: Link, completion: @escaping (Result<PersonsResponsePage, AFError>) -> Swift.Void) {
         guard let nextUrl = peopleLink.next else {
-            completion(nil)
+            let error = AFError.parameterEncodingFailed(reason: .missingURL)
+            completion(.failure(error))
             return
         }
         
