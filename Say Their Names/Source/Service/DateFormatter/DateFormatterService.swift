@@ -16,15 +16,10 @@ extension DateFormatter: DateFormatterType { }
 
 class DateFormatterService {
 
-    // MARK: - Shared
-
     static let shared = DateFormatterService()
     
-    // MARK: - Queue
-    
+    /// To keep thread safe, designate this queue for searching cached formatters.
     let dateFormattersQueue = DispatchQueue(label: "com.stn.date.formatter.queue")
-
-    // MARK: - Cached Formatters
 
     private var dateFormatters = [String : DateFormatterType]()
 
@@ -51,6 +46,13 @@ class DateFormatterService {
         let dateFormatter = cachedDateFormatter(withFormat: "y/MM/dd @ HH:mm")
         let formattedDate = dateFormatter.string(from: date)
         return ("Date of birth: \(formattedDate)")
+    }
+    
+    // MARK: - Hour minute
+    
+    func formatHourMinuteDate(_ date: Date) -> String {
+        let dateFormatter = cachedDateFormatter(withFormat: "HH:mm")
+        return dateFormatter.string(from: date)
     }
 
 }
