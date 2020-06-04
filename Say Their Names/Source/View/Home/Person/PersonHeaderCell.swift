@@ -9,7 +9,8 @@
 import UIKit
 
 class PersonHeaderCell: UICollectionViewCell {
-
+    static let headerIdentifier = "PersonHeaderCell"
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
