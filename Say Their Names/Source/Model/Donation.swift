@@ -8,13 +8,23 @@
 
 import Foundation
 
+// MARK: - Donation
 struct Donation: Codable {
+    var id: String
     var title: String
     var description: String
     var link: String
+    var person: Person
+    var type: DonationType
     
     enum CodingKeys: String, CodingKey {
-        case title, description, link
+        case id, title, description, link, person, type
     }
+}
+
+// MARK: - DonationType
+struct DonationType: Codable {
+    let id: String
+    let type: String
 }
 
