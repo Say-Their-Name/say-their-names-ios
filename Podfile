@@ -7,7 +7,8 @@ target 'Say Their Names' do
 
   # Pods for Say Their Names
   pod 'SwiftGen', '~> 6.0'
-  
+  pod 'Alamofire', '~> 5.2'
+
   target 'Say Their NamesTests' do
     inherit! :search_paths
     # Pods for testing

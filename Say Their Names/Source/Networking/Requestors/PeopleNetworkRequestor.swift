@@ -7,25 +7,25 @@
 //
 
 import UIKit
+import Alamofire
 
 // MARK: - PersonUrl
 final class PersonUrl: BaseNetworkUrl {
     class var people: UrlString { return "\(self.base)/api/people" }
 }
 
-// MARK: - PeopleNetworkRequestor<T>
-
-typealias PeopleNetworkRequestor<T> = NetworkSession<T>
+// MARK: - PeopleNetworkRequestor
+typealias PeopleNetworkRequestor = NetworkRequestor
 extension PeopleNetworkRequestor {
     // MARK: - Public methods
     
-    public func fetchPeople(completion: @escaping (People?, STNError?) -> Swift.Void) {
+    public func fetchPeople(completion: @escaping (People?) -> Swift.Void) {
         self._fetchPeopleAtUrl(PersonUrl.people, completion: completion)
     }
     
-    public func fetchPeopleWithLink(_ peopleLink: PeopleLink, completion: @escaping (People?, STNError?) -> Swift.Void) {
+    public func fetchPeopleWithLink(_ peopleLink: PeopleLink, completion: @escaping (People?) -> Swift.Void) {
         guard let nextUrl = peopleLink.next else {
-            completion(nil, STNError(code: -12, message: "No Next URL"))
+            completion(nil)
             return
         }
         
@@ -34,11 +34,11 @@ extension PeopleNetworkRequestor {
     
     // MARK: - Private methods
     
-    private func _fetchPeopleAtUrl(_ url: String, completion: @escaping (People?, STNError?) -> Swift.Void) {
-        let task = NetworkTask<People>(url, parse: false, requestType: .get) { STNDecoder.decode($0) }
-
-        self.load(task) { (people, totalTime, error) in
-            DispatchQueue.mainAsync { completion(people, error) }
+    private func _fetchPeopleAtUrl(_ url: String, completion: @escaping (People?) -> Swift.Void) {
+        let request = AF.request(PersonUrl.people)
+        request.responseDecodable(of: People.self) { (response) in
+          completion(response.value)
         }
     }
 }
+g

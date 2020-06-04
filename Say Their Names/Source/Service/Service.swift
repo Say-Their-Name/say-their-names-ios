@@ -12,7 +12,7 @@ import UIKit
 final class Service {
     lazy private(set) var navigator = Navigator(service: self)
     lazy private(set) var image = ImageService()
-    lazy private(set) var network = NetworkSession<Data>()
+    lazy private(set) var network = NetworkRequestor(service: self)
 
     // MARK: - Init
     init() {
@@ -23,7 +23,7 @@ final class Service {
         self.network.service = self
         
         // Testing people
-        self.network.fetchPeople { (people, error) in
+        self.network.fetchPeople { (people) in
             
         }
     }
