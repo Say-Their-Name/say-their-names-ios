@@ -1,6 +1,6 @@
 //
 //  HomeController.swift
-//  Say Their Names
+//  SayTheirNames
 //
 //  Created by Franck-Stephane Ndame Mpouli on 30/05/2020.
 //  Copyright © 2020 Franck-Stephane Ndame Mpouli. All rights reserved.
@@ -13,8 +13,7 @@ private let headerIdentifier = "PersonHeaderCell"
 private let peopleIdentifier = "PersonCell"
 
 class HomeController: UIViewController, ServiceReferring {
-        
-    let service: Service?
+    let service: Service
     
     required init(service: Service) {
         self.service = service
@@ -74,28 +73,19 @@ class HomeController: UIViewController, ServiceReferring {
                          .init(name: "MISSOURI"),
                          .init(name: "TEXAS"),
                          .init(name: "NEW YORK")]
-        
-        var people: [Person] = []
-        let df = DateFormatter()
-        df.dateFormat = "dd.MM.yyyy"
-        for i in 0..<10 {
-            people.append(Person(
-                id: "id\(i)",
-                fullName: "George Floyd \(i)",
-                age: i,
-                childrenCount: i,
-                date: df.date(from: "25.05.2020") ?? Date(),
-                location: "",
-                media: ["man-in-red-jacket-1681010"],
-                bio: "",
-                context: "",
-                donations: [],
-                petitions: []))
-        }
-        
         locationsDataSource.setLocations(locations)
-        peopleDataSource.setPeople(people)
-        
+
+        // FIXME: This should be setup in a better place, for now this loads out data
+        self.service.network.fetchPeople { [weak self] (result) in
+            switch result {
+            case .success(let page):
+                self?.peopleDataSource.setPeople(page.all)
+                self?.peopleCollectionView.reloadData()
+            case .failure(let error):
+                Log.print(error)
+            }
+        }
+
         locationCollectionView.delegate = self
         locationCollectionView.dataSource = locationsDataSource
         locationCollectionView.register(LocationCell.self, forCellWithReuseIdentifier: LocationCell.locationIdentifier)
@@ -157,11 +147,9 @@ extension HomeController: UICollectionViewDelegateFlowLayout {
             // nothing for now
         }
         else if collectionView === peopleCollectionView {
-            guard let service = self.service else { return }
-            
             // People CollectionView
             // let selectedPerson = peopleDataSource.fetchPerson(at: indexPath.item)
-            let personController = PersonController(service: service)
+            let personController = PersonController(service: self.service)
             
             let navigationController = UINavigationController(rootViewController: personController)
             navigationController.navigationBar.isHidden = true
