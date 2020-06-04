@@ -19,7 +19,7 @@ class DateFormatterServiceTests: XCTestCase {
         XCTAssertEqual(formattedDate, "Date of birth: 2020/06/03 @ 04:11")
     }
     
-    func testHourMinuteFormate() {
+    func testHourMinuteFormat() {
         let hourMin = Date.dateFrom(year: 2020, month: 06, day: 03, hour: 4, minute: 11)!
 
         let formattedDate = DateFormatterService.shared.formatHourMinuteDate(hourMin)
