@@ -1169,7 +1169,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = "Say Their NamesTests/Info.plist";
+				INFOPLIST_FILE = SayTheirNamesTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1180,7 +1180,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SayTheirNames.app/SayTheirNames";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Say Their Names.app/Say Their Names";
 			};
 			name = Debug;
 		};
@@ -1192,7 +1192,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = "Say Their NamesTests/Info.plist";
+				INFOPLIST_FILE = SayTheirNamesTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1203,7 +1203,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SayTheirNames.app/SayTheirNames";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Say Their Names.app/Say Their Names";
 			};
 			name = Release;
 		};
@@ -1222,7 +1222,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "Say Their Names";
+				TEST_TARGET_NAME = SayTheirNames;
 			};
 			name = Debug;
 		};
@@ -1241,7 +1241,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "Say Their Names";
+				TEST_TARGET_NAME = SayTheirNames;
 			};
 			name = Release;
 		};
