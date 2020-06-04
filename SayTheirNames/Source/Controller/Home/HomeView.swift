@@ -129,7 +129,7 @@ final class HomeView: UIView {
         
         let logo = UIImageView(image: UIImage(named: "logo"))
         let label = UILabel()
-        label.text = "SayTheirName"
+        label.text = "SAY THEIR NAME"
         label.textColor = .white
         label.font = UIFont.STN.bannerTitle
         
