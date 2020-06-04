@@ -78,11 +78,11 @@ class HomeController: UIViewController, ServiceReferring {
         // FIXME: This should be setup in a better place, for now this loads out data
         self.service.network.fetchPeople { [weak self] (result) in
             switch result {
-                case .success(let page):
-                    self?.peopleDataSource.setPeople(page.all)
-                    self?.peopleCollectionView.reloadData()
-                case .failure(let error):
-                    Log.print(error)
+            case .success(let page):
+                self?.peopleDataSource.setPeople(page.all)
+                self?.peopleCollectionView.reloadData()
+            case .failure(let error):
+                Log.print(error)
             }
         }
 
