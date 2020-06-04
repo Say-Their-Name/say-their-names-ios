@@ -36,7 +36,7 @@ final class PetitionTableViewCell: UITableViewCell {
     
     private lazy var verifiedLabel: UILabel = {
         let label = UILabel()
-        label.text = Self.VerifiedText
+        label.text = Strings.verified
         label.font = UIFont.STN.verifiedTag
         label.backgroundColor = Self.VerifiedLabelBackgroundColor
         label.textColor = Self.VerifiedLabelTextColor
@@ -65,7 +65,7 @@ final class PetitionTableViewCell: UITableViewCell {
         let button = UIButton(type: .custom)
         button.addTarget(self, action: #selector(findOutMoreButtonTapped), for: .touchUpInside)
         
-        button.setTitle(Self.FindOutMoreButtonTitle.uppercased(), for: .normal)
+        button.setTitle(Strings.findOutMore.uppercased(), for: .normal)
         button.layer.borderColor = Self.ContentColor.cgColor
         button.titleLabel?.font = UIFont.STN.sectionHeader
         button.layer.borderWidth = Self.FindOutMoreButtonOutlineThickness
@@ -198,10 +198,7 @@ final class PetitionTableViewCell: UITableViewCell {
 
 // MARK: - Constants
 extension PetitionTableViewCell {
-    
-    static let FindOutMoreButtonTitle = NSLocalizedString("Find Out More", comment: "title of Find out more button in PetitionsController")
-    static let VerifiedText = NSLocalizedString("verified", comment: "text identifying a petition as verified")
-    
+        
     static let ContainerHorizontalMargin: CGFloat = 19
     static let ContainerVerticalMarrgin: CGFloat = 4
     static let PetitionImageHeight: CGFloat = 124

@@ -12,7 +12,7 @@ import UIKit
 final class PetitionsController: UIViewController, ServiceReferring {
     var service: Service?
     
-    private lazy var petitionsView = PetitionsView(title: Self.PetitionTitle.uppercased())
+    private lazy var petitionsView = PetitionsView(title: Strings.petitions.uppercased())
     private var petitionsTableView: UITableView { petitionsView.tableView }
 
     private lazy var dataSource: PetitionsTableViewDataSource = {
@@ -83,10 +83,4 @@ extension PetitionsController: UITableViewDelegate {
         // we simply show another view controller when the find out more button is tapped
         false
     }
-}
-
-// MARK: - Constants
-extension PetitionsController {
-    
-    static let PetitionTitle = NSLocalizedString("Petitions", comment: "Petitions View Controller Title")
 }
