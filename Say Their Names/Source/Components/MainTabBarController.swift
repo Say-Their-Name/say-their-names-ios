@@ -98,7 +98,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         settingsNC.isNavigationBarHidden = true
         settingsNC.tabBarItem.image = #imageLiteral(resourceName: "settings")
         settingsNC.tabBarItem.selectedImage = UIImage(named: "settings_active")
-        settingsNC.tabBarItem.title = L10n.settings
+        settingsNC.tabBarItem.title = Strings.settings
         
         viewControllers = [homeNC, donationsNC, petitionsNC, settingsNC]
     }
