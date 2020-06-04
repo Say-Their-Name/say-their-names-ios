@@ -11,7 +11,7 @@ import UIKit
 final class LaunchScreen: UIView {
     
     @IBOutlet weak var logo: UIImageView!
-
+    
     @available(*, unavailable, message: "Use createFromNib() method instead")
     override init(frame: CGRect) {
         fatalError()
@@ -32,18 +32,26 @@ final class LaunchScreen: UIView {
     }
     
     public func animate(completion: @escaping () -> Void) {
-        UIView.animate(withDuration: 0.5, animations: {
-            self.logo.transform = CGAffineTransform(scaleX: 0.7, y: 0.7)
-        }) { (_) in
-            self.endAnimation(completion: completion)
-        }
+        UIView.animate(
+            withDuration: 0.5,
+            animations: {
+                self.logo.transform = CGAffineTransform(scaleX: 0.7, y: 0.7)
+        },
+            completion: { _ in
+                self.endAnimation(completion: completion)
+        })
     }
     
     private func endAnimation(completion: @escaping () -> Void) {
-        UIView.animate(withDuration: 0.15, delay: 0, options: .curveEaseIn, animations: {
-            self.logo.transform = CGAffineTransform(scaleX: 4, y: 4)
-        }) { (_) in
-            completion()
-        }
+        UIView.animate(
+            withDuration: 0.15,
+            delay: 0,
+            options: .curveEaseIn,
+            animations: {
+                self.logo.transform = CGAffineTransform(scaleX: 4, y: 4)
+        },
+            completion: { _ in
+                completion()
+        })
     }
 }

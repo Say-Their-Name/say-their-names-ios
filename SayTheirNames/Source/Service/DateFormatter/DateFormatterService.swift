@@ -19,7 +19,7 @@ class DateFormatterService {
     /// To keep thread safe, designate this queue for searching cached formatters.
     let dateFormattersQueue = DispatchQueue(label: "com.stn.date.formatter.queue")
 
-    private var dateFormatters = [String : DateFormatterType]()
+    private var dateFormatters = [String: DateFormatterType]()
 
     private func cachedDateFormatter(withFormat format: String) -> DateFormatterType {
         return dateFormattersQueue.sync {

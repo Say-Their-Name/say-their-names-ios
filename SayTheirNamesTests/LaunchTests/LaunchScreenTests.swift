@@ -16,4 +16,3 @@ class LaunchScreenTests: XCTestCase {
         XCTAssertNotNil(screen)
     }
 }
-

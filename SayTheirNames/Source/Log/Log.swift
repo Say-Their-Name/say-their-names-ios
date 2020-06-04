@@ -11,8 +11,8 @@ import UIKit
 // MARK: - Log
 public struct Log {
     public static var mode: Mode = .none
-
-    public struct Mode : OptionSet {
+    
+    public struct Mode: OptionSet {
         public let rawValue: UInt
         public init(rawValue: UInt)  { self.rawValue = rawValue }
         
@@ -24,11 +24,17 @@ public struct Log {
         public static let all: Mode     = [.fileName, .functionName, .line, .date]
     }
     
-    public static func print(_ items: Any..., separator: String = " ", terminator: String = "\n", _ file: String = #file, _ function: String = #function, _ line: Int = #line) {
+    public static func print(
+        _ items: Any...,
+        separator: String = " ",
+        terminator: String = "\n",
+        _ file: String = #file,
+        _ function: String = #function,
+        _ line: Int = #line) {
         #if DEBUG
-            let prefix = self._modePrefix(file: file, function: function, line: line)
-            let stringItem = items.map {"\($0)"}.joined(separator: separator)
-            Swift.print("\(prefix)\(stringItem)", terminator: terminator)
+        let prefix = self._modePrefix(file: file, function: function, line: line)
+        let stringItem = items.map {"\($0)"}.joined(separator: separator)
+        Swift.print("\(prefix)\(stringItem)", terminator: terminator)
         #endif
     }
     
@@ -69,4 +75,3 @@ public struct Log {
 @objc protocol Loggable {
     func desc() -> String
 }
-

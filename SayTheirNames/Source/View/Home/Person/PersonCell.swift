@@ -16,7 +16,7 @@ final class PersonCell: UICollectionViewCell {
     @IBOutlet weak private var birthdayLabel: UILabel!
     @IBOutlet weak private var bookmarkButton: UIButton!
         
-    // MARK:- Lifecycle
+    // MARK: - Lifecycle
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -33,7 +33,7 @@ final class PersonCell: UICollectionViewCell {
         birthdayLabel.text = df.string(from: person.date) // TODO: this is NOT a birthday, but incident date
     }
 
-    // MARK:- Handlers
+    // MARK: - Handlers
         
     @IBAction private func bookmark(_ sender: UIButton) {
         // TODO: Implement BookMark Handler

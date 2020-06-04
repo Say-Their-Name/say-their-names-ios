@@ -8,7 +8,7 @@
 
 import UIKit
 
-//MARK: - IDENTIFIERS
+// MARK: - IDENTIFIERS
 private let headerIdentifier = "PersonHeaderCell"
 private let peopleIdentifier = "PersonCell"
 
@@ -25,21 +25,20 @@ class HomeController: UIViewController, ServiceReferring {
         fatalError("init(coder:) has not been implemented")
     }
 
-    //MARK: - CONSTANTS
+    // MARK: - CONSTANTS
     private let searchBar = CustomSearchBar()
     
-    //MARK: - CV Data Sources
+    // MARK: - CV Data Sources
     private let locationsDataSource = LocationCollectionViewDataSource(locations: [])
     private let peopleDataSource = PersonCollectionViewDataSource()
     
     private let homeView = HomeView()
-    var customNavBar : UIView { homeView.customNavigationBar }
-    var locationCollectionView : UICollectionView { homeView.locationCollectionView }
-    var peopleCollectionView : UICollectionView { homeView.peopleCollectionView }
-    var searchButton : UIButton { homeView.searchButton }
+    var customNavBar: UIView { homeView.customNavigationBar }
+    var locationCollectionView: UICollectionView { homeView.locationCollectionView }
+    var peopleCollectionView: UICollectionView { homeView.peopleCollectionView }
+    var searchButton: UIButton { homeView.searchButton }
     
-    
-    //MARK: - ClASS METHODS
+    // MARK: - ClASS METHODS
 
     override func loadView() {
         self.view = homeView
@@ -105,21 +104,25 @@ class HomeController: UIViewController, ServiceReferring {
         peopleCollectionView.delegate = self
         peopleCollectionView.dataSource = peopleDataSource
         peopleCollectionView.register(UINib(nibName: peopleIdentifier, bundle: nil), forCellWithReuseIdentifier: PersonCell.personIdentifier)
-        peopleCollectionView.register(UINib(nibName: headerIdentifier, bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerIdentifier)
+        peopleCollectionView.register(UINib(nibName: headerIdentifier, bundle: nil),
+                                      forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+                                      withReuseIdentifier: headerIdentifier)
         peopleCollectionView.accessibilityIdentifier = "peopleCollection"
         peopleCollectionView.isAccessibilityElement = false
     }
     
-    //MARK: - IBACTIONS
+    // MARK: - IBACTIONS
     @IBAction func searchButtonPressed(_ sender: Any) {
         UIImpactFeedbackGenerator().impactOccurred()
         searchBar.show()
     }
 }
 
-//MARK: - UICOLLECTIONVIEW EXTENSION
+// MARK: - UICOLLECTIONVIEW EXTENSION
 extension HomeController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        referenceSizeForHeaderInSection section: Int) -> CGSize {
         if collectionView === locationCollectionView {
             return CGSize.zero
         }
@@ -132,7 +135,9 @@ extension HomeController: UICollectionViewDelegateFlowLayout {
         }
     }
 
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         if collectionView === locationCollectionView {
             return CGSize(width: 103, height: 36)

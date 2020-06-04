@@ -33,7 +33,7 @@ struct STNSize {
     
     // MARK: - Public methods
     
-    public static func ==(lhs: STNSize, rhs: STNSize) -> Bool {
+    public static func == (lhs: STNSize, rhs: STNSize) -> Bool {
         let lhsSize = lhs.type
         let rhsSize = rhs.type
         
@@ -68,11 +68,8 @@ struct STNSize {
         }
         else {
             let screenSize = UIDevice.screenSize
-            for size in sizes {
-                if screenSize == size {
+            for size in sizes where screenSize == size {
                     sizeToReturn = size
-                    break
-                }
             }
         }
         
@@ -81,7 +78,12 @@ struct STNSize {
     
     // MARK: - Size
     
-    public static func size(type: STNSize.SizeType = .unknown, x: CGFloat = 0.0, y: CGFloat = 0.0 , width: CGFloat = 0.0, height: CGFloat = 0.0, size: CGFloat = 0.0) -> STNSize  {
+    public static func size(type: STNSize.SizeType = .unknown,
+                            x: CGFloat = 0.0,
+                            y: CGFloat = 0.0,
+                            width: CGFloat = 0.0,
+                            height: CGFloat = 0.0,
+                            size: CGFloat = 0.0) -> STNSize  {
         return self.init(type: type, x: x, y: y, width: width, height: height, size: size)
     }
     

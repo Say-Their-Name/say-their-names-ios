@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 public struct AnchoredConstraints {
     var top, leading, bottom, trailing, width, height: NSLayoutConstraint?
 }
@@ -17,7 +16,13 @@ extension UIView {
     
     @available(iOS 9.0, *)
     @discardableResult
-    public func anchor(superView: UIView? = nil, top: NSLayoutYAxisAnchor? = nil, leading: NSLayoutXAxisAnchor? = nil, bottom: NSLayoutYAxisAnchor? = nil, trailing: NSLayoutXAxisAnchor? = nil, padding: UIEdgeInsets = .zero, size: CGSize = .zero) -> AnchoredConstraints {
+    public func anchor(superView: UIView? = nil,
+                       top: NSLayoutYAxisAnchor? = nil,
+                       leading: NSLayoutXAxisAnchor? = nil,
+                       bottom: NSLayoutYAxisAnchor? = nil,
+                       trailing: NSLayoutXAxisAnchor? = nil,
+                       padding: UIEdgeInsets = .zero,
+                       size: CGSize = .zero) -> AnchoredConstraints {
         if let superView = superView {
             superView.addSubview(self)
         }
@@ -48,7 +53,12 @@ extension UIView {
             anchoredConstraints.height = heightAnchor.constraint(equalToConstant: size.height)
         }
         
-        [anchoredConstraints.top, anchoredConstraints.leading, anchoredConstraints.bottom, anchoredConstraints.trailing, anchoredConstraints.width, anchoredConstraints.height].forEach { $0?.isActive = true }
+        [anchoredConstraints.top,
+         anchoredConstraints.leading,
+         anchoredConstraints.bottom,
+         anchoredConstraints.trailing,
+         anchoredConstraints.width,
+         anchoredConstraints.height].forEach { $0?.isActive = true }
         
         return anchoredConstraints
     }

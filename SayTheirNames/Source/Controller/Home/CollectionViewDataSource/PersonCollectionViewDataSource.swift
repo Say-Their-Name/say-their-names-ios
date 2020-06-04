@@ -36,8 +36,13 @@ extension PersonCollectionViewDataSource: UICollectionViewDataSource {
         people.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: PersonHeaderCell.headerIdentifier, for: indexPath) as! PersonHeaderCell
+    func collectionView(_ collectionView: UICollectionView,
+                        viewForSupplementaryElementOfKind kind: String,
+                        at indexPath: IndexPath) -> UICollectionReusableView {
+        let headerView = collectionView.dequeueReusableSupplementaryView(
+            ofKind: UICollectionView.elementKindSectionHeader,
+            withReuseIdentifier: PersonHeaderCell.headerIdentifier,
+            for: indexPath) as! PersonHeaderCell
         return headerView
     }
     

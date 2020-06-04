@@ -11,7 +11,11 @@ import XCTest
 extension XCUIApplication {
     
     func locationCellForIndex(index: Int) -> XCUIElement {
-        collectionViews.element(matching: .collectionView, identifier: "locationCollection").cells.element(matching: .cell, identifier: "locationCell\(index)")
+        collectionViews.element(
+            matching: .collectionView,
+            identifier: "locationCollection").cells.element(
+                matching: .cell,
+                identifier: "locationCell\(index)")
     }
     
     var isDisplayingLocationCollection: Bool {
@@ -23,7 +27,11 @@ extension XCUIApplication {
     }
     
     var firstPerson: XCUIElement {
-        return collectionViews.element(matching: .collectionView, identifier: "peopleCollection").cells.element(matching: .cell, identifier: "peopleCell0")
+        return collectionViews.element(
+            matching: .collectionView,
+            identifier: "peopleCollection").cells.element(
+                matching: .cell,
+                identifier: "peopleCell0")
     }
     
     var isDisplayingPersonDetails: Bool {

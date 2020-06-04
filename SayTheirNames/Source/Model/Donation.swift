@@ -17,4 +17,3 @@ struct Donation: Codable {
         case title, description, link
     }
 }
-

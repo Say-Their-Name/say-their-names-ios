@@ -34,8 +34,6 @@ class LocationCell: UICollectionViewCell {
         layer.borderWidth = 1.5
     }
     
-    
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

@@ -22,7 +22,7 @@ final class HomeView: UIView {
         locationLayout.sectionInsetReference = .fromContentInset
         locationLayout.sectionInset = Self.LocationsSectionInsets
         
-        let locationCollectionView = UICollectionView(frame: .zero, collectionViewLayout:locationLayout)
+        let locationCollectionView = UICollectionView(frame: .zero, collectionViewLayout: locationLayout)
         locationCollectionView.contentInsetAdjustmentBehavior = .always
         return locationCollectionView
     }()
@@ -32,7 +32,7 @@ final class HomeView: UIView {
         peopleLayout.scrollDirection = .vertical
         peopleLayout.sectionInset = Self.PeopleSectionInsets
         
-        let peopleCollectionView = UICollectionView(frame: .zero, collectionViewLayout:peopleLayout)
+        let peopleCollectionView = UICollectionView(frame: .zero, collectionViewLayout: peopleLayout)
         peopleCollectionView.contentInsetAdjustmentBehavior = .always
         return peopleCollectionView
     }()
@@ -149,12 +149,12 @@ final class HomeView: UIView {
         ])
     }
 
-    // MARK:- Constants
-    static let CustomNavigationBarHeight : CGFloat = 70
-    static let PeopleCollectionViewHeight : CGFloat = 70
-    static let SearchButtonSize : CGFloat = 45
-    static let CustomNavBarMargin : CGFloat = 16
-    static let SeparatorHeight : CGFloat = 1
+    // MARK: - Constants
+    static let CustomNavigationBarHeight: CGFloat = 70
+    static let PeopleCollectionViewHeight: CGFloat = 70
+    static let SearchButtonSize: CGFloat = 45
+    static let CustomNavBarMargin: CGFloat = 16
+    static let SeparatorHeight: CGFloat = 1
     
     static let LocationsSectionInsets = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
     static let PeopleSectionInsets = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)

@@ -43,7 +43,11 @@ final class FileDownloader: NSObject, URLSessionDownloadDelegate {
     }
     
     /// Amount of bytes written and expected to write
-    func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {
+    func urlSession(_ session: URLSession,
+                    downloadTask: URLSessionDownloadTask,
+                    didWriteData bytesWritten: Int64,
+                    totalBytesWritten: Int64,
+                    totalBytesExpectedToWrite: Int64) {
         
         // Calculate the download progress percentage
         let progress = Float(totalBytesWritten) / Float(totalBytesExpectedToWrite)

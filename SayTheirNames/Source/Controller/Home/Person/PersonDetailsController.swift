@@ -29,7 +29,6 @@ final class PersonDetailsController: BaseViewController {
     @IBAction func didPressBookmark(_ sender: Any) {
     }
     
-    
 }
 
 extension PersonDetailsController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -45,11 +44,15 @@ extension PersonDetailsController: UICollectionViewDataSource, UICollectionViewD
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return cellSpacing
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
         return PersonPhotoCell.size(collectionView)
     }
 }

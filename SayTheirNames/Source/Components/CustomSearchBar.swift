@@ -30,10 +30,8 @@ class CustomSearchBar: UIView {
         return button
     }()
     
-    
 //    private var statusBarAnimatableConfig: StatusBarAnimatableConfig {
 //        return StatusBarAnimatableConfig(prefersHidden: false, animation: .slide)}
-    
     
     open func setup(withController controller: HomeController) {
         self.homeController = controller
@@ -42,15 +40,42 @@ class CustomSearchBar: UIView {
         textFieldInsideSearchBar?.textColor = .white
         alpha = 0
         searchResultView.alpha = 0
-        anchor(superView: superView, top: superView.safeAreaLayoutGuide.topAnchor, leading: superView.leadingAnchor, trailing: superView.trailingAnchor, size: CGSize(width: 0, height: 60))
+        anchor(
+            superView: superView,
+            top: superView.safeAreaLayoutGuide.topAnchor,
+            leading: superView.leadingAnchor,
+            trailing: superView.trailingAnchor,
+            size: CGSize(width: 0, height: 60))
         
-        cancelSearchButton.anchor(superView: self, top: topAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: UIEdgeInsets(right: 16))
+        cancelSearchButton.anchor(
+            superView: self,
+            top: topAnchor,
+            bottom: bottomAnchor,
+            trailing: trailingAnchor,
+            padding: UIEdgeInsets(right: 16))
         
-        searchBar.anchor(superView: self, top: topAnchor , leading: leadingAnchor, bottom: bottomAnchor, trailing: cancelSearchButton.leadingAnchor, padding: UIEdgeInsets(left: 16, right: 16))
+        searchBar.anchor(
+            superView: self,
+            top: topAnchor,
+            leading: leadingAnchor,
+            bottom: bottomAnchor,
+            trailing: cancelSearchButton.leadingAnchor,
+            padding: UIEdgeInsets(left: 16, right: 16))
         
-        searchResultView.anchor(superView: superView, top: bottomAnchor, leading: superView.leadingAnchor, bottom: superView.bottomAnchor, trailing: superView.trailingAnchor, padding: .init(top: -5))
+        searchResultView.anchor(
+            superView: superView,
+            top: bottomAnchor,
+            leading: superView.leadingAnchor,
+            bottom: superView.bottomAnchor,
+            trailing: superView.trailingAnchor,
+            padding: .init(top: -5))
         
-        tableView.anchor(superView: searchResultView, top: searchResultView.topAnchor, leading: searchResultView.leadingAnchor, bottom: searchResultView.bottomAnchor, trailing: searchResultView.trailingAnchor)
+        tableView.anchor(
+            superView: searchResultView,
+            top: searchResultView.topAnchor,
+            leading: searchResultView.leadingAnchor,
+            bottom: searchResultView.bottomAnchor,
+            trailing: searchResultView.trailingAnchor)
         
         searchBar.delegate = self
         tableView.delegate = self
@@ -72,7 +97,6 @@ class CustomSearchBar: UIView {
         self.endEditing(true)
     }
     
-    
     open func show() {
         guard let homeController = homeController else { return }
         alpha = 0
@@ -81,7 +105,7 @@ class CustomSearchBar: UIView {
             homeController.customNavBar.alpha = 0
             self.searchResultView.alpha = 1
             homeController.customNavBar.frame.size = CGSize(width: homeController.view.frame.width, height: self.frame.height + 60)
-        }, completion: { finished in
+        }, completion: { _ in
             self.searchBar.becomeFirstResponder()
         })
     }
@@ -94,9 +118,7 @@ class CustomSearchBar: UIView {
             homeController.customNavBar.alpha = 1
             self.searchResultView.alpha = 0
             homeController.customNavBar.frame.size = CGSize(width: homeController.view.frame.width, height: homeController.view.frame.height)
-        }, completion: { finished in
-            
-        })
+        }, completion: nil)
     }
 }
 
@@ -139,4 +161,3 @@ extension UIEdgeInsets {
         self.right = right
     }
 }
-

@@ -17,23 +17,63 @@ extension UIFont {
     
     /// A collection of common fonts
     enum STN {
-        static let title: UIFont = UIFont.dynamicCustomFont(fontName: FontName.karlaBold.rawValue, textStyle: .title1) // 28
-        static let body: UIFont = UIFont.dynamicCustomFont(fontName: FontName.karlaRegular.rawValue, textStyle: .body) // 18 on figma but this yields 17 on default
-        static let sectionHeader: UIFont = UIFont.dynamicCustomFont(fontName: FontName.karlaBold.rawValue, textStyle: .body) // 17
-        static let locationText: UIFont = UIFont.dynamicCustomFont(fontName: FontName.karlaBold.rawValue, textStyle: .subheadline) // 15
-
-        static let filledButtonTitle: UIFont = UIFont.dynamicCustomFont(fontName: FontName.karlaRegular.rawValue, textStyle: .body) // 17
-        static let plainButtonTitle: UIFont = UIFont.dynamicCustomFont(fontName: FontName.karlaRegular.rawValue, textStyle: .title3) // 21 on figma but this yields 20 on default
-
-        static let cardTitle: UIFont = UIFont.dynamicCustomFont(fontName: FontName.karlaBold.rawValue, textStyle: .subheadline) // 15
-        static let cardSubitle: UIFont = UIFont.dynamicCustomFont(fontName: FontName.karlaRegular.rawValue, textStyle: .footnote) // 14 on figma but this yields 13 on default
+        // 28
+        static let title = UIFont.dynamicCustomFont(
+        fontName: FontName.karlaBold.rawValue,
+        textStyle: .title1)
         
-        static let bannerTitle: UIFont = UIFont.dynamicCustomFont(fontName: FontName.karlaBold.rawValue, textStyle: .title3) // 19 on figma but this yields 20 on default
-        static let bannerSubitle: UIFont = UIFont.dynamicCustomFont(fontName: FontName.karlaRegular.rawValue, textStyle: .body) // 17
-
-        static let navBarTitle: UIFont = UIFont.dynamicCustomFont(fontName: FontName.karlaRegular.rawValue, textStyle: .title2) // 21 on figma but this yields 22 on default
+        // 18 on figma but this yields 17 on default
+        static let body = UIFont.dynamicCustomFont(
+        fontName: FontName.karlaRegular.rawValue,
+        textStyle: .body)
         
-        static let tabButtonTitle: UIFont = UIFont.dynamicCustomFont(fontName: FontName.karlaBold.rawValue, textStyle: .footnote) // 13
+        // 17
+        static let sectionHeader = UIFont.dynamicCustomFont(fontName: FontName.karlaBold.rawValue, textStyle: .body)
+        
+        // 15
+        static let locationText: UIFont = UIFont.dynamicCustomFont(
+            fontName: FontName.karlaBold.rawValue,
+            textStyle: .subheadline)
+
+        // 17
+        static let filledButtonTitle: UIFont = UIFont.dynamicCustomFont(
+            fontName: FontName.karlaRegular.rawValue,
+            textStyle: .body)
+        
+        // 21 on figma but this yields 20 on default
+        static let plainButtonTitle = UIFont.dynamicCustomFont(
+            fontName: FontName.karlaRegular.rawValue,
+            textStyle: .title3)
+
+        // 15
+        static let cardTitle = UIFont.dynamicCustomFont(
+            fontName: FontName.karlaBold.rawValue,
+            textStyle: .subheadline)
+        
+        // 14 on figma but this yields 13 on default
+        static let cardSubitle = UIFont.dynamicCustomFont(
+            fontName: FontName.karlaRegular.rawValue,
+            textStyle: .footnote)
+        
+        // 19 on figma but this yields 20 on default
+        static let bannerTitle = UIFont.dynamicCustomFont(
+            fontName: FontName.karlaBold.rawValue,
+            textStyle: .title3)
+        
+        // 17
+        static let bannerSubitle = UIFont.dynamicCustomFont(
+            fontName: FontName.karlaRegular.rawValue,
+            textStyle: .body)
+
+        // 21 on figma but this yields 22 on default
+        static let navBarTitle = UIFont.dynamicCustomFont(
+            fontName: FontName.karlaRegular.rawValue,
+            textStyle: .title2)
+        
+        // 13
+        static let tabButtonTitle = UIFont.dynamicCustomFont(
+            fontName: FontName.karlaBold.rawValue,
+            textStyle: .footnote)
 
     }
 }

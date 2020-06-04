@@ -39,7 +39,7 @@ class SayTheirNamesUITests: XCTestCase {
         let locationCount = app.locationCount
 
         if locationCount == 0 {
-            XCTFail();
+            XCTFail("Location count should not be 0")
         }
         for index in 0..<locationCount {
             XCTAssertTrue(app.locationCellForIndex(index: index).isHittable)

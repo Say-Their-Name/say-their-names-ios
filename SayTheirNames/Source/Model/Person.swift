@@ -26,4 +26,3 @@ struct Person: Codable {
         date, location, media, bio, context, donations, petitions
     }
 }
-

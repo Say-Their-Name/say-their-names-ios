@@ -31,7 +31,13 @@ class SearchResultCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        separatorView.anchor(superView: self, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(left: 16, right: 16), size: .init(width: 0, height: 1))
+        separatorView.anchor(
+            superView: self,
+            leading: leadingAnchor,
+            bottom: bottomAnchor,
+            trailing: trailingAnchor,
+            padding: .init(left: 16, right: 16),
+            size: .init(width: 0, height: 1))
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
