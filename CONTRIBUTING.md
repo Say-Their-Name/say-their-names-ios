@@ -9,6 +9,7 @@ get started.
 
 This project is run by a community of volunteers. The community communicates
 via a slack workspace, and to-dos are maintained on respective Trello boards.
+[Link to the iOS board](https://trello.com/b/XhG385ND/say-their-names-ios)
 
 If you would like to join the slack workspace, use [this link](https://join.slack.com/t/saytheirnames/shared_invite/zt-eqjuatz7-fgh3zPRXIKiiXsC1Vf3oZA).
 
