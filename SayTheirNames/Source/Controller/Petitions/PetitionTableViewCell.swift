@@ -8,11 +8,11 @@
 
 import UIKit
 
-class PetitionTableViewCell: UITableViewCell {
+final class PetitionTableViewCell: UITableViewCell {
 
     var findOutMoreAction : () -> Void = {}
 
-    lazy var container: UIView = {
+    private lazy var container: UIView = {
        let container = UIView()
         container.backgroundColor = Self.ContainerBackgroundColor
         container.layer.borderColor = Self.ContainerOutlineColor.cgColor
@@ -20,7 +20,7 @@ class PetitionTableViewCell: UITableViewCell {
         return container
     }()
     
-    let bannerImageView: UIImageView = {
+    private let bannerImageView: UIImageView = {
         let bannerImageView = UIImageView()
         bannerImageView.contentMode = .scaleAspectFill
         return bannerImageView
@@ -34,7 +34,7 @@ class PetitionTableViewCell: UITableViewCell {
         return imageViewContainer
     }()
     
-    lazy var verifiedLabel: UILabel = {
+    private lazy var verifiedLabel: UILabel = {
         let label = UILabel()
         label.text = Self.VerifiedText
         label.font = UIFont.STN.verifiedTag
@@ -43,7 +43,7 @@ class PetitionTableViewCell: UITableViewCell {
         return label
     }()
     
-    lazy var titleLabel: UILabel = {
+    private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.STN.bannerTitle
         label.textColor = Self.ContentColor
@@ -52,7 +52,7 @@ class PetitionTableViewCell: UITableViewCell {
         return label
     }()
 
-    lazy var summaryLabel: UILabel = {
+    private lazy var summaryLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.STN.summary
         label.textColor = Self.ContentColor
@@ -61,7 +61,7 @@ class PetitionTableViewCell: UITableViewCell {
         return label
     }()
 
-    lazy var findOutMoreButton: UIButton = {
+    private lazy var findOutMoreButton: UIButton = {
         let button = UIButton(type: .custom)
         button.addTarget(self, action: #selector(findOutMoreButtonTapped), for: .touchUpInside)
         
@@ -76,7 +76,7 @@ class PetitionTableViewCell: UITableViewCell {
         
     private var hasLayedOutSubviews = false
     private var allConstriants: [NSLayoutConstraint] = []
-    func createLayout() {
+    private func createLayout() {
         guard !hasLayedOutSubviews else { return }
         hasLayedOutSubviews = true
 

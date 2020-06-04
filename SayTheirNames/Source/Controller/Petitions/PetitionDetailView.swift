@@ -9,7 +9,7 @@
 import UIKit
 
 // Most of this implementation is here as a placeholder
-class PetitionDetailView: UIView {
+final class PetitionDetailView: UIView {
 
     private(set) var petition: PresentedPetition?
 

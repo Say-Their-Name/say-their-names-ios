@@ -13,9 +13,9 @@ final class PetitionsController: UIViewController, ServiceReferring {
     var service: Service?
     
     private lazy var petitionsView = PetitionsView(title: Self.PetitionTitle.uppercased())
-    var petitionsTableView: UITableView { petitionsView.tableView }
+    private var petitionsTableView: UITableView { petitionsView.tableView }
 
-    lazy var dataSource: PetitionsTableViewDataSource = {
+    private lazy var dataSource: PetitionsTableViewDataSource = {
         
         let dataSource = PetitionsTableViewDataSource()
         dataSource.configure(tableView: petitionsTableView)

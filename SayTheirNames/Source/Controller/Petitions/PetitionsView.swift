@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PetitionsView: UIView {
+final class PetitionsView: UIView {
 
     let title: String
     
@@ -20,7 +20,7 @@ class PetitionsView: UIView {
     
     required init?(coder: NSCoder) { fatalError("This should not be called") }
     
-    lazy var customNavigationBar: UIView = {
+    private lazy var customNavigationBar: UIView = {
         let customNavigationBar = UIView()
         customNavigationBar.backgroundColor = Self.CustomNavigationBarBackgroundColor
         return customNavigationBar

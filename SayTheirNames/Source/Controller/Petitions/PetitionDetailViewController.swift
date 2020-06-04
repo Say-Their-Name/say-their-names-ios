@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PetitionDetailViewController: UIViewController, ServiceReferring {
+final class PetitionDetailViewController: UIViewController, ServiceReferring {
     
     var service: Service?
     var petition: PresentedPetition?
@@ -44,7 +44,7 @@ class PetitionDetailViewController: UIViewController, ServiceReferring {
     }
 
     @objc
-    func dismiss(_ sender: Any) {
+    private func dismiss(_ sender: Any) {
         dismiss(animated: true)
     }
 }

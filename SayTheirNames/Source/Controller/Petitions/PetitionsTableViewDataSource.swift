@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PetitionsTableViewDataSource: NSObject {
+final class PetitionsTableViewDataSource: NSObject {
 
     var findOutMoreAction: (PresentedPetition) -> Void = { _ in }
     
