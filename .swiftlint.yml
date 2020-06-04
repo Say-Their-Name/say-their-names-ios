@@ -16,6 +16,9 @@ disabled_rules:
     - trailing_comma
     - duplicate_enum_cases
 
+opt_in_rules:
+  - force_unwrapping
+
 line_length: 150
 
 type_body_length:
