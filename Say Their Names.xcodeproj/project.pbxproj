@@ -64,7 +64,6 @@
 		A91B07AC24835CF700DB803C /* PersonHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A91B078C24835CF700DB803C /* PersonHeaderCell.xib */; };
 		A91B07AD24835CF700DB803C /* PersonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B078D24835CF700DB803C /* PersonCell.swift */; };
 		A91B07AE24835CF700DB803C /* PersonHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B078E24835CF700DB803C /* PersonHeaderCell.swift */; };
-		A91B07AF24835CF700DB803C /* PersonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A91B078F24835CF700DB803C /* PersonCell.xib */; };
 		A91B07B124835CF700DB803C /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B079224835CF700DB803C /* LocationCell.swift */; };
 		A91B07B224835CF700DB803C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B079324835CF700DB803C /* AppDelegate.swift */; };
 		A91B07B324835CF700DB803C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B079424835CF700DB803C /* SceneDelegate.swift */; };
@@ -173,7 +172,6 @@
 		A91B078C24835CF700DB803C /* PersonHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonHeaderCell.xib; sourceTree = "<group>"; };
 		A91B078D24835CF700DB803C /* PersonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonCell.swift; sourceTree = "<group>"; };
 		A91B078E24835CF700DB803C /* PersonHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonHeaderCell.swift; sourceTree = "<group>"; };
-		A91B078F24835CF700DB803C /* PersonCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonCell.xib; sourceTree = "<group>"; };
 		A91B079224835CF700DB803C /* LocationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
 		A91B079324835CF700DB803C /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A91B079424835CF700DB803C /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -543,7 +541,6 @@
 				A91B078D24835CF700DB803C /* PersonCell.swift */,
 				A91B078E24835CF700DB803C /* PersonHeaderCell.swift */,
 				7433B6492484BABA005140D4 /* PersonPhotoCell.swift */,
-				A91B078F24835CF700DB803C /* PersonCell.xib */,
 				A91B078C24835CF700DB803C /* PersonHeaderCell.xib */,
 			);
 			path = Person;
@@ -763,7 +760,6 @@
 				A91B079D24835CF700DB803C /* PersonController.xib in Resources */,
 				74DE10882486DFA300211B83 /* SettingsController.xib in Resources */,
 				83E9CAD22484A514001D173A /* LaunchScreen.xib in Resources */,
-				A91B07AF24835CF700DB803C /* PersonCell.xib in Resources */,
 				9E24499D2485E98C00B149DF /* Localizable.strings in Resources */,
 				EEC3A1DD2483D6B6001E7754 /* SearchResultCell.xib in Resources */,
 				A91B079B24835CF700DB803C /* Karla-Bold.ttf in Resources */,
