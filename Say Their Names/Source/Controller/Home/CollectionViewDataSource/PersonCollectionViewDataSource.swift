@@ -44,8 +44,8 @@ extension PersonCollectionViewDataSource: UICollectionViewDataSource {
     
   
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-           if collectionView.tag == 0 { return UICollectionReusableView() }
-           let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerIdentifier, for: indexPath) as! CarouselHeaderView
+//        if collectionView.tag == 0 { return UICollectionReusableView() }
+        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: CarouselHeaderView.reuseIdentifier, for: indexPath) as! CarouselHeaderView
            carouselDataResultsHandler = ResultsDataHandler(resultsData: self.carouselData)
            headerView.resultsHandler = carouselDataResultsHandler
            headerView.configure()
