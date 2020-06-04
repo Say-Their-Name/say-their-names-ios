@@ -8,55 +8,51 @@
 
 import UIKit
 
-class PersonCollectionViewDataSource: NSObject {
-     
-    private var people: [Person]
+final class PersonCollectionViewDataSourceHelper {
     
-    init(people: [Person] = []) {
-        self.people = people 
+    enum Section {
+        case main
     }
     
-    func fetchPerson(at index: Int) -> Person {
-        let person = people[index]
-        return person
+    typealias PersonCollectionViewDataSource = UICollectionViewDiffableDataSource<Section, Person>
+    
+    let dataSource: PersonCollectionViewDataSource
+    
+    init(collectionView: UICollectionView) {
+        collectionView.register(cellType: PersonCell.self)
+        collectionView.registerNibForReusableSupplementaryView(reusableViewType: PersonHeaderCell.self,
+                                                               forKind: UICollectionView.elementKindSectionHeader)
+        
+        self.dataSource =
+            PersonCollectionViewDataSource(collectionView: collectionView) { (collectionView, indexPath, person) -> UICollectionViewCell? in
+            let cell: PersonCell = collectionView.dequeueCell(for: indexPath)
+            cell.configure(with: person)
+            cell.accessibilityIdentifier = "peopleCell\(indexPath.item)"
+            cell.isAccessibilityElement = true
+            return cell
+        }
+        
+        self.dataSource.supplementaryViewProvider = { (collectionView, kind, indexPath) in
+            let header: PersonHeaderCell = collectionView.dequeueReusableSupplementaryView(forKind: kind, for: indexPath)
+            return header
+        }
     }
     
     func setPeople(_ people: [Person]) {
-        self.people = people
+        var snapshot = NSDiffableDataSourceSnapshot<Section, Person>()
+        snapshot.appendSections([Section.main])
+        snapshot.appendItems(people)
+        dataSource.apply(snapshot)
     }
     
     func appendPeople(_ people: [Person]) {
-        self.people.append(contentsOf: people)
+        var snapshot = dataSource.snapshot()
+        snapshot.appendItems(people)
+        dataSource.apply(snapshot)
     }
     
-}
-
-extension PersonCollectionViewDataSource: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        people.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView,
-                        viewForSupplementaryElementOfKind kind: String,
-                        at indexPath: IndexPath) -> UICollectionReusableView {
-        let headerView = collectionView.dequeueReusableSupplementaryView(
-            ofKind: UICollectionView.elementKindSectionHeader,
-            withReuseIdentifier: PersonHeaderCell.headerIdentifier,
-            for: indexPath) as! PersonHeaderCell
-        return headerView
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-         
-        let person = people[indexPath.item]
-        
-        if let personCell = collectionView.dequeueReusableCell(withReuseIdentifier: PersonCell.personIdentifier, for: indexPath) as? PersonCell {
-            personCell.configure(with: person)
-            personCell.accessibilityIdentifier = "peopleCell\(indexPath.item)"
-            personCell.isAccessibilityElement = true
-            return personCell
-        }
-        
-        return UICollectionViewCell()
+    func person(at index: Int) -> Person {
+        let people = dataSource.snapshot().itemIdentifiers(inSection: Section.main)
+        return people[index] // TODO: check index
     }
 }
