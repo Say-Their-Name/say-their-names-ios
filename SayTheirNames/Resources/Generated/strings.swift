@@ -11,13 +11,20 @@ import Foundation
 // swiftlint:disable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:disable nesting type_body_length type_name
 internal enum L10n {
+  /// Cancel
+  internal static let cancel = L10n.tr("Localizable", "cancel")
+  /// Donations
+  internal static let donations = L10n.tr("Localizable", "donations")
+  /// Find Out More
+  internal static let findOutMore = L10n.tr("Localizable", "find_out_more")
   /// Home
-    internal static let home = L10n.tr("Localizable", "home")
-    internal static let donations = L10n.tr("Localizable", "donations")
-    internal static let petitions = L10n.tr("Localizable", "petitions")
-    internal static let settings = L10n.tr("Localizable", "settings")
-    internal static let cancel = L10n.tr("Localizable", "cancel")
-
+  internal static let home = L10n.tr("Localizable", "home")
+  /// Petitions
+  internal static let petitions = L10n.tr("Localizable", "petitions")
+  /// Settings
+  internal static let settings = L10n.tr("Localizable", "settings")
+  /// verfied
+  internal static let verified = L10n.tr("Localizable", "verified")
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name
