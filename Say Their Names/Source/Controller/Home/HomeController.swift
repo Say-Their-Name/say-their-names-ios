@@ -9,9 +9,8 @@
 import UIKit
 
 //MARK: - IDENTIFIERS
-private let locationIdentifier = "locationCell"
-private let peopleIdentifier = "PersonCell"
 private let headerIdentifier = "PersonHeaderCell"
+private let peopleIdentifier = "PersonCell"
 
 class HomeController: UIViewController, ServiceReferring {
         
@@ -33,6 +32,10 @@ class HomeController: UIViewController, ServiceReferring {
     //Carousel data
     private let carouselData = ["Data", "Data", "Data", "Data"] //dummy data
     private var carouselDataResultsHandler: ResultsDataHandler?
+    
+    //MARK: - CV Data Sources
+    private let locationsDataSource = LocationCollectionViewDataSource(locations: [])
+    private let peopleDataSource = PersonCollectionViewDataSource()
     
     private let homeView = HomeView()
     var customNavBar : UIView { homeView.customNavigationBar }
@@ -59,6 +62,7 @@ class HomeController: UIViewController, ServiceReferring {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         // Select first location by default
+        // FIXME: can have multiple selected. need one source-of-truth here.
         let selectedIndexPath = IndexPath(item: 0, section: 0)
         locationCollectionView.selectItem(at: selectedIndexPath, animated: false, scrollPosition: .centeredVertically)
     }
@@ -68,9 +72,38 @@ class HomeController: UIViewController, ServiceReferring {
     }
     
     fileprivate func setupCollectionView() {
+        
+        // TO-DO: Dummy data for now, should update after API call to get locations
+        let locations: [Location] = [.init(name: "ALL"),
+                         .init(name: "RECENT"),
+                         .init(name: "MISSOURI"),
+                         .init(name: "TEXAS"),
+                         .init(name: "NEW YORK")]
+        
+        var people: [Person] = []
+        let df = DateFormatter()
+        df.dateFormat = "dd.MM.yyyy"
+        for i in 0..<10 {
+            people.append(Person(
+                id: "id\(i)",
+                fullName: "George Floyd \(i)",
+                age: i,
+                childrenCount: i,
+                date: df.date(from: "25.05.2020") ?? Date(),
+                location: "",
+                media: ["man-in-red-jacket-1681010"],
+                bio: "",
+                context: "",
+                donations: [],
+                petitions: []))
+        }
+        
+        locationsDataSource.setLocations(locations)
+        peopleDataSource.setPeople(people)
+        
         locationCollectionView.delegate = self
-        locationCollectionView.dataSource = self
-        locationCollectionView.register(LocationCell.self, forCellWithReuseIdentifier: locationIdentifier)
+        locationCollectionView.dataSource = locationsDataSource
+        locationCollectionView.register(LocationCell.self, forCellWithReuseIdentifier: LocationCell.locationIdentifier)
         locationCollectionView.isAccessibilityElement = false
         locationCollectionView.accessibilityIdentifier = "locationCollection"
         
@@ -93,6 +126,9 @@ class HomeController: UIViewController, ServiceReferring {
 extension HomeController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return collectionView.tag == 0 ? locations.count : 10
     }
     
@@ -105,9 +141,6 @@ extension HomeController: UICollectionViewDataSource, UICollectionViewDelegateFl
         return headerView
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        let width = collectionView.frame.width - 32
-        return collectionView.tag == 0 ? .zero : .init(width: width, height: 220)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -127,21 +160,30 @@ extension HomeController: UICollectionViewDataSource, UICollectionViewDelegateFl
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = collectionView.frame.width / 2 - 24
-        let locationCellSize = CGSize(width: 103, height: 36)
-        let peopleCellSize = CGSize(width: width, height: 300)
-        return collectionView.tag == 0 ? locationCellSize : peopleCellSize
+        
+        if collectionView === locationCollectionView {
+    
+        }
+        else if collectionView === peopleCollectionView {
+            let width = collectionView.frame.width / 2 - 24
+            return CGSize(width: width, height: 300)
+        }
+        else {
+            return CGSize.zero
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if collectionView.tag == 0 {
-            // Location CollectionView
-            
-        } else {
+        if collectionView === locationCollectionView {
+            // nothing for now
+        }
+        else if collectionView === peopleCollectionView {
             guard let service = self.service else { return }
             
             // People CollectionView
+            // let selectedPerson = peopleDataSource.fetchPerson(at: indexPath.item)
             let personController = PersonController(service: service)
+            
             let navigationController = UINavigationController(rootViewController: personController)
             navigationController.navigationBar.isHidden = true
             present(navigationController, animated: true, completion: nil)
