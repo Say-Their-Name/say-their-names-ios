@@ -21,9 +21,9 @@ final class Service {
         Log.print("Starting Services")
                 
         // Testing people
-        self.network.fetchDonations { (p) in
+        self.network.fetchPeople { (p) in
             
         }
     }
 }
-g
+

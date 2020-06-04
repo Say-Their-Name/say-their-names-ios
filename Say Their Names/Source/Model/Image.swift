@@ -8,12 +8,12 @@
 
 import Foundation
 
-public struct Images: Decodable {
+public struct Image: Decodable {
     var id: Int
     var personId: Int
-    var imageUrl: String
+    var url: String
 
     private enum CodingKeys: String, CodingKey {
-        case id, personId = "person_id", imageUrl = "image_url"
+        case id, personId = "person_id", url = "image_url"
     }
 }
