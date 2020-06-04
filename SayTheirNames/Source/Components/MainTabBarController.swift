@@ -64,7 +64,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         tabBar.barTintColor = defaultBarTint
         tabBar.tintColor = defaultTint
         tabBar.unselectedItemTintColor = defaultUnselectedTint
-        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "Karla-Regular", size: 11)!], for: .normal)
+        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: UIFont.STN.tabButtonTitle], for: .normal)
     }
 
     @objc fileprivate func setupTabViews() {

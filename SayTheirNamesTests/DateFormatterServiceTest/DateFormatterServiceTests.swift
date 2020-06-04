@@ -14,7 +14,10 @@ class DateFormatterServiceTests: XCTestCase {
     let dateFormatterService = DateFormatterService()
     
     func testDateOfBirthFormat() {
-        let dob = Date.dateFrom(year: 2020, month: 06, day: 03)!
+        guard let dob = Date.dateFrom(year: 2020, month: 06, day: 03) else {
+            XCTFail("unable to create dob")
+            return
+        }
 
         let formattedDate = dateFormatterService.formatYearMonthDayDate(dob)
 
@@ -22,7 +25,10 @@ class DateFormatterServiceTests: XCTestCase {
     }
     
     func testHourMinuteFormat() {
-        let hourMin = Date.dateFrom(year: 2020, month: 06, day: 03, hour: 4, minute: 11)!
+        guard let hourMin = Date.dateFrom(year: 2020, month: 06, day: 03, hour: 4, minute: 11) else {
+            XCTFail("unable to create date")
+            return
+        }
 
         let formattedDate = dateFormatterService.formatHourMinuteDate(hourMin)
 
