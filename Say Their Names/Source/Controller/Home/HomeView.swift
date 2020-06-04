@@ -38,9 +38,8 @@ final class HomeView: UIView {
     }()
     
     let searchButton: UIButton = {
-        let searchButton = UIButton(type: .custom)
         let searchImage = UIImage(named: "Simple Search Icon")
-        searchButton.setImage(searchImage, for: .normal)
+        let searchButton = UIImageButton(searchImage)
         return searchButton
     }()
     

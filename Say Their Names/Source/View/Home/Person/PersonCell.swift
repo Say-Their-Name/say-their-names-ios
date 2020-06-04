@@ -40,8 +40,9 @@ final class PersonCell: UICollectionViewCell {
         return lbl
     }()
     
-    private lazy var bookmarkButton: UIButton = {
-        let btn = UIButton(type: .custom)
+    private lazy var bookmarkButton: UIImageButton = {
+        let bookmarkImage = UIImage(named: "bookmark")
+        let btn = UIImageButton(bookmarkImage)
         btn.contentMode = .scaleAspectFill
         btn.setImage(UIImage(named: "bookmark"), for: .normal)
         btn.addTarget(self, action: #selector(didTapBookmark), for: .touchUpInside)
