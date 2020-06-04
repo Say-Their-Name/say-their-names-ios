@@ -81,7 +81,6 @@
 		A91B0855248771AD00DB803C /* Data+Stn.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B0851248771AD00DB803C /* Data+Stn.swift */; };
 		A91B0856248771AD00DB803C /* Dictionary+STN.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B0852248771AD00DB803C /* Dictionary+STN.swift */; };
 		A91B0857248771AD00DB803C /* URLRequest+STN.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B0853248771AD00DB803C /* URLRequest+STN.swift */; };
-		A91B08592487F85E00DB803C /* STNDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B08582487F85E00DB803C /* STNDecoder.swift */; };
 		A91B085F24880D3A00DB803C /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B085E24880D3900DB803C /* Images.swift */; };
 		A91B086124880D5000DB803C /* People.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B086024880D5000DB803C /* People.swift */; };
 		A91B086324880D7100DB803C /* PeopleLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B086224880D7100DB803C /* PeopleLink.swift */; };
@@ -200,7 +199,6 @@
 		A91B0851248771AD00DB803C /* Data+Stn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Data+Stn.swift"; sourceTree = "<group>"; };
 		A91B0852248771AD00DB803C /* Dictionary+STN.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dictionary+STN.swift"; sourceTree = "<group>"; };
 		A91B0853248771AD00DB803C /* URLRequest+STN.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URLRequest+STN.swift"; sourceTree = "<group>"; };
-		A91B08582487F85E00DB803C /* STNDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STNDecoder.swift; sourceTree = "<group>"; };
 		A91B085E24880D3900DB803C /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		A91B086024880D5000DB803C /* People.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = People.swift; sourceTree = "<group>"; };
 		A91B086224880D7100DB803C /* PeopleLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleLink.swift; sourceTree = "<group>"; };
@@ -384,7 +382,6 @@
 				A91B079424835CF700DB803C /* SceneDelegate.swift */,
 				A91B078224835CF700DB803C /* Components */,
 				A91B077124835CF700DB803C /* Controller */,
-				A91B086424880DF200DB803C /* Decoder */,
 				A91B083D2487718100DB803C /* Error */,
 				A91B07BB24846ECB00DB803C /* Log */,
 				A91B078524835CF700DB803C /* Model */,
@@ -647,14 +644,6 @@
 				A91B083F2487718100DB803C /* BaseError.swift */,
 			);
 			path = Error;
-			sourceTree = "<group>";
-		};
-		A91B086424880DF200DB803C /* Decoder */ = {
-			isa = PBXGroup;
-			children = (
-				A91B08582487F85E00DB803C /* STNDecoder.swift */,
-			);
-			path = Decoder;
 			sourceTree = "<group>";
 		};
 		A91B08672488779600DB803C /* Requestors */ = {
@@ -968,7 +957,6 @@
 				9E7DBAF4248481DA00635A56 /* ImageCreationOperation.swift in Sources */,
 				A91B07D42484C88D00DB803C /* BaseNibLoading.swift in Sources */,
 				83E9CAD02484A504001D173A /* LaunchScreen.swift in Sources */,
-				A91B08592487F85E00DB803C /* STNDecoder.swift in Sources */,
 				A91B08472487718100DB803C /* PeopleNetworkRequestor.swift in Sources */,
 				A91B079924835CF700DB803C /* UIFont+Resource.swift in Sources */,
 				9E2449A02485EA0B00B149DF /* strings.swift in Sources */,
