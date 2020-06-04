@@ -13,9 +13,20 @@ public struct Donation: Decodable {
     var title: String
     var description: String
     var link: String
+    var person: Person
+    var type: DonationType
     
     enum CodingKeys: String, CodingKey {
-        case id, title, description, link
+        case id, title, description, link, person, type
+    }
+}
+
+struct DonationType: Codable {
+    let id: String
+    let type: String
+    
+    enum CodingKeys: String, CodingKey {
+        case id, type
     }
 }
 
