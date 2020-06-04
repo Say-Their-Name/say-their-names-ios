@@ -10,7 +10,7 @@ import UIKit
 
 final class PetitionDetailViewController: UIViewController, ServiceReferring {
     
-    var service: Service?
+    var service: Service
     var petition: PresentedPetition?
     
     private let petitionDetailView = PetitionDetailView()

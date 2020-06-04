@@ -10,7 +10,7 @@ import UIKit
 
 /// Controller responsible for showing the petitions
 final class PetitionsController: UIViewController, ServiceReferring {
-    var service: Service?
+    var service: Service
     
     private lazy var petitionsView = PetitionsView(title: Strings.petitions.uppercased())
     private var petitionsTableView: UITableView { petitionsView.tableView }
@@ -63,7 +63,6 @@ final class PetitionsController: UIViewController, ServiceReferring {
     }
         
     private func showDetailViewController(for petition: PresentedPetition) {
-        guard let service = service else { return }
         
         // People CollectionView
         // let selectedPerson = peopleDataSource.fetchPerson(at: indexPath.item)
