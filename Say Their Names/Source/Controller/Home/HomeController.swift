@@ -123,46 +123,24 @@ class HomeController: UIViewController, ServiceReferring {
 }
 
 //MARK: - UICOLLECTIONVIEW EXTENSION
-extension HomeController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return collectionView.tag == 0 ? locations.count : 10
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        if collectionView.tag == 0 { return UICollectionReusableView() }
-        let headerView = peopleCollectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerIdentifier, for: indexPath) as! CarouselHeaderView
-        carouselDataResultsHandler = ResultsDataHandler(resultsData: self.carouselData)
-        headerView.resultsHandler = carouselDataResultsHandler
-        headerView.configure()
-        return headerView
-    }
-    
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if collectionView.tag == 0 {
-            let cell = locationCollectionView.dequeueReusableCell(withReuseIdentifier: locationIdentifier, for: indexPath) as! LocationCell
-            if indexPath.item == 0 { cell.isSelected = true }
-            cell.titleLabel.text = self.locations[indexPath.item]
-            cell.accessibilityIdentifier = "locationCell\(indexPath.item)"
-            cell.isAccessibilityElement = true
-            return cell
-        } else {
-            let cell = peopleCollectionView.dequeueReusableCell(withReuseIdentifier: peopleIdentifier, for: indexPath) as! PersonCell
-            cell.accessibilityIdentifier = "peopleCell\(indexPath.item)"
-            cell.isAccessibilityElement = true
-            return cell
+extension HomeController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        if collectionView === locationCollectionView {
+            return CGSize.zero
+        }
+        else if collectionView === peopleCollectionView {
+            let width = collectionView.frame.width - 32
+            return CGSize(width: width, height: 170)
+        }
+        else {
+            return CGSize.zero
         }
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         if collectionView === locationCollectionView {
-    
+            return CGSize(width: 103, height: 36)
         }
         else if collectionView === peopleCollectionView {
             let width = collectionView.frame.width / 2 - 24
