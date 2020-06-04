@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Karla-Bold.ttf">
+            <string>Karla-Bold</string>
+        </array>
+        <array key="Karla-Regular.ttf">
+            <string>Karla-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PersonController" customModule="Say_Their_Names" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="830"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" contentInsetAdjustmentBehavior="never" translatesAutoresizingMaskIntoConstraints="NO" id="EEk-BC-DgM">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="830"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="V9N-Xq-fAw">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="830"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YGd-hi-GUX">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="530"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="man-in-red-jacket-1681010" translatesAutoresizingMaskIntoConstraints="NO" id="ZCO-UL-2wk">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="530"/>
+                                        </imageView>
+                                        <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C6x-pE-Qc2">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="530"/>
+                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="XTB-UT-XKt">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="530"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="moz-tW-i7t">
+                                                        <rect key="frame" x="57" y="90" width="300" height="390"/>
+                                                        <subviews>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="man-in-red-jacket-1681010" translatesAutoresizingMaskIntoConstraints="NO" id="ino-2h-cvR">
+                                                                <rect key="frame" x="0.0" y="0.0" width="300" height="390"/>
+                                                            </imageView>
+                                                        </subviews>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="trailing" secondItem="ino-2h-cvR" secondAttribute="trailing" id="8mg-9P-n9y"/>
+                                                            <constraint firstItem="ino-2h-cvR" firstAttribute="top" secondItem="moz-tW-i7t" secondAttribute="top" id="a95-eX-TNq"/>
+                                                            <constraint firstAttribute="height" constant="390" id="c3j-ku-tMU"/>
+                                                            <constraint firstAttribute="bottom" secondItem="ino-2h-cvR" secondAttribute="bottom" id="f6D-Oy-UZi"/>
+                                                            <constraint firstItem="ino-2h-cvR" firstAttribute="leading" secondItem="moz-tW-i7t" secondAttribute="leading" id="nIU-e7-aSD"/>
+                                                            <constraint firstAttribute="width" constant="300" id="qQQ-OT-Lj6"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z19-R7-v8s">
+                                                        <rect key="frame" x="16" y="16" width="41" height="41"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="41" id="6wH-Lt-amo"/>
+                                                            <constraint firstAttribute="height" constant="41" id="xmq-CF-NnB"/>
+                                                        </constraints>
+                                                        <state key="normal" image="Close Icon"/>
+                                                        <connections>
+                                                            <action selector="didPressCloseButton" destination="-1" eventType="touchUpInside" id="PpD-Gd-eSi"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="Z19-R7-v8s" firstAttribute="top" secondItem="XTB-UT-XKt" secondAttribute="top" constant="16" id="7vA-Hf-ADn"/>
+                                                    <constraint firstItem="moz-tW-i7t" firstAttribute="centerY" secondItem="XTB-UT-XKt" secondAttribute="centerY" constant="20" id="G6F-li-AwS"/>
+                                                    <constraint firstItem="moz-tW-i7t" firstAttribute="centerX" secondItem="XTB-UT-XKt" secondAttribute="centerX" id="Obm-je-kJ8"/>
+                                                    <constraint firstItem="Z19-R7-v8s" firstAttribute="leading" secondItem="XTB-UT-XKt" secondAttribute="leading" constant="16" id="zso-m7-DyW"/>
+                                                </constraints>
+                                            </view>
+                                            <blurEffect style="dark"/>
+                                        </visualEffectView>
+                                    </subviews>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="ZCO-UL-2wk" secondAttribute="trailing" id="0G8-UU-Swh"/>
+                                        <constraint firstItem="C6x-pE-Qc2" firstAttribute="top" secondItem="YGd-hi-GUX" secondAttribute="top" id="1f0-bt-TXl"/>
+                                        <constraint firstAttribute="bottom" secondItem="C6x-pE-Qc2" secondAttribute="bottom" id="JLu-QO-jAE"/>
+                                        <constraint firstItem="ZCO-UL-2wk" firstAttribute="leading" secondItem="YGd-hi-GUX" secondAttribute="leading" id="Qry-4g-rfR"/>
+                                        <constraint firstAttribute="bottom" secondItem="ZCO-UL-2wk" secondAttribute="bottom" id="Wue-sv-4IQ"/>
+                                        <constraint firstItem="ZCO-UL-2wk" firstAttribute="top" secondItem="YGd-hi-GUX" secondAttribute="top" id="lyi-YI-miP"/>
+                                        <constraint firstItem="C6x-pE-Qc2" firstAttribute="leading" secondItem="YGd-hi-GUX" secondAttribute="leading" id="oPg-xW-0AN"/>
+                                        <constraint firstAttribute="height" constant="530" id="qzb-QE-oMN"/>
+                                        <constraint firstAttribute="trailing" secondItem="C6x-pE-Qc2" secondAttribute="trailing" id="v4a-fy-xto"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bzp-PG-lrw">
+                                    <rect key="frame" x="0.0" y="530" width="414" height="300"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="JIR-My-Yb0">
+                                            <rect key="frame" x="24" y="16" width="366" height="163"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GEORGE FLOYD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MZN-74-RJt">
+                                                    <rect key="frame" x="0.0" y="0.0" width="199.5" height="33"/>
+                                                    <fontDescription key="fontDescription" name="Karla-Bold" family="Karla" pointSize="28"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bD5-Sa-dHj">
+                                                    <rect key="frame" x="0.0" y="49" width="360.5" height="61"/>
+                                                    <string key="text">It all started when restaurant bouncer and aspiring commercial driver Floyd, 46, tried to buy groceries. He went to church on sunday to find the pastor</string>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TEy-fW-uKO">
+                                                    <rect key="frame" x="0.0" y="126" width="134" height="37"/>
+                                                    <fontDescription key="fontDescription" name="Karla-Regular" family="Karla" pointSize="21"/>
+                                                    <state key="normal" title="READ MORE -&gt;">
+                                                        <color key="titleColor" red="0.062745098040000002" green="0.062745098040000002" blue="0.062745098040000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="didPressReadButton:" destination="-1" eventType="touchUpInside" id="h6s-PI-D4o"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </stackView>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EQR-YI-ISk">
+                                            <rect key="frame" x="0.0" y="195" width="414" height="1"/>
+                                            <color key="backgroundColor" red="0.84705882349999995" green="0.84705882349999995" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="1" id="0zO-Ra-LBh"/>
+                                            </constraints>
+                                        </view>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ddR-4J-Yxs">
+                                            <rect key="frame" x="24" y="212" width="365" height="46"/>
+                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="46" id="OzD-pT-F0R"/>
+                                            </constraints>
+                                            <state key="normal" title="Donate">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="JIR-My-Yb0" secondAttribute="trailing" constant="24" id="5uj-yS-ynZ"/>
+                                        <constraint firstItem="ddR-4J-Yxs" firstAttribute="top" secondItem="EQR-YI-ISk" secondAttribute="bottom" constant="16" id="6n0-S5-Ypf"/>
+                                        <constraint firstItem="JIR-My-Yb0" firstAttribute="leading" secondItem="bzp-PG-lrw" secondAttribute="leading" constant="24" id="SPq-Xy-faU"/>
+                                        <constraint firstAttribute="height" constant="300" id="ZRh-4z-6Pi"/>
+                                        <constraint firstAttribute="trailing" secondItem="EQR-YI-ISk" secondAttribute="trailing" id="aNs-Fq-Owd"/>
+                                        <constraint firstItem="EQR-YI-ISk" firstAttribute="top" secondItem="JIR-My-Yb0" secondAttribute="bottom" constant="16" id="iof-rI-N4p"/>
+                                        <constraint firstAttribute="trailing" secondItem="ddR-4J-Yxs" secondAttribute="trailing" constant="25" id="qtv-Ho-Qsf"/>
+                                        <constraint firstItem="ddR-4J-Yxs" firstAttribute="leading" secondItem="bzp-PG-lrw" secondAttribute="leading" constant="24" id="y0P-Oy-kdm"/>
+                                        <constraint firstItem="JIR-My-Yb0" firstAttribute="top" secondItem="bzp-PG-lrw" secondAttribute="top" constant="16" id="y3K-Py-rut"/>
+                                        <constraint firstItem="EQR-YI-ISk" firstAttribute="leading" secondItem="bzp-PG-lrw" secondAttribute="leading" id="ylk-T0-Dnw"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="V9N-Xq-fAw" firstAttribute="top" secondItem="EEk-BC-DgM" secondAttribute="top" id="3Yp-oD-G5e"/>
+                        <constraint firstAttribute="bottom" secondItem="V9N-Xq-fAw" secondAttribute="bottom" id="9cb-qI-N5b"/>
+                        <constraint firstItem="V9N-Xq-fAw" firstAttribute="leading" secondItem="EEk-BC-DgM" secondAttribute="leading" id="KyI-Bb-zDE"/>
+                        <constraint firstAttribute="trailing" secondItem="V9N-Xq-fAw" secondAttribute="trailing" id="UGX-dM-Flq"/>
+                        <constraint firstItem="V9N-Xq-fAw" firstAttribute="centerX" secondItem="EEk-BC-DgM" secondAttribute="centerX" id="u4T-bZ-ew7"/>
+                    </constraints>
+                </scrollView>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="EEk-BC-DgM" secondAttribute="bottom" id="6BZ-go-UJ6"/>
+                <constraint firstItem="EEk-BC-DgM" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Kqj-8e-OvM"/>
+                <constraint firstItem="EEk-BC-DgM" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="v3K-sG-gLJ"/>
+                <constraint firstAttribute="trailing" secondItem="EEk-BC-DgM" secondAttribute="trailing" id="xEC-I8-Pis"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="137.68115942028987" y="152.67857142857142"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Close Icon" width="21" height="21"/>
+        <image name="man-in-red-jacket-1681010" width="3456" height="5184"/>
+    </resources>
+</document>
