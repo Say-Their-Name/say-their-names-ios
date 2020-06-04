@@ -40,7 +40,7 @@ extension PersonDetailsController: UICollectionViewDataSource, UICollectionViewD
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: PersonPhotoCell = collectionView.dequeueCell(for: indexPath)
-        cell.setImage(withUrlString: "https://picsum.photos/200/300")// TODO: replace string with media url from API
+        cell.setImage(withUrlString: "image-url")// TODO: replace string with media url from API
         return cell
     }
     
