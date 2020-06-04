@@ -9,8 +9,7 @@
 import UIKit
 
 final class Navigator: ServiceReferring {
-    weak var service: Service?
-    
+    let service: Service
     let window: UIWindow
     let rootViewController: MainTabBarController
     

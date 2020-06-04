@@ -10,6 +10,6 @@ import UIKit
 
 /// Protocol describing a type that can hold a reference to `Service`
 protocol ServiceReferring {
-    var service: Service? { get }
+    var service: Service { get }
     init(service: Service)
 }

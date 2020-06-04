@@ -8,12 +8,28 @@
 
 import Foundation
 
-struct Petition: Codable {
+public struct Petition: Decodable {
+    var id: Int
     var title: String
     var description: String
     var link: String
     
     enum CodingKeys: String, CodingKey {
-        case title, description, link
+        case id, title, description, link
+    }
+}
+
+public struct PetitionsResponsePage: Decodable {
+    var all: [Petition]
+    var link: Link
+    
+    enum CodingKeys: String, CodingKey {
+        case all = "data", link = "links"
+    }
+    
+    // Empty init
+    init() {
+        self.all = []
+        self.link = Link(first: "", last: "", prev: "", next: "")
     }
 }

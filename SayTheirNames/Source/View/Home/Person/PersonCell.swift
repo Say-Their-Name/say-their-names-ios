@@ -82,7 +82,7 @@ final class PersonCell: UICollectionViewCell {
         
         profileImageView.populate(withURL: person.media.first ?? "")
         nameLabel.text = person.fullName.uppercased()
-        dateOfIncidentLabel.text = df.string(from: person.date) 
+        dateOfIncidentLabel.text = person.doi
     }
     
     private func setUp() {
