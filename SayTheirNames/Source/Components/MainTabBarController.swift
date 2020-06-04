@@ -64,10 +64,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         tabBar.barTintColor = defaultBarTint
         tabBar.tintColor = defaultTint
         tabBar.unselectedItemTintColor = defaultUnselectedTint
-        guard let karlaFont = UIFont(name: "Karla-Regular", size: 11) else {
-            fatalError("Font not loaded")
-        }
-        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: karlaFont], for: .normal)
+        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: UIFont.STN.tabButtonTitle], for: .normal)
     }
 
     @objc fileprivate func setupTabViews() {
