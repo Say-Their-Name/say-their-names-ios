@@ -93,7 +93,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         petitionsNC.isNavigationBarHidden = true
         petitionsNC.tabBarItem.image = #imageLiteral(resourceName: "petition")
         petitionsNC.tabBarItem.selectedImage = UIImage(named: "petition_active")
-        petitionsNC.tabBarItem.title = L10n.petitions
+        petitionsNC.tabBarItem.title = Strings.petitions
         
         settingsNC.isNavigationBarHidden = true
         settingsNC.tabBarItem.image = #imageLiteral(resourceName: "settings")
