@@ -34,7 +34,7 @@ class DateFormatterService {
             
             dateFormatters[key] = dateFormatter
             
-            return dateFormatters[key]!
+            return dateFormatter
         }
     }
 

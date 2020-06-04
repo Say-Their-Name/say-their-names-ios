@@ -13,6 +13,7 @@
 		5B3ED74C2481CA000033FF79 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B3ED74A2481CA000033FF79 /* LaunchScreen.storyboard */; };
 		5D456A3B24870CDF009FAD34 /* LocationCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D456A3A24870CDF009FAD34 /* LocationCollectionViewDataSource.swift */; };
 		5D456A3D248734CA009FAD34 /* PersonCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D456A3C248734CA009FAD34 /* PersonCollectionViewDataSource.swift */; };
+		5F62B732248975CF00ACE032 /* LocationCollectionViewDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F62B731248975CF00ACE032 /* LocationCollectionViewDataSourceTests.swift */; };
 		7433B6462484B987005140D4 /* PersonDetailsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7433B6442484B987005140D4 /* PersonDetailsController.xib */; };
 		7433B6472484B987005140D4 /* PersonDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7433B6452484B987005140D4 /* PersonDetailsController.swift */; };
 		7433B64B2484BABA005140D4 /* PersonPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7433B6492484BABA005140D4 /* PersonPhotoCell.swift */; };
@@ -80,6 +81,8 @@
 		B386F958248526C70037A38D /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = B386F957248526C70037A38D /* Location.swift */; };
 		B3D6B6A92486EE3300D3118C /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B07B724846B0C00DB803C /* Service.swift */; };
 		B3D6B6AF2487E10100D3118C /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D6B6AE2487E10100D3118C /* Reusable.swift */; };
+		B3D6B6B2248987AD00D3118C /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B3D6B6B0248987AD00D3118C /* README.md */; };
+		B3D6B6B3248987AD00D3118C /* CONTRIBUTING.md in Resources */ = {isa = PBXBuildFile; fileRef = B3D6B6B1248987AD00D3118C /* CONTRIBUTING.md */; };
 		C0594BFA248754A200260BAD /* UICollectionView++.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0594BF9248754A200260BAD /* UICollectionView++.swift */; };
 		C0594BFC248754C900260BAD /* UICollectionViewCell++.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0594BFB248754C900260BAD /* UICollectionViewCell++.swift */; };
 		EEC3A1D42483D493001E7754 /* CustomSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC3A1D32483D493001E7754 /* CustomSearchBar.swift */; };
@@ -120,6 +123,7 @@
 		5B3ED7582481CA000033FF79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5D456A3A24870CDF009FAD34 /* LocationCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCollectionViewDataSource.swift; sourceTree = "<group>"; };
 		5D456A3C248734CA009FAD34 /* PersonCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonCollectionViewDataSource.swift; sourceTree = "<group>"; };
+		5F62B731248975CF00ACE032 /* LocationCollectionViewDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCollectionViewDataSourceTests.swift; sourceTree = "<group>"; };
 		72373A43202B7215526324F7 /* Pods-SayTheirNames.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SayTheirNames.release.xcconfig"; path = "Target Support Files/Pods-SayTheirNames/Pods-SayTheirNames.release.xcconfig"; sourceTree = "<group>"; };
 		7433B6442484B987005140D4 /* PersonDetailsController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonDetailsController.xib; sourceTree = "<group>"; };
 		7433B6452484B987005140D4 /* PersonDetailsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonDetailsController.swift; sourceTree = "<group>"; };
@@ -191,6 +195,8 @@
 		B386F9542482FB540037A38D /* UIFontSTNTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontSTNTests.swift; sourceTree = "<group>"; };
 		B386F957248526C70037A38D /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		B3D6B6AE2487E10100D3118C /* Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
+		B3D6B6B0248987AD00D3118C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		B3D6B6B1248987AD00D3118C /* CONTRIBUTING.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = CONTRIBUTING.md; sourceTree = "<group>"; };
 		B491840AD61AD287986EE601 /* Pods_SayTheirNamesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SayTheirNamesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4C2225CE2734B7F1B4D3F86 /* Pods-Say Their NamesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Say Their NamesTests.debug.xcconfig"; path = "Target Support Files/Pods-Say Their NamesTests/Pods-Say Their NamesTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C0594BF9248754A200260BAD /* UICollectionView++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView++.swift"; sourceTree = "<group>"; };
@@ -236,6 +242,8 @@
 		5B3ED7332481C9F40033FF79 = {
 			isa = PBXGroup;
 			children = (
+				B3D6B6B1248987AD00D3118C /* CONTRIBUTING.md */,
+				B3D6B6B0248987AD00D3118C /* README.md */,
 				ED2DEB0A248454FD00EC784E /* CODE_OF_CONDUCT.md */,
 				5B3ED73E2481C9F50033FF79 /* SayTheirNames */,
 				5B3ED7552481CA000033FF79 /* SayTheirNamesTests */,
@@ -268,6 +276,7 @@
 		5B3ED7552481CA000033FF79 /* SayTheirNamesTests */ = {
 			isa = PBXGroup;
 			children = (
+				5F62B730248975B200ACE032 /* DataSourceTests */,
 				83E9CAD52484A683001D173A /* LaunchTests */,
 				B386F956248300E00037A38D /* UtilsTests */,
 				B386F9532482FB2E0037A38D /* ExtensionsTests */,
@@ -285,6 +294,14 @@
 				5D456A3C248734CA009FAD34 /* PersonCollectionViewDataSource.swift */,
 			);
 			path = CollectionViewDataSource;
+			sourceTree = "<group>";
+		};
+		5F62B730248975B200ACE032 /* DataSourceTests */ = {
+			isa = PBXGroup;
+			children = (
+				5F62B731248975CF00ACE032 /* LocationCollectionViewDataSourceTests.swift */,
+			);
+			path = DataSourceTests;
 			sourceTree = "<group>";
 		};
 		74DE10842486DF7400211B83 /* Settings */ = {
@@ -768,6 +785,8 @@
 				5B3ED74C2481CA000033FF79 /* LaunchScreen.storyboard in Resources */,
 				5B3ED7492481CA000033FF79 /* Assets.xcassets in Resources */,
 				7433B6462484B987005140D4 /* PersonDetailsController.xib in Resources */,
+				B3D6B6B3248987AD00D3118C /* CONTRIBUTING.md in Resources */,
+				B3D6B6B2248987AD00D3118C /* README.md in Resources */,
 				A91B079A24835CF700DB803C /* Karla-Regular.ttf in Resources */,
 				A91B07AC24835CF700DB803C /* PersonHeaderCell.xib in Resources */,
 				A91B079D24835CF700DB803C /* PersonController.xib in Resources */,
@@ -969,6 +988,7 @@
 			files = (
 				7A5BFA1B2488871C00BC265A /* DateFormatterServiceTests.swift in Sources */,
 				B386F9552482FB540037A38D /* UIFontSTNTests.swift in Sources */,
+				5F62B732248975CF00ACE032 /* LocationCollectionViewDataSourceTests.swift in Sources */,
 				83E9CAD72484A6A2001D173A /* LaunchScreenTests.swift in Sources */,
 				7A5BFA14248618CF00BC265A /* Say_Their_NamesTests.swift in Sources */,
 			);
