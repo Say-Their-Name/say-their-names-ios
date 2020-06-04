@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Alamofire
 
 // MARK: - PersonUrl
 final class PersonUrl: BaseNetworkUrl {
@@ -20,7 +19,7 @@ extension PeopleNetworkRequestor {
     // MARK: - Public methods
     
     public func fetchPeople(completion: @escaping (People?) -> Swift.Void) {
-        self._fetchPeopleAtUrl(PersonUrl.people, completion: completion)
+        self.fetch(PersonUrl.people, completion: completion)
     }
     
     public func fetchPeopleWithLink(_ peopleLink: PeopleLink, completion: @escaping (People?) -> Swift.Void) {
@@ -29,15 +28,6 @@ extension PeopleNetworkRequestor {
             return
         }
         
-        self._fetchPeopleAtUrl(nextUrl, completion: completion)
-    }
-    
-    // MARK: - Private methods
-    
-    private func _fetchPeopleAtUrl(_ url: String, completion: @escaping (People?) -> Swift.Void) {
-        let request = AF.request(url)
-        request.responseDecodable(of: People.self, queue: self.concurrentQueue) { (response) in
-            DispatchQueue.mainAsync { completion(response.value) }
-        }
+        self.fetch(nextUrl, completion: completion)
     }
 }
