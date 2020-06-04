@@ -8,14 +8,13 @@
 
 import UIKit
 
-class BaseViewController: UIViewController, BaseNibLoading {
+class BaseViewController: UIViewController {
     let service: Service
     
     required init?(coder: NSCoder) { fatalError("") }
+    
     required init(service: Service) {
         self.service = service
-        
-        let (bundle, name) = type(of: self).bundleAndNibName()
-        super.init(nibName: name, bundle: bundle)
+        super.init(nibName: nil, bundle: nil)
     }
 }

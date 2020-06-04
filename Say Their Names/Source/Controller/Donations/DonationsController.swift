@@ -9,8 +9,18 @@
 import UIKit
 
 class DonationsController: BaseViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    
+    private let ui = DonationsView()
+    
+    required init(service: Service) {
+        super.init(service: service)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError()
+    }
+    
+    override func loadView() {
+        view = ui
     }
 }

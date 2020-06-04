@@ -55,7 +55,7 @@ class CustomSearchBar: UIView {
         searchBar.delegate = self
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(UINib(nibName: "SearchResultCell", bundle: nil), forCellReuseIdentifier: "Cell")
+        tableView.register(cellType: SearchResultCell.self)
         tableView.tableFooterView = UIView()
         tableView.separatorStyle = .none
         searchBar.searchBarStyle = UISearchBar.Style.minimal
