@@ -15,3 +15,10 @@ struct Location: Codable {
         case name
     }
 }
+
+extension Location: Hashable {
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(name)
+    }
+}
