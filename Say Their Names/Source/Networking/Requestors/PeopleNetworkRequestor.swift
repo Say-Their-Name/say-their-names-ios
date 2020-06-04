@@ -35,7 +35,7 @@ extension PeopleNetworkRequestor {
     // MARK: - Private methods
     
     private func _fetchPeopleAtUrl(_ url: String, completion: @escaping (People?) -> Swift.Void) {
-        let request = AF.request(PersonUrl.people)
+        let request = AF.request(url)
         request.responseDecodable(of: People.self) { (response) in
           completion(response.value)
         }
