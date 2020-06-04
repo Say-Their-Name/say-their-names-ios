@@ -106,6 +106,7 @@ class HomeController: UIViewController, ServiceReferring {
         
         peopleCollectionView.delegate = self
         peopleCollectionView.dataSource = peopleDataSource
+        peopleCollectionView.register(PersonCell.self, forCellWithReuseIdentifier: PersonCell.personIdentifier)
         peopleCollectionView.register(UINib(nibName: peopleIdentifier, bundle: nil), forCellWithReuseIdentifier: peopleIdentifier)
         peopleCollectionView.register(CarouselHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerIdentifier)
         peopleCollectionView.accessibilityIdentifier = "peopleCollection"
