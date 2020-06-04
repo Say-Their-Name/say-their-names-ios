@@ -7,14 +7,14 @@
 //
 
 import Foundation
-import Kingfisher
+import SDWebImage
 
 public extension UIImageView {
     func populate(withURL url: String) {
-        self.kf.indicatorType = .activity
-        self.kf.setImage(
-          with: URL(string: url),
-          placeholder: UIImage(named: "image-placeholder")
-        )
+        self.sd_imageIndicator = SDWebImageActivityIndicator.gray
+      self.sd_setImage(
+        with: URL(string: url),
+        placeholderImage: UIImage(named: "image-placeholder")
+      )
     }
 }
