@@ -8,7 +8,7 @@
 
 import UIKit
 
-/// This is a mock Petition that's meant to be used to test the layout of PetitionCollectionViewCell
+/// This is a mock PresentedPetition implementation  that's meant to be used to test the layout of PetitionCollectionViewCell
 ///
 /// Once we have real data coming from the server, this will not be needed
 ///

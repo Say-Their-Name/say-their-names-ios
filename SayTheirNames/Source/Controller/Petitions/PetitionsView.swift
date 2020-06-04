@@ -63,11 +63,15 @@ final class PetitionsView: UIView {
     // ensure that updateConstraints is always called
     override class var requiresConstraintBasedLayout: Bool { true }
     
+    private var haveCreatedConstraints = false
     override func updateConstraints() {
         super.updateConstraints()
                 
         createLayout()
 
+        guard !haveCreatedConstraints else { return }
+        haveCreatedConstraints = true
+        
         NSLayoutConstraint.activate([
             customNavigationBar.leadingAnchor.constraint(equalTo: leadingAnchor),
             customNavigationBar.trailingAnchor.constraint(equalTo: trailingAnchor),

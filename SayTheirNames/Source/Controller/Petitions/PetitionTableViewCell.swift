@@ -75,7 +75,6 @@ final class PetitionTableViewCell: UITableViewCell {
     }()
         
     private var hasLayedOutSubviews = false
-    private var allConstriants: [NSLayoutConstraint] = []
     private func createLayout() {
         guard !hasLayedOutSubviews else { return }
         hasLayedOutSubviews = true
@@ -109,21 +108,29 @@ final class PetitionTableViewCell: UITableViewCell {
     // ensure that updateConstraints is always called
     override class var requiresConstraintBasedLayout: Bool { true }
     
+    private lazy var imageContainerHeight: NSLayoutConstraint = {
+        imageViewContainer.heightAnchor.constraint(equalToConstant: nil == bannerImageView.image ? 0 : Self.PetitionImageHeight)
+    }()
+    
+    private var haveBuiltConstraints = false
     override func updateConstraints() {
         super.updateConstraints()
                 
         createLayout()
+        
+        imageContainerHeight.constant = nil == bannerImageView.image ? 0 : Self.PetitionImageHeight
         
         // NOTE: when changing from landscape to portrait, or vice versa,
         // this code DOES cause autolayout conflicts
         // but they are fixed in subsequent passes
         // in the same call stack and thus are never seen by the user
         
-        titleLabel.setContentCompressionResistancePriority(.defaultLow - 1, for: .horizontal)
+        guard !haveBuiltConstraints else { return }
+        haveBuiltConstraints = true
         
-        NSLayoutConstraint.deactivate(allConstriants)
-                
-        allConstriants = [
+        titleLabel.setContentCompressionResistancePriority(.defaultLow - 1, for: .horizontal)
+                        
+        let constraints = [
             
             container.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Self.ContainerHorizontalMargin),
             container.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -Self.ContainerHorizontalMargin),
@@ -133,7 +140,6 @@ final class PetitionTableViewCell: UITableViewCell {
             imageViewContainer.leadingAnchor.constraint(equalTo: container.leadingAnchor),
             imageViewContainer.trailingAnchor.constraint(equalTo: container.trailingAnchor),
             imageViewContainer.topAnchor.constraint(equalTo: container.topAnchor),
-            imageViewContainer.heightAnchor.constraint(equalToConstant: nil == bannerImageView.image ? 0 : Self.PetitionImageHeight),
             
             // the banner image should appear centered in the container
             // and fill the full width of the container
@@ -163,7 +169,8 @@ final class PetitionTableViewCell: UITableViewCell {
             findOutMoreButton.bottomAnchor.constraint(equalTo: container.bottomAnchor, constant: -Self.FindOutMoreButtonVerticalMargin)
         ]
         
-        NSLayoutConstraint.activate(allConstriants)
+        NSLayoutConstraint.activate(constraints)
+        imageContainerHeight.isActive = true
     }
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
