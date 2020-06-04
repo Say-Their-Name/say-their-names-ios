@@ -15,7 +15,6 @@ final class PersonCell: UICollectionViewCell {
         let imgV = UIImageView()
         imgV.image = UIImage(named: "man-in-red-jacket-1681010")
         imgV.contentMode = .scaleAspectFill
-        //imgV.frame = CGRect(x: 0, y: 0, width: 160, height: 219)
         imgV.clipsToBounds = true
         imgV.translatesAutoresizingMaskIntoConstraints = false
         return imgV
