@@ -1,5 +1,5 @@
 //
-//  Say Their Names
+//  SayTheirNames
 //
 //  Created by evilpenguin.
 //  Copyright © 2020 Franck-Stephane Ndame Mpouli. All rights reserved.
@@ -7,10 +7,8 @@
 
 import Foundation
 
-class BaseNetworkUrl {
-    typealias UrlString = String
-    
-    class var base: UrlString {
+enum Environment {
+    static let serverURLString: String = {
         #if DEV
             return "https://saytheirnames.dev"
         #elseif QA
@@ -20,5 +18,5 @@ class BaseNetworkUrl {
         #else
             return "https://saytheirnames.dev" // switch to PROD
         #endif
-    }
+    }()
 }

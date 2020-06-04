@@ -13,7 +13,7 @@ final class Service {
     lazy private(set) var navigator = Navigator(service: self)
     lazy private(set) var image = ImageService()
     lazy private(set) var dateFormatter = DateFormatterService()
-    lazy private(set) var network = NetworkRequestor(service: self)
+    lazy private(set) var network = NetworkRequestor()
     
     // MARK: - Init
     init() {

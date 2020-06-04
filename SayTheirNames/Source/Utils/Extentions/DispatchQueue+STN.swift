@@ -1,6 +1,6 @@
 //
 //  DispatchQueue+STN.swift
-//  Say Their Names
+//  SayTheirNames
 //
 //  Created by evilpenguin on 6/2/20.
 //  Copyright © 2020 Franck-Stephane Ndame Mpouli. All rights reserved.

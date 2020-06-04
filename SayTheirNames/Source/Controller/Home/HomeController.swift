@@ -1,6 +1,6 @@
 //
 //  HomeController.swift
-//  Say Their Names
+//  SayTheirNames
 //
 //  Created by Franck-Stephane Ndame Mpouli on 30/05/2020.
 //  Copyright © 2020 Franck-Stephane Ndame Mpouli. All rights reserved.

@@ -20,10 +20,10 @@ public struct Person: Decodable {
     var bio: String
     var context: String
     var images: [Image]
-    var donations: Donations?
-    var petitions: Petitions?
-    var media: [Media]?
-    var socialMedia: [SocialMedia]?
+    var donations: DonationsResponsePage
+    var petitions: PetitionsResponsePage
+    var media: [Media]
+    var socialMedia: [SocialMedia]
     
     private enum CodingKeys: String, CodingKey {
         case id, fullName = "full_name", dob = "date_of_birth", doi = "date_of_incident", childrenCount = "number_of_children",
@@ -44,20 +44,26 @@ public struct Person: Decodable {
         self.country = try values.decodeIfPresent(String.self, forKey: .country) ?? ""
         self.bio = try values.decodeIfPresent(String.self, forKey: .bio) ?? ""
         self.context = try values.decodeIfPresent(String.self, forKey: .context) ?? ""
-        self.images = try values.decodeIfPresent([Image].self, forKey: .images) ?? []
         
-        self.donations = try values.decodeIfPresent(Donations.self, forKey: .donations)
-        self.petitions = try values.decodeIfPresent(Petitions.self, forKey: .petitions)
-        self.media = try values.decodeIfPresent([Media].self, forKey: .media)
-        self.socialMedia = try values.decodeIfPresent([SocialMedia].self, forKey: .socialMedia)
+        self.images = try values.decodeIfPresent([Image].self, forKey: .images) ?? []
+        self.donations = try values.decodeIfPresent(DonationsResponsePage.self, forKey: .donations) ?? DonationsResponsePage()
+        self.petitions = try values.decodeIfPresent(PetitionsResponsePage.self, forKey: .petitions) ?? PetitionsResponsePage()
+        self.media = try values.decodeIfPresent([Media].self, forKey: .media) ?? []
+        self.socialMedia = try values.decodeIfPresent([SocialMedia].self, forKey: .socialMedia) ?? []
     }    
 }
 
-public struct Persons: Decodable {
+public struct PersonsResponsePage: Decodable {
     var all: [Person]
-    var links: Link
+    var link: Link
     
     private enum CodingKeys: String, CodingKey {
-        case all = "data", links
+        case all = "data", link = "links"
+    }
+    
+    // Empty init
+    init() {
+        self.all = []
+        self.link = Link(first: "", last: "", prev: "", next: "")
     }
 }
