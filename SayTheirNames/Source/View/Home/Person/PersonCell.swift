@@ -80,7 +80,7 @@ final class PersonCell: UICollectionViewCell {
         let df = DateFormatter()
         df.dateFormat = "dd.MM.yyyy"
         
-        STNImage.populate(profileImageView, withURL: person.media.first ?? "")
+        profileImageView.populate(withURL: person.media.first ?? "")
         nameLabel.text = person.fullName.uppercased()
         dateOfIncidentLabel.text = df.string(from: person.date) 
     }

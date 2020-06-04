@@ -39,7 +39,7 @@ final class PersonPhotoCell: UICollectionViewCell {
     }
     
     func setImage(withUrlString url: String) {
-        STNImage.populate(personImageView, withURL: url)
+        personImageView.populate(withURL: url)
     }
 }
 
