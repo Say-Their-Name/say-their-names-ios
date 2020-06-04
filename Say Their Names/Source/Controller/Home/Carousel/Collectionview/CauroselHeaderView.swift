@@ -11,8 +11,8 @@ import UIKit
 final class CarouselHeaderView: UICollectionReusableView, Reusable {
 
     // MARK: - Properties
-    var pageControl: LineCarouselControl!
-    var collectionView: UICollectionView!
+    var pageControl: LineCarouselControl?
+    var collectionView: UICollectionView?
     var collectionViewDataSource: CollectionViewDataSource<CarouselCollectionViewCell>?
     //TODO:- change this type to the model type that will be used instead
     var resultsHandler: ResultsDataHandler<String>?
@@ -38,8 +38,8 @@ final class CarouselHeaderView: UICollectionReusableView, Reusable {
         registerCells()
         setUpDataSource()
         guard let dataSource = collectionViewDataSource else {return}
-        collectionView.dataSource = dataSource
-        collectionView.delegate = self
+        collectionView?.dataSource = dataSource
+        collectionView?.delegate = self
     }
 
     private func setUpDataSource() {
@@ -48,16 +48,18 @@ final class CarouselHeaderView: UICollectionReusableView, Reusable {
     }
 
     private func registerCells() {
-        collectionView.register(cellType: CarouselCollectionViewCell.self)
+        collectionView?.register(cellType: CarouselCollectionViewCell.self)
     }
 
     private func setUpPagingController() {
         guard let dataSource = collectionViewDataSource?.resultsData else {return}
         pageControl = LineCarouselControl()
-        pageControl.numberOfPages = dataSource.count
+        pageControl?.numberOfPages = dataSource.count
     }
 
     private func setUpView() {
+        guard let collectionView = collectionView,
+              let pageControl = pageControl else {return}
         self.add(collectionView) {
             $0.backgroundColor = .white
             $0.anchor(top: topAnchor,
@@ -102,16 +104,18 @@ extension CarouselHeaderView: UICollectionViewDelegate {
 
     // MARK: - Scroll view delegates
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        self.collectionView.scrollToNearestVisibleCollectionViewCell()
-        let centerX = self.collectionView.center.x + self.collectionView.contentOffset.x
-        let centerY = self.collectionView.center.y + self.collectionView.contentOffset.y
+        guard let collectionView = collectionView,
+              let pageControl = pageControl else {return}
+        collectionView.scrollToNearestVisibleCollectionViewCell()
+        let centerX = collectionView.center.x + collectionView.contentOffset.x
+        let centerY = collectionView.center.y + collectionView.contentOffset.y
         guard let indexPath = collectionView.indexPathForItem(at: .init(x: centerX, y: centerY)) else {return}
-        self.pageControl.currentPage = indexPath.item
+        pageControl.currentPage = indexPath.item
     }
 
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if !decelerate {
-            self.collectionView.scrollToNearestVisibleCollectionViewCell()
+            self.collectionView?.scrollToNearestVisibleCollectionViewCell()
         }
     }
 }
@@ -120,7 +124,7 @@ extension CarouselHeaderView: UICollectionViewDelegate {
 extension CarouselHeaderView: UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-           return CGSize(width: self.collectionView.bounds.width - 20, height: self.collectionView.bounds.height)
+           return CGSize(width: collectionView.bounds.width - 20, height: collectionView.bounds.height)
        }
 
        func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
@@ -138,6 +142,7 @@ extension CarouselHeaderView: UICollectionViewDelegateFlowLayout {
 extension CarouselHeaderView: LineCarouselControlProtocol {
 
     func didSelectLineAt(_ index: Int) {
+        guard let collectionView = collectionView else {return}
         collectionView.scrollToItem(at: IndexPath(item: index, section: 0), at: .centeredHorizontally, animated: true)
     }
 

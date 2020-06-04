@@ -9,8 +9,6 @@
 import Foundation
 
 ///Provides default methods for interfacing with the results handler class.
-
-
 protocol DataHandlerProtocol {
     associatedtype Data
     var resultsHandler: ResultsDataHandler<Data> {get set}

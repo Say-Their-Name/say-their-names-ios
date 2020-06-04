@@ -15,11 +15,11 @@ protocol LineCarouselControlProtocol: class {
 final class LineCarouselControl: UIControl {
 
     // MARK: - Properties
-    private var pageIndicatorTintColor: UIColor? = .lightGray
-    private var currentPageIndicatorTintColor: UIColor? = .darkGray
+    private var pageIndicatorTintColor: UIColor? = UIColor.STN.gray
+    private var currentPageIndicatorTintColor: UIColor? = UIColor.STN.black
     private lazy var stackView = UIStackView.init(frame: self.bounds)
     override var bounds: CGRect {
-        didSet{
+        didSet {
             self.numberOfLines.forEach {
                 self.setupLineAppearance($0)
             }
