@@ -1,6 +1,6 @@
 //
 //  DonationsNetworkRequestor.swift
-//  Say Their Names
+//  SayTheirNames
 //
 //  Created by evilpenguin on 6/3/20.
 //  Copyright © 2020 Franck-Stephane Ndame Mpouli. All rights reserved.
@@ -9,16 +9,15 @@
 import Foundation
 
 // MARK: - PetitionUrl
-final class DonationsUrl: BaseNetworkUrl {
-    class var donations: UrlString { return "\(self.base)/api/donations" }
+enum DonationsEnvironment {
+    static let urlString: String = { return "\(Environment.serverURLString)/api/donations" }()
 }
 
-// MARK: - DonationsNetworkRequestor
-typealias DonationsNetworkRequestor = NetworkRequestor
-extension DonationsNetworkRequestor {
+// MARK: - NetworkRequestor (Donations)
+extension NetworkRequestor {
     // MARK: - Public methods
     
-    public func fetchDonations(completion: @escaping (Donations?) -> Swift.Void) {
-        self.fetchDecodable(DonationsUrl.donations, completion: completion)
+    public func fetchDonations(completion: @escaping (DonationsResponsePage?) -> Swift.Void) {
+        self.fetchDecodable(DonationsEnvironment.urlString, completion: completion)
     }
 }
