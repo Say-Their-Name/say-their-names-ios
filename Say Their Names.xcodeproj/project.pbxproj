@@ -85,6 +85,8 @@
 		A91B086124880D5000DB803C /* People.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B086024880D5000DB803C /* People.swift */; };
 		A91B086324880D7100DB803C /* PeopleLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B086224880D7100DB803C /* PeopleLink.swift */; };
 		A91B0866248876EA00DB803C /* NetworkRequestor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B0865248876EA00DB803C /* NetworkRequestor.swift */; };
+		A93367BA2488861F001F1E28 /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93367B92488861F001F1E28 /* Media.swift */; };
+		A93367BC2488868F001F1E28 /* SocialMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93367BB2488868F001F1E28 /* SocialMedia.swift */; };
 		B386F9552482FB540037A38D /* UIFontSTNTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B386F9542482FB540037A38D /* UIFontSTNTests.swift */; };
 		B386F958248526C70037A38D /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = B386F957248526C70037A38D /* Location.swift */; };
 		B3D6B6A92486EE3300D3118C /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B07B724846B0C00DB803C /* Service.swift */; };
@@ -203,6 +205,8 @@
 		A91B086024880D5000DB803C /* People.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = People.swift; sourceTree = "<group>"; };
 		A91B086224880D7100DB803C /* PeopleLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleLink.swift; sourceTree = "<group>"; };
 		A91B0865248876EA00DB803C /* NetworkRequestor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequestor.swift; sourceTree = "<group>"; };
+		A93367B92488861F001F1E28 /* Media.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Media.swift; sourceTree = "<group>"; };
+		A93367BB2488868F001F1E28 /* SocialMedia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialMedia.swift; sourceTree = "<group>"; };
 		B386F9542482FB540037A38D /* UIFontSTNTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontSTNTests.swift; sourceTree = "<group>"; };
 		B386F957248526C70037A38D /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		B3D6B6AE2487E10100D3118C /* Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
@@ -528,6 +532,8 @@
 				A91B078724835CF700DB803C /* Donation.swift */,
 				B386F957248526C70037A38D /* Location.swift */,
 				A91B078824835CF700DB803C /* Petition.swift */,
+				A93367B92488861F001F1E28 /* Media.swift */,
+				A93367BB2488868F001F1E28 /* SocialMedia.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -962,6 +968,7 @@
 				9E2449A02485EA0B00B149DF /* strings.swift in Sources */,
 				A91B07C82484751700DB803C /* String+STN.swift in Sources */,
 				A91B07A824835CF700DB803C /* CustomNavigationBar.swift in Sources */,
+				A93367BC2488868F001F1E28 /* SocialMedia.swift in Sources */,
 				9E7DBAF3248481DA00635A56 /* DownloadOperation.swift in Sources */,
 				7433B64B2484BABA005140D4 /* PersonPhotoCell.swift in Sources */,
 				A91B07A324835CF700DB803C /* PetitionsController.swift in Sources */,
@@ -983,6 +990,7 @@
 				9E459C5624873BB000309334 /* PetitionsViewCode.swift in Sources */,
 				83E9CAD42484A5DC001D173A /* UIViewController+TabBar.swift in Sources */,
 				9E7DBAF0248481DA00635A56 /* ImageCache.swift in Sources */,
+				A93367BA2488861F001F1E28 /* Media.swift in Sources */,
 				A91B0854248771AD00DB803C /* DispatchQueue+STN.swift in Sources */,
 				A91B0866248876EA00DB803C /* NetworkRequestor.swift in Sources */,
 				A91B0856248771AD00DB803C /* Dictionary+STN.swift in Sources */,

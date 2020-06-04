@@ -34,4 +34,3 @@ public struct Donation: DonationInterface {
 
     }
 }
-
