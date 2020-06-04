@@ -12,7 +12,7 @@ import UIKit
 final class Service {
     lazy private(set) var navigator = Navigator(service: self)
     lazy private(set) var image = ImageService()
-    lazy private(set) var dateFormatter = DateFormatterService.shared
+    lazy private(set) var dateFormatter = DateFormatterService()
         
     // MARK: - Init
     init() {

@@ -11,18 +11,20 @@ import XCTest
 
 class DateFormatterServiceTests: XCTestCase {
     
+    let dateFormatterService = DateFormatterService()
+    
     func testDateOfBirthFormat() {
-        let dob = Date.dateFrom(year: 2020, month: 06, day: 03, hour: 4, minute: 11)!
+        let dob = Date.dateFrom(year: 2020, month: 06, day: 03)!
 
-        let formattedDate = DateFormatterService.shared.formatDOBDate(dob)
+        let formattedDate = dateFormatterService.formatYearMonthDayDate(dob)
 
-        XCTAssertEqual(formattedDate, "Date of birth: 2020/06/03 @ 04:11")
+        XCTAssertEqual(formattedDate, "Date: 2020/06/03")
     }
     
     func testHourMinuteFormat() {
         let hourMin = Date.dateFrom(year: 2020, month: 06, day: 03, hour: 4, minute: 11)!
 
-        let formattedDate = DateFormatterService.shared.formatHourMinuteDate(hourMin)
+        let formattedDate = dateFormatterService.formatHourMinuteDate(hourMin)
 
         XCTAssertEqual(formattedDate, "04:11")
     }

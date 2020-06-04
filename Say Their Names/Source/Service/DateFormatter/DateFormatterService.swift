@@ -15,8 +15,6 @@ protocol DateFormatterType {
 extension DateFormatter: DateFormatterType { }
 
 class DateFormatterService {
-
-    static let shared = DateFormatterService()
     
     /// To keep thread safe, designate this queue for searching cached formatters.
     let dateFormattersQueue = DispatchQueue(label: "com.stn.date.formatter.queue")
@@ -42,10 +40,10 @@ class DateFormatterService {
 
     // MARK: - Date Of Birth
 
-    func formatDOBDate(_ date: Date) -> String {
-        let dateFormatter = cachedDateFormatter(withFormat: "y/MM/dd @ HH:mm")
+    func formatYearMonthDayDate(_ date: Date) -> String {
+        let dateFormatter = cachedDateFormatter(withFormat: "y/MM/dd")
         let formattedDate = dateFormatter.string(from: date)
-        return ("Date of birth: \(formattedDate)")
+        return ("Date: \(formattedDate)")
     }
     
     // MARK: - Hour minute
