@@ -24,7 +24,10 @@ class LocationCollectionViewDataSource: NSObject {
 
 extension LocationCollectionViewDataSource: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        locations.count
+        if section == 0 {
+            return locations.count
+        }
+        return 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
