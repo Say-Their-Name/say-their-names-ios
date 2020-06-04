@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 final class PersonPhotoCell: UICollectionViewCell {
     
@@ -35,10 +36,15 @@ final class PersonPhotoCell: UICollectionViewCell {
     private func setup() {
         addSubview(personImageView)
         personImageView.fillSuperview()
+        personImageView.clipsToBounds = true
     }
     
-    func setImage(_ image: UIImage?) {
-        personImageView.image = image
+    func setImage(withUrlString url: String) {
+      personImageView.kf.indicatorType = .activity
+      personImageView.kf.setImage(
+        with: URL(string: url),
+        placeholder: UIImage(named: "image-placeholder")
+      )
     }
 }
 

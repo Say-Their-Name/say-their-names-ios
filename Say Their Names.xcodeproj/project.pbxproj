@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -658,6 +658,7 @@
 				5B3ED7382481C9F50033FF79 /* Sources */,
 				5B3ED7392481C9F50033FF79 /* Frameworks */,
 				5B3ED73A2481C9F50033FF79 /* Resources */,
+				876EE0294C93DC9CE493C807 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -786,6 +787,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		876EE0294C93DC9CE493C807 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Say Their Names/Pods-Say Their Names-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Say Their Names/Pods-Say Their Names-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Say Their Names/Pods-Say Their Names-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		9B6FBD18D3164ABFC8A39665 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -881,7 +899,6 @@
 				9E7DBAF9248481FC00635A56 /* Operation++.swift in Sources */,
 				9E7DBAF4248481DA00635A56 /* ImageCreationOperation.swift in Sources */,
 				F2725A8B24881A8E00507DC4 /* UITableViewCell++.swift in Sources */,
-				A91B07D42484C88D00DB803C /* BaseNibLoading.swift in Sources */,
 				83E9CAD02484A504001D173A /* LaunchScreen.swift in Sources */,
 				A91B079924835CF700DB803C /* UIFont+Resource.swift in Sources */,
 				9E2449A02485EA0B00B149DF /* strings.swift in Sources */,

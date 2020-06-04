@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 final class PersonCell: UICollectionViewCell {
     static let personIdentifier = "personCell"
@@ -79,10 +80,11 @@ final class PersonCell: UICollectionViewCell {
     func configure(with person: Person) {
         let df = DateFormatter()
         df.dateFormat = "dd.MM.yyyy"
-        
-        profileImageView.image = UIImage(named: "man-in-red-jacket-1681010")
-        // ^Update to default place holder image when resource is added.
-        // TO-DO: Use Kilo's ImageDownloader here to DL image
+        profileImageView.kf.indicatorType = .activity
+        profileImageView.kf.setImage(
+          with: URL(string: person.media[0]), //TODO: Add thumbnail to person model?
+          placeholder: UIImage(named:"image-placeholder")
+        )
         nameLabel.text = person.fullName.uppercased()
         dateOfIncidentLabel.text = df.string(from: person.date) 
     }
