@@ -80,9 +80,7 @@ final class PersonCell: UICollectionViewCell {
         let df = DateFormatter()
         df.dateFormat = "dd.MM.yyyy"
         
-        profileImageView.image = UIImage(named: "man-in-red-jacket-1681010")
-        // ^Update to default place holder image when resource is added.
-        // TO-DO: Use Kilo's ImageDownloader here to DL image
+        STNImage.populate(profileImageView, withURL: person.media.first ?? "")
         nameLabel.text = person.fullName.uppercased()
         dateOfIncidentLabel.text = df.string(from: person.date) 
     }

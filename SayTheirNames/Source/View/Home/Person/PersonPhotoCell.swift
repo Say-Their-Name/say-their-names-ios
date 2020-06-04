@@ -35,10 +35,11 @@ final class PersonPhotoCell: UICollectionViewCell {
     private func setup() {
         addSubview(personImageView)
         personImageView.fillSuperview()
+        personImageView.clipsToBounds = true
     }
     
-    func setImage(_ image: UIImage?) {
-        personImageView.image = image
+    func setImage(withUrlString url: String) {
+        STNImage.populate(personImageView, withURL: url)
     }
 }
 
