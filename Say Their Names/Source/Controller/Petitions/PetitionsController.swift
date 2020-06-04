@@ -13,10 +13,11 @@ final class PetitionsController: BaseViewController {
     
     private lazy var viewCode = PetitionsViewCode()
     
-    required init(service: Service, shouldInitWithNib: Bool) {
-        super.init(service: service, shouldInitWithNib: false)
+    required init(service: Service) {
+        super.init(service: service)
     }
     
+    @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError()
     }

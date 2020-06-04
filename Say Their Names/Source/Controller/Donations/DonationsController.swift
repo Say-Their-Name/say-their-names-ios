@@ -12,8 +12,8 @@ class DonationsController: BaseViewController {
     
     private let ui = DonationsView()
     
-    required init(service: Service, shouldInitWithNib: Bool) {
-        super.init(service: service, shouldInitWithNib: false)
+    required init(service: Service) {
+        super.init(service: service)
     }
     
     required init?(coder: NSCoder) {
