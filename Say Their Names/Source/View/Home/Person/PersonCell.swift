@@ -42,7 +42,7 @@ final class PersonCell: UICollectionViewCell {
     
     private lazy var bookmarkButton: UIButton = {
         let bookmarkImage = UIImage(named: "bookmark")
-        let btn = UIImageButton(bookmarkImage)
+        let btn = UIButton(image: bookmarkImage)
         btn.contentMode = .scaleAspectFill
         btn.addTarget(self, action: #selector(didTapBookmark), for: .touchUpInside)
         btn.translatesAutoresizingMaskIntoConstraints = false

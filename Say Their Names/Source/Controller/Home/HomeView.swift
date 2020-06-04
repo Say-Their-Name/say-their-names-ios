@@ -39,7 +39,7 @@ final class HomeView: UIView {
     
     let searchButton: UIButton = {
         let searchImage = UIImage(named: "Simple Search Icon")
-        let searchButton = UIImageButton(searchImage)
+        let searchButton = UIButton(image: searchImage)
         return searchButton
     }()
     
