@@ -40,10 +40,10 @@ final class HomeView: UIView {
     }()
     
     let bookmarkButton: UIButton = {
-        let searchButton = UIButton(type: .custom)
-        let searchImage = UIImage(named: "white-bookmark")
-        searchButton.setImage(searchImage, for: .normal)
-        return searchButton
+        let bookmarkButton = UIButton(type: .custom)
+        let bookmarkImage = UIImage(named: "white-bookmark")
+        bookmarkButton.setImage(bookmarkImage, for: .normal)
+        return bookmarkButton
     }()
     
     let searchButton: UIButton = {
@@ -68,12 +68,12 @@ final class HomeView: UIView {
         createLayout()
         backgroundColor = .black
     }
+    
         
     private var hasLayedOutSubviews = false
     private func createLayout() {
         guard !hasLayedOutSubviews else { return }
         hasLayedOutSubviews = true
-                
         createCustomNavigationBarLayout()
         addSubview(customNavigationBar)
 
@@ -81,17 +81,14 @@ final class HomeView: UIView {
         addSubview(collections)
         locationCollectionView.backgroundColor = .systemBackground
         peopleCollectionView.backgroundColor = .systemBackground
-        
+        customNavigationBar.anchor(superView: self, top: safeAreaLayoutGuide.topAnchor, leading: leadingAnchor, trailing: trailingAnchor, size: .init(width: 0, height: Self.CustomNavigationBarHeight))
         collections.anchor(superView: self, top: customNavigationBar.bottomAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor)
-        customNavigationBar.anchor(superView: collections, top: safeAreaLayoutGuide.topAnchor, leading: leadingAnchor, trailing: trailingAnchor, size: .init(width: 0, height: Self.CustomNavigationBarHeight))
+        
         
         locationCollectionView.anchor(superView: collections, top: collections.topAnchor, leading: collections.leadingAnchor, trailing: collections.trailingAnchor, size: .init(width: 0, height: Self.PeopleCollectionViewHeight))
         separator.anchor(superView: collections, top: locationCollectionView.bottomAnchor, leading: collections.leadingAnchor, trailing: collections.trailingAnchor, size: .init(width: 0, height: Self.SeparatorHeight))
         peopleCollectionView.anchor(superView: collections, top: separator.bottomAnchor, leading: collections.leadingAnchor, bottom: collections.bottomAnchor, trailing: collections.trailingAnchor)
-        [bookmarkButton, searchButton].forEach {
-            $0.widthAnchor.constraint(equalToConstant: Self.ButtonSize).isActive = true
-            $0.heightAnchor.constraint(equalToConstant: Self.ButtonSize).isActive = true
-        }
+
 
     }
     
@@ -107,15 +104,20 @@ final class HomeView: UIView {
         
         label.anchor(superView: bar, leading: bar.leadingAnchor, bottom: bar.bottomAnchor, padding: .init(left: 16, bottom: 16))
         bar.addSubview(buttonStack)
+        [bookmarkButton, searchButton].forEach {
+            $0.widthAnchor.constraint(equalToConstant: Self.ButtonSize.height).isActive = true
+            $0.heightAnchor.constraint(equalToConstant: Self.ButtonSize.width).isActive = true
+        }
         buttonStack.anchor(superView: bar, trailing: bar.trailingAnchor, padding: .init(right: 16))
         buttonStack.centerYAnchor.constraint(equalTo: label.centerYAnchor).isActive = true
+
         
     }
 
     // MARK:- Constants
     static let CustomNavigationBarHeight : CGFloat = 70
     static let PeopleCollectionViewHeight : CGFloat = 70
-    static let ButtonSize : CGFloat = 40
+    static let ButtonSize : CGSize = .init(width: 40, height: 40)
     static let CustomNavBarMargin : CGFloat = 16
     static let SeparatorHeight : CGFloat = 1
     static let LocationsSectionInsets = UIEdgeInsets(left: 16, right: 16)
