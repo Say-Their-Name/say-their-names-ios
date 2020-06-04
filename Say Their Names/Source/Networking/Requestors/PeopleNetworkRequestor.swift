@@ -36,8 +36,8 @@ extension PeopleNetworkRequestor {
     
     private func _fetchPeopleAtUrl(_ url: String, completion: @escaping (People?) -> Swift.Void) {
         let request = AF.request(url)
-        request.responseDecodable(of: People.self) { (response) in
-          completion(response.value)
+        request.responseDecodable(of: People.self, queue: self.concurrentQueue) { (response) in
+            DispatchQueue.mainAsync { completion(response.value) }
         }
     }
 }

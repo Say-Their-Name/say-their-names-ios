@@ -524,7 +524,10 @@
 		A91B078524835CF700DB803C /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				A91B081B2487717100DB803C /* People */,
+				A91B086024880D5000DB803C /* People.swift */,
+				A91B081C2487717100DB803C /* Person.swift */,
+				A91B085E24880D3900DB803C /* Images.swift */,
+				A91B086224880D7100DB803C /* PeopleLink.swift */,
 				A91B078724835CF700DB803C /* Donation.swift */,
 				B386F957248526C70037A38D /* Location.swift */,
 				A91B078824835CF700DB803C /* Petition.swift */,
@@ -617,17 +620,6 @@
 				A91B07D124849E1800DB803C /* BaseViewController.swift */,
 			);
 			path = Base;
-			sourceTree = "<group>";
-		};
-		A91B081B2487717100DB803C /* People */ = {
-			isa = PBXGroup;
-			children = (
-				A91B086024880D5000DB803C /* People.swift */,
-				A91B081C2487717100DB803C /* Person.swift */,
-				A91B085E24880D3900DB803C /* Images.swift */,
-				A91B086224880D7100DB803C /* PeopleLink.swift */,
-			);
-			path = People;
 			sourceTree = "<group>";
 		};
 		A91B08292487718000DB803C /* Serialization */ = {

@@ -54,6 +54,5 @@ public struct Person: PersonInterface {
         self.bio = try values.decodeIfPresent(String.self, forKey: .bio) ?? ""
         self.context = try values.decodeIfPresent(String.self, forKey: .context) ?? ""
         self.images = try values.decode([Images].self, forKey: .images)
-    }
-    
+    }    
 }

@@ -10,7 +10,8 @@ import Foundation
 
 class NetworkRequestor: NSObject, ServiceReferring {
     weak var service: Service?
-
+    let concurrentQueue = DispatchQueue(label: "NetworkRequestor", attributes: .concurrent)
+    
     // MARK: - Public methods
     
     required init(service: Service) {
