@@ -6,7 +6,7 @@
 //  Copyright © 2020 Franck-Stephane Ndame Mpouli. All rights reserved.
 //
 
-import UIKit
+import Foundation
 import Alamofire
 
 // MARK: - PersonUrl
