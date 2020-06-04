@@ -8,25 +8,7 @@
 
 import Foundation
 
-protocol PersonInterface: Decodable {
-    var id: Int { get set }
-    var fullName: String { get set }
-    var dob: String { get set }
-    var doi: String { get set }
-    var childrenCount: String { get set }
-    var age: String { get set }
-    var city: String { get set }
-    var country: String { get set }
-    var bio: String { get set }
-    var context: String { get set }
-    var images: [Images] { get set }
-    var donations: [Donation] { get set }
-    var petitions: [Petition] { get set }
-    var media: [Media] { get set }
-    var socialMedia: [SocialMedia] { get set }
-}
-
-public struct Person: PersonInterface {
+public struct Person: Decodable {
     var id: Int
     var fullName: String
     var dob: String
@@ -68,4 +50,13 @@ public struct Person: PersonInterface {
         self.media = try values.decodeIfPresent([Media].self, forKey: .media) ?? []
         self.socialMedia = try values.decodeIfPresent([SocialMedia].self, forKey: .socialMedia) ?? []
     }    
+}
+
+public struct Persons: Decodable {
+    var all: Array<Person>
+    var links: Link
+    
+    private enum CodingKeys: String, CodingKey {
+        case all = "data", links
+    }
 }

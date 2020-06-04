@@ -8,13 +8,7 @@
 
 import Foundation
 
-protocol ImagesInterface: Decodable {
-    var id: Int { get set }
-    var personId: Int { get set }
-    var imageUrl: String { get set }
-}
-
-public struct Images: ImagesInterface {
+public struct Images: Decodable {
     var id: Int
     var personId: Int
     var imageUrl: String

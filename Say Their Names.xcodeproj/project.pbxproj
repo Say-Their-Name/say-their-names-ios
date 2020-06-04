@@ -82,11 +82,12 @@
 		A91B0856248771AD00DB803C /* Dictionary+STN.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B0852248771AD00DB803C /* Dictionary+STN.swift */; };
 		A91B0857248771AD00DB803C /* URLRequest+STN.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B0853248771AD00DB803C /* URLRequest+STN.swift */; };
 		A91B085F24880D3A00DB803C /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B085E24880D3900DB803C /* Images.swift */; };
-		A91B086124880D5000DB803C /* People.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B086024880D5000DB803C /* People.swift */; };
-		A91B086324880D7100DB803C /* PeopleLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B086224880D7100DB803C /* PeopleLink.swift */; };
+		A91B086324880D7100DB803C /* Link.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B086224880D7100DB803C /* Link.swift */; };
 		A91B0866248876EA00DB803C /* NetworkRequestor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B0865248876EA00DB803C /* NetworkRequestor.swift */; };
 		A93367BA2488861F001F1E28 /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93367B92488861F001F1E28 /* Media.swift */; };
 		A93367BC2488868F001F1E28 /* SocialMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93367BB2488868F001F1E28 /* SocialMedia.swift */; };
+		A93367BE24889EFC001F1E28 /* PetitionsNetworkRequestor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93367BD24889EFC001F1E28 /* PetitionsNetworkRequestor.swift */; };
+		A93367C02488A17A001F1E28 /* DonationsNetworkRequestor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93367BF2488A17A001F1E28 /* DonationsNetworkRequestor.swift */; };
 		B386F9552482FB540037A38D /* UIFontSTNTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B386F9542482FB540037A38D /* UIFontSTNTests.swift */; };
 		B386F958248526C70037A38D /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = B386F957248526C70037A38D /* Location.swift */; };
 		B3D6B6A92486EE3300D3118C /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B07B724846B0C00DB803C /* Service.swift */; };
@@ -202,11 +203,12 @@
 		A91B0852248771AD00DB803C /* Dictionary+STN.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dictionary+STN.swift"; sourceTree = "<group>"; };
 		A91B0853248771AD00DB803C /* URLRequest+STN.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URLRequest+STN.swift"; sourceTree = "<group>"; };
 		A91B085E24880D3900DB803C /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
-		A91B086024880D5000DB803C /* People.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = People.swift; sourceTree = "<group>"; };
-		A91B086224880D7100DB803C /* PeopleLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleLink.swift; sourceTree = "<group>"; };
+		A91B086224880D7100DB803C /* Link.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Link.swift; sourceTree = "<group>"; };
 		A91B0865248876EA00DB803C /* NetworkRequestor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequestor.swift; sourceTree = "<group>"; };
 		A93367B92488861F001F1E28 /* Media.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Media.swift; sourceTree = "<group>"; };
 		A93367BB2488868F001F1E28 /* SocialMedia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialMedia.swift; sourceTree = "<group>"; };
+		A93367BD24889EFC001F1E28 /* PetitionsNetworkRequestor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetitionsNetworkRequestor.swift; sourceTree = "<group>"; };
+		A93367BF2488A17A001F1E28 /* DonationsNetworkRequestor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DonationsNetworkRequestor.swift; sourceTree = "<group>"; };
 		B386F9542482FB540037A38D /* UIFontSTNTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontSTNTests.swift; sourceTree = "<group>"; };
 		B386F957248526C70037A38D /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		B3D6B6AE2487E10100D3118C /* Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
@@ -525,10 +527,9 @@
 		A91B078524835CF700DB803C /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				A91B086024880D5000DB803C /* People.swift */,
 				A91B081C2487717100DB803C /* Person.swift */,
 				A91B085E24880D3900DB803C /* Images.swift */,
-				A91B086224880D7100DB803C /* PeopleLink.swift */,
+				A91B086224880D7100DB803C /* Link.swift */,
 				A91B078724835CF700DB803C /* Donation.swift */,
 				B386F957248526C70037A38D /* Location.swift */,
 				A91B078824835CF700DB803C /* Petition.swift */,
@@ -655,7 +656,9 @@
 		A91B08672488779600DB803C /* Requestors */ = {
 			isa = PBXGroup;
 			children = (
+				A93367BF2488A17A001F1E28 /* DonationsNetworkRequestor.swift */,
 				A91B08342487718000DB803C /* PeopleNetworkRequestor.swift */,
+				A93367BD24889EFC001F1E28 /* PetitionsNetworkRequestor.swift */,
 			);
 			path = Requestors;
 			sourceTree = "<group>";
@@ -930,6 +933,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A91B08232487717200DB803C /* Person.swift in Sources */,
+				A93367BE24889EFC001F1E28 /* PetitionsNetworkRequestor.swift in Sources */,
 				B3D6B6A92486EE3300D3118C /* Service.swift in Sources */,
 				9E7DBAFC2484822A00635A56 /* Operators.swift in Sources */,
 				9E7DBAF1248481DA00635A56 /* ImageService.swift in Sources */,
@@ -942,7 +946,6 @@
 				A91B07C02484705400DB803C /* Navigator.swift in Sources */,
 				A91B085F24880D3A00DB803C /* Images.swift in Sources */,
 				A91B07BD24846ED700DB803C /* Log.swift in Sources */,
-				A91B086124880D5000DB803C /* People.swift in Sources */,
 				A91B084E2487718100DB803C /* STNError.swift in Sources */,
 				EEC3A1D42483D493001E7754 /* CustomSearchBar.swift in Sources */,
 				9E7DBAF5248481DA00635A56 /* FileDownloader.swift in Sources */,
@@ -958,7 +961,7 @@
 				A91B07B324835CF700DB803C /* SceneDelegate.swift in Sources */,
 				7433B6472484B987005140D4 /* PersonDetailsController.swift in Sources */,
 				A91B079524835CF700DB803C /* UIColor+Resource.swift in Sources */,
-				A91B086324880D7100DB803C /* PeopleLink.swift in Sources */,
+				A91B086324880D7100DB803C /* Link.swift in Sources */,
 				9E7DBAF9248481FC00635A56 /* Operation++.swift in Sources */,
 				9E7DBAF4248481DA00635A56 /* ImageCreationOperation.swift in Sources */,
 				A91B07D42484C88D00DB803C /* BaseNibLoading.swift in Sources */,
@@ -983,6 +986,7 @@
 				B386F958248526C70037A38D /* Location.swift in Sources */,
 				A91B07A524835CF700DB803C /* UIColor+STN.swift in Sources */,
 				A91B07A024835CF700DB803C /* DonationsController.swift in Sources */,
+				A93367C02488A17A001F1E28 /* DonationsNetworkRequestor.swift in Sources */,
 				A91B0857248771AD00DB803C /* URLRequest+STN.swift in Sources */,
 				7C47A93524873F1200B8D3BE /* HomeView.swift in Sources */,
 				A91B07A524835CF700DB803C /* UIColor+STN.swift in Sources */,

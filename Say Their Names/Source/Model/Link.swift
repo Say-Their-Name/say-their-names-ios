@@ -8,14 +8,7 @@
 
 import Foundation
 
-protocol PeopleLinkInterface: Decodable {
-    var first: String { get set }
-    var last: String { get set }
-    var prev: String? { get set }
-    var next: String? { get set }
-}
-
-public struct PeopleLink: PeopleLinkInterface {
+public struct Link: Decodable {
     var first: String
     var last: String
     var prev: String?

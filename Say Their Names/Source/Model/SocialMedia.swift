@@ -8,13 +8,7 @@
 
 import Foundation
 
-protocol SocialMediaInterface: Decodable {
-    var title: String { get set }
-    var type: String { get set }
-    var link: String { get set }
-}
-
-public struct SocialMedia: SocialMediaInterface {
+public struct SocialMedia: Decodable {
     var title: String
     var type: String
     var link: String

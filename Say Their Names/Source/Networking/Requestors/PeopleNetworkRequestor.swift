@@ -18,11 +18,11 @@ typealias PeopleNetworkRequestor = NetworkRequestor
 extension PeopleNetworkRequestor {
     // MARK: - Public methods
     
-    public func fetchPeople(completion: @escaping (People?) -> Swift.Void) {
+    public func fetchPeople(completion: @escaping (Persons?) -> Swift.Void) {
         self.fetchDecodable(PersonUrl.people, completion: completion)
     }
     
-    public func fetchPeopleWithLink(_ peopleLink: PeopleLink, completion: @escaping (People?) -> Swift.Void) {
+    public func fetchPeopleWithLink(_ peopleLink: Link, completion: @escaping (Persons?) -> Swift.Void) {
         guard let nextUrl = peopleLink.next else {
             completion(nil)
             return
