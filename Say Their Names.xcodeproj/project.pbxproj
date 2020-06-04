@@ -15,13 +15,13 @@
 		7433B6472484B987005140D4 /* PersonDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7433B6452484B987005140D4 /* PersonDetailsController.swift */; };
 		7433B64B2484BABA005140D4 /* PersonPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7433B6492484BABA005140D4 /* PersonPhotoCell.swift */; };
 		74DE10872486DFA300211B83 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DE10852486DFA300211B83 /* SettingsController.swift */; };
-		74DE10882486DFA300211B83 /* SettingsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74DE10862486DFA300211B83 /* SettingsController.xib */; };
 		7A5BFA0B248618B100BC265A /* SayTheirNamesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5BFA0A248618B100BC265A /* SayTheirNamesUITests.swift */; };
 		7A5BFA12248618C000BC265A /* XCUIApplication+SayTheirName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5BFA01248615C100BC265A /* XCUIApplication+SayTheirName.swift */; };
 		7A5BFA14248618CF00BC265A /* Say_Their_NamesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3ED7562481CA000033FF79 /* Say_Their_NamesTests.swift */; };
 		7A5BFA172488315D00BC265A /* DonationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5BFA162488315D00BC265A /* DonationsView.swift */; };
 		7A5BFA192488821500BC265A /* DateFormatterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5BFA182488821500BC265A /* DateFormatterService.swift */; };
 		7A5BFA1B2488871C00BC265A /* DateFormatterServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5BFA1A2488871C00BC265A /* DateFormatterServiceTests.swift */; };
+		7A5BFA1F2488ED2600BC265A /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5BFA1E2488ED2600BC265A /* SettingsView.swift */; };
 		7C47A93524873F1200B8D3BE /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C47A93424873F1200B8D3BE /* HomeView.swift */; };
 		83E9CAD02484A504001D173A /* LaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E9CACF2484A504001D173A /* LaunchScreen.swift */; };
 		83E9CAD22484A514001D173A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83E9CAD12484A514001D173A /* LaunchScreen.xib */; };
@@ -121,7 +121,6 @@
 		7433B6452484B987005140D4 /* PersonDetailsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonDetailsController.swift; sourceTree = "<group>"; };
 		7433B6492484BABA005140D4 /* PersonPhotoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonPhotoCell.swift; sourceTree = "<group>"; };
 		74DE10852486DFA300211B83 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
-		74DE10862486DFA300211B83 /* SettingsController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsController.xib; sourceTree = "<group>"; };
 		7A5BFA01248615C100BC265A /* XCUIApplication+SayTheirName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCUIApplication+SayTheirName.swift"; sourceTree = "<group>"; };
 		7A5BFA08248618B100BC265A /* SayTheirNamesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SayTheirNamesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A5BFA0A248618B100BC265A /* SayTheirNamesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SayTheirNamesUITests.swift; sourceTree = "<group>"; };
@@ -129,6 +128,7 @@
 		7A5BFA162488315D00BC265A /* DonationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationsView.swift; sourceTree = "<group>"; };
 		7A5BFA182488821500BC265A /* DateFormatterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DateFormatterService.swift; path = DateFormatter/DateFormatterService.swift; sourceTree = "<group>"; };
 		7A5BFA1A2488871C00BC265A /* DateFormatterServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DateFormatterServiceTests.swift; path = DateFormatterServiceTest/DateFormatterServiceTests.swift; sourceTree = "<group>"; };
+		7A5BFA1E2488ED2600BC265A /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		7A7C6C9D07F911D0BA41942E /* Pods_Say_Their_NamesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Say_Their_NamesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C47A93424873F1200B8D3BE /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		83E9CACF2484A504001D173A /* LaunchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreen.swift; sourceTree = "<group>"; };
@@ -285,7 +285,7 @@
 			isa = PBXGroup;
 			children = (
 				74DE10852486DFA300211B83 /* SettingsController.swift */,
-				74DE10862486DFA300211B83 /* SettingsController.xib */,
+				7A5BFA1E2488ED2600BC265A /* SettingsView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -758,7 +758,6 @@
 				A91B079A24835CF700DB803C /* Karla-Regular.ttf in Resources */,
 				A91B07AC24835CF700DB803C /* PersonHeaderCell.xib in Resources */,
 				A91B079D24835CF700DB803C /* PersonController.xib in Resources */,
-				74DE10882486DFA300211B83 /* SettingsController.xib in Resources */,
 				83E9CAD22484A514001D173A /* LaunchScreen.xib in Resources */,
 				9E24499D2485E98C00B149DF /* Localizable.strings in Resources */,
 				EEC3A1DD2483D6B6001E7754 /* SearchResultCell.xib in Resources */,
@@ -878,9 +877,9 @@
 				9E7DBAF9248481FC00635A56 /* Operation++.swift in Sources */,
 				9E7DBAF4248481DA00635A56 /* ImageCreationOperation.swift in Sources */,
 				F2725A8B24881A8E00507DC4 /* UITableViewCell++.swift in Sources */,
-				A91B07D42484C88D00DB803C /* BaseNibLoading.swift in Sources */,
 				83E9CAD02484A504001D173A /* LaunchScreen.swift in Sources */,
 				A91B079924835CF700DB803C /* UIFont+Resource.swift in Sources */,
+				7A5BFA1F2488ED2600BC265A /* SettingsView.swift in Sources */,
 				9E2449A02485EA0B00B149DF /* strings.swift in Sources */,
 				A91B07C82484751700DB803C /* String+STN.swift in Sources */,
 				5D456A3D248734CA009FAD34 /* PersonCollectionViewDataSource.swift in Sources */,

@@ -9,9 +9,18 @@
 import UIKit
 
 class SettingsController: BaseViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    
+    private let ui = SettingsView()
+    
+    required init(service: Service) {
+        super.init(service: service)
     }
-
+    
+    required init?(coder: NSCoder) {
+        fatalError()
+    }
+    
+    override func loadView() {
+        view = ui
+    }
 }
