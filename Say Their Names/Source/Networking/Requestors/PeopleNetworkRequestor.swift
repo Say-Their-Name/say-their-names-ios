@@ -19,7 +19,7 @@ extension PeopleNetworkRequestor {
     // MARK: - Public methods
     
     public func fetchPeople(completion: @escaping (People?) -> Swift.Void) {
-        self.fetch(PersonUrl.people, completion: completion)
+        self.fetchDecodable(PersonUrl.people, completion: completion)
     }
     
     public func fetchPeopleWithLink(_ peopleLink: PeopleLink, completion: @escaping (People?) -> Swift.Void) {
@@ -28,6 +28,6 @@ extension PeopleNetworkRequestor {
             return
         }
         
-        self.fetch(nextUrl, completion: completion)
+        self.fetchDecodable(nextUrl, completion: completion)
     }
 }

@@ -19,9 +19,7 @@ final class Service {
         Log.mode = .all
         Log.print("STN Version: \(Bundle.versionBuildString)")
         Log.print("Starting Services")
-        
-        self.network.service = self
-        
+                
         // Testing people
         self.network.fetchPeople { (people) in
             

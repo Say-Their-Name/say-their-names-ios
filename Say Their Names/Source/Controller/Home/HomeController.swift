@@ -14,8 +14,7 @@ private let peopleIdentifier = "PersonCell"
 private let headerIdentifier = "PersonHeaderCell"
 
 class HomeController: UIViewController, ServiceReferring {
-        
-    let service: Service?
+    let service: Service
     
     required init(service: Service) {
         self.service = service
@@ -131,10 +130,8 @@ extension HomeController: UICollectionViewDataSource, UICollectionViewDelegateFl
             // Location CollectionView
             
         } else {
-            guard let service = self.service else { return }
-            
             // People CollectionView
-            let personController = PersonController(service: service)
+            let personController = PersonController(service: self.service)
             let navigationController = UINavigationController(rootViewController: personController)
             navigationController.navigationBar.isHidden = true
             present(navigationController, animated: true, completion: nil)

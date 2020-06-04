@@ -12,7 +12,7 @@ import Alamofire
 // MARK: - NetworkRequestor
 
 class NetworkRequestor: NSObject, ServiceReferring {
-    weak var service: Service?
+    let service: Service
     let concurrentQueue = DispatchQueue(label: "NetworkRequestor", attributes: .concurrent)
         
     required init(service: Service) {
@@ -21,9 +21,24 @@ class NetworkRequestor: NSObject, ServiceReferring {
     
     // MARK: - Public methods
     
-    public func fetch<T: Decodable>(_ url: String, completion: @escaping (T?) -> Swift.Void) {
+    public func fetchDecodable<T: Decodable>(_ url: String, completion: @escaping (T?) -> Swift.Void) {
         let request = AF.request(url)
         request.responseDecodable(of: T.self, queue: self.concurrentQueue) { (response) in
+            DispatchQueue.mainAsync { completion(response.value) }
+        }
+    }
+    
+    public func fetchData(_ url: String, completion: @escaping (Data?) -> Swift.Void) {
+        let request = AF.request(url)
+        request.responseData(queue: self.concurrentQueue) { (response) in
+            DispatchQueue.mainAsync { completion(response.value) }
+        }
+    }
+    
+    
+    public func fetchJson(_ url: String, completion: @escaping (Any?) -> Swift.Void) {
+        let request = AF.request(url)
+        request.responseJSON(queue: self.concurrentQueue) { (response) in
             DispatchQueue.mainAsync { completion(response.value) }
         }
     }
