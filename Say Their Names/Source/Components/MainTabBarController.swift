@@ -83,7 +83,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
             
         homeNC.isNavigationBarHidden = true
         homeNC.tabBarItem.image = #imageLiteral(resourceName: "gallery")
-        homeNC.tabBarItem.title = L10n.home
+        homeNC.tabBarItem.title = Strings.home
         
         donationsNC.isNavigationBarHidden = true
         donationsNC.tabBarItem.image = #imageLiteral(resourceName: "heart")
