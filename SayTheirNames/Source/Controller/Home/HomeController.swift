@@ -1,6 +1,6 @@
 //
 //  HomeController.swift
-//  SayTheirNames
+//  Say Their Names
 //
 //  Created by Franck-Stephane Ndame Mpouli on 30/05/2020.
 //  Copyright © 2020 Franck-Stephane Ndame Mpouli. All rights reserved.
@@ -37,6 +37,7 @@ class HomeController: UIViewController, ServiceReferring {
     var locationCollectionView: UICollectionView { homeView.locationCollectionView }
     var peopleCollectionView: UICollectionView { homeView.peopleCollectionView }
     var searchButton: UIButton { homeView.searchButton }
+    override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
     
     // MARK: - ClASS METHODS
 
@@ -103,8 +104,7 @@ class HomeController: UIViewController, ServiceReferring {
         
         peopleCollectionView.delegate = self
         peopleCollectionView.dataSource = peopleDataSource
-        peopleCollectionView.register(PersonCell.self,
-                                      forCellWithReuseIdentifier: PersonCell.personIdentifier)
+        peopleCollectionView.register(PersonCell.self, forCellWithReuseIdentifier: PersonCell.personIdentifier)
         peopleCollectionView.register(UINib(nibName: headerIdentifier, bundle: nil),
                                       forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
                                       withReuseIdentifier: headerIdentifier)

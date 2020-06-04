@@ -1,6 +1,6 @@
 //
 //  HomeView.swift
-//  SayTheirNames
+//  Say Their Names
 //
 //  Created by Joseph A. Wardell on 6/2/20.
 //  Copyright © 2020 Franck-Stephane Ndame Mpouli. All rights reserved.
@@ -37,9 +37,16 @@ final class HomeView: UIView {
         return peopleCollectionView
     }()
     
+    let bookmarkButton: UIButton = {
+        let bookmarkButton = UIButton(type: .custom)
+        let bookmarkImage = UIImage(named: "white-bookmark")
+        bookmarkButton.setImage(bookmarkImage, for: .normal)
+        return bookmarkButton
+    }()
+    
     let searchButton: UIButton = {
         let searchButton = UIButton(type: .custom)
-        let searchImage = UIImage(named: "Simple Search Icon")
+        let searchImage = UIImage(named: "white-search")
         searchButton.setImage(searchImage, for: .normal)
         return searchButton
     }()
@@ -56,106 +63,81 @@ final class HomeView: UIView {
         
     override func didMoveToSuperview() {
         super.didMoveToSuperview()
-        
         createLayout()
         backgroundColor = .black
-
     }
-        
+    
     private var hasLayedOutSubviews = false
     private func createLayout() {
         guard !hasLayedOutSubviews else { return }
         hasLayedOutSubviews = true
-                
         createCustomNavigationBarLayout()
         addSubview(customNavigationBar)
 
         let collections = UIView()
         addSubview(collections)
-        
         locationCollectionView.backgroundColor = .systemBackground
         peopleCollectionView.backgroundColor = .systemBackground
+        customNavigationBar.anchor(
+            superView: self,
+            top: safeAreaLayoutGuide.topAnchor,
+            leading: leadingAnchor,
+            trailing: trailingAnchor,
+            size: .init(width: 0, height: Self.CustomNavigationBarHeight))
+        collections.anchor(
+            superView: self,
+            top: customNavigationBar.bottomAnchor,
+            leading: leadingAnchor,
+            bottom: bottomAnchor,
+            trailing: trailingAnchor)
         
-        [locationCollectionView,
-        peopleCollectionView,
-        separator].forEach {
-            collections.addSubview($0)
-        }
-        
-        // all subviews should use custom constraints
-        [customNavigationBar,
-         locationCollectionView,
-         peopleCollectionView,
-         searchButton,
-         collections,
-         separator].forEach {
-            $0.translatesAutoresizingMaskIntoConstraints = false
-        }
-        
-        NSLayoutConstraint.activate([
-            customNavigationBar.leadingAnchor.constraint(equalTo: leadingAnchor),
-            customNavigationBar.trailingAnchor.constraint(equalTo: trailingAnchor),
-            customNavigationBar.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-            customNavigationBar.heightAnchor.constraint(equalToConstant: Self.CustomNavigationBarHeight),
-                        
-            searchButton.widthAnchor.constraint(equalToConstant: Self.SearchButtonSize),
-            searchButton.heightAnchor.constraint(equalToConstant: Self.SearchButtonSize),
-            searchButton.trailingAnchor.constraint(equalTo: customNavigationBar.trailingAnchor, constant: -Self.CustomNavBarMargin),
-            searchButton.centerYAnchor.constraint(equalTo: customNavigationBar.centerYAnchor),
-            
-            collections.leadingAnchor.constraint(equalTo: leadingAnchor),
-            collections.trailingAnchor.constraint(equalTo: trailingAnchor),
-            collections.topAnchor.constraint(equalTo: customNavigationBar.bottomAnchor),
-            collections.bottomAnchor.constraint(equalTo: bottomAnchor),
-            
-            locationCollectionView.leadingAnchor.constraint(equalTo: collections.leadingAnchor),
-            locationCollectionView.trailingAnchor.constraint(equalTo: collections.trailingAnchor),
-            locationCollectionView.topAnchor.constraint(equalTo: collections.topAnchor),
-            locationCollectionView.heightAnchor.constraint(equalToConstant: Self.PeopleCollectionViewHeight),
-            
-            separator.leadingAnchor.constraint(equalTo: collections.leadingAnchor),
-            separator.trailingAnchor.constraint(equalTo: collections.trailingAnchor),
-            separator.heightAnchor.constraint(equalToConstant: Self.SeparatorHeight),
-            separator.topAnchor.constraint(equalTo: locationCollectionView.bottomAnchor),
-            
-            peopleCollectionView.leadingAnchor.constraint(equalTo: collections.leadingAnchor),
-            peopleCollectionView.trailingAnchor.constraint(equalTo: collections.trailingAnchor),
-            peopleCollectionView.topAnchor.constraint(equalTo: separator.bottomAnchor),
-            peopleCollectionView.bottomAnchor.constraint(equalTo: collections.bottomAnchor)
-        ])
+        locationCollectionView.anchor(
+            superView: collections,
+            top: collections.topAnchor,
+            leading: collections.leadingAnchor,
+            trailing: collections.trailingAnchor,
+            size: .init(width: 0, height: Self.PeopleCollectionViewHeight))
+        separator.anchor(
+            superView: collections,
+            top: locationCollectionView.bottomAnchor,
+            leading: collections.leadingAnchor,
+            trailing: collections.trailingAnchor,
+            size: .init(width: 0, height: Self.SeparatorHeight))
+        peopleCollectionView.anchor(
+            superView: collections,
+            top: separator.bottomAnchor,
+            leading: collections.leadingAnchor,
+            bottom: collections.bottomAnchor,
+            trailing: collections.trailingAnchor)
     }
     
     private func createCustomNavigationBarLayout() {
-        
-        let logo = UIImageView(image: UIImage(named: "logo"))
+        let bar = customNavigationBar
         let label = UILabel()
         label.text = "SAY THEIR NAME"
         label.textColor = .white
         label.font = UIFont.STN.bannerTitle
+        let buttonStack = UIStackView(arrangedSubviews: [bookmarkButton,searchButton])
+        buttonStack.spacing = 8
+        buttonStack.distribution = .fillEqually
         
-        let header = UIStackView(arrangedSubviews: [logo, label])
-        header.axis = .horizontal
-        header.alignment = .center
-        header.spacing = 8
-        customNavigationBar.addSubview(header)
-        
-        header.translatesAutoresizingMaskIntoConstraints = false
-        
-        customNavigationBar.addSubview(searchButton)
-        
-        NSLayoutConstraint.activate([
-            header.centerXAnchor.constraint(equalTo: customNavigationBar.centerXAnchor),
-            header.centerYAnchor.constraint(equalTo: customNavigationBar.centerYAnchor),
-        ])
+        label.anchor(superView: bar, leading: bar.leadingAnchor, bottom: bar.bottomAnchor, padding: .init(left: 16, bottom: 16))
+        bar.addSubview(buttonStack)
+        [bookmarkButton, searchButton].forEach {
+            $0.widthAnchor.constraint(equalToConstant: Self.ButtonSize.height).isActive = true
+            $0.heightAnchor.constraint(equalToConstant: Self.ButtonSize.width).isActive = true
+        }
+        buttonStack.anchor(superView: bar, trailing: bar.trailingAnchor, padding: .init(right: 16))
+        buttonStack.centerYAnchor.constraint(equalTo: label.centerYAnchor).isActive = true
+
     }
 
     // MARK: - Constants
     static let CustomNavigationBarHeight: CGFloat = 70
     static let PeopleCollectionViewHeight: CGFloat = 70
-    static let SearchButtonSize: CGFloat = 45
+    static let ButtonSize: CGSize = .init(width: 40, height: 40)
     static let CustomNavBarMargin: CGFloat = 16
     static let SeparatorHeight: CGFloat = 1
-    
-    static let LocationsSectionInsets = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+    static let LocationsSectionInsets = UIEdgeInsets(left: 16, right: 16)
     static let PeopleSectionInsets = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
 }

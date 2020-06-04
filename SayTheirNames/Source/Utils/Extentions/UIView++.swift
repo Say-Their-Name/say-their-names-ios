@@ -64,7 +64,10 @@ extension UIView {
     }
     
     @available(iOS 9.0, *)
-    public func fillSuperview(padding: UIEdgeInsets = .zero) {
+    public func fillSuperview(superView: UIView? = nil, padding: UIEdgeInsets = .zero) {
+        if let superView = superView {
+            superView.addSubview(self)
+        }
         translatesAutoresizingMaskIntoConstraints = false
         if let superviewTopAnchor = superview?.topAnchor {
             topAnchor.constraint(equalTo: superviewTopAnchor, constant: padding.top).isActive = true
@@ -101,5 +104,11 @@ extension UIView {
         if size.height != 0 {
             heightAnchor.constraint(equalToConstant: size.height).isActive = true
         }
+    }
+}
+
+extension UIEdgeInsets {
+     init(_ top: CGFloat = 0, _ left: CGFloat = 0, _ bottom: CGFloat = 0, _ right: CGFloat = 0) {
+        self.init(top: top, left: left, bottom: bottom, right: right)
     }
 }
