@@ -8,8 +8,6 @@
 
 import UIKit
 
-private let headerIdentifier = "PersonHeaderCell"
-
 class PersonCollectionViewDataSource: NSObject {
      
     private var people: [Person]
@@ -32,7 +30,7 @@ class PersonCollectionViewDataSource: NSObject {
     }
 
     private let carouselData = ["Data", "Data", "Data", "Data"] //dummy data
-    private var carouselDataResultsHandler: ResultsDataHandler?
+    private var carouselDataResultsHandler: ResultsDataHandler<String>?
 
     
 }

@@ -8,20 +8,16 @@
 
 import UIKit
 
-extension UICollectionViewCell {
-    
-}
-
 class CollectionViewDataSource<Cell: CollectionViewCellProtocol>: NSObject, UICollectionViewDataSource, DataHandlerProtocol {
 
     // MARK: - Properties
-    var resultsHandler: ResultsDataHandler
+    var resultsHandler: ResultsDataHandler<String>
 
     var resultsData: [Any]? {
         return resultsHandler.retriveDataFromHandeler()
     }
 
-    init(resultsHandler: ResultsDataHandler) {
+    init(resultsHandler: ResultsDataHandler<String>) {
         self.resultsHandler = resultsHandler
     }
 

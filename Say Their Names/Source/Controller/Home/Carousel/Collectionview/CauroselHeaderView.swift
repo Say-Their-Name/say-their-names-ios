@@ -14,7 +14,8 @@ final class CarouselHeaderView: UICollectionReusableView, Reusable {
     var pageControl: LineCarouselControl!
     var collectionView: UICollectionView!
     var collectionViewDataSource: CollectionViewDataSource<CarouselCollectionViewCell>?
-    var resultsHandler: ResultsDataHandler?
+    //TODO:- change this type to the model type that will be used instead
+    var resultsHandler: ResultsDataHandler<String>?
 
     // MARK: - Init
     override init(frame: CGRect) {
@@ -95,7 +96,7 @@ final class CarouselHeaderView: UICollectionReusableView, Reusable {
 extension CarouselHeaderView: UICollectionViewDelegate {
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        //do something here later on with the cells content
+        //TODO: do something here later on with the cells content
         print("*** selected \(indexPath.row)")
     }
 
