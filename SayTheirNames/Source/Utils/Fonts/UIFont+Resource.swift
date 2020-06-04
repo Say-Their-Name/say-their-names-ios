@@ -74,5 +74,9 @@ extension UIFont {
         static let tabButtonTitle = UIFont.dynamicCustomFont(
             fontName: FontName.karlaBold.rawValue,
             textStyle: .footnote)
+        
+        static let verifiedTag: UIFont = UIFont.dynamicCustomFont(fontName: FontName.karlaBold.rawValue, textStyle: .footnote)
+
+        static let summary: UIFont = UIFont.dynamicCustomFont(fontName: FontName.karlaRegular.rawValue, textStyle: .subheadline)
     }
 }
