@@ -15,9 +15,6 @@ protocol CollectionViewCellProtocol where Self: UICollectionViewCell {
 final class CarouselCollectionViewCell: UICollectionViewCell, CollectionViewCellProtocol {
 
     // MARK: - Properties
-    override var reuseIdentifier: String? {
-        return "CarouselCollectionViewCell"
-    }
     private lazy var hStack: UIStackView = {
         let hStack = UIStackView()
         hStack.axis = .vertical
