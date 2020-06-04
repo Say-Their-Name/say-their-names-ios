@@ -38,7 +38,7 @@ class DateFormatterService {
         }
     }
 
-    // MARK: - Date Of Birth
+    // MARK: - Year month day
 
     func formatYearMonthDayDate(_ date: Date) -> String {
         let dateFormatter = cachedDateFormatter(withFormat: "y/MM/dd")
