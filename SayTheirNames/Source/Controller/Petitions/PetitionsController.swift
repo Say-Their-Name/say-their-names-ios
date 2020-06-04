@@ -27,9 +27,8 @@ final class PetitionsController: UIViewController, ServiceReferring {
         return dataSource
     }()
     
-    required init(service: Service) {
-        self.service = service
-        super.init(nibName: nil, bundle: nil)
+    required init(service: Servicing) {
+        super.init(service: service)
     }
     
     required init?(coder: NSCoder) { fatalError("This should not be called") }
