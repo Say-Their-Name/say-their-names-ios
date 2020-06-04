@@ -11,6 +11,8 @@ import Foundation
 // swiftlint:disable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:disable nesting type_body_length type_name
 internal enum L10n {
+  /// How to get involved
+  internal static let carouselDescription = L10n.tr("Localizable", "carousel_description")
   /// Home
   internal static let home = L10n.tr("Localizable", "home")
 }

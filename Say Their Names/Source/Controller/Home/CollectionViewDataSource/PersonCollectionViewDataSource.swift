@@ -8,6 +8,8 @@
 
 import UIKit
 
+private let headerIdentifier = "PersonHeaderCell"
+
 class PersonCollectionViewDataSource: NSObject {
      
     private var people: [Person]
@@ -28,6 +30,10 @@ class PersonCollectionViewDataSource: NSObject {
     func appendPeople(_ people: [Person]) {
         self.people.append(contentsOf: people)
     }
+
+    private let carouselData = ["Data", "Data", "Data", "Data"] //dummy data
+    private var carouselDataResultsHandler: ResultsDataHandler?
+
     
 }
 
@@ -36,10 +42,15 @@ extension PersonCollectionViewDataSource: UICollectionViewDataSource {
         people.count
     }
     
+  
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: PersonHeaderCell.headerIdentifier, for: indexPath) as! PersonHeaderCell
-        return headerView
-    }
+           if collectionView.tag == 0 { return UICollectionReusableView() }
+           let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerIdentifier, for: indexPath) as! CarouselHeaderView
+           carouselDataResultsHandler = ResultsDataHandler(resultsData: self.carouselData)
+           headerView.resultsHandler = carouselDataResultsHandler
+           headerView.configure()
+           return headerView
+       }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
          

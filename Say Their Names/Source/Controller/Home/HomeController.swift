@@ -29,10 +29,7 @@ class HomeController: UIViewController, ServiceReferring {
     private let searchBar = CustomSearchBar()
     private let locations = ["ALL", "MISSOURI", "TEXAS", "NEW YORK"] // dummy data
 
-    //Carousel data
-    private let carouselData = ["Data", "Data", "Data", "Data"] //dummy data
-    private var carouselDataResultsHandler: ResultsDataHandler?
-    
+
     //MARK: - CV Data Sources
     private let locationsDataSource = LocationCollectionViewDataSource(locations: [])
     private let peopleDataSource = PersonCollectionViewDataSource()
@@ -108,7 +105,7 @@ class HomeController: UIViewController, ServiceReferring {
         locationCollectionView.accessibilityIdentifier = "locationCollection"
         
         peopleCollectionView.delegate = self
-        peopleCollectionView.dataSource = self
+        peopleCollectionView.dataSource = peopleDataSource
         peopleCollectionView.register(UINib(nibName: peopleIdentifier, bundle: nil), forCellWithReuseIdentifier: peopleIdentifier)
         peopleCollectionView.register(CarouselHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerIdentifier)
         peopleCollectionView.accessibilityIdentifier = "peopleCollection"

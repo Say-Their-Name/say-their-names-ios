@@ -12,7 +12,7 @@ protocol LineCarouselControlProtocol: class {
     func didSelectLineAt(_ index: Int)
 }
 
-class LineCarouselControl: UIControl {
+final class LineCarouselControl: UIControl {
 
     // MARK: - Properties
     private var pageIndicatorTintColor: UIColor? = .lightGray

@@ -8,16 +8,13 @@
 
 import UIKit
 
-class CarouselHeaderView: UICollectionReusableView {
+final class CarouselHeaderView: UICollectionReusableView, Reusable {
 
     // MARK: - Properties
     var pageControl: LineCarouselControl!
     var collectionView: UICollectionView!
     var collectionViewDataSource: CollectionViewDataSource<CarouselCollectionViewCell>?
     var resultsHandler: ResultsDataHandler?
-    override var reuseIdentifier: String? {
-        return "PersonHeaderCell"
-    }
 
     // MARK: - Init
     override init(frame: CGRect) {
@@ -46,11 +43,11 @@ class CarouselHeaderView: UICollectionReusableView {
 
     private func setUpDataSource() {
         guard let handler = resultsHandler else {return}
-        collectionViewDataSource = CollectionViewDataSource(resultsHandler: handler, reuseId: "CarouselCollectionViewCell")
+        collectionViewDataSource = CollectionViewDataSource(resultsHandler: handler)
     }
 
     private func registerCells() {
-        collectionView.register(CarouselCollectionViewCell.self, forCellWithReuseIdentifier: "CarouselCollectionViewCell")
+        collectionView.register(cellType: CarouselCollectionViewCell.self)
     }
 
     private func setUpPagingController() {
@@ -100,20 +97,22 @@ extension CarouselHeaderView: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         //do something here later on with the cells content
         print("*** selected \(indexPath.row)")
-      }
+    }
 
     // MARK: - Scroll view delegates
-     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-         self.collectionView.scrollToNearestVisibleCollectionViewCell()
-         guard let indexPath = collectionView.indexPathForItem(at: .init(x: self.collectionView.center.x + self.collectionView.contentOffset.x, y: self.center.y + self.collectionView.contentOffset.y)) else {return}
-         self.pageControl.currentPage = indexPath.item
-     }
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        self.collectionView.scrollToNearestVisibleCollectionViewCell()
+        let centerX = self.collectionView.center.x + self.collectionView.contentOffset.x
+        let centerY = self.collectionView.center.y + self.collectionView.contentOffset.y
+        guard let indexPath = collectionView.indexPathForItem(at: .init(x: centerX, y: centerY)) else {return}
+        self.pageControl.currentPage = indexPath.item
+    }
 
-     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-         if !decelerate {
-             self.collectionView.scrollToNearestVisibleCollectionViewCell()
-         }
-     }
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if !decelerate {
+            self.collectionView.scrollToNearestVisibleCollectionViewCell()
+        }
+    }
 }
 
 // MARK: - Collection view flow layout
