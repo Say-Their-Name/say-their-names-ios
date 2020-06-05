@@ -8,12 +8,8 @@
 
 import Foundation
 
-protocol MediaInterface: Decodable {
-    var url: String { get set }
-}
-
-public struct Media: MediaInterface {
-    var url: String
+public struct Media: Decodable {
+    let url: String
 
     enum CodingKeys: String, CodingKey {
         case url

@@ -9,10 +9,10 @@
 import Foundation
 
 public struct Petition: Decodable {
-    var id: Int
-    var title: String
-    var description: String
-    var link: String
+    let id: Int
+    let title: String
+    let description: String
+    let link: String
     
     enum CodingKeys: String, CodingKey {
         case id, title, description, link
@@ -20,8 +20,8 @@ public struct Petition: Decodable {
 }
 
 public struct PetitionsResponsePage: Decodable {
-    var all: [Petition]
-    var link: Link
+    let all: [Petition]
+    let link: Link
     
     enum CodingKeys: String, CodingKey {
         case all = "data", link = "links"

@@ -9,10 +9,10 @@
 import Foundation
 
 public struct Link: Decodable {
-    var first: String
-    var last: String
-    var prev: String?
-    var next: String?
+    let first: String
+    let last: String
+    let prev: String?
+    let next: String?
     
     private enum CodingKeys: String, CodingKey {
         case first, last, prev, next
