@@ -9,7 +9,7 @@ disabled_rules:
   - opening_brace
   - comma
   - unused_optional_binding
-  - closure_parameter_positionxw
+  - closure_parameter_position
   - trailing_comma
   - duplicate_enum_cases
   - todo
@@ -35,3 +35,4 @@ excluded:
   - Fastlane
   - 'SayTheirNamesTests'
   - 'SayTheirNamesUITests'
+  - 'Pods'
