@@ -116,8 +116,8 @@ final class PersonCell: UICollectionViewCell {
     
     private func styleLabels() {
 
-        nameLabel.font = UIFont.STNDynamic.cardTitle
-        dateOfIncidentLabel.font = UIFont.STNDynamic.cardSubitle
+        nameLabel.font = UIFont.STN.cardTitle
+        dateOfIncidentLabel.font = UIFont.STN.cardSubitle
     }
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {

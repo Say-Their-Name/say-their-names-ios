@@ -98,7 +98,7 @@ final class PetitionsView: UIView {
     
     private func styleLabels() {
 
-        navigationLabel.font = UIFont.STNDynamic.navBarTitle
+        navigationLabel.font = UIFont.STN.navBarTitle
     }
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {

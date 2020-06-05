@@ -198,10 +198,10 @@ final class PetitionTableViewCell: UITableViewCell {
 
     private func styleControls() {
 
-        titleLabel.font = UIFont.STNDynamic.bannerTitle
-        summaryLabel.font = UIFont.STNDynamic.summary
-        verifiedLabel.font = UIFont.STNDynamic.verifiedTag
-        findOutMoreButton.titleLabel?.font = UIFont.STNDynamic.sectionHeader
+        titleLabel.font = UIFont.STN.bannerTitle
+        summaryLabel.font = UIFont.STN.summary
+        verifiedLabel.font = UIFont.STN.verifiedTag
+        findOutMoreButton.titleLabel?.font = UIFont.STN.sectionHeader
     }
     
     @objc

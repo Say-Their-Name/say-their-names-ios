@@ -142,7 +142,7 @@ final class HomeView: UIView {
 
     private func styleLabels() {
 
-        navigationBarLabel.font = UIFont.STNDynamic.bannerTitle
+        navigationBarLabel.font = UIFont.STN.bannerTitle
     }
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {

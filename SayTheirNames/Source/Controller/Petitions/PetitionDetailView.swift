@@ -85,9 +85,9 @@ final class PetitionDetailView: UIView {
     
     private func styleLabels() {
 
-        titleLabel.font = UIFont.STNDynamic.bannerTitle
-        summaryLabel.font = UIFont.STNDynamic.bannerSubitle
-        verifiedLabel.font = UIFont.STNDynamic.verifiedTag
+        titleLabel.font = UIFont.STN.bannerTitle
+        summaryLabel.font = UIFont.STN.bannerSubitle
+        verifiedLabel.font = UIFont.STN.verifiedTag
     }
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {

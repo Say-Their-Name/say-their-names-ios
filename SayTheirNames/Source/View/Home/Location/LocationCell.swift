@@ -49,7 +49,7 @@ class LocationCell: UICollectionViewCell {
 
     private func styleLabels() {
 
-        titleLabel.font = UIFont.STNDynamic.locationText
+        titleLabel.font = UIFont.STN.locationText
     }
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
