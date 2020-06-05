@@ -27,7 +27,7 @@ extension NetworkRequestorTests {
 
         // Make request and expect that a result is returned
         let returnRequestExpection = expectation(description: "Request should return")
-        NetworkRequestor(session: session).fetchPeople { _ in
+        sut.fetchPeople { _ in
             returnRequestExpection.fulfill()
         }
 

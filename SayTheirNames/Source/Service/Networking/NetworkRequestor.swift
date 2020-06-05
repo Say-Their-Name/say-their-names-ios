@@ -35,7 +35,7 @@ final class NetworkRequestor {
         }
     }
     
-    public func fetchJson(_ url: String, completion: @escaping (Result<Any, AFError>) -> Swift.Void) {
+    public func fetchJSON(_ url: String, completion: @escaping (Result<Any, AFError>) -> Swift.Void) {
         let request = session.request(url)
         request.responseJSON(queue: self.concurrentQueue) { (response) in
             DispatchQueue.mainAsync { completion(response.result) }
