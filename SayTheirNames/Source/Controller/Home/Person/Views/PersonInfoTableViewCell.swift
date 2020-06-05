@@ -29,7 +29,13 @@ class PersonInfoTableViewCell: UITableViewCell {
     }()
     
     lazy var extraInfoStack: UIStackView = {
-        let view = UIStackView(arrangedSubviews: [ageContainerStack, horizontalSeparatorView, childrenContainerStack, horizontalSeparatorView, locationContainerStack])
+        let view = UIStackView(arrangedSubviews: [
+            ageContainerStack,
+            horizontalSeparatorView,
+            childrenContainerStack,
+            horizontalSeparatorView,
+            locationContainerStack
+        ])
         view.distribution = .fill
         view.alignment = .top
         view.axis = .horizontal
