@@ -25,7 +25,7 @@
 import Foundation
 
 struct Location: Codable {
-    var name: String
+    let name: String
     
     enum CodingKeys: String, CodingKey {
         case name

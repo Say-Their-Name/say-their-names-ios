@@ -25,12 +25,12 @@
 import Foundation
 
 public struct Donation: Decodable {
-    var id: Int
-    var title: String
-    var description: String
-    var link: String
-    var person: Person
-    var type: DonationType
+    let id: Int
+    let title: String
+    let description: String
+    let link: String
+    let person: Person
+    let type: DonationType
     
     enum CodingKeys: String, CodingKey {
         case id, title, description, link, person, type

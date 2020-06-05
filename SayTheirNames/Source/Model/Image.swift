@@ -25,9 +25,9 @@
 import Foundation
 
 public struct Image: Decodable {
-    var id: Int
-    var personID: Int
-    var personURL: String
+    let id: Int
+    let personID: Int
+    let personURL: String
 
     private enum CodingKeys: String, CodingKey {
         case id, personID = "person_id", personURL = "image_url"
