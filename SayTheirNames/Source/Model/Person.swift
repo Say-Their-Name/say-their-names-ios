@@ -9,21 +9,21 @@
 import Foundation
 
 struct Person: Decodable {
-    var id: Int
-    var fullName: String
-    var dob: String
-    var doi: String
-    var childrenCount: String
-    var age: String
-    var city: String
-    var country: String
-    var bio: String
-    var context: String
-    var images: [Image]
-    var donations: DonationsResponsePage
-    var petitions: PetitionsResponsePage
-    var media: [Media]
-    var socialMedia: [SocialMedia]
+    let id: Int
+    let fullName: String
+    let dob: String
+    let doi: String
+    let childrenCount: String
+    let age: String
+    let city: String
+    let country: String
+    let bio: String
+    let context: String
+    let images: [Image]
+    let donations: DonationsResponsePage
+    let petitions: PetitionsResponsePage
+    let media: [Media]
+    let socialMedia: [SocialMedia]
     
     private enum CodingKeys: String, CodingKey {
         case id, fullName = "full_name", dob = "date_of_birth", doi = "date_of_incident", childrenCount = "number_of_children",
@@ -54,8 +54,8 @@ struct Person: Decodable {
 }
 
 struct PersonsResponsePage: Decodable {
-    var all: [Person]
-    var link: Link
+    let all: [Person]
+    let link: Link
     
     private enum CodingKeys: String, CodingKey {
         case all = "data", link = "links"

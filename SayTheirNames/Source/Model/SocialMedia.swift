@@ -9,9 +9,9 @@
 import Foundation
 
 public struct SocialMedia: Decodable {
-    var title: String
-    var type: String
-    var link: String
+    let title: String
+    let type: String
+    let link: String
 
     enum CodingKeys: String, CodingKey {
         case title, type, link
