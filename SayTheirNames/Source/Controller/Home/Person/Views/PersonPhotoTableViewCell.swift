@@ -92,4 +92,8 @@ class PersonPhotoTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
+    public func setupCell(_ person: Person) {
+        frontImageView.populate(withURL: person.images[0].personURL)
+        bgImageView.populate(withURL: person.images[0].personURL)
+    }
 }

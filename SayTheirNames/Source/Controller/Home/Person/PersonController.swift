@@ -148,13 +148,21 @@ extension PersonController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellType.identifier, for: indexPath)
         
         switch cellType {
+        case .photo:
+            let photoCell = cell as! PersonPhotoTableViewCell
+            photoCell.setupCell(person)
+            return photoCell
+        case .info:
+            let infoCell = cell as! PersonInfoTableViewCell
+            infoCell.setupCell(person)
+            return infoCell
         case .story:
             let storyCell = cell as! PersonOverviewTableViewCell
-            storyCell.setupCell(title: "THEIR STORY", description: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturiasdlnalkd")
+             storyCell.setupCell(title: "THEIR STORY", description: person.bio)
             return storyCell
         case .outcome:
             let overviewCell = cell as! PersonOverviewTableViewCell
-            overviewCell.setupCell(title: "OUTCOME", description: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturiasdlnalkd")
+            overviewCell.setupCell(title: "OUTCOME", description: person.context)
             return overviewCell
         case let .news(news):
             let newsCell = cell as! PersonNewsTableViewCell
@@ -168,8 +176,6 @@ extension PersonController: UITableViewDelegate, UITableViewDataSource {
             newsCell.registerCell(with: PersonMediaCollectionViewCell.self, type: PersonNewsCellType.medias)
             newsCell.updateCellWithNews(news)
             return cell
-        default:
-            return cell
         }
     }
     
@@ -177,7 +183,7 @@ extension PersonController: UITableViewDelegate, UITableViewDataSource {
         let cellType = cellCollectionTypes[indexPath.row]
         switch cellType {
             case .photo:return 520
-            case .info: return 160
+            case .info: return 140
             case .news: return 340
             case .medias: return 270
             case .story, .outcome: return UITableView.automaticDimension

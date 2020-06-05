@@ -171,6 +171,13 @@ class PersonInfoTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    public func setupCell(_ person: Person) {
+        nameLabel.text = person.fullName
+        ageLabel.text = person.age
+        childrenLabel.text = person.childrenCount
+        locationLabel.text = person.country
+    }
+    
     private func setupLayout() {
         containerStack.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(containerStack)

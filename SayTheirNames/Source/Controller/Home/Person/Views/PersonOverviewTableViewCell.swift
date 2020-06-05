@@ -67,6 +67,6 @@ class PersonOverviewTableViewCell: UITableViewCell {
     
     public func setupCell(title: String, description: String) {
         titleLabel.text = title
-        descriptionLabel.text = description
+        descriptionLabel.text = (description.isEmpty) ? "-" : description
     }
 }
