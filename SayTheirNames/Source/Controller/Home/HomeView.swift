@@ -53,14 +53,23 @@ final class HomeView: UIView {
     }()
     
     lazy var peopleCollectionView: UICollectionView = {
+
+
+
         let peopleLayout = UICollectionViewFlowLayout()
         peopleLayout.scrollDirection = .vertical
         peopleLayout.sectionInset = Self.PeopleSectionInsets
-        
+
+
+
         let peopleCollectionView = UICollectionView(frame: .zero, collectionViewLayout: peopleLayout)
         peopleCollectionView.contentInsetAdjustmentBehavior = .always
         return peopleCollectionView
     }()
+
+    func makeHeaderComposition() {
+
+    }
     
     let bookmarkButton: UIButton = {
         let bookmarkButton = UIButton(type: .custom)

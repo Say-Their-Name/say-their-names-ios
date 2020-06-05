@@ -10,7 +10,9 @@ import Foundation
 
 //TODO: - replace with actual model for header cell
 struct HeaderCellContent: Hashable {
+
     let id = UUID()
     let title: String?
     let description: String?
+
 }

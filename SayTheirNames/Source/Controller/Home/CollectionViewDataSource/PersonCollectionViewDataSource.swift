@@ -13,12 +13,20 @@ enum HeaderSection {
 }
 
 final class PersonCollectionViewDataSourceHelper {
+
+    typealias PersonCollectionViewDataSource = UICollectionViewDiffableDataSource<Section, SectionData>
     
-    enum Section {
+    enum Section: CaseIterable {
         case main
+        case header
     }
 
-    typealias PersonCollectionViewDataSource = UICollectionViewDiffableDataSource<Section, Person>
+    enum SectionData: Hashable {
+        case person(Person)
+        case header(HeaderCellContent)
+    }
+
+    private var shownSections: [Section] = []
 
     let dataSource: PersonCollectionViewDataSource
 
@@ -31,12 +39,25 @@ final class PersonCollectionViewDataSourceHelper {
         collectionView.registerHeader(headerType: PersonHeaderView.self)
         
         self.dataSource =
-            PersonCollectionViewDataSource(collectionView: collectionView) { (collectionView, indexPath, person) -> UICollectionViewCell? in
-                let cell: PersonCell = collectionView.dequeueCell(for: indexPath)
-                cell.configure(with: person)
-                cell.accessibilityIdentifier = "peopleCell\(indexPath.item)"
-                cell.isAccessibilityElement = true
-                return cell
+            PersonCollectionViewDataSource(collectionView: collectionView) { (collectionView, indexPath, item) -> UICollectionViewCell? in
+
+                switch item {
+
+                case .header(let headerData):
+                    let cell: CarouselCollectionViewCell = collectionView.dequeueCell(for: indexPath)
+                    cell.configure(with: headerData)
+                    cell.accessibilityIdentifier = "headerCell\(indexPath.item)"
+                    cell.isAccessibilityElement = true
+                    return cell
+
+                case .person(let person):
+                    let cell: PersonCell = collectionView.dequeueCell(for: indexPath)
+                    cell.configure(with: person)
+                    cell.accessibilityIdentifier = "peopleCell\(indexPath.item)"
+                    cell.isAccessibilityElement = true
+                    return cell
+                }
+
         }
 
         self.dataSource.supplementaryViewProvider = { (collectionView, kind, indexPath) in
@@ -45,26 +66,49 @@ final class PersonCollectionViewDataSourceHelper {
             self.personHeaderView = header
             return header
         }
+
+    }
+
+    private func createCompositionalLayout() -> UICollectionViewLayout {
+        //header
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                              heightDimension: .fractionalHeight(1.0))
+
+        let layoutItem = NSCollectionLayoutItem(layoutSize: itemSize)
+
+        let layoutGroupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.95),
+                                                     heightDimension: .fractionalHeight(1.0))
+
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: layoutGroupSize, subitems: [layoutItem])
+        let spacing = CGFloat(10)
+        group.interItemSpacing = .fixed(spacing)
+
+        let section = NSCollectionLayoutSection(group: group)
+        section.orthogonalScrollingBehavior = .groupPaging
+        section.interGroupSpacing = spacing
+
+        return UICollectionViewCompositionalLayout(section: section)
+
     }
 
     func setHeaderData(_ data: [HeaderCellContent]) {
         personHeaderView?.configure()
-        var snapShot = NSDiffableDataSourceSnapshot<HeaderSection, HeaderCellContent>()
-        snapShot.appendSections([HeaderSection.main])
-        snapShot.appendItems(data)
+        var snapShot = NSDiffableDataSourceSnapshot<Section, SectionData>()
+        snapShot.appendSections([.header])
+        snapShot.appendItems(data.map({ SectionData.header($0) }))
         personHeaderView?.headerDataSource.apply(snapShot)
     }
     
     func setPeople(_ people: [Person]) {
-        var snapshot = NSDiffableDataSourceSnapshot<Section, Person>()
-        snapshot.appendSections([Section.main])
-        snapshot.appendItems(people)
+        var snapshot = NSDiffableDataSourceSnapshot<Section, SectionData>()
+        snapshot.appendSections([.main])
+        snapshot.appendItems(people.map({ SectionData.person($0) }))
         dataSource.apply(snapshot)
     }
     
     func appendPeople(_ people: [Person]) {
         var snapshot = dataSource.snapshot()
-        snapshot.appendItems(people)
+        snapshot.appendItems(people.map({ SectionData.person($0) }))
         dataSource.apply(snapshot)
     }
     
