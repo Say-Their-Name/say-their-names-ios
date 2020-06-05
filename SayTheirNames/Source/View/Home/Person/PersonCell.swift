@@ -23,7 +23,7 @@ final class PersonCell: UICollectionViewCell {
     private lazy var nameLabel: UILabel = {
         let lbl = UILabel()
         lbl.text = "GEORGE FLOYD"
-        lbl.font = UIFont(name: "Karla-Bold", size: 13)
+//        lbl.font = UIFont(name: "Karla-Bold", size: 13)
         lbl.textColor = UIColor.STN.primaryLabel
         lbl.lineBreakMode = .byTruncatingTail
         lbl.translatesAutoresizingMaskIntoConstraints = false
@@ -33,7 +33,7 @@ final class PersonCell: UICollectionViewCell {
     private lazy var dateOfIncidentLabel: UILabel = {
         let lbl = UILabel()
         lbl.text = "25.05.2020"
-        lbl.font = UIFont(name: "Karla-regular", size: 13)
+//        lbl.font = UIFont(name: "Karla-regular", size: 13)
         lbl.textColor = UIColor.STN.secondaryLabel
         lbl.lineBreakMode = .byTruncatingTail
         lbl.translatesAutoresizingMaskIntoConstraints = false
@@ -93,10 +93,12 @@ final class PersonCell: UICollectionViewCell {
         NSLayoutConstraint.activate([
             nameLabel.topAnchor.constraint(equalTo: labelsAndButtonContainer.topAnchor),
             nameLabel.leadingAnchor.constraint(equalTo: labelsAndButtonContainer.leadingAnchor),
+            nameLabel.trailingAnchor.constraint(equalTo: bookmarkButton.leadingAnchor, constant: 4),
             
             dateOfIncidentLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor),
             dateOfIncidentLabel.leadingAnchor.constraint(equalTo: nameLabel.leadingAnchor),
             dateOfIncidentLabel.bottomAnchor.constraint(equalTo: labelsAndButtonContainer.bottomAnchor, constant: -20),
+            dateOfIncidentLabel.trailingAnchor.constraint(equalTo: labelsAndButtonContainer.trailingAnchor),
             
             bookmarkButton.topAnchor.constraint(equalTo: nameLabel.topAnchor),
             bookmarkButton.trailingAnchor.constraint(equalTo: labelsAndButtonContainer.trailingAnchor)
@@ -106,6 +108,26 @@ final class PersonCell: UICollectionViewCell {
         containerStack.addArrangedSubview(labelsAndButtonContainer)
         addSubview(containerStack)
         containerStack.fillSuperview()
+    }
+
+    override func didMoveToSuperview() {
+        super.didMoveToSuperview()
+        
+        styleLabels()
+    }
+    
+    private func styleLabels() {
+
+        nameLabel.font = UIFont.STNDynamic.cardTitle
+        dateOfIncidentLabel.font = UIFont.STNDynamic.cardSubitle
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        
+        if traitCollection.preferredContentSizeCategory != previousTraitCollection?.preferredContentSizeCategory {
+            styleLabels()
+        }
     }
 
     // MARK: - Handlers

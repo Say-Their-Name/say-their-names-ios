@@ -21,9 +21,11 @@ internal enum L10n {
   internal static let home = L10n.tr("Localizable", "home")
   /// Petitions
   internal static let petitions = L10n.tr("Localizable", "petitions")
+  /// SAY THEIR NAME
+  internal static let sayTheirName = L10n.tr("Localizable", "say_their_name")
   /// Settings
   internal static let settings = L10n.tr("Localizable", "settings")
-  /// verfied
+  /// verified
   internal static let verified = L10n.tr("Localizable", "verified")
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length

@@ -14,7 +14,6 @@ class LocationCell: UICollectionViewCell {
     
     var titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.STN.locationText
         label.textAlignment = .center
         return label
     }()
@@ -38,8 +37,27 @@ class LocationCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
+    override func didMoveToSuperview() {
+        super.didMoveToSuperview()
+        
+        styleLabels()
+    }
+    
     func configure(with location: Location) {
         titleLabel.text = location.name
+    }
+
+    private func styleLabels() {
+
+        titleLabel.font = UIFont.STNDynamic.locationText
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        
+        if traitCollection.preferredContentSizeCategory != previousTraitCollection?.preferredContentSizeCategory {
+            styleLabels()
+        }
     }
 
 }

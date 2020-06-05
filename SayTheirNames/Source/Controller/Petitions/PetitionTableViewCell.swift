@@ -37,7 +37,6 @@ final class PetitionTableViewCell: UITableViewCell {
     private lazy var verifiedLabel: UILabel = {
         let label = UILabel()
         label.text = Strings.verified
-        label.font = UIFont.STN.verifiedTag
         label.backgroundColor = Self.VerifiedLabelBackgroundColor
         label.textColor = Self.VerifiedLabelTextColor
         return label
@@ -45,7 +44,6 @@ final class PetitionTableViewCell: UITableViewCell {
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.STN.bannerTitle
         label.textColor = Self.ContentColor
         label.numberOfLines = 1
         label.lineBreakMode = .byTruncatingTail
@@ -54,7 +52,6 @@ final class PetitionTableViewCell: UITableViewCell {
 
     private lazy var summaryLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.STN.summary
         label.textColor = Self.ContentColor
         label.numberOfLines = 3
         label.lineBreakMode = .byTruncatingTail
@@ -67,13 +64,18 @@ final class PetitionTableViewCell: UITableViewCell {
         
         button.setTitle(Strings.findOutMore.uppercased(), for: .normal)
         button.layer.borderColor = Self.ContentColor.cgColor
-        button.titleLabel?.font = UIFont.STN.sectionHeader
         button.layer.borderWidth = Self.FindOutMoreButtonOutlineThickness
         button.tintColor = Self.ContentColor
         button.setTitleColor(Self.ContentColor, for: .normal)
         return button
     }()
         
+    override func didMoveToSuperview() {
+        super.didMoveToSuperview()
+        
+        styleControls()
+    }
+    
     private var hasLayedOutSubviews = false
     private func createLayout() {
         guard !hasLayedOutSubviews else { return }
@@ -177,6 +179,10 @@ final class PetitionTableViewCell: UITableViewCell {
         super.traitCollectionDidChange(previousTraitCollection)
 
         setNeedsUpdateConstraints()
+
+        if traitCollection.preferredContentSizeCategory != previousTraitCollection?.preferredContentSizeCategory {
+            styleControls()
+        }
     }
 
     func configure(with petition: PresentedPetition) {
@@ -190,6 +196,14 @@ final class PetitionTableViewCell: UITableViewCell {
         setNeedsLayout()
     }
 
+    private func styleControls() {
+
+        titleLabel.font = UIFont.STNDynamic.bannerTitle
+        summaryLabel.font = UIFont.STNDynamic.summary
+        verifiedLabel.font = UIFont.STNDynamic.verifiedTag
+        findOutMoreButton.titleLabel?.font = UIFont.STNDynamic.sectionHeader
+    }
+    
     @objc
     private func findOutMoreButtonTapped() {
         findOutMoreAction()

@@ -9,17 +9,7 @@
 import UIKit
 
 final class PetitionsView: UIView {
-
-    let title: String
-    
-    init(title: String)
-    {
-        self.title = title
-        super.init(frame: .zero)
-    }
-    
-    required init?(coder: NSCoder) { fatalError("This should not be called") }
-    
+        
     private lazy var customNavigationBar: UIView = {
         let customNavigationBar = UIView()
         customNavigationBar.backgroundColor = Self.CustomNavigationBarBackgroundColor
@@ -33,10 +23,19 @@ final class PetitionsView: UIView {
         return tableView
     }()
 
+    private lazy var navigationLabel: UILabel = {
+        let label = UILabel()
+        label.text = Strings.petitions.uppercased()
+        label.textColor = Self.CustomNavigationBarTextColor
+        return label
+    }()
+    
     override func didMoveToSuperview() {
         super.didMoveToSuperview()
         
         backgroundColor = Self.BackgroundColor
+        
+        styleLabels()
     }
 
     private var hasLayedOutSubviews = false
@@ -87,20 +86,29 @@ final class PetitionsView: UIView {
     
     private func createCustomNavigationBarLayout() {
         
-        let label = UILabel()
-        label.text = title
-        label.font = UIFont.STN.navBarTitle
-        label.textColor = Self.CustomNavigationBarTextColor
-                                        
-        label.translatesAutoresizingMaskIntoConstraints = false
-        customNavigationBar.addSubview(label)
+        navigationLabel.translatesAutoresizingMaskIntoConstraints = false
+        customNavigationBar.addSubview(navigationLabel)
         
         NSLayoutConstraint.activate([
-            label.centerXAnchor.constraint(equalTo: customNavigationBar.centerXAnchor),
-            label.centerYAnchor.constraint(equalTo: customNavigationBar.centerYAnchor),
+            navigationLabel.centerXAnchor.constraint(equalTo: customNavigationBar.centerXAnchor),
+            navigationLabel.centerYAnchor.constraint(equalTo: customNavigationBar.centerYAnchor),
             
         ])
     }
+    
+    private func styleLabels() {
+
+        navigationLabel.font = UIFont.STNDynamic.navBarTitle
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        
+        if traitCollection.preferredContentSizeCategory != previousTraitCollection?.preferredContentSizeCategory {
+            styleLabels()
+        }
+    }
+
 }
 
 // MARK: - Constants
