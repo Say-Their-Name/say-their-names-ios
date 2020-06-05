@@ -125,6 +125,7 @@ class PersonController: BaseViewController {
         tableView.dataSource = self
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.separatorStyle = .none
+        tableView.allowsSelection = false 
         view.addSubview(tableView)
         
         NSLayoutConstraint.activate([
