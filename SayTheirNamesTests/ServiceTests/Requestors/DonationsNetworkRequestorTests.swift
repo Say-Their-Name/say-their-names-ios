@@ -18,7 +18,7 @@ extension NetworkRequestorTests {
         }
 
         // Set up mock to return data from the endpoint, and expectation that the request is made
-        let makeRequestExpectation = expectation(description: "Request should made")
+        let makeRequestExpectation = expectation(description: "Request should be made")
         var mock = Mock(url: apiEndpoint, dataType: .json, statusCode: 200, data: [.get: Data()])
         mock.completion = {
             makeRequestExpectation.fulfill()
