@@ -1,0 +1,16 @@
+/* 
+  Localizable.strings
+  SayTheirNames
+
+  Created by Kyle Lee on 6/1/20.
+  Edited by @npvisual on 6/5/20.
+  Copyright © 2020 Franck-Stephane Ndame Mpouli. All rights reserved.
+*/
+
+"home" = "Accueil";
+"donations" = "Les Dons";
+"petitions" = "Les Pétitions";
+"settings" = "Paramètres";
+"cancel"= "Annuler";
+"find_out_more" = "Plus d'informations";
+"verified" = "verifié";
