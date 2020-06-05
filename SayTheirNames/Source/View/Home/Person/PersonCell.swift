@@ -93,9 +93,6 @@ final class PersonCell: UICollectionViewCell {
     }
     
     func configure(with person: Person) {
-        let df = DateFormatter()
-        df.dateFormat = "dd.MM.yyyy"
-        
         profileImageView.populate(withURL: person.images.first?.personURL ?? "")
         nameLabel.text = person.fullName.uppercased()
         dateOfIncidentLabel.text = person.doi

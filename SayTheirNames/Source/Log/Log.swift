@@ -58,11 +58,9 @@ public struct Log {
         var result: String = ""
         
         if self.mode.contains(.date) {
-            let formatter = DateFormatter()
-            formatter.dateFormat = "yyyy-MM-dd HH:mm:ss.SSS "
-            
-            let s = formatter.string(from: Date())
-            result += s
+            let formatter = DateFormatterService()
+            let dateString = formatter.formatYearMonthDayAndTime(Date())
+            result += dateString
         }
         
         if self.mode.contains(.fileName) {
