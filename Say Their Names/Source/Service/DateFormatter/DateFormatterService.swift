@@ -29,8 +29,6 @@ class DateFormatterService {
             }
             
             let dateFormatter = DateFormatter()
-            dateFormatter.locale = .current
-            dateFormatter.timeZone = .current
             dateFormatter.dateFormat = format
             
             dateFormatters[key] = dateFormatter
@@ -39,6 +37,10 @@ class DateFormatterService {
         }
     }
 
+    func localizedString(date: Date, dateStyle: DateFormatter.Style, timeStyle: DateFormatter.Style = .none) -> String {
+        return DateFormatter.localizedString(from: date, dateStyle: dateStyle, timeStyle: timeStyle)
+    }
+    
     // MARK: - Year month day
 
     func formatYearMonthDayDate(_ date: Date) -> String {

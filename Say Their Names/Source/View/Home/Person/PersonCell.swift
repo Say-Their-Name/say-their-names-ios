@@ -81,7 +81,7 @@ final class PersonCell: UICollectionViewCell {
         // ^Update to default place holder image when resource is added.
         // TO-DO: Use Kilo's ImageDownloader here to DL image
         nameLabel.text = person.fullName.uppercased()
-        dateOfIncidentLabel.text = person.date.localizedString(dateStyle: .short)
+        dateOfIncidentLabel.text = DateFormatterService().localizedString(date: person.date, dateStyle: .short)
     }
     
     private func setUp() {
