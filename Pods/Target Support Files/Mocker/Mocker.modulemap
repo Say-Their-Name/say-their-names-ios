@@ -1,0 +1,6 @@
+framework module Mocker {
+  umbrella header "Mocker-umbrella.h"
+
+  export *
+  module * { export * }
+}

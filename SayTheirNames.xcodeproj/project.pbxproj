@@ -27,6 +27,10 @@
 		7A5BFA192488821500BC265A /* DateFormatterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5BFA182488821500BC265A /* DateFormatterService.swift */; };
 		7A5BFA1B2488871C00BC265A /* DateFormatterServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5BFA1A2488871C00BC265A /* DateFormatterServiceTests.swift */; };
 		7C47A93524873F1200B8D3BE /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C47A93424873F1200B8D3BE /* HomeView.swift */; };
+		7CAD53E3248A2A9F001CFF08 /* NetworkRequestorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAD53E2248A2A9F001CFF08 /* NetworkRequestorTests.swift */; };
+		7CAD53E6248A2AEE001CFF08 /* DonationsNetworkRequestorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAD53E5248A2AEE001CFF08 /* DonationsNetworkRequestorTests.swift */; };
+		7CAD53E8248A326F001CFF08 /* PetitionsNetworkRequestorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAD53E7248A326F001CFF08 /* PetitionsNetworkRequestorTests.swift */; };
+		7CAD53EA248A32FC001CFF08 /* PeopleNetworkRequestorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAD53E9248A32FC001CFF08 /* PeopleNetworkRequestorTests.swift */; };
 		7CE75F3F2489B78400168DDA /* PresentedPetition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE75F322489820600168DDA /* PresentedPetition.swift */; };
 		7CE75F402489B78400168DDA /* PetitionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE75F352489820700168DDA /* PetitionsView.swift */; };
 		7CE75F412489B78400168DDA /* PetitionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B077D24835CF700DB803C /* PetitionsController.swift */; };
@@ -129,6 +133,7 @@
 
 /* Begin PBXFileReference section */
 		00E6A528018ECB54700AB99B /* Pods-SayTheirNamesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SayTheirNamesTests.release.xcconfig"; path = "Target Support Files/Pods-SayTheirNamesTests/Pods-SayTheirNamesTests.release.xcconfig"; sourceTree = "<group>"; };
+		18BF12F4248ABC8B00A60BB3 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		20AABB4794146889EEF753BB /* Pods-Say Their NamesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Say Their NamesTests.release.xcconfig"; path = "Target Support Files/Pods-Say Their NamesTests/Pods-Say Their NamesTests.release.xcconfig"; sourceTree = "<group>"; };
 		39C05132613A992F23ECED58 /* Pods-SayTheirNames.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SayTheirNames.debug.xcconfig"; path = "Target Support Files/Pods-SayTheirNames/Pods-SayTheirNames.debug.xcconfig"; sourceTree = "<group>"; };
 		4E09B7306596AE2549FC2488 /* Pods_SayTheirNames.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SayTheirNames.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -157,6 +162,10 @@
 		7A5BFA182488821500BC265A /* DateFormatterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DateFormatterService.swift; path = DateFormatter/DateFormatterService.swift; sourceTree = "<group>"; };
 		7A5BFA1A2488871C00BC265A /* DateFormatterServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DateFormatterServiceTests.swift; path = DateFormatterServiceTest/DateFormatterServiceTests.swift; sourceTree = "<group>"; };
 		7C47A93424873F1200B8D3BE /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		7CAD53E2248A2A9F001CFF08 /* NetworkRequestorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequestorTests.swift; sourceTree = "<group>"; };
+		7CAD53E5248A2AEE001CFF08 /* DonationsNetworkRequestorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationsNetworkRequestorTests.swift; sourceTree = "<group>"; };
+		7CAD53E7248A326F001CFF08 /* PetitionsNetworkRequestorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetitionsNetworkRequestorTests.swift; sourceTree = "<group>"; };
+		7CAD53E9248A32FC001CFF08 /* PeopleNetworkRequestorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleNetworkRequestorTests.swift; sourceTree = "<group>"; };
 		7CE75F312489820600168DDA /* PetitionDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetitionDetailView.swift; sourceTree = "<group>"; };
 		7CE75F322489820600168DDA /* PresentedPetition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentedPetition.swift; sourceTree = "<group>"; };
 		7CE75F332489820600168DDA /* PetitionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetitionTableViewCell.swift; sourceTree = "<group>"; };
@@ -283,6 +292,7 @@
 				B3D6B6B1248987AD00D3118C /* CONTRIBUTING.md */,
 				B3D6B6B0248987AD00D3118C /* README.md */,
 				ED2DEB0A248454FD00EC784E /* CODE_OF_CONDUCT.md */,
+				18BF12F4248ABC8B00A60BB3 /* LICENSE */,
 				5B3ED73E2481C9F50033FF79 /* SayTheirNames */,
 				5B3ED7552481CA000033FF79 /* SayTheirNamesTests */,
 				7A5BFA09248618B100BC265A /* SayTheirNamesUITests */,
@@ -316,6 +326,7 @@
 			children = (
 				5F62B730248975B200ACE032 /* DataSourceTests */,
 				83E9CAD52484A683001D173A /* LaunchTests */,
+				7CAD53DF248A2A71001CFF08 /* ServiceTests */,
 				B386F956248300E00037A38D /* UtilsTests */,
 				B386F9532482FB2E0037A38D /* ExtensionsTests */,
 				5B3ED7582481CA000033FF79 /* Info.plist */,
@@ -359,6 +370,25 @@
 				7A5BFA0C248618B100BC265A /* Info.plist */,
 			);
 			path = SayTheirNamesUITests;
+			sourceTree = "<group>";
+		};
+		7CAD53DF248A2A71001CFF08 /* ServiceTests */ = {
+			isa = PBXGroup;
+			children = (
+				7CAD53E2248A2A9F001CFF08 /* NetworkRequestorTests.swift */,
+				7CAD53E4248A2AD8001CFF08 /* Requestors */,
+			);
+			path = ServiceTests;
+			sourceTree = "<group>";
+		};
+		7CAD53E4248A2AD8001CFF08 /* Requestors */ = {
+			isa = PBXGroup;
+			children = (
+				7CAD53E5248A2AEE001CFF08 /* DonationsNetworkRequestorTests.swift */,
+				7CAD53E7248A326F001CFF08 /* PetitionsNetworkRequestorTests.swift */,
+				7CAD53E9248A32FC001CFF08 /* PeopleNetworkRequestorTests.swift */,
+			);
+			path = Requestors;
 			sourceTree = "<group>";
 		};
 		83E9CACE2484A4DE001D173A /* Launch */ = {
@@ -775,6 +805,7 @@
 				5B3ED74E2481CA000033FF79 /* Sources */,
 				5B3ED74F2481CA000033FF79 /* Frameworks */,
 				5B3ED7502481CA000033FF79 /* Resources */,
+				4015E62D36A2B96452679C3D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -904,6 +935,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SayTheirNames/Pods-SayTheirNames-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4015E62D36A2B96452679C3D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SayTheirNamesTests/Pods-SayTheirNamesTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SayTheirNamesTests/Pods-SayTheirNamesTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SayTheirNamesTests/Pods-SayTheirNamesTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		9B6FBD18D3164ABFC8A39665 /* [CP] Check Pods Manifest.lock */ = {
@@ -1081,6 +1129,10 @@
 				7A5BFA1B2488871C00BC265A /* DateFormatterServiceTests.swift in Sources */,
 				B386F9552482FB540037A38D /* UIFontSTNTests.swift in Sources */,
 				5F62B732248975CF00ACE032 /* LocationCollectionViewDataSourceTests.swift in Sources */,
+				7CAD53EA248A32FC001CFF08 /* PeopleNetworkRequestorTests.swift in Sources */,
+				7CAD53E6248A2AEE001CFF08 /* DonationsNetworkRequestorTests.swift in Sources */,
+				7CAD53E3248A2A9F001CFF08 /* NetworkRequestorTests.swift in Sources */,
+				7CAD53E8248A326F001CFF08 /* PetitionsNetworkRequestorTests.swift in Sources */,
 				83E9CAD72484A6A2001D173A /* LaunchScreenTests.swift in Sources */,
 				7A5BFA14248618CF00BC265A /* Say_Their_NamesTests.swift in Sources */,
 			);
