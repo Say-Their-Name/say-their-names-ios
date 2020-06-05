@@ -38,10 +38,10 @@ final class HomeController: UIViewController, ServiceReferring {
     
     private var locationCollectionView: UICollectionView { homeView.locationCollectionView }
     private var peopleCollectionView: UICollectionView { homeView.peopleCollectionView }
+    private var peopleHeaderCollectionView: UICollectionView { homeView.peopleHeaderCollectionView }
     private var searchButton: UIButton { homeView.searchButton }
     
     // MARK: - ClASS METHODS
-
     override func loadView() {
         self.view = homeView
     }
@@ -72,6 +72,12 @@ final class HomeController: UIViewController, ServiceReferring {
     }
     
     fileprivate func setupCollectionView() {
+
+        let carouselData: [HeaderCellContent] = [
+            .init(),
+            .init(),
+            .init()
+        ]
         
         // TO-DO: Dummy data for now, should update after API call to get locations
         let locations: [Location] = [.init(name: "ALL"),
@@ -81,13 +87,15 @@ final class HomeController: UIViewController, ServiceReferring {
                          .init(name: "NEW YORK")]
 
         locationsDataSourceHelper.setLocations(locations)
-        
+        peopleDataSourceHelper.peopleHeaderCollectionView = peopleHeaderCollectionView
         // FIXME: This should be setup in a better place, for now this loads out data
         self.service.network.fetchPeople { [weak self] (result) in
             switch result {
             case .success(let page):
                 self?.peopleDataSourceHelper.setPeople(page.all)
                 self?.peopleCollectionView.reloadData()
+                self?.peopleDataSourceHelper.setHeaderData(carouselData)
+                self?.peopleHeaderCollectionView.reloadData()
             case .failure(let error):
                 Log.print(error)
             }
@@ -102,6 +110,7 @@ final class HomeController: UIViewController, ServiceReferring {
         peopleCollectionView.dataSource = peopleDataSourceHelper.dataSource
         peopleCollectionView.accessibilityIdentifier = "peopleCollection"
         peopleCollectionView.isAccessibilityElement = false
+
     }
     
     // MARK: - IBACTIONS

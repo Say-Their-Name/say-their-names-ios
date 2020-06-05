@@ -105,10 +105,16 @@ extension UIView {
             heightAnchor.constraint(equalToConstant: size.height).isActive = true
         }
     }
+
+    public func add<T: UIView>(_ view: T, then closure: ((T) -> Void)) {
+         self.addSubview(view)
+         closure(view)
+     }
 }
 
 extension UIEdgeInsets {
      init(_ top: CGFloat = 0, _ left: CGFloat = 0, _ bottom: CGFloat = 0, _ right: CGFloat = 0) {
         self.init(top: top, left: left, bottom: bottom, right: right)
     }
+
 }

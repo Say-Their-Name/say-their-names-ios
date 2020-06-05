@@ -15,6 +15,31 @@ final class HomeView: UIView {
         customNavigationBar.backgroundColor = .black
         return customNavigationBar
     }()
+
+    lazy var peopleHeaderCollectionView: UICollectionView = {
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                              heightDimension: .fractionalHeight(1.0))
+
+        let layoutItem = NSCollectionLayoutItem(layoutSize: itemSize)
+
+        let layoutGroupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.95),
+                                               heightDimension: .fractionalHeight(1.0))
+
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: layoutGroupSize, subitems: [layoutItem])
+        let spacing = CGFloat(10)
+        group.interItemSpacing = .fixed(spacing)
+
+        let section = NSCollectionLayoutSection(group: group)
+        section.orthogonalScrollingBehavior = .groupPaging
+        section.interGroupSpacing = spacing
+
+        let layout = UICollectionViewCompositionalLayout(section: section)
+
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.backgroundColor = .white
+        collectionView.contentInsetAdjustmentBehavior = .always
+        return collectionView
+    }()
     
     lazy var locationCollectionView: UICollectionView = {
         let locationLayout = UICollectionViewFlowLayout()

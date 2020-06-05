@@ -8,6 +8,10 @@
 
 import Foundation
 
+struct HeaderCellContent: Hashable {
+    let id = UUID()
+}
+
 struct Person: Decodable {
     var id: Int
     var fullName: String
