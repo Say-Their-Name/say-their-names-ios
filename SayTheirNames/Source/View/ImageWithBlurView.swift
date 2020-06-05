@@ -68,8 +68,8 @@ class ImageWithBlurView: UIView {
         NSLayoutConstraint.activate([
             frontImageContainerView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 40),
             frontImageContainerView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -40),
+            frontImageContainerView.topAnchor.constraint(equalTo: topAnchor),
             frontImageContainerView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            frontImageContainerView.centerYAnchor.constraint(equalTo: centerYAnchor),
             frontImageContainerView.heightAnchor.constraint(equalToConstant: 390),
         ])
     }

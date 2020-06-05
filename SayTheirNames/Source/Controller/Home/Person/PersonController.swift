@@ -237,7 +237,7 @@ extension PersonController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let cellType = cellCollectionTypes[indexPath.row]
         switch cellType {
-        case .photo: return 520
+        case .photo: return 420
         case .info: return 140
         case .news: return 340
         case .medias: return 300
