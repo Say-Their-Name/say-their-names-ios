@@ -88,18 +88,32 @@ class PersonController: BaseViewController {
     }
     
     private func setupNavigationBarItems() {
+        
+        let dismissActionGesture = UITapGestureRecognizer(target: self, action: #selector(dismissAction(_:)))
+        let shareActionGesture = UITapGestureRecognizer(target: self, action: #selector(shareAction(_:)))
+
         let dismissButton = UIButton(type: .system)
+        dismissButton.addGestureRecognizer(dismissActionGesture)
         dismissButton.setImage(UIImage(named: "Close Icon")?.withRenderingMode(.alwaysOriginal), for: .normal)
         dismissButton.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: dismissButton)
         
         let shareButton = UIButton(type: .system)
+        shareButton.addGestureRecognizer(shareActionGesture)
         shareButton.setImage(UIImage(named: "share_white")?.withRenderingMode(.alwaysOriginal), for: .normal)
         shareButton.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: shareButton)
         
         navigationController?.navigationBar.isTranslucent = false
         navigationController?.navigationBar.barTintColor = .black
+    }
+    
+    @objc func dismissAction(_ sender: Any) {
+        navigationController?.dismiss(animated: true, completion: nil)
+    }
+    
+    @objc func shareAction(_ sender: Any) {
+        // Present share bottom sheet view
     }
     
     private func registerCells(to tableView: UITableView) {
