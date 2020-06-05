@@ -14,7 +14,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
     // Params
     private let defaultBarTint: UIColor = .white
     private let defaultTint = UIColor.black
-    private let defaultUnselectedTint = #colorLiteral(red: 0.3803921569, green: 0.3882352941, blue: 0.4666666667, alpha: 0.5681668134)
+    private let defaultUnselectedTint = UIColor(red: 0.3803921569, green: 0.3882352941, blue: 0.4666666667, alpha: 0.5681668134)
 
     private let shadowRadius: CGFloat = 15
     private let shadowOpacity: Float = 1
@@ -58,7 +58,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
     fileprivate func setupTabBarStyle() {
         tabBar.isTranslucent = true
         tabBar.layer.borderWidth = 0.9
-        tabBar.layer.borderColor = #colorLiteral(red: 0.9451505829, green: 0.9451505829, blue: 0.9451505829, alpha: 1)
+        tabBar.layer.borderColor = UIColor(red: 0.9451505829, green: 0.9451505829, blue: 0.9451505829, alpha: 1).cgColor
         tabBar.clipsToBounds = true
         tabBar.backgroundColor = .white
         tabBar.barTintColor = defaultBarTint
@@ -81,21 +81,21 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         let settingsNC = UINavigationController(rootViewController: settingsController)
             
         homeNC.isNavigationBarHidden = true
-        homeNC.tabBarItem.image = #imageLiteral(resourceName: "gallery")
+        homeNC.tabBarItem.image = UIImage(named: "gallery")
         homeNC.tabBarItem.title = Strings.home
         
         donationsNC.isNavigationBarHidden = true
-        donationsNC.tabBarItem.image = #imageLiteral(resourceName: "heart")
+        donationsNC.tabBarItem.image = UIImage(named: "heart")
         donationsNC.tabBarItem.selectedImage = UIImage(named: "heart_active")
         donationsNC.tabBarItem.title = Strings.donations
                
         petitionsNC.isNavigationBarHidden = true
-        petitionsNC.tabBarItem.image = #imageLiteral(resourceName: "petition")
+        petitionsNC.tabBarItem.image = UIImage(named: "petition")
         petitionsNC.tabBarItem.selectedImage = UIImage(named: "petition_active")
         petitionsNC.tabBarItem.title = Strings.petitions
         
         settingsNC.isNavigationBarHidden = true
-        settingsNC.tabBarItem.image = #imageLiteral(resourceName: "settings")
+        settingsNC.tabBarItem.image = UIImage(named: "settings")
         settingsNC.tabBarItem.selectedImage = UIImage(named: "settings_active")
         settingsNC.tabBarItem.title = Strings.settings
         
