@@ -88,11 +88,14 @@ enum PersonCellType: Equatable {
 class PersonController: BaseViewController {
     
     var person: Person!
-    
-    var sareArea: UILayoutGuide!
     var tableView: UITableView = UITableView(frame: .zero)
-    
     let donationButtonContainerView = ButtonContainerView(frame: .zero)
+    
+    // TODO: Once Theme.swift/etc. gets added to the project this should get moved there.
+    let navigationBarTextAttributes = [
+        NSAttributedString.Key.foregroundColor: UIColor.white,
+        NSAttributedString.Key.font: UIFont.STN.navBarTitle
+    ]
     
     var cellCollectionTypes: [PersonCellType] = {
         return [.photo, .info, .story, .outcome, .news([]), .medias([]), .hashtags]
@@ -105,7 +108,6 @@ class PersonController: BaseViewController {
     
     override func loadView() {
         super.loadView()
-        sareArea = view.layoutMarginsGuide
         view.backgroundColor = .white
         setupNavigationBarItems()
         setupTableView()
@@ -113,6 +115,11 @@ class PersonController: BaseViewController {
     }
     
     private func setupNavigationBarItems() {
+        // TODO: Once Theme.swift/etc gets added this may not be required
+        navigationController?.navigationBar.titleTextAttributes = self.navigationBarTextAttributes
+        
+        // TODO: Localization
+        self.title = "Say Their Names".uppercased()
         
         let dismissActionGesture = UITapGestureRecognizer(target: self, action: #selector(dismissAction(_:)))
         let shareActionGesture = UITapGestureRecognizer(target: self, action: #selector(shareAction(_:)))
@@ -174,7 +181,7 @@ class PersonController: BaseViewController {
         donationButtonContainerView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         donationButtonContainerView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         donationButtonContainerView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-        donationButtonContainerView.heightAnchor.constraint(equalToConstant: 120).isActive = true
+        donationButtonContainerView.heightAnchor.constraint(equalToConstant: 90).isActive = true
         
         // Now we can set the anchor for the UITableView
         tableView.bottomAnchor.constraint(equalTo: donationButtonContainerView.topAnchor, constant: 0).isActive = true
