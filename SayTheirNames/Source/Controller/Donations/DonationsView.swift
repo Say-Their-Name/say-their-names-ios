@@ -15,6 +15,7 @@ final class DonationsView: UIView {
         let label = UILabel()
         label.text = "Donations"
         label.textAlignment = .center
+        label.font = UIFont.STN.body
         label.translatesAutoresizingMaskIntoConstraints = false
         
         return label
