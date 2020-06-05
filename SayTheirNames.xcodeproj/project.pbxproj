@@ -14,6 +14,7 @@
 		3A33EF65248ABC7500580D1E /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A33EF64248ABC7500580D1E /* Theme.swift */; };
 		3A33EF67248AC1D700580D1E /* UIEdgeInsets+init.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A33EF66248AC1D700580D1E /* UIEdgeInsets+init.swift */; };
 		3A33EF65248ABC7500580D1E /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A33EF64248ABC7500580D1E /* Theme.swift */; };
+		3A33EF67248AC1D700580D1E /* UIEdgeInsets+init.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A33EF66248AC1D700580D1E /* UIEdgeInsets+init.swift */; };
 		4B3810E42B5E6D69FEA97B00 /* Pods_SayTheirNames.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E09B7306596AE2549FC2488 /* Pods_SayTheirNames.framework */; };
 		5B026C52248AECB700335A17 /* PersonHashtagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B026C51248AECB700335A17 /* PersonHashtagCollectionViewCell.swift */; };
 		5B026C54248AEE8F00335A17 /* PersonHashtagTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B026C53248AEE8F00335A17 /* PersonHashtagTableViewCell.swift */; };
