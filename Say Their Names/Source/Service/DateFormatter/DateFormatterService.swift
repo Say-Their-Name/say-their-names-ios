@@ -29,7 +29,8 @@ class DateFormatterService {
             }
             
             let dateFormatter = DateFormatter()
-            dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+            dateFormatter.locale = .current
+            dateFormatter.timeZone = .current
             dateFormatter.dateFormat = format
             
             dateFormatters[key] = dateFormatter
