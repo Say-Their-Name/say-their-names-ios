@@ -5,6 +5,8 @@ disabled_rules:
     - function_body_length
     - nesting
     - statement_position
+    - type_body_length
+    - file_length
     - identifier_name 
     - opening_brace
     - type_name
@@ -17,7 +19,6 @@ disabled_rules:
 
 opt_in_rules:
   - force_unwrapping
-  - discouraged_object_literal
 
 line_length: 150
 
@@ -26,8 +27,8 @@ type_body_length:
   - 400 # error
 
 file_length:
-  warning: 500
-  error: 600
+warning: 500
+error: 600
 
 excluded: 
   - Carthage
