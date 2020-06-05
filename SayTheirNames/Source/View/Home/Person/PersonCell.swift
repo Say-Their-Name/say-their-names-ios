@@ -39,9 +39,9 @@ final class PersonCell: UICollectionViewCell {
     }()
     
     private lazy var bookmarkButton: UIButton = {
-        let btn = UIButton(type: .custom)
+        let bookmarkImage = UIImage(named: "bookmark")
+        let btn = UIButton(image: bookmarkImage)
         btn.contentMode = .scaleAspectFill
-        btn.setImage(UIImage(named: "bookmark"), for: .normal)
         btn.addTarget(self, action: #selector(didTapBookmark), for: .touchUpInside)
         btn.translatesAutoresizingMaskIntoConstraints = false
         return btn

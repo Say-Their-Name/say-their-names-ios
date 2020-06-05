@@ -12,7 +12,7 @@ import UIKit
 private let headerIdentifier = "PersonHeaderCell"
 private let peopleIdentifier = "PersonCell"
 
-class HomeController: UIViewController, ServiceReferring {
+final class HomeController: UIViewController, ServiceReferring {
     let service: Servicing
     
     required init(service: Servicing) {
@@ -20,6 +20,7 @@ class HomeController: UIViewController, ServiceReferring {
         super.init(nibName: nil, bundle: nil)
     }
     
+    @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -28,15 +29,16 @@ class HomeController: UIViewController, ServiceReferring {
     private let searchBar = CustomSearchBar()
     
     // MARK: - CV Data Sources
-    private let locationsDataSource = LocationCollectionViewDataSource(locations: [])
-    private let peopleDataSource = PersonCollectionViewDataSource()
+    private lazy var locationsDataSourceHelper = LocationCollectionViewDataSourceHelper(collectionView: locationCollectionView)
+    private lazy var peopleDataSourceHelper = PersonCollectionViewDataSourceHelper(collectionView: peopleCollectionView)
     
     private let homeView = HomeView()
+    
     var customNavBar: UIView { homeView.customNavigationBar }
-    var locationCollectionView: UICollectionView { homeView.locationCollectionView }
-    var peopleCollectionView: UICollectionView { homeView.peopleCollectionView }
-    var searchButton: UIButton { homeView.searchButton }
-    override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
+    
+    private var locationCollectionView: UICollectionView { homeView.locationCollectionView }
+    private var peopleCollectionView: UICollectionView { homeView.peopleCollectionView }
+    private var searchButton: UIButton { homeView.searchButton }
     
     // MARK: - ClASS METHODS
 
@@ -61,6 +63,10 @@ class HomeController: UIViewController, ServiceReferring {
         locationCollectionView.selectItem(at: selectedIndexPath, animated: false, scrollPosition: .centeredVertically)
     }
 
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     private func setupSearchButton() {
         searchButton.addTarget(self, action: #selector(searchButtonPressed(_:)), for: .touchUpInside)
     }
@@ -73,13 +79,14 @@ class HomeController: UIViewController, ServiceReferring {
                          .init(name: "MISSOURI"),
                          .init(name: "TEXAS"),
                          .init(name: "NEW YORK")]
-        locationsDataSource.setLocations(locations)
 
+        locationsDataSourceHelper.setLocations(locations)
+        
         // FIXME: This should be setup in a better place, for now this loads out data
         self.service.network.fetchPeople { [weak self] (result) in
             switch result {
             case .success(let page):
-                self?.peopleDataSource.setPeople(page.all)
+                self?.peopleDataSourceHelper.setPeople(page.all)
                 self?.peopleCollectionView.reloadData()
             case .failure(let error):
                 Log.print(error)
@@ -87,17 +94,12 @@ class HomeController: UIViewController, ServiceReferring {
         }
 
         locationCollectionView.delegate = self
-        locationCollectionView.dataSource = locationsDataSource
-        locationCollectionView.register(LocationCell.self, forCellWithReuseIdentifier: LocationCell.locationIdentifier)
+        locationCollectionView.dataSource = locationsDataSourceHelper.dataSource
         locationCollectionView.isAccessibilityElement = false
         locationCollectionView.accessibilityIdentifier = "locationCollection"
         
         peopleCollectionView.delegate = self
-        peopleCollectionView.dataSource = peopleDataSource
-        peopleCollectionView.register(PersonCell.self, forCellWithReuseIdentifier: PersonCell.personIdentifier)
-        peopleCollectionView.register(UINib(nibName: headerIdentifier, bundle: nil),
-                                      forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
-                                      withReuseIdentifier: headerIdentifier)
+        peopleCollectionView.dataSource = peopleDataSourceHelper.dataSource
         peopleCollectionView.accessibilityIdentifier = "peopleCollection"
         peopleCollectionView.isAccessibilityElement = false
     }
@@ -134,8 +136,10 @@ extension HomeController: UICollectionViewDelegateFlowLayout {
             return CGSize(width: 103, height: 36)
         }
         else if collectionView === peopleCollectionView {
-            let width = collectionView.frame.width / 2 - 24
-            return CGSize(width: width, height: 300)
+            let width = homeView.safeWidth(for: collectionView)
+            let isPortrait = traitCollection.horizontalSizeClass == .compact && traitCollection.verticalSizeClass == .regular
+            let cellWidth = width / (isPortrait ? 2 : 4)
+            return CGSize(width: cellWidth, height: 300)
         }
         else {
             return CGSize.zero
