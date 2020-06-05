@@ -71,6 +71,16 @@ class PersonController: BaseViewController {
     var sareArea: UILayoutGuide!
     var tableView: UITableView = UITableView(frame: .zero)
     
+    // TODO: The Donation Button/Container should be broken out into a custom class
+    let donationButtonContainerView = UIView(frame: .zero)
+    private lazy var donationButtonView: UIButton = {
+        let button = UIButton(type: .custom)
+        button.setTitle("Donate".uppercased(), for: .normal)
+        button.titleLabel?.font = UIFont.STN.sectionHeader
+        button.backgroundColor = .black
+        return button
+    }()
+    
     var cellCollectionTypes: [PersonCellType] = {
         return [.photo, .info, .story, .outcome, .news([]), .medias([])]
     }()
@@ -83,8 +93,10 @@ class PersonController: BaseViewController {
     override func loadView() {
         super.loadView()
         sareArea = view.layoutMarginsGuide
+        view.backgroundColor = .white
         setupNavigationBarItems()
         setupTableView()
+        setupDonationButton()
     }
     
     private func setupNavigationBarItems() {
@@ -125,17 +137,48 @@ class PersonController: BaseViewController {
         tableView.dataSource = self
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.separatorStyle = .none
-        tableView.allowsSelection = false 
+        tableView.allowsSelection = false
+        tableView.insetsContentViewsToSafeArea = false
         view.addSubview(tableView)
         
         NSLayoutConstraint.activate([
             tableView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 0),
-            tableView.topAnchor.constraint(equalTo: sareArea.topAnchor, constant: 0),
-            tableView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 0),
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0),
+            tableView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0),
+            tableView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 0)
         ])
         
         registerCells(to: tableView)
+    }
+    
+    private func setupDonationButton() {
+        donationButtonContainerView.translatesAutoresizingMaskIntoConstraints = false
+        donationButtonContainerView.backgroundColor = .white
+        view.addSubview(donationButtonContainerView)
+        donationButtonContainerView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        donationButtonContainerView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        donationButtonContainerView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        donationButtonContainerView.heightAnchor.constraint(equalToConstant: 90).isActive = true
+        
+        // Add a nice little separator view
+        let separatorView = UIView(frame: .zero)
+        separatorView.translatesAutoresizingMaskIntoConstraints = false
+        separatorView.backgroundColor = UIColor.STN.gray
+        donationButtonContainerView.addSubview(separatorView)
+        separatorView.topAnchor.constraint(equalTo: donationButtonContainerView.topAnchor).isActive = true
+        separatorView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        separatorView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        separatorView.heightAnchor.constraint(equalToConstant: 1).isActive = true
+        
+        // Now we can set the anchor for the UITableView
+        tableView.bottomAnchor.constraint(equalTo: donationButtonContainerView.topAnchor, constant: 0).isActive = true
+        
+        // Finally, setup the Donations Button
+        donationButtonView.translatesAutoresizingMaskIntoConstraints = false
+        donationButtonContainerView.addSubview(donationButtonView)
+        donationButtonView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        donationButtonView.topAnchor.constraint(equalTo: donationButtonContainerView.topAnchor, constant: 20).isActive = true
+        donationButtonView.leftAnchor.constraint(equalTo: donationButtonContainerView.leftAnchor, constant: 40).isActive = true
+        donationButtonView.rightAnchor.constraint(equalTo: donationButtonContainerView.rightAnchor, constant: -40).isActive = true
     }
 }
 

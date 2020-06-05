@@ -152,6 +152,7 @@ extension HomeController: UICollectionViewDelegateFlowLayout {
             let personController = PersonController(service: self.service)
             personController.person = selectedPerson
             let navigationController = UINavigationController(rootViewController: personController)
+            navigationController.modalPresentationStyle = .fullScreen
             present(navigationController, animated: true, completion: nil)
         }
     }
