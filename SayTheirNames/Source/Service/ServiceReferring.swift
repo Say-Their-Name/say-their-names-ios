@@ -8,8 +8,8 @@
 
 import UIKit
 
-/// Protocol describing a type that can hold a reference to `Service`
+/// Protocol describing a type that can hold a reference to `Servicing`
 protocol ServiceReferring {
-    var service: Service { get }
-    init(service: Service)
+    var service: Servicing { get }
+    init(service: Servicing)
 }

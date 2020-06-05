@@ -9,11 +9,11 @@
 import UIKit
 
 class BaseViewController: UIViewController {
-    let service: Service
+    let service: Servicing
     
     required init?(coder: NSCoder) { fatalError("") }
     
-    required init(service: Service) {
+    required init(service: Servicing) {
         self.service = service
         super.init(nibName: nil, bundle: nil)
     }

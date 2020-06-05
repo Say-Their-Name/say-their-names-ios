@@ -13,9 +13,9 @@ private let headerIdentifier = "PersonHeaderCell"
 private let peopleIdentifier = "PersonCell"
 
 class HomeController: UIViewController, ServiceReferring {
-    let service: Service
+    let service: Servicing
     
-    required init(service: Service) {
+    required init(service: Servicing) {
         self.service = service
         super.init(nibName: nil, bundle: nil)
     }

@@ -9,13 +9,13 @@
 import UIKit
 
 final class Navigator: ServiceReferring {
-    let service: Service
+    let service: Servicing
     let window: UIWindow
     let rootViewController: MainTabBarController
     
     // MARK: - Public methods
     
-    init(service: Service) {
+    init(service: Servicing) {
         self.service = service
         self.rootViewController = MainTabBarController(service: service)
         self.window = UIWindow()
