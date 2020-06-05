@@ -8,41 +8,35 @@
 
 import UIKit
 
-class LocationCollectionViewDataSource: NSObject {
-     
-    private var locations: [Location]
+final class LocationCollectionViewDataSourceHelper {
     
-    init(locations: [Location]) {
-        self.locations = locations
+    enum Section {
+        case main
+    }
+    
+    typealias LocationCollectionViewDataSource = UICollectionViewDiffableDataSource<Section, Location>
+    
+    let dataSource: LocationCollectionViewDataSource
+    
+    init(collectionView: UICollectionView) {
+        collectionView.register(cellType: LocationCell.self)
+
+        self.dataSource =
+            LocationCollectionViewDataSource(collectionView: collectionView) { (collectionView, indexPath, location) -> UICollectionViewCell? in
+            let cell: LocationCell = collectionView.dequeueCell(for: indexPath)
+            cell.configure(with: location)
+            cell.accessibilityIdentifier = "locationCell\(indexPath.item)"
+            cell.isAccessibilityElement = true
+            return cell
+        }
     }
     
     func setLocations(_ locations: [Location]) {
-        self.locations = locations
-    }
-    
-}
-
-extension LocationCollectionViewDataSource: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if section == 0 {
-            return locations.count
+        var snapshot = NSDiffableDataSourceSnapshot<Section, Location>()
+        if !locations.isEmpty {
+            snapshot.appendSections([Section.main])
+            snapshot.appendItems(locations)
         }
-        return 0
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-         
-        let location = locations[indexPath.item]
-        
-        if let locationCell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: LocationCell.locationIdentifier,
-            for: indexPath) as? LocationCell {
-            locationCell.configure(with: location)
-            locationCell.accessibilityIdentifier = "locationCell\(indexPath.item)"
-            locationCell.isAccessibilityElement = true
-            return locationCell
-        }
-        
-        return UICollectionViewCell()
+        dataSource.apply(snapshot)
     }
 }

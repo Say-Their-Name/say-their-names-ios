@@ -36,7 +36,7 @@ When making a PR, add a meaningful title and description.
 If any development is done on the UI (additions or non-trivial changes), please
 include a screenshot of the change.
 
-Tag `Say-Their-Name/ios` group as a reviewer, so all iOS contributors get a notification.
+Add `Say-Their-Name/ios` group as a reviewer, so all iOS contributors get a notification.
 
 ### Reviewing a PR
 
@@ -51,7 +51,8 @@ should block the PR.
 
 ## The project
 
-This project is a classic iOS app project, written in Swift with UIKit, using Xcode 11.5.
+This project is a classic iOS app project, written in Swift with UIKit, using Xcode 11.5
+with support for iOS 13 and above.
 
 ### Code style
 
@@ -106,9 +107,29 @@ can be run right away when checking out the repo without the need to install
 additional tools. If there are any uncommitted changes inside the `Pods/`
 folder, they most likely need to be committed.
 
+## FAQ
+
+### Who reviews / merges pull requests?
+
+Anyone can review a pull request, but only reviews of members with write access to the repo count toward the required number of reviews. 
+
+When the PR is all-green (got required approvals and CI passed), anyone can merge the PR, unless mentioned in the comments not to. 
+If the PR has conflicts, sometimes one of the maintainers will resolve them to merge quickly, but generally the PR author is expected to bring the PR to a mergeable state and merge it.
+
+### Who moves cards on the Trello board?
+
+When you pick up a task, move the card from To-Do to In progress column, then to In Review when PR is created, and to Complete once the PR(s) are merged. 
+Sometimes maintainers might move cards if they are left in outdated state. 
+
+### Who are the maintainers? 
+
+[@FranckNdame](https://github.com/FranckNdame) started the project together with [@ahmadkarkouti](https://github.com/ahmadkarkouti), and more and more people joined over time.
+If you are active in the project, contribute regularly and keep up with what's happening, you can consider yourself a maintainer!
+
 ## Conclusion
 
-Hopefully this document has given you an introduction to the project.
+Hopefully this document has given you an introduction to the project. 
+If you have any questions not covered here, feel to ask them on the #ios channel in Slack (link above).
 Feel free to submit Pull Requests to improve this document.
 
 Looking forward to your contributions! 🙌
