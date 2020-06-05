@@ -111,7 +111,6 @@
 		B3D6B6B3248987AD00D3118C /* CONTRIBUTING.md in Resources */ = {isa = PBXBuildFile; fileRef = B3D6B6B1248987AD00D3118C /* CONTRIBUTING.md */; };
 		B3D6B6B52489A59700D3118C /* UICollectionReusableView+Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D6B6B42489A59700D3118C /* UICollectionReusableView+Reusable.swift */; };
 		C0594BFA248754A200260BAD /* UICollectionView++.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0594BF9248754A200260BAD /* UICollectionView++.swift */; };
-		C0594BFC248754C900260BAD /* UICollectionViewCell++.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0594BFB248754C900260BAD /* UICollectionViewCell++.swift */; };
 		D787FC9B248A71A3001FC6FF /* ImageWithBlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D787FC9A248A71A3001FC6FF /* ImageWithBlurView.swift */; };
 		D7A96091248A676A005E0153 /* ButtonContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A96090248A676A005E0153 /* ButtonContainerView.swift */; };
 		DD25CD80248A2AD20013D617 /* UIButton++.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD25CD7F248A2AD20013D617 /* UIButton++.swift */; };
@@ -1346,7 +1345,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = Q93T3ZJQ58;
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/SayTheirNames/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1367,7 +1366,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = Q93T3ZJQ58;
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/SayTheirNames/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (

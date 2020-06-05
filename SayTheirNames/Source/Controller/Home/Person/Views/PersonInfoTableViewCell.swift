@@ -33,13 +33,13 @@ class PersonInfoTableViewCell: UITableViewCell {
             ageContainerStack,
             horizontalSeparatorView,
             childrenContainerStack,
-            horizontalSeparatorView,
+            secondHorizontalSeparatorView,
             locationContainerStack
         ])
         view.distribution = .fill
         view.alignment = .top
         view.axis = .horizontal
-        view.spacing = 16
+        view.spacing = 8
         return view
     }()
        
@@ -83,7 +83,7 @@ class PersonInfoTableViewCell: UITableViewCell {
         let label = UILabel(frame: .zero)
         label.text = "FIRSTNAME LAST"
         label.textColor = UIColor(red: 16/255.0, green: 16/255.0, blue: 16/255.0, alpha: 1)
-        label.font = UIFont(name: "Karla-Bold", size: 24)
+        label.font = UIFont(name: "Karla-Bold", size: 21)
         label.numberOfLines = 0
         label.minimumScaleFactor = 0.5
         label.adjustsFontSizeToFitWidth = true
@@ -94,7 +94,7 @@ class PersonInfoTableViewCell: UITableViewCell {
         let label = UILabel()
         label.text = "AGE"
         label.textColor = UIColor(red: 16/255.0, green: 16/255.0, blue: 16/255.0, alpha: 0.5)
-        label.font = UIFont(name: "Karla-Bold", size: 14)
+        label.font = UIFont(name: "Karla-Bold", size: 11)
         label.numberOfLines = 1
         label.minimumScaleFactor = 0.5
         label.adjustsFontSizeToFitWidth = true
@@ -105,7 +105,7 @@ class PersonInfoTableViewCell: UITableViewCell {
         let label = UILabel()
         label.text = "CHILDREN"
         label.textColor = UIColor(red: 16/255.0, green: 16/255.0, blue: 16/255.0, alpha: 0.5)
-        label.font = UIFont(name: "Karla-Bold", size: 14)
+        label.font = UIFont(name: "Karla-Bold", size: 11)
         label.numberOfLines = 1
         label.minimumScaleFactor = 0.5
         label.adjustsFontSizeToFitWidth = true
@@ -116,7 +116,7 @@ class PersonInfoTableViewCell: UITableViewCell {
         let label = UILabel()
         label.text = "LOCATION"
         label.textColor = UIColor(red: 16/255.0, green: 16/255.0, blue: 16/255.0, alpha: 0.5)
-        label.font = UIFont(name: "Karla-Bold", size: 14)
+        label.font = UIFont(name: "Karla-Bold", size: 11)
         label.numberOfLines = 1
         label.minimumScaleFactor = 0.5
         label.adjustsFontSizeToFitWidth = true
@@ -127,7 +127,7 @@ class PersonInfoTableViewCell: UITableViewCell {
         let label = UILabel()
         label.text = "46"
         label.textColor = UIColor(red: 16/255.0, green: 16/255.0, blue: 16/255.0, alpha: 1)
-        label.font = UIFont(name: "Karla-Bold", size: 20)
+        label.font = UIFont(name: "Karla-Bold", size: 16)
         label.numberOfLines = 1
         label.minimumScaleFactor = 0.5
         label.adjustsFontSizeToFitWidth = true
@@ -138,7 +138,7 @@ class PersonInfoTableViewCell: UITableViewCell {
         let label = UILabel()
         label.text = "2"
         label.textColor = UIColor(red: 16/255.0, green: 16/255.0, blue: 16/255.0, alpha: 1)
-        label.font = UIFont(name: "Karla-Bold", size: 20)
+        label.font = UIFont(name: "Karla-Bold", size: 16)
         label.numberOfLines = 1
         label.minimumScaleFactor = 0.5
         label.adjustsFontSizeToFitWidth = true
@@ -149,7 +149,7 @@ class PersonInfoTableViewCell: UITableViewCell {
         let label = UILabel()
         label.text = "Missisippi, Denver Cloud Source, United States of America"
         label.textColor = UIColor(red: 16/255.0, green: 16/255.0, blue: 16/255.0, alpha: 1)
-        label.font = UIFont(name: "Karla-Bold", size: 19)
+        label.font = UIFont(name: "Karla-Bold", size: 16)
         label.numberOfLines = 0
         label.minimumScaleFactor = 0.5
         label.adjustsFontSizeToFitWidth = true
@@ -167,6 +167,12 @@ class PersonInfoTableViewCell: UITableViewCell {
         view.backgroundColor = UIColor(red: 196/255.0, green: 196/255.0, blue: 196/255.0, alpha: 0.4)
         return view
     }()
+    
+    lazy var secondHorizontalSeparatorView: UIView = {
+           let view = UIView(frame: .zero)
+           view.backgroundColor = UIColor(red: 196/255.0, green: 196/255.0, blue: 196/255.0, alpha: 0.4)
+           return view
+       }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -189,8 +195,9 @@ class PersonInfoTableViewCell: UITableViewCell {
         ageContainerStack.widthAnchor.constraint(equalToConstant: 60).isActive = true
         childrenContainerStack.widthAnchor.constraint(equalToConstant: 90).isActive = true
         locationContainerStack.widthAnchor.constraint(greaterThanOrEqualToConstant: 50).isActive = true
-        verticalSeparatorView.anchor(size: .init(width: 150, height: 1))
-        horizontalSeparatorView.anchor(size: .init(width: 1, height: 30))
+        verticalSeparatorView.anchor(size: .init(width: 150, height: 1.5))
+        horizontalSeparatorView.anchor(size: .init(width: 1.5, height: 30))
+        secondHorizontalSeparatorView.anchor(size: .init(width: 1.5, height: 30))
 
     }
 }

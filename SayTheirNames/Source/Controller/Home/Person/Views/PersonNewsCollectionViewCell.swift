@@ -18,8 +18,9 @@ class PersonNewsCollectionViewCell: UICollectionViewCell {
  
     lazy var newsImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "man-in-red-jacket-1681010")
+        imageView.image = UIImage(named: "media-image-1")
         imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
         return imageView
     }()
     

@@ -40,7 +40,7 @@ class ButtonContainerView: UIView {
 
         // Separator
         let separator = UIView(frame: .zero)
-        separator.backgroundColor = UIColor.STN.gray
+        separator.backgroundColor = UIColor.systemGray4
         
         addSubview(separator)
         addSubview(button)

@@ -181,7 +181,7 @@ class PersonController: BaseViewController {
         donationButtonContainerView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         donationButtonContainerView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         donationButtonContainerView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-        donationButtonContainerView.heightAnchor.constraint(equalToConstant: 90).isActive = true
+        donationButtonContainerView.heightAnchor.constraint(equalToConstant: 120).isActive = true
         
         // Now we can set the anchor for the UITableView
         tableView.bottomAnchor.constraint(equalTo: donationButtonContainerView.topAnchor, constant: 0).isActive = true
