@@ -14,10 +14,6 @@ extension UICollectionView {
         register(type, forCellWithReuseIdentifier: type.reuseIdentifier)
     }
 
-    func registerHeader(headerType type: UICollectionReusableView.Type) {
-        register(type, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: type.reuseIdentifier)
-    }
-
     /// Dequeues a generic cell from the collection view using the reuseIdentifier coming from the `Reusable` protocol.
     /// Note that the cell must be registered before into the collection view with the same reuseIdentifier.
     func dequeueCell<T: UICollectionViewCell>(for indexPath: IndexPath) -> T {

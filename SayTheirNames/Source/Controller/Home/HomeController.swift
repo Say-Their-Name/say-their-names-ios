@@ -92,12 +92,8 @@ final class HomeController: UIViewController, ServiceReferring {
         self.service.network.fetchPeople { [weak self] (result) in
             switch result {
             case .success(let page):
-                self?.peopleDataSourceHelper.setPeople(page.all)
+                self?.peopleDataSourceHelper.setPeople(page.all, headerData: carouselData)
                 self?.peopleCollectionView.reloadData()
-
-                //TODO: - move into own method to populate data in header
-                self?.peopleDataSourceHelper.setHeaderData(carouselData)
-                self?.peopleHeaderCollectionView.reloadData()
             case .failure(let error):
                 Log.print(error)
             }
@@ -124,20 +120,6 @@ final class HomeController: UIViewController, ServiceReferring {
 
 // MARK: - UICOLLECTIONVIEW EXTENSION
 extension HomeController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        referenceSizeForHeaderInSection section: Int) -> CGSize {
-        if collectionView === locationCollectionView {
-            return CGSize.zero
-        }
-        else if collectionView === peopleCollectionView {
-            let width = collectionView.frame.width - 32
-            return CGSize(width: width, height: 170)
-        }
-        else {
-            return CGSize.zero
-        }
-    }
 
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,

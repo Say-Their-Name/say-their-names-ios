@@ -54,21 +54,36 @@ final class HomeView: UIView {
     
     lazy var peopleCollectionView: UICollectionView = {
 
-
-
         let peopleLayout = UICollectionViewFlowLayout()
         peopleLayout.scrollDirection = .vertical
         peopleLayout.sectionInset = Self.PeopleSectionInsets
 
-
+//        let headerLayout = makeHeaderComposition()
 
         let peopleCollectionView = UICollectionView(frame: .zero, collectionViewLayout: peopleLayout)
         peopleCollectionView.contentInsetAdjustmentBehavior = .always
         return peopleCollectionView
+        
     }()
 
-    func makeHeaderComposition() {
+    func makeHeaderComposition() -> UICollectionViewLayout {
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                              heightDimension: .fractionalHeight(1.0))
 
+        let layoutItem = NSCollectionLayoutItem(layoutSize: itemSize)
+
+        let layoutGroupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.95),
+                                                     heightDimension: .fractionalHeight(1.0))
+
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: layoutGroupSize, subitems: [layoutItem])
+        let spacing = CGFloat(10)
+        group.interItemSpacing = .fixed(spacing)
+
+        let section = NSCollectionLayoutSection(group: group)
+        section.orthogonalScrollingBehavior = .groupPaging
+        section.interGroupSpacing = spacing
+
+        return UICollectionViewCompositionalLayout(section: section)
     }
     
     let bookmarkButton: UIButton = {
