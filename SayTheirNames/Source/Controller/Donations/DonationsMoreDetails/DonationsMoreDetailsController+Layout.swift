@@ -1,5 +1,5 @@
 //
-//  DonationMoreDetailsController+Layout.swift
+//  DonationsMoreDetailsController+Layout.swift
 //  SayTheirNames
 //
 //  Created by Leonard Chen on 6/5/20.
@@ -14,7 +14,9 @@ extension DonationsMoreDetailsController {
         let horizontalPadding: CGFloat = 27
         
         // UICollectionViewCompositionalLayout in a layout provider
-        let layout = UICollectionViewCompositionalLayout { (sectionIndex: Int, layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection in
+        let layout = UICollectionViewCompositionalLayout {
+            (sectionIndex: Int,
+            _ : NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection in
             switch sectionIndex {
             // Title section layout
             case DonationSectionLayoutKind.title.rawValue:

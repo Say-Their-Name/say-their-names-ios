@@ -50,7 +50,7 @@ public struct Person: Decodable {
         self.petitions = try values.decodeIfPresent(PetitionsResponsePage.self, forKey: .petitions) ?? PetitionsResponsePage()
         self.media = try values.decodeIfPresent([Media].self, forKey: .media) ?? []
         self.socialMedia = try values.decodeIfPresent([SocialMedia].self, forKey: .socialMedia) ?? []
-    }    
+    }
 }
 
 public struct PersonsResponsePage: Decodable {

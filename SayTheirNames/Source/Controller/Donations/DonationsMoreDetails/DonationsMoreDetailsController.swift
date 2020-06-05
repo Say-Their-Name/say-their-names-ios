@@ -8,8 +8,7 @@
 
 import UIKit
 
-class DonationsMoreDetailsController: UIViewController {
-
+class DonationsMoreDetailsController: BaseViewController {
     // MARK: - Section Layout Kind
     enum DonationSectionLayoutKind: Int, CaseIterable {
         case title = 0
@@ -18,15 +17,18 @@ class DonationsMoreDetailsController: UIViewController {
     }
     
     // MARK: - Property
+    var donation: Donation?
+    
+    // MARK: - Lifecycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+    }
+    
+    // MARK: - View
     private lazy var collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: Self.donationMoreDetailsCVLayout)
         
         return collectionView
     }()
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-    }
 }
-

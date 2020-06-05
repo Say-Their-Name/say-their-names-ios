@@ -103,7 +103,8 @@
 		C0594BFA248754A200260BAD /* UICollectionView++.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0594BF9248754A200260BAD /* UICollectionView++.swift */; };
 		C0594BFC248754C900260BAD /* UICollectionViewCell++.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0594BFB248754C900260BAD /* UICollectionViewCell++.swift */; };
 		D7B07BB4248A1D4A001E3646 /* DonationsMoreDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B07BB3248A1D4A001E3646 /* DonationsMoreDetailsController.swift */; };
-		D7B07BB6248A2FDE001E3646 /* DonationMoreDetailsController+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B07BB5248A2FDE001E3646 /* DonationMoreDetailsController+Layout.swift */; };
+		D7B07BB6248A2FDE001E3646 /* DonationsMoreDetailsController+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B07BB5248A2FDE001E3646 /* DonationsMoreDetailsController+Layout.swift */; };
+		D7B07BBA248A34AF001E3646 /* DMDTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B07BB9248A34AF001E3646 /* DMDTitleCell.swift */; };
 		EEC3A1D42483D493001E7754 /* CustomSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC3A1D32483D493001E7754 /* CustomSearchBar.swift */; };
 		EEC3A1DC2483D6B6001E7754 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC3A1DA2483D6B6001E7754 /* SearchResultCell.swift */; };
 		EEC3A1DD2483D6B6001E7754 /* SearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EEC3A1DB2483D6B6001E7754 /* SearchResultCell.xib */; };
@@ -240,7 +241,8 @@
 		D107CEC59C11537D09D9DB2E /* Pods-Say Their Names.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Say Their Names.release.xcconfig"; path = "Target Support Files/Pods-Say Their Names/Pods-Say Their Names.release.xcconfig"; sourceTree = "<group>"; };
 		D639F16885E8E79F7E336CC2 /* Pods-Say Their Names.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Say Their Names.debug.xcconfig"; path = "Target Support Files/Pods-Say Their Names/Pods-Say Their Names.debug.xcconfig"; sourceTree = "<group>"; };
 		D7B07BB3248A1D4A001E3646 /* DonationsMoreDetailsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationsMoreDetailsController.swift; sourceTree = "<group>"; };
-		D7B07BB5248A2FDE001E3646 /* DonationMoreDetailsController+Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DonationMoreDetailsController+Layout.swift"; sourceTree = "<group>"; };
+		D7B07BB5248A2FDE001E3646 /* DonationsMoreDetailsController+Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DonationsMoreDetailsController+Layout.swift"; sourceTree = "<group>"; };
+		D7B07BB9248A34AF001E3646 /* DMDTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMDTitleCell.swift; sourceTree = "<group>"; };
 		E0DB62D4E01FCED2ADD577B6 /* Pods-SayTheirNamesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SayTheirNamesTests.debug.xcconfig"; path = "Target Support Files/Pods-SayTheirNamesTests/Pods-SayTheirNamesTests.debug.xcconfig"; sourceTree = "<group>"; };
 		ED2DEB0A248454FD00EC784E /* CODE_OF_CONDUCT.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = CODE_OF_CONDUCT.md; sourceTree = "<group>"; };
 		EEC3A1D32483D493001E7754 /* CustomSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSearchBar.swift; sourceTree = "<group>"; };
@@ -599,6 +601,7 @@
 			isa = PBXGroup;
 			children = (
 				A91B078A24835CF700DB803C /* Home */,
+				D7B07BB7248A33A5001E3646 /* Donations */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -738,7 +741,23 @@
 			isa = PBXGroup;
 			children = (
 				D7B07BB3248A1D4A001E3646 /* DonationsMoreDetailsController.swift */,
-				D7B07BB5248A2FDE001E3646 /* DonationMoreDetailsController+Layout.swift */,
+				D7B07BB5248A2FDE001E3646 /* DonationsMoreDetailsController+Layout.swift */,
+			);
+			path = DonationsMoreDetails;
+			sourceTree = "<group>";
+		};
+		D7B07BB7248A33A5001E3646 /* Donations */ = {
+			isa = PBXGroup;
+			children = (
+				D7B07BB8248A33D5001E3646 /* DonationsMoreDetails */,
+			);
+			path = Donations;
+			sourceTree = "<group>";
+		};
+		D7B07BB8248A33D5001E3646 /* DonationsMoreDetails */ = {
+			isa = PBXGroup;
+			children = (
+				D7B07BB9248A34AF001E3646 /* DMDTitleCell.swift */,
 			);
 			path = DonationsMoreDetails;
 			sourceTree = "<group>";
@@ -1010,7 +1029,7 @@
 				7CE75F442489B78400168DDA /* PetitionTableViewCell.swift in Sources */,
 				A93367CA248983B1001F1E28 /* PeopleNetworkRequestor.swift in Sources */,
 				A93367C9248983B1001F1E28 /* PetitionsNetworkRequestor.swift in Sources */,
-				D7B07BB6248A2FDE001E3646 /* DonationMoreDetailsController+Layout.swift in Sources */,
+				D7B07BB6248A2FDE001E3646 /* DonationsMoreDetailsController+Layout.swift in Sources */,
 				A93367CB248983B1001F1E28 /* Environment.swift in Sources */,
 				9E7DBAF7248481DA00635A56 /* FileDataProvider.swift in Sources */,
 				A91B07A424835CF700DB803C /* UIFont+STN.swift in Sources */,
@@ -1068,6 +1087,7 @@
 				A91B07A524835CF700DB803C /* UIColor+STN.swift in Sources */,
 				A91B07A024835CF700DB803C /* DonationsController.swift in Sources */,
 				83E9CAD42484A5DC001D173A /* UIViewController+TabBar.swift in Sources */,
+				D7B07BBA248A34AF001E3646 /* DMDTitleCell.swift in Sources */,
 				D7B07BB4248A1D4A001E3646 /* DonationsMoreDetailsController.swift in Sources */,
 				9E7DBAF0248481DA00635A56 /* ImageCache.swift in Sources */,
 				F2725A8D24881AF200507DC4 /* UITableView++.swift in Sources */,
