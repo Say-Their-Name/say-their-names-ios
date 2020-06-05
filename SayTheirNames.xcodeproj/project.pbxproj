@@ -344,14 +344,6 @@
 			path = DataSourceTests;
 			sourceTree = "<group>";
 		};
-		7419B4AB248A2DEA00D466C8 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				7419B4AC248A2DFB00D466C8 /* Cells */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
 		7419B4AC248A2DFB00D466C8 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -363,6 +355,7 @@
 				7419B4AD248A2E0800D466C8 /* PersonPhotoTableViewCell.swift */,
 			);
 			name = Cells;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		74DE10842486DF7400211B83 /* Settings */ = {
@@ -560,7 +553,7 @@
 		A91B077424835CF700DB803C /* Person */ = {
 			isa = PBXGroup;
 			children = (
-				7419B4AB248A2DEA00D466C8 /* Views */,
+				7419B4AC248A2DFB00D466C8 /* Cells */,
 				A91B077624835CF700DB803C /* PersonController.swift */,
 			);
 			path = Person;

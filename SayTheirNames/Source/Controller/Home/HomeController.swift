@@ -148,11 +148,10 @@ extension HomeController: UICollectionViewDelegateFlowLayout {
         }
         else if collectionView === peopleCollectionView {
             // People CollectionView
-            // let selectedPerson = peopleDataSource.fetchPerson(at: indexPath.item)
+            let selectedPerson = peopleDataSource.fetchPerson(at: indexPath.item)
             let personController = PersonController(service: self.service)
-            
+            personController.person = selectedPerson
             let navigationController = UINavigationController(rootViewController: personController)
-            navigationController.navigationBar.isHidden = true
             present(navigationController, animated: true, completion: nil)
         }
     }

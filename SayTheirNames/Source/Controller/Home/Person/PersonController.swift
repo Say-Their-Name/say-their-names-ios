@@ -65,10 +65,11 @@ enum PersonCellType: Equatable {
 }
 
 class PersonController: BaseViewController {
-
-    var tableView: UITableView = UITableView(frame: .zero)
+    
+    var person: Person!
     
     var sareArea: UILayoutGuide!
+    var tableView: UITableView = UITableView(frame: .zero)
     
     var cellCollectionTypes: [PersonCellType] = {
         return [.photo, .info, .story, .outcome, .news([]), .medias([])]
@@ -77,7 +78,6 @@ class PersonController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.accessibilityIdentifier = "personView"
-
     }
     
     override func loadView() {
