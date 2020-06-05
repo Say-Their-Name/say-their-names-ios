@@ -3,11 +3,27 @@
   SayTheirNames
 
   Created by Kyle Lee on 6/1/20.
+ Edited by Pedro Trujillo on 6/4/20
   Copyright © 2020 Franck-Stephane Ndame Mpouli. All rights reserved.
 */
 
+/* Tab Bar */
 "home" = "Главная";
 "donations" = "Пожертвования";
 "petitions" = "Петиции";
 "settings" = "Настройки";
+
+/* Search */
 "cancel"= "Отмена";
+
+/* Home */
+"How_to_get_involved" = "Как принять участие";
+
+/* Petitions */
+"find_out_more" = "Узнать больше";
+"verified" = "подтвержденному";
+
+/* Person */
+"Read_More" = "ЧИТАЙТЕ БОЛЬШЕ ->";
+"Donate" = "жертвовать";
+

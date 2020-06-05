@@ -52,7 +52,10 @@
                 <constraint firstItem="cWb-JY-xrH" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="16" id="jow-s7-LIf"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
-            <point key="canvasLocation" x="139" y="153"/>
+            <connections>
+                <outlet property="howToGetInvolvedLabel" destination="GRU-7r-4UI" id="XJT-Fj-5zV"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="152.67857142857142"/>
         </collectionViewCell>
     </objects>
     <resources>
