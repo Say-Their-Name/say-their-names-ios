@@ -10,7 +10,7 @@ import UIKit
 
 /// Controller responsible for showing the petitions
 final class PetitionsController: UIViewController, ServiceReferring {
-    var service: Service
+    var service: Servicing
     
     private lazy var petitionsView = PetitionsView(title: Strings.petitions.uppercased())
     private var petitionsTableView: UITableView { petitionsView.tableView }
@@ -28,7 +28,8 @@ final class PetitionsController: UIViewController, ServiceReferring {
     }()
     
     required init(service: Servicing) {
-        super.init(service: service)
+        self.service = service
+        super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder: NSCoder) { fatalError("This should not be called") }
