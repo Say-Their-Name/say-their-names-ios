@@ -38,9 +38,8 @@ final class HomeView: UIView {
     }()
     
     let bookmarkButton: UIButton = {
-        let bookmarkButton = UIButton(type: .custom)
         let bookmarkImage = UIImage(named: "white-bookmark")
-        bookmarkButton.setImage(bookmarkImage, for: .normal)
+        let bookmarkButton = UIButton(image: bookmarkImage)
         return bookmarkButton
     }()
     

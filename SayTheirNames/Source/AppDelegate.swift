@@ -9,6 +9,7 @@
 import UIKit
 
 public func exceptionHandler(exception: NSException) {
+    Log.print("\n\n------------------- EXCEPTION -------------------\n")
     Log.print(exception)
     Log.print(exception.callStackSymbols)
 }
