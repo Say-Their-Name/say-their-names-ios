@@ -105,6 +105,7 @@
 		B3D6B6B3248987AD00D3118C /* CONTRIBUTING.md in Resources */ = {isa = PBXBuildFile; fileRef = B3D6B6B1248987AD00D3118C /* CONTRIBUTING.md */; };
 		C0594BFA248754A200260BAD /* UICollectionView++.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0594BF9248754A200260BAD /* UICollectionView++.swift */; };
 		C0594BFC248754C900260BAD /* UICollectionViewCell++.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0594BFB248754C900260BAD /* UICollectionViewCell++.swift */; };
+		D787FC9B248A71A3001FC6FF /* ImageWithBlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D787FC9A248A71A3001FC6FF /* ImageWithBlurView.swift */; };
 		D7A96091248A676A005E0153 /* ButtonContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A96090248A676A005E0153 /* ButtonContainerView.swift */; };
 		EEC3A1D42483D493001E7754 /* CustomSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC3A1D32483D493001E7754 /* CustomSearchBar.swift */; };
 		EEC3A1DC2483D6B6001E7754 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC3A1DA2483D6B6001E7754 /* SearchResultCell.swift */; };
@@ -244,6 +245,7 @@
 		C0594BFB248754C900260BAD /* UICollectionViewCell++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell++.swift"; sourceTree = "<group>"; };
 		D107CEC59C11537D09D9DB2E /* Pods-Say Their Names.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Say Their Names.release.xcconfig"; path = "Target Support Files/Pods-Say Their Names/Pods-Say Their Names.release.xcconfig"; sourceTree = "<group>"; };
 		D639F16885E8E79F7E336CC2 /* Pods-Say Their Names.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Say Their Names.debug.xcconfig"; path = "Target Support Files/Pods-Say Their Names/Pods-Say Their Names.debug.xcconfig"; sourceTree = "<group>"; };
+		D787FC9A248A71A3001FC6FF /* ImageWithBlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageWithBlurView.swift; sourceTree = "<group>"; };
 		D7A96090248A676A005E0153 /* ButtonContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonContainerView.swift; sourceTree = "<group>"; };
 		E0DB62D4E01FCED2ADD577B6 /* Pods-SayTheirNamesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SayTheirNamesTests.debug.xcconfig"; path = "Target Support Files/Pods-SayTheirNamesTests/Pods-SayTheirNamesTests.debug.xcconfig"; sourceTree = "<group>"; };
 		ED2DEB0A248454FD00EC784E /* CODE_OF_CONDUCT.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = CODE_OF_CONDUCT.md; sourceTree = "<group>"; };
@@ -615,6 +617,7 @@
 			children = (
 				A91B078A24835CF700DB803C /* Home */,
 				D7A96090248A676A005E0153 /* ButtonContainerView.swift */,
+				D787FC9A248A71A3001FC6FF /* ImageWithBlurView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1042,6 +1045,7 @@
 				A91B07B124835CF700DB803C /* LocationCell.swift in Sources */,
 				A91B07B324835CF700DB803C /* SceneDelegate.swift in Sources */,
 				A91B079524835CF700DB803C /* UIColor+Resource.swift in Sources */,
+				D787FC9B248A71A3001FC6FF /* ImageWithBlurView.swift in Sources */,
 				9E7DBAF9248481FC00635A56 /* Operation++.swift in Sources */,
 				9E7DBAF4248481DA00635A56 /* ImageCreationOperation.swift in Sources */,
 				F2725A8B24881A8E00507DC4 /* UITableViewCell++.swift in Sources */,
