@@ -54,6 +54,7 @@ class PersonNewsTableViewCell: UITableViewCell {
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.alwaysBounceHorizontal = true
         collectionView.backgroundColor = .white
+        collectionView.contentInset = .init(left: 32,right: 32)
         return collectionView
     }()
     
@@ -73,28 +74,16 @@ class PersonNewsTableViewCell: UITableViewCell {
     }
     
     private func setupLayout() {
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
         
-        contentView.addSubview(titleLabel)
-        contentView.addSubview(collectionView)
+        titleLabel.anchor(superView: contentView, top: contentView.topAnchor, leading: contentView.leadingAnchor, trailing: contentView.trailingAnchor, padding: .init(top: 40, left: 32, right: 32))
         
-        NSLayoutConstraint.activate([
-            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 15),
-            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 40),
-            titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -15),
-            titleLabel.heightAnchor.constraint(equalToConstant: 15),
-            
-            collectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 15),
-            collectionView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20),
-            collectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -15),
-            collectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0),
-        ])
+        collectionView.anchor(superView: contentView, top: titleLabel.bottomAnchor, leading: contentView.leadingAnchor, bottom: contentView.bottomAnchor, trailing: contentView.trailingAnchor, padding: .init(top: 20, left: 0, right: 0))
+        
     }
     
     // Updates current cell content views
     private func updateCellViews() {
-        titleLabel.text = (cellType == PersonNewsCellType.medias) ? "Media" : "News"
+        titleLabel.text = (cellType == PersonNewsCellType.medias) ? "MEDIA" : "NEWS"
     }
     
     // Registers collection view cells and update current cell content views

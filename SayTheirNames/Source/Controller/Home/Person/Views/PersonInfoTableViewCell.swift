@@ -83,7 +83,7 @@ class PersonInfoTableViewCell: UITableViewCell {
         let label = UILabel(frame: .zero)
         label.text = "FIRSTNAME LAST"
         label.textColor = UIColor(red: 16/255.0, green: 16/255.0, blue: 16/255.0, alpha: 1)
-        label.font = UIFont(name: "Karla-Bold", size: 21)
+        label.font = UIFont(name: "Karla-Bold", size: 26)
         label.numberOfLines = 0
         label.minimumScaleFactor = 0.5
         label.adjustsFontSizeToFitWidth = true
@@ -94,7 +94,7 @@ class PersonInfoTableViewCell: UITableViewCell {
         let label = UILabel()
         label.text = "AGE"
         label.textColor = UIColor(red: 16/255.0, green: 16/255.0, blue: 16/255.0, alpha: 0.5)
-        label.font = UIFont(name: "Karla-Bold", size: 12)
+        label.font = UIFont(name: "Karla-Bold", size: 14)
         label.numberOfLines = 1
         label.minimumScaleFactor = 0.5
         label.adjustsFontSizeToFitWidth = true
@@ -105,7 +105,7 @@ class PersonInfoTableViewCell: UITableViewCell {
         let label = UILabel()
         label.text = "CHILDREN"
         label.textColor = UIColor(red: 16/255.0, green: 16/255.0, blue: 16/255.0, alpha: 0.5)
-        label.font = UIFont(name: "Karla-Bold", size: 12)
+        label.font = UIFont(name: "Karla-Bold", size: 14)
         label.numberOfLines = 1
         label.minimumScaleFactor = 0.5
         label.adjustsFontSizeToFitWidth = true
@@ -116,7 +116,7 @@ class PersonInfoTableViewCell: UITableViewCell {
         let label = UILabel()
         label.text = "LOCATION"
         label.textColor = UIColor(red: 16/255.0, green: 16/255.0, blue: 16/255.0, alpha: 0.5)
-        label.font = UIFont(name: "Karla-Bold", size: 12)
+        label.font = UIFont(name: "Karla-Bold", size: 14)
         label.numberOfLines = 1
         label.minimumScaleFactor = 0.5
         label.adjustsFontSizeToFitWidth = true
@@ -127,7 +127,7 @@ class PersonInfoTableViewCell: UITableViewCell {
         let label = UILabel()
         label.text = "46"
         label.textColor = UIColor(red: 16/255.0, green: 16/255.0, blue: 16/255.0, alpha: 1)
-        label.font = UIFont(name: "Karla-Bold", size: 16)
+        label.font = UIFont(name: "Karla-Bold", size: 20)
         label.numberOfLines = 1
         label.minimumScaleFactor = 0.5
         label.adjustsFontSizeToFitWidth = true
@@ -138,7 +138,7 @@ class PersonInfoTableViewCell: UITableViewCell {
         let label = UILabel()
         label.text = "2"
         label.textColor = UIColor(red: 16/255.0, green: 16/255.0, blue: 16/255.0, alpha: 1)
-        label.font = UIFont(name: "Karla-Bold", size: 16)
+        label.font = UIFont(name: "Karla-Bold", size: 20)
         label.numberOfLines = 1
         label.minimumScaleFactor = 0.5
         label.adjustsFontSizeToFitWidth = true
@@ -149,7 +149,7 @@ class PersonInfoTableViewCell: UITableViewCell {
         let label = UILabel()
         label.text = "Missisippi, Denver Cloud Source, United States of America"
         label.textColor = UIColor(red: 16/255.0, green: 16/255.0, blue: 16/255.0, alpha: 1)
-        label.font = UIFont(name: "Karla-Bold", size: 16)
+        label.font = UIFont(name: "Karla-Bold", size: 19)
         label.numberOfLines = 0
         label.minimumScaleFactor = 0.5
         label.adjustsFontSizeToFitWidth = true
@@ -178,31 +178,19 @@ class PersonInfoTableViewCell: UITableViewCell {
     }
     
     public func setupCell(_ person: Person) {
-        nameLabel.text = person.fullName
+        nameLabel.text = person.fullName.uppercased()
         ageLabel.text = person.age
         childrenLabel.text = person.childrenCount
-        locationLabel.text = person.country
+        locationLabel.text = person.country.uppercased()
     }
     
     private func setupLayout() {
-        containerStack.translatesAutoresizingMaskIntoConstraints = false
-        contentView.addSubview(containerStack)
-        
-        NSLayoutConstraint.activate([
-            containerStack.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 15),
-            containerStack.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -15),
-            containerStack.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 40),
-            containerStack.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0),
-            
-            ageContainerStack.widthAnchor.constraint(equalToConstant: 60),
-            childrenContainerStack.widthAnchor.constraint(equalToConstant: 90),
-            locationContainerStack.widthAnchor.constraint(greaterThanOrEqualToConstant: 50),
-            
-            verticalSeparatorView.widthAnchor.constraint(equalToConstant: 150),
-            verticalSeparatorView.heightAnchor.constraint(equalToConstant: 1),
-            
-            horizontalSeparatorView.widthAnchor.constraint(equalToConstant: 1),
-            horizontalSeparatorView.heightAnchor.constraint(equalToConstant: 30)
-        ])
+        containerStack.fillSuperview(superView: contentView, padding: .init(top: 32, left: 32, bottom: 0, right: 16))
+        ageContainerStack.widthAnchor.constraint(equalToConstant: 60).isActive = true
+        childrenContainerStack.widthAnchor.constraint(equalToConstant: 90).isActive = true
+        locationContainerStack.widthAnchor.constraint(greaterThanOrEqualToConstant: 50).isActive = true
+        verticalSeparatorView.anchor(size: .init(width: 150, height: 1))
+        horizontalSeparatorView.anchor(size: .init(width: 1, height: 30))
+
     }
 }

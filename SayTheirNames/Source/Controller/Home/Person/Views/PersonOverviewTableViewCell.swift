@@ -14,7 +14,7 @@ class PersonOverviewTableViewCell: UITableViewCell {
         let label = UILabel()
         label.text = "Their Story"
         label.textColor = UIColor(red: 16/255.0, green: 16/255.0, blue: 16/255.0, alpha: 1)
-        label.font = UIFont(name: "Karla-Bold", size: 17)
+        label.font = UIFont(name: "Karla-Bold", size: 19)
         label.numberOfLines = 1
         label.minimumScaleFactor = 0.5
         label.adjustsFontSizeToFitWidth = true
@@ -24,8 +24,8 @@ class PersonOverviewTableViewCell: UITableViewCell {
     lazy var descriptionLabel: UILabel = {
         let label = UILabel()
         label.text = "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturiasdlnalkd"
-        label.textColor = UIColor(red: 16/255.0, green: 16/255.0, blue: 16/255.0, alpha: 1)
-        label.font = UIFont(name: "Karla-Regular", size: 16)
+        label.textColor = .black
+        label.font = UIFont(name: "Karla-Regular", size: 17)
         label.numberOfLines = 0
         label.minimumScaleFactor = 0.5
         label.adjustsFontSizeToFitWidth = true
@@ -54,15 +54,9 @@ class PersonOverviewTableViewCell: UITableViewCell {
     private func setupLayout() {
         stack.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(stack)
-        
-        NSLayoutConstraint.activate([
-            stack.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 15),
-            stack.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 40),
-            stack.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -15),
-            stack.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0),
-            
-            titleLabel.heightAnchor.constraint(equalToConstant: 20)
-        ])
+        stack.fillSuperview(superView: contentView, padding: .init(top: 32, left: 32, bottom: 0, right: 32))
+        titleLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
+
     }
     
     public func setupCell(title: String, description: String) {
