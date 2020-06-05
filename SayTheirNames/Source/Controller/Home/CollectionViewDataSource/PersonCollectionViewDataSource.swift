@@ -16,9 +16,9 @@ final class PersonCollectionViewDataSourceHelper {
 
     typealias PersonCollectionViewDataSource = UICollectionViewDiffableDataSource<Section, SectionData>
     
-    enum Section: CaseIterable {
-        case main
+    enum Section: Int, CaseIterable {
         case header
+        case main
     }
 
     enum SectionData: Hashable {
@@ -30,8 +30,6 @@ final class PersonCollectionViewDataSourceHelper {
 
     let dataSource: PersonCollectionViewDataSource
 
-    var personHeaderView: PersonHeaderView?
-
     var peopleHeaderCollectionView: UICollectionView?
     
     init(collectionView: UICollectionView) {
@@ -40,9 +38,7 @@ final class PersonCollectionViewDataSourceHelper {
         
         self.dataSource =
             PersonCollectionViewDataSource(collectionView: collectionView) { (collectionView, indexPath, item) -> UICollectionViewCell? in
-
                 switch item {
-
                 case .header(let headerData):
                     let cell: CarouselCollectionViewCell = collectionView.dequeueCell(for: indexPath)
                     cell.configure(with: headerData)
@@ -57,38 +53,8 @@ final class PersonCollectionViewDataSourceHelper {
                     cell.isAccessibilityElement = true
                     return cell
                 }
-
         }
     }
-
-//    private func createCompositionalLayout() -> UICollectionViewLayout {
-//        //header
-//        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-//                                              heightDimension: .fractionalHeight(1.0))
-//
-//        let layoutItem = NSCollectionLayoutItem(layoutSize: itemSize)
-//
-//        let layoutGroupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.95),
-//                                                     heightDimension: .fractionalHeight(1.0))
-//
-//        let group = NSCollectionLayoutGroup.horizontal(layoutSize: layoutGroupSize, subitems: [layoutItem])
-//        let spacing = CGFloat(10)
-//        group.interItemSpacing = .fixed(spacing)
-//
-//        let section = NSCollectionLayoutSection(group: group)
-//        section.orthogonalScrollingBehavior = .groupPaging
-//        section.interGroupSpacing = spacing
-//
-//        return UICollectionViewCompositionalLayout(section: section)
-//
-//    }
-
-//    func setHeaderData(_ data: [HeaderCellContent]) {
-//        personHeaderView?.configure()
-//        var snapShot = NSDiffableDataSourceSnapshot<Section, SectionData>()
-//        snapShot.appendSections([.header])
-//        dataSource.apply(snapShot)
-//    }
     
     func setPeople(_ people: [Person], headerData: [HeaderCellContent]) {
         var snapShot = NSDiffableDataSourceSnapshot<Section, SectionData>()

@@ -32,18 +32,18 @@ final class HomeController: UIViewController, ServiceReferring {
     private lazy var locationsDataSourceHelper = LocationCollectionViewDataSourceHelper(collectionView: locationCollectionView)
     private lazy var peopleDataSourceHelper = PersonCollectionViewDataSourceHelper(collectionView: peopleCollectionView)
     
-    private let homeView = HomeView()
+    private lazy var homeView = HomeView()
     
     var customNavBar: UIView { homeView.customNavigationBar }
     
     private var locationCollectionView: UICollectionView { homeView.locationCollectionView }
     private var peopleCollectionView: UICollectionView { homeView.peopleCollectionView }
-    private var peopleHeaderCollectionView: UICollectionView { homeView.peopleHeaderCollectionView }
     private var searchButton: UIButton { homeView.searchButton }
     
     // MARK: - ClASS METHODS
     override func loadView() {
         self.view = homeView
+        homeView.peopleDataSource = peopleDataSourceHelper
     }
 
     override func viewDidLoad() {
@@ -87,7 +87,6 @@ final class HomeController: UIViewController, ServiceReferring {
                          .init(name: "NEW YORK")]
 
         locationsDataSourceHelper.setLocations(locations)
-        peopleDataSourceHelper.peopleHeaderCollectionView = peopleHeaderCollectionView
         // FIXME: This should be setup in a better place, for now this loads out data
         self.service.network.fetchPeople { [weak self] (result) in
             switch result {
@@ -138,6 +137,7 @@ extension HomeController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+
         if collectionView === locationCollectionView {
             // nothing for now
         }

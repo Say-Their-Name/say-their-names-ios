@@ -10,35 +10,11 @@ import UIKit
 
 final class HomeView: UIView {
 
+    // MARK: - Properties
     let customNavigationBar: UIView = {
         let customNavigationBar = UIView()
         customNavigationBar.backgroundColor = .black
         return customNavigationBar
-    }()
-
-    lazy var peopleHeaderCollectionView: UICollectionView = {
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                              heightDimension: .fractionalHeight(1.0))
-
-        let layoutItem = NSCollectionLayoutItem(layoutSize: itemSize)
-
-        let layoutGroupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.95),
-                                               heightDimension: .fractionalHeight(1.0))
-
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: layoutGroupSize, subitems: [layoutItem])
-        let spacing = CGFloat(10)
-        group.interItemSpacing = .fixed(spacing)
-
-        let section = NSCollectionLayoutSection(group: group)
-        section.orthogonalScrollingBehavior = .groupPaging
-        section.interGroupSpacing = spacing
-
-        let layout = UICollectionViewCompositionalLayout(section: section)
-
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.backgroundColor = .white
-        collectionView.contentInsetAdjustmentBehavior = .always
-        return collectionView
     }()
     
     lazy var locationCollectionView: UICollectionView = {
@@ -46,44 +22,59 @@ final class HomeView: UIView {
         locationLayout.scrollDirection = .horizontal
         locationLayout.sectionInsetReference = .fromContentInset
         locationLayout.sectionInset = Self.LocationsSectionInsets
-        
         let locationCollectionView = UICollectionView(frame: .zero, collectionViewLayout: locationLayout)
         locationCollectionView.contentInsetAdjustmentBehavior = .always
         return locationCollectionView
     }()
     
     lazy var peopleCollectionView: UICollectionView = {
-
-        let peopleLayout = UICollectionViewFlowLayout()
-        peopleLayout.scrollDirection = .vertical
-        peopleLayout.sectionInset = Self.PeopleSectionInsets
-
-//        let headerLayout = makeHeaderComposition()
-
-        let peopleCollectionView = UICollectionView(frame: .zero, collectionViewLayout: peopleLayout)
+        let headerLayout = makeHeaderComposition()
+        let peopleCollectionView = UICollectionView(frame: .zero, collectionViewLayout: headerLayout)
         peopleCollectionView.contentInsetAdjustmentBehavior = .always
+        backgroundColor = .red
         return peopleCollectionView
-        
     }()
 
+    weak var peopleDataSource: PersonCollectionViewDataSourceHelper?
+
+    // MARK: - Methods
     func makeHeaderComposition() -> UICollectionViewLayout {
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                              heightDimension: .fractionalHeight(1.0))
+        let layout = UICollectionViewCompositionalLayout(sectionProvider: { [weak self] (sectionIndex: Int,
+            _: NSCollectionLayoutEnvironment)
+            -> NSCollectionLayoutSection? in
+            guard let sections = self?.peopleDataSource?.dataSource.snapshot().sectionIdentifiers else {return nil}
 
-        let layoutItem = NSCollectionLayoutItem(layoutSize: itemSize)
+            switch sections[sectionIndex] {
 
-        let layoutGroupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.95),
-                                                     heightDimension: .fractionalHeight(1.0))
+            case .header:
+                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                                      heightDimension: .fractionalHeight(1.0))
+                let layoutItem = NSCollectionLayoutItem(layoutSize: itemSize)
+                let layoutGroupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.95),
+                                                             heightDimension: .estimated(170))
+                let group = NSCollectionLayoutGroup.horizontal(layoutSize: layoutGroupSize, subitems: [layoutItem])
+                let spacing = CGFloat(10)
+                group.interItemSpacing = .fixed(spacing)
+                let headerSection = NSCollectionLayoutSection(group: group)
+                headerSection.orthogonalScrollingBehavior = .groupPaging
+                headerSection.interGroupSpacing = spacing
+                return headerSection
+            case .main:
+                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
 
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: layoutGroupSize, subitems: [layoutItem])
-        let spacing = CGFloat(10)
-        group.interItemSpacing = .fixed(spacing)
+                let layoutItem = NSCollectionLayoutItem(layoutSize: itemSize)
 
-        let section = NSCollectionLayoutSection(group: group)
-        section.orthogonalScrollingBehavior = .groupPaging
-        section.interGroupSpacing = spacing
+                let layoutGroupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(300))
 
-        return UICollectionViewCompositionalLayout(section: section)
+                let group = NSCollectionLayoutGroup.horizontal(layoutSize: layoutGroupSize, subitem: layoutItem, count: 2)
+                group.interItemSpacing = .fixed(10)
+                let headerSection = NSCollectionLayoutSection(group: group)
+                headerSection.contentInsets = Self.PeopleSectionInsets
+                return headerSection
+            }
+        })
+        layout.configuration.interSectionSpacing = 10
+        return layout
     }
     
     let bookmarkButton: UIButton = {
@@ -109,7 +100,7 @@ final class HomeView: UIView {
     var hideable: [UIView] {
         [customNavigationBar, locationCollectionView, peopleCollectionView, separator]
     }
-        
+
     override func didMoveToSuperview() {
         super.didMoveToSuperview()
         createLayout()
@@ -188,5 +179,5 @@ final class HomeView: UIView {
     static let CustomNavBarMargin: CGFloat = 16
     static let SeparatorHeight: CGFloat = 1
     static let LocationsSectionInsets = UIEdgeInsets(left: 16, right: 16)
-    static let PeopleSectionInsets = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
+    static let PeopleSectionInsets = NSDirectionalEdgeInsets(top: 16, leading: 16, bottom: 16, trailing: 16)
 }
