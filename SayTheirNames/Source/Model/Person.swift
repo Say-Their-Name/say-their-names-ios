@@ -47,6 +47,24 @@ struct Person: Decodable {
         socialMedia = "social_media"
     }
     
+    init(id: Int, fullName: String, dob: String, doi: String, childrenCount: String, age: String, city: String, country: String, bio: String, context: String, images: [Image], donations: DonationsResponsePage, petitions: PetitionsResponsePage, media: [Media], socialMedia: [SocialMedia]) {
+        self.id = id
+        self.fullName = fullName
+        self.dob = dob
+        self.doi = doi
+        self.childrenCount = childrenCount
+        self.age = age
+        self.city = city
+        self.country = country
+        self.bio = bio
+        self.context = context
+        self.images = images
+        self.donations = donations
+        self.petitions = petitions
+        self.media = media
+        self.socialMedia = socialMedia
+    }
+    
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         
@@ -93,4 +111,8 @@ extension Person: Equatable, Hashable {
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
+}
+
+extension Person {
+    
 }
