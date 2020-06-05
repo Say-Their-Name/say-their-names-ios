@@ -17,6 +17,7 @@ disabled_rules:
 
 opt_in_rules:
   - force_unwrapping
+  - discouraged_object_literal
 
 line_length: 150
 
