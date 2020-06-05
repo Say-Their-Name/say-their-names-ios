@@ -2,9 +2,25 @@
 //  HomeView.swift
 //  SayTheirNames
 //
-//  Created by Joseph A. Wardell on 6/2/20.
-//  Copyright © 2020 Franck-Stephane Ndame Mpouli. All rights reserved.
+//  Copyright (c) 2020 Say Their Names Team (https://github.com/Say-Their-Name)
 //
+//  Permission is hereby granted, free of charge, to any person obtaining a copy
+//  of this software and associated documentation files (the "Software"), to deal
+//  in the Software without restriction, including without limitation the rights
+//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//  copies of the Software, and to permit persons to whom the Software is
+//  furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in
+//  all copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+//  THE SOFTWARE.
 
 import UIKit
 
@@ -38,9 +54,8 @@ final class HomeView: UIView {
     }()
     
     let bookmarkButton: UIButton = {
-        let bookmarkButton = UIButton(type: .custom)
         let bookmarkImage = UIImage(named: "white-bookmark")
-        bookmarkButton.setImage(bookmarkImage, for: .normal)
+        let bookmarkButton = UIButton(image: bookmarkImage)
         return bookmarkButton
     }()
     
@@ -57,10 +72,24 @@ final class HomeView: UIView {
         return separator
     }()
     
-    var hideable: [UIView] {
-        [customNavigationBar, locationCollectionView, peopleCollectionView, separator]
-    }
+    func safeWidth(for collectionView: UICollectionView) -> CGFloat {
+        let width = collectionView.frame.width -
+            collectionView.safeAreaInsets.left -
+            collectionView.safeAreaInsets.right -
+            collectionView.layoutMargins.left -
+            collectionView.layoutMargins.right
         
+        let flowLayoutMargins: CGFloat
+        if let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+            flowLayoutMargins = flowLayout.sectionInset.left + flowLayout.sectionInset.right
+        }
+        else {
+            flowLayoutMargins = 0
+        }
+        
+        return width - flowLayoutMargins
+    }
+    
     override func didMoveToSuperview() {
         super.didMoveToSuperview()
         createLayout()
