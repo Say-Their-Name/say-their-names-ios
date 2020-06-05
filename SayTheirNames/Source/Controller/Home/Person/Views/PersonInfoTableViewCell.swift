@@ -83,7 +83,7 @@ class PersonInfoTableViewCell: UITableViewCell {
         let label = UILabel(frame: .zero)
         label.text = "FIRSTNAME LAST"
         label.textColor = UIColor(red: 16/255.0, green: 16/255.0, blue: 16/255.0, alpha: 1)
-        label.font = UIFont(name: "Karla-Bold", size: 26)
+        label.font = UIFont(name: "Karla-Bold", size: 24)
         label.numberOfLines = 0
         label.minimumScaleFactor = 0.5
         label.adjustsFontSizeToFitWidth = true

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		332F22BEB81BC34837C12842 /* Pods_SayTheirNamesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B491840AD61AD287986EE601 /* Pods_SayTheirNamesTests.framework */; };
 		4B3810E42B5E6D69FEA97B00 /* Pods_SayTheirNames.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E09B7306596AE2549FC2488 /* Pods_SayTheirNames.framework */; };
+		5B026C52248AECB700335A17 /* PersonHashtagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B026C51248AECB700335A17 /* PersonHashtagCollectionViewCell.swift */; };
+		5B026C54248AEE8F00335A17 /* PersonHashtagTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B026C53248AEE8F00335A17 /* PersonHashtagTableViewCell.swift */; };
 		5B3ED7492481CA000033FF79 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B3ED7482481CA000033FF79 /* Assets.xcassets */; };
 		5B3ED74C2481CA000033FF79 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B3ED74A2481CA000033FF79 /* LaunchScreen.storyboard */; };
 		5D456A3B24870CDF009FAD34 /* LocationCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D456A3A24870CDF009FAD34 /* LocationCollectionViewDataSource.swift */; };
@@ -136,6 +138,8 @@
 		20AABB4794146889EEF753BB /* Pods-Say Their NamesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Say Their NamesTests.release.xcconfig"; path = "Target Support Files/Pods-Say Their NamesTests/Pods-Say Their NamesTests.release.xcconfig"; sourceTree = "<group>"; };
 		39C05132613A992F23ECED58 /* Pods-SayTheirNames.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SayTheirNames.debug.xcconfig"; path = "Target Support Files/Pods-SayTheirNames/Pods-SayTheirNames.debug.xcconfig"; sourceTree = "<group>"; };
 		4E09B7306596AE2549FC2488 /* Pods_SayTheirNames.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SayTheirNames.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B026C51248AECB700335A17 /* PersonHashtagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonHashtagCollectionViewCell.swift; sourceTree = "<group>"; };
+		5B026C53248AEE8F00335A17 /* PersonHashtagTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonHashtagTableViewCell.swift; sourceTree = "<group>"; };
 		5B3ED73C2481C9F50033FF79 /* Say Their Names.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Say Their Names.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B3ED7482481CA000033FF79 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5B3ED74B2481CA000033FF79 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -357,6 +361,8 @@
 				7419B4AF248A2E0800D466C8 /* PersonNewsTableViewCell.swift */,
 				7419B4B0248A2E0800D466C8 /* PersonOverviewTableViewCell.swift */,
 				7419B4AD248A2E0800D466C8 /* PersonPhotoTableViewCell.swift */,
+				5B026C51248AECB700335A17 /* PersonHashtagCollectionViewCell.swift */,
+				5B026C53248AEE8F00335A17 /* PersonHashtagTableViewCell.swift */,
 			);
 			name = Cells;
 			path = Views;
@@ -1052,6 +1058,7 @@
 				83E9CAD02484A504001D173A /* LaunchScreen.swift in Sources */,
 				A91B079924835CF700DB803C /* UIFont+Resource.swift in Sources */,
 				9E2449A02485EA0B00B149DF /* strings.swift in Sources */,
+				5B026C52248AECB700335A17 /* PersonHashtagCollectionViewCell.swift in Sources */,
 				A91B07C82484751700DB803C /* String+STN.swift in Sources */,
 				7CE75F462489B78400168DDA /* PetitionDetailViewController.swift in Sources */,
 				7419B4B5248A2E0800D466C8 /* PersonNewsTableViewCell.swift in Sources */,
@@ -1083,6 +1090,7 @@
 				83E9CAD42484A5DC001D173A /* UIViewController+TabBar.swift in Sources */,
 				7419B4B7248A2E0800D466C8 /* PersonNewsCollectionViewCell.swift in Sources */,
 				9E7DBAF0248481DA00635A56 /* ImageCache.swift in Sources */,
+				5B026C54248AEE8F00335A17 /* PersonHashtagTableViewCell.swift in Sources */,
 				F2725A8D24881AF200507DC4 /* UITableView++.swift in Sources */,
 				7CE75F3F2489B78400168DDA /* PresentedPetition.swift in Sources */,
 				A91B07A624835CF700DB803C /* UIDevice+STN.swift in Sources */,

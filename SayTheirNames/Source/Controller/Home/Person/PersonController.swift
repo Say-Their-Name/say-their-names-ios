@@ -15,6 +15,7 @@ enum PersonCellType: Equatable {
     case outcome
     case news([Person])
     case medias([Person])
+    case hashtags
     
     var identifier: String {
         switch self {
@@ -24,6 +25,7 @@ enum PersonCellType: Equatable {
         case .outcome: return "PersonCellType_Outcome"
         case .news: return "PersonCellType_News"
         case .medias: return "PersonCellType_Media"
+        case .hashtags: return "PersonCellType_Hashtags"
         }
     }
     
@@ -35,6 +37,7 @@ enum PersonCellType: Equatable {
         case .outcome: return "PersonCellType_Outcome"
         case .news: return "PersonCellType_News"
         case .medias: return "PersonCellType_Media"
+        case .hashtags: return "PersonCellType_Hashtags"
         }
     }
     
@@ -52,11 +55,13 @@ enum PersonCellType: Equatable {
             PersonNewsTableViewCell.register(to: tableView, identifier: identifier)
         case .medias:
             PersonNewsTableViewCell.register(to: tableView, identifier: identifier)
+        case .hashtags:
+            PersonHashtagTableViewCell.register(to: tableView, identifier: identifier)
         }
     }
     
     static var allCases: [PersonCellType] {
-        return [.photo, .info, .story, .outcome, .news([]), .medias([])]
+        return [.photo, .info, .story, .outcome, .news([]), .medias([]), .hashtags]
     }
     
     static func == (lhs: PersonCellType, rhs: PersonCellType) -> Bool {
@@ -74,7 +79,7 @@ class PersonController: BaseViewController {
     let donationButtonContainerView = ButtonContainerView(frame: .zero)
     
     var cellCollectionTypes: [PersonCellType] = {
-        return [.photo, .info, .story, .outcome, .news([]), .medias([])]
+        return [.photo, .info, .story, .outcome, .news([]), .medias([]), .hashtags]
     }()
     
     override func viewDidLoad() {
@@ -153,7 +158,7 @@ class PersonController: BaseViewController {
         donationButtonContainerView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         donationButtonContainerView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         donationButtonContainerView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-        donationButtonContainerView.heightAnchor.constraint(equalToConstant: 90).isActive = true
+        donationButtonContainerView.heightAnchor.constraint(equalToConstant: 120).isActive = true
         
         // Now we can set the anchor for the UITableView
         tableView.bottomAnchor.constraint(equalTo: donationButtonContainerView.topAnchor, constant: 0).isActive = true
@@ -198,6 +203,11 @@ extension PersonController: UITableViewDelegate, UITableViewDataSource {
             newsCell.registerCell(with: PersonMediaCollectionViewCell.self, type: PersonNewsCellType.medias)
             newsCell.updateCellWithNews(news)
             return cell
+            
+        case .hashtags:
+            let hashtagsCell = cell as! PersonHashtagTableViewCell
+            hashtagsCell.registerCell(with: PersonHashtagCollectionViewCell.self)
+            return hashtagsCell
         }
     }
     
@@ -207,7 +217,8 @@ extension PersonController: UITableViewDelegate, UITableViewDataSource {
         case .photo: return 520
         case .info: return 140
         case .news: return 340
-        case .medias: return 270
+        case .medias: return 300
+        case .hashtags: return 160
         case .story, .outcome: return UITableView.automaticDimension
         }
     }
