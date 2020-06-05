@@ -58,29 +58,14 @@ class ImageWithBlurView: UIView {
         visualEffectView.contentView.addSubview(frontImageContainerView)
         addSubview(visualEffectView)
 
+        // Layout Constraints
         bgImageView.fillSuperview(superView: self, padding: .zero)
         visualEffectView.fillSuperview(superView: self, padding: .zero)
         frontImageView.fillSuperview(superView: frontImageContainerView, padding: .zero)
-   
-        // Layout Constraints
+        
         frontImageContainerView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            bgImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0),
-            bgImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0),
-            bgImageView.topAnchor.constraint(equalTo: topAnchor, constant: 0),
-            bgImageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0),
-
-            visualEffectView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0),
-            visualEffectView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0),
-            visualEffectView.topAnchor.constraint(equalTo: topAnchor, constant: 0),
-            visualEffectView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0),
-
-            frontImageView.leadingAnchor.constraint(equalTo: frontImageContainerView.leadingAnchor, constant: 0),
-            frontImageView.trailingAnchor.constraint(equalTo: frontImageContainerView.trailingAnchor, constant: 0),
-            frontImageView.topAnchor.constraint(equalTo: frontImageContainerView.topAnchor, constant: 0),
-            frontImageView.bottomAnchor.constraint(equalTo: frontImageContainerView.bottomAnchor, constant: 0),
-            
             frontImageContainerView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 40),
             frontImageContainerView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -40),
             frontImageContainerView.centerXAnchor.constraint(equalTo: centerXAnchor),
