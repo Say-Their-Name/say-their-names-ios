@@ -1,21 +1,18 @@
 disabled_rules:
-    - trailing_whitespace
-    - force_cast
-    - cyclomatic_complexity
-    - function_body_length
-    - nesting
-    - statement_position
-    - type_body_length
-    - file_length
-    - identifier_name 
-    - opening_brace
-    - type_name
-    - comma
-    - unused_optional_binding
-    - closure_parameter_position
-    - trailing_comma
-    - duplicate_enum_cases
-    - todo
+  - trailing_whitespace
+  - force_cast
+  - cyclomatic_complexity
+  - function_body_length
+  - nesting
+  - statement_position
+  - identifier_name
+  - opening_brace
+  - comma
+  - unused_optional_binding
+  - closure_parameter_positionxw
+  - trailing_comma
+  - duplicate_enum_cases
+  - todo
 
 opt_in_rules:
   - force_unwrapping
@@ -27,12 +24,14 @@ type_body_length:
   - 400 # error
 
 file_length:
-warning: 500
-error: 600
+  warning: 600
+  error: 800
 
-excluded: 
+excluded:
   - Carthage
   - Pods
   - Vendors
   - Frameworks
   - Fastlane
+  - 'SayTheirNamesTests'
+  - 'SayTheirNamesUITests'
