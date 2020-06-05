@@ -12,7 +12,7 @@ import XCTest
 
 extension NetworkRequestorTests {
     func test_fetchPeople_makesRequest() {
-        guard let apiEndpoint = URL(string: "https://saytheirnames.dev/api/people") else {
+        guard let apiEndpoint = URL(string: PersonEnvironment.urlString) else {
             XCTFail("URL was not valid")
             return
         }

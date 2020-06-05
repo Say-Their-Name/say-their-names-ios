@@ -34,7 +34,7 @@ final class NetworkRequestorTests: XCTestCase {
     }
 
     func test_fetchDecodable_returnsObject() {
-        guard let url = URL(string: "https://example.com"),
+        guard let url = URL(string: Environment.serverURLString),
             let mockString = "{\"data\":\"Testing\"}".data(using: .utf8) else {
             XCTFail("Could not complete test setup.")
             return
@@ -58,7 +58,7 @@ final class NetworkRequestorTests: XCTestCase {
     }
 
     func test_fetchDecodable_propagatesAFError() {
-        guard let url = URL(string: "https://example.com") else { XCTFail("URL was not valid"); return }
+        guard let url = URL(string: Environment.serverURLString) else { XCTFail("URL was not valid"); return }
         Mock(url: url, dataType: .json, statusCode: 200, data: [.get: Data()]).register()
 
         // Make request, and expect the error to be returned

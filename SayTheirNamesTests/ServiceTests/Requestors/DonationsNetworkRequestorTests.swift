@@ -12,7 +12,7 @@ import XCTest
 
 extension NetworkRequestorTests {
     func test_fetchDonations_makesRequest() {
-        guard let apiEndpoint = URL(string: "https://saytheirnames.dev/api/donations") else {
+        guard let apiEndpoint = URL(string: DonationsEnvironment.urlString) else {
             XCTFail("URL was not valid")
             return
         }
