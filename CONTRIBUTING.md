@@ -36,7 +36,7 @@ When making a PR, add a meaningful title and description.
 If any development is done on the UI (additions or non-trivial changes), please
 include a screenshot of the change.
 
-Tag `Say-Their-Name/ios` group as a reviewer, so all iOS contributors get a notification.
+Add `Say-Their-Name/ios` group as a reviewer, so all iOS contributors get a notification.
 
 ### Reviewing a PR
 
@@ -51,7 +51,8 @@ should block the PR.
 
 ## The project
 
-This project is a classic iOS app project, written in Swift with UIKit, using Xcode 11.5.
+This project is a classic iOS app project, written in Swift with UIKit, using Xcode 11.5
+with support for iOS 13 and above.
 
 ### Code style
 
@@ -127,7 +128,8 @@ If you are active in the project, contribute regularly and keep up with what's h
 
 ## Conclusion
 
-Hopefully this document has given you an introduction to the project.
+Hopefully this document has given you an introduction to the project. 
+If you have any questions not covered here, feel to ask them on the #ios channel in Slack (link above).
 Feel free to submit Pull Requests to improve this document.
 
 Looking forward to your contributions! 🙌
