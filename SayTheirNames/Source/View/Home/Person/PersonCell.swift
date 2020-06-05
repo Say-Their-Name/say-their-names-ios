@@ -13,7 +13,7 @@ final class PersonCell: UICollectionViewCell {
     
     private lazy var profileImageView: UIImageView = {
         let imgV = UIImageView()
-        imgV.image = UIImage(named: "man-in-red-jacket-1681010")
+        imgV.image = UIImage.STN.manInRedJacket
         imgV.contentMode = .scaleAspectFill
         imgV.clipsToBounds = true
         imgV.translatesAutoresizingMaskIntoConstraints = false
@@ -41,7 +41,7 @@ final class PersonCell: UICollectionViewCell {
     }()
     
     private lazy var bookmarkButton: UIButton = {
-        let bookmarkImage = UIImage(named: "bookmark")
+        let bookmarkImage = UIImage.STN.bookmark
         let btn = UIButton(image: bookmarkImage)
         btn.contentMode = .scaleAspectFill
         btn.addTarget(self, action: #selector(didTapBookmark), for: .touchUpInside)

@@ -11,12 +11,16 @@ import UIKit
 final class PersonDetailsController: BaseViewController {
 
     @IBOutlet weak var mediaCollectionView: UICollectionView!
+    @IBOutlet weak var bookmarkButton: UIButton!
+    
+    var isBookMarked = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         mediaCollectionView.delegate = self
         mediaCollectionView.dataSource = self
         mediaCollectionView.register(cellType: PersonPhotoCell.self)
+        
     }
     
     @IBAction func didPressBack(_ sender: Any) {
@@ -27,8 +31,18 @@ final class PersonDetailsController: BaseViewController {
     }
     
     @IBAction func didPressBookmark(_ sender: Any) {
+        if isBookMarked {
+            isBookMarked = false
+        }else{
+            isBookMarked = true
+        }
+        setBookmarked()
     }
     
+    func setBookmarked(){
+        isBookMarked ?bookmarkButton.setImage(UIImage.STN.bookmarkActive, for: .normal) :
+            bookmarkButton.setImage(UIImage.STN.bookmark, for: .normal)
+    }
 }
 
 extension PersonDetailsController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {

@@ -38,14 +38,14 @@ final class HomeView: UIView {
     }()
     
     let bookmarkButton: UIButton = {
-        let bookmarkImage = UIImage(named: "white-bookmark")
+        let bookmarkImage = UIImage.STN.whiteBookmark
         let bookmarkButton = UIButton(image: bookmarkImage)
         return bookmarkButton
     }()
     
     let searchButton: UIButton = {
         let searchButton = UIButton(type: .custom)
-        let searchImage = UIImage(named: "white-search")
+        let searchImage = UIImage.STN.whiteSearch
         searchButton.setImage(searchImage, for: .normal)
         return searchButton
     }()
