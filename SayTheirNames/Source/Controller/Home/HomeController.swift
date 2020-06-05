@@ -136,8 +136,10 @@ extension HomeController: UICollectionViewDelegateFlowLayout {
             return CGSize(width: 103, height: 36)
         }
         else if collectionView === peopleCollectionView {
-            let width = collectionView.frame.width / 2 - 24
-            return CGSize(width: width, height: 300)
+            let width = homeView.safeWidth(for: collectionView)
+            let isPortrait = traitCollection.horizontalSizeClass == .compact && traitCollection.verticalSizeClass == .regular
+            let cellWidth = width / (isPortrait ? 2 : 4)
+            return CGSize(width: cellWidth, height: 300)
         }
         else {
             return CGSize.zero
