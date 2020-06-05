@@ -1,11 +1,7 @@
-ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES
-FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/Alamofire" "${PODS_CONFIGURATION_BUILD_DIR}/Mocker" "${PODS_CONFIGURATION_BUILD_DIR}/SDWebImage"
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/Alamofire" "${PODS_CONFIGURATION_BUILD_DIR}/SDWebImage"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/Alamofire/Alamofire.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/Mocker/Mocker.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/SDWebImage/SDWebImage.framework/Headers"
-LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
-OTHER_CFLAGS = $(inherited) -isystem "${PODS_CONFIGURATION_BUILD_DIR}/Mocker/Mocker.framework/Headers" -iframework "${PODS_CONFIGURATION_BUILD_DIR}/Mocker"
-OTHER_LDFLAGS = $(inherited) -framework "Alamofire" -framework "CFNetwork" -framework "ImageIO" -framework "Mocker" -framework "SDWebImage"
-OTHER_SWIFT_FLAGS = $(inherited) -D COCOAPODS
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/Alamofire/Alamofire.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/SDWebImage/SDWebImage.framework/Headers"
+OTHER_LDFLAGS = $(inherited) -framework "Alamofire" -framework "CFNetwork" -framework "ImageIO" -framework "SDWebImage"
 PODS_BUILD_DIR = ${BUILD_DIR}
 PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
 PODS_PODFILE_DIR_PATH = ${SRCROOT}/.

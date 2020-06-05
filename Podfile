@@ -14,7 +14,6 @@ target 'SayTheirNames' do
   target 'SayTheirNamesTests' do
     inherit! :search_paths
     # Pods for testing
-    pod 'Mocker', '~> 2.0.0', :inhibit_warnings => true
   end
 
 end
