@@ -168,7 +168,8 @@ extension HomeController: UICollectionViewDelegateFlowLayout {
         }
         else if collectionView === peopleCollectionView {
             // People CollectionView
-            let selectedPerson = peopleDataSource.fetchPerson(at: indexPath.item)
+            
+            let selectedPerson = peopleDataSourceHelper.person(at: indexPath.item)
             let personController = PersonController(service: self.service)
             personController.person = selectedPerson
             let navigationController = UINavigationController(rootViewController: personController)
