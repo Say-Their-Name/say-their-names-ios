@@ -23,7 +23,6 @@ final class PersonCell: UICollectionViewCell {
     private lazy var nameLabel: UILabel = {
         let lbl = UILabel()
         lbl.text = "GEORGE FLOYD"
-//        lbl.font = UIFont(name: "Karla-Bold", size: 13)
         lbl.textColor = UIColor.STN.primaryLabel
         lbl.lineBreakMode = .byTruncatingTail
         lbl.translatesAutoresizingMaskIntoConstraints = false
@@ -33,7 +32,6 @@ final class PersonCell: UICollectionViewCell {
     private lazy var dateOfIncidentLabel: UILabel = {
         let lbl = UILabel()
         lbl.text = "25.05.2020"
-//        lbl.font = UIFont(name: "Karla-regular", size: 13)
         lbl.textColor = UIColor.STN.secondaryLabel
         lbl.lineBreakMode = .byTruncatingTail
         lbl.translatesAutoresizingMaskIntoConstraints = false
