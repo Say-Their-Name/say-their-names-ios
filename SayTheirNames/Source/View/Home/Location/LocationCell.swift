@@ -9,8 +9,6 @@
 import UIKit
 
 class LocationCell: UICollectionViewCell {
-
-    static let locationIdentifier = "locationCell"
     
     var titleLabel: UILabel = {
         let label = UILabel()
