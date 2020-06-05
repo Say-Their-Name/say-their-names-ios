@@ -57,10 +57,24 @@ final class HomeView: UIView {
         return separator
     }()
     
-    var hideable: [UIView] {
-        [customNavigationBar, locationCollectionView, peopleCollectionView, separator]
-    }
+    func safeWidth(for collectionView: UICollectionView) -> CGFloat {
+        let width = collectionView.frame.width -
+            collectionView.safeAreaInsets.left -
+            collectionView.safeAreaInsets.right -
+            collectionView.layoutMargins.left -
+            collectionView.layoutMargins.right
         
+        let flowLayoutMargins: CGFloat
+        if let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+            flowLayoutMargins = flowLayout.sectionInset.left + flowLayout.sectionInset.right
+        }
+        else {
+            flowLayoutMargins = 0
+        }
+        
+        return width - flowLayoutMargins
+    }
+    
     override func didMoveToSuperview() {
         super.didMoveToSuperview()
         createLayout()
