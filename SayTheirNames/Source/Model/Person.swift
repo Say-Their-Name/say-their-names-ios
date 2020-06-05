@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct Person: Decodable, Hashable {
+struct Person: Decodable {
     var id: Int
     var fullName: String
     var dob: String
@@ -31,7 +31,7 @@ public struct Person: Decodable, Hashable {
         socialMedia = "social_media"
     }
     
-    public init(from decoder: Decoder) throws {
+    init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         
         self.id = try values.decodeIfPresent(Int.self, forKey: .id) ?? -1
@@ -50,14 +50,10 @@ public struct Person: Decodable, Hashable {
         self.petitions = try values.decodeIfPresent(PetitionsResponsePage.self, forKey: .petitions) ?? PetitionsResponsePage()
         self.media = try values.decodeIfPresent([Media].self, forKey: .media) ?? []
         self.socialMedia = try values.decodeIfPresent([SocialMedia].self, forKey: .socialMedia) ?? []
-    }
-    
-    public static func == (lhs: Person, rhs: Person) -> Bool {
-        lhs.id == rhs.id
-    }
+    }    
 }
 
-public struct PersonsResponsePage: Decodable {
+struct PersonsResponsePage: Decodable {
     var all: [Person]
     var link: Link
     
@@ -69,5 +65,16 @@ public struct PersonsResponsePage: Decodable {
     init() {
         self.all = []
         self.link = Link(first: "", last: "", prev: "", next: "")
+    }
+}
+
+extension Person: Equatable, Hashable {
+    
+    static func == (lhs: Person, rhs: Person) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
     }
 }
