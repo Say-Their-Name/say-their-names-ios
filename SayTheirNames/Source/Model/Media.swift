@@ -12,7 +12,7 @@ protocol MediaInterface: Decodable {
     var url: String { get set }
 }
 
-public struct Media: MediaInterface {
+public struct Media: MediaInterface, Hashable {
     var url: String
 
     enum CodingKeys: String, CodingKey {

@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct Link: Decodable {
+public struct Link: Decodable, Hashable {
     var first: String
     var last: String
     var prev: String?

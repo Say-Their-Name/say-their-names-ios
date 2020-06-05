@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DMDTitleCell: UICollectionViewCell {
+final class DMDTitleCell: UICollectionViewCell {
     // MARK: - Property
     static let reuseIdentifier = "donations-more-details-title-cell"
     

@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct Petition: Decodable {
+public struct Petition: Decodable, Hashable {
     var id: Int
     var title: String
     var description: String
@@ -17,9 +17,13 @@ public struct Petition: Decodable {
     enum CodingKeys: String, CodingKey {
         case id, title, description, link
     }
+    
+    public static func == (lhs: Petition, rhs: Petition) -> Bool {
+        lhs.id == rhs.id
+    }
 }
 
-public struct PetitionsResponsePage: Decodable {
+public struct PetitionsResponsePage: Decodable, Hashable {
     var all: [Petition]
     var link: Link
     

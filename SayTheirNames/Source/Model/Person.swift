@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct Person: Decodable {
+public struct Person: Decodable, Hashable {
     var id: Int
     var fullName: String
     var dob: String
@@ -50,6 +50,10 @@ public struct Person: Decodable {
         self.petitions = try values.decodeIfPresent(PetitionsResponsePage.self, forKey: .petitions) ?? PetitionsResponsePage()
         self.media = try values.decodeIfPresent([Media].self, forKey: .media) ?? []
         self.socialMedia = try values.decodeIfPresent([SocialMedia].self, forKey: .socialMedia) ?? []
+    }
+    
+    public static func == (lhs: Person, rhs: Person) -> Bool {
+        lhs.id == rhs.id
     }
 }
 

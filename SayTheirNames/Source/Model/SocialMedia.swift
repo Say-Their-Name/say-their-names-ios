@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct SocialMedia: Decodable {
+public struct SocialMedia: Decodable, Hashable {
     var title: String
     var type: String
     var link: String
