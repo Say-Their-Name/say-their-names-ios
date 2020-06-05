@@ -8,8 +8,14 @@
 
 import UIKit
 
+protocol Servicing {
+    var navigator: Navigator { get }
+    var image: ImageService { get }
+    var dateFormatter: DateFormatterService { get }
+    var network: NetworkRequestor { get }
+}
 /// This is a core class that holds all instances responsible for logic
-final class Service {
+final class Service: Servicing {
     lazy private(set) var navigator = Navigator(service: self)
     lazy private(set) var image = ImageService()
     lazy private(set) var dateFormatter = DateFormatterService()

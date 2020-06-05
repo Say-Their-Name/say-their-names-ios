@@ -9,10 +9,9 @@
 import UIKit
 
 class DonationsController: BaseViewController {
-    
     private let ui = DonationsView()
     
-    required init(service: Service) {
+    required init(service: Servicing) {
         super.init(service: service)
     }
     

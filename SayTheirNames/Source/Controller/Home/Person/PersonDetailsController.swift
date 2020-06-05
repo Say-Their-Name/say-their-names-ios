@@ -39,8 +39,7 @@ extension PersonDetailsController: UICollectionViewDataSource, UICollectionViewD
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: PersonPhotoCell = collectionView.dequeueCell(for: indexPath)
-        let personImage = UIImage(named: "man-in-red-jacket-1681010")
-        cell.setImage(personImage)
+        cell.setImage(withUrlString: "url-to-be-added")
         return cell
     }
     
