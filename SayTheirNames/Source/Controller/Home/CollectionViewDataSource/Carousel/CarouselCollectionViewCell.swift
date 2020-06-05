@@ -52,12 +52,12 @@ final class CarouselCollectionViewCell: UICollectionViewCell {
         //cast the data to the correct data type for usage. Left as model type has not been created yet.
         //setup cell
         configureView()
-        configureText()
+        configureText(data: data)
     }
 
-    private func configureText() {
-        titleLabel.text = "#BLACKLIVESMATTER"
-        descriptionLabel.text = "Strings.carouselDescription"
+    private func configureText(data: HeaderCellContent) {
+        titleLabel.text = data.title
+        descriptionLabel.text = data.description
     }
 
     private func configureView() {

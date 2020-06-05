@@ -9,14 +9,13 @@
 import UIKit
 
 enum HeaderSection {
-       case main
-   }
+    case main
+}
 
 final class PersonCollectionViewDataSourceHelper {
     
     enum Section {
         case main
-        case header
     }
 
     typealias PersonCollectionViewDataSource = UICollectionViewDiffableDataSource<Section, Person>

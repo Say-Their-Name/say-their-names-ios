@@ -74,9 +74,9 @@ final class HomeController: UIViewController, ServiceReferring {
     fileprivate func setupCollectionView() {
 
         let carouselData: [HeaderCellContent] = [
-            .init(),
-            .init(),
-            .init()
+            .init(title: "#BLACKLIVESMATTER", description: "How to get involved"),
+            .init(title: "#BLACKLIVESMATTER", description: "How to get involved"),
+            .init(title: "#BLACKLIVESMATTER", description: "How to get involved")
         ]
         
         // TO-DO: Dummy data for now, should update after API call to get locations
@@ -94,6 +94,8 @@ final class HomeController: UIViewController, ServiceReferring {
             case .success(let page):
                 self?.peopleDataSourceHelper.setPeople(page.all)
                 self?.peopleCollectionView.reloadData()
+
+                //TODO: - move into own method to populate data in header
                 self?.peopleDataSourceHelper.setHeaderData(carouselData)
                 self?.peopleHeaderCollectionView.reloadData()
             case .failure(let error):

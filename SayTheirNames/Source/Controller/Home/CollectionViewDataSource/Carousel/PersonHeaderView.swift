@@ -105,7 +105,6 @@ extension PersonHeaderView: UICollectionViewDelegate, UIScrollViewDelegate {
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         guard let collectionView = collectionView,
               let pageControl = pageControl else {return}
-        if scrollView == collectionView {}
         let centerX = collectionView.center.x + collectionView.contentOffset.x
         let centerY = collectionView.center.y + collectionView.contentOffset.y
         guard let indexPath = collectionView.indexPathForItem(at: .init(x: centerX, y: centerY)) else {return}
