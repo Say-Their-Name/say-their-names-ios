@@ -69,7 +69,7 @@ class CustomSearchBar: UIView {
             top: topAnchor,
             bottom: bottomAnchor,
             trailing: trailingAnchor,
-            padding: UIEdgeInsets(right: 16))
+            padding: UIEdgeInsets(right: Theme.Components.Padding.medium))
         
         searchBar.anchor(
             superView: self,
@@ -77,7 +77,7 @@ class CustomSearchBar: UIView {
             leading: leadingAnchor,
             bottom: bottomAnchor,
             trailing: cancelSearchButton.leadingAnchor,
-            padding: UIEdgeInsets(left: 16, right: 16))
+            padding: UIEdgeInsets(left: Theme.Components.Padding.medium, right: Theme.Components.Padding.medium))
         
         searchResultView.anchor(
             superView: superView,
@@ -85,7 +85,7 @@ class CustomSearchBar: UIView {
             leading: superView.leadingAnchor,
             bottom: superView.bottomAnchor,
             trailing: superView.trailingAnchor,
-            padding: .init(top: -5))
+            padding: .init(top: -Theme.Components.Padding.tiny))
         
         tableView.anchor(
             superView: searchResultView,
