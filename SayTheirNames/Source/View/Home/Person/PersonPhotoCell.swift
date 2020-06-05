@@ -14,6 +14,7 @@ final class PersonPhotoCell: UICollectionViewCell {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.clipsToBounds = true
         return imageView
     }()
     
@@ -37,8 +38,8 @@ final class PersonPhotoCell: UICollectionViewCell {
         personImageView.fillSuperview()
     }
     
-    func setImage(_ image: UIImage?) {
-        personImageView.image = image
+    func setImage(withUrlString url: String) {
+        personImageView.populate(withURL: url)
     }
 }
 

@@ -77,9 +77,10 @@ final class PersonCell: UICollectionViewCell {
     }
     
     func configure(with person: Person) {
-        profileImageView.image = UIImage(named: "man-in-red-jacket-1681010")
-        // ^Update to default place holder image when resource is added.
-        // TO-DO: Use Kilo's ImageDownloader here to DL image
+        let df = DateFormatter()
+        df.dateFormat = "dd.MM.yyyy"
+        
+        profileImageView.populate(withURL: person.images.first?.personURL ?? "")
         nameLabel.text = person.fullName.uppercased()
         dateOfIncidentLabel.text = person.doi
     }
