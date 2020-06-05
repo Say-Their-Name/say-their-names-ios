@@ -11,27 +11,14 @@ import UIKit
 //collection of icons used
 extension UIImage{
     enum STN {
-        static let bookmark: UIImage = UIImage(named: KIconNames.bookmarkLiteral) ?? #imageLiteral(resourceName: "bookmark_active")
-        static let bookmarkActive: UIImage = UIImage(named: KIconNames.bookmarkActiveLiteral) ?? #imageLiteral(resourceName: "bookmark_active")
-        static let heartActive: UIImage = UIImage(named: KIconNames.heartActiveLiteral) ?? #imageLiteral(resourceName: "heart_active")
-        static let petitionActive: UIImage = UIImage(named: KIconNames.petitionActiveLiteral) ?? #imageLiteral(resourceName: "petition_active")
-        static let settingsActive: UIImage = UIImage(named: KIconNames.settingsActiveLiteral) ?? #imageLiteral(resourceName: "settings_active")
-        static let whiteBookmark: UIImage = UIImage(named: KIconNames.whiteBookmarkLiteral) ?? #imageLiteral(resourceName: "white-bookmark")
-        static let whiteSearch: UIImage = UIImage(named: KIconNames.whiteSearchLiteral) ?? #imageLiteral(resourceName: "Simple Search Icon")
-        static let imagePlaceHolder: UIImage = UIImage(named: KIconNames.imagePlaceholderLiteral) ?? #imageLiteral(resourceName: "image-placeholder")
-        static let manInRedJacket: UIImage = UIImage(named: KIconNames.manInRedJacketLiteral) ?? #imageLiteral(resourceName: "man-in-red-jacket-1681010")
+        static let bookmark: UIImage = UIImage(named: String.image.bookmark) ?? UIImage()
+        static let bookmarkActive: UIImage = UIImage(named: String.image.bookmarkActive) ??  UIImage()
+        static let heartActive: UIImage = UIImage(named: String.image.heartActive) ??  UIImage()
+        static let petitionActive: UIImage = UIImage(named: String.image.petitionActive) ??  UIImage()
+        static let settingsActive: UIImage = UIImage(named: String.image.settingsActive) ??  UIImage()
+        static let whiteBookmark: UIImage = UIImage(named: String.image.whiteBookmark) ??  UIImage()
+        static let whiteSearch: UIImage = UIImage(named: String.image.whiteSearch) ??  UIImage()
+        static let imagePlaceHolder: UIImage = UIImage(named: String.image.imagePlaceholder) ??  UIImage()
+        static let manInRedJacket: UIImage = UIImage(named: String.image.manInRedJacket) ??  UIImage()
     }
-}
-
-// MARK: - Constants
-struct KIconNames {
-    static let bookmarkLiteral: String = "bookmark"
-    static let bookmarkActiveLiteral: String = "bookmark_active"
-    static let heartActiveLiteral: String = "heart_active"
-    static let petitionActiveLiteral: String = "petition_active"
-    static let settingsActiveLiteral: String = "settings_active"
-    static let whiteBookmarkLiteral: String = "white-bookmark"
-    static let whiteSearchLiteral: String = "white-search"
-    static let imagePlaceholderLiteral: String = "image-placeholder"
-    static let manInRedJacketLiteral: String = "man-in-red-jacket-1681010"
 }
