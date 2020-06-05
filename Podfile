@@ -8,6 +8,7 @@ target 'SayTheirNames' do
   # Pods for SayTheirNames
   pod 'SwiftGen', '~> 6.0'
   pod 'SwiftLint', '~> 0.39.2'
+  pod 'SDWebImage', '~> 5.0'
   pod 'Alamofire', '~> 5.2'
 
   target 'SayTheirNamesTests' do
