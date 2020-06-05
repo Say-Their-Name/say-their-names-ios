@@ -14,7 +14,7 @@ class CustomSearchBar: UIView {
     var searchResult = [Person]()
     
     private let searchBar = UISearchBar()
-    private var homeController: HomeController?
+    private var homeController: HomeController? // FIXME: retain cycle
     private let searchResultView: UIView = {
         let view = UIView()
         return view
