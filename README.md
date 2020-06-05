@@ -14,7 +14,7 @@ with this repository or the members of the community. Thank you 🙌
 The iOS app is currently under active development, and is not available on App Store
 or TestFlight yet.
 
-To run the app, checkout the repo, and open `Say Their Names.xcworkspace` with Xcode 11.5.
+To run the app, checkout the repo, and open `SayTheirNames.xcworkspace` with Xcode 11.5.
 No additional setup is required.
 
 ## Contributing
