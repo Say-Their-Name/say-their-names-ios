@@ -1,5 +1,5 @@
 //
-//  MoreController.swift
+//  AboutController.swift
 //  SayTheirNames
 //
 //  Copyright (c) 2020 Say Their Names Team (https://github.com/Say-Their-Name)
@@ -24,9 +24,9 @@
 
 import UIKit
 
-class MoreController: UIViewController, ServiceReferring {
+class AboutController: UIViewController, ServiceReferring {
     var service: Servicing
-    private let moreView = MoreView()
+    private let aboutView = AboutView()
 
     required init(service: Servicing) {
         self.service = service
@@ -36,6 +36,6 @@ class MoreController: UIViewController, ServiceReferring {
     required init?(coder: NSCoder) { fatalError("This should not be called") }
 
     override func loadView() {
-        self.view = moreView
+        self.view = aboutView
     }
 }

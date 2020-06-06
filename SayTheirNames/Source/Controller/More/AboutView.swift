@@ -1,5 +1,5 @@
 //
-//  MoreView.swift
+//  AboutView.swift
 //  SayTheirNames
 //
 //  Copyright (c) 2020 Say Their Names Team (https://github.com/Say-Their-Name)
@@ -24,12 +24,12 @@
 
 import UIKit
 
-/// The UI for More
-final class MoreView: UIView {
+/// The UI for About
+final class AboutView: UIView {
 
-    private lazy var moreLabel: UILabel = {
+    private lazy var aboutLabel: UILabel = {
         let label = UILabel()
-        label.text = Strings.more
+        label.text = Strings.about
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
 
@@ -53,16 +53,16 @@ final class MoreView: UIView {
 
     /// Adds and configures constraints for subviews
     private func setupSubviews() {
-        setupMoreLabel()
+        setupAboutLabel()
     }
 }
 
 // MARK: - Configurations
-private extension MoreView {
+private extension AboutView {
 
-    private func setupMoreLabel() {
-        addSubview(moreLabel)
-        moreLabel.fillSuperview()
+    private func setupAboutLabel() {
+        addSubview(aboutLabel)
+        aboutLabel.fillSuperview()
     }
 
 }

@@ -93,8 +93,8 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         let petitionsController = PetitionsController(service: self.service)
         let petitionsNC = UINavigationController(rootViewController: petitionsController)
         
-        let moreController = MoreController(service: self.service)
-        let moreNC = UINavigationController(rootViewController: moreController)
+        let aboutController = AboutController(service: self.service)
+        let aboutNC = UINavigationController(rootViewController: aboutController)
             
         homeNC.isNavigationBarHidden = true
         homeNC.tabBarItem.image = UIImage(named: "gallery")
@@ -110,12 +110,12 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         petitionsNC.tabBarItem.selectedImage = UIImage(named: "petition_active")
         petitionsNC.tabBarItem.title = Strings.petitions
         
-        moreNC.isNavigationBarHidden = true
-        moreNC.tabBarItem.image = UIImage(named: "settings")
-        moreNC.tabBarItem.selectedImage = UIImage(named: "settings_active")
-        moreNC.tabBarItem.title = Strings.more
+        aboutNC.isNavigationBarHidden = true
+        aboutNC.tabBarItem.image = UIImage(named: "settings")
+        aboutNC.tabBarItem.selectedImage = UIImage(named: "settings_active")
+        aboutNC.tabBarItem.title = Strings.about
         
-        viewControllers = [homeNC, donationsNC, petitionsNC, moreNC]
+        viewControllers = [homeNC, donationsNC, petitionsNC, aboutNC]
     }
 
     func setupTabBar() {
