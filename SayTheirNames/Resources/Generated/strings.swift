@@ -30,7 +30,7 @@ internal enum L10n {
   /// Search
   internal static let search = L10n.tr("Localizable", "search")
   /// Settings
-  internal static let settings = L10n.tr("Localizable", "settings")
+  internal static let about = L10n.tr("Localizable", "about")
   /// Share
   internal static let share = L10n.tr("Localizable", "share")
   /// verfied
