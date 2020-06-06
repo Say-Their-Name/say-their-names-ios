@@ -159,24 +159,19 @@ final class HomeView: UIView {
         buttonStack.spacing = Theme.Components.Padding.small
         buttonStack.distribution = .fillEqually
         
-<<<<<<< HEAD
-        navigationBarLabel.anchor(superView: bar, leading: bar.leadingAnchor, bottom: bar.bottomAnchor, padding: .init(left: 16, bottom: 16))
-=======
-        label.anchor(superView: bar,
-                     leading: bar.leadingAnchor,
-                     bottom: bar.bottomAnchor,
-                     padding: .init(left: Theme.Components.Padding.medium, bottom: Theme.Components.Padding.medium))
->>>>>>> use new themes for home views
+        navigationBarLabel.anchor(superView: bar,
+                                  leading: bar.leadingAnchor,
+                                  bottom: bar.bottomAnchor,
+                                  padding: .init(left: Theme.Components.Padding.medium, bottom: Theme.Components.Padding.medium))
         bar.addSubview(buttonStack)
         [bookmarkButton, searchButton].forEach {
             $0.widthAnchor.constraint(equalToConstant: Theme.Components.Button.Size.medium.height).isActive = true
             $0.heightAnchor.constraint(equalToConstant: Theme.Components.Button.Size.medium.width).isActive = true
         }
-<<<<<<< HEAD
-        buttonStack.anchor(superView: bar, trailing: bar.trailingAnchor, padding: .init(right: 16))
+        buttonStack.anchor(superView: bar, trailing: bar.trailingAnchor, padding: .init(right: Theme.Components.Padding.medium))
         buttonStack.centerYAnchor.constraint(equalTo: navigationBarLabel.centerYAnchor).isActive = true
         
-        navigationBarLabel.trailingAnchor.constraint(equalTo: buttonStack.leadingAnchor, constant: 4).isActive = true
+        navigationBarLabel.trailingAnchor.constraint(equalTo: buttonStack.leadingAnchor, constant: Theme.Components.Padding.tiny).isActive = true
     }
 
     private func styleLabels() {
@@ -191,19 +186,4 @@ final class HomeView: UIView {
             styleLabels()
         }
     }
-    
-    // MARK: - Constants
-    static let CustomNavigationBarHeight: CGFloat = 70
-    static let PeopleCollectionViewHeight: CGFloat = 70
-    static let ButtonSize: CGSize = .init(width: 40, height: 40)
-    static let CustomNavBarMargin: CGFloat = 16
-    static let SeparatorHeight: CGFloat = 1
-    static let LocationsSectionInsets = UIEdgeInsets(left: 16, right: 16)
-    static let PeopleSectionInsets = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
-=======
-        buttonStack.anchor(superView: bar, trailing: bar.trailingAnchor, padding: .init(right: Theme.Components.Padding.medium))
-        buttonStack.centerYAnchor.constraint(equalTo: label.centerYAnchor).isActive = true
-
-    }
->>>>>>> use new themes for home views
 }

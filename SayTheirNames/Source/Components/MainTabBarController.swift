@@ -31,7 +31,6 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
     private let defaultBarTint: UIColor = UIColor.STN.barTint
     private let defaultTint = UIColor.STN.tint
     private let defaultUnselectedTint = UIColor.STN.unselectedTint
-
     private var launchScreen: LaunchScreen?
     
     required init?(coder aDecoder: NSCoder) { fatalError("") }
