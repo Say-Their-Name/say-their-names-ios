@@ -64,7 +64,7 @@ final class HomeController: UIViewController, ServiceReferring {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .black
+        view.backgroundColor = UIColor.STN.black
         navigationController?.navigationBar.isHidden = true
         searchBar.setup(withController: self)
         setupCollectionView()

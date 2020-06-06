@@ -32,10 +32,16 @@ extension UIColor {
         static let black: UIColor = UIColor(named: "black") ?? .black
         static let white: UIColor = UIColor(named: "white") ?? .white
         static let gray: UIColor = UIColor(named: "grey") ?? .gray
+        static let darkGray: UIColor = UIColor(named: "darkGray") ?? .darkGray
+        static let containerOutlineColor = UIColor(named: "systemGray5") ?? .systemGray5
+        static let separatorColor = UIColor.systemGray6
         
 		// MARK: - Applications
-
+        
         static let tint: UIColor = UIColor(named: "tint") ?? .black
+        static let unselectedTint = UIColor(red: 0.3803921569, green: 0.3882352941, blue: 0.4666666667, alpha: 0.5681668134)
+        static let tabBar = UIColor(red: 0.9451505829, green: 0.9451505829, blue: 0.9451505829, alpha: 1)
+        static let background = UIColor.systemBackground
 
 		// MARK: - Labels
 

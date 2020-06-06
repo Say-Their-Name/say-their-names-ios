@@ -123,8 +123,8 @@ final class PetitionsView: UIView {
 extension PetitionsView {
     
     static let CustomNavigationBarHeight: CGFloat = 70
-    static let CustomNavigationBarTextColor = UIColor.white
-    static let CustomNavigationBarBackgroundColor = UIColor.black
-    static let BackgroundColor = UIColor.black
+    static let CustomNavigationBarTextColor = UIColor.STN.white
+    static let CustomNavigationBarBackgroundColor = UIColor.STN.black
+    static let BackgroundColor = UIColor.STN.black
     static let TableViewBackgroundColor = UIColor.systemBackground
 }

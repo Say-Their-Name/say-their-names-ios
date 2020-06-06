@@ -227,12 +227,12 @@ extension PetitionTableViewCell {
     static let FindOutMoreButtonVerticalMargin: CGFloat = 15
     static let FindOutMoreButtonOutlineThickness: CGFloat = 2
 
-    static let ContainerBackgroundColor = UIColor.white
-    static let ContainerOutlineColor = UIColor.systemGray5
+    static let ContainerBackgroundColor = UIColor.STN.white
+    static let ContainerOutlineColor = UIColor.STN.containerOutlineColor
     static let ContainerOutlineThickness: CGFloat = 2
 
     static let ContentColor = UIColor.black
     
-    static let VerifiedLabelTextColor = UIColor.white
-    static let VerifiedLabelBackgroundColor = UIColor.black
+    static let VerifiedLabelTextColor = UIColor.STN.white
+    static let VerifiedLabelBackgroundColor = UIColor.STN.black
 }

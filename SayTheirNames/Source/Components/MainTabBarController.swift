@@ -28,10 +28,9 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
     let service: Servicing
     
     // Params
-    private let defaultBarTint: UIColor = .white
-    private let defaultTint = UIColor.black
-    private let defaultUnselectedTint = UIColor(red: 0.3803921569, green: 0.3882352941, blue: 0.4666666667, alpha: 0.5681668134)
-
+    private let defaultBarTint = UIColor.STN.white
+    private let defaultTint = UIColor.STN.black
+    private let defaultUnselectedTint = UIColor.STN.unselectedTint
     private let shadowRadius: CGFloat = 15
     private let shadowOpacity: Float = 1
     private let shadowOffset: CGSize = .init(width: 0, height: 10)
@@ -74,9 +73,9 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
     fileprivate func setupTabBarStyle() {
         tabBar.isTranslucent = true
         tabBar.layer.borderWidth = 0.9
-        tabBar.layer.borderColor = UIColor(red: 0.9451505829, green: 0.9451505829, blue: 0.9451505829, alpha: 1).cgColor
+        tabBar.layer.borderColor = UIColor.STN.tabBar.cgColor
         tabBar.clipsToBounds = true
-        tabBar.backgroundColor = .white
+        tabBar.backgroundColor = UIColor.STN.white
         tabBar.barTintColor = defaultBarTint
         tabBar.tintColor = defaultTint
         tabBar.unselectedItemTintColor = defaultUnselectedTint

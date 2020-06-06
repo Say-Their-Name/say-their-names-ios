@@ -28,7 +28,7 @@ final class HomeView: UIView {
 
     let customNavigationBar: UIView = {
         let customNavigationBar = UIView()
-        customNavigationBar.backgroundColor = .black
+        customNavigationBar.backgroundColor = UIColor.STN.black
         return customNavigationBar
     }()
     
@@ -68,7 +68,7 @@ final class HomeView: UIView {
     
     let separator: UIView! = {
         let separator = UIView()
-        separator.backgroundColor = .systemGray6
+        separator.backgroundColor = UIColor.STN.separatorColor
         return separator
     }()
     
@@ -93,7 +93,7 @@ final class HomeView: UIView {
     override func didMoveToSuperview() {
         super.didMoveToSuperview()
         createLayout()
-        backgroundColor = .black
+        backgroundColor = UIColor.STN.black
     }
     
     private var hasLayedOutSubviews = false
@@ -105,8 +105,8 @@ final class HomeView: UIView {
 
         let collections = UIView()
         addSubview(collections)
-        locationCollectionView.backgroundColor = .systemBackground
-        peopleCollectionView.backgroundColor = .systemBackground
+        locationCollectionView.backgroundColor = UIColor.STN.background
+        peopleCollectionView.backgroundColor = UIColor.STN.background
         customNavigationBar.anchor(
             superView: self,
             top: safeAreaLayoutGuide.topAnchor,
@@ -144,7 +144,7 @@ final class HomeView: UIView {
         let bar = customNavigationBar
         let label = UILabel()
         label.text = "SAY THEIR NAME"
-        label.textColor = .white
+        label.textColor = UIColor.STN.white
         label.font = UIFont.STN.bannerTitle
         let buttonStack = UIStackView(arrangedSubviews: [bookmarkButton,searchButton])
         buttonStack.spacing = 8
