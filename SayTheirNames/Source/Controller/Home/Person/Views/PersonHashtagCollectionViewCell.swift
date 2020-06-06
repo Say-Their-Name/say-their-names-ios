@@ -9,15 +9,7 @@
 import UIKit
 
 class PersonHashtagCollectionViewCell: UICollectionViewCell {
-    lazy var hashtagLabel: UILabel = {
-        let label = UILabel()
-        label.text = "#JUSTICEFORFIRST"
-        label.font = UIFont(name: "Karla-Bold", size: 16)
-        label.adjustsFontSizeToFitWidth = true
-        label.textColor = UIColor.STN.black
-        label.textAlignment = .center
-        return label
-    }()
+    let hashtagView = HashtagView(frame: .zero)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -29,7 +21,6 @@ class PersonHashtagCollectionViewCell: UICollectionViewCell {
     }
     
     private func setupLayout() {
-        layer.borderWidth = 1.5
-        hashtagLabel.fillSuperview(superView: self)
+        hashtagView.fillSuperview(superView: self)
     }
 }
