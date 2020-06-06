@@ -8,14 +8,12 @@
 
 import UIKit
 
-extension UICollectionViewCell {
-    static func register(to collectionView: UICollectionView, identifier: String) {
-        collectionView.register(Self.self, forCellWithReuseIdentifier: identifier)
-    }
-}
-
 class PersonNewsCollectionViewCell: UICollectionViewCell {
  
+    static var reuseIdentifier: String {
+        return "\(Self.self)"
+    }
+    
     lazy var newsImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "media-image-1")

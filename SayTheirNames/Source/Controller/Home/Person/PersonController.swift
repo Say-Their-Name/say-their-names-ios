@@ -35,13 +35,13 @@ enum PersonCellType: Equatable {
     
     var identifier: String {
         switch self {
-        case .photo: return "PersonCellType_Photo"
-        case .info: return "PersonCellType_Info"
-        case .story: return "PersonCellType_Story"
-        case .outcome: return "PersonCellType_Outcome"
-        case .news: return "PersonCellType_News"
-        case .medias: return "PersonCellType_Media"
-        case .hashtags: return "PersonCellType_Hashtags"
+        case .photo: return PersonPhotoTableViewCell.reuseIdentifier
+        case .info: return PersonInfoTableViewCell.reuseIdentifier
+        case .story: return PersonOverviewTableViewCell.reuseIdentifier
+        case .outcome: return PersonOverviewTableViewCell.reuseIdentifier
+        case .news: return PersonNewsTableViewCell.reuseIdentifier
+        case .medias: return PersonNewsTableViewCell.reuseIdentifier
+        case .hashtags: return PersonHashtagTableViewCell.reuseIdentifier
         }
     }
     
@@ -60,36 +60,76 @@ enum PersonCellType: Equatable {
     func register(to tableView: UITableView) {
         switch self {
         case .photo:
-            PersonPhotoTableViewCell.register(to: tableView, identifier: identifier)
+            tableView.register(cellType: PersonPhotoTableViewCell.self)
         case .info:
-            PersonInfoTableViewCell.register(to: tableView, identifier: identifier)
+            tableView.register(cellType: PersonInfoTableViewCell.self)
         case .story:
-            PersonOverviewTableViewCell.register(to: tableView, identifier: identifier)
+            tableView.register(cellType: PersonOverviewTableViewCell.self)
         case .outcome:
-            PersonOverviewTableViewCell.register(to: tableView, identifier: identifier)
+            tableView.register(cellType: PersonOverviewTableViewCell.self)
         case .news:
-            PersonNewsTableViewCell.register(to: tableView, identifier: identifier)
+            tableView.register(cellType: PersonNewsTableViewCell.self)
         case .medias:
-            PersonNewsTableViewCell.register(to: tableView, identifier: identifier)
+            tableView.register(cellType: PersonNewsTableViewCell.self)
         case .hashtags:
-            PersonHashtagTableViewCell.register(to: tableView, identifier: identifier)
+            tableView.register(cellType: PersonHashtagTableViewCell.self)
         }
     }
     
     static var allCases: [PersonCellType] {
         return [.photo, .info, .story, .outcome, .news([]), .medias([]), .hashtags]
     }
-    
-    static func == (lhs: PersonCellType, rhs: PersonCellType) -> Bool {
-        return lhs.identifier == rhs.identifier
-    }
 }
+
+// Alias for donation container view
+typealias DontainButtonContainerView = ButtonContainerView
 
 class PersonController: BaseViewController {
     
-    var person: Person!
-    var tableView: UITableView = UITableView(frame: .zero)
-    let donationButtonContainerView = ButtonContainerView(frame: .zero)
+    public var person: Person!
+    
+    private let donationButtonContainerView = DontainButtonContainerView(frame: .zero)
+    
+    private let tableViewCells: [PersonCellType] = {
+        return [.photo, .info, .story, .outcome, .news([]), .medias([]), .hashtags]
+    }()
+    
+    private var tableView: UITableView = {
+        let tableView = UITableView(frame: .zero)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.separatorStyle = .none
+        tableView.allowsSelection = false
+        tableView.insetsContentViewsToSafeArea = false
+        tableView.backgroundColor = .clear
+        tableView.contentInset = .init(top: 16)
+        return tableView
+    }()
+    
+    lazy var backgroundFistImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "STN-Logo-white")
+        imageView.contentMode = .scaleAspectFit
+        imageView.clipsToBounds = true
+        return imageView
+    }()
+    
+    lazy var dismissButton: UIButton = {
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(dismissAction(_:)))
+        let button = UIButton(type: .system)
+        button.setImage(UIImage(named: "Close Icon")?.withRenderingMode(.alwaysOriginal), for: .normal)
+        button.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
+        button.addGestureRecognizer(gesture)
+        return button
+    }()
+
+    lazy var shareButton: UIButton = {
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(shareAction(_:)))
+        let button = UIButton(type: .system)
+        button.setImage(UIImage(named: "share_white")?.withRenderingMode(.alwaysOriginal), for: .normal)
+        button.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
+        button.addGestureRecognizer(gesture)
+        return button
+    }()
     
     // TODO: Once Theme.swift/etc. gets added to the project this should get moved there.
     let navigationBarTextAttributes = [
@@ -97,59 +137,16 @@ class PersonController: BaseViewController {
         NSAttributedString.Key.font: UIFont.STN.navBarTitle
     ]
     
-    var cellCollectionTypes: [PersonCellType] = {
-        return [.photo, .info, .story, .outcome, .news([]), .medias([]), .hashtags]
-    }()
-    
-    lazy var fistImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: "STN-Logo-white")
-        imageView.contentMode = .scaleAspectFit
-        imageView.clipsToBounds = true
-        return imageView
-    }()
     override func viewDidLoad() {
         super.viewDidLoad()
         view.accessibilityIdentifier = "personView"
-        tableView.backgroundColor = .clear
-        tableView.contentInset = .init(top: 16)
     }
 
     override func loadView() {
         super.loadView()
         view.backgroundColor = .black
         setupNavigationBarItems()
-        setupTableView()
-        setupDonationButton()
-    }
-    
-    private func setupNavigationBarItems() {
-        // TODO: Once Theme.swift/etc gets added this may not be required
-        navigationController?.navigationBar.titleTextAttributes = self.navigationBarTextAttributes
-        
-        // TODO: Localization
-        self.title = "Say Their Names".uppercased()
-        self.navigationController?.navigationBar.titleTextAttributes =
-        [NSAttributedString.Key.foregroundColor: UIColor.white,
-         NSAttributedString.Key.font: UIFont(name: "Karla-Regular", size: 19) ?? UIFont.systemFont(ofSize: 17)]
-        
-        let dismissActionGesture = UITapGestureRecognizer(target: self, action: #selector(dismissAction(_:)))
-        let shareActionGesture = UITapGestureRecognizer(target: self, action: #selector(shareAction(_:)))
-
-        let dismissButton = UIButton(type: .system)
-        dismissButton.addGestureRecognizer(dismissActionGesture)
-        dismissButton.setImage(UIImage(named: "Close Icon")?.withRenderingMode(.alwaysOriginal), for: .normal)
-        dismissButton.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
-        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: dismissButton)
-        
-        let shareButton = UIButton(type: .system)
-        shareButton.addGestureRecognizer(shareActionGesture)
-        shareButton.setImage(UIImage(named: "share_white")?.withRenderingMode(.alwaysOriginal), for: .normal)
-        shareButton.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: shareButton)
-        
-        navigationController?.navigationBar.isTranslucent = false
-        navigationController?.navigationBar.barTintColor = .black
+        setupSubViews()
     }
     
     @objc func dismissAction(_ sender: Any) {
@@ -163,51 +160,87 @@ class PersonController: BaseViewController {
     private func registerCells(to tableView: UITableView) {
         PersonCellType.allCases.forEach { $0.register(to: tableView) }
     }
+}
+
+// MARK: - UIView Setup Methods
+private extension PersonController {
     
-    private func setupTableView() {
+    func setupNavigationBarItems() {
+       navigationController?.navigationBar.isTranslucent = false
+       navigationController?.navigationBar.barTintColor = .black
+       // TODO: Once Theme.swift/etc gets added this may not be required
+       navigationController?.navigationBar.titleTextAttributes = navigationBarTextAttributes
+        
+       // TODO: Implement localization
+       title = "SAY THEIR NAMES"
+        
+       navigationController?.navigationBar.titleTextAttributes = [
+        NSAttributedString.Key.foregroundColor: UIColor.white,
+        NSAttributedString.Key.font: UIFont(name: "Karla-Regular", size: 19) ?? UIFont.systemFont(ofSize: 17)]
+       
+       navigationItem.leftBarButtonItem = UIBarButtonItem(customView: dismissButton)
+       navigationItem.rightBarButtonItem = UIBarButtonItem(customView: shareButton)
+    }
+    
+    func setupSubViews() {
+        backgroundFistImageView.anchor(superView: view, top: view.topAnchor,
+                               padding: .init(top:32), size: .init(width: 110, height: 110))
+        backgroundFistImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        setupTableView()
+        setupDonationBottomView()
+    }
+    
+    func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.separatorStyle = .none
-        tableView.allowsSelection = false
-        tableView.insetsContentViewsToSafeArea = false
-        fistImageView.anchor(superView: view, top: view.topAnchor, padding: .init(top:32), size: .init(width: 110, height: 110))
-        fistImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        view.addSubview(tableView)
-        NSLayoutConstraint.activate([
-            tableView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 0),
-            tableView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0),
-            tableView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 0)
-        ])
+        tableView.anchor(superView: view, top: view.topAnchor, leading: view.leadingAnchor,
+                         bottom: nil, trailing: view.trailingAnchor,
+                         padding: .zero, size: .zero)
         
         registerCells(to: tableView)
     }
     
-    private func setupDonationButton() {
+    func setupDonationBottomView() {
+        donationButtonContainerView.translatesAutoresizingMaskIntoConstraints = false
+        donationButtonContainerView.anchor(superView: view, top: nil, leading: view.leadingAnchor,
+                                           bottom: view.bottomAnchor, trailing: view.trailingAnchor,
+                                           padding: .zero, size: CGSize(width: view.bounds.width, height: 105))
+        
+        tableView.anchor(superView: nil, top: nil, leading: nil,
+                         bottom: donationButtonContainerView.topAnchor, trailing: nil,
+                         padding: .zero, size: .zero)
+        
         donationButtonContainerView.setButtonPressed {
             // TODO: Donation button action
         }
-        
-        donationButtonContainerView.translatesAutoresizingMaskIntoConstraints = false
-        donationButtonContainerView.backgroundColor = .white
-        view.addSubview(donationButtonContainerView)
-        donationButtonContainerView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        donationButtonContainerView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        donationButtonContainerView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-        donationButtonContainerView.heightAnchor.constraint(equalToConstant: 105).isActive = true
-        
-        // Now we can set the anchor for the UITableView
-        tableView.bottomAnchor.constraint(equalTo: donationButtonContainerView.topAnchor, constant: 0).isActive = true
     }
 }
 
-extension PersonController: UITableViewDelegate, UITableViewDataSource {
+// MARK: - UITableViewDelegate Methods
+extension PersonController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let cellType = tableViewCells[indexPath.row]
+        switch cellType {
+        case .photo: return 420
+        case .info: return 140
+        case .news: return 340
+        case .medias: return 300
+        case .hashtags: return 160
+        case .story, .outcome: return UITableView.automaticDimension
+        }
+    }
+}
+
+// MARK: - UITableViewDataSource Methods
+extension PersonController: UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cellCollectionTypes.count
+        return tableViewCells.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellType = cellCollectionTypes[indexPath.row]
+        let cellType = tableViewCells[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: cellType.identifier, for: indexPath)
         
         switch cellType {
@@ -246,20 +279,9 @@ extension PersonController: UITableViewDelegate, UITableViewDataSource {
             return hashtagsCell
         }
     }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let cellType = cellCollectionTypes[indexPath.row]
-        switch cellType {
-        case .photo: return 420
-        case .info: return 140
-        case .news: return 340
-        case .medias: return 300
-        case .hashtags: return 160
-        case .story, .outcome: return UITableView.automaticDimension
-        }
-    }
 }
 
+// MARK: - CollectionViewCellDelegate Methods
 extension PersonController: CollectionViewCellDelegate {
     
     func collectionView(collectionviewcell: UICollectionViewCell?, index: Int, didTappedInTableViewCell: UITableViewCell) {

@@ -10,6 +10,10 @@ import UIKit
 
 class PersonOverviewTableViewCell: UITableViewCell {
 
+    static var reuseIdentifier: String {
+        return "\(Self.self)"
+    }
+    
     lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Their Story"

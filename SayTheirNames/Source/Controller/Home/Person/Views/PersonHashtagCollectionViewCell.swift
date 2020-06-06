@@ -9,6 +9,11 @@
 import UIKit
 
 class PersonHashtagCollectionViewCell: UICollectionViewCell {
+    
+    static var reuseIdentifier: String {
+        return "\(Self.self)"
+    }
+    
     let hashtagView = HashtagView(frame: .zero)
     
     override init(frame: CGRect) {

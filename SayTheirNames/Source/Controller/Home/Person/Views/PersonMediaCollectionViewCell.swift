@@ -10,6 +10,10 @@ import UIKit
 
 class PersonMediaCollectionViewCell: UICollectionViewCell {
     
+    static var reuseIdentifier: String {
+        return "\(Self.self)"
+    }
+    
     lazy var mediaImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "media-image-2")

@@ -26,14 +26,18 @@ enum PersonNewsCellType: String {
     
     var identifier: String {
         switch self {
-        case .news: return "Cell_News"
-        case .medias: return "Cell_Medias"
+        case .news: return PersonNewsCollectionViewCell.reuseIdentifier
+        case .medias: return PersonMediaCollectionViewCell.reuseIdentifier
         }
     }
 }
 
 class PersonNewsTableViewCell: UITableViewCell {
 
+    static var reuseIdentifier: String {
+        return "\(Self.self)"
+    }
+    
     lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.text = "NEWS"
@@ -95,10 +99,10 @@ class PersonNewsTableViewCell: UITableViewCell {
     
     // Registers collection view cells and update current cell content views
     public func registerCell(with cell: UICollectionViewCell.Type, type: PersonNewsCellType) {
+        cellType = type
         collectionView.delegate = self
         collectionView.dataSource = self
-        cellType = type
-        cell.register(to: collectionView, identifier: type.identifier)
+        collectionView.register(cellType: cell)
         updateCellViews()
     }
     

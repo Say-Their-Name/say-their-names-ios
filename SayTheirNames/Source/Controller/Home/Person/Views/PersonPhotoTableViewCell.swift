@@ -8,13 +8,12 @@
 
 import UIKit
 
-extension UITableViewCell {
-    static func register(to tableView: UITableView, identifier: String) {
-        tableView.register(Self.self, forCellReuseIdentifier: identifier)
-    }
-}
-
 class PersonPhotoTableViewCell: UITableViewCell {
+    
+    static var reuseIdentifier: String {
+        return "\(Self.self)"
+    }
+    
     // MARK: - View
     let imageWithBlurView = ImageWithBlurView(frame: .zero)
         

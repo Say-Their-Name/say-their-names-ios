@@ -10,6 +10,10 @@ import UIKit
 
 class PersonInfoTableViewCell: UITableViewCell {
 
+    static var reuseIdentifier: String {
+        return "\(Self.self)"
+    }
+    
     lazy var containerStack: UIStackView = {
         let view = UIStackView(arrangedSubviews: [infoStackView, extraInfoStack])
         view.distribution = .fill

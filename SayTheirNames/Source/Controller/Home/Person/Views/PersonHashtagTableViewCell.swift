@@ -6,10 +6,14 @@
 //  Copyright © 2020 Franck-Stephane Ndame Mpouli. All rights reserved.
 //
 
-private let identifier = "Cell_Hashtag"
 import UIKit
 
 class PersonHashtagTableViewCell: UITableViewCell {
+    
+    static var reuseIdentifier: String {
+        return "\(Self.self)"
+    }
+    
     lazy var hashtagLabel: UILabel = {
         let label = UILabel()
         label.text = "SOCIAL MEDIA HASHTAGS"
@@ -32,6 +36,8 @@ class PersonHashtagTableViewCell: UITableViewCell {
         collectionView.contentInset = .init(left: 32,right: 32)
         return collectionView
     }()
+    
+    private var identifier: String = ""
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
          super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -57,9 +63,10 @@ class PersonHashtagTableViewCell: UITableViewCell {
     }
     
     public func registerCell(with cell: UICollectionViewCell.Type) {
+        identifier = cell.reuseIdentifier
         collectionView.delegate = self
         collectionView.dataSource = self
-        cell.register(to: collectionView, identifier: identifier)
+        collectionView.register(cellType: cell)
     }
 }
 
