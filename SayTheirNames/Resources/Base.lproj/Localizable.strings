@@ -13,3 +13,12 @@
 "cancel"= "Cancel";
 "find_out_more" = "Find Out More";
 "verified" = "verfied";
+"person.say_their_names" = "SAY THEIR NAMES";
+"person.age" = "Age";
+"person.children" = "Children";
+"person.location" = "Location";
+"person.their_story" = "Their Story";
+"person.outcome" = "Outcome";
+"person.news" = "News";
+"person.media" = "Media";
+"person.hashtags" = "Social Media Hashtags";
