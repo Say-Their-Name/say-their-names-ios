@@ -109,6 +109,7 @@
 		DB1887FF248A519600FDAEE3 /* LineCarouselControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1887FE248A519600FDAEE3 /* LineCarouselControl.swift */; };
 		DB188806248A51A800FDAEE3 /* CarouselCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB188802248A51A800FDAEE3 /* CarouselCollectionViewCell.swift */; };
 		DB188809248A8F1100FDAEE3 /* HeaderCellContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB188808248A8F1100FDAEE3 /* HeaderCellContent.swift */; };
+		DB18880B248B7A7900FDAEE3 /* UIButton++ copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB18880A248B7A7900FDAEE3 /* UIButton++ copy.swift */; };
 		EEC3A1D42483D493001E7754 /* CustomSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC3A1D32483D493001E7754 /* CustomSearchBar.swift */; };
 		EEC3A1DC2483D6B6001E7754 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC3A1DA2483D6B6001E7754 /* SearchResultCell.swift */; };
 		EEC3A1DD2483D6B6001E7754 /* SearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EEC3A1DB2483D6B6001E7754 /* SearchResultCell.xib */; };
@@ -254,6 +255,7 @@
 		DB1887FE248A519600FDAEE3 /* LineCarouselControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineCarouselControl.swift; sourceTree = "<group>"; };
 		DB188802248A51A800FDAEE3 /* CarouselCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarouselCollectionViewCell.swift; sourceTree = "<group>"; };
 		DB188808248A8F1100FDAEE3 /* HeaderCellContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCellContent.swift; sourceTree = "<group>"; };
+		DB18880A248B7A7900FDAEE3 /* UIButton++ copy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton++ copy.swift"; sourceTree = "<group>"; };
 		E0DB62D4E01FCED2ADD577B6 /* Pods-SayTheirNamesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SayTheirNamesTests.debug.xcconfig"; path = "Target Support Files/Pods-SayTheirNamesTests/Pods-SayTheirNamesTests.debug.xcconfig"; sourceTree = "<group>"; };
 		ED2DEB0A248454FD00EC784E /* CODE_OF_CONDUCT.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = CODE_OF_CONDUCT.md; sourceTree = "<group>"; };
 		EEC3A1D32483D493001E7754 /* CustomSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSearchBar.swift; sourceTree = "<group>"; };
@@ -508,13 +510,13 @@
 		A91B076824835CF700DB803C /* Extentions */ = {
 			isa = PBXGroup;
 			children = (
+				DB18880A248B7A7900FDAEE3 /* UIButton++ copy.swift */,
 				7789A5942489979700737E14 /* UIImageView+STN.swift */,
 				A93367D5248985F5001F1E28 /* DispatchQueue+STN.swift */,
 				A91B07C22484719C00DB803C /* Bundle+STN.swift */,
 				9E7DBAF8248481FC00635A56 /* Operation++.swift */,
 				A91B07C72484751700DB803C /* String+STN.swift */,
 				A91B078024835CF700DB803C /* UIColor+STN.swift */,
-				DD25CD7F248A2AD20013D617 /* UIButton++.swift */,
 				A91B078124835CF700DB803C /* UIDevice+STN.swift */,
 				A91B076924835CF700DB803C /* UIFont++.swift */,
 				A91B077F24835CF700DB803C /* UIFont+STN.swift */,
@@ -1107,7 +1109,6 @@
 				DB188809248A8F1100FDAEE3 /* HeaderCellContent.swift in Sources */,
 				A91B07A824835CF700DB803C /* CustomNavigationBar.swift in Sources */,
 				9E7DBAF3248481DA00635A56 /* DownloadOperation.swift in Sources */,
-				DD25CD80248A2AD20013D617 /* UIButton++.swift in Sources */,
 				7A5BFA172488315D00BC265A /* DonationsView.swift in Sources */,
 				7433B64B2484BABA005140D4 /* PersonPhotoCell.swift in Sources */,
 				7A5BFA192488821500BC265A /* DateFormatterService.swift in Sources */,
@@ -1125,6 +1126,7 @@
 				B386F958248526C70037A38D /* Location.swift in Sources */,
 				7C47A93524873F1200B8D3BE /* HomeView.swift in Sources */,
 				A91B07A524835CF700DB803C /* UIColor+STN.swift in Sources */,
+				DB18880B248B7A7900FDAEE3 /* UIButton++ copy.swift in Sources */,
 				A91B07A024835CF700DB803C /* DonationsController.swift in Sources */,
 				83E9CAD42484A5DC001D173A /* UIViewController+TabBar.swift in Sources */,
 				9E7DBAF0248481DA00635A56 /* ImageCache.swift in Sources */,
