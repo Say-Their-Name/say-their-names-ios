@@ -35,6 +35,8 @@ enum Theme {
             static let small: CGFloat = 8
             static let medium: CGFloat = 16
             static let large: CGFloat = 32
+            static let extraLarge: CGFloat = 40
+            static let big: CGFloat = 48
         }
         // MARK: - Button
         enum Button {
@@ -84,10 +86,23 @@ enum Theme {
                 enum Info {
                     static let locationContainerWidth: CGFloat = 50
                     static let ageConatinerWidth: CGFloat = 60
-                    
                     static let verticalSeperatorSize: CGSize = .init(width: 150, height: 1.5)
                     static let horizontalSeperatorSize: CGSize = .init(width: 1.5, height: 30)
-                    
+                }
+                enum News {
+                    static let contentHeigh: CGFloat = 263
+                    static let collectionViewWidth: CGFloat = 150
+                }
+                enum Media {
+                    static let contentHeigh: CGFloat = 218
+                }
+                enum Photo {
+                    static let imageBlurHeight: CGFloat = 420
+                }
+                enum Hashtag {
+                    static let height: CGFloat = 160
+                    static let collectionviewHeight: CGFloat = 40
+                    static let collectionviewItemSize: CGSize = .init(width: 170, height: 35)
                 }
                 
             }

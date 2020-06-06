@@ -71,7 +71,7 @@ class PersonNewsTableViewCell: UITableViewCell {
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.alwaysBounceHorizontal = true
         collectionView.backgroundColor = UIColor.STN.white
-        collectionView.contentInset = .init(left: 32,right: 32)
+        collectionView.contentInset = .init(left: Theme.Components.Padding.large,right: Theme.Components.Padding.large)
         return collectionView
     }()
     
@@ -90,21 +90,23 @@ class PersonNewsTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    var preferredContentHeight: CGFloat { 263 }
+    var preferredContentHeight: CGFloat { Theme.Screens.Home.Person.News.contentHeigh }
 
     private func setupLayout() {
         titleLabel.anchor(superView: contentView,
                           top: contentView.topAnchor,
                           leading: contentView.leadingAnchor,
                           trailing: contentView.trailingAnchor,
-                          padding: .init(top: 40, left: 32, right: 32))
+                          padding: .init(top: Theme.Components.Padding.extraLarge,
+                                         left: Theme.Components.Padding.large,
+                                         right: Theme.Components.Padding.large))
         
         collectionView.anchor(superView: contentView,
                               top: titleLabel.bottomAnchor,
                               leading: contentView.leadingAnchor,
                               bottom: contentView.bottomAnchor,
                               trailing: contentView.trailingAnchor,
-                              padding: .init(top: 20, left: 0, right: 0))
+                              padding: .init(top: Theme.Components.Padding.medium))
  
         collectionView.heightAnchor.constraint(equalToConstant: preferredContentHeight).isActive = true
     }
@@ -155,7 +157,8 @@ extension PersonNewsTableViewCell: UICollectionViewDelegate, UICollectionViewDat
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 150, height: collectionView.bounds.height)
+        return CGSize(width: Theme.Screens.Home.Person.News.collectionViewWidth,
+                      height: collectionView.bounds.height)
     }
     
     // Add spaces at the beginning and the end of the collection view
@@ -174,6 +177,6 @@ extension PersonNewsTableViewCell: UICollectionViewDelegate, UICollectionViewDat
 // the only difference between PersonMediaTableViewCell and PersonNewsTableViewCell is the preferred height of their collectionview
 class PersonMediaTableViewCell: PersonNewsTableViewCell {
     
-    override var preferredContentHeight: CGFloat { 218 }
+    override var preferredContentHeight: CGFloat { Theme.Screens.Home.Person.Media.contentHeigh }
 
 }
