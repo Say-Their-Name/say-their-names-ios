@@ -34,26 +34,28 @@ final class PersonCell: UICollectionViewCell {
         imgV.clipsToBounds = true
         imgV.setContentHuggingPriority(.defaultLow, for: .vertical)
         imgV.translatesAutoresizingMaskIntoConstraints = false
+        imgV.accessibilityIgnoresInvertColors = true
         return imgV
     }()
     
     private lazy var nameLabel: UILabel = {
         let lbl = UILabel()
         lbl.text = "GEORGE FLOYD"
-        lbl.font = UIFont(name: "Karla-Bold", size: 13)
         lbl.textColor = UIColor.STN.primaryLabel
         lbl.lineBreakMode = .byTruncatingTail
         lbl.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
         lbl.translatesAutoresizingMaskIntoConstraints = false
+        lbl.isAccessibilityElement = true
+        lbl.accessibilityLabel = lbl.text
         return lbl
     }()
     
     private lazy var dateOfIncidentLabel: UILabel = {
         let lbl = UILabel()
         lbl.text = "25.05.2020"
-        lbl.font = UIFont(name: "Karla-regular", size: 13)
         lbl.textColor = UIColor.STN.secondaryLabel
         lbl.lineBreakMode = .byTruncatingTail
+        lbl.isAccessibilityElement = true
         lbl.translatesAutoresizingMaskIntoConstraints = false
         return lbl
     }()
@@ -66,6 +68,7 @@ final class PersonCell: UICollectionViewCell {
         btn.setImage(UIImage(named: "bookmark"), for: .normal)
         btn.addTarget(self, action: #selector(didTapBookmark), for: .touchUpInside)
         btn.translatesAutoresizingMaskIntoConstraints = false
+        btn.isAccessibilityElement = true
         return btn
     }()
     
@@ -122,10 +125,30 @@ final class PersonCell: UICollectionViewCell {
     }
     
     private func setUp() {
+//<<<<<<< HEAD
         detailsVStack.addArrangedSubview(nameLabel)
         detailsVStack.addArrangedSubview(dateOfIncidentLabel)
         bottomCellHStack.addArrangedSubview(detailsVStack)
         bottomCellHStack.addArrangedSubview(bookmarkButton)
+//=======
+//        labelsAndButtonContainer.addSubview(nameLabel)
+//        labelsAndButtonContainer.addSubview(dateOfIncidentLabel)
+//        labelsAndButtonContainer.addSubview(bookmarkButton)
+//        NSLayoutConstraint.activate([
+//            nameLabel.topAnchor.constraint(equalTo: labelsAndButtonContainer.topAnchor),
+//            nameLabel.leadingAnchor.constraint(equalTo: labelsAndButtonContainer.leadingAnchor),
+//            nameLabel.trailingAnchor.constraint(equalTo: bookmarkButton.leadingAnchor, constant: 4),
+//
+//            dateOfIncidentLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor),
+//            dateOfIncidentLabel.leadingAnchor.constraint(equalTo: nameLabel.leadingAnchor),
+//            dateOfIncidentLabel.bottomAnchor.constraint(equalTo: labelsAndButtonContainer.bottomAnchor, constant: -20),
+//            dateOfIncidentLabel.trailingAnchor.constraint(equalTo: labelsAndButtonContainer.trailingAnchor),
+//
+//            bookmarkButton.topAnchor.constraint(equalTo: nameLabel.topAnchor),
+//            bookmarkButton.trailingAnchor.constraint(equalTo: labelsAndButtonContainer.trailingAnchor)
+//        ])
+        
+//>>>>>>> 6ef73808d23fc1784f9914ef2fe68071d76f6fff
         containerStack.addArrangedSubview(profileImageView)
         containerStack.addArrangedSubview(bottomCellHStack)
         addSubview(containerStack)
@@ -147,9 +170,29 @@ final class PersonCell: UICollectionViewCell {
                               trailing: trailingAnchor)
     }
 
+    override func didMoveToSuperview() {
+        super.didMoveToSuperview()
+        
+        styleLabels()
+    }
+    
+    private func styleLabels() {
+
+        nameLabel.font = UIFont.STN.cardTitle
+        dateOfIncidentLabel.font = UIFont.STN.cardSubitle
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        
+        if traitCollection.preferredContentSizeCategory != previousTraitCollection?.preferredContentSizeCategory {
+            styleLabels()
+        }
+    }
+
     // MARK: - Handlers
         
     @objc private func didTapBookmark() {
-        // TODO: Implement BookMark Handler
+        Log.print(#function)
     }
 }

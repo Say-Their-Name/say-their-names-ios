@@ -52,6 +52,8 @@ final class PersonCollectionViewDataSourceHelper {
                     cell.configure(with: headerData)
                     cell.accessibilityIdentifier = "headerCell\(indexPath.item)"
                     cell.isAccessibilityElement = true
+                    // TODO: fix accessibility
+                    //            header.accessibilityNavigationStyle = .separate
                     return cell
 
                 case .person(let person):
@@ -59,6 +61,8 @@ final class PersonCollectionViewDataSourceHelper {
                     cell.configure(with: person)
                     cell.accessibilityIdentifier = "personCell\(indexPath.item)"
                     cell.isAccessibilityElement = true
+                    cell.accessibilityNavigationStyle = .automatic
+                    cell.accessibilityLabel = "\(person.fullName)"
                     return cell
                 }
         }

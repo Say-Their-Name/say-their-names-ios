@@ -28,7 +28,6 @@ class LocationCell: UICollectionViewCell {
     
     var titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.STN.locationText
         label.textAlignment = .center
         return label
     }()
@@ -37,6 +36,11 @@ class LocationCell: UICollectionViewCell {
         didSet {
             backgroundColor = isSelected ? UIColor.STN.black : .clear
             titleLabel.textColor = isSelected ? UIColor.STN.white : UIColor.STN.black
+            if isSelected {
+                accessibilityTraits.insert(.selected)
+            } else {
+                accessibilityTraits.remove(.selected)
+            }
         }
     }
     
@@ -46,14 +50,34 @@ class LocationCell: UICollectionViewCell {
         titleLabel.fillSuperview()
         layer.borderColor = UIColor.STN.black.cgColor
         layer.borderWidth = 1.5
+        accessibilityTraits.insert(.button)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
+    override func didMoveToSuperview() {
+        super.didMoveToSuperview()
+        
+        styleLabels()
+    }
+    
     func configure(with location: Location) {
         titleLabel.text = location.name
+    }
+
+    private func styleLabels() {
+
+        titleLabel.font = UIFont.STN.locationText
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        
+        if traitCollection.preferredContentSizeCategory != previousTraitCollection?.preferredContentSizeCategory {
+            styleLabels()
+        }
     }
 
 }

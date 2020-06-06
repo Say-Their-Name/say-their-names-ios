@@ -1,5 +1,5 @@
 //
-//  BaseViewController.swift
+//  PersonHashtagCollectionViewCell.swift
 //  SayTheirNames
 //
 //  Copyright (c) 2020 Say Their Names Team (https://github.com/Say-Their-Name)
@@ -24,13 +24,24 @@
 
 import UIKit
 
-class BaseViewController: UIViewController {
-    let service: Servicing
+class PersonHashtagCollectionViewCell: UICollectionViewCell {
     
-    required init?(coder: NSCoder) { fatalError("") }
+    static var reuseIdentifier: String {
+        return "\(Self.self)"
+    }
     
-    required init(service: Servicing) {
-        self.service = service
-        super.init(nibName: nil, bundle: nil)
+    let hashtagView = HashtagView(frame: .zero)
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupLayout()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func setupLayout() {
+        hashtagView.fillSuperview(superView: self)
     }
 }

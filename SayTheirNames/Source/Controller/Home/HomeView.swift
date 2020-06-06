@@ -27,6 +27,15 @@ import UIKit
 final class HomeView: UIView {
 
     // MARK: - Properties
+
+    private let navigationBarLabel: UILabel = {
+        let label = UILabel()
+        label.text = Strings.sayTheirNames.uppercased()
+        label.textColor = .white
+
+        return label
+    }()
+    
     let customNavigationBar: UIView = {
         let customNavigationBar = UIView()
         customNavigationBar.backgroundColor = .black
@@ -107,6 +116,7 @@ final class HomeView: UIView {
     let bookmarkButton: UIButton = {
         let bookmarkImage = UIImage(named: "white-bookmark")
         let bookmarkButton = UIButton(image: bookmarkImage)
+        bookmarkButton.accessibilityLabel = L10n.bookmark
         return bookmarkButton
     }()
     
@@ -114,6 +124,7 @@ final class HomeView: UIView {
         let searchButton = UIButton(type: .custom)
         let searchImage = UIImage(named: "white-search")
         searchButton.setImage(searchImage, for: .normal)
+        searchButton.accessibilityLabel = L10n.search
         return searchButton
     }()
     
@@ -123,10 +134,28 @@ final class HomeView: UIView {
         return separator
     }()
     
+    func safeWidth(for collectionView: UICollectionView) -> CGFloat {
+        let width = collectionView.frame.width -
+            collectionView.safeAreaInsets.left -
+            collectionView.safeAreaInsets.right -
+            collectionView.layoutMargins.left -
+            collectionView.layoutMargins.right
+        
+        var flowLayoutMargins: CGFloat = 0
+        
+        if let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+            flowLayoutMargins = flowLayout.sectionInset.left + flowLayout.sectionInset.right
+        }
+        
+        return width - flowLayoutMargins
+    }
+    
     override func didMoveToSuperview() {
         super.didMoveToSuperview()
         createLayout()
         backgroundColor = .black // needed?
+        
+        styleLabels()
     }
     
     private var hasLayedOutSubviews = false
@@ -139,8 +168,10 @@ final class HomeView: UIView {
         let collections = UIView()
         collections.backgroundColor = .systemBackground
         addSubview(collections)
+        
         locationCollectionView.backgroundColor = .systemBackground
         peopleCollectionView.backgroundColor = .systemBackground
+        
         customNavigationBar.anchor(
             superView: self,
             top: safeAreaLayoutGuide.topAnchor,
@@ -176,25 +207,36 @@ final class HomeView: UIView {
     
     private func createCustomNavigationBarLayout() {
         let bar = customNavigationBar
-        let label = UILabel()
-        label.text = "SAY THEIR NAME"
-        label.textColor = .white
-        label.font = UIFont.STN.bannerTitle
+
         let buttonStack = UIStackView(arrangedSubviews: [bookmarkButton,searchButton])
         buttonStack.spacing = 8
         buttonStack.distribution = .fillEqually
         
-        label.anchor(superView: bar, leading: bar.leadingAnchor, bottom: bar.bottomAnchor, padding: .init(left: 16, bottom: 16))
+        navigationBarLabel.anchor(superView: bar, leading: bar.leadingAnchor, bottom: bar.bottomAnchor, padding: .init(left: 16, bottom: 16))
         bar.addSubview(buttonStack)
         [bookmarkButton, searchButton].forEach {
             $0.widthAnchor.constraint(equalToConstant: Self.ButtonSize.height).isActive = true
             $0.heightAnchor.constraint(equalToConstant: Self.ButtonSize.width).isActive = true
         }
         buttonStack.anchor(superView: bar, trailing: bar.trailingAnchor, padding: .init(right: 16))
-        buttonStack.centerYAnchor.constraint(equalTo: label.centerYAnchor).isActive = true
-
+        buttonStack.centerYAnchor.constraint(equalTo: navigationBarLabel.centerYAnchor).isActive = true
+        
+        navigationBarLabel.trailingAnchor.constraint(equalTo: buttonStack.leadingAnchor, constant: 4).isActive = true
     }
 
+    private func styleLabels() {
+
+        navigationBarLabel.font = UIFont.STN.bannerTitle
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        
+        if traitCollection.preferredContentSizeCategory != previousTraitCollection?.preferredContentSizeCategory {
+            styleLabels()
+        }
+    }
+    
     // MARK: - Constants
     
     // TODO: cleanup unused constants
