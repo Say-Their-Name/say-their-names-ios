@@ -13,3 +13,7 @@
 "cancel"= "Cancel";
 "find_out_more" = "Find Out More";
 "verified" = "verfied";
+"filter_all" = "ALL";
+"filter_businesses" = "BUSINESSES";
+"filter_protesters" = "PROTESTERS";
+"filter_victims" = "VICTIMS";

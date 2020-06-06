@@ -27,7 +27,12 @@ import UIKit
 /// The UI for Donations
 final class DonationsView: UIView {
     
-    private lazy var filtersView = FiltersCollectionView()
+    /// UICollectionView that lays out the filter cells
+    private lazy var filtersView = FiltersCollectionView().configure {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.register(cellType: FilterCategoryCell.self)
+        $0.showsHorizontalScrollIndicator = false
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -56,11 +61,12 @@ final class DonationsView: UIView {
         ])
     }
     
+    /// Binds a `CollectionViewManager` to the `filterView`
     func bindFilterManager(_ filterManager: DonationFilterViewManager) {
         filterManager.configure(with: filtersView)
     }
 }
 
 private extension DonationsView {
-    static let filtersViewHeight: CGFloat = 70
+    static let filtersViewHeight: CGFloat = 90
 }

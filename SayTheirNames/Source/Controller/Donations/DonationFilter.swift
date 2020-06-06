@@ -9,18 +9,22 @@
 import Foundation
 
 enum DonationFilter {
-    case all, businesses, victims, protesters
+    case all, businesses, protesters, victims
     
     var title: String {
         switch self {
         case .all:
-            return "ALL"
+            return Strings.filterAll
         case .businesses:
-            return "BUSINESSES"
-        case .victims:
-            return "VICTIMS"
+            return Strings.filterBusinesses
         case .protesters:
-            return "PROTESTERS"
+            return Strings.filterProtesters
+        case .victims:
+            return Strings.filterVictims
         }
     }
+}
+
+extension DonationFilter: FilterCategory {
+    var name: String { title }
 }

@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// Responsible for managing the donation filters in the `UICollectionView`
 final class DonationFilterViewManager: CollectionViewManager<SingleSection, DonationFilter> {
     
     private let filters: [DonationFilter] = [
@@ -19,6 +20,12 @@ final class DonationFilterViewManager: CollectionViewManager<SingleSection, Dona
     
     override func configure(with collectionView: UICollectionView) {
         super.configure(with: collectionView)
+
+        // Populate collectionView
         set(filters)
+
+        // Select first item
+        let firstIndex = IndexPath(item: 0, section: 0)
+        collectionView.selectItem(at: firstIndex, animated: false, scrollPosition: .left)
     }
 }

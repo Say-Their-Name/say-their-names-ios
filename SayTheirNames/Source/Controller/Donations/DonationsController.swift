@@ -46,6 +46,15 @@ final class DonationsController: BaseViewController {
     }
     
     private func configure() {
+        filterManager.cellForItem = { (collectionView, indexPath, filter) in
+            let cell: FilterCategoryCell = collectionView.dequeueCell(for: indexPath)
+            cell.configure(with: filter)
+            return cell
+        }
+        filterManager.didSelectItem = { filter in
+            print(filter)
+        }
+
         ui.bindFilterManager(filterManager)
     }
 }

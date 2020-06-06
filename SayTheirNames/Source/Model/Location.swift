@@ -38,3 +38,5 @@ extension Location: Hashable {
         hasher.combine(name)
     }
 }
+
+extension Location: FilterCategory {}

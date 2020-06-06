@@ -15,6 +15,14 @@ internal enum L10n {
   internal static let cancel = L10n.tr("Localizable", "cancel")
   /// Donations
   internal static let donations = L10n.tr("Localizable", "donations")
+  /// ALL
+  internal static let filterAll = L10n.tr("Localizable", "filter_all")
+  /// BUSINESSES
+  internal static let filterBusinesses = L10n.tr("Localizable", "filter_businesses")
+  /// PROTESTERS
+  internal static let filterProtesters = L10n.tr("Localizable", "filter_protesters")
+  /// VICTIMS
+  internal static let filterVictims = L10n.tr("Localizable", "filter_victims")
   /// Find Out More
   internal static let findOutMore = L10n.tr("Localizable", "find_out_more")
   /// Home
