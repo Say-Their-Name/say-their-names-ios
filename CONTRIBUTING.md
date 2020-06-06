@@ -63,7 +63,7 @@ The commits should be done as such:
 **Example:**
 
 - **[CHORE]** Added secret logic
-- **[BUG]** Fixed delay when changing progress bar
+- **[FIX]** Fixed delay when changing progress bar
 - **[FEAT]** Added new mixer sounds
 
 ## The project
