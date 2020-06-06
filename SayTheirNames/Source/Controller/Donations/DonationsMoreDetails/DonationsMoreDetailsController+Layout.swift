@@ -90,7 +90,7 @@ extension DonationsMoreDetailsController {
                 
                 // Section
                 let section = NSCollectionLayoutSection(group: group)
-                section.contentInsets = NSDirectionalEdgeInsets(top: 18.0, leading: horizontalPadding, bottom: 0.0, trailing: horizontalPadding)
+                section.contentInsets = NSDirectionalEdgeInsets(top: 18.0, leading: horizontalPadding, bottom: 18.0, trailing: horizontalPadding)
                 section.orthogonalScrollingBehavior = .continuous
                 
                 // Supplementary

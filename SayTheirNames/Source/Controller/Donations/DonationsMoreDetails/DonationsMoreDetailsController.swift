@@ -41,6 +41,8 @@ final class DonationsMoreDetailsController: BaseViewController {
         return collectionView
     }()
     
+    private let donationButtonContainerView = ButtonContainerView(frame: .zero)
+    
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,7 +56,10 @@ final class DonationsMoreDetailsController: BaseViewController {
     private func configureSubview() {
         view.backgroundColor = UIColor.STN.white
         
-        collectionView.fillSuperview(superView: view, padding: .zero)
+        collectionView.anchor(superView: view, top: view.topAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor, padding: UIEdgeInsets.zero, size: CGSize.zero)
+        
+        setupDonationButton()
+        
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: emptyCellIdentifier)
         collectionView.register(DMDTitleCell.self, forCellWithReuseIdentifier: DMDTitleCell.reuseIdentifier)
         collectionView.register(DMDTextContentCell.self, forCellWithReuseIdentifier: DMDTextContentCell.reuseIdentifier)
@@ -98,7 +103,23 @@ final class DonationsMoreDetailsController: BaseViewController {
         navigationController?.navigationBar.isTranslucent = false
         navigationController?.navigationBar.barTintColor = .black
     }
-
+    
+    private func setupDonationButton() {
+        donationButtonContainerView.setButtonPressed {
+            // TODO: Donation button action
+        }
+        
+        donationButtonContainerView.translatesAutoresizingMaskIntoConstraints = false
+        donationButtonContainerView.backgroundColor = .white
+        view.addSubview(donationButtonContainerView)
+        donationButtonContainerView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        donationButtonContainerView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        donationButtonContainerView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        donationButtonContainerView.heightAnchor.constraint(equalToConstant: 105).isActive = true
+        
+        collectionView.bottomAnchor.constraint(equalTo: donationButtonContainerView.topAnchor, constant: 0).isActive = true
+    }
+    
     // MARK: - Button Action
     @objc func dismissAction(_ sender: Any) {
         navigationController?.dismiss(animated: true, completion: nil)
