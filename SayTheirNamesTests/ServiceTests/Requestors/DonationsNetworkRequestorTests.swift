@@ -98,6 +98,6 @@ extension NetworkRequestorTests {
         }
 
         // Wait for request to be made and returned
-        wait(for: [makeRequestExpectation, returnRequestExpection], timeout: 15)
+        wait(for: [makeRequestExpectation, returnRequestExpection], timeout: 2)
     }
 }
