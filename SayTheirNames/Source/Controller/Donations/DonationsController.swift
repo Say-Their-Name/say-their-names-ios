@@ -75,6 +75,7 @@ final class DonationsController: UIViewController, ServiceReferring {
     }
     
     private func getDonations() {
+        // TODO: Remove dummy data once donations is fixed
         let dummyDonations = Array(0 ... 10).map { index in
             Donation(
                 id: index,
@@ -105,5 +106,17 @@ final class DonationsController: UIViewController, ServiceReferring {
             )
         }
         donationManager.set(dummyDonations)
+        
+        // TODO: uncomment once `fetchDonations` is fixed
+//        service.network.fetchDonations { [weak self] result in
+//            switch result {
+//            case .success(let response):
+//                let donations = response.all
+//                self?.donationManager.set(donations)
+//
+//            case .failure(let error):
+//                print(error)
+//            }
+//        }
     }
 }
