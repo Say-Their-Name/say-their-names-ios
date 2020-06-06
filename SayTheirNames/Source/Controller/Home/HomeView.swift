@@ -81,12 +81,10 @@ final class HomeView: UIView {
             collectionView.layoutMargins.left -
             collectionView.layoutMargins.right
         
-        let flowLayoutMargins: CGFloat
+        var flowLayoutMargins: CGFloat = 0
+        
         if let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
             flowLayoutMargins = flowLayout.sectionInset.left + flowLayout.sectionInset.right
-        }
-        else {
-            flowLayoutMargins = 0
         }
         
         return width - flowLayoutMargins
@@ -107,8 +105,10 @@ final class HomeView: UIView {
 
         let collections = UIView()
         addSubview(collections)
+        
         locationCollectionView.backgroundColor = .systemBackground
         peopleCollectionView.backgroundColor = .systemBackground
+        
         customNavigationBar.anchor(
             superView: self,
             top: safeAreaLayoutGuide.topAnchor,
