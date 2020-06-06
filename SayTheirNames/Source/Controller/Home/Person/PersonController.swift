@@ -24,6 +24,7 @@
 
 import UIKit
 
+
 enum PersonCellType: Equatable {
     case photo
     case info
@@ -101,14 +102,23 @@ class PersonController: BaseViewController {
         return [.photo, .info, .story, .outcome, .news([]), .medias([]), .hashtags]
     }()
     
+    lazy var fistImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "STN-Logo-white")
+        imageView.contentMode = .scaleAspectFit
+        imageView.clipsToBounds = true
+        return imageView
+    }()
     override func viewDidLoad() {
         super.viewDidLoad()
         view.accessibilityIdentifier = "personView"
+        tableView.backgroundColor = .clear
+        tableView.contentInset = .init(top: 16)
     }
-    
+
     override func loadView() {
         super.loadView()
-        view.backgroundColor = .white
+        view.backgroundColor = .black
         setupNavigationBarItems()
         setupTableView()
         setupDonationButton()
@@ -120,6 +130,9 @@ class PersonController: BaseViewController {
         
         // TODO: Localization
         self.title = "Say Their Names".uppercased()
+        self.navigationController?.navigationBar.titleTextAttributes =
+        [NSAttributedString.Key.foregroundColor: UIColor.white,
+         NSAttributedString.Key.font: UIFont(name: "Karla-Regular", size: 19) ?? UIFont.systemFont(ofSize: 17)]
         
         let dismissActionGesture = UITapGestureRecognizer(target: self, action: #selector(dismissAction(_:)))
         let shareActionGesture = UITapGestureRecognizer(target: self, action: #selector(shareAction(_:)))
@@ -159,8 +172,9 @@ class PersonController: BaseViewController {
         tableView.separatorStyle = .none
         tableView.allowsSelection = false
         tableView.insetsContentViewsToSafeArea = false
+        fistImageView.anchor(superView: view, top: view.topAnchor, padding: .init(top:32), size: .init(width: 110, height: 110))
+        fistImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         view.addSubview(tableView)
-        
         NSLayoutConstraint.activate([
             tableView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 0),
             tableView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0),
@@ -181,7 +195,7 @@ class PersonController: BaseViewController {
         donationButtonContainerView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         donationButtonContainerView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         donationButtonContainerView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-        donationButtonContainerView.heightAnchor.constraint(equalToConstant: 120).isActive = true
+        donationButtonContainerView.heightAnchor.constraint(equalToConstant: 105).isActive = true
         
         // Now we can set the anchor for the UITableView
         tableView.bottomAnchor.constraint(equalTo: donationButtonContainerView.topAnchor, constant: 0).isActive = true

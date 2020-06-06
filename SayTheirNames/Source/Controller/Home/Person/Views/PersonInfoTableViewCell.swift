@@ -83,7 +83,7 @@ class PersonInfoTableViewCell: UITableViewCell {
         let label = UILabel(frame: .zero)
         label.text = "FIRSTNAME LAST"
         label.textColor = UIColor(red: 16/255.0, green: 16/255.0, blue: 16/255.0, alpha: 1)
-        label.font = UIFont(name: "Karla-Bold", size: 21)
+        label.font = UIFont(name: "Karla-Bold", size: 20)
         label.numberOfLines = 0
         label.minimumScaleFactor = 0.5
         label.adjustsFontSizeToFitWidth = true
@@ -94,7 +94,7 @@ class PersonInfoTableViewCell: UITableViewCell {
         let label = UILabel()
         label.text = "AGE"
         label.textColor = UIColor(red: 16/255.0, green: 16/255.0, blue: 16/255.0, alpha: 0.5)
-        label.font = UIFont(name: "Karla-Bold", size: 11)
+        label.font = UIFont(name: "Karla-Bold", size: 12)
         label.numberOfLines = 1
         label.minimumScaleFactor = 0.5
         label.adjustsFontSizeToFitWidth = true
@@ -105,7 +105,7 @@ class PersonInfoTableViewCell: UITableViewCell {
         let label = UILabel()
         label.text = "CHILDREN"
         label.textColor = UIColor(red: 16/255.0, green: 16/255.0, blue: 16/255.0, alpha: 0.5)
-        label.font = UIFont(name: "Karla-Bold", size: 11)
+        label.font = UIFont(name: "Karla-Bold", size: 12)
         label.numberOfLines = 1
         label.minimumScaleFactor = 0.5
         label.adjustsFontSizeToFitWidth = true
@@ -116,7 +116,7 @@ class PersonInfoTableViewCell: UITableViewCell {
         let label = UILabel()
         label.text = "LOCATION"
         label.textColor = UIColor(red: 16/255.0, green: 16/255.0, blue: 16/255.0, alpha: 0.5)
-        label.font = UIFont(name: "Karla-Bold", size: 11)
+        label.font = UIFont(name: "Karla-Bold", size: 12)
         label.numberOfLines = 1
         label.minimumScaleFactor = 0.5
         label.adjustsFontSizeToFitWidth = true

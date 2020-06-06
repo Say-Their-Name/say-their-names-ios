@@ -62,16 +62,7 @@ class ImageWithBlurView: UIView {
         bgImageView.fillSuperview(superView: self, padding: .zero)
         visualEffectView.fillSuperview(superView: self, padding: .zero)
         frontImageView.fillSuperview(superView: frontImageContainerView, padding: .zero)
-        
-        frontImageContainerView.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            frontImageContainerView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 40),
-            frontImageContainerView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -40),
-            frontImageContainerView.topAnchor.constraint(equalTo: topAnchor),
-            frontImageContainerView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            frontImageContainerView.heightAnchor.constraint(equalToConstant: 390),
-        ])
+        frontImageContainerView.fillSuperview(superView: self, padding: .init(top: 32, left: 40, bottom: 32, right: 40))
     }
     
     // MARK: - Method

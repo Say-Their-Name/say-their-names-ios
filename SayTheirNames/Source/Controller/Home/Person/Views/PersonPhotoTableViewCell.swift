@@ -24,9 +24,6 @@ class PersonPhotoTableViewCell: UITableViewCell {
         
         backgroundColor = .red
         contentView.clipsToBounds = true
-        
-        contentView.addSubview(imageWithBlurView)
-        
         imageWithBlurView.fillSuperview(superView: contentView, padding: .zero)
     }
     
