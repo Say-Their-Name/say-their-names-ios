@@ -16,6 +16,10 @@ final class DonationsMoreDetailsController: BaseViewController {
         case socialMedia = 2
     }
     
+    // MARK: - Supplementary View Kind
+    static let photoSupplementaryView = "photo"
+    static let donationButtonSupplementaryView = "donationButton"
+    
     // MARK: - Property
     var donation: Donation?
     
@@ -53,6 +57,9 @@ final class DonationsMoreDetailsController: BaseViewController {
         
         collectionView.fillSuperview(superView: view, padding: .zero)
         collectionView.register(DMDTitleCell.self, forCellWithReuseIdentifier: DMDTitleCell.reuseIdentifier)
+        collectionView.register(DMDPhotoSupplementaryView.self,
+                                forSupplementaryViewOfKind: DonationsMoreDetailsController.photoSupplementaryView,
+                                withReuseIdentifier: DMDPhotoSupplementaryView.reuseIdentifier)
     }
     
     private func setupNavigationBarItems() {
@@ -116,7 +123,10 @@ final class DonationsMoreDetailsController: BaseViewController {
     private func configureDataSource() {
         // Create DataSource for cells
         dataSource =
-            UICollectionViewDiffableDataSource<DonationSectionLayoutKind, Donation>(collectionView: collectionView, cellProvider: { (collectionView, indexPath, donation) -> UICollectionViewCell? in
+            UICollectionViewDiffableDataSource<DonationSectionLayoutKind, Donation>(collectionView: collectionView,
+                                                                                    cellProvider: { (collectionView,
+                                                                                        indexPath,
+                                                                                        donation) -> UICollectionViewCell? in
                 switch indexPath.section {
                 // Title Section
                 case DonationSectionLayoutKind.title.rawValue:
@@ -133,6 +143,32 @@ final class DonationsMoreDetailsController: BaseViewController {
                 default:
                     return nil
                 }
-        })
+            })
+        
+        // Create DataSource for supplementary view
+        dataSource.supplementaryViewProvider = { [weak self] (collectionView: UICollectionView,
+            kind: String,
+            indexPath: IndexPath) -> UICollectionReusableView? in
+            guard let self = self else { return nil }
+            
+            switch kind {
+            case DonationsMoreDetailsController.photoSupplementaryView:
+                guard let photoView = collectionView
+                    .dequeueReusableSupplementaryView(ofKind: DonationsMoreDetailsController.photoSupplementaryView,
+                                                      withReuseIdentifier: DMDPhotoSupplementaryView.reuseIdentifier,
+                                                      for: indexPath) as? DMDPhotoSupplementaryView else {
+                                                        fatalError("Cannot create new view") }
+                
+                guard let person = self.dataSource.itemIdentifier(for: indexPath)?.person else {
+                    return nil
+                }
+                
+                photoView.configure(person)
+                
+                return photoView
+            default:
+                return nil
+            }
+        }
     }
 }

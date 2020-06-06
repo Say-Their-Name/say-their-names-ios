@@ -30,9 +30,17 @@ extension DonationsMoreDetailsController {
                 
                 // Section
                 let section = NSCollectionLayoutSection(group: group)
-                section.contentInsets = NSDirectionalEdgeInsets(top: 0.0, leading: horizontalPadding, bottom: 0.0, trailing: horizontalPadding)
+                section.contentInsets = NSDirectionalEdgeInsets(top: 30.0, leading: horizontalPadding, bottom: 0.0, trailing: horizontalPadding)
                 
                 // Supplementary
+                let supplementarySize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(420))
+                let supplementary =
+                    NSCollectionLayoutBoundarySupplementaryItem(layoutSize: supplementarySize,
+                                                                elementKind: DonationsMoreDetailsController.photoSupplementaryView,
+                                                                alignment: .top)
+                
+                section.supplementariesFollowContentInsets = false
+                section.boundarySupplementaryItems = [supplementary]
                 
                 return section
                 
