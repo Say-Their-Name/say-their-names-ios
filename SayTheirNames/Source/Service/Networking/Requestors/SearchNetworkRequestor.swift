@@ -1,5 +1,5 @@
 //
-//  ColorResource.swift
+//  SearchNetworkRequestor.swift
 //  SayTheirNames
 //
 //  Copyright (c) 2020 Say Their Names Team (https://github.com/Say-Their-Name)
@@ -22,26 +22,26 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-import UIKit
+import Alamofire
 
-extension UIColor {
+// MARK: - SearchEnvironment
+enum SearchEnvironment {
+    static let urlString: String = { return "\(Environment.serverURLString)/api/search" }()
+}
+
+// MARK: - NetworkRequestor (Search)
+extension NetworkRequestor {
+    // MARK: - Public methods
     
-    /// A collection of common colors
-    enum STN {
-
-        static let black: UIColor = UIColor(named: "black") ?? .black
-        static let white: UIColor = UIColor(named: "white") ?? .white
-        static let gray: UIColor = UIColor(named: "grey") ?? .gray
+    public func searchByQuery(_ query: String, completion: @escaping (Result<SearchResponsePage, AFError>) -> Swift.Void) {
+        guard let components = URLComponents(string: SearchEnvironment.urlString, item: URLQueryItem(name: "query", value: query)),
+              let urlString = components.url?.absoluteString
+        else {
+            let error = AFError.parameterEncodingFailed(reason: .missingURL)
+            completion(.failure(error))
+            return
+        }
         
-		// MARK: - Applications
-
-        static let tint: UIColor = UIColor(named: "tint") ?? .black
-
-		// MARK: - Labels
-
-        static let primaryLabel: UIColor = UIColor(named: "primaryLabel") ?? .label
-
-        static let secondaryLabel: UIColor = UIColor(named: "secondaryLabel") ?? .secondaryLabel
+        self.fetchDecodable(urlString, completion: completion)
     }
-
 }

@@ -40,7 +40,7 @@ final class Service: Servicing {
     // MARK: - Init
     init() {
         Log.mode = .all
-        Log.print("STN Version: \(Bundle.versionBuildString)")
+        Log.print("SayTheirNames Version: \(Bundle.versionBuildString)")
         Log.print("Starting Services")
     }
 }

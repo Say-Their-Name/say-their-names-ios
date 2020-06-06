@@ -68,4 +68,10 @@ class DateFormatterService {
         return dateFormatter.string(from: date)
     }
 
+    // MARK: - Year month day Hours minutes seconds
+    
+    func formatYearMonthDayAndTime(_ date: Date) -> String {
+        let dateFormatter = cachedDateFormatter(withFormat: "yyyy-MM-dd HH:mm:ss.SSS ")
+        return dateFormatter.string(from: date)
+    }
 }

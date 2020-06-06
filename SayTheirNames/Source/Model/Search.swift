@@ -1,5 +1,5 @@
 //
-//  ColorResource.swift
+//  Petition.swift
 //  SayTheirNames
 //
 //  Copyright (c) 2020 Say Their Names Team (https://github.com/Say-Their-Name)
@@ -22,26 +22,25 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-import UIKit
+import Foundation
 
-extension UIColor {
+public struct SearchResponsePage: Decodable {
+    let people: [Person]
+    let donations: [Donation]
+    let petitions: [Petition]
+    let link: Link
     
-    /// A collection of common colors
-    enum STN {
-
-        static let black: UIColor = UIColor(named: "black") ?? .black
-        static let white: UIColor = UIColor(named: "white") ?? .white
-        static let gray: UIColor = UIColor(named: "grey") ?? .gray
-        
-		// MARK: - Applications
-
-        static let tint: UIColor = UIColor(named: "tint") ?? .black
-
-		// MARK: - Labels
-
-        static let primaryLabel: UIColor = UIColor(named: "primaryLabel") ?? .label
-
-        static let secondaryLabel: UIColor = UIColor(named: "secondaryLabel") ?? .secondaryLabel
+    private enum CodingKeys: String, CodingKey {
+        case people, donations, petitions, link = "links", data = "data"
     }
-
+    
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        let data = try container.nestedContainer(keyedBy: CodingKeys.self, forKey: .data)
+        self.people = try data.decodeIfPresent([Person].self, forKey: .people) ?? []
+        self.donations = try data.decodeIfPresent([Donation].self, forKey: .donations) ?? []
+        self.petitions = try data.decodeIfPresent([Petition].self, forKey: .petitions) ?? []
+        self.link = try data.decodeIfPresent(Link.self, forKey: .link) ?? Link(first: "", last: "", prev: "", next: "")
+    }
 }
