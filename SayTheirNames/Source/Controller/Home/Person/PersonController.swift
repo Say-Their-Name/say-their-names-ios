@@ -40,7 +40,7 @@ enum PersonCellType: Equatable {
         case .story: return PersonOverviewTableViewCell.reuseIdentifier
         case .outcome: return PersonOverviewTableViewCell.reuseIdentifier
         case .news: return PersonNewsTableViewCell.reuseIdentifier
-        case .medias: return PersonNewsTableViewCell.reuseIdentifier
+        case .medias: return PersonMediaTableViewCell.reuseIdentifier
         case .hashtags: return PersonHashtagTableViewCell.reuseIdentifier
         }
     }
@@ -70,7 +70,7 @@ enum PersonCellType: Equatable {
         case .news:
             tableView.register(cellType: PersonNewsTableViewCell.self)
         case .medias:
-            tableView.register(cellType: PersonNewsTableViewCell.self)
+            tableView.register(cellType: PersonMediaTableViewCell.self)
         case .hashtags:
             tableView.register(cellType: PersonHashtagTableViewCell.self)
         }
@@ -219,18 +219,6 @@ private extension PersonController {
 
 // MARK: - UITableViewDelegate Methods
 extension PersonController: UITableViewDelegate {
-  
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let cellType = tableViewCells[indexPath.row]
-        switch cellType {
-        case .photo: return 420
-        case .info: return 140
-        case .news: return 340
-        case .medias: return 300
-        case .hashtags: return 160
-        case .story, .outcome: return UITableView.automaticDimension
-        }
-    }
 }
 
 // MARK: - UITableViewDataSource Methods

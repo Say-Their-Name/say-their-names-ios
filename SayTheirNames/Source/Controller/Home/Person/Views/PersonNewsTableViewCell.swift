@@ -17,9 +17,6 @@ protocol CollectionViewCellDelegate: class {
     // other delegate methods that you can define to perform action in viewcontroller
 }
 
-// Re-using `PersonNewsTableViewCell` to present media table view cell
-typealias PersonMediaTableViewCell = PersonNewsTableViewCell
-
 enum PersonNewsCellType: String {
     case news
     case medias
@@ -77,6 +74,8 @@ class PersonNewsTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    var preferredContentHeight: CGFloat { 263 }
+
     private func setupLayout() {
         titleLabel.anchor(superView: contentView,
                           top: contentView.topAnchor,
@@ -90,6 +89,8 @@ class PersonNewsTableViewCell: UITableViewCell {
                               bottom: contentView.bottomAnchor,
                               trailing: contentView.trailingAnchor,
                               padding: .init(top: 20, left: 0, right: 0))
+ 
+        collectionView.heightAnchor.constraint(equalToConstant: preferredContentHeight).isActive = true
     }
     
     // Updates current cell content views
@@ -105,7 +106,6 @@ class PersonNewsTableViewCell: UITableViewCell {
         collectionView.register(cellType: cell)
         updateCellViews()
     }
-    
 }
 
 extension PersonNewsTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -152,4 +152,11 @@ extension PersonNewsTableViewCell: UICollectionViewDelegate, UICollectionViewDat
         let cell = collectionView.cellForItem(at: indexPath)
         self.cellDelegate?.collectionView(collectionviewcell: cell, index: indexPath.item, didTappedInTableViewCell: self)
     }
+}
+
+// the only difference between PersonMediaTableViewCell and PersonNewsTableViewCell is the preferred height of their collectionview
+class PersonMediaTableViewCell: PersonNewsTableViewCell {
+    
+    override var preferredContentHeight: CGFloat { 218 }
+
 }

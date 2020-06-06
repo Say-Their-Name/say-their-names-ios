@@ -60,6 +60,7 @@ class PersonHashtagTableViewCell: UITableViewCell {
                               trailing: trailingAnchor,
                               padding: .init(top: 16),
                               size: .init(width: 0, height: 40))
+        heightAnchor.constraint(equalToConstant: 160).isActive = true
     }
     
     public func registerCell(with cell: UICollectionViewCell.Type) {
