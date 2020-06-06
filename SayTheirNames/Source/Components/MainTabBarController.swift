@@ -2,9 +2,25 @@
 //  MainTabBar.swift
 //  SayTheirNames
 //
-//  Created by Ahmad Karkouti on 31/05/2020.
-//  Copyright © 2020 Franck-Stephane Ndame Mpouli. All rights reserved.
+//  Copyright (c) 2020 Say Their Names Team (https://github.com/Say-Their-Name)
 //
+//  Permission is hereby granted, free of charge, to any person obtaining a copy
+//  of this software and associated documentation files (the "Software"), to deal
+//  in the Software without restriction, including without limitation the rights
+//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//  copies of the Software, and to permit persons to whom the Software is
+//  furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in
+//  all copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+//  THE SOFTWARE.
 
 import UIKit
 
@@ -14,7 +30,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
     // Params
     private let defaultBarTint: UIColor = .white
     private let defaultTint = UIColor.black
-    private let defaultUnselectedTint = #colorLiteral(red: 0.3803921569, green: 0.3882352941, blue: 0.4666666667, alpha: 0.5681668134)
+    private let defaultUnselectedTint = UIColor(red: 0.3803921569, green: 0.3882352941, blue: 0.4666666667, alpha: 0.5681668134)
 
     private let shadowRadius: CGFloat = 15
     private let shadowOpacity: Float = 1
@@ -58,7 +74,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
     fileprivate func setupTabBarStyle() {
         tabBar.isTranslucent = true
         tabBar.layer.borderWidth = 0.9
-        tabBar.layer.borderColor = #colorLiteral(red: 0.9451505829, green: 0.9451505829, blue: 0.9451505829, alpha: 1)
+        tabBar.layer.borderColor = UIColor(red: 0.9451505829, green: 0.9451505829, blue: 0.9451505829, alpha: 1).cgColor
         tabBar.clipsToBounds = true
         tabBar.backgroundColor = .white
         tabBar.barTintColor = defaultBarTint
@@ -81,21 +97,21 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         let settingsNC = UINavigationController(rootViewController: settingsController)
             
         homeNC.isNavigationBarHidden = true
-        homeNC.tabBarItem.image = #imageLiteral(resourceName: "gallery")
+        homeNC.tabBarItem.image = UIImage(named: "gallery")
         homeNC.tabBarItem.title = Strings.home
         
         donationsNC.isNavigationBarHidden = true
-        donationsNC.tabBarItem.image = #imageLiteral(resourceName: "heart")
+        donationsNC.tabBarItem.image = UIImage(named: "heart")
         donationsNC.tabBarItem.selectedImage = UIImage(named: "heart_active")
         donationsNC.tabBarItem.title = Strings.donations
                
         petitionsNC.isNavigationBarHidden = true
-        petitionsNC.tabBarItem.image = #imageLiteral(resourceName: "petition")
+        petitionsNC.tabBarItem.image = UIImage(named: "petition")
         petitionsNC.tabBarItem.selectedImage = UIImage(named: "petition_active")
         petitionsNC.tabBarItem.title = Strings.petitions
         
         settingsNC.isNavigationBarHidden = true
-        settingsNC.tabBarItem.image = #imageLiteral(resourceName: "settings")
+        settingsNC.tabBarItem.image = UIImage(named: "settings")
         settingsNC.tabBarItem.selectedImage = UIImage(named: "settings_active")
         settingsNC.tabBarItem.title = Strings.settings
         
