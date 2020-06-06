@@ -174,20 +174,19 @@ class PersonController: UIViewController, ServiceReferring {
 private extension PersonController {
     
     func setupNavigationBarItems() {
-       navigationController?.navigationBar.isTranslucent = false
-       navigationController?.navigationBar.barTintColor = .black
-       // TODO: Once Theme.swift/etc gets added this may not be required
-       navigationController?.navigationBar.titleTextAttributes = navigationBarTextAttributes
-        
-       // TODO: Implement localization
-       title = "SAY THEIR NAMES"
-        
-       navigationController?.navigationBar.titleTextAttributes = [
+        navigationController?.navigationBar.isTranslucent = false
+        navigationController?.navigationBar.barTintColor = .black
+        // TODO: Once Theme.swift/etc gets added this may not be required
+        navigationController?.navigationBar.titleTextAttributes = navigationBarTextAttributes
+
+        title = L10n.Person.sayTheirNames.uppercased()
+
+        navigationController?.navigationBar.titleTextAttributes = [
         NSAttributedString.Key.foregroundColor: UIColor.white,
         NSAttributedString.Key.font: UIFont(name: "Karla-Regular", size: 19) ?? UIFont.systemFont(ofSize: 17)]
-       
-       navigationItem.leftBarButtonItem = UIBarButtonItem(customView: dismissButton)
-       navigationItem.rightBarButtonItem = UIBarButtonItem(customView: shareButton)
+
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: dismissButton)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: shareButton)
     }
     
     func setupSubViews() {
@@ -262,11 +261,11 @@ extension PersonController: UITableViewDataSource {
             return infoCell
         case .story:
             let storyCell = cell as! PersonOverviewTableViewCell
-             storyCell.setupCell(title: "THEIR STORY", description: person.bio)
+            storyCell.setupCell(title: L10n.Person.theirStory, description: person.bio)
             return storyCell
         case .outcome:
             let overviewCell = cell as! PersonOverviewTableViewCell
-            overviewCell.setupCell(title: "OUTCOME", description: person.context)
+            overviewCell.setupCell(title: L10n.Person.outcome, description: person.context)
             return overviewCell
         case let .news(news):
             let newsCell = cell as! PersonNewsTableViewCell
