@@ -33,6 +33,7 @@ final class PersonCell: UICollectionViewCell {
         imgV.contentMode = .scaleAspectFill
         imgV.clipsToBounds = true
         imgV.translatesAutoresizingMaskIntoConstraints = false
+        imgV.accessibilityIgnoresInvertColors = true
         return imgV
     }()
     
