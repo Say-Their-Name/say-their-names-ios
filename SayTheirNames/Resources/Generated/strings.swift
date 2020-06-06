@@ -13,6 +13,8 @@ import Foundation
 internal enum L10n {
   /// Cancel
   internal static let cancel = L10n.tr("Localizable", "cancel")
+  /// Close
+  internal static let close = L10n.tr("Localizable", "close")
   /// Donations
   internal static let donations = L10n.tr("Localizable", "donations")
   /// Find Out More
@@ -23,6 +25,8 @@ internal enum L10n {
   internal static let petitions = L10n.tr("Localizable", "petitions")
   /// Settings
   internal static let settings = L10n.tr("Localizable", "settings")
+  /// Share
+  internal static let share = L10n.tr("Localizable", "share")
   /// verfied
   internal static let verified = L10n.tr("Localizable", "verified")
 }
