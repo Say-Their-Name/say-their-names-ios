@@ -23,7 +23,6 @@ class PersonOverviewTableViewCell: UITableViewCell {
     
     lazy var descriptionLabel: UILabel = {
         let label = UILabel()
-        label.text = "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturiasdlnalkd"
         label.textColor = .black
         label.font = UIFont(name: "Karla-Regular", size: 17)
         label.numberOfLines = 0

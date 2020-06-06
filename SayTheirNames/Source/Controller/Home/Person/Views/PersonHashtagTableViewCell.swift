@@ -44,8 +44,16 @@ class PersonHashtagTableViewCell: UITableViewCell {
     }
     
     private func setupLayout() {
-        hashtagLabel.anchor(superView: self, top: topAnchor, leading: leadingAnchor, padding: .init(top: 48, left: 32))
-        collectionView.anchor(superView: self, top: hashtagLabel.bottomAnchor, leading: leadingAnchor, trailing: trailingAnchor, padding: .init(top: 16), size: .init(width: 0, height: 40))
+        hashtagLabel.anchor(superView: self,
+                            top: topAnchor,
+                            leading: leadingAnchor,
+                            padding: .init(top: 48, left: 32))
+        collectionView.anchor(superView: self,
+                              top: hashtagLabel.bottomAnchor,
+                              leading: leadingAnchor,
+                              trailing: trailingAnchor,
+                              padding: .init(top: 16),
+                              size: .init(width: 0, height: 40))
     }
     
     public func registerCell(with cell: UICollectionViewCell.Type) {

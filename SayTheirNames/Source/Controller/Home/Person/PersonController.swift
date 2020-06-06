@@ -24,7 +24,6 @@
 
 import UIKit
 
-
 enum PersonCellType: Equatable {
     case photo
     case info
@@ -158,7 +157,7 @@ class PersonController: BaseViewController {
     }
     
     @objc func shareAction(_ sender: Any) {
-        // Present share bottom sheet view
+        // TODO: Share button action
     }
     
     private func registerCells(to tableView: UITableView) {
@@ -186,7 +185,7 @@ class PersonController: BaseViewController {
     
     private func setupDonationButton() {
         donationButtonContainerView.setButtonPressed {
-            // Button Action Here
+            // TODO: Donation button action
         }
         
         donationButtonContainerView.translatesAutoresizingMaskIntoConstraints = false

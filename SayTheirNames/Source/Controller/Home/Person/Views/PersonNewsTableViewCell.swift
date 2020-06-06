@@ -74,11 +74,18 @@ class PersonNewsTableViewCell: UITableViewCell {
     }
     
     private func setupLayout() {
+        titleLabel.anchor(superView: contentView,
+                          top: contentView.topAnchor,
+                          leading: contentView.leadingAnchor,
+                          trailing: contentView.trailingAnchor,
+                          padding: .init(top: 40, left: 32, right: 32))
         
-        titleLabel.anchor(superView: contentView, top: contentView.topAnchor, leading: contentView.leadingAnchor, trailing: contentView.trailingAnchor, padding: .init(top: 40, left: 32, right: 32))
-        
-        collectionView.anchor(superView: contentView, top: titleLabel.bottomAnchor, leading: contentView.leadingAnchor, bottom: contentView.bottomAnchor, trailing: contentView.trailingAnchor, padding: .init(top: 20, left: 0, right: 0))
-        
+        collectionView.anchor(superView: contentView,
+                              top: titleLabel.bottomAnchor,
+                              leading: contentView.leadingAnchor,
+                              bottom: contentView.bottomAnchor,
+                              trailing: contentView.trailingAnchor,
+                              padding: .init(top: 20, left: 0, right: 0))
     }
     
     // Updates current cell content views
