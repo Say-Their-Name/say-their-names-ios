@@ -29,7 +29,7 @@ internal enum L10n {
   internal static let search = L10n.tr("Localizable", "search")
   /// Settings
   internal static let settings = L10n.tr("Localizable", "settings")
-  /// verified
+  /// verfied
   internal static let verified = L10n.tr("Localizable", "verified")
 
   internal enum Person {

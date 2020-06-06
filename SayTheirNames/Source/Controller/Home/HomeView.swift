@@ -28,7 +28,7 @@ final class HomeView: UIView {
 
     private let navigationBarLabel: UILabel = {
         let label = UILabel()
-        label.text = Strings.sayTheirName.uppercased()
+        label.text = Strings.sayTheirNames.uppercased()
         label.textColor = .white
 
         return label
