@@ -31,7 +31,6 @@ final class HomeView: UIView {
         let headerLayout = makeHeaderComposition()
         let peopleCollectionView = UICollectionView(frame: .zero, collectionViewLayout: headerLayout)
         peopleCollectionView.contentInsetAdjustmentBehavior = .always
-        backgroundColor = .red
         return peopleCollectionView
     }()
 
@@ -40,18 +39,24 @@ final class HomeView: UIView {
     // MARK: - Methods
     func makeHeaderComposition() -> UICollectionViewLayout {
         let layout = UICollectionViewCompositionalLayout(sectionProvider: { [weak self] (sectionIndex: Int,
-            _: NSCollectionLayoutEnvironment)
+            layoutEnviroment: NSCollectionLayoutEnvironment)
             -> NSCollectionLayoutSection? in
             guard let sections = self?.peopleDataSource?.dataSource.snapshot().sectionIdentifiers else {return nil}
-
+            let deviceWidth = layoutEnviroment.traitCollection.horizontalSizeClass
             switch sections[sectionIndex] {
 
             case .header:
+
+                let groupWidth: CGFloat = deviceWidth == .compact ? 0.95 : 1.0
+
                 let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
                                                       heightDimension: .fractionalHeight(1.0))
+
                 let layoutItem = NSCollectionLayoutItem(layoutSize: itemSize)
-                let layoutGroupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.95),
+
+                let layoutGroupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(groupWidth),
                                                              heightDimension: .estimated(170))
+
                 let group = NSCollectionLayoutGroup.horizontal(layoutSize: layoutGroupSize, subitems: [layoutItem])
                 let spacing = CGFloat(10)
                 group.interItemSpacing = .fixed(spacing)
@@ -60,17 +65,21 @@ final class HomeView: UIView {
                 headerSection.interGroupSpacing = spacing
                 return headerSection
             case .main:
+                //the amount of columns shown in the group dependants upon screen rotation
+
+                let columns = deviceWidth == .compact ? 2 : 4
+                let insets = deviceWidth == .compact ? Self.PeopleSectionInsetsPortraint : Self.PeopleSecrtionInsetsLandscape
                 let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
 
                 let layoutItem = NSCollectionLayoutItem(layoutSize: itemSize)
 
                 let layoutGroupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(300))
 
-                let group = NSCollectionLayoutGroup.horizontal(layoutSize: layoutGroupSize, subitem: layoutItem, count: 2)
+                let group = NSCollectionLayoutGroup.horizontal(layoutSize: layoutGroupSize, subitem: layoutItem, count: columns)
                 group.interItemSpacing = .fixed(10)
-                let headerSection = NSCollectionLayoutSection(group: group)
-                headerSection.contentInsets = Self.PeopleSectionInsets
-                return headerSection
+                let mainSection = NSCollectionLayoutSection(group: group)
+                mainSection.contentInsets = insets
+                return mainSection
             }
         })
         layout.configuration.interSectionSpacing = 10
@@ -115,6 +124,7 @@ final class HomeView: UIView {
         addSubview(customNavigationBar)
 
         let collections = UIView()
+        collections.backgroundColor = .systemBackground
         addSubview(collections)
         locationCollectionView.backgroundColor = .systemBackground
         peopleCollectionView.backgroundColor = .systemBackground
@@ -145,10 +155,10 @@ final class HomeView: UIView {
             size: .init(width: 0, height: Self.SeparatorHeight))
         peopleCollectionView.anchor(
             superView: collections,
-            top: separator.bottomAnchor,
-            leading: collections.leadingAnchor,
-            bottom: collections.bottomAnchor,
-            trailing: collections.trailingAnchor)
+            top: separator.safeAreaLayoutGuide.bottomAnchor,
+            leading: collections.safeAreaLayoutGuide.leadingAnchor,
+            bottom: collections.safeAreaLayoutGuide.bottomAnchor,
+            trailing: collections.safeAreaLayoutGuide.trailingAnchor)
     }
     
     private func createCustomNavigationBarLayout() {
@@ -179,5 +189,6 @@ final class HomeView: UIView {
     static let CustomNavBarMargin: CGFloat = 16
     static let SeparatorHeight: CGFloat = 1
     static let LocationsSectionInsets = UIEdgeInsets(left: 16, right: 16)
-    static let PeopleSectionInsets = NSDirectionalEdgeInsets(top: 16, leading: 16, bottom: 16, trailing: 16)
+    static let PeopleSectionInsetsPortraint = NSDirectionalEdgeInsets(top: 16, leading: 16, bottom: 16, trailing: 16)
+    static let PeopleSecrtionInsetsLandscape = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
 }

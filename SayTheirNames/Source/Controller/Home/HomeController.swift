@@ -107,7 +107,6 @@ final class HomeController: UIViewController, ServiceReferring {
         peopleCollectionView.dataSource = peopleDataSourceHelper.dataSource
         peopleCollectionView.accessibilityIdentifier = "peopleCollection"
         peopleCollectionView.isAccessibilityElement = false
-
     }
     
     // MARK: - IBACTIONS
@@ -123,13 +122,8 @@ extension HomeController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
         if collectionView === locationCollectionView {
             return CGSize(width: 103, height: 36)
-        }
-        else if collectionView === peopleCollectionView {
-            let width = collectionView.frame.width / 2 - 24
-            return CGSize(width: width, height: 300)
         }
         else {
             return CGSize.zero
