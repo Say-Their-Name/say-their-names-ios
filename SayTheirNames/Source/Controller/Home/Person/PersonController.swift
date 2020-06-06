@@ -253,11 +253,11 @@ extension PersonController: UITableViewDataSource {
             return infoCell
         case .story:
             let storyCell = cell as! PersonOverviewTableViewCell
-            storyCell.setupCell(title: L10n.Person.theirStory.uppercased(), description: person.bio)
+            storyCell.setupCell(title: L10n.Person.theirStory, description: person.bio)
             return storyCell
         case .outcome:
             let overviewCell = cell as! PersonOverviewTableViewCell
-            overviewCell.setupCell(title: L10n.Person.outcome.uppercased(), description: person.context)
+            overviewCell.setupCell(title: L10n.Person.outcome, description: person.context)
             return overviewCell
         case let .news(news):
             let newsCell = cell as! PersonNewsTableViewCell
