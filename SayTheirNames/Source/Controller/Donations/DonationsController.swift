@@ -45,8 +45,20 @@ class DonationsController: BaseViewController {
     }
     
     @objc private func tapped() {
-        let detailVC = DonationsMoreDetailsController(service: service)
-        let navigationController = UINavigationController(rootViewController: detailVC)
-        present(navigationController, animated: true, completion: nil)
+        self.service.network.fetchDonations { [weak self] (result) in
+            guard let self = self else { return }
+            switch result {
+            case .success(let page):
+                guard let donation = page.all.first else { return }
+                
+                let detailVC = DonationsMoreDetailsController(service: self.service)
+                detailVC.donation = donation
+                let navigationController = UINavigationController(rootViewController: detailVC)
+                self.present(navigationController, animated: true, completion: nil)
+                
+            case .failure(let error):
+                Log.print(error)
+            }
+        }
     }
 }

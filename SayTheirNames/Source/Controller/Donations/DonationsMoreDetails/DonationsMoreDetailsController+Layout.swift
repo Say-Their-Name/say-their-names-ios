@@ -55,19 +55,19 @@ extension DonationsMoreDetailsController {
             // Description and outcome section layout
             case DonationSectionLayoutKind.description.rawValue, DonationSectionLayoutKind.outcome.rawValue:
                 // Item
-                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
+                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(200.0))
                 let item = NSCollectionLayoutItem(layoutSize: itemSize)
                 
                 // Group
-                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(500.0))
-                let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitem: item, count: 1)
-                
+                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: itemSize.heightDimension)
+                let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 1)
+
                 // Section
                 let section = NSCollectionLayoutSection(group: group)
                 section.contentInsets = NSDirectionalEdgeInsets(top: 0.0, leading: horizontalPadding, bottom: 0.0, trailing: horizontalPadding)
                 
                 // Supplementary
-                let titleViewSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(20))
+                let titleViewSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(22.5))
                 let titleView =
                     NSCollectionLayoutBoundarySupplementaryItem(layoutSize: titleViewSize,
                                                                 elementKind: DonationsMoreDetailsController.sectionTitleSupplementaryView,
@@ -112,6 +112,10 @@ extension DonationsMoreDetailsController {
             }
         }
         
+        let config = UICollectionViewCompositionalLayoutConfiguration()
+        config.interSectionSpacing = 28
+        
+        layout.configuration = config
         return layout
     }
 }

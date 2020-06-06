@@ -10,7 +10,7 @@ import UIKit
 
 class DMDSectionTitleSupplementaryView: UICollectionReusableView {
     // MARK: - Property
-    static let reuseIdentifier = "donations-more-details-title-view"
+    static let reuseIdentifier = "donations-more-details-section-title-view"
     
     // MARK: - View
     lazy var titleLabel: UILabel = {
