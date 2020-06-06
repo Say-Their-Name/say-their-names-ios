@@ -29,6 +29,9 @@
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#BLACKLIVESMATTER" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Foa-vl-Pbm">
                         <rect key="frame" x="32" y="87" width="193" height="23"/>
+                        <accessibility key="accessibilityConfiguration" label="hashtag, black laaivz matter">
+                            <accessibilityTraits key="traits" staticText="YES"/>
+                        </accessibility>
                         <fontDescription key="fontDescription" name="Karla-Bold" family="Karla" pointSize="19"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>

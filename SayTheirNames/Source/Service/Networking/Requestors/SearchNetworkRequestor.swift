@@ -1,5 +1,5 @@
 //
-//  Services.swift
+//  SearchNetworkRequestor.swift
 //  SayTheirNames
 //
 //  Copyright (c) 2020 Say Their Names Team (https://github.com/Say-Their-Name)
@@ -22,25 +22,26 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-import UIKit
+import Alamofire
 
-protocol Servicing {
-    var navigator: Navigator { get }
-    var image: ImageService { get }
-    var dateFormatter: DateFormatterService { get }
-    var network: NetworkRequestor { get }
+// MARK: - SearchEnvironment
+enum SearchEnvironment {
+    static let urlString: String = { return "\(Environment.serverURLString)/api/search" }()
 }
-/// This is a core class that holds all instances responsible for logic
-final class Service: Servicing {
-    lazy private(set) var navigator = Navigator(service: self)
-    lazy private(set) var image = ImageService()
-    lazy private(set) var dateFormatter = DateFormatterService()
-    lazy private(set) var network = NetworkRequestor()
+
+// MARK: - NetworkRequestor (Search)
+extension NetworkRequestor {
+    // MARK: - Public methods
     
-    // MARK: - Init
-    init() {
-        Log.mode = .all
-        Log.print("SayTheirNames Version: \(Bundle.versionBuildString)")
-        Log.print("Starting Services")
+    public func searchByQuery(_ query: String, completion: @escaping (Result<SearchResponsePage, AFError>) -> Swift.Void) {
+        guard let components = URLComponents(string: SearchEnvironment.urlString, item: URLQueryItem(name: "query", value: query)),
+              let urlString = components.url?.absoluteString
+        else {
+            let error = AFError.parameterEncodingFailed(reason: .missingURL)
+            completion(.failure(error))
+            return
+        }
+        
+        self.fetchDecodable(urlString, completion: completion)
     }
 }

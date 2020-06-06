@@ -43,6 +43,7 @@ final class LocationCollectionViewDataSourceHelper {
             cell.configure(with: location)
             cell.accessibilityIdentifier = "locationCell\(indexPath.item)"
             cell.isAccessibilityElement = true
+            cell.accessibilityLabel = "\(location.name)"
             return cell
         }
     }
