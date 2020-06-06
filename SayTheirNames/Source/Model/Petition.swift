@@ -2,17 +2,33 @@
 //  Petition.swift
 //  SayTheirNames
 //
-//  Created by Ahmad Karkouti on 30/05/2020.
-//  Copyright © 2020 Franck-Stephane Ndame Mpouli. All rights reserved.
+//  Copyright (c) 2020 Say Their Names Team (https://github.com/Say-Their-Name)
 //
+//  Permission is hereby granted, free of charge, to any person obtaining a copy
+//  of this software and associated documentation files (the "Software"), to deal
+//  in the Software without restriction, including without limitation the rights
+//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//  copies of the Software, and to permit persons to whom the Software is
+//  furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in
+//  all copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+//  THE SOFTWARE.
 
 import Foundation
 
 public struct Petition: Decodable {
-    var id: Int
-    var title: String
-    var description: String
-    var link: String
+    let id: Int
+    let title: String
+    let description: String
+    let link: String
     
     enum CodingKeys: String, CodingKey {
         case id, title, description, link
@@ -20,8 +36,8 @@ public struct Petition: Decodable {
 }
 
 public struct PetitionsResponsePage: Decodable {
-    var all: [Petition]
-    var link: Link
+    let all: [Petition]
+    let link: Link
     
     enum CodingKeys: String, CodingKey {
         case all = "data", link = "links"
@@ -31,5 +47,12 @@ public struct PetitionsResponsePage: Decodable {
     init() {
         self.all = []
         self.link = Link(first: "", last: "", prev: "", next: "")
+    }
+    
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        self.all = try container.decodeIfPresent([Petition].self, forKey: .all) ?? []
+        self.link = try container.decodeIfPresent(Link.self, forKey: .link) ?? Link(first: "", last: "", prev: "", next: "")
     }
 }
