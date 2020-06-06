@@ -59,4 +59,11 @@ public struct DonationsResponsePage: Decodable {
         self.all = []
         self.link = Link(first: "", last: "", prev: "", next: "")
     }
+    
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        self.all = try container.decodeIfPresent([Donation].self, forKey: .all) ?? []
+        self.link = try container.decodeIfPresent(Link.self, forKey: .link) ?? Link(first: "", last: "", prev: "", next: "")
+    }
 }

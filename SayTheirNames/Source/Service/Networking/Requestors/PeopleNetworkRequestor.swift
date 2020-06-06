@@ -28,9 +28,6 @@ import Alamofire
 // MARK: - PersonEnvironment
 enum PersonEnvironment {
     static let baseUrlSring: String = { return "\(Environment.serverURLString)/api/people" }()
-    static let peopleSearchString: String = { return "\(PersonEnvironment.baseUrlSring)/?name=" }()
-    static let countrySeachUrlString: String = { return "\(PersonEnvironment.baseUrlSring)/?country=" }()
-    static let citySeachUrlString: String = { return "\(PersonEnvironment.baseUrlSring)/?city=" }()
 }
 
 // MARK: - NetworkRequestor (People)
@@ -52,17 +49,38 @@ extension NetworkRequestor {
     }
     
     public func fetchPeopleByName(_ name: String, completion: @escaping (Result<PersonsResponsePage, AFError>) -> Swift.Void) {
-        let url = "\(PersonEnvironment.peopleSearchString)\(name)"
-        self.fetchDecodable(url, completion: completion)
+        guard let components = URLComponents(string: PersonEnvironment.baseUrlSring, item: URLQueryItem(name: "name", value: name)),
+              let urlString = components.url?.absoluteString
+        else {
+            let error = AFError.parameterEncodingFailed(reason: .missingURL)
+            completion(.failure(error))
+            return
+        }
+        
+        self.fetchDecodable(urlString, completion: completion)
     }
     
     public func fetchPeopleByCountry(_ country: String, completion: @escaping (Result<PersonsResponsePage, AFError>) -> Swift.Void) {
-        let url = "\(PersonEnvironment.countrySeachUrlString)\(country)"
-        self.fetchDecodable(url, completion: completion)
+        guard let components = URLComponents(string: PersonEnvironment.baseUrlSring, item: URLQueryItem(name: "country", value: country)),
+              let urlString = components.url?.absoluteString
+        else {
+            let error = AFError.parameterEncodingFailed(reason: .missingURL)
+            completion(.failure(error))
+            return
+        }
+        
+        self.fetchDecodable(urlString, completion: completion)
     }
     
     public func fetchPeopleByCity(_ city: String, completion: @escaping (Result<PersonsResponsePage, AFError>) -> Swift.Void) {
-        let url = "\(PersonEnvironment.citySeachUrlString)\(city)"
-        self.fetchDecodable(url, completion: completion)
+        guard let components = URLComponents(string: PersonEnvironment.baseUrlSring, item: URLQueryItem(name: "city", value: city)),
+              let urlString = components.url?.absoluteString
+        else {
+            let error = AFError.parameterEncodingFailed(reason: .missingURL)
+            completion(.failure(error))
+            return
+        }
+        
+        self.fetchDecodable(urlString, completion: completion)
     }
 }

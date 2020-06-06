@@ -43,7 +43,7 @@ extension NetworkRequestorTests {
 
         // Make request and expect that a result is returned
         let returnRequestExpection = expectation(description: "Request should return")
-        sut.fetchDonations { _ in
+        self.sut.fetchDonations { _ in
             returnRequestExpection.fulfill()
         }
 
@@ -51,6 +51,7 @@ extension NetworkRequestorTests {
         wait(for: [makeRequestExpectation, returnRequestExpection], timeout: 2)
     }
     
+    /*
     func test_fetchDonationsByPersonName_makesRequest() {
         guard let apiEndpoint = URL(string: DonationsEnvironment.donationsSearchString) else {
             XCTFail("URL was not valid")
@@ -67,12 +68,12 @@ extension NetworkRequestorTests {
 
         // Make request and expect that a result is returned
         let returnRequestExpection = expectation(description: "Request should return")
-        sut.fetchDonationsByPersonName("george") { _ in
+        self.sut.fetchDonationsByPersonName("george") { _ in
             returnRequestExpection.fulfill()
         }
 
         // Wait for request to be made and returned
-        wait(for: [makeRequestExpectation, returnRequestExpection], timeout: 120)
+        wait(for: [makeRequestExpectation, returnRequestExpection], timeout: 15)
     }
     
     func test_fetchDonationsByType_makesRequest() {
@@ -91,11 +92,11 @@ extension NetworkRequestorTests {
 
         // Make request and expect that a result is returned
         let returnRequestExpection = expectation(description: "Request should return")
-        sut.fetchDonationsByType("victim") { _ in
+        self.sut.fetchDonationsByType("victim") { _ in
             returnRequestExpection.fulfill()
         }
 
         // Wait for request to be made and returned
-        wait(for: [makeRequestExpectation, returnRequestExpection], timeout: 120)
-    }
+        wait(for: [makeRequestExpectation, returnRequestExpection], timeout: 15)
+    }*/
 }

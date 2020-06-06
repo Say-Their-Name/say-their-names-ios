@@ -51,6 +51,7 @@ extension NetworkRequestorTests {
         wait(for: [makeRequestExpectation, returnRequestExpection], timeout: 2)
     }
     
+    /*
     func test_fetchPeopleByName_makesRequest() {
         guard let apiEndpoint = URL(string: PersonEnvironment.peopleSearchString) else {
             XCTFail("URL was not valid")
@@ -67,12 +68,12 @@ extension NetworkRequestorTests {
 
         // Make request and expect that a result is returned
         let returnRequestExpection = expectation(description: "Request should return")
-        sut.fetchPeopleByName("george") { _ in
+        self.sut.fetchPeopleByName("george") { _ in
             returnRequestExpection.fulfill()
         }
 
         // Wait for request to be made and returned
-        wait(for: [makeRequestExpectation, returnRequestExpection], timeout: 120)
+        wait(for: [makeRequestExpectation, returnRequestExpection], timeout: 15)
     }
     
     func test_fetchPeopleByCity_makesRequest() {
@@ -91,12 +92,12 @@ extension NetworkRequestorTests {
 
         // Make request and expect that a result is returned
         let returnRequestExpection = expectation(description: "Request should return")
-        sut.fetchPeopleByCity("minnesota") { _ in
+        self.sut.fetchPeopleByCity("minnesota") { _ in
             returnRequestExpection.fulfill()
         }
 
         // Wait for request to be made and returned
-        wait(for: [makeRequestExpectation, returnRequestExpection], timeout: 120)
+        wait(for: [makeRequestExpectation, returnRequestExpection], timeout: 15)
     }
     
     func test_fetchPeopleByCountry_makesRequest() {
@@ -115,11 +116,11 @@ extension NetworkRequestorTests {
 
         // Make request and expect that a result is returned
         let returnRequestExpection = expectation(description: "Request should return")
-        sut.fetchPeopleByCountry("united states") { _ in
+        self.sut.fetchPeopleByCountry("united states") { _ in
             returnRequestExpection.fulfill()
         }
 
         // Wait for request to be made and returned
-        wait(for: [makeRequestExpectation, returnRequestExpection], timeout: 120)
-    }
+        wait(for: [makeRequestExpectation, returnRequestExpection], timeout: 15)
+    }*/
 }

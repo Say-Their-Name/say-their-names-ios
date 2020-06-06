@@ -26,7 +26,7 @@ import Alamofire
 
 // MARK: - SearchEnvironment
 enum SearchEnvironment {
-    static let urlString: String = { return "\(Environment.serverURLString)/api/search?query=" }()
+    static let urlString: String = { return "\(Environment.serverURLString)/api/search" }()
 }
 
 // MARK: - NetworkRequestor (Search)
@@ -34,7 +34,14 @@ extension NetworkRequestor {
     // MARK: - Public methods
     
     public func searchByQuery(_ query: String, completion: @escaping (Result<SearchResponsePage, AFError>) -> Swift.Void) {
-        let urlString = "\(SearchEnvironment.urlString)\(query)"
+        guard let components = URLComponents(string: SearchEnvironment.urlString, item: URLQueryItem(name: "query", value: query)),
+              let urlString = components.url?.absoluteString
+        else {
+            let error = AFError.parameterEncodingFailed(reason: .missingURL)
+            completion(.failure(error))
+            return
+        }
+        
         self.fetchDecodable(urlString, completion: completion)
     }
 }

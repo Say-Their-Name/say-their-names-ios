@@ -82,6 +82,13 @@ struct PersonsResponsePage: Decodable {
         self.all = []
         self.link = Link(first: "", last: "", prev: "", next: "")
     }
+    
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        self.all = try container.decodeIfPresent([Person].self, forKey: .all) ?? []
+        self.link = try container.decodeIfPresent(Link.self, forKey: .link) ?? Link(first: "", last: "", prev: "", next: "")
+    }
 }
 
 extension Person: Equatable, Hashable {
