@@ -27,6 +27,12 @@ import UIKit
 /// The UI for Donations
 final class DonationsView: UIView {
     
+    private lazy var navBarView = STNNavigationBar(
+        title: Strings.donations.uppercased()
+    ).configure {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+    }
+    
     /// UICollectionView that lays out the filter cells
     private lazy var filtersView = FiltersCollectionView().configure {
         $0.translatesAutoresizingMaskIntoConstraints = false
@@ -46,15 +52,22 @@ final class DonationsView: UIView {
     
     /// Configures properties for the view itself
     private func setupSelf() {
-        backgroundColor = .systemBackground
+        backgroundColor = UIColor.STN.black
     }
     
     /// Adds and configures constraints for subviews
     private func setupSubviews() {
+        addSubview(navBarView)
         addSubview(filtersView)
         
+        let safeGuide = safeAreaLayoutGuide
         NSLayoutConstraint.activate([
-            filtersView.topAnchor.constraint(equalTo: topAnchor),
+            navBarView.topAnchor.constraint(equalTo: safeGuide.topAnchor),
+            navBarView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            navBarView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            navBarView.heightAnchor.constraint(equalToConstant: Self.navBarViewHeight),
+            
+            filtersView.topAnchor.constraint(equalTo: navBarView.bottomAnchor),
             filtersView.leadingAnchor.constraint(equalTo: leadingAnchor),
             filtersView.trailingAnchor.constraint(equalTo: trailingAnchor),
             filtersView.heightAnchor.constraint(equalToConstant: Self.filtersViewHeight)
@@ -68,5 +81,6 @@ final class DonationsView: UIView {
 }
 
 private extension DonationsView {
-    static let filtersViewHeight: CGFloat = 90
+    static let navBarViewHeight: CGFloat = 70
+    static let filtersViewHeight: CGFloat = 70
 }
