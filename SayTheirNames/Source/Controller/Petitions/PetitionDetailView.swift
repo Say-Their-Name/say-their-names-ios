@@ -52,7 +52,12 @@ final class PetitionDetailView: UIView {
         return button
     }()
     
-    let imageView = UIImageView()
+    let imageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.accessibilityIgnoresInvertColors = true
+        return imageView
+    }()
+    
     let verifiedLabel = UILabel()
     
     override func didMoveToSuperview() {

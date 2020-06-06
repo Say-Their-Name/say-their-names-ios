@@ -32,7 +32,7 @@ public struct Donation: Decodable {
     let person: Person
     let type: DonationType
     
-    enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case id, title, description, link, person, type
     }
 }
@@ -41,7 +41,7 @@ struct DonationType: Codable {
     let id: String
     let type: String
     
-    enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case id, type
     }
 }
@@ -50,7 +50,7 @@ public struct DonationsResponsePage: Decodable {
     var all: [Donation]
     var link: Link
     
-    enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case all = "data", link = "links"
     }
     
@@ -58,5 +58,12 @@ public struct DonationsResponsePage: Decodable {
     init() {
         self.all = []
         self.link = Link(first: "", last: "", prev: "", next: "")
+    }
+    
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        self.all = try container.decodeIfPresent([Donation].self, forKey: .all) ?? []
+        self.link = try container.decodeIfPresent(Link.self, forKey: .link) ?? Link(first: "", last: "", prev: "", next: "")
     }
 }

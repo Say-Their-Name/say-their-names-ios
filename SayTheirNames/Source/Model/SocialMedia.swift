@@ -29,7 +29,7 @@ public struct SocialMedia: Decodable {
     let type: String
     let link: String
 
-    enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case title, type, link
     }
 }

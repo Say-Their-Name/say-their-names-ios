@@ -33,6 +33,7 @@ final class PersonCell: UICollectionViewCell {
         imgV.contentMode = .scaleAspectFill
         imgV.clipsToBounds = true
         imgV.translatesAutoresizingMaskIntoConstraints = false
+        imgV.accessibilityIgnoresInvertColors = true
         return imgV
     }()
     
@@ -43,6 +44,8 @@ final class PersonCell: UICollectionViewCell {
         lbl.textColor = UIColor.STN.primaryLabel
         lbl.lineBreakMode = .byTruncatingTail
         lbl.translatesAutoresizingMaskIntoConstraints = false
+        lbl.isAccessibilityElement = true
+        lbl.accessibilityLabel = lbl.text
         return lbl
     }()
     
@@ -52,6 +55,7 @@ final class PersonCell: UICollectionViewCell {
         lbl.font = UIFont(name: "Karla-regular", size: 13)
         lbl.textColor = UIColor.STN.secondaryLabel
         lbl.lineBreakMode = .byTruncatingTail
+        lbl.isAccessibilityElement = true
         lbl.translatesAutoresizingMaskIntoConstraints = false
         return lbl
     }()
@@ -62,6 +66,7 @@ final class PersonCell: UICollectionViewCell {
         btn.contentMode = .scaleAspectFill
         btn.addTarget(self, action: #selector(didTapBookmark), for: .touchUpInside)
         btn.translatesAutoresizingMaskIntoConstraints = false
+        btn.isAccessibilityElement = true
         return btn
     }()
     
@@ -102,7 +107,6 @@ final class PersonCell: UICollectionViewCell {
         labelsAndButtonContainer.addSubview(nameLabel)
         labelsAndButtonContainer.addSubview(dateOfIncidentLabel)
         labelsAndButtonContainer.addSubview(bookmarkButton)
-        
         NSLayoutConstraint.activate([
             nameLabel.topAnchor.constraint(equalTo: labelsAndButtonContainer.topAnchor),
             nameLabel.leadingAnchor.constraint(equalTo: labelsAndButtonContainer.leadingAnchor),
