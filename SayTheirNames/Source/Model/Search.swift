@@ -1,5 +1,5 @@
 //
-//  Services.swift
+//  Petition.swift
 //  SayTheirNames
 //
 //  Copyright (c) 2020 Say Their Names Team (https://github.com/Say-Their-Name)
@@ -22,25 +22,25 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-import UIKit
+import Foundation
 
-protocol Servicing {
-    var navigator: Navigator { get }
-    var image: ImageService { get }
-    var dateFormatter: DateFormatterService { get }
-    var network: NetworkRequestor { get }
-}
-/// This is a core class that holds all instances responsible for logic
-final class Service: Servicing {
-    lazy private(set) var navigator = Navigator(service: self)
-    lazy private(set) var image = ImageService()
-    lazy private(set) var dateFormatter = DateFormatterService()
-    lazy private(set) var network = NetworkRequestor()
+public struct SearchResponsePage: Decodable {
+    let people: [Person]
+    let donations: [Donation]
+    let petitions: [Petition]
+    let link: Link
     
-    // MARK: - Init
-    init() {
-        Log.mode = .all
-        Log.print("SayTheirNames Version: \(Bundle.versionBuildString)")
-        Log.print("Starting Services")
+    private enum CodingKeys: String, CodingKey {
+        case people, donations, petitions, link = "links", data = "data"
+    }
+    
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        let data = try container.nestedContainer(keyedBy: CodingKeys.self, forKey: .data)
+        self.people = try data.decodeIfPresent([Person].self, forKey: .people) ?? []
+        self.donations = try data.decodeIfPresent([Donation].self, forKey: .donations) ?? []
+        self.petitions = try data.decodeIfPresent([Petition].self, forKey: .petitions) ?? []
+        self.link = try data.decodeIfPresent(Link.self, forKey: .link) ?? Link(first: "", last: "", prev: "", next: "")
     }
 }

@@ -27,7 +27,7 @@ import Foundation
 public struct Media: Decodable {
     let url: String
 
-    enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case url
     }
 }

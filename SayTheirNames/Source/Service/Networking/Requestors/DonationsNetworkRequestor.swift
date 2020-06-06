@@ -27,7 +27,7 @@ import Alamofire
 
 // MARK: - PetitionUrl
 enum DonationsEnvironment {
-    static let urlString: String = { return "\(Environment.serverURLString)/api/donations" }()
+    static let baseUrlSring: String = { return "\(Environment.serverURLString)/api/donations" }()
 }
 
 // MARK: - NetworkRequestor (Donations)
@@ -35,6 +35,30 @@ extension NetworkRequestor {
     // MARK: - Public methods
     
     public func fetchDonations(completion: @escaping (Result<DonationsResponsePage, AFError>) -> Swift.Void) {
-        self.fetchDecodable(DonationsEnvironment.urlString, completion: completion)
+        self.fetchDecodable(DonationsEnvironment.baseUrlSring, completion: completion)
+    }
+    
+    public func fetchDonationsByPersonName(_ name: String, completion: @escaping (Result<DonationsResponsePage, AFError>) -> Swift.Void) {
+        guard let components = URLComponents(string: DonationsEnvironment.baseUrlSring, item: URLQueryItem(name: "name", value: name)),
+              let urlString = components.url?.absoluteString
+        else {
+            let error = AFError.parameterEncodingFailed(reason: .missingURL)
+            completion(.failure(error))
+            return
+        }
+        
+        self.fetchDecodable(urlString, completion: completion)
+    }
+    
+    public func fetchDonationsByType(_ type: String, completion: @escaping (Result<DonationsResponsePage, AFError>) -> Swift.Void) {
+        guard let components = URLComponents(string: DonationsEnvironment.baseUrlSring, item: URLQueryItem(name: "type", value: type)),
+              let urlString = components.url?.absoluteString
+        else {
+            let error = AFError.parameterEncodingFailed(reason: .missingURL)
+            completion(.failure(error))
+            return
+        }
+        
+        self.fetchDecodable(urlString, completion: completion)
     }
 }
