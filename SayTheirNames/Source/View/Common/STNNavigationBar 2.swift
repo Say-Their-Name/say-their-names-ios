@@ -1,5 +1,5 @@
 //
-//  PersonPhotoTableViewCell.swift
+//  STNNavigationBar.swift
 //  SayTheirNames
 //
 //  Copyright (c) 2020 Say Their Names Team (https://github.com/Say-Their-Name)
@@ -24,42 +24,40 @@
 
 import UIKit
 
-class PersonPhotoTableViewCell: UITableViewCell {
+final class STNNavigationBar: UIView {
     
-    static var reuseIdentifier: String {
-        return "\(Self.self)"
+    private lazy var titleLabel = UILabel.create {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.font = UIFont.STN.navBarTitle
+        $0.textColor = .white
+        $0.text = title
     }
     
-    // MARK: - View
-    let imageWithBlurView = ImageWithBlurView(frame: .zero)
+    private let title: String
+    
+    init(title: String) {
+        self.title = title
+        super.init(frame: .zero)
         
-    // MARK: - Initialization
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
-        backgroundColor = .red
-        contentView.clipsToBounds = true
-        imageWithBlurView.fillSuperview(superView: contentView, padding: .zero)
-        accessibilityTraits.insert(.image)
+        setupSelf()
+        setupSubviews()
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
-    var haveSetConstraints = false
-    override func updateConstraints() {
-        super.updateConstraints()
-        
-        guard !haveSetConstraints else { return }
-        haveSetConstraints = true
-
-        imageWithBlurView.heightAnchor.constraint(equalToConstant: 420).isActive = true
+        fatalError()
     }
     
-    // MARK: - Method
-    public func setupCell(_ person: Person) {
-        imageWithBlurView.setup(person)
-        accessibilityLabel = "\(person.fullName)"
+    private func setupSelf() {
+        backgroundColor = UIColor.STN.black
+    }
+    
+    private func setupSubviews() {
+        addSubview(titleLabel)
+        
+        let guide = layoutMarginsGuide
+        NSLayoutConstraint.activate([
+            titleLabel.bottomAnchor.constraint(equalTo: guide.bottomAnchor, constant: -8),
+            titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor)
+        ])
     }
 }

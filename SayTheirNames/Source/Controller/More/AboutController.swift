@@ -1,5 +1,5 @@
 //
-//  PersonPhotoTableViewCell.swift
+//  AboutController.swift
 //  SayTheirNames
 //
 //  Copyright (c) 2020 Say Their Names Team (https://github.com/Say-Their-Name)
@@ -24,42 +24,18 @@
 
 import UIKit
 
-class PersonPhotoTableViewCell: UITableViewCell {
-    
-    static var reuseIdentifier: String {
-        return "\(Self.self)"
-    }
-    
-    // MARK: - View
-    let imageWithBlurView = ImageWithBlurView(frame: .zero)
-        
-    // MARK: - Initialization
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
-        backgroundColor = .red
-        contentView.clipsToBounds = true
-        imageWithBlurView.fillSuperview(superView: contentView, padding: .zero)
-        accessibilityTraits.insert(.image)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+class AboutController: UIViewController, ServiceReferring {
+    var service: Servicing
+    private let aboutView = AboutView()
 
-    var haveSetConstraints = false
-    override func updateConstraints() {
-        super.updateConstraints()
-        
-        guard !haveSetConstraints else { return }
-        haveSetConstraints = true
-
-        imageWithBlurView.heightAnchor.constraint(equalToConstant: 420).isActive = true
+    required init(service: Servicing) {
+        self.service = service
+        super.init(nibName: nil, bundle: nil)
     }
     
-    // MARK: - Method
-    public func setupCell(_ person: Person) {
-        imageWithBlurView.setup(person)
-        accessibilityLabel = "\(person.fullName)"
+    required init?(coder: NSCoder) { fatalError("This should not be called") }
+
+    override func loadView() {
+        self.view = aboutView
     }
 }

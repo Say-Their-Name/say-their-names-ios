@@ -1,5 +1,5 @@
 //
-//  UIFont++.swift
+//  UITraitCollection++.swift
 //  SayTheirNames
 //
 //  Copyright (c) 2020 Say Their Names Team (https://github.com/Say-Their-Name)
@@ -24,13 +24,8 @@
 
 import UIKit
 
-extension UIFont {
-
-    static func karla(weight: UIFont.Weight, size: CGFloat) -> UIFont? {
-        switch weight {
-        case .bold: return UIFont(name: "Karla-Rold", size: size)
-        default: return UIFont(name: "Karla-Regular", size: size)
-
-        }
+extension UITraitCollection {
+    var isDarkModeOn: Bool {
+        userInterfaceStyle == .dark
     }
 }

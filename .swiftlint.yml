@@ -35,3 +35,11 @@ excluded:
   - Vendors
   - Frameworks
   - Fastlane
+
+custom_rules:
+  please_use_constant_fonts:
+    name: "Using Custom UIFont when UIFont constants are available"
+    regex: '(UIFont\(name: ")'
+    message: "Please use one of the constants defined in UIFont.STN instead"
+    severity: warning
+

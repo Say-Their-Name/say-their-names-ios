@@ -1,5 +1,5 @@
 //
-//  PersonPhotoTableViewCell.swift
+//  AboutView.swift
 //  SayTheirNames
 //
 //  Copyright (c) 2020 Say Their Names Team (https://github.com/Say-Their-Name)
@@ -24,42 +24,45 @@
 
 import UIKit
 
-class PersonPhotoTableViewCell: UITableViewCell {
-    
-    static var reuseIdentifier: String {
-        return "\(Self.self)"
+/// The UI for About
+final class AboutView: UIView {
+
+    private lazy var aboutLabel: UILabel = {
+        let label = UILabel()
+        label.text = Strings.about
+        label.textAlignment = .center
+        label.translatesAutoresizingMaskIntoConstraints = false
+
+        return label
+    }()
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupSelf()
     }
-    
-    // MARK: - View
-    let imageWithBlurView = ImageWithBlurView(frame: .zero)
-        
-    // MARK: - Initialization
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
-        backgroundColor = .red
-        contentView.clipsToBounds = true
-        imageWithBlurView.fillSuperview(superView: contentView, padding: .zero)
-        accessibilityTraits.insert(.image)
-    }
-    
+
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        fatalError()
     }
 
-    var haveSetConstraints = false
-    override func updateConstraints() {
-        super.updateConstraints()
-        
-        guard !haveSetConstraints else { return }
-        haveSetConstraints = true
+    /// Configures properties for the view itself
+    private func setupSelf() {
+        backgroundColor = .systemBackground
+        setupSubviews()
+    }
 
-        imageWithBlurView.heightAnchor.constraint(equalToConstant: 420).isActive = true
+    /// Adds and configures constraints for subviews
+    private func setupSubviews() {
+        setupAboutLabel()
     }
-    
-    // MARK: - Method
-    public func setupCell(_ person: Person) {
-        imageWithBlurView.setup(person)
-        accessibilityLabel = "\(person.fullName)"
+}
+
+// MARK: - Configurations
+private extension AboutView {
+
+    private func setupAboutLabel() {
+        addSubview(aboutLabel)
+        aboutLabel.fillSuperview()
     }
+
 }
