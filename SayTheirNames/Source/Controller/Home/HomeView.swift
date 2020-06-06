@@ -66,7 +66,7 @@ final class HomeView: UIView {
             switch sections[sectionIndex] {
 
             case .header:
-                let groupWidth: CGFloat = deviceWidth == .compact ? 0.75 : 0.4
+                let groupWidth: CGFloat = deviceWidth == .compact ? 0.75 : 0.4 // TODO: pick pretty numbers later, consult with UX
 
                 let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
                                                       heightDimension: .fractionalHeight(1.0))
@@ -123,14 +123,10 @@ final class HomeView: UIView {
         return separator
     }()
     
-    var hideable: [UIView] {
-        [customNavigationBar, locationCollectionView, peopleCollectionView, separator]
-    }
-
     override func didMoveToSuperview() {
         super.didMoveToSuperview()
         createLayout()
-        backgroundColor = .black
+        backgroundColor = .black // needed?
     }
     
     private var hasLayedOutSubviews = false

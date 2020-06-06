@@ -8,6 +8,9 @@
 
 import UIKit
 
+// This file is currently unused.
+// Will be useful when/if we implement paging control under the carousel section!
+
 protocol LineCarouselControlProtocol: class {
     func didSelectLineAt(_ index: Int)
 }

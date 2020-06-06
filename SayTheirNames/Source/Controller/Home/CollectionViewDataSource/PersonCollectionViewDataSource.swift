@@ -24,10 +24,6 @@
 
 import UIKit
 
-enum HeaderSection {
-    case main
-}
-
 final class PersonCollectionViewDataSourceHelper {
 
     typealias PersonCollectionViewDataSource = UICollectionViewDiffableDataSource<Section, SectionData>
@@ -42,11 +38,7 @@ final class PersonCollectionViewDataSourceHelper {
         case header(HeaderCellContent)
     }
 
-    private var shownSections: [Section] = []
-
     let dataSource: PersonCollectionViewDataSource
-
-    var peopleHeaderCollectionView: UICollectionView?
     
     init(collectionView: UICollectionView) {
         collectionView.register(cellType: PersonCell.self)

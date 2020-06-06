@@ -10,10 +10,6 @@ import UIKit
 
 final class CarouselCollectionViewCell: UICollectionViewCell {
 
-    static var reuseIdentifier: String {
-        "CarouselCollectionViewCell"
-    }
-
     // MARK: - Properties
     private lazy var hStack: UIStackView = {
         let hStack = UIStackView()
