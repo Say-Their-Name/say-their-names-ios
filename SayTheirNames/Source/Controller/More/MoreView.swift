@@ -22,7 +22,6 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-
 import UIKit
 
 /// The UI for More
@@ -30,7 +29,7 @@ final class MoreView: UIView {
 
     private lazy var moreLabel: UILabel = {
         let label = UILabel()
-        label.text = "More"
+        label.text = Strings.more
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
 
@@ -67,4 +66,3 @@ private extension MoreView {
     }
 
 }
-
