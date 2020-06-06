@@ -38,7 +38,6 @@ final class PersonCell: UICollectionViewCell {
         lbl.font = UIFont(name: "Karla-regular", size: 13)
         lbl.textColor = UIColor.STN.secondaryLabel
         lbl.lineBreakMode = .byTruncatingTail
-        lbl.setContentHuggingPriority(.defaultHigh, for: .vertical)
         lbl.translatesAutoresizingMaskIntoConstraints = false
         return lbl
     }()
