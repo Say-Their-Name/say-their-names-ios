@@ -23,8 +23,8 @@ internal enum L10n {
   internal static let home = L10n.tr("Localizable", "home")
   /// Petitions
   internal static let petitions = L10n.tr("Localizable", "petitions")
-  /// Say their name
-  internal static let sayTheirName = L10n.tr("Localizable", "say_their_name")
+  /// Say their names
+  internal static let sayTheirNames = L10n.tr("Localizable", "say_their_names")
   /// Search
   internal static let search = L10n.tr("Localizable", "search")
   /// Settings

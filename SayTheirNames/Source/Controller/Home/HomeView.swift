@@ -145,7 +145,7 @@ final class HomeView: UIView {
     private func createCustomNavigationBarLayout() {
         let bar = customNavigationBar
         let label = UILabel()
-        let appTitle = L10n.sayTheirName
+        let appTitle = L10n.sayTheirNames
         label.text = appTitle.uppercased()
         label.accessibilityLabel = appTitle
         label.textColor = .white
