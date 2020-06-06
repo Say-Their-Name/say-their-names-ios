@@ -46,7 +46,7 @@ extension NetworkRequestor {
     }
     
     public func fetchPetitionsByType(_ type: String, completion: @escaping (Result<DonationsResponsePage, AFError>) -> Swift.Void) {
-        let url = "\(PetitionEnvironment.petitionTypeSearchString)\(type)"
+        let url = "\(PetitionEnvironment.petitionsTypeSearchString)\(type)"
         self.fetchDecodable(url, completion: completion)
     }
 }
