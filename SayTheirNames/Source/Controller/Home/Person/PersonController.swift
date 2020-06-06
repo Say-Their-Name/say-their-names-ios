@@ -84,8 +84,9 @@ enum PersonCellType: Equatable {
 // Alias for donation container view
 typealias DontainButtonContainerView = ButtonContainerView
 
-class PersonController: BaseViewController {
+class PersonController: UIViewController, ServiceReferring {
     
+    var service: Servicing
     public var person: Person!
     
     private let donationButtonContainerView = DontainButtonContainerView(frame: .zero)
@@ -136,6 +137,13 @@ class PersonController: BaseViewController {
         NSAttributedString.Key.foregroundColor: UIColor.white,
         NSAttributedString.Key.font: UIFont.STN.navBarTitle
     ]
+    
+    required init(service: Servicing) {
+        self.service = service
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
     override func viewDidLoad() {
         super.viewDidLoad()
