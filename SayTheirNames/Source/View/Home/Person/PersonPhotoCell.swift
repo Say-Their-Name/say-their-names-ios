@@ -31,6 +31,8 @@ final class PersonPhotoCell: UICollectionViewCell {
         imageView.contentMode = .scaleAspectFill
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.clipsToBounds = true
+        imageView.isAccessibilityElement = true
+        imageView.accessibilityLabel = "Photo"
         return imageView
     }()
     
