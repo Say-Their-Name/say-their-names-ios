@@ -99,7 +99,7 @@ final class DonationsMoreDetailsController: BaseViewController {
     private func setupDataSource(for donation: Donation) {
         var snapshot = NSDiffableDataSourceSnapshot<DonationSectionLayoutKind, Donation>()
         
-        snapshot.appendSections([.title, .description, .outcome, .socialMedia])
+        snapshot.appendSections([.title]) // , .description, .outcome, .socialMedia
         snapshot.appendItems([donation])
         
         self.dataSource.apply(snapshot)
@@ -110,7 +110,7 @@ final class DonationsMoreDetailsController: BaseViewController {
             guard let self = self else { return }
             switch result {
             case .success(let page):
-                let donation = page.all.first!
+                guard let donation = page.all.first else { return }
                 self.setupDataSource(for: donation)
             case .failure(let error):
                 Log.print(error)
