@@ -107,7 +107,7 @@ final class HomeController: UIViewController, ServiceReferring {
         self.service.network.fetchPeople { [weak self] (result) in
             switch result {
             case .success(let page):
-                self?.peopleDataSourceHelper.setPeople(page.all, headerData: carouselData)
+                self?.peopleDataSourceHelper.setPeople(page.all, carouselData: carouselData)
                 self?.peopleCollectionView.reloadData()
             case .failure(let error):
                 Log.print(error)

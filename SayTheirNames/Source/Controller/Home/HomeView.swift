@@ -74,7 +74,7 @@ final class HomeView: UIView {
             
             switch sections[sectionIndex] {
 
-            case .header:
+            case .carousel:
                 let groupWidth: CGFloat = deviceWidth == .compact ? 0.75 : 0.4 // TODO: pick pretty numbers later, consult with UX
 
                 let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),

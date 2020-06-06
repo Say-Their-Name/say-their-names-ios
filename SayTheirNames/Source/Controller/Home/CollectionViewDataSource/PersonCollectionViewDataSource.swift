@@ -29,7 +29,7 @@ final class PersonCollectionViewDataSourceHelper {
     typealias PersonCollectionViewDataSource = UICollectionViewDiffableDataSource<Section, SectionData>
     
     enum Section: Int, CaseIterable {
-        case header
+        case carousel
         case main
     }
 
@@ -68,10 +68,10 @@ final class PersonCollectionViewDataSourceHelper {
         }
     }
     
-    func setPeople(_ people: [Person], headerData: [HeaderCellContent]) {
+    func setPeople(_ people: [Person], carouselData: [HeaderCellContent]) {
         var snapShot = NSDiffableDataSourceSnapshot<Section, SectionData>()
-        snapShot.appendSections([.header])
-        snapShot.appendItems(headerData.map({ SectionData.header($0) }))
+        snapShot.appendSections([.carousel])
+        snapShot.appendItems(carouselData.map({ SectionData.header($0) }))
         snapShot.appendSections([.main])
         snapShot.appendItems(people.map({ SectionData.person($0) }))
         dataSource.apply(snapShot)
