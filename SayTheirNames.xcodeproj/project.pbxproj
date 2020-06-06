@@ -10,6 +10,7 @@
 		332F22BEB81BC34837C12842 /* Pods_SayTheirNamesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B491840AD61AD287986EE601 /* Pods_SayTheirNamesTests.framework */; };
 		36EE56E7248AF96100E424A7 /* PersonCollectionViewDataSourceHelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EE56E6248AF96100E424A7 /* PersonCollectionViewDataSourceHelperTests.swift */; };
 		3A33EF65248ABC7500580D1E /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A33EF64248ABC7500580D1E /* Theme.swift */; };
+		3A33EF67248AC1D700580D1E /* UIEdgeInsets+init.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A33EF66248AC1D700580D1E /* UIEdgeInsets+init.swift */; };
 		4B3810E42B5E6D69FEA97B00 /* Pods_SayTheirNames.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E09B7306596AE2549FC2488 /* Pods_SayTheirNames.framework */; };
 		5B026C52248AECB700335A17 /* PersonHashtagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B026C51248AECB700335A17 /* PersonHashtagCollectionViewCell.swift */; };
 		5B026C54248AEE8F00335A17 /* PersonHashtagTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B026C53248AEE8F00335A17 /* PersonHashtagTableViewCell.swift */; };
@@ -165,6 +166,7 @@
 		36EE56E6248AF96100E424A7 /* PersonCollectionViewDataSourceHelperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonCollectionViewDataSourceHelperTests.swift; sourceTree = "<group>"; };
 		39C05132613A992F23ECED58 /* Pods-SayTheirNames.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SayTheirNames.debug.xcconfig"; path = "Target Support Files/Pods-SayTheirNames/Pods-SayTheirNames.debug.xcconfig"; sourceTree = "<group>"; };
 		3A33EF64248ABC7500580D1E /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		3A33EF66248AC1D700580D1E /* UIEdgeInsets+init.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets+init.swift"; sourceTree = "<group>"; };
 		4E09B7306596AE2549FC2488 /* Pods_SayTheirNames.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SayTheirNames.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B026C51248AECB700335A17 /* PersonHashtagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonHashtagCollectionViewCell.swift; sourceTree = "<group>"; };
 		5B026C53248AEE8F00335A17 /* PersonHashtagTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonHashtagTableViewCell.swift; sourceTree = "<group>"; };
@@ -640,6 +642,7 @@
 				A9B9056C248B4EA300F9EEFA /* URLComponents+STN.swift */,
 				9E920266248C32440007AFCE /* UITraitCollection++.swift */,
 				9E92026A248C39090007AFCE /* UIStackView++.swift */,
+				3A33EF66248AC1D700580D1E /* UIEdgeInsets+init.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -1232,6 +1235,7 @@
 				A93367D1248985B6001F1E28 /* Media.swift in Sources */,
 				D787FC9D248B36B3001FC6FF /* HashtagView.swift in Sources */,
 				A91B07AE24835CF700DB803C /* PersonHeaderCell.swift in Sources */,
+				3A33EF67248AC1D700580D1E /* UIEdgeInsets+init.swift in Sources */,
 				A91B079724835CF700DB803C /* UIView++.swift in Sources */,
 				7CE75F402489B78400168DDA /* PetitionsView.swift in Sources */,
 				A91B07AD24835CF700DB803C /* PersonCell.swift in Sources */,
