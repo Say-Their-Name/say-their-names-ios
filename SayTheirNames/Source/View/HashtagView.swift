@@ -13,7 +13,7 @@ class HashtagView: UIView {
     lazy var hashtagLabel: UILabel = {
         let label = UILabel()
         label.text = "#JUSTICEFORFIRST"
-        label.font = UIFont(name: "Karla-Bold", size: 16)
+        label.font = UIFont.STN.hashtagButton
         label.adjustsFontSizeToFitWidth = true
         label.textColor = UIColor.STN.black
         label.textAlignment = .center
