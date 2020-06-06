@@ -47,7 +47,7 @@ extension XCUIApplication {
             matching: .collectionView,
             identifier: "peopleCollection").cells.element(
                 matching: .cell,
-                identifier: "peopleCell0")
+                identifier: "personCell")
     }
     
     var isDisplayingPersonDetails: Bool {

@@ -65,7 +65,7 @@ final class PersonCollectionViewDataSourceHelper {
                 case .person(let person):
                     let cell: PersonCell = collectionView.dequeueCell(for: indexPath)
                     cell.configure(with: person)
-                    cell.accessibilityIdentifier = "peopleCell\(indexPath.item)"
+                    cell.accessibilityIdentifier = "personCell\(indexPath.item)"
                     cell.isAccessibilityElement = true
                     return cell
                 }
