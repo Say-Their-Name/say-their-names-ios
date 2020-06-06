@@ -86,6 +86,10 @@ extension UIFont {
             fontName: FontName.karlaRegular.rawValue,
             textStyle: .title2)
         
+        static let articleTitle = UIFont.dynamicCustomFont(
+        fontName: FontName.karlaBold.rawValue,
+        textStyle: .title1)
+        
         // 13
         static let tabButtonTitle = UIFont.dynamicCustomFont(
             fontName: FontName.karlaBold.rawValue,

@@ -24,10 +24,6 @@
 
 import UIKit
 
-// MARK: - IDENTIFIERS
-private let headerIdentifier = "PersonHeaderCell"
-private let peopleIdentifier = "PersonCell"
-
 final class HomeController: UIViewController, ServiceReferring {
     let service: Servicing
     
@@ -134,7 +130,7 @@ extension HomeController: UICollectionViewDelegateFlowLayout {
         }
         else if collectionView === peopleCollectionView {
             let width = collectionView.frame.width - 32
-            return CGSize(width: width, height: 170)
+            return CGSize(width: width, height: 250)
         }
         else {
             return CGSize.zero
@@ -146,7 +142,9 @@ extension HomeController: UICollectionViewDelegateFlowLayout {
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         if collectionView === locationCollectionView {
-            return CGSize(width: 103, height: 36)
+            // WARN: V1 won't display locations
+//            return CGSize(width: 103, height: 36)
+            return CGSize.zero
         }
         else if collectionView === peopleCollectionView {
             let width = homeView.safeWidth(for: collectionView)

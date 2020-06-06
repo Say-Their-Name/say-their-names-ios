@@ -47,8 +47,8 @@ final class HomeView: UIView {
         let peopleLayout = UICollectionViewFlowLayout()
         peopleLayout.scrollDirection = .vertical
         peopleLayout.sectionInset = Self.PeopleSectionInsets
-        
         let peopleCollectionView = UICollectionView(frame: .zero, collectionViewLayout: peopleLayout)
+        peopleCollectionView.contentInset = .init(top: 16)
         peopleCollectionView.contentInsetAdjustmentBehavior = .always
         return peopleCollectionView
     }()
@@ -120,21 +120,22 @@ final class HomeView: UIView {
             bottom: bottomAnchor,
             trailing: trailingAnchor)
         
+        // WARN: V1 won't display locations
         locationCollectionView.anchor(
             superView: collections,
             top: collections.topAnchor,
             leading: collections.leadingAnchor,
             trailing: collections.trailingAnchor,
             size: .init(width: 0, height: Self.PeopleCollectionViewHeight))
-        separator.anchor(
-            superView: collections,
-            top: locationCollectionView.bottomAnchor,
-            leading: collections.leadingAnchor,
-            trailing: collections.trailingAnchor,
-            size: .init(width: 0, height: Self.SeparatorHeight))
+//        separator.anchor(
+//            superView: collections,
+//            top: locationCollectionView.bottomAnchor,
+//            leading: collections.leadingAnchor,
+//            trailing: collections.trailingAnchor,
+//            size: .init(width: 0, height: Self.SeparatorHeight))
         peopleCollectionView.anchor(
             superView: collections,
-            top: separator.bottomAnchor,
+            top: locationCollectionView.bottomAnchor,
             leading: collections.leadingAnchor,
             bottom: collections.bottomAnchor,
             trailing: collections.trailingAnchor)
@@ -163,7 +164,7 @@ final class HomeView: UIView {
 
     // MARK: - Constants
     static let CustomNavigationBarHeight: CGFloat = 70
-    static let PeopleCollectionViewHeight: CGFloat = 70
+    static let PeopleCollectionViewHeight: CGFloat = 0.01
     static let ButtonSize: CGSize = .init(width: 40, height: 40)
     static let CustomNavBarMargin: CGFloat = 16
     static let SeparatorHeight: CGFloat = 1

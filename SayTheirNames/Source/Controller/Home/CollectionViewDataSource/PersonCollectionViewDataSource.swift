@@ -33,11 +33,13 @@ final class PersonCollectionViewDataSourceHelper {
     typealias PersonCollectionViewDataSource = UICollectionViewDiffableDataSource<Section, Person>
     
     let dataSource: PersonCollectionViewDataSource
+    private let carouselData = ["How to get involved", "Two", "Three"] //dummy data
+    private var carouselDataResultsHandler: ResultsDataHandler<String>?
     
     init(collectionView: UICollectionView) {
         collectionView.register(cellType: PersonCell.self)
-        collectionView.registerNibForReusableSupplementaryView(reusableViewType: PersonHeaderCell.self,
-                                                               forKind: UICollectionView.elementKindSectionHeader)
+        collectionView.register(CarouselHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+                                withReuseIdentifier: CarouselHeaderView.reuseIdentifier)
         
         self.dataSource =
             PersonCollectionViewDataSource(collectionView: collectionView) { (collectionView, indexPath, person) -> UICollectionViewCell? in
@@ -51,9 +53,12 @@ final class PersonCollectionViewDataSourceHelper {
         }
         
         self.dataSource.supplementaryViewProvider = { (collectionView, kind, indexPath) in
-            let header: PersonHeaderCell = collectionView.dequeueReusableSupplementaryView(forKind: kind, for: indexPath)
-            header.accessibilityNavigationStyle = .separate
-            return header
+            let headerView: CarouselHeaderView = collectionView.dequeueReusableSupplementaryView(forKind: kind, for: indexPath)
+            headerView.accessibilityNavigationStyle = .separate
+            self.carouselDataResultsHandler = ResultsDataHandler(resultsData: self.carouselData)
+            headerView.resultsHandler = self.carouselDataResultsHandler
+            headerView.configure()
+            return headerView
         }
     }
     

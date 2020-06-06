@@ -55,8 +55,6 @@ class PersonOverviewTableViewCell: UITableViewCell {
     }
     
     private func setupLayout() {
-        stack.translatesAutoresizingMaskIntoConstraints = false
-        contentView.addSubview(stack)
         stack.fillSuperview(superView: contentView, padding: .init(top: 32, left: 32, bottom: 0, right: 32))
         titleLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
 
