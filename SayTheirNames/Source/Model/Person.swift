@@ -47,7 +47,11 @@ struct Person: Decodable {
         socialMedia = "social_media"
     }
     
-    init(id: Int, fullName: String, dob: String, doi: String, childrenCount: String, age: String, city: String, country: String, bio: String, context: String, images: [Image], donations: DonationsResponsePage, petitions: PetitionsResponsePage, media: [Media], socialMedia: [SocialMedia]) {
+    init(id: Int, fullName: String, dob: String,
+         doi: String, childrenCount: String, age: String,
+         city: String, country: String, bio: String,
+         context: String, images: [Image], donations: DonationsResponsePage,
+         petitions: PetitionsResponsePage, media: [Media], socialMedia: [SocialMedia]) {
         self.id = id
         self.fullName = fullName
         self.dob = dob

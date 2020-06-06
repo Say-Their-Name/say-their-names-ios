@@ -51,7 +51,8 @@ class PersonCollectionViewDataSourceHelperTests: XCTestCase {
         let sectionIdentifiers = sut.dataSource.snapshot().sectionIdentifiers
         
         XCTAssertTrue(sectionIdentifiers.count == 1 &&
-            sectionIdentifiers.first == .main)
+            sectionIdentifiers.first == .main,
+                      "Found more sections than expected")
     }
     
     func testAppendPeople() {
@@ -62,7 +63,8 @@ class PersonCollectionViewDataSourceHelperTests: XCTestCase {
         
         let currentIndexCount = sut.dataSource.snapshot().numberOfItems
         
-        XCTAssertEqual(currentIndexCount, newPeople.count + initialPeopleCount)
+        XCTAssertEqual(currentIndexCount, newPeople.count + initialPeopleCount,
+                       "Number of items does not match initial items + appended items")
     }
     
     func testPersonAtIndex() {
@@ -72,7 +74,8 @@ class PersonCollectionViewDataSourceHelperTests: XCTestCase {
         sut.setPeople(people)
         
         let person = sut.person(at: index)
-        XCTAssertEqual(person, people[index])
+        XCTAssertEqual(person, people[index],
+                       "Item returned does not match item at same index in array")
     }
     
     func createPeople() -> [Person] {
