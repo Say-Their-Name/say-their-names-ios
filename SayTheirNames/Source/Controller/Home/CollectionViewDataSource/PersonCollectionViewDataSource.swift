@@ -45,11 +45,14 @@ final class PersonCollectionViewDataSourceHelper {
             cell.configure(with: person)
             cell.accessibilityIdentifier = "peopleCell\(indexPath.item)"
             cell.isAccessibilityElement = true
+            cell.accessibilityNavigationStyle = .automatic
+            cell.accessibilityLabel = "\(person.fullName), tap to learn more"
             return cell
         }
         
         self.dataSource.supplementaryViewProvider = { (collectionView, kind, indexPath) in
             let header: PersonHeaderCell = collectionView.dequeueReusableSupplementaryView(forKind: kind, for: indexPath)
+            header.accessibilityNavigationStyle = .separate
             return header
         }
     }
