@@ -171,8 +171,7 @@ private extension PersonController {
        // TODO: Once Theme.swift/etc gets added this may not be required
        navigationController?.navigationBar.titleTextAttributes = navigationBarTextAttributes
         
-       // TODO: Implement localization
-       title = "SAY THEIR NAMES"
+        title = L10n.Person.sayTheirNames.uppercased()
         
        navigationController?.navigationBar.titleTextAttributes = [
         NSAttributedString.Key.foregroundColor: UIColor.white,
@@ -254,11 +253,11 @@ extension PersonController: UITableViewDataSource {
             return infoCell
         case .story:
             let storyCell = cell as! PersonOverviewTableViewCell
-             storyCell.setupCell(title: "THEIR STORY", description: person.bio)
+            storyCell.setupCell(title: L10n.Person.theirStory.uppercased(), description: person.bio)
             return storyCell
         case .outcome:
             let overviewCell = cell as! PersonOverviewTableViewCell
-            overviewCell.setupCell(title: "OUTCOME", description: person.context)
+            overviewCell.setupCell(title: L10n.Person.outcome.uppercased(), description: person.context)
             return overviewCell
         case let .news(news):
             let newsCell = cell as! PersonNewsTableViewCell
