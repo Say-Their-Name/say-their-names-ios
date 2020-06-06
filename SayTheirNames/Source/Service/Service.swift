@@ -42,14 +42,5 @@ final class Service: Servicing {
         Log.mode = .all
         Log.print("SayTheirNames Version: \(Bundle.versionBuildString)")
         Log.print("Starting Services")
-        
-        self.network.fetchPetitionsByPersonName("george") { (result) in
-            switch result {
-            case .success(let page):
-                Log.print()
-            case .failure(let error):
-                Log.print(error)
-            }
-        }
     }
 }
