@@ -49,6 +49,23 @@ When you provide non-critical feedback or optional suggestions, use "Comment" or
 "Approve", reserving "Request Changes" only for critical must-fix issues that
 should block the PR.
 
+### Commits
+We are using the following conventions to identify what the commit is doing:
+
+- **CHORE:** Any code level improvement, that doesn't affect the user directly.
+- **FIX:** Any bug fixes.
+- **UI:** Any UI change that is not necessarily a feature or a bug.
+- **FEAT:** Any new feature
+
+The commits should be done as such:
+ - **[TAG]** Description
+ 
+**Example:**
+
+- **[CHORE]** Added secret logic
+- **[BUG]** Fixed delay when changing progress bar
+- **[FEAT]** Added new mixer sounds
+
 ## The project
 
 This project is a classic iOS app project, written in Swift with UIKit, using Xcode 11.5
