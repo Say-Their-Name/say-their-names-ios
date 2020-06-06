@@ -25,6 +25,7 @@ internal enum L10n {
   internal static let home = L10n.tr("Localizable", "home")
   /// Petitions
   internal static let petitions = L10n.tr("Localizable", "petitions")
+<<<<<<< HEAD
   /// Say their names
   internal static let sayTheirNames = L10n.tr("Localizable", "say_their_names")
   /// Search
@@ -33,6 +34,10 @@ internal enum L10n {
   internal static let settings = L10n.tr("Localizable", "settings")
   /// Share
   internal static let share = L10n.tr("Localizable", "share")
+=======
+  /// More
+  internal static let more = L10n.tr("Localizable", "more")
+>>>>>>> rebase
   /// verfied
   internal static let verified = L10n.tr("Localizable", "verified")
 
