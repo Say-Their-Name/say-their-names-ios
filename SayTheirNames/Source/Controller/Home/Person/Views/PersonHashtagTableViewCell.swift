@@ -16,7 +16,7 @@ class PersonHashtagTableViewCell: UITableViewCell {
     
     lazy var hashtagLabel: UILabel = {
         let label = UILabel()
-        label.text = "SOCIAL MEDIA HASHTAGS"
+        label.text = L10n.Person.hashtags.uppercased()
         label.textColor = UIColor.STN.black
         label.font = UIFont.STN.sectionHeader
         label.numberOfLines = 1

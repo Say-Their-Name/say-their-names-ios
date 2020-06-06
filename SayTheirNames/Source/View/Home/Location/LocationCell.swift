@@ -36,6 +36,11 @@ class LocationCell: UICollectionViewCell {
         didSet {
             backgroundColor = isSelected ? UIColor.STN.black : .clear
             titleLabel.textColor = isSelected ? UIColor.STN.white : UIColor.STN.black
+            if isSelected {
+                accessibilityTraits.insert(.selected)
+            } else {
+                accessibilityTraits.remove(.selected)
+            }
         }
     }
     
@@ -45,6 +50,7 @@ class LocationCell: UICollectionViewCell {
         titleLabel.fillSuperview()
         layer.borderColor = UIColor.STN.black.cgColor
         layer.borderWidth = 1.5
+        accessibilityTraits.insert(.button)
     }
     
     required init?(coder: NSCoder) {

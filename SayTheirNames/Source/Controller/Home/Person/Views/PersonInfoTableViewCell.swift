@@ -16,7 +16,7 @@ class PersonInfoTableViewCell: UITableViewCell {
     
     lazy var containerStack: UIStackView = {
         let view = UIStackView(arrangedSubviews: [infoStackView, extraInfoStack])
-        view.distribution = .fillEqually
+        view.distribution = .fill
         view.alignment = .fill
         view.axis = .vertical
         view.spacing = 10
@@ -96,7 +96,7 @@ class PersonInfoTableViewCell: UITableViewCell {
     
     lazy var ageTitleLabel: UILabel = {
         let label = UILabel()
-        label.text = "AGE"
+        label.text = L10n.Person.age.uppercased()
         label.textColor = UIColor(red: 16/255.0, green: 16/255.0, blue: 16/255.0, alpha: 0.5)
         label.font = UIFont.STN.detailViewFieldTitle
         label.numberOfLines = 1
@@ -107,7 +107,7 @@ class PersonInfoTableViewCell: UITableViewCell {
     
     lazy var childrenTitleLabel: UILabel = {
         let label = UILabel()
-        label.text = "CHILDREN"
+        label.text = L10n.Person.children.uppercased()
         label.textColor = UIColor(red: 16/255.0, green: 16/255.0, blue: 16/255.0, alpha: 0.5)
         label.font = UIFont.STN.detailViewFieldTitle
         label.numberOfLines = 1
@@ -118,7 +118,7 @@ class PersonInfoTableViewCell: UITableViewCell {
     
     lazy var locationTitleLabel: UILabel = {
         let label = UILabel()
-        label.text = "LOCATION"
+        label.text = L10n.Person.location.uppercased()
         label.textColor = UIColor(red: 16/255.0, green: 16/255.0, blue: 16/255.0, alpha: 0.5)
         label.font = UIFont.STN.detailViewFieldTitle
         label.numberOfLines = 1
