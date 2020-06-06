@@ -2,9 +2,25 @@
 //  HomeController.swift
 //  SayTheirNames
 //
-//  Created by Franck-Stephane Ndame Mpouli on 30/05/2020.
-//  Copyright © 2020 Franck-Stephane Ndame Mpouli. All rights reserved.
+//  Copyright (c) 2020 Say Their Names Team (https://github.com/Say-Their-Name)
 //
+//  Permission is hereby granted, free of charge, to any person obtaining a copy
+//  of this software and associated documentation files (the "Software"), to deal
+//  in the Software without restriction, including without limitation the rights
+//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//  copies of the Software, and to permit persons to whom the Software is
+//  furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in
+//  all copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+//  THE SOFTWARE.
 
 import UIKit
 
@@ -95,13 +111,10 @@ final class HomeController: UIViewController, ServiceReferring {
 
         locationCollectionView.delegate = self
         locationCollectionView.dataSource = locationsDataSourceHelper.dataSource
-        locationCollectionView.isAccessibilityElement = false
         locationCollectionView.accessibilityIdentifier = "locationCollection"
-        
         peopleCollectionView.delegate = self
         peopleCollectionView.dataSource = peopleDataSourceHelper.dataSource
         peopleCollectionView.accessibilityIdentifier = "peopleCollection"
-        peopleCollectionView.isAccessibilityElement = false
     }
     
     // MARK: - IBACTIONS
@@ -152,11 +165,12 @@ extension HomeController: UICollectionViewDelegateFlowLayout {
         }
         else if collectionView === peopleCollectionView {
             // People CollectionView
-            // let selectedPerson = peopleDataSource.fetchPerson(at: indexPath.item)
-            let personController = PersonController(service: self.service)
             
+            let selectedPerson = peopleDataSourceHelper.person(at: indexPath.item)
+            let personController = PersonController(service: self.service)
+            personController.person = selectedPerson
             let navigationController = UINavigationController(rootViewController: personController)
-            navigationController.navigationBar.isHidden = true
+            navigationController.modalPresentationStyle = .fullScreen
             present(navigationController, animated: true, completion: nil)
         }
     }
