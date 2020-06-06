@@ -16,6 +16,7 @@ final class PersonCell: UICollectionViewCell {
         imgV.image = UIImage(named: "man-in-red-jacket-1681010")
         imgV.contentMode = .scaleAspectFill
         imgV.clipsToBounds = true
+        imgV.setContentHuggingPriority(.defaultLow, for: .vertical)
         imgV.translatesAutoresizingMaskIntoConstraints = false
         return imgV
     }()
@@ -26,6 +27,7 @@ final class PersonCell: UICollectionViewCell {
         lbl.font = UIFont(name: "Karla-Bold", size: 13)
         lbl.textColor = UIColor.STN.primaryLabel
         lbl.lineBreakMode = .byTruncatingTail
+        lbl.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
         lbl.translatesAutoresizingMaskIntoConstraints = false
         return lbl
     }()
@@ -36,6 +38,7 @@ final class PersonCell: UICollectionViewCell {
         lbl.font = UIFont(name: "Karla-regular", size: 13)
         lbl.textColor = UIColor.STN.secondaryLabel
         lbl.lineBreakMode = .byTruncatingTail
+        lbl.setContentHuggingPriority(.defaultHigh, for: .vertical)
         lbl.translatesAutoresizingMaskIntoConstraints = false
         return lbl
     }()
@@ -43,6 +46,7 @@ final class PersonCell: UICollectionViewCell {
     private lazy var bookmarkButton: UIButton = {
         let btn = UIButton(type: .custom)
         btn.contentMode = .scaleAspectFill
+        btn.setContentHuggingPriority(.defaultHigh, for: .horizontal)
         btn.setImage(UIImage(named: "bookmark"), for: .normal)
         btn.addTarget(self, action: #selector(didTapBookmark), for: .touchUpInside)
         btn.translatesAutoresizingMaskIntoConstraints = false
@@ -53,6 +57,7 @@ final class PersonCell: UICollectionViewCell {
         let stack = UIStackView()
         stack.axis = .vertical
         stack.spacing = 10
+        stack.distribution = .fill
         stack.translatesAutoresizingMaskIntoConstraints = false
         return stack
     }()
@@ -61,6 +66,24 @@ final class PersonCell: UICollectionViewCell {
         let v = UIView()
         v.translatesAutoresizingMaskIntoConstraints = false
         return v
+    }()
+
+    private lazy var detailsVStack: UIStackView = {
+        let stack = UIStackView()
+        stack.axis = .vertical
+        stack.distribution = .fillEqually
+        stack.spacing = 5
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        return stack
+    }()
+
+    lazy var bottomCellHStack: UIStackView = {
+        let stack = UIStackView()
+        stack.axis = .horizontal
+        stack.spacing = 0
+        stack.alignment = .top
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        return stack
     }()
         
     // MARK: - Lifecycle
@@ -86,26 +109,29 @@ final class PersonCell: UICollectionViewCell {
     }
     
     private func setUp() {
-        labelsAndButtonContainer.addSubview(nameLabel)
-        labelsAndButtonContainer.addSubview(dateOfIncidentLabel)
-        labelsAndButtonContainer.addSubview(bookmarkButton)
-        
-        NSLayoutConstraint.activate([
-            nameLabel.topAnchor.constraint(equalTo: labelsAndButtonContainer.topAnchor),
-            nameLabel.leadingAnchor.constraint(equalTo: labelsAndButtonContainer.leadingAnchor),
-            
-            dateOfIncidentLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor),
-            dateOfIncidentLabel.leadingAnchor.constraint(equalTo: nameLabel.leadingAnchor),
-            dateOfIncidentLabel.bottomAnchor.constraint(equalTo: labelsAndButtonContainer.bottomAnchor, constant: -20),
-            
-            bookmarkButton.topAnchor.constraint(equalTo: nameLabel.topAnchor),
-            bookmarkButton.trailingAnchor.constraint(equalTo: labelsAndButtonContainer.trailingAnchor)
-        ])
-        
+        detailsVStack.addArrangedSubview(nameLabel)
+        detailsVStack.addArrangedSubview(dateOfIncidentLabel)
+        bottomCellHStack.addArrangedSubview(detailsVStack)
+        bottomCellHStack.addArrangedSubview(bookmarkButton)
         containerStack.addArrangedSubview(profileImageView)
-        containerStack.addArrangedSubview(labelsAndButtonContainer)
+        containerStack.addArrangedSubview(bottomCellHStack)
         addSubview(containerStack)
-        containerStack.fillSuperview()
+        profileImageView.anchor(top: topAnchor,
+                                leading: leadingAnchor,
+                                bottom: bottomCellHStack.topAnchor,
+                                trailing: trailingAnchor,
+                                padding: .init(top: 10,
+                                               left: 0,
+                                               bottom: 10,
+                                               right: 0))
+        bookmarkButton.anchor(top: nil,
+                              leading: nil,
+                              bottom: nil,
+                              trailing: trailingAnchor)
+        containerStack.anchor(top: topAnchor,
+                              leading: leadingAnchor,
+                              bottom: bottomAnchor,
+                              trailing: trailingAnchor)
     }
 
     // MARK: - Handlers
