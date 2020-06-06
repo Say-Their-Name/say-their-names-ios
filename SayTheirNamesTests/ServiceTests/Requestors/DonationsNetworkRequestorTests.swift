@@ -28,7 +28,7 @@ import XCTest
 
 extension NetworkRequestorTests {
     func test_fetchDonations_makesRequest() {
-        guard let apiEndpoint = URL(string: DonationsEnvironment.baseUrlSring) else {
+        guard let apiEndpoint = URL(string: DonationsEnvironment.baseURLString) else {
             XCTFail("URL was not valid")
             return
         }
@@ -50,10 +50,10 @@ extension NetworkRequestorTests {
         // Wait for request to be made and returned
         wait(for: [makeRequestExpectation, returnRequestExpection], timeout: 2)
     }
-    
-    /*
+
     func test_fetchDonationsByPersonName_makesRequest() {
-        guard let apiEndpoint = URL(string: DonationsEnvironment.donationsSearchString) else {
+        let name = "george"
+        guard let apiEndpoint = URL(string: "\(DonationsEnvironment.baseURLString)?name=\(name)") else {
             XCTFail("URL was not valid")
             return
         }
@@ -68,35 +68,36 @@ extension NetworkRequestorTests {
 
         // Make request and expect that a result is returned
         let returnRequestExpection = expectation(description: "Request should return")
-        self.sut.fetchDonationsByPersonName("george") { _ in
+        self.sut.fetchDonationsByPersonName(name) { _ in
+            returnRequestExpection.fulfill()
+        }
+
+        // Wait for request to be made and returned
+        wait(for: [makeRequestExpectation, returnRequestExpection], timeout: 2)
+    }
+    
+    func test_fetchDonationsByType_makesRequest() {
+        let type = "victim"
+        guard let apiEndpoint = URL(string: "\(DonationsEnvironment.baseURLString)?type=\(type)") else {
+            XCTFail("URL was not valid")
+            return
+        }
+
+        // Set up mock to return data from the endpoint, and expectation that the request is made
+        let makeRequestExpectation = expectation(description: "Request should be made")
+        var mock = Mock(url: apiEndpoint, dataType: .json, statusCode: 200, data: [.get: Data()])
+        mock.completion = {
+            makeRequestExpectation.fulfill()
+        }
+        mock.register()
+
+        // Make request and expect that a result is returned
+        let returnRequestExpection = expectation(description: "Request should return")
+        self.sut.fetchDonationsByType(type) { _ in
             returnRequestExpection.fulfill()
         }
 
         // Wait for request to be made and returned
         wait(for: [makeRequestExpectation, returnRequestExpection], timeout: 15)
     }
-    
-    func test_fetchDonationsByType_makesRequest() {
-        guard let apiEndpoint = URL(string: DonationsEnvironment.donationsTypeSearchString) else {
-            XCTFail("URL was not valid")
-            return
-        }
-
-        // Set up mock to return data from the endpoint, and expectation that the request is made
-        let makeRequestExpectation = expectation(description: "Request should be made")
-        var mock = Mock(url: apiEndpoint, dataType: .json, statusCode: 200, data: [.get: Data()])
-        mock.completion = {
-            makeRequestExpectation.fulfill()
-        }
-        mock.register()
-
-        // Make request and expect that a result is returned
-        let returnRequestExpection = expectation(description: "Request should return")
-        self.sut.fetchDonationsByType("victim") { _ in
-            returnRequestExpection.fulfill()
-        }
-
-        // Wait for request to be made and returned
-        wait(for: [makeRequestExpectation, returnRequestExpection], timeout: 15)
-    }*/
 }

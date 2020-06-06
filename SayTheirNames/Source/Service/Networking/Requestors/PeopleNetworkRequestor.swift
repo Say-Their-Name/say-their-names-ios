@@ -27,7 +27,7 @@ import Alamofire
 
 // MARK: - PersonEnvironment
 enum PersonEnvironment {
-    static let baseUrlSring: String = { return "\(Environment.serverURLString)/api/people" }()
+    static let baseURLString: String = { return "\(Environment.serverURLString)/api/people" }()
 }
 
 // MARK: - NetworkRequestor (People)
@@ -35,7 +35,7 @@ extension NetworkRequestor {
     // MARK: - Public methods
     
     public func fetchPeople(completion: @escaping (Result<PersonsResponsePage, AFError>) -> Swift.Void) {
-        self.fetchDecodable(PersonEnvironment.baseUrlSring, completion: completion)
+        self.fetchDecodable(PersonEnvironment.baseURLString, completion: completion)
     }
     
     public func fetchPeopleWithLink(_ peopleLink: Link, completion: @escaping (Result<PersonsResponsePage, AFError>) -> Swift.Void) {
@@ -49,7 +49,7 @@ extension NetworkRequestor {
     }
     
     public func fetchPeopleByName(_ name: String, completion: @escaping (Result<PersonsResponsePage, AFError>) -> Swift.Void) {
-        guard let components = URLComponents(string: PersonEnvironment.baseUrlSring, item: URLQueryItem(name: "name", value: name)),
+        guard let components = URLComponents(string: PersonEnvironment.baseURLString, item: URLQueryItem(name: "name", value: name)),
               let urlString = components.url?.absoluteString
         else {
             let error = AFError.parameterEncodingFailed(reason: .missingURL)
@@ -61,7 +61,7 @@ extension NetworkRequestor {
     }
     
     public func fetchPeopleByCountry(_ country: String, completion: @escaping (Result<PersonsResponsePage, AFError>) -> Swift.Void) {
-        guard let components = URLComponents(string: PersonEnvironment.baseUrlSring, item: URLQueryItem(name: "country", value: country)),
+        guard let components = URLComponents(string: PersonEnvironment.baseURLString, item: URLQueryItem(name: "country", value: country)),
               let urlString = components.url?.absoluteString
         else {
             let error = AFError.parameterEncodingFailed(reason: .missingURL)
@@ -73,7 +73,7 @@ extension NetworkRequestor {
     }
     
     public func fetchPeopleByCity(_ city: String, completion: @escaping (Result<PersonsResponsePage, AFError>) -> Swift.Void) {
-        guard let components = URLComponents(string: PersonEnvironment.baseUrlSring, item: URLQueryItem(name: "city", value: city)),
+        guard let components = URLComponents(string: PersonEnvironment.baseURLString, item: URLQueryItem(name: "city", value: city)),
               let urlString = components.url?.absoluteString
         else {
             let error = AFError.parameterEncodingFailed(reason: .missingURL)
