@@ -182,6 +182,7 @@ private extension PersonController {
         navigationController?.navigationBar.titleTextAttributes = navigationBarTextAttributes
 
         title = L10n.Person.sayTheirNames.uppercased()
+        accessibilityLabel = L10n.Person.sayTheirNames
 
         navigationController?.navigationBar.titleTextAttributes = [
         NSAttributedString.Key.foregroundColor: UIColor.white,
