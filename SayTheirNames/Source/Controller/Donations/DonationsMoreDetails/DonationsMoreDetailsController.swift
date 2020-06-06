@@ -13,12 +13,14 @@ final class DonationsMoreDetailsController: BaseViewController {
     enum DonationSectionLayoutKind: Int, CaseIterable {
         case title = 0
         case description = 1
-        case socialMedia = 2
+        case outcome = 2
+        case socialMedia = 3
     }
     
     // MARK: - Supplementary View Kind
     static let photoSupplementaryView = "photo"
     static let donationButtonSupplementaryView = "donationButton"
+    static let sectionTitleSupplementaryView = "sectionTitle"
     
     // MARK: - Property
     var donation: Donation?
@@ -63,6 +65,9 @@ final class DonationsMoreDetailsController: BaseViewController {
         collectionView.register(DMDDonationButtonSupplementaryView.self,
                                 forSupplementaryViewOfKind: DonationsMoreDetailsController.donationButtonSupplementaryView,
                                 withReuseIdentifier: DMDDonationButtonSupplementaryView.reuseIdentifier)
+        collectionView.register(DMDSectionTitleSupplementaryView.self,
+                                forSupplementaryViewOfKind: DonationsMoreDetailsController.sectionTitleSupplementaryView,
+                                withReuseIdentifier: DMDSectionTitleSupplementaryView.reuseIdentifier)
     }
     
     private func setupNavigationBarItems() {
@@ -94,7 +99,7 @@ final class DonationsMoreDetailsController: BaseViewController {
     private func setupDataSource(for donation: Donation) {
         var snapshot = NSDiffableDataSourceSnapshot<DonationSectionLayoutKind, Donation>()
         
-        snapshot.appendSections([.title])
+        snapshot.appendSections([.title, .description, .outcome, .socialMedia])
         snapshot.appendItems([donation])
         
         self.dataSource.apply(snapshot)
@@ -155,6 +160,8 @@ final class DonationsMoreDetailsController: BaseViewController {
             guard let self = self else { return nil }
             
             switch kind {
+                
+            // PhotoSupplementaryView
             case DonationsMoreDetailsController.photoSupplementaryView:
                 guard let photoView = collectionView
                     .dequeueReusableSupplementaryView(ofKind: DonationsMoreDetailsController.photoSupplementaryView,
@@ -170,6 +177,7 @@ final class DonationsMoreDetailsController: BaseViewController {
                 
                 return photoView
                 
+            // DonationButtonSupplementaryView
             case DonationsMoreDetailsController.donationButtonSupplementaryView:
                 guard let buttonView = collectionView
                     .dequeueReusableSupplementaryView(ofKind: DonationsMoreDetailsController.donationButtonSupplementaryView,
@@ -182,6 +190,25 @@ final class DonationsMoreDetailsController: BaseViewController {
                 }
                 
                 return buttonView
+                
+            // SectionTitleSupplementaryView
+            case DonationsMoreDetailsController.sectionTitleSupplementaryView:
+                guard let titleView = collectionView
+                    .dequeueReusableSupplementaryView(ofKind: DonationsMoreDetailsController.sectionTitleSupplementaryView,
+                                                      withReuseIdentifier: DMDSectionTitleSupplementaryView.reuseIdentifier,
+                                                      for: indexPath) as? DMDSectionTitleSupplementaryView else {
+                                                        fatalError("Cannot create new view") }
+                
+                switch indexPath.section {
+                case DonationSectionLayoutKind.description.rawValue:
+                    titleView.setTitle(text: "description".uppercased())
+                case DonationSectionLayoutKind.outcome.rawValue:
+                    titleView.setTitle(text: "outcome".uppercased())
+                default:
+                    break
+                }
+
+                return titleView
             default:
                 return nil
             }

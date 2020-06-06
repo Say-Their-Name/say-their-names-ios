@@ -52,8 +52,8 @@ extension DonationsMoreDetailsController {
                 
                 return section
                 
-            // Description section layout
-            case DonationSectionLayoutKind.description.rawValue:
+            // Description and outcome section layout
+            case DonationSectionLayoutKind.description.rawValue, DonationSectionLayoutKind.outcome.rawValue:
                 // Item
                 let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
                 let item = NSCollectionLayoutItem(layoutSize: itemSize)
@@ -67,6 +67,13 @@ extension DonationsMoreDetailsController {
                 section.contentInsets = NSDirectionalEdgeInsets(top: 0.0, leading: horizontalPadding, bottom: 0.0, trailing: horizontalPadding)
                 
                 // Supplementary
+                let titleViewSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(20))
+                let titleView =
+                    NSCollectionLayoutBoundarySupplementaryItem(layoutSize: titleViewSize,
+                                                                elementKind: DonationsMoreDetailsController.sectionTitleSupplementaryView,
+                                                                alignment: .top)
+
+                section.boundarySupplementaryItems = [titleView]
                 
                 return section
                 
