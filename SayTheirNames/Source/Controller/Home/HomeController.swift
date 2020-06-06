@@ -111,9 +111,7 @@ final class HomeController: UIViewController, ServiceReferring {
 
         locationCollectionView.delegate = self
         locationCollectionView.dataSource = locationsDataSourceHelper.dataSource
-        //locationCollectionView.isAccessibilityElement = false
         locationCollectionView.accessibilityIdentifier = "locationCollection"
-        
         peopleCollectionView.delegate = self
         peopleCollectionView.dataSource = peopleDataSourceHelper.dataSource
         peopleCollectionView.accessibilityIdentifier = "peopleCollection"
