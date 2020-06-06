@@ -58,6 +58,7 @@ final class DonationsMoreDetailsController: BaseViewController {
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: emptyCellIdentifier)
         collectionView.register(DMDTitleCell.self, forCellWithReuseIdentifier: DMDTitleCell.reuseIdentifier)
         collectionView.register(DMDTextContentCell.self, forCellWithReuseIdentifier: DMDTextContentCell.reuseIdentifier)
+        collectionView.register(DMDHashtagCell.self, forCellWithReuseIdentifier: DMDHashtagCell.reuseIdentifier)
         collectionView.register(UICollectionReusableView.self,
                                 forSupplementaryViewOfKind: emptyKind,
                                 withReuseIdentifier: emptyViewIdentifier)
@@ -115,6 +116,10 @@ extension DonationsMoreDetailsController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if section == DonationSectionLayoutKind.socialMedia.rawValue {
+            return 4
+        }
+        
         return 1
     }
     
@@ -155,6 +160,16 @@ extension DonationsMoreDetailsController: UICollectionViewDataSource {
             // Configure cell
             textCell.setContent(text: donation.outcome)
             return textCell
+        
+        // Social Media Hashtags Section
+        case DonationSectionLayoutKind.socialMedia.rawValue:
+            guard let hashtagCell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: DMDHashtagCell.reuseIdentifier,
+                for: indexPath) as? DMDHashtagCell else {
+                    fatalError("Cannot create new cell")
+            }
+
+            return hashtagCell
             
         default:
             return collectionView.dequeueReusableCell(withReuseIdentifier: emptyCellIdentifier, for: indexPath)

@@ -80,18 +80,27 @@ extension DonationsMoreDetailsController {
             // Social Media Hashtags section layout
             case DonationSectionLayoutKind.socialMedia.rawValue:
                 // Item
-                let itemSize = NSCollectionLayoutSize(widthDimension: .estimated(130.0), heightDimension: .fractionalHeight(1.0))
+                let itemSize = NSCollectionLayoutSize(widthDimension: .absolute(130.0), heightDimension: .fractionalHeight(1.0))
                 let item = NSCollectionLayoutItem(layoutSize: itemSize)
                 
                 // Group
                 let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(31.0))
                 let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+                group.interItemSpacing = NSCollectionLayoutSpacing.fixed(9.0)
                 
                 // Section
                 let section = NSCollectionLayoutSection(group: group)
-                section.contentInsets = NSDirectionalEdgeInsets(top: 0.0, leading: horizontalPadding, bottom: 0.0, trailing: horizontalPadding)
+                section.contentInsets = NSDirectionalEdgeInsets(top: 18.0, leading: horizontalPadding, bottom: 0.0, trailing: horizontalPadding)
+                section.orthogonalScrollingBehavior = .continuous
                 
                 // Supplementary
+                let titleViewSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(22.5))
+                let titleView =
+                    NSCollectionLayoutBoundarySupplementaryItem(layoutSize: titleViewSize,
+                                                                elementKind: DonationsMoreDetailsController.sectionTitleSupplementaryView,
+                                                                alignment: .top)
+                
+                section.boundarySupplementaryItems = [titleView]
                 
                 return section
             
