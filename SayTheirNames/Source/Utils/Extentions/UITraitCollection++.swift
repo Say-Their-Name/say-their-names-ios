@@ -1,5 +1,5 @@
 //
-//  ColorResource.swift
+//  UITraitCollection++.swift
 //  SayTheirNames
 //
 //  Copyright (c) 2020 Say Their Names Team (https://github.com/Say-Their-Name)
@@ -24,35 +24,8 @@
 
 import UIKit
 
-extension UIColor {
-    
-    private static func dynamic(light: UIColor, dark: UIColor) -> UIColor {
-        return .init { trait in
-            return trait.isDarkModeOn ? dark : light
-        }
+extension UITraitCollection {
+    var isDarkModeOn: Bool {
+        userInterfaceStyle == .dark
     }
-    
-    /// A collection of common colors
-    enum STN {
-
-        static let black: UIColor = UIColor(named: "black") ?? .black
-        static let white: UIColor = UIColor(named: "white") ?? .white
-        static let gray: UIColor = UIColor(named: "grey") ?? .gray
-        
-		// MARK: - Applications
-
-        static let tint: UIColor = UIColor(named: "tint") ?? .black
-
-		// MARK: - Labels
-
-        static let primaryLabel: UIColor = UIColor(named: "primaryLabel") ?? .label
-        static let secondaryLabel: UIColor = UIColor(named: "secondaryLabel") ?? .secondaryLabel
-        
-        /// Light (STN.black) - Dark (STN.white)
-        static let actionButton: UIColor = dynamic(
-            light: Self.black,
-            dark: Self.white
-        )
-    }
-
 }

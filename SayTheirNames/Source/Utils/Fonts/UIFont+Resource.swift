@@ -94,5 +94,17 @@ extension UIFont {
         static let verifiedTag: UIFont = UIFont.dynamicCustomFont(fontName: FontName.karlaBold.rawValue, textStyle: .footnote)
 
         static let summary: UIFont = UIFont.dynamicCustomFont(fontName: FontName.karlaRegular.rawValue, textStyle: .subheadline)
+        
+        /// Karla Bold - .body (17)
+        static let ctaTitle: UIFont = UIFont.dynamicCustomFont(
+            fontName: FontName.karlaBold.rawValue,
+            textStyle: .body
+        )
+        
+        /// Karla Regular - .subheadline (15)
+        static let ctaBody: UIFont = UIFont.dynamicCustomFont(
+            fontName: FontName.karlaRegular.rawValue,
+            textStyle: .subheadline
+        )
     }
 }

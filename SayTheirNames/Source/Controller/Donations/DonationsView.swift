@@ -40,6 +40,10 @@ final class DonationsView: UIView {
         $0.showsHorizontalScrollIndicator = false
     }
     
+    private lazy var donationsCollectionView = CallToActionCollectionView().configure {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupSelf()
@@ -59,6 +63,7 @@ final class DonationsView: UIView {
     private func setupSubviews() {
         addSubview(navBarView)
         addSubview(filtersView)
+        addSubview(donationsCollectionView)
         
         let safeGuide = safeAreaLayoutGuide
         NSLayoutConstraint.activate([
@@ -70,7 +75,12 @@ final class DonationsView: UIView {
             filtersView.topAnchor.constraint(equalTo: navBarView.bottomAnchor),
             filtersView.leadingAnchor.constraint(equalTo: leadingAnchor),
             filtersView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            filtersView.heightAnchor.constraint(equalToConstant: Self.filtersViewHeight)
+            filtersView.heightAnchor.constraint(equalToConstant: Self.filtersViewHeight),
+            
+            donationsCollectionView.topAnchor.constraint(equalTo: filtersView.bottomAnchor),
+            donationsCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            donationsCollectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            donationsCollectionView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
     }
     
