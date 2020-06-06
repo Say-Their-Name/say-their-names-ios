@@ -43,9 +43,9 @@ final class LocationCollectionViewDataSourceHelper {
                 cell.configure(with: location)
                 cell.accessibilityIdentifier = "locationCell\(indexPath.item)"
                 cell.isAccessibilityElement = true
-                let index = indexPath.row + 1
-                let total = collectionView.numberOfItems(inSection: 0)
-                cell.accessibilityLabel = "\(location.name.capitalized(with: Locale.current)), \(index) of \(total)"
+                let (index, total) = collectionView.displayableIndexAndTotal(fromIndexPath: indexPath, section: 0)
+                let localizedLocation = location.name.capitalized(with: Locale.current)
+                cell.accessibilityLabel = "\(localizedLocation), \(index) of \(total)"
                 return cell
         }
     }
