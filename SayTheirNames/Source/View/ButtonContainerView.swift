@@ -16,7 +16,6 @@ class ButtonContainerView: UIView {
     private lazy var button: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Donate".uppercased(), for: .normal)
-        button.titleLabel?.font = UIFont.STN.sectionHeader
         button.backgroundColor = .black
         button.tintColor = .white
         button.addTarget(self, action: #selector(buttonDidPress(_:)), for: .touchUpInside)
@@ -71,4 +70,24 @@ class ButtonContainerView: UIView {
     public func setButtonPressed(action: @escaping () -> Void) {
         buttonPressedAction = action
     }
+    
+    override func didMoveToSuperview() {
+        super.didMoveToSuperview()
+        
+        styleControls()
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+
+        if traitCollection.preferredContentSizeCategory != previousTraitCollection?.preferredContentSizeCategory {
+            styleControls()
+        }
+    }
+
+    private func styleControls() {
+
+        button.titleLabel?.font = UIFont.STN.fullBleedButton
+    }
+
 }

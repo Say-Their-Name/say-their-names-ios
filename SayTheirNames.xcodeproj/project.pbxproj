@@ -65,7 +65,6 @@
 		9E7DBAF9248481FC00635A56 /* Operation++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7DBAF8248481FC00635A56 /* Operation++.swift */; };
 		9E7DBAFC2484822A00635A56 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7DBAFB2484822A00635A56 /* Operators.swift */; };
 		A91B079524835CF700DB803C /* UIColor+Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B076724835CF700DB803C /* UIColor+Resource.swift */; };
-		A91B079624835CF700DB803C /* UIFont++.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B076924835CF700DB803C /* UIFont++.swift */; };
 		A91B079724835CF700DB803C /* UIView++.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B076A24835CF700DB803C /* UIView++.swift */; };
 		A91B079824835CF700DB803C /* STNSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B076C24835CF700DB803C /* STNSize.swift */; };
 		A91B079924835CF700DB803C /* UIFont+Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B076E24835CF700DB803C /* UIFont+Resource.swift */; };
@@ -214,7 +213,6 @@
 		9E7DBAF8248481FC00635A56 /* Operation++.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Operation++.swift"; sourceTree = "<group>"; };
 		9E7DBAFB2484822A00635A56 /* Operators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
 		A91B076724835CF700DB803C /* UIColor+Resource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Resource.swift"; sourceTree = "<group>"; };
-		A91B076924835CF700DB803C /* UIFont++.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont++.swift"; sourceTree = "<group>"; };
 		A91B076A24835CF700DB803C /* UIView++.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView++.swift"; sourceTree = "<group>"; };
 		A91B076C24835CF700DB803C /* STNSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STNSize.swift; sourceTree = "<group>"; };
 		A91B076E24835CF700DB803C /* UIFont+Resource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Resource.swift"; sourceTree = "<group>"; };
@@ -554,7 +552,6 @@
 				C0594BF9248754A200260BAD /* UICollectionView++.swift */,
 				A91B078024835CF700DB803C /* UIColor+STN.swift */,
 				A91B078124835CF700DB803C /* UIDevice+STN.swift */,
-				A91B076924835CF700DB803C /* UIFont++.swift */,
 				A91B077F24835CF700DB803C /* UIFont+STN.swift */,
 				7789A5942489979700737E14 /* UIImageView+STN.swift */,
 				F2725A8C24881AF200507DC4 /* UITableView++.swift */,
@@ -1012,7 +1009,7 @@
 		};
 		9E24499A2485E8A500B149DF /* SwiftGen */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 8;
+			buildActionMask = 12;
 			files = (
 			);
 			inputFileListPaths = (
@@ -1024,7 +1021,7 @@
 			);
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "$PODS_ROOT/SwiftGen/bin/swiftgen\n";
 		};
@@ -1103,7 +1100,6 @@
 				C0594BFA248754A200260BAD /* UICollectionView++.swift in Sources */,
 				A91B07CF24849D8400DB803C /* ServiceReferring.swift in Sources */,
 				A91B079824835CF700DB803C /* STNSize.swift in Sources */,
-				A91B079624835CF700DB803C /* UIFont++.swift in Sources */,
 				7CE75F432489B78400168DDA /* PetitionDetailView.swift in Sources */,
 				7CE75F412489B78400168DDA /* PetitionsController.swift in Sources */,
 				B3D6B6B52489A59700D3118C /* UICollectionReusableView+Reusable.swift in Sources */,

@@ -6,7 +6,7 @@ Welcome to the Say Their Names project. Our aim is to build an open-source platf
 
 ## Code of Conduct
 
-Please refer to our [Code of Conduct](CONTRIBUTING.md) if you intend to interact
+Please refer to our [Code of Conduct](CODE_OF_CONDUCT.md) if you intend to interact
 with this repository or the members of the community. Thank you 🙌
 
 ## How to run the app

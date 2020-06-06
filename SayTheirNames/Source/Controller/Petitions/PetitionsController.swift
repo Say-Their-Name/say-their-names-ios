@@ -28,7 +28,12 @@ import UIKit
 final class PetitionsController: UIViewController, ServiceReferring {
     var service: Servicing
     
-    private lazy var petitionsView = PetitionsView(title: Strings.petitions.uppercased())
+    init(service: Servicing) {
+        self.service = service
+        super.init(nibName: nil, bundle: nil)
+    }
+        
+    private lazy var petitionsView = PetitionsView()
     private var petitionsTableView: UITableView { petitionsView.tableView }
 
     private lazy var dataSource: PetitionsTableViewDataSource = {
@@ -42,12 +47,7 @@ final class PetitionsController: UIViewController, ServiceReferring {
         }
         return dataSource
     }()
-    
-    required init(service: Servicing) {
-        self.service = service
-        super.init(nibName: nil, bundle: nil)
-    }
-    
+        
     required init?(coder: NSCoder) { fatalError("This should not be called") }
 
     override func loadView() {
