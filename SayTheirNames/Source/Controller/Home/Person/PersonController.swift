@@ -166,19 +166,19 @@ class PersonController: BaseViewController {
 private extension PersonController {
     
     func setupNavigationBarItems() {
-       navigationController?.navigationBar.isTranslucent = false
-       navigationController?.navigationBar.barTintColor = .black
-       // TODO: Once Theme.swift/etc gets added this may not be required
-       navigationController?.navigationBar.titleTextAttributes = navigationBarTextAttributes
-        
+        navigationController?.navigationBar.isTranslucent = false
+        navigationController?.navigationBar.barTintColor = .black
+        // TODO: Once Theme.swift/etc gets added this may not be required
+        navigationController?.navigationBar.titleTextAttributes = navigationBarTextAttributes
+
         title = L10n.Person.sayTheirNames.uppercased()
-        
-       navigationController?.navigationBar.titleTextAttributes = [
+
+        navigationController?.navigationBar.titleTextAttributes = [
         NSAttributedString.Key.foregroundColor: UIColor.white,
         NSAttributedString.Key.font: UIFont(name: "Karla-Regular", size: 19) ?? UIFont.systemFont(ofSize: 17)]
-       
-       navigationItem.leftBarButtonItem = UIBarButtonItem(customView: dismissButton)
-       navigationItem.rightBarButtonItem = UIBarButtonItem(customView: shareButton)
+
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: dismissButton)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: shareButton)
     }
     
     func setupSubViews() {
