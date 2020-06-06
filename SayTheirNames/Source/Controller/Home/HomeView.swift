@@ -56,6 +56,7 @@ final class HomeView: UIView {
     let bookmarkButton: UIButton = {
         let bookmarkImage = UIImage(named: "white-bookmark")
         let bookmarkButton = UIButton(image: bookmarkImage)
+        bookmarkButton.accessibilityLabel = L10n.bookmark
         return bookmarkButton
     }()
     
@@ -63,6 +64,7 @@ final class HomeView: UIView {
         let searchButton = UIButton(type: .custom)
         let searchImage = UIImage(named: "white-search")
         searchButton.setImage(searchImage, for: .normal)
+        searchButton.accessibilityLabel = L10n.search
         return searchButton
     }()
     
@@ -143,10 +145,12 @@ final class HomeView: UIView {
     private func createCustomNavigationBarLayout() {
         let bar = customNavigationBar
         let label = UILabel()
-        label.text = "SAY THEIR NAME"
+        let appTitle = L10n.sayTheirNames
+        label.text = appTitle.uppercased()
+        label.accessibilityLabel = appTitle
         label.textColor = .white
         label.font = UIFont.STN.bannerTitle
-        let buttonStack = UIStackView(arrangedSubviews: [bookmarkButton,searchButton])
+        let buttonStack = UIStackView(arrangedSubviews: [bookmarkButton, searchButton])
         buttonStack.spacing = 8
         buttonStack.distribution = .fillEqually
         
