@@ -111,13 +111,10 @@ final class HomeController: UIViewController, ServiceReferring {
 
         locationCollectionView.delegate = self
         locationCollectionView.dataSource = locationsDataSourceHelper.dataSource
-        locationCollectionView.isAccessibilityElement = false
         locationCollectionView.accessibilityIdentifier = "locationCollection"
-        
         peopleCollectionView.delegate = self
         peopleCollectionView.dataSource = peopleDataSourceHelper.dataSource
         peopleCollectionView.accessibilityIdentifier = "peopleCollection"
-        peopleCollectionView.isAccessibilityElement = false
     }
     
     // MARK: - IBACTIONS
@@ -168,11 +165,12 @@ extension HomeController: UICollectionViewDelegateFlowLayout {
         }
         else if collectionView === peopleCollectionView {
             // People CollectionView
-            // let selectedPerson = peopleDataSource.fetchPerson(at: indexPath.item)
-            let personController = PersonController(service: self.service)
             
+            let selectedPerson = peopleDataSourceHelper.person(at: indexPath.item)
+            let personController = PersonController(service: self.service)
+            personController.person = selectedPerson
             let navigationController = UINavigationController(rootViewController: personController)
-            navigationController.navigationBar.isHidden = true
+            navigationController.modalPresentationStyle = .fullScreen
             present(navigationController, animated: true, completion: nil)
         }
     }

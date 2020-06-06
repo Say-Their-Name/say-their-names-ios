@@ -27,13 +27,12 @@ import Foundation
 struct Location: Codable {
     let name: String
     
-    enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case name
     }
 }
 
 extension Location: Hashable {
-    
     func hash(into hasher: inout Hasher) {
         hasher.combine(name)
     }

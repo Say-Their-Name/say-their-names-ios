@@ -24,17 +24,18 @@
 
 import UIKit
 
-final class DonationsController: BaseViewController {
+final class DonationsController: UIViewController, ServiceReferring {
+
     private let filterManager = DonationFilterViewManager()
+    let service: Servicing
     private let ui = DonationsView()
     
     required init(service: Servicing) {
-        super.init(service: service)
+        self.service = service
+        super.init(nibName: nil, bundle: nil)
     }
     
-    required init?(coder: NSCoder) {
-        fatalError()
-    }
+    required init?(coder: NSCoder) {  fatalError("init(coder:) has not been implemented") }
     
     override func loadView() {
         view = ui

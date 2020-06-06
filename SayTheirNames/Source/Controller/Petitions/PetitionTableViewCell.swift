@@ -39,6 +39,7 @@ final class PetitionTableViewCell: UITableViewCell {
     private let bannerImageView: UIImageView = {
         let bannerImageView = UIImageView()
         bannerImageView.contentMode = .scaleAspectFill
+        bannerImageView.accessibilityIgnoresInvertColors = true
         return bannerImageView
     }()
 
