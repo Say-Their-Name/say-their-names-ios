@@ -40,13 +40,14 @@ enum Theme {
         enum Button {
             enum Size {
                 static let medium: CGSize = .init(width: 40, height: 40)
+                static let small: CGSize = .init(width: 34, height: 34)
             }
         }
     }
     
     // MARK: - Screens
     enum Screens {
-        //MARK: - Search Bar
+        // MARK: - Search Bar
         enum SearchBar {
             static let size: CGSize = .init(width: 0, height: 60)
         }
@@ -75,6 +76,20 @@ enum Theme {
             }
             enum Person {
                 static let cellSpacing: CGFloat = 15
+                static let stackViewSpacing: CGFloat = 10
+                static let donationViewHeight: CGFloat = 105
+                
+                static let backgroundFistSize: CGSize = .init(width: 110, height: 110)
+                
+                enum Info {
+                    static let locationContainerWidth: CGFloat = 50
+                    static let ageConatinerWidth: CGFloat = 60
+                    
+                    static let verticalSeperatorSize: CGSize = .init(width: 150, height: 1.5)
+                    static let horizontalSeperatorSize: CGSize = .init(width: 1.5, height: 30)
+                    
+                }
+                
             }
         }
         
