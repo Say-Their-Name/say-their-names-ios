@@ -56,6 +56,7 @@
 		9E7DBAF7248481DA00635A56 /* FileDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7DBAEF248481DA00635A56 /* FileDataProvider.swift */; };
 		9E7DBAF9248481FC00635A56 /* Operation++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7DBAF8248481FC00635A56 /* Operation++.swift */; };
 		9E7DBAFC2484822A00635A56 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7DBAFB2484822A00635A56 /* Operators.swift */; };
+		9EC6DD46248B7853006CC5A7 /* CollectionViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC6DD45248B7853006CC5A7 /* CollectionViewManager.swift */; };
 		A91B079524835CF700DB803C /* UIColor+Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B076724835CF700DB803C /* UIColor+Resource.swift */; };
 		A91B079624835CF700DB803C /* UIFont++.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B076924835CF700DB803C /* UIFont++.swift */; };
 		A91B079724835CF700DB803C /* UIView++.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B076A24835CF700DB803C /* UIView++.swift */; };
@@ -193,6 +194,7 @@
 		9E7DBAEF248481DA00635A56 /* FileDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileDataProvider.swift; sourceTree = "<group>"; };
 		9E7DBAF8248481FC00635A56 /* Operation++.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Operation++.swift"; sourceTree = "<group>"; };
 		9E7DBAFB2484822A00635A56 /* Operators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
+		9EC6DD45248B7853006CC5A7 /* CollectionViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewManager.swift; sourceTree = "<group>"; };
 		A91B076724835CF700DB803C /* UIColor+Resource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Resource.swift"; sourceTree = "<group>"; };
 		A91B076924835CF700DB803C /* UIFont++.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont++.swift"; sourceTree = "<group>"; };
 		A91B076A24835CF700DB803C /* UIView++.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView++.swift"; sourceTree = "<group>"; };
@@ -462,6 +464,14 @@
 			path = Operators;
 			sourceTree = "<group>";
 		};
+		9EC6DD44248B7826006CC5A7 /* CollectionViewManager */ = {
+			isa = PBXGroup;
+			children = (
+				9EC6DD45248B7853006CC5A7 /* CollectionViewManager.swift */,
+			);
+			path = CollectionViewManager;
+			sourceTree = "<group>";
+		};
 		A91B076424835CF700DB803C /* Source */ = {
 			isa = PBXGroup;
 			children = (
@@ -603,6 +613,7 @@
 		A91B078224835CF700DB803C /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				9EC6DD44248B7826006CC5A7 /* CollectionViewManager */,
 				A91B078424835CF700DB803C /* CustomNavigationBar.swift */,
 				EEC3A1D32483D493001E7754 /* CustomSearchBar.swift */,
 				A91B078324835CF700DB803C /* MainTabBarController.swift */,
@@ -1062,6 +1073,7 @@
 				A93367D2248985B6001F1E28 /* SocialMedia.swift in Sources */,
 				EEC3A1D42483D493001E7754 /* CustomSearchBar.swift in Sources */,
 				9E7DBAF5248481DA00635A56 /* FileDownloader.swift in Sources */,
+				9EC6DD46248B7853006CC5A7 /* CollectionViewManager.swift in Sources */,
 				B3D6B6AF2487E10100D3118C /* Reusable.swift in Sources */,
 				C0594BFA248754A200260BAD /* UICollectionView++.swift in Sources */,
 				A91B07CF24849D8400DB803C /* ServiceReferring.swift in Sources */,
@@ -1308,7 +1320,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 5K99777NES;
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/SayTheirNames/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1329,7 +1341,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 5K99777NES;
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/SayTheirNames/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
