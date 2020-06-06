@@ -138,22 +138,6 @@ final class HomeView: UIView {
         return separator
     }()
     
-    func safeWidth(for collectionView: UICollectionView) -> CGFloat {
-        let width = collectionView.frame.width -
-            collectionView.safeAreaInsets.left -
-            collectionView.safeAreaInsets.right -
-            collectionView.layoutMargins.left -
-            collectionView.layoutMargins.right
-        
-        var flowLayoutMargins: CGFloat = 0
-        
-        if let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-            flowLayoutMargins = flowLayout.sectionInset.left + flowLayout.sectionInset.right
-        }
-        
-        return width - flowLayoutMargins
-    }
-    
     override func didMoveToSuperview() {
         super.didMoveToSuperview()
         createLayout()
