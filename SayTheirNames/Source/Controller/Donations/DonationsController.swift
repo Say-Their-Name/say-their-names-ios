@@ -24,7 +24,8 @@
 
 import UIKit
 
-class DonationsController: BaseViewController {
+final class DonationsController: BaseViewController {
+    private let filterManager = DonationFilterViewManager()
     private let ui = DonationsView()
     
     required init(service: Servicing) {
@@ -37,5 +38,14 @@ class DonationsController: BaseViewController {
     
     override func loadView() {
         view = ui
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        configure()
+    }
+    
+    private func configure() {
+        ui.bindFilterManager(filterManager)
     }
 }

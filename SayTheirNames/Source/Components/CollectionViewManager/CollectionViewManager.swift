@@ -25,7 +25,7 @@
 import UIKit
 
 /// Responsible for handling updates to a `UICollectionView`'s DataSource
-final class CollectionViewManager<Section: Hashable, Item: Hashable>: NSObject, UICollectionViewDelegate {
+class CollectionViewManager<Section: Hashable, Item: Hashable>: NSObject, UICollectionViewDelegate {
     
     /// Callback that is responsible for configuring the `UICollectionViewCell`
     /// ~~~
@@ -79,5 +79,15 @@ final class CollectionViewManager<Section: Hashable, Item: Hashable>: NSObject, 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let item = dataSource?.itemIdentifier(for: indexPath) else { return }
         didSelectItem?(item)
+    }
+}
+
+extension CollectionViewManager where Section == SingleSection {
+    /// Updates the items in the main section
+    func set(_ items: [Item]) {
+        applyChange { snapshot in
+            snapshot.appendSections([.main])
+            snapshot.appendItems(items)
+        }
     }
 }

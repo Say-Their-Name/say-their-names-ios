@@ -27,19 +27,12 @@ import UIKit
 /// The UI for Donations
 final class DonationsView: UIView {
     
-    private lazy var donationsLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Donations"
-        label.textAlignment = .center
-        label.font = UIFont.STN.body
-        label.translatesAutoresizingMaskIntoConstraints = false
-        
-        return label
-    }()
+    private lazy var filtersView = FiltersCollectionView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupSelf()
+        setupSubviews()
     }
     
     required init?(coder: NSCoder) {
@@ -49,22 +42,25 @@ final class DonationsView: UIView {
     /// Configures properties for the view itself
     private func setupSelf() {
         backgroundColor = .systemBackground
-        setupSubviews()
     }
     
     /// Adds and configures constraints for subviews
     private func setupSubviews() {
-        setupDonationsLabel()
+        addSubview(filtersView)
+        
+        NSLayoutConstraint.activate([
+            filtersView.topAnchor.constraint(equalTo: topAnchor),
+            filtersView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            filtersView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            filtersView.heightAnchor.constraint(equalToConstant: Self.filtersViewHeight)
+        ])
+    }
+    
+    func bindFilterManager(_ filterManager: DonationFilterViewManager) {
+        filterManager.configure(with: filtersView)
     }
 }
 
-// MARK: - Configurations
-
 private extension DonationsView {
-    
-    func setupDonationsLabel() {
-        addSubview(donationsLabel)
-        donationsLabel.fillSuperview()
-    }
-    
+    static let filtersViewHeight: CGFloat = 70
 }

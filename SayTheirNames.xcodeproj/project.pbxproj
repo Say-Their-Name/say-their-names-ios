@@ -57,6 +57,10 @@
 		9E7DBAF9248481FC00635A56 /* Operation++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7DBAF8248481FC00635A56 /* Operation++.swift */; };
 		9E7DBAFC2484822A00635A56 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7DBAFB2484822A00635A56 /* Operators.swift */; };
 		9EC6DD46248B7853006CC5A7 /* CollectionViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC6DD45248B7853006CC5A7 /* CollectionViewManager.swift */; };
+		9EC6DD48248B7E4A006CC5A7 /* SingleSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC6DD47248B7E4A006CC5A7 /* SingleSection.swift */; };
+		9EC6DD4A248B7FC0006CC5A7 /* FiltersCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC6DD49248B7FC0006CC5A7 /* FiltersCollectionView.swift */; };
+		9EC6DD4C248B82DD006CC5A7 /* DonationFilterViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC6DD4B248B82DD006CC5A7 /* DonationFilterViewManager.swift */; };
+		9EC6DD4E248B834B006CC5A7 /* DonationFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC6DD4D248B834B006CC5A7 /* DonationFilter.swift */; };
 		A91B079524835CF700DB803C /* UIColor+Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B076724835CF700DB803C /* UIColor+Resource.swift */; };
 		A91B079624835CF700DB803C /* UIFont++.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B076924835CF700DB803C /* UIFont++.swift */; };
 		A91B079724835CF700DB803C /* UIView++.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B076A24835CF700DB803C /* UIView++.swift */; };
@@ -195,6 +199,10 @@
 		9E7DBAF8248481FC00635A56 /* Operation++.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Operation++.swift"; sourceTree = "<group>"; };
 		9E7DBAFB2484822A00635A56 /* Operators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
 		9EC6DD45248B7853006CC5A7 /* CollectionViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewManager.swift; sourceTree = "<group>"; };
+		9EC6DD47248B7E4A006CC5A7 /* SingleSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleSection.swift; sourceTree = "<group>"; };
+		9EC6DD49248B7FC0006CC5A7 /* FiltersCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersCollectionView.swift; sourceTree = "<group>"; };
+		9EC6DD4B248B82DD006CC5A7 /* DonationFilterViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationFilterViewManager.swift; sourceTree = "<group>"; };
+		9EC6DD4D248B834B006CC5A7 /* DonationFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationFilter.swift; sourceTree = "<group>"; };
 		A91B076724835CF700DB803C /* UIColor+Resource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Resource.swift"; sourceTree = "<group>"; };
 		A91B076924835CF700DB803C /* UIFont++.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont++.swift"; sourceTree = "<group>"; };
 		A91B076A24835CF700DB803C /* UIView++.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView++.swift"; sourceTree = "<group>"; };
@@ -468,6 +476,7 @@
 			isa = PBXGroup;
 			children = (
 				9EC6DD45248B7853006CC5A7 /* CollectionViewManager.swift */,
+				9EC6DD47248B7E4A006CC5A7 /* SingleSection.swift */,
 			);
 			path = CollectionViewManager;
 			sourceTree = "<group>";
@@ -591,6 +600,8 @@
 			children = (
 				A91B077924835CF700DB803C /* DonationsController.swift */,
 				7A5BFA162488315D00BC265A /* DonationsView.swift */,
+				9EC6DD4B248B82DD006CC5A7 /* DonationFilterViewManager.swift */,
+				9EC6DD4D248B834B006CC5A7 /* DonationFilter.swift */,
 			);
 			path = Donations;
 			sourceTree = "<group>";
@@ -640,6 +651,7 @@
 			isa = PBXGroup;
 			children = (
 				A91B078A24835CF700DB803C /* Home */,
+				9EC6DD49248B7FC0006CC5A7 /* FiltersCollectionView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1063,6 +1075,7 @@
 				A93367CA248983B1001F1E28 /* PeopleNetworkRequestor.swift in Sources */,
 				A93367C9248983B1001F1E28 /* PetitionsNetworkRequestor.swift in Sources */,
 				A93367CB248983B1001F1E28 /* Environment.swift in Sources */,
+				9EC6DD4A248B7FC0006CC5A7 /* FiltersCollectionView.swift in Sources */,
 				9E7DBAF7248481DA00635A56 /* FileDataProvider.swift in Sources */,
 				A91B07A424835CF700DB803C /* UIFont+STN.swift in Sources */,
 				7CE75F452489B78400168DDA /* MockPetition.swift in Sources */,
@@ -1077,6 +1090,7 @@
 				B3D6B6AF2487E10100D3118C /* Reusable.swift in Sources */,
 				C0594BFA248754A200260BAD /* UICollectionView++.swift in Sources */,
 				A91B07CF24849D8400DB803C /* ServiceReferring.swift in Sources */,
+				9EC6DD48248B7E4A006CC5A7 /* SingleSection.swift in Sources */,
 				A91B079824835CF700DB803C /* STNSize.swift in Sources */,
 				A91B079624835CF700DB803C /* UIFont++.swift in Sources */,
 				7CE75F432489B78400168DDA /* PetitionDetailView.swift in Sources */,
@@ -1098,6 +1112,7 @@
 				A91B07C82484751700DB803C /* String+STN.swift in Sources */,
 				7CE75F462489B78400168DDA /* PetitionDetailViewController.swift in Sources */,
 				A93367D6248985F5001F1E28 /* DispatchQueue+STN.swift in Sources */,
+				9EC6DD4E248B834B006CC5A7 /* DonationFilter.swift in Sources */,
 				5D456A3D248734CA009FAD34 /* PersonCollectionViewDataSource.swift in Sources */,
 				A91B07A824835CF700DB803C /* CustomNavigationBar.swift in Sources */,
 				9E7DBAF3248481DA00635A56 /* DownloadOperation.swift in Sources */,
@@ -1116,6 +1131,7 @@
 				9E7DBAF2248481DA00635A56 /* ImageProvider.swift in Sources */,
 				A93367D3248985B6001F1E28 /* Link.swift in Sources */,
 				74DE10872486DFA300211B83 /* SettingsController.swift in Sources */,
+				9EC6DD4C248B82DD006CC5A7 /* DonationFilterViewManager.swift in Sources */,
 				B386F958248526C70037A38D /* Location.swift in Sources */,
 				7C47A93524873F1200B8D3BE /* HomeView.swift in Sources */,
 				A91B07A524835CF700DB803C /* UIColor+STN.swift in Sources */,
