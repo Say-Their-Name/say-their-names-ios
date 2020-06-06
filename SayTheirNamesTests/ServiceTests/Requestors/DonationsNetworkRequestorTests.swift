@@ -34,4 +34,52 @@ extension NetworkRequestorTests {
         // Wait for request to be made and returned
         wait(for: [makeRequestExpectation, returnRequestExpection], timeout: 2)
     }
+    
+    func test_fetchDonationsByPersonName_makesRequest() {
+        guard let apiEndpoint = URL(string: DonationsEnvironment.donationsSearchString) else {
+            XCTFail("URL was not valid")
+            return
+        }
+
+        // Set up mock to return data from the endpoint, and expectation that the request is made
+        let makeRequestExpectation = expectation(description: "Request should be made")
+        var mock = Mock(url: apiEndpoint, dataType: .json, statusCode: 200, data: [.get: Data()])
+        mock.completion = {
+            makeRequestExpectation.fulfill()
+        }
+        mock.register()
+
+        // Make request and expect that a result is returned
+        let returnRequestExpection = expectation(description: "Request should return")
+        sut.fetchDonationsByPersonName("george") { _ in
+            returnRequestExpection.fulfill()
+        }
+
+        // Wait for request to be made and returned
+        wait(for: [makeRequestExpectation, returnRequestExpection], timeout: 2)
+    }
+    
+    func test_fetchDonationsByType_makesRequest() {
+        guard let apiEndpoint = URL(string: DonationsEnvironment.donationsTypeSearchString) else {
+            XCTFail("URL was not valid")
+            return
+        }
+
+        // Set up mock to return data from the endpoint, and expectation that the request is made
+        let makeRequestExpectation = expectation(description: "Request should be made")
+        var mock = Mock(url: apiEndpoint, dataType: .json, statusCode: 200, data: [.get: Data()])
+        mock.completion = {
+            makeRequestExpectation.fulfill()
+        }
+        mock.register()
+
+        // Make request and expect that a result is returned
+        let returnRequestExpection = expectation(description: "Request should return")
+        sut.fetchDonationsByType("victim") { _ in
+            returnRequestExpection.fulfill()
+        }
+
+        // Wait for request to be made and returned
+        wait(for: [makeRequestExpectation, returnRequestExpection], timeout: 2)
+    }
 }
