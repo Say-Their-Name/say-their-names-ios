@@ -1,10 +1,26 @@
 //
 //  PersonInfoTableViewCell.swift
-//  Say Their Names
+//  SayTheirNames
 //
-//  Created by Manase on 04/06/2020.
-//  Copyright © 2020 Franck-Stephane Ndame Mpouli. All rights reserved.
+//  Copyright (c) 2020 Say Their Names Team (https://github.com/Say-Their-Name)
 //
+//  Permission is hereby granted, free of charge, to any person obtaining a copy
+//  of this software and associated documentation files (the "Software"), to deal
+//  in the Software without restriction, including without limitation the rights
+//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//  copies of the Software, and to permit persons to whom the Software is
+//  furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in
+//  all copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+//  THE SOFTWARE.
 
 import UIKit
 
@@ -87,7 +103,7 @@ class PersonInfoTableViewCell: UITableViewCell {
         let label = UILabel(frame: .zero)
         label.text = "FIRSTNAME LAST"
         label.textColor = UIColor(red: 16/255.0, green: 16/255.0, blue: 16/255.0, alpha: 1)
-        label.font = UIFont(name: "Karla-Bold", size: 20)
+        label.font = UIFont.STN.bannerTitle
         label.numberOfLines = 0
         label.minimumScaleFactor = 0.5
         label.adjustsFontSizeToFitWidth = true
@@ -98,7 +114,7 @@ class PersonInfoTableViewCell: UITableViewCell {
         let label = UILabel()
         label.text = L10n.Person.age.uppercased()
         label.textColor = UIColor(red: 16/255.0, green: 16/255.0, blue: 16/255.0, alpha: 0.5)
-        label.font = UIFont(name: "Karla-Bold", size: 12)
+        label.font = UIFont.STN.detailViewFieldTitle
         label.numberOfLines = 1
         label.minimumScaleFactor = 0.5
         label.adjustsFontSizeToFitWidth = true
@@ -109,7 +125,7 @@ class PersonInfoTableViewCell: UITableViewCell {
         let label = UILabel()
         label.text = L10n.Person.children.uppercased()
         label.textColor = UIColor(red: 16/255.0, green: 16/255.0, blue: 16/255.0, alpha: 0.5)
-        label.font = UIFont(name: "Karla-Bold", size: 12)
+        label.font = UIFont.STN.detailViewFieldTitle
         label.numberOfLines = 1
         label.minimumScaleFactor = 0.5
         label.adjustsFontSizeToFitWidth = true
@@ -120,7 +136,7 @@ class PersonInfoTableViewCell: UITableViewCell {
         let label = UILabel()
         label.text = L10n.Person.location.uppercased()
         label.textColor = UIColor(red: 16/255.0, green: 16/255.0, blue: 16/255.0, alpha: 0.5)
-        label.font = UIFont(name: "Karla-Bold", size: 12)
+        label.font = UIFont.STN.detailViewFieldTitle
         label.numberOfLines = 1
         label.minimumScaleFactor = 0.5
         label.adjustsFontSizeToFitWidth = true
@@ -131,7 +147,7 @@ class PersonInfoTableViewCell: UITableViewCell {
         let label = UILabel()
         label.text = "46"
         label.textColor = UIColor(red: 16/255.0, green: 16/255.0, blue: 16/255.0, alpha: 1)
-        label.font = UIFont(name: "Karla-Bold", size: 16)
+        label.font = UIFont.STN.detailViewField
         label.numberOfLines = 1
         label.minimumScaleFactor = 0.5
         label.adjustsFontSizeToFitWidth = true
@@ -142,7 +158,7 @@ class PersonInfoTableViewCell: UITableViewCell {
         let label = UILabel()
         label.text = "2"
         label.textColor = UIColor(red: 16/255.0, green: 16/255.0, blue: 16/255.0, alpha: 1)
-        label.font = UIFont(name: "Karla-Bold", size: 16)
+        label.font = UIFont.STN.detailViewField
         label.numberOfLines = 1
         label.minimumScaleFactor = 0.5
         label.adjustsFontSizeToFitWidth = true
@@ -153,7 +169,7 @@ class PersonInfoTableViewCell: UITableViewCell {
         let label = UILabel()
         label.text = "Missisippi, Denver Cloud Source, United States of America"
         label.textColor = UIColor(red: 16/255.0, green: 16/255.0, blue: 16/255.0, alpha: 1)
-        label.font = UIFont(name: "Karla-Bold", size: 16)
+        label.font = UIFont.STN.detailViewField
         label.numberOfLines = 0
         label.minimumScaleFactor = 0.5
         label.adjustsFontSizeToFitWidth = true

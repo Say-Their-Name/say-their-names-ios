@@ -1,10 +1,26 @@
 //
 //  PersonNewsTableViewCell.swift
-//  Say Their Names
+//  SayTheirNames
 //
-//  Created by Manase on 05/06/2020.
-//  Copyright © 2020 Franck-Stephane Ndame Mpouli. All rights reserved.
+//  Copyright (c) 2020 Say Their Names Team (https://github.com/Say-Their-Name)
 //
+//  Permission is hereby granted, free of charge, to any person obtaining a copy
+//  of this software and associated documentation files (the "Software"), to deal
+//  in the Software without restriction, including without limitation the rights
+//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//  copies of the Software, and to permit persons to whom the Software is
+//  furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in
+//  all copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+//  THE SOFTWARE.
 
 import UIKit
 
@@ -16,9 +32,6 @@ protocol CollectionViewCellDelegate: class {
     func collectionView(collectionviewcell: UICollectionViewCell?, index: Int, didTappedInTableViewCell: UITableViewCell)
     // other delegate methods that you can define to perform action in viewcontroller
 }
-
-// Re-using `PersonNewsTableViewCell` to present media table view cell
-typealias PersonMediaTableViewCell = PersonNewsTableViewCell
 
 enum PersonNewsCellType: String {
     case news
@@ -42,7 +55,7 @@ class PersonNewsTableViewCell: UITableViewCell {
         let label = UILabel()
         label.text = "NEWS"
         label.textColor = UIColor(red: 16/255.0, green: 16/255.0, blue: 16/255.0, alpha: 1)
-        label.font = UIFont(name: "Karla-Bold", size: 17)
+        label.font = UIFont.STN.sectionHeader
         label.numberOfLines = 1
         label.minimumScaleFactor = 0.5
         label.adjustsFontSizeToFitWidth = true
@@ -77,6 +90,8 @@ class PersonNewsTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    var preferredContentHeight: CGFloat { 263 }
+
     private func setupLayout() {
         titleLabel.anchor(superView: contentView,
                           top: contentView.topAnchor,
@@ -90,6 +105,8 @@ class PersonNewsTableViewCell: UITableViewCell {
                               bottom: contentView.bottomAnchor,
                               trailing: contentView.trailingAnchor,
                               padding: .init(top: 20, left: 0, right: 0))
+ 
+        collectionView.heightAnchor.constraint(equalToConstant: preferredContentHeight).isActive = true
     }
     
     // Updates current cell content views
@@ -106,7 +123,6 @@ class PersonNewsTableViewCell: UITableViewCell {
         collectionView.register(cellType: cell)
         updateCellViews()
     }
-    
 }
 
 extension PersonNewsTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -153,4 +169,11 @@ extension PersonNewsTableViewCell: UICollectionViewDelegate, UICollectionViewDat
         let cell = collectionView.cellForItem(at: indexPath)
         self.cellDelegate?.collectionView(collectionviewcell: cell, index: indexPath.item, didTappedInTableViewCell: self)
     }
+}
+
+// the only difference between PersonMediaTableViewCell and PersonNewsTableViewCell is the preferred height of their collectionview
+class PersonMediaTableViewCell: PersonNewsTableViewCell {
+    
+    override var preferredContentHeight: CGFloat { 218 }
+
 }

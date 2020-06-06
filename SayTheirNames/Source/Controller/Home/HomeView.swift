@@ -26,6 +26,14 @@ import UIKit
 
 final class HomeView: UIView {
 
+    private let navigationBarLabel: UILabel = {
+        let label = UILabel()
+        label.text = Strings.sayTheirNames.uppercased()
+        label.textColor = .white
+
+        return label
+    }()
+    
     let customNavigationBar: UIView = {
         let customNavigationBar = UIView()
         customNavigationBar.backgroundColor = .black
@@ -94,6 +102,8 @@ final class HomeView: UIView {
         super.didMoveToSuperview()
         createLayout()
         backgroundColor = .black
+        
+        styleLabels()
     }
     
     private var hasLayedOutSubviews = false
@@ -144,27 +154,36 @@ final class HomeView: UIView {
     
     private func createCustomNavigationBarLayout() {
         let bar = customNavigationBar
-        let label = UILabel()
-        let appTitle = L10n.sayTheirNames
-        label.text = appTitle.uppercased()
-        label.accessibilityLabel = appTitle
-        label.textColor = .white
-        label.font = UIFont.STN.bannerTitle
-        let buttonStack = UIStackView(arrangedSubviews: [bookmarkButton, searchButton])
+
+        let buttonStack = UIStackView(arrangedSubviews: [bookmarkButton,searchButton])
         buttonStack.spacing = 8
         buttonStack.distribution = .fillEqually
         
-        label.anchor(superView: bar, leading: bar.leadingAnchor, bottom: bar.bottomAnchor, padding: .init(left: 16, bottom: 16))
+        navigationBarLabel.anchor(superView: bar, leading: bar.leadingAnchor, bottom: bar.bottomAnchor, padding: .init(left: 16, bottom: 16))
         bar.addSubview(buttonStack)
         [bookmarkButton, searchButton].forEach {
             $0.widthAnchor.constraint(equalToConstant: Self.ButtonSize.height).isActive = true
             $0.heightAnchor.constraint(equalToConstant: Self.ButtonSize.width).isActive = true
         }
         buttonStack.anchor(superView: bar, trailing: bar.trailingAnchor, padding: .init(right: 16))
-        buttonStack.centerYAnchor.constraint(equalTo: label.centerYAnchor).isActive = true
-
+        buttonStack.centerYAnchor.constraint(equalTo: navigationBarLabel.centerYAnchor).isActive = true
+        
+        navigationBarLabel.trailingAnchor.constraint(equalTo: buttonStack.leadingAnchor, constant: 4).isActive = true
     }
 
+    private func styleLabels() {
+
+        navigationBarLabel.font = UIFont.STN.bannerTitle
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        
+        if traitCollection.preferredContentSizeCategory != previousTraitCollection?.preferredContentSizeCategory {
+            styleLabels()
+        }
+    }
+    
     // MARK: - Constants
     static let CustomNavigationBarHeight: CGFloat = 70
     static let PeopleCollectionViewHeight: CGFloat = 70
