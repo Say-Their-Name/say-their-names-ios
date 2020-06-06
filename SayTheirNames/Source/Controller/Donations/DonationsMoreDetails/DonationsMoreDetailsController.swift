@@ -60,6 +60,9 @@ final class DonationsMoreDetailsController: BaseViewController {
         collectionView.register(DMDPhotoSupplementaryView.self,
                                 forSupplementaryViewOfKind: DonationsMoreDetailsController.photoSupplementaryView,
                                 withReuseIdentifier: DMDPhotoSupplementaryView.reuseIdentifier)
+        collectionView.register(DMDDonationButtonSupplementaryView.self,
+                                forSupplementaryViewOfKind: DonationsMoreDetailsController.donationButtonSupplementaryView,
+                                withReuseIdentifier: DMDDonationButtonSupplementaryView.reuseIdentifier)
     }
     
     private func setupNavigationBarItems() {
@@ -166,6 +169,19 @@ final class DonationsMoreDetailsController: BaseViewController {
                 photoView.configure(person)
                 
                 return photoView
+                
+            case DonationsMoreDetailsController.donationButtonSupplementaryView:
+                guard let buttonView = collectionView
+                    .dequeueReusableSupplementaryView(ofKind: DonationsMoreDetailsController.donationButtonSupplementaryView,
+                                                      withReuseIdentifier: DMDDonationButtonSupplementaryView.reuseIdentifier,
+                                                      for: indexPath) as? DMDDonationButtonSupplementaryView else {
+                                                        fatalError("Cannot create new view") }
+
+                buttonView.setButtonPressed {
+                    // Donation Button Action
+                }
+                
+                return buttonView
             default:
                 return nil
             }

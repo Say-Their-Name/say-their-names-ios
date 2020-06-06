@@ -30,17 +30,25 @@ extension DonationsMoreDetailsController {
                 
                 // Section
                 let section = NSCollectionLayoutSection(group: group)
-                section.contentInsets = NSDirectionalEdgeInsets(top: 30.0, leading: horizontalPadding, bottom: 0.0, trailing: horizontalPadding)
+                section.contentInsets = NSDirectionalEdgeInsets(top: 30.0, leading: horizontalPadding, bottom: 20.0, trailing: horizontalPadding)
                 
-                // Supplementary
-                let supplementarySize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(420))
-                let supplementary =
-                    NSCollectionLayoutBoundarySupplementaryItem(layoutSize: supplementarySize,
+                // Photo Supplementary View
+                let photoViewSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(420))
+                let photoView =
+                    NSCollectionLayoutBoundarySupplementaryItem(layoutSize: photoViewSize,
                                                                 elementKind: DonationsMoreDetailsController.photoSupplementaryView,
                                                                 alignment: .top)
                 
+                // Button Supplementary View
+                let buttonViewSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(50))
+                let buttonView =
+                    NSCollectionLayoutBoundarySupplementaryItem(layoutSize: buttonViewSize,
+                                                                elementKind: DonationsMoreDetailsController.donationButtonSupplementaryView,
+                                                                alignment: .bottom)
+                buttonView.contentInsets = NSDirectionalEdgeInsets(top: 0.0, leading: horizontalPadding, bottom: 0.0, trailing: horizontalPadding)
+                
                 section.supplementariesFollowContentInsets = false
-                section.boundarySupplementaryItems = [supplementary]
+                section.boundarySupplementaryItems = [photoView, buttonView]
                 
                 return section
                 
