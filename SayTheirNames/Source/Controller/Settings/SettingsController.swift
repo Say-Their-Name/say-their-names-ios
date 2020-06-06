@@ -24,10 +24,17 @@
 
 import UIKit
 
-class SettingsController: BaseViewController {
+class SettingsController: UIViewController, ServiceReferring {
+    var service: Servicing
+    
+    required init(service: Servicing) {
+        self.service = service
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
 
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
 }
