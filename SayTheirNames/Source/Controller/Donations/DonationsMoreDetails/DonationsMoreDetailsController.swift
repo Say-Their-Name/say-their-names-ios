@@ -19,6 +19,11 @@ final class DonationsMoreDetailsController: BaseViewController {
     // MARK: - Property
     var donation: Donation?
     var dataSource: UICollectionViewDiffableDataSource<DonationSectionLayoutKind, Donation>!
+    
+    let navigationBarTextAttributes = [
+        NSAttributedString.Key.foregroundColor: UIColor.white,
+        NSAttributedString.Key.font: UIFont.STN.navBarTitle
+    ]
 
     // MARK: - View
     private lazy var collectionView: UICollectionView = {
@@ -32,6 +37,7 @@ final class DonationsMoreDetailsController: BaseViewController {
         super.viewDidLoad()
         
         configureSubview()
+        setupNavigationBarItems()
         configureDataSource()
         
         if let donation = donation {
@@ -47,6 +53,44 @@ final class DonationsMoreDetailsController: BaseViewController {
     // MARK: - Class Method
     private func configureSubview() {
         collectionView.fillSuperview(superView: view, padding: .zero)
+    }
+    
+    private func setupNavigationBarItems() {
+        // TODO: Once Theme.swift/etc gets added this may not be required
+        navigationController?.navigationBar.titleTextAttributes = self.navigationBarTextAttributes
+        
+        // TODO: Localization
+        self.title = "Say Their Names".uppercased()
+        self.navigationController?.navigationBar.titleTextAttributes =
+        [NSAttributedString.Key.foregroundColor: UIColor.white,
+         NSAttributedString.Key.font: UIFont(name: "Karla-Regular", size: 19) ?? UIFont.systemFont(ofSize: 17)]
+        
+        let dismissActionGesture = UITapGestureRecognizer(target: self, action: #selector(dismissAction(_:)))
+        let shareActionGesture = UITapGestureRecognizer(target: self, action: #selector(shareAction(_:)))
+
+        let dismissButton = UIButton(type: .system)
+        dismissButton.addGestureRecognizer(dismissActionGesture)
+        dismissButton.setImage(UIImage(named: "Close Icon")?.withRenderingMode(.alwaysOriginal), for: .normal)
+        dismissButton.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: dismissButton)
+        
+        let shareButton = UIButton(type: .system)
+        shareButton.addGestureRecognizer(shareActionGesture)
+        shareButton.setImage(UIImage(named: "share_white")?.withRenderingMode(.alwaysOriginal), for: .normal)
+        shareButton.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: shareButton)
+        
+        navigationController?.navigationBar.isTranslucent = false
+        navigationController?.navigationBar.barTintColor = .black
+    }
+    
+    // MARK: - Button Action
+    @objc func dismissAction(_ sender: Any) {
+        navigationController?.dismiss(animated: true, completion: nil)
+    }
+    
+    @objc func shareAction(_ sender: Any) {
+        // TODO: Share button action
     }
     
     // MARK: - DataSource

@@ -22,4 +22,15 @@ class DonationsController: BaseViewController {
     override func loadView() {
         view = ui
     }
+    
+    override func viewDidLoad() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapped))
+        ui.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc private func tapped() {
+        let detailVC = DonationsMoreDetailsController(service: service)
+        let navigationController = UINavigationController(rootViewController: detailVC)
+        present(navigationController, animated: true, completion: nil)
+    }
 }
