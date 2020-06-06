@@ -120,6 +120,7 @@ class PersonController: UIViewController, ServiceReferring {
         button.setImage(UIImage(named: "Close Icon")?.withRenderingMode(.alwaysOriginal), for: .normal)
         button.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
         button.addGestureRecognizer(gesture)
+        button.accessibilityLabel = L10n.close
         return button
     }()
 
@@ -129,6 +130,7 @@ class PersonController: UIViewController, ServiceReferring {
         button.setImage(UIImage(named: "share_white")?.withRenderingMode(.alwaysOriginal), for: .normal)
         button.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
         button.addGestureRecognizer(gesture)
+        button.accessibilityLabel = L10n.share
         return button
     }()
     
@@ -180,6 +182,7 @@ private extension PersonController {
         navigationController?.navigationBar.titleTextAttributes = navigationBarTextAttributes
 
         title = L10n.Person.sayTheirNames.uppercased()
+        accessibilityLabel = L10n.Person.sayTheirNames
 
         navigationController?.navigationBar.titleTextAttributes = [
         NSAttributedString.Key.foregroundColor: UIColor.white,

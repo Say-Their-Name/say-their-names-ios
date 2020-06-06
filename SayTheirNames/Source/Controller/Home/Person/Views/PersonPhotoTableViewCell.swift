@@ -40,6 +40,7 @@ class PersonPhotoTableViewCell: UITableViewCell {
         backgroundColor = .red
         contentView.clipsToBounds = true
         imageWithBlurView.fillSuperview(superView: contentView, padding: .zero)
+        accessibilityTraits.insert(.image)
     }
     
     required init?(coder: NSCoder) {
@@ -49,5 +50,6 @@ class PersonPhotoTableViewCell: UITableViewCell {
     // MARK: - Method
     public func setupCell(_ person: Person) {
         imageWithBlurView.setup(person)
+        accessibilityLabel = "\(person.fullName)"
     }
 }
