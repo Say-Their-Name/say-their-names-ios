@@ -29,6 +29,7 @@ import Alamofire
 enum DonationsEnvironment {
     static let baseUrlSring: String = { return "\(Environment.serverURLString)/api/donations" }()
     static let donationsSearchString: String = { return "\(DonationsEnvironment.baseUrlSring)/?name=" }()
+    static let donationsTypeSearchString: String = { return "\(DonationsEnvironment.baseUrlSring)/?type=" }()
 }
 
 // MARK: - NetworkRequestor (Donations)
@@ -43,4 +44,9 @@ extension NetworkRequestor {
         let url = "\(DonationsEnvironment.donationsSearchString)\(name)"
         self.fetchDecodable(url, completion: completion)
     }
+    
+    public func fetchDonationsByType(_ type: String, completion: @escaping (Result<DonationsResponsePage, AFError>) -> Swift.Void) {
+           let url = "\(DonationsEnvironment.donationsTypeSearchString)\(type)"
+           self.fetchDecodable(url, completion: completion)
+       }
 }
