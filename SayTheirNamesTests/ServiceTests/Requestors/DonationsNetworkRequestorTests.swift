@@ -56,7 +56,7 @@ extension NetworkRequestorTests {
         }
 
         // Wait for request to be made and returned
-        wait(for: [makeRequestExpectation, returnRequestExpection], timeout: 2)
+        wait(for: [makeRequestExpectation, returnRequestExpection], timeout: 15)
     }
     
     func test_fetchDonationsByType_makesRequest() {
@@ -80,6 +80,6 @@ extension NetworkRequestorTests {
         }
 
         // Wait for request to be made and returned
-        wait(for: [makeRequestExpectation, returnRequestExpection], timeout: 2)
+        wait(for: [makeRequestExpectation, returnRequestExpection], timeout: 15)
     }
 }

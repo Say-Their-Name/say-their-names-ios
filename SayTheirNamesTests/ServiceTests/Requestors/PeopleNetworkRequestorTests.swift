@@ -56,7 +56,7 @@ extension NetworkRequestorTests {
         }
 
         // Wait for request to be made and returned
-        wait(for: [makeRequestExpectation, returnRequestExpection], timeout: 2)
+        wait(for: [makeRequestExpectation, returnRequestExpection], timeout: 15)
     }
     
     func test_fetchPeopleByCity_makesRequest() {
@@ -80,7 +80,7 @@ extension NetworkRequestorTests {
         }
 
         // Wait for request to be made and returned
-        wait(for: [makeRequestExpectation, returnRequestExpection], timeout: 2)
+        wait(for: [makeRequestExpectation, returnRequestExpection], timeout: 15)
     }
     
     func test_fetchPeopleByCountry_makesRequest() {
@@ -99,11 +99,11 @@ extension NetworkRequestorTests {
 
         // Make request and expect that a result is returned
         let returnRequestExpection = expectation(description: "Request should return")
-        sut.fetchPeopleByCountry("United States") { _ in
+        sut.fetchPeopleByCountry("united states") { _ in
             returnRequestExpection.fulfill()
         }
 
         // Wait for request to be made and returned
-        wait(for: [makeRequestExpectation, returnRequestExpection], timeout: 2)
+        wait(for: [makeRequestExpectation, returnRequestExpection], timeout: 15)
     }
 }
