@@ -38,21 +38,21 @@ final class NetworkRequestor {
     // MARK: - Public methods
     
     public func fetchDecodable<T: Decodable>(_ url: String, completion: @escaping (Result<T, AFError>) -> Swift.Void) {
-        let request = session.request(url)
+        let request = self.session.request(url)
         request.responseDecodable(of: T.self, queue: self.concurrentQueue) { (response) in
             DispatchQueue.mainAsync { completion(response.result) }
         }
     }
     
     public func fetchData(_ url: String, completion: @escaping (Result<Data, AFError>) -> Swift.Void) {
-        let request = session.request(url)
+        let request = self.session.request(url)
         request.responseData(queue: self.concurrentQueue) { (response) in
             DispatchQueue.mainAsync { completion(response.result) }
         }
     }
     
     public func fetchJSON(_ url: String, completion: @escaping (Result<Any, AFError>) -> Swift.Void) {
-        let request = session.request(url)
+        let request = self.session.request(url)
         request.responseJSON(queue: self.concurrentQueue) { (response) in
             DispatchQueue.mainAsync { completion(response.result) }
         }

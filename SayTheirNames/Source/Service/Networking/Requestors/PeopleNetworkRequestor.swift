@@ -27,7 +27,9 @@ import Alamofire
 
 // MARK: - PersonEnvironment
 enum PersonEnvironment {
-    static let urlString: String = { return "\(Environment.serverURLString)/api/people" }()
+    static let baseUrlSring: String = { return "\(Environment.serverURLString)/api/people" }()
+    static let peopleSearchString: String = { return "\(PersonEnvironment.baseUrlSring)/?name=" }()
+    static let countrySeachUrlString: String = { return "\(PersonEnvironment.baseUrlSring)/?country=" }()
 }
 
 // MARK: - NetworkRequestor (People)
@@ -35,7 +37,7 @@ extension NetworkRequestor {
     // MARK: - Public methods
     
     public func fetchPeople(completion: @escaping (Result<PersonsResponsePage, AFError>) -> Swift.Void) {
-        self.fetchDecodable(PersonEnvironment.urlString, completion: completion)
+        self.fetchDecodable(PersonEnvironment.baseUrlSring, completion: completion)
     }
     
     public func fetchPeopleWithLink(_ peopleLink: Link, completion: @escaping (Result<PersonsResponsePage, AFError>) -> Swift.Void) {
@@ -46,5 +48,15 @@ extension NetworkRequestor {
         }
         
         self.fetchDecodable(nextUrl, completion: completion)
+    }
+    
+    public func fetchPeopleByName(_ name: String, completion: @escaping (Result<PersonsResponsePage, AFError>) -> Swift.Void) {
+        let url = "\(PersonEnvironment.peopleSearchString)\(name)"
+        self.fetchDecodable(url, completion: completion)
+    }
+    
+    public func fetchPeopleByCountry(_ country: String, completion: @escaping (Result<PersonsResponsePage, AFError>) -> Swift.Void) {
+        let url = "\(PersonEnvironment.countrySeachUrlString)\(country)"
+        self.fetchDecodable(url, completion: completion)
     }
 }

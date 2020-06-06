@@ -1,5 +1,5 @@
 //
-//  Media.swift
+//  Petition.swift
 //  SayTheirNames
 //
 //  Copyright (c) 2020 Say Their Names Team (https://github.com/Say-Their-Name)
@@ -24,10 +24,23 @@
 
 import Foundation
 
-public struct Media: Decodable {
-    let url: String
-
+public struct SearchResponsePage: Decodable {
+    let people: [Person]
+    let donations: [Donation]
+    let petitions: [Petition]
+    let link: Link
+    
     private enum CodingKeys: String, CodingKey {
-        case url
+        case people, donations, petitions, link = "links", data = "data"
+    }
+    
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        let data = try container.nestedContainer(keyedBy: CodingKeys.self, forKey: .data)
+        self.people = try data.decodeIfPresent([Person].self, forKey: .people) ?? []
+        self.donations = try data.decodeIfPresent([Donation].self, forKey: .donations) ?? []
+        self.petitions = try data.decodeIfPresent([Petition].self, forKey: .petitions) ?? []
+        self.link = try data.decodeIfPresent(Link.self, forKey: .link) ?? Link(first: "", last: "", prev: "", next: "")
     }
 }
