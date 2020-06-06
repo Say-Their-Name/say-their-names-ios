@@ -233,11 +233,10 @@ extension PersonController: UITableViewDelegate {
         let cellType = tableViewCells[indexPath.row]
         switch cellType {
         case .photo: return 420
-        case .info: return 140
         case .news: return 340
         case .medias: return 300
         case .hashtags: return 160
-        case .story, .outcome: return UITableView.automaticDimension
+        case .info, .story, .outcome: return UITableView.automaticDimension
         }
     }
 }
@@ -282,7 +281,6 @@ extension PersonController: UITableViewDataSource {
             newsCell.registerCell(with: PersonMediaCollectionViewCell.self, type: PersonNewsCellType.medias)
             newsCell.updateCellWithNews(news)
             return cell
-            
         case .hashtags:
             let hashtagsCell = cell as! PersonHashtagTableViewCell
             hashtagsCell.registerCell(with: PersonHashtagCollectionViewCell.self)
