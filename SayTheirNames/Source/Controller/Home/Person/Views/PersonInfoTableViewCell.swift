@@ -16,7 +16,7 @@ class PersonInfoTableViewCell: UITableViewCell {
     
     lazy var containerStack: UIStackView = {
         let view = UIStackView(arrangedSubviews: [infoStackView, extraInfoStack])
-        view.distribution = .fill
+        view.distribution = .fillEqually
         view.alignment = .fill
         view.axis = .vertical
         view.spacing = 10
@@ -87,7 +87,7 @@ class PersonInfoTableViewCell: UITableViewCell {
         let label = UILabel(frame: .zero)
         label.text = "FIRSTNAME LAST"
         label.textColor = UIColor(red: 16/255.0, green: 16/255.0, blue: 16/255.0, alpha: 1)
-        label.font = UIFont(name: "Karla-Bold", size: 20)
+        label.font = UIFont.STN.bannerTitle
         label.numberOfLines = 0
         label.minimumScaleFactor = 0.5
         label.adjustsFontSizeToFitWidth = true
@@ -98,7 +98,7 @@ class PersonInfoTableViewCell: UITableViewCell {
         let label = UILabel()
         label.text = "AGE"
         label.textColor = UIColor(red: 16/255.0, green: 16/255.0, blue: 16/255.0, alpha: 0.5)
-        label.font = UIFont(name: "Karla-Bold", size: 12)
+        label.font = UIFont.STN.detailViewFieldTitle
         label.numberOfLines = 1
         label.minimumScaleFactor = 0.5
         label.adjustsFontSizeToFitWidth = true
@@ -109,7 +109,7 @@ class PersonInfoTableViewCell: UITableViewCell {
         let label = UILabel()
         label.text = "CHILDREN"
         label.textColor = UIColor(red: 16/255.0, green: 16/255.0, blue: 16/255.0, alpha: 0.5)
-        label.font = UIFont(name: "Karla-Bold", size: 12)
+        label.font = UIFont.STN.detailViewFieldTitle
         label.numberOfLines = 1
         label.minimumScaleFactor = 0.5
         label.adjustsFontSizeToFitWidth = true
@@ -120,7 +120,7 @@ class PersonInfoTableViewCell: UITableViewCell {
         let label = UILabel()
         label.text = "LOCATION"
         label.textColor = UIColor(red: 16/255.0, green: 16/255.0, blue: 16/255.0, alpha: 0.5)
-        label.font = UIFont(name: "Karla-Bold", size: 12)
+        label.font = UIFont.STN.detailViewFieldTitle
         label.numberOfLines = 1
         label.minimumScaleFactor = 0.5
         label.adjustsFontSizeToFitWidth = true
@@ -131,7 +131,7 @@ class PersonInfoTableViewCell: UITableViewCell {
         let label = UILabel()
         label.text = "46"
         label.textColor = UIColor(red: 16/255.0, green: 16/255.0, blue: 16/255.0, alpha: 1)
-        label.font = UIFont(name: "Karla-Bold", size: 16)
+        label.font = UIFont.STN.detailViewField
         label.numberOfLines = 1
         label.minimumScaleFactor = 0.5
         label.adjustsFontSizeToFitWidth = true
@@ -142,7 +142,7 @@ class PersonInfoTableViewCell: UITableViewCell {
         let label = UILabel()
         label.text = "2"
         label.textColor = UIColor(red: 16/255.0, green: 16/255.0, blue: 16/255.0, alpha: 1)
-        label.font = UIFont(name: "Karla-Bold", size: 16)
+        label.font = UIFont.STN.detailViewField
         label.numberOfLines = 1
         label.minimumScaleFactor = 0.5
         label.adjustsFontSizeToFitWidth = true
@@ -153,7 +153,7 @@ class PersonInfoTableViewCell: UITableViewCell {
         let label = UILabel()
         label.text = "Missisippi, Denver Cloud Source, United States of America"
         label.textColor = UIColor(red: 16/255.0, green: 16/255.0, blue: 16/255.0, alpha: 1)
-        label.font = UIFont(name: "Karla-Bold", size: 16)
+        label.font = UIFont.STN.detailViewField
         label.numberOfLines = 0
         label.minimumScaleFactor = 0.5
         label.adjustsFontSizeToFitWidth = true

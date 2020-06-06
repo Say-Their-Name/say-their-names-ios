@@ -218,7 +218,7 @@ final class PetitionTableViewCell: UITableViewCell {
         titleLabel.font = UIFont.STN.bannerTitle
         summaryLabel.font = UIFont.STN.summary
         verifiedLabel.font = UIFont.STN.verifiedTag
-        findOutMoreButton.titleLabel?.font = UIFont.STN.sectionHeader
+        findOutMoreButton.titleLabel?.font = UIFont.STN.fullBleedButton
     }
     
     @objc

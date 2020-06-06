@@ -176,7 +176,8 @@ private extension PersonController {
         
        navigationController?.navigationBar.titleTextAttributes = [
         NSAttributedString.Key.foregroundColor: UIColor.white,
-        NSAttributedString.Key.font: UIFont(name: "Karla-Regular", size: 19) ?? UIFont.systemFont(ofSize: 17)]
+        NSAttributedString.Key.font: UIFont.STN.navBarTitle
+        ]
        
        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: dismissButton)
        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: shareButton)
@@ -218,7 +219,7 @@ private extension PersonController {
 
 // MARK: - UITableViewDelegate Methods
 extension PersonController: UITableViewDelegate {
-    
+  
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let cellType = tableViewCells[indexPath.row]
         switch cellType {

@@ -97,5 +97,27 @@ extension UIFont {
         static var verifiedTag: UIFont { UIFont.dynamicCustomFont(fontName: FontName.karlaBold.rawValue, textStyle: .footnote) }
 
         static var summary: UIFont { UIFont.dynamicCustomFont(fontName: FontName.karlaRegular.rawValue, textStyle: .subheadline) }
+        
+        // 20 on figma but this yields 20 on default
+        static var detailViewTitle: UIFont { UIFont.dynamicCustomFont(
+            fontName: FontName.karlaBold.rawValue,
+            textStyle: .title3) }
+
+        // 12 on FIgma, this yields 13 on default
+        static var detailViewFieldTitle: UIFont { UIFont.dynamicCustomFont(
+            fontName: FontName.karlaBold.rawValue,
+            textStyle: .footnote) }
+
+        // 16 on Figma, 15 on default
+        static var detailViewField: UIFont { UIFont.dynamicCustomFont(
+            fontName: FontName.karlaBold.rawValue,
+            textStyle: .subheadline) }
+
+        // 17
+        static var hashtagButton: UIFont { UIFont.dynamicCustomFont(fontName: FontName.karlaBold.rawValue, textStyle: .body) }
+
+        // 17
+        static var fullBleedButton: UIFont { UIFont.dynamicCustomFont(fontName: FontName.karlaBold.rawValue, textStyle: .body) }
+
     }
 }

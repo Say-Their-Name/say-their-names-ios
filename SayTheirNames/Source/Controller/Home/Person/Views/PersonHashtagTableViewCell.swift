@@ -18,7 +18,7 @@ class PersonHashtagTableViewCell: UITableViewCell {
         let label = UILabel()
         label.text = "SOCIAL MEDIA HASHTAGS"
         label.textColor = UIColor.STN.black
-        label.font = UIFont(name: "Karla-Bold", size: 17)
+        label.font = UIFont.STN.sectionHeader
         label.numberOfLines = 1
         label.minimumScaleFactor = 0.5
         label.adjustsFontSizeToFitWidth = true

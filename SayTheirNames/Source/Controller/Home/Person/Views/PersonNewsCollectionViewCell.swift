@@ -41,7 +41,7 @@ class PersonNewsCollectionViewCell: UICollectionViewCell {
         let label = UILabel()
         label.text = "Live updates: Another night of fire and fury as.."
         label.numberOfLines = 3
-        label.font = UIFont(name: "Karla-Regular", size: 18)
+        label.font = UIFont.STN.sectionHeader
         label.adjustsFontSizeToFitWidth = true
         label.minimumScaleFactor = 0.5
         label.textColor = UIColor(red: 16/255.0, green: 16/255.0, blue: 16/255.0, alpha: 1)

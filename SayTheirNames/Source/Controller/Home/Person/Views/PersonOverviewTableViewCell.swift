@@ -18,7 +18,7 @@ class PersonOverviewTableViewCell: UITableViewCell {
         let label = UILabel()
         label.text = "Their Story"
         label.textColor = UIColor(red: 16/255.0, green: 16/255.0, blue: 16/255.0, alpha: 1)
-        label.font = UIFont(name: "Karla-Bold", size: 19)
+        label.font = UIFont.STN.sectionHeader
         label.numberOfLines = 1
         label.minimumScaleFactor = 0.5
         label.adjustsFontSizeToFitWidth = true
@@ -28,7 +28,7 @@ class PersonOverviewTableViewCell: UITableViewCell {
     lazy var descriptionLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
-        label.font = UIFont(name: "Karla-Regular", size: 17)
+        label.font = UIFont.STN.body
         label.numberOfLines = 0
         label.minimumScaleFactor = 0.5
         label.adjustsFontSizeToFitWidth = true
@@ -58,7 +58,6 @@ class PersonOverviewTableViewCell: UITableViewCell {
         stack.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(stack)
         stack.fillSuperview(superView: contentView, padding: .init(top: 32, left: 32, bottom: 0, right: 32))
-        titleLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
 
     }
     

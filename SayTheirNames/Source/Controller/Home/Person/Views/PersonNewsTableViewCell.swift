@@ -42,7 +42,7 @@ class PersonNewsTableViewCell: UITableViewCell {
         let label = UILabel()
         label.text = "NEWS"
         label.textColor = UIColor(red: 16/255.0, green: 16/255.0, blue: 16/255.0, alpha: 1)
-        label.font = UIFont(name: "Karla-Bold", size: 17)
+        label.font = UIFont.STN.sectionHeader
         label.numberOfLines = 1
         label.minimumScaleFactor = 0.5
         label.adjustsFontSizeToFitWidth = true

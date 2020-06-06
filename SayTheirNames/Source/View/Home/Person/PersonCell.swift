@@ -148,6 +148,6 @@ final class PersonCell: UICollectionViewCell {
     // MARK: - Handlers
         
     @objc private func didTapBookmark() {
-        // TODO: Implement BookMark Handler
+        Log.print(#function)
     }
 }
