@@ -47,6 +47,16 @@ class PersonPhotoTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
+    var haveSetConstraints = false
+    override func updateConstraints() {
+        super.updateConstraints()
+        
+        guard !haveSetConstraints else { return }
+        haveSetConstraints = true
+
+        imageWithBlurView.heightAnchor.constraint(equalToConstant: 420).isActive = true
+    }
+    
     // MARK: - Method
     public func setupCell(_ person: Person) {
         imageWithBlurView.setup(person)
