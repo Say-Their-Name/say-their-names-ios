@@ -25,15 +25,15 @@
 import Foundation
 
 public struct Donation: Decodable, Hashable {
-    var id: Int
-    var title: String
-    var description: String
-    var link: String
-    var person: Person
-    var type: DonationType
+    let id: Int
+    let title: String
+    let description: String
+    let outcome: String
+    let link: String
+    let person: Person
     
     enum CodingKeys: String, CodingKey {
-        case id, title, description, link, person, type
+        case id, title, description, outcome, link, person
     }
     
     public static func == (lhs: Donation, rhs: Donation) -> Bool {

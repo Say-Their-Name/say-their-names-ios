@@ -18,9 +18,9 @@ final class DonationsMoreDetailsController: BaseViewController {
     
     // MARK: - Property
     var donation: Donation?
-    var dataSource: UICollectionViewDiffableDataSource<DonationSectionLayoutKind, Donation>!
     
-    let navigationBarTextAttributes = [
+    private var dataSource: UICollectionViewDiffableDataSource<DonationSectionLayoutKind, Donation>!
+    private let navigationBarTextAttributes = [
         NSAttributedString.Key.foregroundColor: UIColor.white,
         NSAttributedString.Key.font: UIFont.STN.navBarTitle
     ]
@@ -28,7 +28,7 @@ final class DonationsMoreDetailsController: BaseViewController {
     // MARK: - View
     private lazy var collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: Self.donationMoreDetailsCVLayout)
-        
+        collectionView.backgroundColor = .clear
         return collectionView
     }()
     
@@ -39,20 +39,20 @@ final class DonationsMoreDetailsController: BaseViewController {
         configureSubview()
         setupNavigationBarItems()
         configureDataSource()
-        
+    
         if let donation = donation {
-            var snapshot = NSDiffableDataSourceSnapshot<DonationSectionLayoutKind, Donation>()
-            snapshot.appendItems([donation])
-            
-            dataSource.apply(snapshot)
+            setupDataSource(for: donation)
         } else {
-            // make moc data
+            getMOCData()
         }
     }
     
     // MARK: - Class Method
     private func configureSubview() {
+        view.backgroundColor = UIColor.STN.white
+        
         collectionView.fillSuperview(superView: view, padding: .zero)
+        collectionView.register(DMDTitleCell.self, forCellWithReuseIdentifier: DMDTitleCell.reuseIdentifier)
     }
     
     private func setupNavigationBarItems() {
@@ -64,24 +64,43 @@ final class DonationsMoreDetailsController: BaseViewController {
         self.navigationController?.navigationBar.titleTextAttributes =
         [NSAttributedString.Key.foregroundColor: UIColor.white,
          NSAttributedString.Key.font: UIFont(name: "Karla-Regular", size: 19) ?? UIFont.systemFont(ofSize: 17)]
-        
-        let dismissActionGesture = UITapGestureRecognizer(target: self, action: #selector(dismissAction(_:)))
-        let shareActionGesture = UITapGestureRecognizer(target: self, action: #selector(shareAction(_:)))
 
         let dismissButton = UIButton(type: .system)
-        dismissButton.addGestureRecognizer(dismissActionGesture)
         dismissButton.setImage(UIImage(named: "Close Icon")?.withRenderingMode(.alwaysOriginal), for: .normal)
         dismissButton.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
+        dismissButton.addTarget(self, action: #selector(dismissAction(_:)), for: .touchUpInside)
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: dismissButton)
         
         let shareButton = UIButton(type: .system)
-        shareButton.addGestureRecognizer(shareActionGesture)
         shareButton.setImage(UIImage(named: "share_white")?.withRenderingMode(.alwaysOriginal), for: .normal)
         shareButton.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
+        shareButton.addTarget(self, action: #selector(shareAction(_:)), for: .touchUpInside)
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: shareButton)
         
         navigationController?.navigationBar.isTranslucent = false
         navigationController?.navigationBar.barTintColor = .black
+    }
+    
+    private func setupDataSource(for donation: Donation) {
+        var snapshot = NSDiffableDataSourceSnapshot<DonationSectionLayoutKind, Donation>()
+        
+        snapshot.appendSections([.title])
+        snapshot.appendItems([donation])
+        
+        self.dataSource.apply(snapshot)
+    }
+    
+    private func getMOCData() {
+        self.service.network.fetchDonations { [weak self] (result) in
+            guard let self = self else { return }
+            switch result {
+            case .success(let page):
+                let donation = page.all.first!
+                self.setupDataSource(for: donation)
+            case .failure(let error):
+                Log.print(error)
+            }
+        }
     }
     
     // MARK: - Button Action
@@ -96,9 +115,8 @@ final class DonationsMoreDetailsController: BaseViewController {
     // MARK: - DataSource
     private func configureDataSource() {
         // Create DataSource for cells
-        dataSource = UICollectionViewDiffableDataSource<DonationSectionLayoutKind, Donation> (
-            collectionView: collectionView,
-            cellProvider: { (collectionView, indexPath, donation) -> UICollectionViewCell? in
+        dataSource =
+            UICollectionViewDiffableDataSource<DonationSectionLayoutKind, Donation>(collectionView: collectionView, cellProvider: { (collectionView, indexPath, donation) -> UICollectionViewCell? in
                 switch indexPath.section {
                 // Title Section
                 case DonationSectionLayoutKind.title.rawValue:
