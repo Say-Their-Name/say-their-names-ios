@@ -80,26 +80,27 @@ final class HomeView: UIView {
                 let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
                                                       heightDimension: .fractionalHeight(1.0))
                 let layoutItem = NSCollectionLayoutItem(layoutSize: itemSize)
+                
                 let layoutGroupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(groupWidth),
-                                                             heightDimension: .estimated(170))
+                                                             heightDimension: .absolute(170))
                 let group = NSCollectionLayoutGroup.horizontal(layoutSize: layoutGroupSize, subitems: [layoutItem])
-                let spacing = CGFloat(10)
-                group.interItemSpacing = .fixed(spacing)
+                group.interItemSpacing = .fixed(Self.interSpacingH)
+                
                 let headerSection = NSCollectionLayoutSection(group: group)
                 headerSection.orthogonalScrollingBehavior = .groupPaging
-                headerSection.interGroupSpacing = spacing
+                headerSection.interGroupSpacing = Self.interSpacingH
                 section = headerSection
             
             case .main:
                 let columns = deviceWidth == .compact ? 2 : 4
                 
                 let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
-
                 let layoutItem = NSCollectionLayoutItem(layoutSize: itemSize)
 
                 let layoutGroupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(300))
                 let group = NSCollectionLayoutGroup.horizontal(layoutSize: layoutGroupSize, subitem: layoutItem, count: columns)
-                group.interItemSpacing = .fixed(10)
+                group.interItemSpacing = .fixed(Self.interSpacingH)
+                
                 let mainSection = NSCollectionLayoutSection(group: group)
                 section = mainSection
             }
@@ -109,7 +110,10 @@ final class HomeView: UIView {
             
             return section
         })
-        layout.configuration.interSectionSpacing = 10
+        
+        let config = UICollectionViewCompositionalLayoutConfiguration()
+        config.interSectionSpacing = Self.interSpacingV
+        layout.configuration = config
         return layout
     }
     
@@ -249,4 +253,6 @@ final class HomeView: UIView {
     static let insetCompact: CGFloat = 16
     static let insetRegular: CGFloat = 20
     
+    static let interSpacingH: CGFloat = 10
+    static let interSpacingV: CGFloat = 20
 }

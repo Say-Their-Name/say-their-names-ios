@@ -26,9 +26,7 @@ import UIKit
 
 final class PersonCollectionViewDataSourceHelper {
 
-    typealias PersonCollectionViewDataSource = UICollectionViewDiffableDataSource<Section, SectionData>
-    
-    enum Section: Int, CaseIterable {
+    enum Section: Hashable {
         case carousel
         case main
     }
@@ -37,6 +35,8 @@ final class PersonCollectionViewDataSourceHelper {
         case person(Person)
         case header(HeaderCellContent)
     }
+    
+    typealias PersonCollectionViewDataSource = UICollectionViewDiffableDataSource<Section, SectionData>
 
     let dataSource: PersonCollectionViewDataSource
     

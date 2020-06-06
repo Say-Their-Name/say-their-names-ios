@@ -86,24 +86,6 @@ final class PersonCell: UICollectionViewCell {
         v.translatesAutoresizingMaskIntoConstraints = false
         return v
     }()
-
-    private lazy var detailsVStack: UIStackView = {
-        let stack = UIStackView()
-        stack.axis = .vertical
-        stack.distribution = .fillEqually
-        stack.spacing = 5
-        stack.translatesAutoresizingMaskIntoConstraints = false
-        return stack
-    }()
-
-    lazy var bottomCellHStack: UIStackView = {
-        let stack = UIStackView()
-        stack.axis = .horizontal
-        stack.spacing = 0
-        stack.alignment = .top
-        stack.translatesAutoresizingMaskIntoConstraints = false
-        return stack
-    }()
         
     // MARK: - Lifecycle
     
@@ -125,49 +107,27 @@ final class PersonCell: UICollectionViewCell {
     }
     
     private func setUp() {
-//<<<<<<< HEAD
-        detailsVStack.addArrangedSubview(nameLabel)
-        detailsVStack.addArrangedSubview(dateOfIncidentLabel)
-        bottomCellHStack.addArrangedSubview(detailsVStack)
-        bottomCellHStack.addArrangedSubview(bookmarkButton)
-//=======
-//        labelsAndButtonContainer.addSubview(nameLabel)
-//        labelsAndButtonContainer.addSubview(dateOfIncidentLabel)
-//        labelsAndButtonContainer.addSubview(bookmarkButton)
-//        NSLayoutConstraint.activate([
-//            nameLabel.topAnchor.constraint(equalTo: labelsAndButtonContainer.topAnchor),
-//            nameLabel.leadingAnchor.constraint(equalTo: labelsAndButtonContainer.leadingAnchor),
-//            nameLabel.trailingAnchor.constraint(equalTo: bookmarkButton.leadingAnchor, constant: 4),
-//
-//            dateOfIncidentLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor),
-//            dateOfIncidentLabel.leadingAnchor.constraint(equalTo: nameLabel.leadingAnchor),
-//            dateOfIncidentLabel.bottomAnchor.constraint(equalTo: labelsAndButtonContainer.bottomAnchor, constant: -20),
-//            dateOfIncidentLabel.trailingAnchor.constraint(equalTo: labelsAndButtonContainer.trailingAnchor),
-//
-//            bookmarkButton.topAnchor.constraint(equalTo: nameLabel.topAnchor),
-//            bookmarkButton.trailingAnchor.constraint(equalTo: labelsAndButtonContainer.trailingAnchor)
-//        ])
+        labelsAndButtonContainer.addSubview(nameLabel)
+        labelsAndButtonContainer.addSubview(dateOfIncidentLabel)
+        labelsAndButtonContainer.addSubview(bookmarkButton)
+        NSLayoutConstraint.activate([
+            nameLabel.topAnchor.constraint(equalTo: labelsAndButtonContainer.topAnchor),
+            nameLabel.leadingAnchor.constraint(equalTo: labelsAndButtonContainer.leadingAnchor),
+            nameLabel.trailingAnchor.constraint(equalTo: bookmarkButton.leadingAnchor, constant: 4),
+
+            dateOfIncidentLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor),
+            dateOfIncidentLabel.leadingAnchor.constraint(equalTo: nameLabel.leadingAnchor),
+            dateOfIncidentLabel.bottomAnchor.constraint(equalTo: labelsAndButtonContainer.bottomAnchor, constant: -20),
+            dateOfIncidentLabel.trailingAnchor.constraint(equalTo: labelsAndButtonContainer.trailingAnchor),
+
+            bookmarkButton.topAnchor.constraint(equalTo: nameLabel.topAnchor),
+            bookmarkButton.trailingAnchor.constraint(equalTo: labelsAndButtonContainer.trailingAnchor)
+        ])
         
-//>>>>>>> 6ef73808d23fc1784f9914ef2fe68071d76f6fff
         containerStack.addArrangedSubview(profileImageView)
-        containerStack.addArrangedSubview(bottomCellHStack)
+        containerStack.addArrangedSubview(labelsAndButtonContainer)
         addSubview(containerStack)
-        profileImageView.anchor(top: topAnchor,
-                                leading: leadingAnchor,
-                                bottom: bottomCellHStack.topAnchor,
-                                trailing: trailingAnchor,
-                                padding: .init(top: 10,
-                                               left: 0,
-                                               bottom: 10,
-                                               right: 0))
-        bookmarkButton.anchor(top: nil,
-                              leading: nil,
-                              bottom: nil,
-                              trailing: trailingAnchor)
-        containerStack.anchor(top: topAnchor,
-                              leading: leadingAnchor,
-                              bottom: bottomAnchor,
-                              trailing: trailingAnchor)
+        containerStack.fillSuperview()
     }
 
     override func didMoveToSuperview() {
