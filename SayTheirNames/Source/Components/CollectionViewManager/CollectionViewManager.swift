@@ -25,7 +25,7 @@
 import UIKit
 
 /// Responsible for handling updates to a `UICollectionView`'s DataSource
-class CollectionViewManager<Section: Hashable, Item: Hashable>: NSObject, UICollectionViewDelegate {
+class CollectionViewManager<Section: Hashable, Item: Hashable>: NSObject, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     /// Callback that is responsible for configuring the `UICollectionViewCell`
     /// ~~~
@@ -79,6 +79,16 @@ class CollectionViewManager<Section: Hashable, Item: Hashable>: NSObject, UIColl
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let item = dataSource?.itemIdentifier(for: indexPath) else { return }
         didSelectItem?(item)
+    }
+    
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        sizeForItemAt indexPath: IndexPath
+    ) -> CGSize {
+        let flowLayout = collectionViewLayout as? UICollectionViewFlowLayout
+        let size = flowLayout.flatMap { $0.estimatedItemSize } ?? .zero
+        return size
     }
 }
 

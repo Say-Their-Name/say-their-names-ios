@@ -31,8 +31,9 @@ final class CallToActionCell: UICollectionViewCell {
     private lazy var imageView = UIImageView.create {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.contentMode = .scaleAspectFill
+        $0.clipsToBounds = true
         
-        // TODO: remove dummy data
+        // TODO: set proper placeholder
         $0.image = UIImage(named: "media-image-1")
     }
     
@@ -49,9 +50,6 @@ final class CallToActionCell: UICollectionViewCell {
         $0.textColor = UIColor.STN.primaryLabel
         $0.font = UIFont.STN.ctaTitle
         $0.numberOfLines = 2
-        
-        // TODO: remove dummy data
-        $0.text = "Black Lives Matter Resources"
     }
     
     private lazy var bodyLabel = UILabel.create {
@@ -59,9 +57,6 @@ final class CallToActionCell: UICollectionViewCell {
         $0.textColor = UIColor.STN.primaryLabel
         $0.font = UIFont.STN.ctaBody
         $0.numberOfLines = 3
-        
-        // TODO: remove dummy data
-        $0.text = "Following the tragic news surrounding the murder of George Floyd by Minneapolis police officers..."
     }
     
     private lazy var actionButton = UIButton.create {
@@ -78,11 +73,12 @@ final class CallToActionCell: UICollectionViewCell {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.axis = .vertical
         $0.spacing = Self.stackViewSpacing
+        $0.distribution = .equalSpacing
     }
     
     private lazy var containerView = UIView.create {
         $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.backgroundColor = .secondarySystemBackground
+        $0.backgroundColor = .tertiarySystemBackground
         $0.layer.borderWidth = Self.containerViewBorderWidth
         $0.layer.borderColor = UIColor.STN.gray.cgColor
     }
@@ -110,8 +106,10 @@ final class CallToActionCell: UICollectionViewCell {
         let guide = contentView.layoutMarginsGuide
         NSLayoutConstraint.activate([
             tagView.topAnchor.constraint(equalTo: imageView.topAnchor, constant: 8),
-            tagView.leadingAnchor.constraint(equalTo: imageView.leadingAnchor, constant: -Self.defaultPadding),
+            tagView.trailingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: -Self.defaultPadding),
             
+            imageView.leadingAnchor.constraint(equalTo: stackView.leadingAnchor),
+            imageView.trailingAnchor.constraint(equalTo: stackView.trailingAnchor),
             imageView.heightAnchor.constraint(equalToConstant: Self.imageViewHeight),
             
             titleLabel.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: Self.defaultPadding),
@@ -122,6 +120,7 @@ final class CallToActionCell: UICollectionViewCell {
             
             actionButton.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: Self.defaultPadding),
             actionButton.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: -Self.defaultPadding),
+            actionButton.heightAnchor.constraint(equalToConstant: Self.actionButtonHeight),
             
             stackView.topAnchor.constraint(equalTo: containerView.topAnchor),
             stackView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
@@ -138,7 +137,8 @@ final class CallToActionCell: UICollectionViewCell {
     func configure(with cta: CallToAction) {
         actionButton.setTitle(cta.actionTitle, for: .normal)
         bodyLabel.text = cta.body
-        imageView.image = cta.image
+        cta.imagePath.flatMap { imageView.populate(withURL: $0) }
+        tagView.isHidden = cta.tag == nil || cta.tag?.isEmpty == true
         cta.tag.flatMap { tagView.setTitle(to: $0) }
         titleLabel.text = cta.title
     }
@@ -152,14 +152,31 @@ final class CallToActionCell: UICollectionViewCell {
         super.prepareForReuse()
         actionButton.setTitle(nil, for: .normal)
         bodyLabel.text = nil
-        imageView.image = nil
+        // TODO: Reenable when placeholder is finished
+//        imageView.image = nil
         tagView.prepareForReuse()
         titleLabel.text = nil
+    }
+    
+    override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
+        setNeedsLayout()
+        layoutIfNeeded()
+        
+        let size = contentView.systemLayoutSizeFitting(layoutAttributes.size)
+        var frame = layoutAttributes.frame
+        frame.origin = .zero
+        frame.size.height = ceil(size.height)
+        // TODO: Need a better way of getting the width of the cell
+        frame.size.width = ceil(UIScreen.main.bounds.width)
+        layoutAttributes.frame = frame
+        
+        return layoutAttributes
     }
 }
 
 private extension CallToActionCell {
     static let actionButtonBorderWidth: CGFloat = 2
+    static let actionButtonHeight: CGFloat = 50
     static let containerViewBorderWidth: CGFloat = 2
     static let defaultPadding: CGFloat = 16
     static let imageViewHeight: CGFloat = 125

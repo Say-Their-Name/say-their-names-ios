@@ -30,6 +30,7 @@ class CallToActionCollectionView: UICollectionView {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         layout.itemSize = UICollectionViewFlowLayout.automaticSize
+        layout.estimatedItemSize = CGSize(width: 330, height: 300)
         
         super.init(frame: .zero, collectionViewLayout: layout)
         setupSelf()

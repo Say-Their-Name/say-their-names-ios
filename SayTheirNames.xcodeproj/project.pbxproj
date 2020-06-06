@@ -71,6 +71,7 @@
 		9E920267248C32440007AFCE /* UITraitCollection++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E920266248C32440007AFCE /* UITraitCollection++.swift */; };
 		9E920269248C36C50007AFCE /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E920268248C36C50007AFCE /* TagView.swift */; };
 		9E92026B248C39090007AFCE /* UIStackView++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E92026A248C39090007AFCE /* UIStackView++.swift */; };
+		9E92026D248C3F2F0007AFCE /* DonationsCollectionViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E92026C248C3F2F0007AFCE /* DonationsCollectionViewManager.swift */; };
 		9E974591248B8A5000DB5E32 /* FilterCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E974590248B8A5000DB5E32 /* FilterCategory.swift */; };
 		9E974593248B8D8200DB5E32 /* Creatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E974592248B8D8200DB5E32 /* Creatable.swift */; };
 		9EC6DD46248B7853006CC5A7 /* CollectionViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC6DD45248B7853006CC5A7 /* CollectionViewManager.swift */; };
@@ -234,6 +235,7 @@
 		9E920266248C32440007AFCE /* UITraitCollection++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITraitCollection++.swift"; sourceTree = "<group>"; };
 		9E920268248C36C50007AFCE /* TagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
 		9E92026A248C39090007AFCE /* UIStackView++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView++.swift"; sourceTree = "<group>"; };
+		9E92026C248C3F2F0007AFCE /* DonationsCollectionViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationsCollectionViewManager.swift; sourceTree = "<group>"; };
 		9E974590248B8A5000DB5E32 /* FilterCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCategory.swift; sourceTree = "<group>"; };
 		9E974592248B8D8200DB5E32 /* Creatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Creatable.swift; sourceTree = "<group>"; };
 		9EC6DD45248B7853006CC5A7 /* CollectionViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewManager.swift; sourceTree = "<group>"; };
@@ -691,6 +693,7 @@
 				7A5BFA162488315D00BC265A /* DonationsView.swift */,
 				9EC6DD4B248B82DD006CC5A7 /* DonationFilterViewManager.swift */,
 				9EC6DD4D248B834B006CC5A7 /* DonationFilter.swift */,
+				9E92026C248C3F2F0007AFCE /* DonationsCollectionViewManager.swift */,
 			);
 			path = Donations;
 			sourceTree = "<group>";
@@ -1168,6 +1171,7 @@
 				9E7DBAF5248481DA00635A56 /* FileDownloader.swift in Sources */,
 				9EC6DD46248B7853006CC5A7 /* CollectionViewManager.swift in Sources */,
 				D7A96091248A676A005E0153 /* ButtonContainerView.swift in Sources */,
+				9E92026D248C3F2F0007AFCE /* DonationsCollectionViewManager.swift in Sources */,
 				9E920263248C2BEB0007AFCE /* CallToActionCell.swift in Sources */,
 				B3D6B6AF2487E10100D3118C /* Reusable.swift in Sources */,
 				A9AC832A248B31FE0000A851 /* SearchNetworkRequestor.swift in Sources */,

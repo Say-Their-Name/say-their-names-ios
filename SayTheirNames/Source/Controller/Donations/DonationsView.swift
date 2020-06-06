@@ -42,6 +42,7 @@ final class DonationsView: UIView {
     
     private lazy var donationsCollectionView = CallToActionCollectionView().configure {
         $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.register(cellType: CallToActionCell.self)
     }
     
     override init(frame: CGRect) {
@@ -87,6 +88,11 @@ final class DonationsView: UIView {
     /// Binds a `CollectionViewManager` to the `filterView`
     func bindFilterManager(_ filterManager: DonationFilterViewManager) {
         filterManager.configure(with: filtersView)
+    }
+    
+    /// Binds a `CollectionViewManager` to the `donationsCollectionView`
+    func bindDonationManager(_ donationManager: DonationsCollectionViewManager) {
+        donationManager.configure(with: donationsCollectionView)
     }
 }
 
