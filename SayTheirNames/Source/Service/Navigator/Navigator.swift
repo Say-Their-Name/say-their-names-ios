@@ -31,7 +31,7 @@ final class Navigator: ServiceReferring {
     
     // MARK: - Public methods
     
-    init(service: Servicing) {
+    init(service: Servicing = Service.shared) {
         self.service = service
         self.rootViewController = MainTabBarController(service: service)
         self.window = UIWindow()
