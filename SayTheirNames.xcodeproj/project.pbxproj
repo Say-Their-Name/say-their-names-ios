@@ -382,13 +382,13 @@
 			isa = PBXGroup;
 			children = (
 				7419B4AE248A2E0800D466C8 /* PersonInfoTableViewCell.swift */,
-				7419B4B2248A2E0800D466C8 /* PersonMediaCollectionViewCell.swift */,
-				7419B4B1248A2E0800D466C8 /* PersonNewsCollectionViewCell.swift */,
 				7419B4AF248A2E0800D466C8 /* PersonNewsTableViewCell.swift */,
 				7419B4B0248A2E0800D466C8 /* PersonOverviewTableViewCell.swift */,
 				7419B4AD248A2E0800D466C8 /* PersonPhotoTableViewCell.swift */,
-				5B026C51248AECB700335A17 /* PersonHashtagCollectionViewCell.swift */,
 				5B026C53248AEE8F00335A17 /* PersonHashtagTableViewCell.swift */,
+				5B026C51248AECB700335A17 /* PersonHashtagCollectionViewCell.swift */,
+				7419B4B2248A2E0800D466C8 /* PersonMediaCollectionViewCell.swift */,
+				7419B4B1248A2E0800D466C8 /* PersonNewsCollectionViewCell.swift */,
 			);
 			name = Cells;
 			path = Views;
