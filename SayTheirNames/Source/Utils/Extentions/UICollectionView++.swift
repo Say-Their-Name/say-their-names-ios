@@ -59,7 +59,7 @@ extension UICollectionView {
         }
         return view
     }
-    
+  
     func scrollToNearestVisibleCollectionViewCell() {
         self.decelerationRate = UIScrollView.DecelerationRate.fast
         let visibleCenterPositionOfScrollView = Float(self.contentOffset.x + (self.bounds.size.width / 2))
@@ -78,5 +78,11 @@ extension UICollectionView {
         if closestCellIndex != -1 {
             self.scrollToItem(at: IndexPath(row: closestCellIndex, section: 0), at: .centeredHorizontally, animated: true)
         }
+
+    public func displayableIndexAndTotal(fromIndexPath: IndexPath, section: Int) -> (Int, Int) {
+        let index = fromIndexPath.row + 1
+        let total = self.numberOfItems(inSection: section)
+
+        return (index, total)
     }
 }

@@ -27,9 +27,9 @@ import Alamofire
 
 // MARK: - PetitionEnvironment
 enum PetitionEnvironment {
-    static let baseUrlSring: String = { return "\(Environment.serverURLString)/api/petitions" }()
-    static let petitionsSearchString: String = { return "\(DonationsEnvironment.baseUrlSring)/?name=" }()
-    static let petitionsTypeSearchString: String = { return "\(DonationsEnvironment.baseUrlSring)/?type=" }()
+    static let baseURLString: String = { return "\(Environment.serverURLString)/api/petitions" }()
+    static let petitionsSearchString: String = { return "\(DonationsEnvironment.baseURLString)/?name=" }()
+    static let petitionsTypeSearchString: String = { return "\(DonationsEnvironment.baseURLString)/?type=" }()
 }
 
 // MARK: - NetworkRequestor (Petition)
@@ -37,7 +37,7 @@ extension NetworkRequestor {
     // MARK: - Public methods
     
     public func fetchPetitions(completion: @escaping (Result<PetitionsResponsePage, AFError>) -> Swift.Void) {
-        self.fetchDecodable(PetitionEnvironment.baseUrlSring, completion: completion)
+        self.fetchDecodable(PetitionEnvironment.baseURLString, completion: completion)
     }
     
     public func fetchPetitionsByPersonName(_ name: String, completion: @escaping (Result<DonationsResponsePage, AFError>) -> Swift.Void) {
