@@ -94,7 +94,6 @@
 		A91B07C82484751700DB803C /* String+STN.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B07C72484751700DB803C /* String+STN.swift */; };
 		A91B07CA24847DE500DB803C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A91B07C924847DE500DB803C /* GoogleService-Info.plist */; };
 		A91B07CF24849D8400DB803C /* ServiceReferring.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B07CE24849D8400DB803C /* ServiceReferring.swift */; };
-		A91B07D224849E1800DB803C /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B07D124849E1800DB803C /* BaseViewController.swift */; };
 		A93367C8248983B1001F1E28 /* DonationsNetworkRequestor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93367C3248983B1001F1E28 /* DonationsNetworkRequestor.swift */; };
 		A93367C9248983B1001F1E28 /* PetitionsNetworkRequestor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93367C4248983B1001F1E28 /* PetitionsNetworkRequestor.swift */; };
 		A93367CA248983B1001F1E28 /* PeopleNetworkRequestor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93367C5248983B1001F1E28 /* PeopleNetworkRequestor.swift */; };
@@ -246,7 +245,6 @@
 		A91B07C72484751700DB803C /* String+STN.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+STN.swift"; sourceTree = "<group>"; };
 		A91B07C924847DE500DB803C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A91B07CE24849D8400DB803C /* ServiceReferring.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceReferring.swift; sourceTree = "<group>"; };
-		A91B07D124849E1800DB803C /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		A93367C3248983B1001F1E28 /* DonationsNetworkRequestor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DonationsNetworkRequestor.swift; sourceTree = "<group>"; };
 		A93367C4248983B1001F1E28 /* PetitionsNetworkRequestor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetitionsNetworkRequestor.swift; sourceTree = "<group>"; };
 		A93367C5248983B1001F1E28 /* PeopleNetworkRequestor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleNetworkRequestor.swift; sourceTree = "<group>"; };
@@ -590,7 +588,6 @@
 			isa = PBXGroup;
 			children = (
 				74DE10842486DF7400211B83 /* Settings */,
-				A91B07D024849E0C00DB803C /* Base */,
 				A91B077824835CF700DB803C /* Donations */,
 				A91B077224835CF700DB803C /* Home */,
 				83E9CACE2484A4DE001D173A /* Launch */,
@@ -749,14 +746,6 @@
 				A91B07BF2484705400DB803C /* Navigator.swift */,
 			);
 			path = Navigator;
-			sourceTree = "<group>";
-		};
-		A91B07D024849E0C00DB803C /* Base */ = {
-			isa = PBXGroup;
-			children = (
-				A91B07D124849E1800DB803C /* BaseViewController.swift */,
-			);
-			path = Base;
 			sourceTree = "<group>";
 		};
 		A93367C1248983B1001F1E28 /* Networking */ = {
@@ -1103,7 +1092,6 @@
 				9E7DBAF7248481DA00635A56 /* FileDataProvider.swift in Sources */,
 				A91B07A424835CF700DB803C /* UIFont+STN.swift in Sources */,
 				7CE75F452489B78400168DDA /* MockPetition.swift in Sources */,
-				A91B07D224849E1800DB803C /* BaseViewController.swift in Sources */,
 				9E7DBAF6248481DA00635A56 /* AsyncOperation.swift in Sources */,
 				A91B07C02484705400DB803C /* Navigator.swift in Sources */,
 				A91B07BD24846ED700DB803C /* Log.swift in Sources */,

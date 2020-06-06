@@ -54,6 +54,7 @@ class CustomSearchBar: UIView {
         guard let superView = controller.view else { return }
         let textFieldInsideSearchBar = searchBar.value(forKey: "searchField") as? UITextField
         textFieldInsideSearchBar?.textColor = .white
+        textFieldInsideSearchBar?.leftView?.tintColor = .white
         alpha = 0
         searchResultView.alpha = 0
         anchor(
