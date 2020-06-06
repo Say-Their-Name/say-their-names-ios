@@ -33,6 +33,7 @@
 		7A5BFA172488315D00BC265A /* DonationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5BFA162488315D00BC265A /* DonationsView.swift */; };
 		7A5BFA192488821500BC265A /* DateFormatterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5BFA182488821500BC265A /* DateFormatterService.swift */; };
 		7A5BFA1B2488871C00BC265A /* DateFormatterServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5BFA1A2488871C00BC265A /* DateFormatterServiceTests.swift */; };
+		7C166DC0248BB0310017A25A /* SearchNetworkRequestorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C166DBF248BB0310017A25A /* SearchNetworkRequestorTests.swift */; };
 		7C47A93524873F1200B8D3BE /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C47A93424873F1200B8D3BE /* HomeView.swift */; };
 		7CAD53E3248A2A9F001CFF08 /* NetworkRequestorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAD53E2248A2A9F001CFF08 /* NetworkRequestorTests.swift */; };
 		7CAD53E6248A2AEE001CFF08 /* DonationsNetworkRequestorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAD53E5248A2AEE001CFF08 /* DonationsNetworkRequestorTests.swift */; };
@@ -180,6 +181,7 @@
 		7A5BFA162488315D00BC265A /* DonationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationsView.swift; sourceTree = "<group>"; };
 		7A5BFA182488821500BC265A /* DateFormatterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DateFormatterService.swift; path = DateFormatter/DateFormatterService.swift; sourceTree = "<group>"; };
 		7A5BFA1A2488871C00BC265A /* DateFormatterServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DateFormatterServiceTests.swift; path = DateFormatterServiceTest/DateFormatterServiceTests.swift; sourceTree = "<group>"; };
+		7C166DBF248BB0310017A25A /* SearchNetworkRequestorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchNetworkRequestorTests.swift; sourceTree = "<group>"; };
 		7C47A93424873F1200B8D3BE /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		7CAD53E2248A2A9F001CFF08 /* NetworkRequestorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequestorTests.swift; sourceTree = "<group>"; };
 		7CAD53E5248A2AEE001CFF08 /* DonationsNetworkRequestorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationsNetworkRequestorTests.swift; sourceTree = "<group>"; };
@@ -428,6 +430,7 @@
 				7CAD53E5248A2AEE001CFF08 /* DonationsNetworkRequestorTests.swift */,
 				7CAD53E7248A326F001CFF08 /* PetitionsNetworkRequestorTests.swift */,
 				7CAD53E9248A32FC001CFF08 /* PeopleNetworkRequestorTests.swift */,
+				7C166DBF248BB0310017A25A /* SearchNetworkRequestorTests.swift */,
 			);
 			path = Requestors;
 			sourceTree = "<group>";
@@ -1184,6 +1187,7 @@
 			files = (
 				7A5BFA1B2488871C00BC265A /* DateFormatterServiceTests.swift in Sources */,
 				B386F9552482FB540037A38D /* UIFontSTNTests.swift in Sources */,
+				7C166DC0248BB0310017A25A /* SearchNetworkRequestorTests.swift in Sources */,
 				5F62B732248975CF00ACE032 /* LocationCollectionViewDataSourceTests.swift in Sources */,
 				7CAD53EA248A32FC001CFF08 /* PeopleNetworkRequestorTests.swift in Sources */,
 				7CAD53E6248A2AEE001CFF08 /* DonationsNetworkRequestorTests.swift in Sources */,

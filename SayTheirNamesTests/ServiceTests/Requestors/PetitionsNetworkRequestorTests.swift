@@ -28,7 +28,7 @@ import XCTest
 
 extension NetworkRequestorTests {
     func test_fetchPetitions_makesRequest() {
-        guard let apiEndpoint = URL(string: PetitionEnvironment.baseUrlSring) else {
+        guard let apiEndpoint = URL(string: PetitionEnvironment.baseURLString) else {
             XCTFail("URL was not valid")
             return
         }
@@ -50,10 +50,10 @@ extension NetworkRequestorTests {
         // Wait for request to be made and returned
         wait(for: [makeRequestExpectation, returnRequestExpection], timeout: 2)
     }
-    
-    /*
+
     func test_fetchPetitionsPersonName_makesRequest() {
-        guard let apiEndpoint = URL(string: PetitionEnvironment.petitionsSearchString) else {
+        let name = "george"
+        guard let apiEndpoint = URL(string: "\(PetitionEnvironment.petitionsSearchString)\(name)") else {
             XCTFail("URL was not valid")
             return
         }
@@ -68,16 +68,17 @@ extension NetworkRequestorTests {
 
         // Make request and expect that a result is returned
         let returnRequestExpection = expectation(description: "Request should return")
-        self.sut.fetchPetitionsByPersonName("george") { _ in
+        self.sut.fetchPetitionsByPersonName(name) { _ in
             returnRequestExpection.fulfill()
         }
 
         // Wait for request to be made and returned
-        wait(for: [makeRequestExpectation, returnRequestExpection], timeout: 15)
+        wait(for: [makeRequestExpectation, returnRequestExpection], timeout: 2)
     }
     
     func test_fetchPetitionsByType_makesRequest() {
-        guard let apiEndpoint = URL(string: PetitionEnvironment.petitionsTypeSearchString) else {
+        let type = "victim"
+        guard let apiEndpoint = URL(string: "\(PetitionEnvironment.petitionsTypeSearchString)\(type)") else {
             XCTFail("URL was not valid")
             return
         }
@@ -92,11 +93,11 @@ extension NetworkRequestorTests {
 
         // Make request and expect that a result is returned
         let returnRequestExpection = expectation(description: "Request should return")
-        self.sut.fetchPetitionsByType("victim") { _ in
+        self.sut.fetchPetitionsByType(type) { _ in
             returnRequestExpection.fulfill()
         }
 
         // Wait for request to be made and returned
-        wait(for: [makeRequestExpectation, returnRequestExpection], timeout: 15)
-    }*/
+        wait(for: [makeRequestExpectation, returnRequestExpection], timeout: 2)
+    }
 }

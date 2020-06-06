@@ -28,7 +28,7 @@ import XCTest
 
 extension NetworkRequestorTests {
     func test_fetchPeople_makesRequest() {
-        guard let apiEndpoint = URL(string: PersonEnvironment.baseUrlSring) else {
+        guard let apiEndpoint = URL(string: PersonEnvironment.baseURLString) else {
             XCTFail("URL was not valid")
             return
         }
@@ -50,10 +50,10 @@ extension NetworkRequestorTests {
         // Wait for request to be made and returned
         wait(for: [makeRequestExpectation, returnRequestExpection], timeout: 2)
     }
-    
-    /*
+
     func test_fetchPeopleByName_makesRequest() {
-        guard let apiEndpoint = URL(string: PersonEnvironment.peopleSearchString) else {
+        let name = "george"
+        guard let apiEndpoint = URL(string: "\(PersonEnvironment.baseURLString)?name=\(name)") else {
             XCTFail("URL was not valid")
             return
         }
@@ -68,16 +68,17 @@ extension NetworkRequestorTests {
 
         // Make request and expect that a result is returned
         let returnRequestExpection = expectation(description: "Request should return")
-        self.sut.fetchPeopleByName("george") { _ in
+        self.sut.fetchPeopleByName(name) { _ in
             returnRequestExpection.fulfill()
         }
 
         // Wait for request to be made and returned
-        wait(for: [makeRequestExpectation, returnRequestExpection], timeout: 15)
+        wait(for: [makeRequestExpectation, returnRequestExpection], timeout: 2)
     }
     
     func test_fetchPeopleByCity_makesRequest() {
-        guard let apiEndpoint = URL(string: PersonEnvironment.citySeachUrlString) else {
+        let city = "minnesota"
+        guard let apiEndpoint = URL(string: "\(PersonEnvironment.baseURLString)?city=\(city)") else {
             XCTFail("URL was not valid")
             return
         }
@@ -92,16 +93,18 @@ extension NetworkRequestorTests {
 
         // Make request and expect that a result is returned
         let returnRequestExpection = expectation(description: "Request should return")
-        self.sut.fetchPeopleByCity("minnesota") { _ in
+        self.sut.fetchPeopleByCity(city) { _ in
             returnRequestExpection.fulfill()
         }
 
         // Wait for request to be made and returned
-        wait(for: [makeRequestExpectation, returnRequestExpection], timeout: 15)
+        wait(for: [makeRequestExpectation, returnRequestExpection], timeout: 2)
     }
     
     func test_fetchPeopleByCountry_makesRequest() {
-        guard let apiEndpoint = URL(string: PersonEnvironment.countrySeachUrlString) else {
+        let country = "united states"
+        let urlEncoded = country.replacingOccurrences(of: " ", with: "%20")
+        guard let apiEndpoint = URL(string: "\(PersonEnvironment.baseURLString)?country=\(urlEncoded)") else {
             XCTFail("URL was not valid")
             return
         }
@@ -116,11 +119,11 @@ extension NetworkRequestorTests {
 
         // Make request and expect that a result is returned
         let returnRequestExpection = expectation(description: "Request should return")
-        self.sut.fetchPeopleByCountry("united states") { _ in
+        self.sut.fetchPeopleByCountry(country) { _ in
             returnRequestExpection.fulfill()
         }
 
         // Wait for request to be made and returned
-        wait(for: [makeRequestExpectation, returnRequestExpection], timeout: 15)
-    }*/
+        wait(for: [makeRequestExpectation, returnRequestExpection], timeout: 2)
+    }
 }
