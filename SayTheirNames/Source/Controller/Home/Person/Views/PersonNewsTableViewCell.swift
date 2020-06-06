@@ -94,7 +94,8 @@ class PersonNewsTableViewCell: UITableViewCell {
     
     // Updates current cell content views
     private func updateCellViews() {
-        titleLabel.text = (cellType == PersonNewsCellType.medias) ? "MEDIA" : "NEWS"
+        let titleText = (cellType == PersonNewsCellType.medias) ? L10n.Person.media : L10n.Person.news
+        titleLabel.text = titleText.uppercased()
     }
     
     // Registers collection view cells and update current cell content views

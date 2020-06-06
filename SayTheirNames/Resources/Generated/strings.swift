@@ -31,6 +31,27 @@ internal enum L10n {
   internal static let settings = L10n.tr("Localizable", "settings")
   /// verfied
   internal static let verified = L10n.tr("Localizable", "verified")
+
+  internal enum Person {
+    /// Age
+    internal static let age = L10n.tr("Localizable", "person.age")
+    /// Children
+    internal static let children = L10n.tr("Localizable", "person.children")
+    /// Social Media Hashtags
+    internal static let hashtags = L10n.tr("Localizable", "person.hashtags")
+    /// Location
+    internal static let location = L10n.tr("Localizable", "person.location")
+    /// Media
+    internal static let media = L10n.tr("Localizable", "person.media")
+    /// News
+    internal static let news = L10n.tr("Localizable", "person.news")
+    /// Outcome
+    internal static let outcome = L10n.tr("Localizable", "person.outcome")
+    /// SAY THEIR NAMES
+    internal static let sayTheirNames = L10n.tr("Localizable", "person.say_their_names")
+    /// Their Story
+    internal static let theirStory = L10n.tr("Localizable", "person.their_story")
+  }
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name
