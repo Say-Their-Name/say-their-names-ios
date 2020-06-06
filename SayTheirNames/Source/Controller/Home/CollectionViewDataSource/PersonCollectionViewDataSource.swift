@@ -46,7 +46,7 @@ final class PersonCollectionViewDataSourceHelper {
             cell.accessibilityIdentifier = "peopleCell\(indexPath.item)"
             cell.isAccessibilityElement = true
             cell.accessibilityNavigationStyle = .automatic
-            cell.accessibilityLabel = "\(person.fullName), tap to learn more"
+            cell.accessibilityLabel = "\(person.fullName)"
             return cell
         }
         
