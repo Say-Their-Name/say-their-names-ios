@@ -1,5 +1,5 @@
 //
-//  Navigator.swift
+//  DMDSectionTitleSupplementaryView.swift
 //  SayTheirNames
 //
 //  Copyright (c) 2020 Say Their Names Team (https://github.com/Say-Their-Name)
@@ -24,29 +24,35 @@
 
 import UIKit
 
-final class Navigator: ServiceReferring {
-    let service: Servicing
-    let window: UIWindow
-    let rootViewController: MainTabBarController
+class DMDSectionTitleSupplementaryView: UICollectionReusableView {
+    // MARK: - Property
+    static let reuseIdentifier = "donations-more-details-section-title-view"
     
-    // MARK: - Public methods
+    // MARK: - View
+    lazy var titleLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = UIColor(red: 16/255.0, green: 16/255.0, blue: 16/255.0, alpha: 1)
+        label.font = UIFont(name: "Karla-Bold", size: 19)
+        label.numberOfLines = 1
+        label.minimumScaleFactor = 0.5
+        label.adjustsFontSizeToFitWidth = true
+        return label
+    }()
     
-    init(service: Servicing = Service.shared) {
-        self.service = service
-        self.rootViewController = MainTabBarController(service: service)
-        self.window = UIWindow()
-    }
-    
-    func installSceneInWindow(_ scene: UIWindowScene) -> UIWindow {
-        self.window.frame = scene.coordinateSpace.bounds
-        self.window.windowScene = scene
-        self.window.rootViewController = self.rootViewController
-        self.window.makeKeyAndVisible()
+    // MARK: - Initialization
+    override init(frame: CGRect) {
+        super.init(frame: .zero)
         
-        return self.window
+        clipsToBounds = true
+        titleLabel.fillSuperview(superView: self, padding: .zero)
     }
     
-    func setNeedsStatusBarAppearanceUpdate() {
-        self.rootViewController.setNeedsStatusBarAppearanceUpdate()
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - Method
+    public func setTitle(text: String) {
+        titleLabel.text = text
     }
 }

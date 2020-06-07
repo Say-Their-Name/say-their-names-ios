@@ -1,6 +1,6 @@
 //
-//  PetitionDetailViewController.swift
-//  Say Their Names
+//  DMDDonationButtonSupplementaryView.swift
+//  SayTheirNames
 //
 //  Copyright (c) 2020 Say Their Names Team (https://github.com/Say-Their-Name)
 //
@@ -24,40 +24,41 @@
 
 import UIKit
 
-final class PetitionDetailViewController: UIViewController {
-    var petition: PresentedPetition?
+class DMDDonationButtonSupplementaryView: UICollectionReusableView {
+    // MARK: - Property
+    static let reuseIdentifier = "donations-more-details-button-view"
+    private var buttonPressedAction: (() -> Void)?
     
-    private let petitionDetailView = PetitionDetailView()
+    // MARK: - View
+    private lazy var button: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Donate".uppercased(), for: .normal)
+        button.titleLabel?.font = UIFont.STN.sectionHeader
+        button.backgroundColor = .black
+        button.tintColor = .white
+        button.addTarget(self, action: #selector(buttonDidPress(_:)), for: .touchUpInside)
+        return button
+    }()
     
-    required init() {
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder: NSCoder) { fatalError("This should not be called") }
-
-    convenience init(petition: PresentedPetition) {
-        self.init()
-        self.petition = petition
-    }
-    
-    override func loadView() {
-        self.view = petitionDetailView
-    }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    // MARK: - Initialization
+    override init(frame: CGRect) {
+        super.init(frame: .zero)
         
-        petitionDetailView.dismissButton.addTarget(self, action: #selector(dismiss(_:)), for: .touchUpInside)
+        clipsToBounds = true
+        button.fillSuperview(superView: self, padding: .zero)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        petitionDetailView.set(petition: petition)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
-
-    @objc
-    private func dismiss(_ sender: Any) {
-        dismiss(animated: true)
+    
+    // MARK: - Button Action
+    @objc private func buttonDidPress(_ sender: Any) {
+        buttonPressedAction?()
+    }
+    
+    // MARK: - Method
+    public func setButtonPressed(action: @escaping () -> Void) {
+        buttonPressedAction = action
     }
 }

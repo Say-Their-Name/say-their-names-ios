@@ -24,12 +24,10 @@
 
 import UIKit
 
-class AboutController: UIViewController, ServiceReferring {
-    var service: Servicing
+class AboutController: UIViewController {
     private let aboutView = AboutView()
 
-    required init(service: Servicing) {
-        self.service = service
+    required init() {
         super.init(nibName: nil, bundle: nil)
     }
     

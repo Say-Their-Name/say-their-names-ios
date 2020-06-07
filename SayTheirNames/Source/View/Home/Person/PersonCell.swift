@@ -25,6 +25,8 @@
 import UIKit
 
 final class PersonCell: UICollectionViewCell {
+    @DependencyInject private var dateFormatter: DateFormatterService
+
     static let personIdentifier = "personCell"
     
     private lazy var profileImageView: UIImageView = {
@@ -69,6 +71,7 @@ final class PersonCell: UICollectionViewCell {
         btn.addTarget(self, action: #selector(didTapBookmark), for: .touchUpInside)
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.isAccessibilityElement = true
+        btn.isHidden = !FeatureFlags.bookmarksEnabled
         return btn
     }()
     

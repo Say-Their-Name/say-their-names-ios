@@ -1,6 +1,6 @@
 //
-//  PetitionDetailViewController.swift
-//  Say Their Names
+//  DMDPhotoSupplementaryView.swift
+//  SayTheirNames
 //
 //  Copyright (c) 2020 Say Their Names Team (https://github.com/Say-Their-Name)
 //
@@ -24,40 +24,28 @@
 
 import UIKit
 
-final class PetitionDetailViewController: UIViewController {
-    var petition: PresentedPetition?
+class DMDPhotoSupplementaryView: UICollectionReusableView {
+    // MARK: - Property
+    static let reuseIdentifier = "donations-more-details-photo-view"
     
-    private let petitionDetailView = PetitionDetailView()
+    // MARK: - View
+    let imageWithBlurView = ImageWithBlurView(frame: .zero)
     
-    required init() {
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder: NSCoder) { fatalError("This should not be called") }
-
-    convenience init(petition: PresentedPetition) {
-        self.init()
-        self.petition = petition
-    }
-    
-    override func loadView() {
-        self.view = petitionDetailView
-    }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    // MARK: - Initialization
+    override init(frame: CGRect) {
+        super.init(frame: .zero)
         
-        petitionDetailView.dismissButton.addTarget(self, action: #selector(dismiss(_:)), for: .touchUpInside)
+        backgroundColor = .red
+        clipsToBounds = true
+        imageWithBlurView.fillSuperview(superView: self, padding: .zero)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        petitionDetailView.set(petition: petition)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 
-    @objc
-    private func dismiss(_ sender: Any) {
-        dismiss(animated: true)
+    // MARK: - Method
+    public func configure(_ person: Person) {
+        imageWithBlurView.setup(person)
     }
 }

@@ -1,6 +1,6 @@
 //
-//  PetitionDetailViewController.swift
-//  Say Their Names
+//  DMDTextContentCell.swift
+//  SayTheirNames
 //
 //  Copyright (c) 2020 Say Their Names Team (https://github.com/Say-Their-Name)
 //
@@ -24,40 +24,39 @@
 
 import UIKit
 
-final class PetitionDetailViewController: UIViewController {
-    var petition: PresentedPetition?
+class DMDTextContentCell: UICollectionViewCell {
+    // MARK: - Property
+    static let reuseIdentifier = "donations-more-details-text-content-cell"
     
-    private let petitionDetailView = PetitionDetailView()
+    // MARK: - View
+    lazy var contentTextView: UITextView = {
+        let textView = UITextView()
+        textView.textColor = .black
+        textView.font = UIFont(name: "Karla-Regular", size: 17)
+        textView.isEditable = false
+        textView.isScrollEnabled = false
+        return textView
+    }()
     
-    required init() {
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder: NSCoder) { fatalError("This should not be called") }
-
-    convenience init(petition: PresentedPetition) {
-        self.init()
-        self.petition = petition
-    }
-    
-    override func loadView() {
-        self.view = petitionDetailView
-    }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    // MARK: - Initialization
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         
-        petitionDetailView.dismissButton.addTarget(self, action: #selector(dismiss(_:)), for: .touchUpInside)
+        configureSubview()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        petitionDetailView.set(petition: petition)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
-
-    @objc
-    private func dismiss(_ sender: Any) {
-        dismiss(animated: true)
+    
+    // MARK: - Class Method
+    private func configureSubview() {
+        contentView.addSubview(contentTextView)
+        contentTextView.fillSuperview(superView: contentView, padding: .zero)
+    }
+    
+    // MARK: - Configure Cell
+    func setContent(text: String) {
+        contentTextView.text = text
     }
 }

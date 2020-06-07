@@ -1,6 +1,6 @@
 //
-//  PetitionDetailViewController.swift
-//  Say Their Names
+//  Navigator.swift
+//  SayTheirNames
 //
 //  Copyright (c) 2020 Say Their Names Team (https://github.com/Say-Their-Name)
 //
@@ -24,40 +24,22 @@
 
 import UIKit
 
-final class PetitionDetailViewController: UIViewController {
-    var petition: PresentedPetition?
+final class Navigator: Dependency {
+    private let window: UIWindow = UIWindow()
+    lazy private(set) var rootViewController: MainTabBarController = MainTabBarController()
     
-    private let petitionDetailView = PetitionDetailView()
+    // MARK: - Public methods
     
-    required init() {
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder: NSCoder) { fatalError("This should not be called") }
-
-    convenience init(petition: PresentedPetition) {
-        self.init()
-        self.petition = petition
-    }
-    
-    override func loadView() {
-        self.view = petitionDetailView
-    }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    func installSceneInWindow(_ scene: UIWindowScene) -> UIWindow {
+        self.window.frame = scene.coordinateSpace.bounds
+        self.window.windowScene = scene
+        self.window.rootViewController = self.rootViewController
+        self.window.makeKeyAndVisible()
         
-        petitionDetailView.dismissButton.addTarget(self, action: #selector(dismiss(_:)), for: .touchUpInside)
+        return self.window
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        petitionDetailView.set(petition: petition)
-    }
-
-    @objc
-    private func dismiss(_ sender: Any) {
-        dismiss(animated: true)
+    func setNeedsStatusBarAppearanceUpdate() {
+        self.rootViewController.setNeedsStatusBarAppearanceUpdate()
     }
 }

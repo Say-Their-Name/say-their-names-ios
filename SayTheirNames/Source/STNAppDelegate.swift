@@ -1,5 +1,5 @@
 //
-//  BaseServiceiewController.swift
+//  AppDelegate.swift
 //  SayTheirNames
 //
 //  Copyright (c) 2020 Say Their Names Team (https://github.com/Say-Their-Name)
@@ -24,8 +24,29 @@
 
 import UIKit
 
-/// Protocol describing a type that can hold a reference to `Servicing`
-protocol ServiceReferring {
-    var service: Servicing { get }
-    init(service: Servicing)
+public func exceptionHandler(exception: NSException) {
+    Log.print("\n\n------------------- EXCEPTION -------------------\n")
+    Log.print(exception)
+    Log.print(exception.callStackSymbols)
+}
+
+@UIApplicationMain
+class STNAppDelegate: UIResponder, UIApplicationDelegate {
+    private let container = DependencyContainer()
+
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        NSSetUncaughtExceptionHandler(exceptionHandler)
+        
+        return true
+    }
+
+    func application(_ application: UIApplication,
+                     configurationForConnecting connectingSceneSession: UISceneSession,
+                     options: UIScene.ConnectionOptions) -> UISceneConfiguration {
+        return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
+    }
+
+    func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
+        
+    }
 }

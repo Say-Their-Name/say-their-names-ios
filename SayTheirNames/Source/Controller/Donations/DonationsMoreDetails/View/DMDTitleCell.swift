@@ -1,5 +1,5 @@
 //
-//  AppDelegate.swift
+//  DMDTitleCell.swift
 //  SayTheirNames
 //
 //  Copyright (c) 2020 Say Their Names Team (https://github.com/Say-Their-Name)
@@ -24,27 +24,40 @@
 
 import UIKit
 
-public func exceptionHandler(exception: NSException) {
-    Log.print("\n\n------------------- EXCEPTION -------------------\n")
-    Log.print(exception)
-    Log.print(exception.callStackSymbols)
-}
-
-@UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        NSSetUncaughtExceptionHandler(exceptionHandler)
+final class DMDTitleCell: UICollectionViewCell {
+    // MARK: - Property
+    static let reuseIdentifier = "donations-more-details-title-cell"
+    
+    // MARK: - View
+    private let titleLabel: UILabel = {
+        let label = UILabel(frame: .zero)
+        label.numberOfLines = 0
+        label.textAlignment = .center
+        label.adjustsFontSizeToFitWidth = true
+        label.font = UIFont.STN.title
+        return label
+    }()
+    
+    // MARK: - Initialization
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         
-        return true
+        configureSubview()
     }
-
-    func application(_ application: UIApplication,
-                     configurationForConnecting connectingSceneSession: UISceneSession,
-                     options: UIScene.ConnectionOptions) -> UISceneConfiguration {
-        return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
-
-    func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
+    
+    // MARK: - Class Method
+    private func configureSubview() {
+        contentView.addSubview(titleLabel)
         
+        titleLabel.fillSuperview(superView: contentView, padding: .zero)
+    }
+    
+    // MARK: - Configure Cell
+    func configure(for donation: Donation) {
+        titleLabel.text = donation.title
     }
 }

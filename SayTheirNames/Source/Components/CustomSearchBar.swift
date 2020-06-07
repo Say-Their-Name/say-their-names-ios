@@ -121,7 +121,10 @@ class CustomSearchBar: UIView {
             self.alpha = 1
             homeController.customNavBar.alpha = 0
             self.searchResultView.alpha = 1
-            homeController.customNavBar.frame.size = CGSize(width: homeController.view.frame.width, height: self.frame.height + Theme.Screens.SearchBar.size.height)
+            homeController.customNavBar.frame.size = CGSize(
+                width: homeController.view.frame.width,
+                height: self.frame.height + Theme.Screens.SearchBar.size.height
+            )
         }, completion: { _ in
             self.searchBar.becomeFirstResponder()
         })

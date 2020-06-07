@@ -73,8 +73,14 @@ class PersonOverviewTableViewCell: UITableViewCell {
     private func setupLayout() {
         stack.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(stack)
-        stack.fillSuperview(superView: contentView,
-                            padding: .init(top: Theme.Components.Padding.large, left: Theme.Components.Padding.large, right: Theme.Components.Padding.large))
+        stack.fillSuperview(
+            superView: contentView,
+            padding: UIEdgeInsets(
+                top: Theme.Components.Padding.large,
+                left: Theme.Components.Padding.large,
+                right: Theme.Components.Padding.large
+            )
+        )
 
     }
     

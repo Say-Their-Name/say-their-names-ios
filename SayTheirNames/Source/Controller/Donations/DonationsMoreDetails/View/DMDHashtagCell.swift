@@ -1,6 +1,6 @@
 //
-//  PetitionDetailViewController.swift
-//  Say Their Names
+//  DMDHashtagCell.swift
+//  SayTheirNames
 //
 //  Copyright (c) 2020 Say Their Names Team (https://github.com/Say-Their-Name)
 //
@@ -24,40 +24,26 @@
 
 import UIKit
 
-final class PetitionDetailViewController: UIViewController {
-    var petition: PresentedPetition?
+class DMDHashtagCell: UICollectionViewCell {
+    // MARK: - Property
+    static let reuseIdentifier = "donations-more-details-hashtag-cell"
     
-    private let petitionDetailView = PetitionDetailView()
+    // MARK: - View
+    let hashtagView = HashtagView(frame: .zero)
     
-    required init() {
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder: NSCoder) { fatalError("This should not be called") }
-
-    convenience init(petition: PresentedPetition) {
-        self.init()
-        self.petition = petition
-    }
-    
-    override func loadView() {
-        self.view = petitionDetailView
-    }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    // MARK: - Initialization
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         
-        petitionDetailView.dismissButton.addTarget(self, action: #selector(dismiss(_:)), for: .touchUpInside)
+        configureCell()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        petitionDetailView.set(petition: petition)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
-
-    @objc
-    private func dismiss(_ sender: Any) {
-        dismiss(animated: true)
+    
+    // MARK: - Configure Cell
+    private func configureCell() {
+        hashtagView.fillSuperview(superView: self)
     }
 }

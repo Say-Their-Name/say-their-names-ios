@@ -29,11 +29,13 @@ public struct Donation: Decodable {
     let title: String
     let description: String
     let link: String
-    let person: Person
-    let type: DonationType
+    let person: Person?
+    let type: DonationType?
+    let bannerImagePath: String?
     
     private enum CodingKeys: String, CodingKey {
         case id, title, description, link, person, type
+        case bannerImagePath = "banner_img_url"
     }
 }
 
@@ -47,18 +49,16 @@ extension Donation: CallToAction {
         description
     }
     var imagePath: String? {
-        // TODO: update image properly
-        nil
+        bannerImagePath
     }
     
     var tag: String? {
-        // TODO: update logic to show verified or not
-        return "VERIFIED"
+        type?.type.uppercased()
     }
 }
 
 struct DonationType: Codable {
-    let id: String
+    let id: Int
     let type: String
     
     private enum CodingKeys: String, CodingKey {
