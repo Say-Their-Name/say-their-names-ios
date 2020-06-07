@@ -27,7 +27,6 @@ import UIKit
 final class FilterCategoryCell: UICollectionViewCell {
     
     private var titleLabel = UILabel.create {
-        $0.translatesAutoresizingMaskIntoConstraints = false
         $0.font = UIFont.STN.locationText
         $0.textAlignment = .center
     }
