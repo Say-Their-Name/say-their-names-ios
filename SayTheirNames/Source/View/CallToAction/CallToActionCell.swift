@@ -99,7 +99,8 @@ final class CallToActionCell: UICollectionViewCell {
         containerView.addSubview(imageView)
         containerView.addSubview(stackView)
         contentView.addSubview(containerView)
-        
+        contentView.layoutMargins = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+
         let guide = contentView.layoutMarginsGuide
         NSLayoutConstraint.activate([
             tagView.topAnchor.constraint(equalTo: imageView.topAnchor, constant: 8),

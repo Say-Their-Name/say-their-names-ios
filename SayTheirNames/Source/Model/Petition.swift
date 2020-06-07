@@ -29,9 +29,31 @@ public struct Petition: Decodable {
     let title: String
     let description: String
     let link: String
+    let person: Person?
+    let bannerImagePath: String?
     
     enum CodingKeys: String, CodingKey {
-        case id, title, description, link
+        case id, title, description, link, person
+        case bannerImagePath = "banner_img_url"
+    }
+}
+
+extension Petition: Hashable {}
+
+extension Petition: CallToAction {
+    var actionTitle: String {
+        Strings.findOutMore
+    }
+    var body: String {
+        description
+    }
+    var imagePath: String? {
+        bannerImagePath
+    }
+    
+    var tag: String? {
+//        type?.type.uppercased()
+        return nil
     }
 }
 
