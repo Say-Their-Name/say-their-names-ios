@@ -130,11 +130,11 @@ extension HomeController: UICollectionViewDelegateFlowLayout {
                         layout collectionViewLayout: UICollectionViewLayout,
                         referenceSizeForHeaderInSection section: Int) -> CGSize {
         if collectionView === locationCollectionView {
-            return CGSize.zero
+            return Theme.Screens.Home.HeaderSize.location
         }
         else if collectionView === peopleCollectionView {
-            let width = collectionView.frame.width - 32
-            return CGSize(width: width, height: 170)
+            let width = collectionView.frame.width - Theme.Components.Padding.large
+            return CGSize(width: width, height: Theme.Screens.Home.HeaderSize.peopleHeight)
         }
         else {
             return CGSize.zero
@@ -146,13 +146,13 @@ extension HomeController: UICollectionViewDelegateFlowLayout {
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         if collectionView === locationCollectionView {
-            return CGSize(width: 103, height: 36)
+            return Theme.Screens.Home.CellSize.location
         }
         else if collectionView === peopleCollectionView {
             let width = homeView.safeWidth(for: collectionView)
             let isPortrait = traitCollection.horizontalSizeClass == .compact && traitCollection.verticalSizeClass == .regular
-            let cellWidth = width / (isPortrait ? 2 : 4)
-            return CGSize(width: cellWidth, height: 300)
+            let cellWidth = width / (isPortrait ? Theme.Screens.Home.Columns.portrait : Theme.Screens.Home.Columns.landscape)
+            return CGSize(width: cellWidth, height: Theme.Screens.Home.CellSize.peopleHeight)
         }
         else {
             return CGSize.zero

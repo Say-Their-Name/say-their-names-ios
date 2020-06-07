@@ -35,7 +35,7 @@ class PersonInfoTableViewCell: UITableViewCell {
         view.distribution = .fill
         view.alignment = .fill
         view.axis = .vertical
-        view.spacing = 10
+        view.spacing = Theme.Screens.Home.Person.stackViewSpacing
         return view
     }()
     
@@ -44,7 +44,7 @@ class PersonInfoTableViewCell: UITableViewCell {
         view.distribution = .fill
         view.axis = .horizontal
         view.alignment = .fill
-        view.spacing = 10
+        view.spacing = Theme.Screens.Home.Person.stackViewSpacing
         return view
     }()
     
@@ -59,7 +59,7 @@ class PersonInfoTableViewCell: UITableViewCell {
         view.distribution = .fill
         view.alignment = .top
         view.axis = .horizontal
-        view.spacing = 8
+        view.spacing = Theme.Screens.Home.Person.stackViewSpacing
         return view
     }()
        
@@ -68,7 +68,7 @@ class PersonInfoTableViewCell: UITableViewCell {
         view.axis = .vertical
         view.distribution = .fill
         view.alignment = .leading
-        view.spacing = 10
+        view.spacing = Theme.Screens.Home.Person.stackViewSpacing
         return view
     }()
     
@@ -211,13 +211,18 @@ class PersonInfoTableViewCell: UITableViewCell {
     }
     
     private func setupLayout() {
-        containerStack.fillSuperview(superView: contentView, padding: .init(top: 32, left: 32, bottom: 0, right: 16))
-        ageContainerStack.widthAnchor.constraint(equalToConstant: 60).isActive = true
+        containerStack.fillSuperview(superView: contentView,
+                                     padding: .init(top: Theme.Components.Padding.large,
+                                                    left: Theme.Components.Padding.large,
+                                                    bottom: 0,
+                                                    right: Theme.Components.Padding.medium))
+        ageContainerStack.widthAnchor.constraint(equalToConstant: Theme.Screens.Home.Person.Info.ageConatinerWidth).isActive = true
         childrenContainerStack.widthAnchor.constraint(equalToConstant: 90).isActive = true
-        locationContainerStack.widthAnchor.constraint(greaterThanOrEqualToConstant: 50).isActive = true
-        verticalSeparatorView.anchor(size: .init(width: 150, height: 1.5))
-        horizontalSeparatorView.anchor(size: .init(width: 1.5, height: 30))
-        secondHorizontalSeparatorView.anchor(size: .init(width: 1.5, height: 30))
+        locationContainerStack.widthAnchor.constraint(greaterThanOrEqualToConstant: Theme.Screens.Home.Person.Info.locationContainerWidth)
+            .isActive = true
+        verticalSeparatorView.anchor(size: Theme.Screens.Home.Person.Info.verticalSeperatorSize)
+        horizontalSeparatorView.anchor(size: Theme.Screens.Home.Person.Info.horizontalSeperatorSize)
+        secondHorizontalSeparatorView.anchor(size: Theme.Screens.Home.Person.Info.horizontalSeperatorSize)
 
     }
 }
