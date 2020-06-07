@@ -127,6 +127,12 @@
 		D73DEF8F248CDAF40075B14C /* UITraitCollection++.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73DEF8E248CDAF30075B14C /* UITraitCollection++.swift */; };
 		D73DEF91248CDC080075B14C /* Creatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73DEF90248CDC080075B14C /* Creatable.swift */; };
 		D73DEF93248CDC5F0075B14C /* UIStackView++.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73DEF92248CDC5F0075B14C /* UIStackView++.swift */; };
+		D73DEF9C248CE2480075B14C /* DMDTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73DEF96248CE2480075B14C /* DMDTitleCell.swift */; };
+		D73DEF9D248CE2480075B14C /* DMDPhotoSupplementaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73DEF97248CE2480075B14C /* DMDPhotoSupplementaryView.swift */; };
+		D73DEF9E248CE2480075B14C /* DMDHashtagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73DEF98248CE2480075B14C /* DMDHashtagCell.swift */; };
+		D73DEF9F248CE2480075B14C /* DMDTextContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73DEF99248CE2480075B14C /* DMDTextContentCell.swift */; };
+		D73DEFA0248CE2480075B14C /* DMDSectionTitleSupplementaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73DEF9A248CE2480075B14C /* DMDSectionTitleSupplementaryView.swift */; };
+		D73DEFA1248CE2480075B14C /* DMDDonationButtonSupplementaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73DEF9B248CE2480075B14C /* DMDDonationButtonSupplementaryView.swift */; };
 		D7B07BB4248A1D4A001E3646 /* DonationsMoreDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B07BB3248A1D4A001E3646 /* DonationsMoreDetailsController.swift */; };
 		D7B07BB6248A2FDE001E3646 /* DonationsMoreDetailsController+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B07BB5248A2FDE001E3646 /* DonationsMoreDetailsController+Layout.swift */; };
 		DD25CD80248A2AD20013D617 /* UIButton++.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD25CD7F248A2AD20013D617 /* UIButton++.swift */; };
@@ -291,6 +297,12 @@
 		D73DEF8E248CDAF30075B14C /* UITraitCollection++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITraitCollection++.swift"; sourceTree = "<group>"; };
 		D73DEF90248CDC080075B14C /* Creatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Creatable.swift; sourceTree = "<group>"; };
 		D73DEF92248CDC5F0075B14C /* UIStackView++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView++.swift"; sourceTree = "<group>"; };
+		D73DEF96248CE2480075B14C /* DMDTitleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DMDTitleCell.swift; sourceTree = "<group>"; };
+		D73DEF97248CE2480075B14C /* DMDPhotoSupplementaryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DMDPhotoSupplementaryView.swift; sourceTree = "<group>"; };
+		D73DEF98248CE2480075B14C /* DMDHashtagCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DMDHashtagCell.swift; sourceTree = "<group>"; };
+		D73DEF99248CE2480075B14C /* DMDTextContentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DMDTextContentCell.swift; sourceTree = "<group>"; };
+		D73DEF9A248CE2480075B14C /* DMDSectionTitleSupplementaryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DMDSectionTitleSupplementaryView.swift; sourceTree = "<group>"; };
+		D73DEF9B248CE2480075B14C /* DMDDonationButtonSupplementaryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DMDDonationButtonSupplementaryView.swift; sourceTree = "<group>"; };
 		D7B07BB3248A1D4A001E3646 /* DonationsMoreDetailsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationsMoreDetailsController.swift; sourceTree = "<group>"; };
 		D7B07BB5248A2FDE001E3646 /* DonationsMoreDetailsController+Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DonationsMoreDetailsController+Layout.swift"; sourceTree = "<group>"; };
 		DD25CD7F248A2AD20013D617 /* UIButton++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton++.swift"; sourceTree = "<group>"; };
@@ -790,6 +802,7 @@
 			isa = PBXGroup;
 			children = (
 				D73DEF64248CD9130075B14C /* Home */,
+				D73DEF94248CE2480075B14C /* Donations */,
 				D73DEF6F248CD9130075B14C /* CallToAction */,
 				D73DEF74248CD9130075B14C /* Common */,
 				D73DEF78248CD9130075B14C /* Filter */,
@@ -858,6 +871,27 @@
 				D73DEF7B248CD9130075B14C /* FiltersCollectionView.swift */,
 			);
 			path = Filter;
+			sourceTree = "<group>";
+		};
+		D73DEF94248CE2480075B14C /* Donations */ = {
+			isa = PBXGroup;
+			children = (
+				D73DEF95248CE2480075B14C /* DonationsMoreDetails */,
+			);
+			path = Donations;
+			sourceTree = "<group>";
+		};
+		D73DEF95248CE2480075B14C /* DonationsMoreDetails */ = {
+			isa = PBXGroup;
+			children = (
+				D73DEF96248CE2480075B14C /* DMDTitleCell.swift */,
+				D73DEF97248CE2480075B14C /* DMDPhotoSupplementaryView.swift */,
+				D73DEF98248CE2480075B14C /* DMDHashtagCell.swift */,
+				D73DEF99248CE2480075B14C /* DMDTextContentCell.swift */,
+				D73DEF9A248CE2480075B14C /* DMDSectionTitleSupplementaryView.swift */,
+				D73DEF9B248CE2480075B14C /* DMDDonationButtonSupplementaryView.swift */,
+			);
+			path = DonationsMoreDetails;
 			sourceTree = "<group>";
 		};
 		D7B07BB2248A1CFE001E3646 /* DonationsMoreDetails */ = {
@@ -1136,6 +1170,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D73DEF9F248CE2480075B14C /* DMDTextContentCell.swift in Sources */,
 				7CE75F422489B78400168DDA /* PetitionsTableViewDataSource.swift in Sources */,
 				B3D6B6A92486EE3300D3118C /* Service.swift in Sources */,
 				D73DEF81248CD9130075B14C /* SearchResultCell.swift in Sources */,
@@ -1159,6 +1194,7 @@
 				D73DEF8C248CD9130075B14C /* FilterCategory.swift in Sources */,
 				9E7DBAF7248481DA00635A56 /* FileDataProvider.swift in Sources */,
 				A91B07A424835CF700DB803C /* UIFont+STN.swift in Sources */,
+				D73DEFA0248CE2480075B14C /* DMDSectionTitleSupplementaryView.swift in Sources */,
 				7CE75F452489B78400168DDA /* MockPetition.swift in Sources */,
 				A91B07D224849E1800DB803C /* BaseViewController.swift in Sources */,
 				9E7DBAF6248481DA00635A56 /* AsyncOperation.swift in Sources */,
@@ -1179,11 +1215,14 @@
 				B3D6B6B52489A59700D3118C /* UICollectionReusableView+Reusable.swift in Sources */,
 				A91B079C24835CF700DB803C /* HomeController.swift in Sources */,
 				D73DEF5F248CD8FC0075B14C /* PersonOverviewTableViewCell.swift in Sources */,
+				D73DEF9D248CE2480075B14C /* DMDPhotoSupplementaryView.swift in Sources */,
 				A91B07AA24835CF700DB803C /* Donation.swift in Sources */,
 				A93367D4248985B6001F1E28 /* Image.swift in Sources */,
 				A91B07B324835CF700DB803C /* SceneDelegate.swift in Sources */,
+				D73DEF9C248CE2480075B14C /* DMDTitleCell.swift in Sources */,
 				A91B079524835CF700DB803C /* UIColor+Resource.swift in Sources */,
 				D73DEF8B248CD9130075B14C /* FilterCategoryCell.swift in Sources */,
+				D73DEFA1248CE2480075B14C /* DMDDonationButtonSupplementaryView.swift in Sources */,
 				9E7DBAF9248481FC00635A56 /* Operation++.swift in Sources */,
 				9E7DBAF4248481DA00635A56 /* ImageCreationOperation.swift in Sources */,
 				F2725A8B24881A8E00507DC4 /* UITableViewCell++.swift in Sources */,
@@ -1215,6 +1254,7 @@
 				74DE10872486DFA300211B83 /* SettingsController.swift in Sources */,
 				B386F958248526C70037A38D /* Location.swift in Sources */,
 				7C47A93524873F1200B8D3BE /* HomeView.swift in Sources */,
+				D73DEF9E248CE2480075B14C /* DMDHashtagCell.swift in Sources */,
 				A91B07A524835CF700DB803C /* UIColor+STN.swift in Sources */,
 				A91B07A024835CF700DB803C /* DonationsController.swift in Sources */,
 				83E9CAD42484A5DC001D173A /* UIViewController+TabBar.swift in Sources */,
