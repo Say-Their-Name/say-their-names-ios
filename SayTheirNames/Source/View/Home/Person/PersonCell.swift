@@ -25,6 +25,8 @@
 import UIKit
 
 final class PersonCell: UICollectionViewCell {
+    @DependencyInject private var dateFormatter: DateFormatterService
+
     static let personIdentifier = "personCell"
     
     private lazy var profileImageView: UIImageView = {

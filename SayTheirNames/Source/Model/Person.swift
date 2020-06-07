@@ -84,7 +84,7 @@ struct Person: Decodable {
         self.petitions = try container.decodeIfPresent(PetitionsResponsePage.self, forKey: .petitions) ?? PetitionsResponsePage()
         self.media = try container.decodeIfPresent([Media].self, forKey: .media) ?? []
         self.socialMedia = try container.decodeIfPresent([SocialMedia].self, forKey: .socialMedia) ?? []
-        
+
         let doi = try container.decodeIfPresent(TimeInterval.self, forKey: .doi) ?? 0
         self.doi = Date(timeIntervalSince1970: doi)
     }

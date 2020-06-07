@@ -31,7 +31,9 @@ public func exceptionHandler(exception: NSException) {
 }
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class STNAppDelegate: UIResponder, UIApplicationDelegate {
+    private let container = DependencyContainer()
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         NSSetUncaughtExceptionHandler(exceptionHandler)
         

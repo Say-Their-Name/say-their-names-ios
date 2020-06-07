@@ -24,15 +24,13 @@
 
 import UIKit
 
-final class DonationsController: UIViewController, ServiceReferring {
+final class DonationsController: UIViewController {
 
     private let donationManager = DonationsCollectionViewManager()
     private let filterManager = DonationFilterViewManager()
-    let service: Servicing
     private let ui = DonationsView()
     
-    required init(service: Servicing) {
-        self.service = service
+    required init() {
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -62,7 +60,7 @@ final class DonationsController: UIViewController, ServiceReferring {
 //            print(donation)
             
             // TODO: Move this out
-            let detailVC = DonationsMoreDetailsController(service: self.service)
+            let detailVC = DonationsMoreDetailsController()
             detailVC.donation = donation
             let navigationController = UINavigationController(rootViewController: detailVC)
             
