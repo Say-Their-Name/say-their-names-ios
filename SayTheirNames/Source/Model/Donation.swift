@@ -29,8 +29,8 @@ public struct Donation: Decodable {
     let title: String
     let description: String
     let link: String
-    let person: Person
-    let type: DonationType
+    let person: Person?
+    let type: DonationType?
     
     private enum CodingKeys: String, CodingKey {
         case id, title, description, link, person, type
@@ -58,7 +58,7 @@ extension Donation: CallToAction {
 }
 
 struct DonationType: Codable {
-    let id: String
+    let id: Int
     let type: String
     
     private enum CodingKeys: String, CodingKey {
