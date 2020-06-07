@@ -55,6 +55,7 @@ final class PetitionsController: UIViewController {
         super.viewDidLoad()
         
         petitionsTableView.delegate = self
+        navigationItem.title = "PETITIONS"
         
         // build mock data for display now
         // in the future, we'll get petitions from the network

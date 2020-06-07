@@ -26,13 +26,7 @@ import UIKit
 
 /// The UI for Donations
 final class DonationsView: UIView {
-    
-    private lazy var navBarView = STNNavigationBar(
-        title: Strings.donations.uppercased()
-    ).configure {
-        $0.translatesAutoresizingMaskIntoConstraints = false
-    }
-    
+        
     /// UICollectionView that lays out the filter cells
     private lazy var filtersView = FiltersCollectionView().configure {
         $0.translatesAutoresizingMaskIntoConstraints = false
@@ -62,18 +56,12 @@ final class DonationsView: UIView {
     
     /// Adds and configures constraints for subviews
     private func setupSubviews() {
-        addSubview(navBarView)
         addSubview(filtersView)
         addSubview(donationsCollectionView)
         
         let safeGuide = safeAreaLayoutGuide
-        NSLayoutConstraint.activate([
-            navBarView.topAnchor.constraint(equalTo: safeGuide.topAnchor),
-            navBarView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            navBarView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            navBarView.heightAnchor.constraint(equalToConstant: Self.navBarViewHeight),
-            
-            filtersView.topAnchor.constraint(equalTo: navBarView.bottomAnchor),
+        NSLayoutConstraint.activate([            
+            filtersView.topAnchor.constraint(equalTo: safeGuide.topAnchor),
             filtersView.leadingAnchor.constraint(equalTo: leadingAnchor),
             filtersView.trailingAnchor.constraint(equalTo: trailingAnchor),
             filtersView.heightAnchor.constraint(equalToConstant: Self.filtersViewHeight),
