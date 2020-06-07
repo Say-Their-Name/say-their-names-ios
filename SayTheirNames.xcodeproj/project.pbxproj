@@ -120,10 +120,10 @@
 		A93367D3248985B6001F1E28 /* Link.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93367CF248985B6001F1E28 /* Link.swift */; };
 		A93367D4248985B6001F1E28 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93367D0248985B6001F1E28 /* Image.swift */; };
 		A93367D6248985F5001F1E28 /* DispatchQueue+STN.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93367D5248985F5001F1E28 /* DispatchQueue+STN.swift */; };
-		B3168337248C3BF400C03DEB /* UIButton++.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3168336248C3BF400C03DEB /* UIButton++.swift */; };
 		A9AC832A248B31FE0000A851 /* SearchNetworkRequestor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AC8329248B31FE0000A851 /* SearchNetworkRequestor.swift */; };
 		A9AC832C248B33770000A851 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AC832B248B33770000A851 /* Search.swift */; };
 		A9B9056D248B4EA300F9EEFA /* URLComponents+STN.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B9056C248B4EA300F9EEFA /* URLComponents+STN.swift */; };
+		B3168337248C3BF400C03DEB /* UIButton++.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3168336248C3BF400C03DEB /* UIButton++.swift */; };
 		B386F9552482FB540037A38D /* UIFontSTNTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B386F9542482FB540037A38D /* UIFontSTNTests.swift */; };
 		B386F958248526C70037A38D /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = B386F957248526C70037A38D /* Location.swift */; };
 		B3D6B6A92486EE3300D3118C /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B07B724846B0C00DB803C /* Service.swift */; };
@@ -132,12 +132,21 @@
 		B3D6B6B3248987AD00D3118C /* CONTRIBUTING.md in Resources */ = {isa = PBXBuildFile; fileRef = B3D6B6B1248987AD00D3118C /* CONTRIBUTING.md */; };
 		B3D6B6B52489A59700D3118C /* UICollectionReusableView+Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D6B6B42489A59700D3118C /* UICollectionReusableView+Reusable.swift */; };
 		C0594BFA248754A200260BAD /* UICollectionView++.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0594BF9248754A200260BAD /* UICollectionView++.swift */; };
-		DB1887FF248A519600FDAEE3 /* LineCarouselControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1887FE248A519600FDAEE3 /* LineCarouselControl.swift */; };
-		DB188806248A51A800FDAEE3 /* CarouselCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB188802248A51A800FDAEE3 /* CarouselCollectionViewCell.swift */; };
-		DB188809248A8F1100FDAEE3 /* HeaderCellContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB188808248A8F1100FDAEE3 /* HeaderCellContent.swift */; };
 		D787FC9B248A71A3001FC6FF /* ImageWithBlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D787FC9A248A71A3001FC6FF /* ImageWithBlurView.swift */; };
 		D787FC9D248B36B3001FC6FF /* HashtagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D787FC9C248B36B3001FC6FF /* HashtagView.swift */; };
 		D7A96091248A676A005E0153 /* ButtonContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A96090248A676A005E0153 /* ButtonContainerView.swift */; };
+		D7F3F636248D3FBA00F66E72 /* DonationsMoreDetailsController+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F3F62C248D3FBA00F66E72 /* DonationsMoreDetailsController+Layout.swift */; };
+		D7F3F637248D3FBA00F66E72 /* DMDCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F3F62D248D3FBA00F66E72 /* DMDCollectionViewDataSource.swift */; };
+		D7F3F638248D3FBA00F66E72 /* DMDTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F3F62F248D3FBA00F66E72 /* DMDTitleCell.swift */; };
+		D7F3F639248D3FBA00F66E72 /* DMDPhotoSupplementaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F3F630248D3FBA00F66E72 /* DMDPhotoSupplementaryView.swift */; };
+		D7F3F63A248D3FBA00F66E72 /* DMDHashtagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F3F631248D3FBA00F66E72 /* DMDHashtagCell.swift */; };
+		D7F3F63B248D3FBA00F66E72 /* DMDTextContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F3F632248D3FBA00F66E72 /* DMDTextContentCell.swift */; };
+		D7F3F63C248D3FBA00F66E72 /* DMDSectionTitleSupplementaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F3F633248D3FBA00F66E72 /* DMDSectionTitleSupplementaryView.swift */; };
+		D7F3F63D248D3FBA00F66E72 /* DMDDonationButtonSupplementaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F3F634248D3FBA00F66E72 /* DMDDonationButtonSupplementaryView.swift */; };
+		D7F3F63E248D3FBA00F66E72 /* DonationsMoreDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F3F635248D3FBA00F66E72 /* DonationsMoreDetailsController.swift */; };
+		DB1887FF248A519600FDAEE3 /* LineCarouselControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1887FE248A519600FDAEE3 /* LineCarouselControl.swift */; };
+		DB188806248A51A800FDAEE3 /* CarouselCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB188802248A51A800FDAEE3 /* CarouselCollectionViewCell.swift */; };
+		DB188809248A8F1100FDAEE3 /* HeaderCellContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB188808248A8F1100FDAEE3 /* HeaderCellContent.swift */; };
 		EEC3A1D42483D493001E7754 /* CustomSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC3A1D32483D493001E7754 /* CustomSearchBar.swift */; };
 		EEC3A1DC2483D6B6001E7754 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC3A1DA2483D6B6001E7754 /* SearchResultCell.swift */; };
 		EEC3A1DD2483D6B6001E7754 /* SearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EEC3A1DB2483D6B6001E7754 /* SearchResultCell.xib */; };
@@ -290,10 +299,10 @@
 		A93367CF248985B6001F1E28 /* Link.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Link.swift; sourceTree = "<group>"; };
 		A93367D0248985B6001F1E28 /* Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		A93367D5248985F5001F1E28 /* DispatchQueue+STN.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+STN.swift"; sourceTree = "<group>"; };
-		B3168336248C3BF400C03DEB /* UIButton++.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton++.swift"; sourceTree = "<group>"; };
 		A9AC8329248B31FE0000A851 /* SearchNetworkRequestor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchNetworkRequestor.swift; sourceTree = "<group>"; };
 		A9AC832B248B33770000A851 /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
 		A9B9056C248B4EA300F9EEFA /* URLComponents+STN.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URLComponents+STN.swift"; sourceTree = "<group>"; };
+		B3168336248C3BF400C03DEB /* UIButton++.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton++.swift"; sourceTree = "<group>"; };
 		B386F9542482FB540037A38D /* UIFontSTNTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontSTNTests.swift; sourceTree = "<group>"; };
 		B386F957248526C70037A38D /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		B3D6B6AE2487E10100D3118C /* Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
@@ -306,12 +315,21 @@
 		D107CEC59C11537D09D9DB2E /* Pods-Say Their Names.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Say Their Names.release.xcconfig"; path = "Target Support Files/Pods-Say Their Names/Pods-Say Their Names.release.xcconfig"; sourceTree = "<group>"; };
 		D4BA10D0248A8F7300E29A3F /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		D639F16885E8E79F7E336CC2 /* Pods-Say Their Names.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Say Their Names.debug.xcconfig"; path = "Target Support Files/Pods-Say Their Names/Pods-Say Their Names.debug.xcconfig"; sourceTree = "<group>"; };
-		DB1887FE248A519600FDAEE3 /* LineCarouselControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineCarouselControl.swift; sourceTree = "<group>"; };
-		DB188802248A51A800FDAEE3 /* CarouselCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarouselCollectionViewCell.swift; sourceTree = "<group>"; };
-		DB188808248A8F1100FDAEE3 /* HeaderCellContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCellContent.swift; sourceTree = "<group>"; };
 		D787FC9A248A71A3001FC6FF /* ImageWithBlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageWithBlurView.swift; sourceTree = "<group>"; };
 		D787FC9C248B36B3001FC6FF /* HashtagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashtagView.swift; sourceTree = "<group>"; };
 		D7A96090248A676A005E0153 /* ButtonContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonContainerView.swift; sourceTree = "<group>"; };
+		D7F3F62C248D3FBA00F66E72 /* DonationsMoreDetailsController+Layout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DonationsMoreDetailsController+Layout.swift"; sourceTree = "<group>"; };
+		D7F3F62D248D3FBA00F66E72 /* DMDCollectionViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DMDCollectionViewDataSource.swift; sourceTree = "<group>"; };
+		D7F3F62F248D3FBA00F66E72 /* DMDTitleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DMDTitleCell.swift; sourceTree = "<group>"; };
+		D7F3F630248D3FBA00F66E72 /* DMDPhotoSupplementaryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DMDPhotoSupplementaryView.swift; sourceTree = "<group>"; };
+		D7F3F631248D3FBA00F66E72 /* DMDHashtagCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DMDHashtagCell.swift; sourceTree = "<group>"; };
+		D7F3F632248D3FBA00F66E72 /* DMDTextContentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DMDTextContentCell.swift; sourceTree = "<group>"; };
+		D7F3F633248D3FBA00F66E72 /* DMDSectionTitleSupplementaryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DMDSectionTitleSupplementaryView.swift; sourceTree = "<group>"; };
+		D7F3F634248D3FBA00F66E72 /* DMDDonationButtonSupplementaryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DMDDonationButtonSupplementaryView.swift; sourceTree = "<group>"; };
+		D7F3F635248D3FBA00F66E72 /* DonationsMoreDetailsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DonationsMoreDetailsController.swift; sourceTree = "<group>"; };
+		DB1887FE248A519600FDAEE3 /* LineCarouselControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineCarouselControl.swift; sourceTree = "<group>"; };
+		DB188802248A51A800FDAEE3 /* CarouselCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarouselCollectionViewCell.swift; sourceTree = "<group>"; };
+		DB188808248A8F1100FDAEE3 /* HeaderCellContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCellContent.swift; sourceTree = "<group>"; };
 		E0DB62D4E01FCED2ADD577B6 /* Pods-SayTheirNamesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SayTheirNamesTests.debug.xcconfig"; path = "Target Support Files/Pods-SayTheirNamesTests/Pods-SayTheirNamesTests.debug.xcconfig"; sourceTree = "<group>"; };
 		ED2DEB0A248454FD00EC784E /* CODE_OF_CONDUCT.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = CODE_OF_CONDUCT.md; sourceTree = "<group>"; };
 		EEC3A1D32483D493001E7754 /* CustomSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSearchBar.swift; sourceTree = "<group>"; };
@@ -712,6 +730,7 @@
 				9EC6DD4B248B82DD006CC5A7 /* DonationFilterViewManager.swift */,
 				9EC6DD4D248B834B006CC5A7 /* DonationFilter.swift */,
 				9E92026C248C3F2F0007AFCE /* DonationsCollectionViewManager.swift */,
+				D7F3F62B248D3FBA00F66E72 /* DonationsMoreDetails */,
 			);
 			path = Donations;
 			sourceTree = "<group>";
@@ -887,6 +906,30 @@
 				9E974592248B8D8200DB5E32 /* Creatable.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		D7F3F62B248D3FBA00F66E72 /* DonationsMoreDetails */ = {
+			isa = PBXGroup;
+			children = (
+				D7F3F62C248D3FBA00F66E72 /* DonationsMoreDetailsController+Layout.swift */,
+				D7F3F62D248D3FBA00F66E72 /* DMDCollectionViewDataSource.swift */,
+				D7F3F635248D3FBA00F66E72 /* DonationsMoreDetailsController.swift */,
+				D7F3F62E248D3FBA00F66E72 /* View */,
+			);
+			path = DonationsMoreDetails;
+			sourceTree = "<group>";
+		};
+		D7F3F62E248D3FBA00F66E72 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D7F3F62F248D3FBA00F66E72 /* DMDTitleCell.swift */,
+				D7F3F630248D3FBA00F66E72 /* DMDPhotoSupplementaryView.swift */,
+				D7F3F631248D3FBA00F66E72 /* DMDHashtagCell.swift */,
+				D7F3F632248D3FBA00F66E72 /* DMDTextContentCell.swift */,
+				D7F3F633248D3FBA00F66E72 /* DMDSectionTitleSupplementaryView.swift */,
+				D7F3F634248D3FBA00F66E72 /* DMDDonationButtonSupplementaryView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		DB1887FD248A512200FDAEE3 /* Carousel */ = {
@@ -1174,6 +1217,7 @@
 			files = (
 				7CE75F422489B78400168DDA /* PetitionsTableViewDataSource.swift in Sources */,
 				B3D6B6A92486EE3300D3118C /* Service.swift in Sources */,
+				D7F3F63D248D3FBA00F66E72 /* DMDDonationButtonSupplementaryView.swift in Sources */,
 				7419B4B8248A2E0800D466C8 /* PersonMediaCollectionViewCell.swift in Sources */,
 				A91B07A924835CF700DB803C /* Person.swift in Sources */,
 				A93367C8248983B1001F1E28 /* DonationsNetworkRequestor.swift in Sources */,
@@ -1181,15 +1225,18 @@
 				A93367CC248983B1001F1E28 /* NetworkRequestor.swift in Sources */,
 				9E7DBAFC2484822A00635A56 /* Operators.swift in Sources */,
 				9E7DBAF1248481DA00635A56 /* ImageService.swift in Sources */,
+				D7F3F636248D3FBA00F66E72 /* DonationsMoreDetailsController+Layout.swift in Sources */,
 				7CE75F442489B78400168DDA /* PetitionTableViewCell.swift in Sources */,
 				A93367CA248983B1001F1E28 /* PeopleNetworkRequestor.swift in Sources */,
 				9E5F937D248C1F2D00CB57BF /* STNNavigationBar.swift in Sources */,
+				D7F3F639248D3FBA00F66E72 /* DMDPhotoSupplementaryView.swift in Sources */,
 				A93367C9248983B1001F1E28 /* PetitionsNetworkRequestor.swift in Sources */,
 				A93367CB248983B1001F1E28 /* Environment.swift in Sources */,
 				9EC6DD4A248B7FC0006CC5A7 /* FiltersCollectionView.swift in Sources */,
 				9E7DBAF7248481DA00635A56 /* FileDataProvider.swift in Sources */,
 				A91B07A424835CF700DB803C /* UIFont+STN.swift in Sources */,
 				7CE75F452489B78400168DDA /* MockPetition.swift in Sources */,
+				D7F3F63B248D3FBA00F66E72 /* DMDTextContentCell.swift in Sources */,
 				9E7DBAF6248481DA00635A56 /* AsyncOperation.swift in Sources */,
 				A91B07C02484705400DB803C /* Navigator.swift in Sources */,
 				A91B07BD24846ED700DB803C /* Log.swift in Sources */,
@@ -1212,7 +1259,9 @@
 				9E920267248C32440007AFCE /* UITraitCollection++.swift in Sources */,
 				9E974591248B8A5000DB5E32 /* FilterCategory.swift in Sources */,
 				B3D6B6B52489A59700D3118C /* UICollectionReusableView+Reusable.swift in Sources */,
+				D7F3F637248D3FBA00F66E72 /* DMDCollectionViewDataSource.swift in Sources */,
 				A91B079C24835CF700DB803C /* HomeController.swift in Sources */,
+				D7F3F63C248D3FBA00F66E72 /* DMDSectionTitleSupplementaryView.swift in Sources */,
 				3A33EF65248ABC7500580D1E /* Theme.swift in Sources */,
 				A91B07AA24835CF700DB803C /* Donation.swift in Sources */,
 				A93367D4248985B6001F1E28 /* Image.swift in Sources */,
@@ -1228,6 +1277,8 @@
 				7A829502248B299C00A8D7D8 /* AboutView.swift in Sources */,
 				7A829500248B298E00A8D7D8 /* AboutController.swift in Sources */,
 				83E9CAD02484A504001D173A /* LaunchScreen.swift in Sources */,
+				D7F3F63E248D3FBA00F66E72 /* DonationsMoreDetailsController.swift in Sources */,
+				D7F3F63A248D3FBA00F66E72 /* DMDHashtagCell.swift in Sources */,
 				A91B079924835CF700DB803C /* UIFont+Resource.swift in Sources */,
 				9E2449A02485EA0B00B149DF /* strings.swift in Sources */,
 				5B026C52248AECB700335A17 /* PersonHashtagCollectionViewCell.swift in Sources */,
@@ -1260,7 +1311,7 @@
 				A91B07AD24835CF700DB803C /* PersonCell.swift in Sources */,
 				9E7DBAF2248481DA00635A56 /* ImageProvider.swift in Sources */,
 				A93367D3248985B6001F1E28 /* Link.swift in Sources */,
-				74DE10872486DFA300211B83 /* SettingsController.swift in Sources */,
+				D7F3F638248D3FBA00F66E72 /* DMDTitleCell.swift in Sources */,
 				9EC6DD4C248B82DD006CC5A7 /* DonationFilterViewManager.swift in Sources */,
 				B386F958248526C70037A38D /* Location.swift in Sources */,
 				7C47A93524873F1200B8D3BE /* HomeView.swift in Sources */,
