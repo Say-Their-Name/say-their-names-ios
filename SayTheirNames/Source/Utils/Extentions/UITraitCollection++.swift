@@ -1,5 +1,5 @@
 //
-//  Location.swift
+//  UITraitCollection++.swift
 //  SayTheirNames
 //
 //  Copyright (c) 2020 Say Their Names Team (https://github.com/Say-Their-Name)
@@ -21,21 +21,10 @@
 //  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
+import UIKit
 
-import Foundation
-
-struct Location: Codable {
-    let name: String
-    
-    private enum CodingKeys: String, CodingKey {
-        case name
+extension UITraitCollection {
+    var isDarkModeOn: Bool {
+        userInterfaceStyle == .dark
     }
 }
-
-extension Location: Hashable {
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(name)
-    }
-}
-
-extension Location: FilterCategory {}

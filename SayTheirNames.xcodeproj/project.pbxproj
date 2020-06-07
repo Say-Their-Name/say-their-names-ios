@@ -124,6 +124,9 @@
 		D73DEF8B248CD9130075B14C /* FilterCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73DEF79248CD9130075B14C /* FilterCategoryCell.swift */; };
 		D73DEF8C248CD9130075B14C /* FilterCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73DEF7A248CD9130075B14C /* FilterCategory.swift */; };
 		D73DEF8D248CD9130075B14C /* FiltersCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73DEF7B248CD9130075B14C /* FiltersCollectionView.swift */; };
+		D73DEF8F248CDAF40075B14C /* UITraitCollection++.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73DEF8E248CDAF30075B14C /* UITraitCollection++.swift */; };
+		D73DEF91248CDC080075B14C /* Creatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73DEF90248CDC080075B14C /* Creatable.swift */; };
+		D73DEF93248CDC5F0075B14C /* UIStackView++.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73DEF92248CDC5F0075B14C /* UIStackView++.swift */; };
 		D7B07BB4248A1D4A001E3646 /* DonationsMoreDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B07BB3248A1D4A001E3646 /* DonationsMoreDetailsController.swift */; };
 		D7B07BB6248A2FDE001E3646 /* DonationsMoreDetailsController+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B07BB5248A2FDE001E3646 /* DonationsMoreDetailsController+Layout.swift */; };
 		DD25CD80248A2AD20013D617 /* UIButton++.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD25CD7F248A2AD20013D617 /* UIButton++.swift */; };
@@ -285,6 +288,9 @@
 		D73DEF79248CD9130075B14C /* FilterCategoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterCategoryCell.swift; sourceTree = "<group>"; };
 		D73DEF7A248CD9130075B14C /* FilterCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterCategory.swift; sourceTree = "<group>"; };
 		D73DEF7B248CD9130075B14C /* FiltersCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltersCollectionView.swift; sourceTree = "<group>"; };
+		D73DEF8E248CDAF30075B14C /* UITraitCollection++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITraitCollection++.swift"; sourceTree = "<group>"; };
+		D73DEF90248CDC080075B14C /* Creatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Creatable.swift; sourceTree = "<group>"; };
+		D73DEF92248CDC5F0075B14C /* UIStackView++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView++.swift"; sourceTree = "<group>"; };
 		D7B07BB3248A1D4A001E3646 /* DonationsMoreDetailsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationsMoreDetailsController.swift; sourceTree = "<group>"; };
 		D7B07BB5248A2FDE001E3646 /* DonationsMoreDetailsController+Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DonationsMoreDetailsController+Layout.swift"; sourceTree = "<group>"; };
 		DD25CD7F248A2AD20013D617 /* UIButton++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton++.swift"; sourceTree = "<group>"; };
@@ -555,6 +561,8 @@
 				B3D6B6B42489A59700D3118C /* UICollectionReusableView+Reusable.swift */,
 				F2725A8C24881AF200507DC4 /* UITableView++.swift */,
 				F2725A8A24881A8D00507DC4 /* UITableViewCell++.swift */,
+				D73DEF8E248CDAF30075B14C /* UITraitCollection++.swift */,
+				D73DEF92248CDC5F0075B14C /* UIStackView++.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -749,6 +757,7 @@
 			isa = PBXGroup;
 			children = (
 				B3D6B6AE2487E10100D3118C /* Reusable.swift */,
+				D73DEF90248CDC080075B14C /* Creatable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -1194,9 +1203,11 @@
 				7A5BFA172488315D00BC265A /* DonationsView.swift in Sources */,
 				D73DEF83248CD9130075B14C /* ButtonContainerView.swift in Sources */,
 				7A5BFA192488821500BC265A /* DateFormatterService.swift in Sources */,
+				D73DEF91248CDC080075B14C /* Creatable.swift in Sources */,
 				7789A5952489979700737E14 /* UIImageView+STN.swift in Sources */,
 				A91B07C32484719C00DB803C /* Bundle+STN.swift in Sources */,
 				A93367D1248985B6001F1E28 /* Media.swift in Sources */,
+				D73DEF8F248CDAF40075B14C /* UITraitCollection++.swift in Sources */,
 				A91B079724835CF700DB803C /* UIView++.swift in Sources */,
 				7CE75F402489B78400168DDA /* PetitionsView.swift in Sources */,
 				9E7DBAF2248481DA00635A56 /* ImageProvider.swift in Sources */,
@@ -1208,6 +1219,7 @@
 				A91B07A024835CF700DB803C /* DonationsController.swift in Sources */,
 				83E9CAD42484A5DC001D173A /* UIViewController+TabBar.swift in Sources */,
 				D73DEF89248CD9130075B14C /* ImageWithBlurView.swift in Sources */,
+				D73DEF93248CDC5F0075B14C /* UIStackView++.swift in Sources */,
 				D73DEF62248CD8FC0075B14C /* PersonHashtagTableViewCell.swift in Sources */,
 				D7B07BB4248A1D4A001E3646 /* DonationsMoreDetailsController.swift in Sources */,
 				9E7DBAF0248481DA00635A56 /* ImageCache.swift in Sources */,

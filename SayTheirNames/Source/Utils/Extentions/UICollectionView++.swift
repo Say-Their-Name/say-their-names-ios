@@ -59,4 +59,11 @@ extension UICollectionView {
         }
         return view
     }
+
+    public func displayableIndexAndTotal(fromIndexPath: IndexPath, section: Int) -> (Int, Int) {
+        let index = fromIndexPath.row + 1
+        let total = self.numberOfItems(inSection: section)
+
+        return (index, total)
+    }
 }
