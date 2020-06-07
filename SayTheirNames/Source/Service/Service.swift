@@ -42,11 +42,12 @@ final class Service: Servicing {
         Log.print("SayTheirNames Version: \(Bundle.versionBuildString)")
         Log.print("Starting Services")
         
-        ServiceInjectionFactory.shared.add(handle: self)
-        ServiceInjectionFactory.shared.add(handle: self.navigator)
-        ServiceInjectionFactory.shared.add(handle: self.image)
-        ServiceInjectionFactory.shared.add(handle: self.dateFormatter)
-        ServiceInjectionFactory.shared.add(handle: self.network)
+        // Handle our Injection
+        ServiceInjectionFactory.notShared.add(handle: self)
+        ServiceInjectionFactory.notShared.add(handle: self.navigator)
+        ServiceInjectionFactory.notShared.add(handle: self.image)
+        ServiceInjectionFactory.notShared.add(handle: self.dateFormatter)
+        ServiceInjectionFactory.notShared.add(handle: self.network)
     }
 }
 
@@ -56,7 +57,7 @@ struct ServiceInject<S: Servicing> {
     var serviceHandle: S
     
     init() {
-        self.serviceHandle = ServiceInjectionFactory.shared.resolve(S.self)
+        self.serviceHandle = ServiceInjectionFactory.notShared.resolve(S.self)
     }
     
     public var wrappedValue: S {
@@ -66,11 +67,11 @@ struct ServiceInject<S: Servicing> {
 }
 
 // MARK: - InjectionFactory
-private struct ServiceInjectionFactory {
-    static var shared = ServiceInjectionFactory()
+private class ServiceInjectionFactory {
+    static let notShared = ServiceInjectionFactory()
     var factoryDict: [String: Any] = [:]
     
-    mutating func add<S: Servicing>(handle: S) {
+    func add<S: Servicing>(handle: S) {
         let key = String(describing: handle.self)
         self.factoryDict[key] = handle
     }
