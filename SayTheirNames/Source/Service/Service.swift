@@ -48,16 +48,9 @@ final class Service: Servicing {
 
 @propertyWrapper
 struct ServiceInject {
-    private static var hiddenService: Service!
-    
     init() { }
-    init(service: Service) {
-        if ServiceInject.hiddenService == nil {
-            ServiceInject.hiddenService = service
-        }
-    }
 
     public var wrappedValue: Service {
-        ServiceInject.hiddenService
+        UIApplication.stn.service
     }
 }

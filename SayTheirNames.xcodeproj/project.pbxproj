@@ -85,7 +85,7 @@
 		A91B07AD24835CF700DB803C /* PersonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B078D24835CF700DB803C /* PersonCell.swift */; };
 		A91B07AE24835CF700DB803C /* PersonHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B078E24835CF700DB803C /* PersonHeaderCell.swift */; };
 		A91B07B124835CF700DB803C /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B079224835CF700DB803C /* LocationCell.swift */; };
-		A91B07B224835CF700DB803C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B079324835CF700DB803C /* AppDelegate.swift */; };
+		A91B07B224835CF700DB803C /* STNAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B079324835CF700DB803C /* STNAppDelegate.swift */; };
 		A91B07B324835CF700DB803C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B079424835CF700DB803C /* SceneDelegate.swift */; };
 		A91B07BD24846ED700DB803C /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B07BC24846ED700DB803C /* Log.swift */; };
 		A91B07C02484705400DB803C /* Navigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B07BF2484705400DB803C /* Navigator.swift */; };
@@ -106,6 +106,7 @@
 		A9AC832A248B31FE0000A851 /* SearchNetworkRequestor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AC8329248B31FE0000A851 /* SearchNetworkRequestor.swift */; };
 		A9AC832C248B33770000A851 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AC832B248B33770000A851 /* Search.swift */; };
 		A9B9056D248B4EA300F9EEFA /* URLComponents+STN.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B9056C248B4EA300F9EEFA /* URLComponents+STN.swift */; };
+		A9B9056F248C90FB00F9EEFA /* UIApplication+STN.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B9056E248C90FB00F9EEFA /* UIApplication+STN.swift */; };
 		B386F9552482FB540037A38D /* UIFontSTNTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B386F9542482FB540037A38D /* UIFontSTNTests.swift */; };
 		B386F958248526C70037A38D /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = B386F957248526C70037A38D /* Location.swift */; };
 		B3D6B6A92486EE3300D3118C /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B07B724846B0C00DB803C /* Service.swift */; };
@@ -234,7 +235,7 @@
 		A91B078D24835CF700DB803C /* PersonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonCell.swift; sourceTree = "<group>"; };
 		A91B078E24835CF700DB803C /* PersonHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonHeaderCell.swift; sourceTree = "<group>"; };
 		A91B079224835CF700DB803C /* LocationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
-		A91B079324835CF700DB803C /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A91B079324835CF700DB803C /* STNAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STNAppDelegate.swift; sourceTree = "<group>"; };
 		A91B079424835CF700DB803C /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		A91B07B724846B0C00DB803C /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		A91B07BC24846ED700DB803C /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
@@ -256,6 +257,7 @@
 		A9AC8329248B31FE0000A851 /* SearchNetworkRequestor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchNetworkRequestor.swift; sourceTree = "<group>"; };
 		A9AC832B248B33770000A851 /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
 		A9B9056C248B4EA300F9EEFA /* URLComponents+STN.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URLComponents+STN.swift"; sourceTree = "<group>"; };
+		A9B9056E248C90FB00F9EEFA /* UIApplication+STN.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+STN.swift"; sourceTree = "<group>"; };
 		B386F9542482FB540037A38D /* UIFontSTNTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontSTNTests.swift; sourceTree = "<group>"; };
 		B386F957248526C70037A38D /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		B3D6B6AE2487E10100D3118C /* Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
@@ -505,7 +507,7 @@
 		A91B076424835CF700DB803C /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				A91B079324835CF700DB803C /* AppDelegate.swift */,
+				A91B079324835CF700DB803C /* STNAppDelegate.swift */,
 				A91B079424835CF700DB803C /* SceneDelegate.swift */,
 				A91B078224835CF700DB803C /* Components */,
 				A91B077124835CF700DB803C /* Controller */,
@@ -559,6 +561,7 @@
 				A91B076A24835CF700DB803C /* UIView++.swift */,
 				83E9CAD32484A5DC001D173A /* UIViewController+TabBar.swift */,
 				A9B9056C248B4EA300F9EEFA /* URLComponents+STN.swift */,
+				A9B9056E248C90FB00F9EEFA /* UIApplication+STN.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -1153,9 +1156,10 @@
 				9E7DBAF0248481DA00635A56 /* ImageCache.swift in Sources */,
 				5B026C54248AEE8F00335A17 /* PersonHashtagTableViewCell.swift in Sources */,
 				F2725A8D24881AF200507DC4 /* UITableView++.swift in Sources */,
+				A9B9056F248C90FB00F9EEFA /* UIApplication+STN.swift in Sources */,
 				7CE75F3F2489B78400168DDA /* PresentedPetition.swift in Sources */,
 				A91B07A624835CF700DB803C /* UIDevice+STN.swift in Sources */,
-				A91B07B224835CF700DB803C /* AppDelegate.swift in Sources */,
+				A91B07B224835CF700DB803C /* STNAppDelegate.swift in Sources */,
 				5D456A3B24870CDF009FAD34 /* LocationCollectionViewDataSource.swift in Sources */,
 				A91B07AB24835CF700DB803C /* Petition.swift in Sources */,
 				EEC3A1DC2483D6B6001E7754 /* SearchResultCell.swift in Sources */,
