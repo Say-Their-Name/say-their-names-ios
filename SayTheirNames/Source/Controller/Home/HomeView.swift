@@ -127,6 +127,7 @@ final class HomeView: UIView {
         let bookmarkImage = UIImage(named: "white-bookmark")
         let bookmarkButton = UIButton(image: bookmarkImage)
         bookmarkButton.accessibilityLabel = L10n.bookmark
+        bookmarkButton.isHidden = !FeatureFlags.bookmarksEnabled
         return bookmarkButton
     }()
     
