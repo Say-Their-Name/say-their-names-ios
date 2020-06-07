@@ -27,7 +27,7 @@ import Foundation
 struct Person: Decodable {
     let id: Int
     let fullName: String
-    let dob: Date
+    //let dob: Date
     let doi: Date
     let childrenCount: String
     let age: String
@@ -47,14 +47,13 @@ struct Person: Decodable {
         socialMedia = "social_media"
     }
     
-    init(id: Int, fullName: String, dob: Date,
+    init(id: Int, fullName: String,
          doi: Date, childrenCount: String, age: String,
          city: String, country: String, bio: String,
          context: String, images: [Image], donations: DonationsResponsePage,
          petitions: PetitionsResponsePage, media: [Media], socialMedia: [SocialMedia]) {
         self.id = id
         self.fullName = fullName
-        self.dob = dob
         self.doi = doi
         self.childrenCount = childrenCount
         self.age = age
@@ -88,13 +87,13 @@ struct Person: Decodable {
         self.socialMedia = try container.decodeIfPresent([SocialMedia].self, forKey: .socialMedia) ?? []
         
         // Date
-        let dateFormatter = ISO8601DateFormatter()
+        //let dateFormatter = ISO8601DateFormatter()
         
-        let dob = try container.decodeIfPresent(String.self, forKey: .dob) ?? ""
-        self.dob = dateFormatter.date(from: dob) ?? Date()
+        //let dob = try container.decodeIfPresent(TimeInterval.self, forKey: .dob) ?? 0
+        //self.dob = Date(timeIntervalSince1970: dob)
         
-        let doi = try container.decodeIfPresent(String.self, forKey: .doi) ?? ""
-        self.doi = dateFormatter.date(from: doi) ?? Date()
+        let doi = try container.decodeIfPresent(TimeInterval.self, forKey: .doi) ?? 0
+        self.doi = Date(timeIntervalSince1970: doi)
     }    
 }
 
