@@ -50,6 +50,7 @@ final class HomeView: UIView {
         locationLayout.sectionInset = UIEdgeInsets(0, inset, 0, inset)
         let locationCollectionView = UICollectionView(frame: .zero, collectionViewLayout: locationLayout)
         locationCollectionView.contentInsetAdjustmentBehavior = .always
+        locationCollectionView.isHidden = !FeatureFlags.filtersEnabled
         return locationCollectionView
     }()
     
@@ -89,7 +90,6 @@ final class HomeView: UIView {
                 let layoutGroupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(groupWidth),
                                                              heightDimension: .absolute(height))
                 let group = NSCollectionLayoutGroup.horizontal(layoutSize: layoutGroupSize, subitems: [layoutItem])
-//                group.interItemSpacing = .fixed(Theme.Components.Padding.medium)
                 
                 let headerSection = NSCollectionLayoutSection(group: group)
                 headerSection.orthogonalScrollingBehavior = .groupPaging
@@ -142,6 +142,7 @@ final class HomeView: UIView {
     let separator: UIView! = {
         let separator = UIView()
         separator.backgroundColor = UIColor.STN.separator
+        separator.isHidden = !FeatureFlags.filtersEnabled
         return separator
     }()
     
@@ -179,22 +180,26 @@ final class HomeView: UIView {
             leading: leadingAnchor,
             bottom: bottomAnchor,
             trailing: trailingAnchor)
+
+        if FeatureFlags.filtersEnabled {
+            locationCollectionView.anchor(
+                superView: collections,
+                top: collections.topAnchor,
+                leading: collections.leadingAnchor,
+                trailing: collections.trailingAnchor,
+                size: Theme.Screens.Home.LocationView.size)
+            
+            separator.anchor(
+                superView: collections,
+                top: locationCollectionView.bottomAnchor,
+                leading: collections.leadingAnchor,
+                trailing: collections.trailingAnchor,
+                size: Theme.Screens.Home.SeparatorView.size)
+        }
         
-        locationCollectionView.anchor(
-            superView: collections,
-            top: collections.topAnchor,
-            leading: collections.leadingAnchor,
-            trailing: collections.trailingAnchor,
-            size: Theme.Screens.Home.LocationView.size)
-        separator.anchor(
-            superView: collections,
-            top: locationCollectionView.bottomAnchor,
-            leading: collections.leadingAnchor,
-            trailing: collections.trailingAnchor,
-            size: Theme.Screens.Home.SeparatorView.size)
         peopleCollectionView.anchor(
             superView: collections,
-            top: separator.safeAreaLayoutGuide.bottomAnchor,
+            top: FeatureFlags.filtersEnabled ? separator.safeAreaLayoutGuide.bottomAnchor : collections.topAnchor,
             leading: collections.leadingAnchor,
             bottom: collections.safeAreaLayoutGuide.bottomAnchor,
             trailing: collections.trailingAnchor)
