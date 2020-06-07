@@ -31,10 +31,10 @@ protocol Dependency {
 
 // MARK: - DependencyContainer
 final class DependencyContainer: Dependency {
-    lazy private(set) var navigator = Navigator()
-    lazy private(set) var image = ImageService()
-    lazy private(set) var dateFormatter = DateFormatterService()
-    lazy private(set) var network = NetworkRequestor()
+    let navigator = Navigator()
+    let image = ImageService()
+    let dateFormatter = DateFormatterService()
+    let network = NetworkRequestor()
     
     // MARK: - Init
     init() {
@@ -43,7 +43,7 @@ final class DependencyContainer: Dependency {
         Log.print("Starting Services")
         
         // Handle our Injection
-        let injectionFactory = DependencyInjectionFactory.notShared
+        let injectionFactory = __DependencyInjectionFactory.shared
         injectionFactory.add(handle: self)
         injectionFactory.add(handle: self.navigator)
         injectionFactory.add(handle: self.image)
@@ -58,7 +58,7 @@ struct DependencyInject<D: Dependency> {
     var dependency: D
     
     init() {
-        self.dependency = DependencyInjectionFactory.notShared.resolve(D.self)
+        self.dependency = __DependencyInjectionFactory.shared.resolve(D.self)
     }
     
     public var wrappedValue: D {
@@ -68,8 +68,8 @@ struct DependencyInject<D: Dependency> {
 }
 
 // MARK: - DependencyInjectionFactory
-private class DependencyInjectionFactory {
-    static let notShared = DependencyInjectionFactory()
+private class __DependencyInjectionFactory {
+    static let shared = __DependencyInjectionFactory()
     var factoryDict: [String: Any] = [:]
     
     func add<D: Dependency>(handle: D) {
