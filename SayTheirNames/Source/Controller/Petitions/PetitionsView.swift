@@ -25,33 +25,18 @@
 import UIKit
 
 final class PetitionsView: UIView {
-        
-    private lazy var customNavigationBar: UIView = {
-        let customNavigationBar = UIView()
-        customNavigationBar.backgroundColor = Self.CustomNavigationBarBackgroundColor
-        return customNavigationBar
-    }()
-    
+                
     lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .plain)
         tableView.separatorStyle = .none
         tableView.backgroundColor = Self.TableViewBackgroundColor
         return tableView
     }()
-
-    private lazy var navigationLabel: UILabel = {
-        let label = UILabel()
-        label.text = Strings.petitions.uppercased()
-        label.textColor = Self.CustomNavigationBarTextColor
-        return label
-    }()
-    
+       
     override func didMoveToSuperview() {
         super.didMoveToSuperview()
         
-        backgroundColor = Self.BackgroundColor
-        
-        styleLabels()
+        backgroundColor = Self.BackgroundColor        
     }
 
     private var hasLayedOutSubviews = false
@@ -60,15 +45,11 @@ final class PetitionsView: UIView {
         
         guard !hasLayedOutSubviews else { return }
         hasLayedOutSubviews = true
-                
-        createCustomNavigationBarLayout()
-        addSubview(customNavigationBar)
-        
+                        
         addSubview(tableView)
 
         // all subviews should use custom constraints
         [
-            customNavigationBar,
             tableView,
             ].forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false
@@ -88,41 +69,11 @@ final class PetitionsView: UIView {
         haveCreatedConstraints = true
         
         NSLayoutConstraint.activate([
-            customNavigationBar.leadingAnchor.constraint(equalTo: leadingAnchor),
-            customNavigationBar.trailingAnchor.constraint(equalTo: trailingAnchor),
-            customNavigationBar.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-            customNavigationBar.heightAnchor.constraint(equalToConstant: Self.CustomNavigationBarHeight),
-            
             tableView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
-            tableView.topAnchor.constraint(equalTo: customNavigationBar.bottomAnchor),
+            tableView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             tableView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
         ])
-    }
-    
-    private func createCustomNavigationBarLayout() {
-        
-        navigationLabel.translatesAutoresizingMaskIntoConstraints = false
-        customNavigationBar.addSubview(navigationLabel)
-        
-        NSLayoutConstraint.activate([
-            navigationLabel.centerXAnchor.constraint(equalTo: customNavigationBar.centerXAnchor),
-            navigationLabel.centerYAnchor.constraint(equalTo: customNavigationBar.centerYAnchor),
-            
-        ])
-    }
-    
-    private func styleLabels() {
-
-        navigationLabel.font = UIFont.STN.navBarTitle
-    }
-    
-    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        super.traitCollectionDidChange(previousTraitCollection)
-        
-        if traitCollection.preferredContentSizeCategory != previousTraitCollection?.preferredContentSizeCategory {
-            styleLabels()
-        }
     }
 
 }
