@@ -90,7 +90,8 @@ final class DonationsController: UIViewController {
                 person: Person.init(
                     id: index,
                     fullName: "",
-                    doi: Date(),
+                    dob: "",
+                    doi: "",
                     childrenCount: "",
                     age: "",
                     city: "",
