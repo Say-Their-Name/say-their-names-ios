@@ -59,7 +59,6 @@ final class DonationsController: UIViewController, ServiceReferring {
             return cell
         }
         donationManager.didSelectItem = { donation in
-//            print(donation)
             
             // TODO: Move this out
             let detailVC = DonationsMoreDetailsController(service: self.service)
@@ -82,48 +81,15 @@ final class DonationsController: UIViewController, ServiceReferring {
     }
     
     private func getDonations() {
-        // TODO: Remove dummy data once donations is fixed
-        let dummyDonations = Array(0 ... 10).map { index in
-            Donation(
-                id: index,
-                title: "Black Lives Matter Resources",
-                description: "Following the tragic news surrounding the murder of George Floyd by Minneapolis police officers...",
-                link: "",
-                person: Person.init(
-                    id: index,
-                    fullName: "",
-                    dob: "",
-                    doi: "",
-                    childrenCount: "",
-                    age: "",
-                    city: "",
-                    country: "",
-                    bio: "",
-                    context: "",
-                    images: [],
-                    donations: DonationsResponsePage(),
-                    petitions: PetitionsResponsePage(),
-                    media: [],
-                    socialMedia: []
-                ),
-                type: DonationType(
-                    id: "",
-                    type: ""
-                )
-            )
+        service.network.fetchDonations { [weak self] result in
+            switch result {
+            case .success(let response):
+                let donations = response.all
+                self?.donationManager.set(donations)
+
+            case .failure(let error):
+                print(error)
+            }
         }
-        donationManager.set(dummyDonations)
-        
-        // TODO: uncomment once `fetchDonations` is fixed
-//        service.network.fetchDonations { [weak self] result in
-//            switch result {
-//            case .success(let response):
-//                let donations = response.all
-//                self?.donationManager.set(donations)
-//
-//            case .failure(let error):
-//                print(error)
-//            }
-//        }
     }
 }

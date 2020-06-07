@@ -103,7 +103,7 @@ extension DonationsMoreDetailsController: UICollectionViewDataSource {
                 for: indexPath) as? DMDPhotoSupplementaryView {
                 
                 let person = donation.person
-                photoView.configure(person)
+                person.flatMap { photoView.configure($0) }
                 return photoView
             }
             
