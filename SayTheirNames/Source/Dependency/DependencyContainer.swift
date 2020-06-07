@@ -79,8 +79,10 @@ private class __DependencyInjectionFactory {
 
     func resolve<D: Dependency>(_ type: D.Type) -> D {
         let key = String(reflecting: type)
-        let component = self.factoryDict[key]
+        guard let component = self.factoryDict[key] as? D else {
+            fatalError("Factory component is not of type \(D.self).")
+        }
         
-        return component as! D
+        return component
     }
 }
