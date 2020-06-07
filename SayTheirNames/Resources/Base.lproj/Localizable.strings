@@ -1,4 +1,4 @@
-/* 
+/*
   Localizable.strings
   SayTheirNames
 
@@ -9,7 +9,25 @@
 "home" = "Home";
 "donations" = "Donations";
 "petitions" = "Petitions";
-"settings" = "Settings";
+"about" = "About";
 "cancel"= "Cancel";
-"find_out_more" = "Find Out More";
+"find_out_more" = "FIND OUT MORE";
 "verified" = "verfied";
+"filter_all" = "ALL";
+"filter_businesses" = "BUSINESSES";
+"filter_protesters" = "PROTESTERS";
+"filter_victims" = "VICTIMS";
+"share" = "Share";
+"close" = "Close";
+"say_their_names" = "Say their names";
+"bookmark" = "Bookmark";
+"search" = "Search";
+"person.say_their_names" = "Say their names";
+"person.age" = "Age";
+"person.children" = "Children";
+"person.location" = "Location";
+"person.their_story" = "Their Story";
+"person.outcome" = "Outcome";
+"person.news" = "News";
+"person.media" = "Media";
+"person.hashtags" = "Social Media Hashtags";

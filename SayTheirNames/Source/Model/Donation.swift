@@ -22,43 +22,57 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-import Foundation
+import UIKit
 
-public struct Donation: Decodable, Hashable {
+public struct Donation: Decodable {
     let id: Int
     let title: String
     let description: String
-    let outcome: String
     let link: String
     let person: Person
+    let type: DonationType
     
-    enum CodingKeys: String, CodingKey {
-        case id, title, description, outcome, link, person
-    }
-    
-    public static func == (lhs: Donation, rhs: Donation) -> Bool {
-        lhs.id == rhs.id
+    private enum CodingKeys: String, CodingKey {
+        case id, title, description, link, person, type
     }
 }
 
-struct DonationType: Codable, Hashable {
+extension Donation: Hashable {}
+
+extension Donation: CallToAction {
+    var actionTitle: String {
+        Strings.findOutMore
+    }
+    var body: String {
+        description
+    }
+    var imagePath: String? {
+        // TODO: update image properly
+        nil
+    }
+    
+    var tag: String? {
+        // TODO: update logic to show verified or not
+        return "VERIFIED"
+    }
+}
+
+struct DonationType: Codable {
     let id: String
     let type: String
     
-    enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case id, type
-    }
-    
-    public static func == (lhs: DonationType, rhs: DonationType) -> Bool {
-        lhs.id == rhs.id
     }
 }
 
-public struct DonationsResponsePage: Decodable, Hashable {
+extension DonationType: Hashable {}
+
+public struct DonationsResponsePage: Decodable {
     var all: [Donation]
     var link: Link
     
-    enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case all = "data", link = "links"
     }
     
@@ -68,7 +82,10 @@ public struct DonationsResponsePage: Decodable, Hashable {
         self.link = Link(first: "", last: "", prev: "", next: "")
     }
     
-    public static func == (lhs: DonationsResponsePage, rhs: DonationsResponsePage) -> Bool {
-        lhs.all == rhs.all
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        self.all = try container.decodeIfPresent([Donation].self, forKey: .all) ?? []
+        self.link = try container.decodeIfPresent(Link.self, forKey: .link) ?? Link(first: "", last: "", prev: "", next: "")
     }
 }

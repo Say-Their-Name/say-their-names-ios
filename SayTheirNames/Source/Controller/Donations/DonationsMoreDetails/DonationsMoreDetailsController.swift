@@ -179,7 +179,7 @@ extension DonationsMoreDetailsController: UICollectionViewDataSource {
             }
             
             // Configure cell
-            textCell.setContent(text: donation.outcome)
+//            textCell.setContent(text: donation.outcome)
             return textCell
         
         // Social Media Hashtags Section

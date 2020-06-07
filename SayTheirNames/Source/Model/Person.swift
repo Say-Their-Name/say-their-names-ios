@@ -47,26 +47,48 @@ struct Person: Decodable {
         socialMedia = "social_media"
     }
     
+    init(id: Int, fullName: String, dob: String,
+         doi: String, childrenCount: String, age: String,
+         city: String, country: String, bio: String,
+         context: String, images: [Image], donations: DonationsResponsePage,
+         petitions: PetitionsResponsePage, media: [Media], socialMedia: [SocialMedia]) {
+        self.id = id
+        self.fullName = fullName
+        self.dob = dob
+        self.doi = doi
+        self.childrenCount = childrenCount
+        self.age = age
+        self.city = city
+        self.country = country
+        self.bio = bio
+        self.context = context
+        self.images = images
+        self.donations = donations
+        self.petitions = petitions
+        self.media = media
+        self.socialMedia = socialMedia
+    }
+    
     init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self)
+        let container = try decoder.container(keyedBy: CodingKeys.self)
         
-        self.id = try values.decodeIfPresent(Int.self, forKey: .id) ?? -1
-        self.fullName = try values.decodeIfPresent(String.self, forKey: .fullName) ?? ""
-        self.dob = try values.decodeIfPresent(String.self, forKey: .dob) ?? ""
-        self.doi = try values.decodeIfPresent(String.self, forKey: .doi) ?? ""
-        self.childrenCount = try values.decodeIfPresent(String.self, forKey: .childrenCount) ?? "0"
-        self.age = try values.decodeIfPresent(String.self, forKey: .age) ?? ""
-        self.city = try values.decodeIfPresent(String.self, forKey: .city) ?? ""
-        self.country = try values.decodeIfPresent(String.self, forKey: .country) ?? ""
-        self.bio = try values.decodeIfPresent(String.self, forKey: .bio) ?? ""
-        self.context = try values.decodeIfPresent(String.self, forKey: .context) ?? ""
+        self.id = try container.decodeIfPresent(Int.self, forKey: .id) ?? -1
+        self.fullName = try container.decodeIfPresent(String.self, forKey: .fullName) ?? ""
+        self.dob = try container.decodeIfPresent(String.self, forKey: .dob) ?? ""
+        self.doi = try container.decodeIfPresent(String.self, forKey: .doi) ?? ""
+        self.childrenCount = try container.decodeIfPresent(String.self, forKey: .childrenCount) ?? "0"
+        self.age = try container.decodeIfPresent(String.self, forKey: .age) ?? ""
+        self.city = try container.decodeIfPresent(String.self, forKey: .city) ?? ""
+        self.country = try container.decodeIfPresent(String.self, forKey: .country) ?? ""
+        self.bio = try container.decodeIfPresent(String.self, forKey: .bio) ?? ""
+        self.context = try container.decodeIfPresent(String.self, forKey: .context) ?? ""
         
-        self.images = try values.decodeIfPresent([Image].self, forKey: .images) ?? []
-        self.donations = try values.decodeIfPresent(DonationsResponsePage.self, forKey: .donations) ?? DonationsResponsePage()
-        self.petitions = try values.decodeIfPresent(PetitionsResponsePage.self, forKey: .petitions) ?? PetitionsResponsePage()
-        self.media = try values.decodeIfPresent([Media].self, forKey: .media) ?? []
-        self.socialMedia = try values.decodeIfPresent([SocialMedia].self, forKey: .socialMedia) ?? []
-    }    
+        self.images = try container.decodeIfPresent([Image].self, forKey: .images) ?? []
+        self.donations = try container.decodeIfPresent(DonationsResponsePage.self, forKey: .donations) ?? DonationsResponsePage()
+        self.petitions = try container.decodeIfPresent(PetitionsResponsePage.self, forKey: .petitions) ?? PetitionsResponsePage()
+        self.media = try container.decodeIfPresent([Media].self, forKey: .media) ?? []
+        self.socialMedia = try container.decodeIfPresent([SocialMedia].self, forKey: .socialMedia) ?? []
+    }
 }
 
 struct PersonsResponsePage: Decodable {
@@ -82,10 +104,16 @@ struct PersonsResponsePage: Decodable {
         self.all = []
         self.link = Link(first: "", last: "", prev: "", next: "")
     }
+    
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        self.all = try container.decodeIfPresent([Person].self, forKey: .all) ?? []
+        self.link = try container.decodeIfPresent(Link.self, forKey: .link) ?? Link(first: "", last: "", prev: "", next: "")
+    }
 }
 
 extension Person: Equatable, Hashable {
-    
     static func == (lhs: Person, rhs: Person) -> Bool {
         return lhs.id == rhs.id
     }
@@ -93,4 +121,8 @@ extension Person: Equatable, Hashable {
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
+}
+
+extension Person {
+    
 }
