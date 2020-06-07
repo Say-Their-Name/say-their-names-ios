@@ -17,6 +17,7 @@ final class DMDTitleCell: UICollectionViewCell {
         let label = UILabel(frame: .zero)
         label.numberOfLines = 0
         label.textAlignment = .center
+        label.adjustsFontSizeToFitWidth = true
         label.font = UIFont.STN.title
         return label
     }()

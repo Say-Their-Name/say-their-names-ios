@@ -43,6 +43,14 @@ final class DonationsMoreDetailsController: BaseViewController {
     
     private let donationButtonContainerView = ButtonContainerView(frame: .zero)
     
+    lazy var backgroundFistImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "STN-Logo-white")
+        imageView.contentMode = .scaleAspectFit
+        imageView.clipsToBounds = true
+        return imageView
+    }()
+    
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,6 +63,10 @@ final class DonationsMoreDetailsController: BaseViewController {
     // MARK: - Class Method
     private func configureSubview() {
         view.backgroundColor = UIColor.STN.white
+        
+        backgroundFistImageView.anchor(superView: view, top: view.topAnchor,
+                               padding: .init(top:32), size: .init(width: 110, height: 110))
+        backgroundFistImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         
         collectionView.anchor(superView: view, top: view.topAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor, padding: UIEdgeInsets.zero, size: CGSize.zero)
         
