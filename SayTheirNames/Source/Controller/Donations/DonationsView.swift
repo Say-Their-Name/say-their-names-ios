@@ -27,19 +27,28 @@ import UIKit
 /// The UI for Donations
 final class DonationsView: UIView {
     
-    private lazy var donationsLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Donations"
-        label.textAlignment = .center
-        label.font = UIFont.STN.body
-        label.translatesAutoresizingMaskIntoConstraints = false
-        
-        return label
-    }()
+    private lazy var navBarView = STNNavigationBar(
+        title: Strings.donations.uppercased()
+    ).configure {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+    }
+    
+    /// UICollectionView that lays out the filter cells
+    private lazy var filtersView = FiltersCollectionView().configure {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.register(cellType: FilterCategoryCell.self)
+        $0.showsHorizontalScrollIndicator = false
+    }
+    
+    private lazy var donationsCollectionView = CallToActionCollectionView().configure {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.register(cellType: CallToActionCell.self)
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupSelf()
+        setupSubviews()
     }
     
     required init?(coder: NSCoder) {
@@ -48,23 +57,46 @@ final class DonationsView: UIView {
     
     /// Configures properties for the view itself
     private func setupSelf() {
-        backgroundColor = .systemBackground
-        setupSubviews()
+        backgroundColor = UIColor.STN.black
     }
     
     /// Adds and configures constraints for subviews
     private func setupSubviews() {
-        setupDonationsLabel()
+        addSubview(navBarView)
+        addSubview(filtersView)
+        addSubview(donationsCollectionView)
+        
+        let safeGuide = safeAreaLayoutGuide
+        NSLayoutConstraint.activate([
+            navBarView.topAnchor.constraint(equalTo: safeGuide.topAnchor),
+            navBarView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            navBarView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            navBarView.heightAnchor.constraint(equalToConstant: Self.navBarViewHeight),
+            
+            filtersView.topAnchor.constraint(equalTo: navBarView.bottomAnchor),
+            filtersView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            filtersView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            filtersView.heightAnchor.constraint(equalToConstant: Self.filtersViewHeight),
+            
+            donationsCollectionView.topAnchor.constraint(equalTo: filtersView.bottomAnchor),
+            donationsCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            donationsCollectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            donationsCollectionView.bottomAnchor.constraint(equalTo: bottomAnchor)
+        ])
+    }
+    
+    /// Binds a `CollectionViewManager` to the `filterView`
+    func bindFilterManager(_ filterManager: DonationFilterViewManager) {
+        filterManager.configure(with: filtersView)
+    }
+    
+    /// Binds a `CollectionViewManager` to the `donationsCollectionView`
+    func bindDonationManager(_ donationManager: DonationsCollectionViewManager) {
+        donationManager.configure(with: donationsCollectionView)
     }
 }
 
-// MARK: - Configurations
-
 private extension DonationsView {
-    
-    func setupDonationsLabel() {
-        addSubview(donationsLabel)
-        donationsLabel.fillSuperview()
-    }
-    
+    static let navBarViewHeight: CGFloat = 70
+    static let filtersViewHeight: CGFloat = 70
 }

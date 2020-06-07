@@ -1,5 +1,5 @@
 //
-//  BaseViewController.swift
+//  DMDSectionTitleSupplementaryView.swift
 //  SayTheirNames
 //
 //  Copyright (c) 2020 Say Their Names Team (https://github.com/Say-Their-Name)
@@ -24,13 +24,35 @@
 
 import UIKit
 
-class BaseViewController: UIViewController {
-    let service: Servicing
+class DMDSectionTitleSupplementaryView: UICollectionReusableView {
+    // MARK: - Property
+    static let reuseIdentifier = "donations-more-details-section-title-view"
     
-    required init?(coder: NSCoder) { fatalError("") }
+    // MARK: - View
+    lazy var titleLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = UIColor(red: 16/255.0, green: 16/255.0, blue: 16/255.0, alpha: 1)
+        label.font = UIFont(name: "Karla-Bold", size: 19)
+        label.numberOfLines = 1
+        label.minimumScaleFactor = 0.5
+        label.adjustsFontSizeToFitWidth = true
+        return label
+    }()
     
-    required init(service: Servicing) {
-        self.service = service
-        super.init(nibName: nil, bundle: nil)
+    // MARK: - Initialization
+    override init(frame: CGRect) {
+        super.init(frame: .zero)
+        
+        clipsToBounds = true
+        titleLabel.fillSuperview(superView: self, padding: .zero)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - Method
+    public func setTitle(text: String) {
+        titleLabel.text = text
     }
 }

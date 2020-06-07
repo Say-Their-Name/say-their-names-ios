@@ -49,6 +49,23 @@ When you provide non-critical feedback or optional suggestions, use "Comment" or
 "Approve", reserving "Request Changes" only for critical must-fix issues that
 should block the PR.
 
+### Commits
+We are using the following conventions to identify what the commit is doing:
+
+- **CHORE:** Any code level improvement, that doesn't affect the user directly.
+- **FIX:** Any bug fixes.
+- **UI:** Any UI change that is not necessarily a feature or a bug.
+- **FEAT:** Any new feature
+
+The commits should be done as such:
+ - **[TAG]** Description
+ 
+**Example:**
+
+- **[CHORE]** Added secret logic
+- **[FIX]** Fixed delay when changing progress bar
+- **[FEAT]** Added new mixer sounds
+
 ## The project
 
 This project is a classic iOS app project, written in Swift with UIKit, using Xcode 11.5
@@ -64,6 +81,10 @@ with a meaningful error message.
 
 Before making a PR, check that the code has access control (variables that can be private, are),
 variables have meaningful names, etc.
+
+Also check that your code follows some general guidelines for consistency: 
+- We use Dependency Injection 
+- Use Theme
 
 When reviewing PRs, comments about code style are welcome, but keep in mind that
 this project is developed by volunteers from all over the world.

@@ -31,7 +31,6 @@ final class PetitionDetailView: UIView {
 
     let titleLabel: UILabel = {
        let label = UILabel()
-        label.font = UIFont.STN.bannerTitle
         label.numberOfLines = 2
         label.lineBreakMode = .byWordWrapping
         return label
@@ -39,7 +38,6 @@ final class PetitionDetailView: UIView {
     
     let summaryLabel: UILabel = {
        let label = UILabel()
-        label.font = UIFont.STN.bannerSubitle
         label.numberOfLines = 3
         label.lineBreakMode = .byWordWrapping
         return label
@@ -52,7 +50,12 @@ final class PetitionDetailView: UIView {
         return button
     }()
     
-    let imageView = UIImageView()
+    let imageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.accessibilityIgnoresInvertColors = true
+        return imageView
+    }()
+    
     let verifiedLabel = UILabel()
     
     override func didMoveToSuperview() {
@@ -82,9 +85,11 @@ final class PetitionDetailView: UIView {
             stack.widthAnchor.constraint(lessThanOrEqualToConstant: 300)
         ])
         
-        backgroundColor = .white
+        backgroundColor = UIColor.STN.white
         
         updateUI()
+        
+        styleLabels()
     }
     
     func set(petition: PresentedPetition?) {
@@ -98,4 +103,20 @@ final class PetitionDetailView: UIView {
         imageView.image = petition?.image
         verifiedLabel.text = petition?.isVerified == true ? "verified" : "not verified"
     }
+    
+    private func styleLabels() {
+
+        titleLabel.font = UIFont.STN.bannerTitle
+        summaryLabel.font = UIFont.STN.bannerSubitle
+        verifiedLabel.font = UIFont.STN.verifiedTag
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        
+        if traitCollection.preferredContentSizeCategory != previousTraitCollection?.preferredContentSizeCategory {
+            styleLabels()
+        }
+    }
+
 }

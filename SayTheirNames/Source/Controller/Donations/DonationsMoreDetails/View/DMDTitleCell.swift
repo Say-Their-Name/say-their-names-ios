@@ -1,5 +1,5 @@
 //
-//  LocationCell.swift
+//  DMDTitleCell.swift
 //  SayTheirNames
 //
 //  Copyright (c) 2020 Say Their Names Team (https://github.com/Say-Their-Name)
@@ -24,36 +24,40 @@
 
 import UIKit
 
-class LocationCell: UICollectionViewCell {
+final class DMDTitleCell: UICollectionViewCell {
+    // MARK: - Property
+    static let reuseIdentifier = "donations-more-details-title-cell"
     
-    var titleLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.STN.locationText
+    // MARK: - View
+    private let titleLabel: UILabel = {
+        let label = UILabel(frame: .zero)
+        label.numberOfLines = 0
         label.textAlignment = .center
+        label.adjustsFontSizeToFitWidth = true
+        label.font = UIFont.STN.title
         return label
     }()
     
-    override var isSelected: Bool {
-        didSet {
-            backgroundColor = isSelected ? UIColor.STN.black : .clear
-            titleLabel.textColor = isSelected ? UIColor.STN.white : UIColor.STN.black
-        }
-    }
-    
+    // MARK: - Initialization
     override init(frame: CGRect) {
         super.init(frame: frame)
-        addSubview(titleLabel)
-        titleLabel.fillSuperview()
-        layer.borderColor = UIColor.STN.black.cgColor
-        layer.borderWidth = 1.5
+        
+        configureSubview()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
-    func configure(with location: Location) {
-        titleLabel.text = location.name
+    
+    // MARK: - Class Method
+    private func configureSubview() {
+        contentView.addSubview(titleLabel)
+        
+        titleLabel.fillSuperview(superView: contentView, padding: .zero)
     }
-
+    
+    // MARK: - Configure Cell
+    func configure(for donation: Donation) {
+        titleLabel.text = donation.title
+    }
 }

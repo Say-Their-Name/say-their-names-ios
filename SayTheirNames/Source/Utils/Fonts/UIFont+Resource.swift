@@ -31,68 +31,104 @@ private enum FontName: String {
 
 extension UIFont {
     
-    /// A collection of common fonts
+    // dynamically sized
+    // at the time that they're called,
+    // they'll return the approrpiate font
+    // for the textstyle in the given trait collection
     enum STN {
         // 28
-        static let title = UIFont.dynamicCustomFont(
+        static var title: UIFont { UIFont.dynamicCustomFont(
         fontName: FontName.karlaBold.rawValue,
-        textStyle: .title1)
+        textStyle: .title1) }
         
         // 18 on figma but this yields 17 on default
-        static let body = UIFont.dynamicCustomFont(
+        static var body: UIFont { UIFont.dynamicCustomFont(
         fontName: FontName.karlaRegular.rawValue,
-        textStyle: .body)
+        textStyle: .body) }
         
         // 17
-        static let sectionHeader = UIFont.dynamicCustomFont(fontName: FontName.karlaBold.rawValue, textStyle: .body)
+        static var sectionHeader: UIFont { UIFont.dynamicCustomFont(fontName: FontName.karlaBold.rawValue, textStyle: .body) }
         
         // 15
-        static let locationText: UIFont = UIFont.dynamicCustomFont(
+        static var locationText: UIFont { UIFont.dynamicCustomFont(
             fontName: FontName.karlaBold.rawValue,
-            textStyle: .subheadline)
+            textStyle: .subheadline) }
 
         // 17
-        static let filledButtonTitle: UIFont = UIFont.dynamicCustomFont(
+        static var filledButtonTitle: UIFont { UIFont.dynamicCustomFont(
             fontName: FontName.karlaRegular.rawValue,
-            textStyle: .body)
+            textStyle: .body) }
         
         // 21 on figma but this yields 20 on default
-        static let plainButtonTitle = UIFont.dynamicCustomFont(
+        static var plainButtonTitle: UIFont { UIFont.dynamicCustomFont(
             fontName: FontName.karlaRegular.rawValue,
-            textStyle: .title3)
+            textStyle: .title3) }
 
         // 15
-        static let cardTitle = UIFont.dynamicCustomFont(
+        static var cardTitle: UIFont { UIFont.dynamicCustomFont(
             fontName: FontName.karlaBold.rawValue,
-            textStyle: .subheadline)
+            textStyle: .subheadline) }
         
         // 14 on figma but this yields 13 on default
-        static let cardSubitle = UIFont.dynamicCustomFont(
+        static var cardSubitle: UIFont { UIFont.dynamicCustomFont(
             fontName: FontName.karlaRegular.rawValue,
-            textStyle: .footnote)
+            textStyle: .footnote) }
         
         // 19 on figma but this yields 20 on default
-        static let bannerTitle = UIFont.dynamicCustomFont(
+        static var bannerTitle: UIFont { UIFont.dynamicCustomFont(
             fontName: FontName.karlaBold.rawValue,
-            textStyle: .title3)
+            textStyle: .title3) }
         
         // 17
-        static let bannerSubitle = UIFont.dynamicCustomFont(
+        static var bannerSubitle: UIFont { UIFont.dynamicCustomFont(
             fontName: FontName.karlaRegular.rawValue,
-            textStyle: .body)
+            textStyle: .body) }
 
         // 21 on figma but this yields 22 on default
-        static let navBarTitle = UIFont.dynamicCustomFont(
+        static var navBarTitle: UIFont { UIFont.dynamicCustomFont(
             fontName: FontName.karlaRegular.rawValue,
-            textStyle: .title2)
+            textStyle: .title2) }
         
         // 13
-        static let tabButtonTitle = UIFont.dynamicCustomFont(
+        static var tabButtonTitle: UIFont { UIFont.dynamicCustomFont(
             fontName: FontName.karlaBold.rawValue,
-            textStyle: .footnote)
+            textStyle: .footnote) }
         
-        static let verifiedTag: UIFont = UIFont.dynamicCustomFont(fontName: FontName.karlaBold.rawValue, textStyle: .footnote)
+        static var verifiedTag: UIFont { UIFont.dynamicCustomFont(fontName: FontName.karlaBold.rawValue, textStyle: .footnote) }
 
-        static let summary: UIFont = UIFont.dynamicCustomFont(fontName: FontName.karlaRegular.rawValue, textStyle: .subheadline)
+        static var summary: UIFont { UIFont.dynamicCustomFont(fontName: FontName.karlaRegular.rawValue, textStyle: .subheadline) }
+        
+        // 20 on figma but this yields 20 on default
+        static var detailViewTitle: UIFont { UIFont.dynamicCustomFont(
+            fontName: FontName.karlaBold.rawValue,
+            textStyle: .title3) }
+
+        // 12 on FIgma, this yields 13 on default
+        static var detailViewFieldTitle: UIFont { UIFont.dynamicCustomFont(
+            fontName: FontName.karlaBold.rawValue,
+            textStyle: .footnote) }
+
+        // 16 on Figma, 15 on default
+        static var detailViewField: UIFont { UIFont.dynamicCustomFont(
+            fontName: FontName.karlaBold.rawValue,
+            textStyle: .subheadline) }
+
+        // 17
+        static var hashtagButton: UIFont { UIFont.dynamicCustomFont(fontName: FontName.karlaBold.rawValue, textStyle: .body) }
+
+        // 17
+        static var fullBleedButton: UIFont { UIFont.dynamicCustomFont(fontName: FontName.karlaBold.rawValue, textStyle: .body) }
+        
+        /// Karla Bold - .body (17)
+        static let ctaTitle: UIFont = UIFont.dynamicCustomFont(
+            fontName: FontName.karlaBold.rawValue,
+            textStyle: .body
+        )
+        
+        /// Karla Regular - .subheadline (15)
+        static let ctaBody: UIFont = UIFont.dynamicCustomFont(
+            fontName: FontName.karlaRegular.rawValue,
+            textStyle: .subheadline
+        )
     }
 }

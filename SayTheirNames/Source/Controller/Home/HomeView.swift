@@ -26,36 +26,107 @@ import UIKit
 
 final class HomeView: UIView {
 
+    // MARK: - Properties
+
+    private let navigationBarLabel: UILabel = {
+        let label = UILabel()
+        label.text = Strings.sayTheirNames.uppercased()
+        label.textColor = UIColor.STN.white
+
+        return label
+    }()
+    
     let customNavigationBar: UIView = {
         let customNavigationBar = UIView()
-        customNavigationBar.backgroundColor = .black
+        customNavigationBar.backgroundColor = UIColor.STN.black
         return customNavigationBar
     }()
     
-    lazy var locationCollectionView: UICollectionView = {
+    lazy private(set) var locationCollectionView: UICollectionView = {
         let locationLayout = UICollectionViewFlowLayout()
         locationLayout.scrollDirection = .horizontal
         locationLayout.sectionInsetReference = .fromContentInset
-        locationLayout.sectionInset = Self.LocationsSectionInsets
-        
+        let inset = Theme.Components.edgeMargin
+        locationLayout.sectionInset = UIEdgeInsets(0, inset, 0, inset)
         let locationCollectionView = UICollectionView(frame: .zero, collectionViewLayout: locationLayout)
         locationCollectionView.contentInsetAdjustmentBehavior = .always
         return locationCollectionView
     }()
     
-    lazy var peopleCollectionView: UICollectionView = {
-        let peopleLayout = UICollectionViewFlowLayout()
-        peopleLayout.scrollDirection = .vertical
-        peopleLayout.sectionInset = Self.PeopleSectionInsets
-        
-        let peopleCollectionView = UICollectionView(frame: .zero, collectionViewLayout: peopleLayout)
-        peopleCollectionView.contentInsetAdjustmentBehavior = .always
+    lazy private(set) var peopleCollectionView: UICollectionView = {
+        let headerLayout = makePeopleCollectionViewLayout()
+        let peopleCollectionView = UICollectionView(frame: .zero, collectionViewLayout: headerLayout)
+        peopleCollectionView.contentInset.top = 20
+        peopleCollectionView.contentInset.bottom = 20
         return peopleCollectionView
     }()
+
+    weak var peopleDataSource: PersonCollectionViewDataSourceHelper?
+
+    private static var horizontalPaddingBetween: CGFloat { Theme.Components.Padding.small }
+
+    // MARK: - Methods
+    private func makePeopleCollectionViewLayout() -> UICollectionViewLayout {
+        let layout = UICollectionViewCompositionalLayout(sectionProvider: { [weak self] (sectionIndex: Int,
+            layoutEnviroment: NSCollectionLayoutEnvironment)
+            -> NSCollectionLayoutSection? in
+            
+            guard let sections = self?.peopleDataSource?.dataSource.snapshot().sectionIdentifiers else {return nil}
+            let deviceWidth = layoutEnviroment.traitCollection.horizontalSizeClass
+
+            let section: NSCollectionLayoutSection
+            
+            switch sections[sectionIndex] {
+
+            case .carousel:
+                let groupWidth: CGFloat = deviceWidth == .compact ? 0.75 : 0.4 // TODO: pick pretty numbers later, consult with UX
+
+                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                                      heightDimension: .fractionalHeight(1.0))
+                let layoutItem = NSCollectionLayoutItem(layoutSize: itemSize)
+                
+                let height = Theme.Screens.Home.CellSize.carouselCardHeight
+                let layoutGroupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(groupWidth),
+                                                             heightDimension: .absolute(height))
+                let group = NSCollectionLayoutGroup.horizontal(layoutSize: layoutGroupSize, subitems: [layoutItem])
+//                group.interItemSpacing = .fixed(Theme.Components.Padding.medium)
+                
+                let headerSection = NSCollectionLayoutSection(group: group)
+                headerSection.orthogonalScrollingBehavior = .groupPaging
+                headerSection.interGroupSpacing = Self.horizontalPaddingBetween
+                section = headerSection
+            
+            case .main:
+                
+                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
+                let layoutItem = NSCollectionLayoutItem(layoutSize: itemSize)
+
+                let height = Theme.Screens.Home.CellSize.peopleHeight
+                let columns = deviceWidth == .compact ? Theme.Screens.Home.Columns.compactScreenWidth : Theme.Screens.Home.Columns.wideScreenWidth
+                let layoutGroupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(height))
+                let group = NSCollectionLayoutGroup.horizontal(layoutSize: layoutGroupSize, subitem: layoutItem, count: columns)
+                group.interItemSpacing = .fixed(Self.horizontalPaddingBetween)
+                
+                let mainSection = NSCollectionLayoutSection(group: group)
+                section = mainSection
+            }
+            
+            let inset = Theme.Components.edgeMargin
+            section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: inset, bottom: 0, trailing: inset)
+            
+            return section
+        })
+        
+        let config = UICollectionViewCompositionalLayoutConfiguration()
+        config.interSectionSpacing = Theme.Components.Padding.medium
+        layout.configuration = config
+        return layout
+    }
     
     let bookmarkButton: UIButton = {
         let bookmarkImage = UIImage(named: "white-bookmark")
         let bookmarkButton = UIButton(image: bookmarkImage)
+        bookmarkButton.accessibilityLabel = L10n.bookmark
         return bookmarkButton
     }()
     
@@ -63,37 +134,22 @@ final class HomeView: UIView {
         let searchButton = UIButton(type: .custom)
         let searchImage = UIImage(named: "white-search")
         searchButton.setImage(searchImage, for: .normal)
+        searchButton.accessibilityLabel = L10n.search
         return searchButton
     }()
     
     let separator: UIView! = {
         let separator = UIView()
-        separator.backgroundColor = .systemGray6
+        separator.backgroundColor = UIColor.STN.separator
         return separator
     }()
-    
-    func safeWidth(for collectionView: UICollectionView) -> CGFloat {
-        let width = collectionView.frame.width -
-            collectionView.safeAreaInsets.left -
-            collectionView.safeAreaInsets.right -
-            collectionView.layoutMargins.left -
-            collectionView.layoutMargins.right
-        
-        let flowLayoutMargins: CGFloat
-        if let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-            flowLayoutMargins = flowLayout.sectionInset.left + flowLayout.sectionInset.right
-        }
-        else {
-            flowLayoutMargins = 0
-        }
-        
-        return width - flowLayoutMargins
-    }
     
     override func didMoveToSuperview() {
         super.didMoveToSuperview()
         createLayout()
-        backgroundColor = .black
+        backgroundColor = UIColor.STN.black // needed?
+        
+        styleLabels()
     }
     
     private var hasLayedOutSubviews = false
@@ -104,15 +160,18 @@ final class HomeView: UIView {
         addSubview(customNavigationBar)
 
         let collections = UIView()
+        collections.backgroundColor = .systemBackground
         addSubview(collections)
+        
         locationCollectionView.backgroundColor = .systemBackground
         peopleCollectionView.backgroundColor = .systemBackground
+        
         customNavigationBar.anchor(
             superView: self,
             top: safeAreaLayoutGuide.topAnchor,
             leading: leadingAnchor,
             trailing: trailingAnchor,
-            size: .init(width: 0, height: Self.CustomNavigationBarHeight))
+            size: Theme.Screens.Home.NavigationBar.size)
         collections.anchor(
             superView: self,
             top: customNavigationBar.bottomAnchor,
@@ -125,48 +184,53 @@ final class HomeView: UIView {
             top: collections.topAnchor,
             leading: collections.leadingAnchor,
             trailing: collections.trailingAnchor,
-            size: .init(width: 0, height: Self.PeopleCollectionViewHeight))
+            size: Theme.Screens.Home.LocationView.size)
         separator.anchor(
             superView: collections,
             top: locationCollectionView.bottomAnchor,
             leading: collections.leadingAnchor,
             trailing: collections.trailingAnchor,
-            size: .init(width: 0, height: Self.SeparatorHeight))
+            size: Theme.Screens.Home.SeparatorView.size)
         peopleCollectionView.anchor(
             superView: collections,
-            top: separator.bottomAnchor,
+            top: separator.safeAreaLayoutGuide.bottomAnchor,
             leading: collections.leadingAnchor,
-            bottom: collections.bottomAnchor,
+            bottom: collections.safeAreaLayoutGuide.bottomAnchor,
             trailing: collections.trailingAnchor)
     }
     
     private func createCustomNavigationBarLayout() {
         let bar = customNavigationBar
-        let label = UILabel()
-        label.text = "SAY THEIR NAME"
-        label.textColor = .white
-        label.font = UIFont.STN.bannerTitle
+
         let buttonStack = UIStackView(arrangedSubviews: [bookmarkButton,searchButton])
-        buttonStack.spacing = 8
+        buttonStack.spacing = Theme.Components.Padding.small
         buttonStack.distribution = .fillEqually
         
-        label.anchor(superView: bar, leading: bar.leadingAnchor, bottom: bar.bottomAnchor, padding: .init(left: 16, bottom: 16))
+        navigationBarLabel.anchor(superView: bar,
+                                  leading: bar.leadingAnchor,
+                                  bottom: bar.bottomAnchor,
+                                  padding: .init(left: Theme.Components.Padding.medium, bottom: Theme.Components.Padding.medium))
         bar.addSubview(buttonStack)
         [bookmarkButton, searchButton].forEach {
-            $0.widthAnchor.constraint(equalToConstant: Self.ButtonSize.height).isActive = true
-            $0.heightAnchor.constraint(equalToConstant: Self.ButtonSize.width).isActive = true
+            $0.widthAnchor.constraint(equalToConstant: Theme.Components.Button.Size.medium.height).isActive = true
+            $0.heightAnchor.constraint(equalToConstant: Theme.Components.Button.Size.medium.width).isActive = true
         }
-        buttonStack.anchor(superView: bar, trailing: bar.trailingAnchor, padding: .init(right: 16))
-        buttonStack.centerYAnchor.constraint(equalTo: label.centerYAnchor).isActive = true
-
+        buttonStack.anchor(superView: bar, trailing: bar.trailingAnchor, padding: .init(right: Theme.Components.Padding.medium))
+        buttonStack.centerYAnchor.constraint(equalTo: navigationBarLabel.centerYAnchor).isActive = true
+        
+        navigationBarLabel.trailingAnchor.constraint(equalTo: buttonStack.leadingAnchor, constant: Theme.Components.Padding.tiny).isActive = true
     }
 
-    // MARK: - Constants
-    static let CustomNavigationBarHeight: CGFloat = 70
-    static let PeopleCollectionViewHeight: CGFloat = 70
-    static let ButtonSize: CGSize = .init(width: 40, height: 40)
-    static let CustomNavBarMargin: CGFloat = 16
-    static let SeparatorHeight: CGFloat = 1
-    static let LocationsSectionInsets = UIEdgeInsets(left: 16, right: 16)
-    static let PeopleSectionInsets = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
+    private func styleLabels() {
+
+        navigationBarLabel.font = UIFont.STN.bannerTitle
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        
+        if traitCollection.preferredContentSizeCategory != previousTraitCollection?.preferredContentSizeCategory {
+            styleLabels()
+        }
+    }
 }

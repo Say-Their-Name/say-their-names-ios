@@ -22,7 +22,7 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-import Foundation
+import UIKit
 
 public struct Donation: Decodable {
     let id: Int
@@ -32,8 +32,28 @@ public struct Donation: Decodable {
     let person: Person
     let type: DonationType
     
-    enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case id, title, description, link, person, type
+    }
+}
+
+extension Donation: Hashable {}
+
+extension Donation: CallToAction {
+    var actionTitle: String {
+        Strings.findOutMore
+    }
+    var body: String {
+        description
+    }
+    var imagePath: String? {
+        // TODO: update image properly
+        nil
+    }
+    
+    var tag: String? {
+        // TODO: update logic to show verified or not
+        return "VERIFIED"
     }
 }
 
@@ -41,16 +61,18 @@ struct DonationType: Codable {
     let id: String
     let type: String
     
-    enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case id, type
     }
 }
+
+extension DonationType: Hashable {}
 
 public struct DonationsResponsePage: Decodable {
     var all: [Donation]
     var link: Link
     
-    enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case all = "data", link = "links"
     }
     
@@ -58,5 +80,12 @@ public struct DonationsResponsePage: Decodable {
     init() {
         self.all = []
         self.link = Link(first: "", last: "", prev: "", next: "")
+    }
+    
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        self.all = try container.decodeIfPresent([Donation].self, forKey: .all) ?? []
+        self.link = try container.decodeIfPresent(Link.self, forKey: .link) ?? Link(first: "", last: "", prev: "", next: "")
     }
 }
