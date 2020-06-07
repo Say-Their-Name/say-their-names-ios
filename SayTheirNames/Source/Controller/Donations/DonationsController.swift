@@ -24,13 +24,10 @@
 
 import UIKit
 
-class DonationsController: UIViewController, ServiceReferring {
-    var service: Servicing
-    
+class DonationsController: UIViewController {
     private let ui = DonationsView()
     
-    required init(service: Servicing) {
-        self.service = service
+    required init() {
         super.init(nibName: nil, bundle: nil)
     }
     

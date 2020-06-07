@@ -24,14 +24,12 @@
 
 import UIKit
 
+// MARK: - Servicing
 protocol Servicing {
-    var navigator: Navigator { get }
-    var image: ImageService { get }
-    var dateFormatter: DateFormatterService { get }
-    var network: NetworkRequestor { get }
+    
 }
 
-/// This is a core class that holds all instances responsible for logic
+// MARK: - Service
 final class Service: Servicing {
     lazy private(set) var navigator = Navigator()
     lazy private(set) var image = ImageService()
@@ -43,22 +41,44 @@ final class Service: Servicing {
         Log.mode = .all
         Log.print("SayTheirNames Version: \(Bundle.versionBuildString)")
         Log.print("Starting Services")
+        
+        ServiceInjectionFactory.shared.add(handle: self)
+        ServiceInjectionFactory.shared.add(handle: self.navigator)
+        ServiceInjectionFactory.shared.add(handle: self.image)
+        ServiceInjectionFactory.shared.add(handle: self.dateFormatter)
+        ServiceInjectionFactory.shared.add(handle: self.network)
     }
 }
 
+// MARK: - ServiceInject
 @propertyWrapper
-struct ServiceInject {
-    // DO NOT MAKE THIS PUBLIC!
-    private static var hiddenService: Service!
+struct ServiceInject<S: Servicing> {
+    var serviceHandle: S
     
-    init() { }
-    init(service: Service) {
-        if ServiceInject.hiddenService == nil {
-            ServiceInject.hiddenService = service
-        }
+    init() {
+        self.serviceHandle = ServiceInjectionFactory.shared.resolve(S.self)
+    }
+    
+    public var wrappedValue: S {
+        get { serviceHandle }
+        mutating set { serviceHandle = newValue }
+    }
+}
+
+// MARK: - InjectionFactory
+private struct ServiceInjectionFactory {
+    static var shared = ServiceInjectionFactory()
+    var factoryDict: [String: Any] = [:]
+    
+    mutating func add<S: Servicing>(handle: S) {
+        let key = String(describing: handle.self)
+        self.factoryDict[key] = handle
     }
 
-    public var wrappedValue: Service {
-        ServiceInject.hiddenService
+    func resolve<S: Servicing>(_ type: S.Type) -> S {
+        let key = String(reflecting: type)
+        let component = self.factoryDict[key]
+        
+        return component as! S
     }
 }

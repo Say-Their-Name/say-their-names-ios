@@ -27,7 +27,7 @@ import Alamofire
 
 // MARK: - NetworkRequestor
 
-final class NetworkRequestor {
+final class NetworkRequestor: Servicing {
     let session: Session
     let concurrentQueue = DispatchQueue(label: "NetworkRequestor", attributes: .concurrent)
     private let headers = HTTPHeaders.init(["x-dates-epoch": "true"])

@@ -29,7 +29,7 @@ private let headerIdentifier = "PersonHeaderCell"
 private let peopleIdentifier = "PersonCell"
 
 final class HomeController: UIViewController {
-    @ServiceInject private var service: Service
+    @ServiceInject private var network: NetworkRequestor
     
     required init() {
         super.init(nibName: nil, bundle: nil)
@@ -98,7 +98,7 @@ final class HomeController: UIViewController {
         locationsDataSourceHelper.setLocations(locations)
         
         // FIXME: This should be setup in a better place, for now this loads out data
-        self.service.network.fetchPeople { [weak self] (result) in
+        self.network.fetchPeople { [weak self] (result) in
             switch result {
             case .success(let page):
                 self?.peopleDataSourceHelper.setPeople(page.all)
@@ -166,7 +166,7 @@ extension HomeController: UICollectionViewDelegateFlowLayout {
             // People CollectionView
             
             let selectedPerson = peopleDataSourceHelper.person(at: indexPath.item)
-            let personController = PersonController(service: self.service)
+            let personController = PersonController()
             personController.person = selectedPerson
             let navigationController = UINavigationController(rootViewController: personController)
             navigationController.modalPresentationStyle = .fullScreen

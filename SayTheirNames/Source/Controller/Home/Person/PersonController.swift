@@ -84,9 +84,8 @@ enum PersonCellType: Equatable {
 // Alias for donation container view
 typealias DontainButtonContainerView = ButtonContainerView
 
-class PersonController: UIViewController, ServiceReferring {
+class PersonController: UIViewController {
     
-    var service: Servicing
     public var person: Person!
     
     private let donationButtonContainerView = DontainButtonContainerView(frame: .zero)
@@ -140,8 +139,7 @@ class PersonController: UIViewController, ServiceReferring {
         NSAttributedString.Key.font: UIFont.STN.navBarTitle
     ]
     
-    required init(service: Servicing) {
-        self.service = service
+    required init() {
         super.init(nibName: nil, bundle: nil)
     }
     

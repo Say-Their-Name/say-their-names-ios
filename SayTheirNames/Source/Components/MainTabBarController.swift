@@ -25,7 +25,7 @@
 import UIKit
 
 class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
-    @ServiceInject private var service: Service
+    @ServiceInject private var network: NetworkRequestor
     
     // Params
     private let defaultBarTint: UIColor = .white
@@ -86,13 +86,13 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         let homeController = HomeController()
         let homeNC = UINavigationController(rootViewController: homeController)
         
-        let donationsController = DonationsController(service: self.service)
+        let donationsController = DonationsController()
         let donationsNC = UINavigationController(rootViewController: donationsController)
         
-        let petitionsController = PetitionsController(service: self.service)
+        let petitionsController = PetitionsController()
         let petitionsNC = UINavigationController(rootViewController: petitionsController)
         
-        let aboutController = AboutController(service: self.service)
+        let aboutController = AboutController()
         let aboutNC = UINavigationController(rootViewController: aboutController)
             
         homeNC.isNavigationBarHidden = true
