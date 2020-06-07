@@ -88,13 +88,13 @@ struct Person: Decodable {
         self.socialMedia = try container.decodeIfPresent([SocialMedia].self, forKey: .socialMedia) ?? []
         
         // Date
-        let dateFormatter = DateFormatterService()
+        let dateFormatter = ISO8601DateFormatter()
         
         let dob = try container.decodeIfPresent(String.self, forKey: .dob) ?? ""
-        self.dob = dateFormatter.dateForYearMonthDayString(dob) ?? Date()
+        self.dob = dateFormatter.date(from: dob) ?? Date()
         
         let doi = try container.decodeIfPresent(String.self, forKey: .doi) ?? ""
-        self.doi = dateFormatter.dateForYearMonthDayString(doi) ?? Date()
+        self.doi = dateFormatter.date(from: doi) ?? Date()
     }    
 }
 
