@@ -24,6 +24,9 @@
 
 import UIKit
 
+
+// Locations filter is disabled for v1
+
 final class HomeView: UIView {
 
     // MARK: - Properties
@@ -42,15 +45,16 @@ final class HomeView: UIView {
         return customNavigationBar
     }()
     
-    lazy private(set) var locationCollectionView: UICollectionView = {
-        let locationLayout = UICollectionViewFlowLayout()
-        locationLayout.scrollDirection = .horizontal
-        locationLayout.sectionInsetReference = .fromContentInset
-        let inset = Theme.Components.edgeMargin
-        locationLayout.sectionInset = UIEdgeInsets(0, inset, 0, inset)
-        let locationCollectionView = UICollectionView(frame: .zero, collectionViewLayout: locationLayout)
-        locationCollectionView.contentInsetAdjustmentBehavior = .always
-        return locationCollectionView
+    lazy private(set) var locationCollectionView: UICollectionView? = {
+        return nil
+//        let locationLayout = UICollectionViewFlowLayout()
+//        locationLayout.scrollDirection = .horizontal
+//        locationLayout.sectionInsetReference = .fromContentInset
+//        let inset = Theme.Components.edgeMargin
+//        locationLayout.sectionInset = UIEdgeInsets(0, inset, 0, inset)
+//        let locationCollectionView = UICollectionView(frame: .zero, collectionViewLayout: locationLayout)
+//        locationCollectionView.contentInsetAdjustmentBehavior = .always
+//        return locationCollectionView
     }()
     
     lazy private(set) var peopleCollectionView: UICollectionView = {
@@ -138,11 +142,11 @@ final class HomeView: UIView {
         return searchButton
     }()
     
-    let separator: UIView! = {
-        let separator = UIView()
-        separator.backgroundColor = UIColor.STN.separator
-        return separator
-    }()
+//    let separator: UIView! = {
+//        let separator = UIView()
+//        separator.backgroundColor = UIColor.STN.separator
+//        return separator
+//    }()
     
     override func didMoveToSuperview() {
         super.didMoveToSuperview()
@@ -163,7 +167,7 @@ final class HomeView: UIView {
         collections.backgroundColor = .systemBackground
         addSubview(collections)
         
-        locationCollectionView.backgroundColor = .systemBackground
+//        locationCollectionView.backgroundColor = .systemBackground
         peopleCollectionView.backgroundColor = .systemBackground
         
         customNavigationBar.anchor(
@@ -179,21 +183,22 @@ final class HomeView: UIView {
             bottom: bottomAnchor,
             trailing: trailingAnchor)
         
-        locationCollectionView.anchor(
-            superView: collections,
-            top: collections.topAnchor,
-            leading: collections.leadingAnchor,
-            trailing: collections.trailingAnchor,
-            size: Theme.Screens.Home.LocationView.size)
-        separator.anchor(
-            superView: collections,
-            top: locationCollectionView.bottomAnchor,
-            leading: collections.leadingAnchor,
-            trailing: collections.trailingAnchor,
-            size: Theme.Screens.Home.SeparatorView.size)
+//        locationCollectionView.anchor(
+//            superView: collections,
+//            top: collections.topAnchor,
+//            leading: collections.leadingAnchor,
+//            trailing: collections.trailingAnchor,
+//            size: Theme.Screens.Home.LocationView.size)
+//        separator.anchor(
+//            superView: collections,
+//            top: locationCollectionView.bottomAnchor,
+//            leading: collections.leadingAnchor,
+//            trailing: collections.trailingAnchor,
+//            size: Theme.Screens.Home.SeparatorView.size)
         peopleCollectionView.anchor(
             superView: collections,
-            top: separator.safeAreaLayoutGuide.bottomAnchor,
+            top: collections.topAnchor,
+//            top: separator.safeAreaLayoutGuide.bottomAnchor,
             leading: collections.leadingAnchor,
             bottom: collections.safeAreaLayoutGuide.bottomAnchor,
             trailing: collections.trailingAnchor)
