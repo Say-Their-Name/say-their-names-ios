@@ -28,14 +28,9 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
     let service: Servicing
     
     // Params
-    private let defaultBarTint: UIColor = .white
-    private let defaultTint = UIColor.black
-    private let defaultUnselectedTint = UIColor(red: 0.3803921569, green: 0.3882352941, blue: 0.4666666667, alpha: 0.5681668134)
-
-    private let shadowRadius: CGFloat = 15
-    private let shadowOpacity: Float = 1
-    private let shadowOffset: CGSize = .init(width: 0, height: 10)
-
+    private let defaultBarTint: UIColor = UIColor.STN.barTint
+    private let defaultTint = UIColor.STN.tint
+    private let defaultUnselectedTint = UIColor.STN.unselectedTint
     private var launchScreen: LaunchScreen?
     
     required init?(coder aDecoder: NSCoder) { fatalError("") }
@@ -74,9 +69,9 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
     fileprivate func setupTabBarStyle() {
         tabBar.isTranslucent = true
         tabBar.layer.borderWidth = 0.9
-        tabBar.layer.borderColor = UIColor(red: 0.9451505829, green: 0.9451505829, blue: 0.9451505829, alpha: 1).cgColor
+        tabBar.layer.borderColor = UIColor.STN.tabBarBorder.cgColor
         tabBar.clipsToBounds = true
-        tabBar.backgroundColor = .white
+        tabBar.backgroundColor = UIColor.STN.white
         tabBar.barTintColor = defaultBarTint
         tabBar.tintColor = defaultTint
         tabBar.unselectedItemTintColor = defaultUnselectedTint
@@ -93,8 +88,8 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         let petitionsController = PetitionsController(service: self.service)
         let petitionsNC = UINavigationController(rootViewController: petitionsController)
         
-        let settingsController = SettingsController(service: self.service) 
-        let settingsNC = UINavigationController(rootViewController: settingsController)
+        let aboutController = AboutController(service: self.service)
+        let aboutNC = UINavigationController(rootViewController: aboutController)
             
         homeNC.isNavigationBarHidden = true
         homeNC.tabBarItem.image = UIImage(named: "gallery")
@@ -110,19 +105,19 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         petitionsNC.tabBarItem.selectedImage = UIImage(named: "petition_active")
         petitionsNC.tabBarItem.title = Strings.petitions
         
-        settingsNC.isNavigationBarHidden = true
-        settingsNC.tabBarItem.image = UIImage(named: "settings")
-        settingsNC.tabBarItem.selectedImage = UIImage(named: "settings_active")
-        settingsNC.tabBarItem.title = Strings.about
+        aboutNC.isNavigationBarHidden = true
+        aboutNC.tabBarItem.image = UIImage(named: "settings")
+        aboutNC.tabBarItem.selectedImage = UIImage(named: "settings_active")
+        aboutNC.tabBarItem.title = Strings.about
         
-        viewControllers = [homeNC, donationsNC, petitionsNC, settingsNC]
+        viewControllers = [homeNC, donationsNC, petitionsNC, aboutNC]
     }
 
     func setupTabBar() {
         // modifiy tab bar item insets
         guard let items = tabBar.items else { return }
         for item in items {
-            item.imageInsets = UIEdgeInsets(top: 16, left: 0, bottom: 0, right: 0)
+            item.imageInsets = UIEdgeInsets(top: Theme.Components.Padding.medium, left: 0, bottom: 0, right: 0)
         }
     }
 }

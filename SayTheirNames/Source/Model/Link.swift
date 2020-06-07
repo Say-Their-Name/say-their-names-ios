@@ -24,11 +24,11 @@
 
 import Foundation
 
-public struct Link: Decodable, Hashable {
-    var first: String
-    var last: String
-    var prev: String?
-    var next: String?
+public struct Link: Decodable {
+    let first: String
+    let last: String
+    let prev: String?
+    let next: String?
     
     private enum CodingKeys: String, CodingKey {
         case first, last, prev, next

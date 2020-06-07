@@ -25,53 +25,77 @@
 import UIKit
 
 final class PersonCollectionViewDataSourceHelper {
-    
-    enum Section {
+
+    enum Section: Hashable {
+        case carousel
         case main
     }
+
+    enum SectionData: Hashable {
+        case person(Person)
+        case header(HeaderCellContent)
+    }
     
-    typealias PersonCollectionViewDataSource = UICollectionViewDiffableDataSource<Section, Person>
-    
+    typealias PersonCollectionViewDataSource = UICollectionViewDiffableDataSource<Section, SectionData>
+
     let dataSource: PersonCollectionViewDataSource
     
     init(collectionView: UICollectionView) {
         collectionView.register(cellType: PersonCell.self)
-        collectionView.registerNibForReusableSupplementaryView(reusableViewType: PersonHeaderCell.self,
-                                                               forKind: UICollectionView.elementKindSectionHeader)
+        collectionView.register(cellType: CarouselCollectionViewCell.self)
         
         self.dataSource =
-            PersonCollectionViewDataSource(collectionView: collectionView) { (collectionView, indexPath, person) -> UICollectionViewCell? in
-            let cell: PersonCell = collectionView.dequeueCell(for: indexPath)
-            cell.configure(with: person)
-            cell.accessibilityIdentifier = "peopleCell\(indexPath.item)"
-            cell.isAccessibilityElement = true
-            cell.accessibilityNavigationStyle = .automatic
-            cell.accessibilityLabel = "\(person.fullName)"
-            return cell
-        }
-        
-        self.dataSource.supplementaryViewProvider = { (collectionView, kind, indexPath) in
-            let header: PersonHeaderCell = collectionView.dequeueReusableSupplementaryView(forKind: kind, for: indexPath)
-            header.accessibilityNavigationStyle = .separate
-            return header
+            PersonCollectionViewDataSource(collectionView: collectionView) { (collectionView, indexPath, item) -> UICollectionViewCell? in
+                switch item {
+                case .header(let headerData):
+                    let cell: CarouselCollectionViewCell = collectionView.dequeueCell(for: indexPath)
+                    cell.configure(with: headerData)
+                    cell.accessibilityIdentifier = "headerCell\(indexPath.item)"
+                    cell.isAccessibilityElement = true
+                    // TODO: fix accessibility
+                    //            header.accessibilityNavigationStyle = .separate
+                    return cell
+
+                case .person(let person):
+                    let cell: PersonCell = collectionView.dequeueCell(for: indexPath)
+                    cell.configure(with: person)
+                    cell.accessibilityIdentifier = "personCell\(indexPath.item)"
+                    cell.isAccessibilityElement = true
+                    cell.accessibilityNavigationStyle = .automatic
+                    cell.accessibilityLabel = "\(person.fullName)"
+                    return cell
+                }
         }
     }
     
-    func setPeople(_ people: [Person]) {
-        var snapshot = NSDiffableDataSourceSnapshot<Section, Person>()
-        snapshot.appendSections([Section.main])
-        snapshot.appendItems(people)
-        dataSource.apply(snapshot)
+    func setPeople(_ people: [Person], carouselData: [HeaderCellContent]) {
+        var snapShot = NSDiffableDataSourceSnapshot<Section, SectionData>()
+        snapShot.appendSections([.carousel])
+        snapShot.appendItems(carouselData.map({ SectionData.header($0) }))
+        snapShot.appendSections([.main])
+        snapShot.appendItems(people.map({ SectionData.person($0) }))
+        dataSource.apply(snapShot)
     }
     
     func appendPeople(_ people: [Person]) {
         var snapshot = dataSource.snapshot()
-        snapshot.appendItems(people)
+        guard snapshot.sectionIdentifiers.contains(.main) else {
+            print("Main section doesn't exist!!")
+            return
+        }
+        snapshot.appendItems(people.map({ SectionData.person($0) }), toSection: .main)
         dataSource.apply(snapshot)
     }
     
-    func person(at index: Int) -> Person {
-        let people = dataSource.snapshot().itemIdentifiers(inSection: Section.main)
-        return people[index] // TODO: check index
+    func person(at index: Int) -> Person? {
+        let allMainItems = dataSource.snapshot().itemIdentifiers(inSection: Section.main)
+        let index = allMainItems[index]
+        switch index {
+        case .person(let person):
+            return person
+        default:
+            return nil
+        }
     }
+
 }

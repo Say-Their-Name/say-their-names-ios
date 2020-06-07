@@ -67,8 +67,7 @@ class ImageWithBlurView: UIView {
     
     // MARK: - Method
     public func setup(_ person: Person) {
-        guard person.images.count != 0 else { return }
-        
+        guard person.images.first != nil else { return }
         frontImageView.populate(withURL: person.images[0].personURL)
         bgImageView.populate(withURL: person.images[0].personURL)
     }

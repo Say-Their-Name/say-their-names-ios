@@ -42,12 +42,12 @@ extension UIColor {
         static let yellow = UIColor.yellow
         static let red = UIColor.red
         
-        // MARK: - Applications
+		// MARK: - Applications
         static let tint: UIColor = UIColor(named: "tint") ?? .black
         static let barTint = UIColor.white
         static let unselectedTint = UIColor(red: 0.3803921569, green: 0.3882352941, blue: 0.4666666667, alpha: 0.5681668134)
         static let tabBarBorder = UIColor(red: 0.9451505829, green: 0.9451505829, blue: 0.9451505829, alpha: 1)
-        
+		
         // MARK: - Labels
         static let primaryLabel: UIColor = UIColor(named: "primaryLabel") ?? .label
         static let secondaryLabel: UIColor = UIColor(named: "secondaryLabel") ?? .secondaryLabel

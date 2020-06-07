@@ -24,24 +24,20 @@
 
 import Foundation
 
-public struct Petition: Decodable, Hashable {
-    var id: Int
-    var title: String
-    var description: String
-    var link: String
+public struct Petition: Decodable {
+    let id: Int
+    let title: String
+    let description: String
+    let link: String
     
     enum CodingKeys: String, CodingKey {
         case id, title, description, link
     }
-    
-    public static func == (lhs: Petition, rhs: Petition) -> Bool {
-        lhs.id == rhs.id
-    }
 }
 
-public struct PetitionsResponsePage: Decodable, Hashable {
-    var all: [Petition]
-    var link: Link
+public struct PetitionsResponsePage: Decodable {
+    let all: [Petition]
+    let link: Link
     
     enum CodingKeys: String, CodingKey {
         case all = "data", link = "links"
@@ -51,5 +47,12 @@ public struct PetitionsResponsePage: Decodable, Hashable {
     init() {
         self.all = []
         self.link = Link(first: "", last: "", prev: "", next: "")
+    }
+    
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        self.all = try container.decodeIfPresent([Petition].self, forKey: .all) ?? []
+        self.link = try container.decodeIfPresent(Link.self, forKey: .link) ?? Link(first: "", last: "", prev: "", next: "")
     }
 }

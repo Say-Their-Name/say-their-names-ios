@@ -1,5 +1,5 @@
 //
-//  DonationsNetworkRequestor.swift
+//  SearchNetworkRequestor.swift
 //  SayTheirNames
 //
 //  Copyright (c) 2020 Say Their Names Team (https://github.com/Say-Their-Name)
@@ -22,36 +22,19 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-import Foundation
 import Alamofire
 
-// MARK: - PetitionUrl
-enum DonationsEnvironment {
-    static let baseURLString: String = { return "\(Environment.serverURLString)/api/donations" }()
+// MARK: - SearchEnvironment
+enum SearchEnvironment {
+    static let baseURLString: String = { return "\(Environment.serverURLString)/api/search" }()
 }
 
-// MARK: - NetworkRequestor (Donations)
+// MARK: - NetworkRequestor (Search)
 extension NetworkRequestor {
     // MARK: - Public methods
     
-    public func fetchDonations(completion: @escaping (Result<DonationsResponsePage, AFError>) -> Swift.Void) {
-        self.fetchDecodable(DonationsEnvironment.baseURLString, completion: completion)
-    }
-    
-    public func fetchDonationsByPersonName(_ name: String, completion: @escaping (Result<DonationsResponsePage, AFError>) -> Swift.Void) {
-        guard let components = URLComponents(string: DonationsEnvironment.baseURLString, item: URLQueryItem(name: "name", value: name)),
-              let urlString = components.url?.absoluteString
-        else {
-            let error = AFError.parameterEncodingFailed(reason: .missingURL)
-            completion(.failure(error))
-            return
-        }
-        
-        self.fetchDecodable(urlString, completion: completion)
-    }
-    
-    public func fetchDonationsByType(_ type: String, completion: @escaping (Result<DonationsResponsePage, AFError>) -> Swift.Void) {
-        guard let components = URLComponents(string: DonationsEnvironment.baseURLString, item: URLQueryItem(name: "type", value: type)),
+    public func searchByQuery(_ query: String, completion: @escaping (Result<SearchResponsePage, AFError>) -> Swift.Void) {
+        guard let components = URLComponents(string: SearchEnvironment.baseURLString, item: URLQueryItem(name: "query", value: query)),
               let urlString = components.url?.absoluteString
         else {
             let error = AFError.parameterEncodingFailed(reason: .missingURL)

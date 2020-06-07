@@ -1,5 +1,5 @@
 //
-//  Services.swift
+//  AboutView.swift
 //  SayTheirNames
 //
 //  Copyright (c) 2020 Say Their Names Team (https://github.com/Say-Their-Name)
@@ -24,23 +24,45 @@
 
 import UIKit
 
-protocol Servicing {
-    var image: ImageService { get }
-    var dateFormatter: DateFormatterService { get }
-    var network: NetworkRequestor { get }
-}
-/// This is a core class that holds all instances responsible for logic
-final class Service: Servicing {
-    lazy private(set) var image = ImageService()
-    lazy private(set) var dateFormatter = DateFormatterService()
-    lazy private(set) var network = NetworkRequestor()
-    
-    static let shared = Service()
-    
-    // MARK: - Init
-    init() {
-        Log.mode = .all
-        Log.print("SayTheirNames Version: \(Bundle.versionBuildString)")
-        Log.print("Starting Services")
+/// The UI for About
+final class AboutView: UIView {
+
+    private lazy var aboutLabel: UILabel = {
+        let label = UILabel()
+        label.text = Strings.about
+        label.textAlignment = .center
+        label.translatesAutoresizingMaskIntoConstraints = false
+
+        return label
+    }()
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupSelf()
     }
+
+    required init?(coder: NSCoder) {
+        fatalError()
+    }
+
+    /// Configures properties for the view itself
+    private func setupSelf() {
+        backgroundColor = .systemBackground
+        setupSubviews()
+    }
+
+    /// Adds and configures constraints for subviews
+    private func setupSubviews() {
+        setupAboutLabel()
+    }
+}
+
+// MARK: - Configurations
+private extension AboutView {
+
+    private func setupAboutLabel() {
+        addSubview(aboutLabel)
+        aboutLabel.fillSuperview()
+    }
+
 }

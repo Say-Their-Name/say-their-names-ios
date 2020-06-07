@@ -24,16 +24,12 @@
 
 import Foundation
 
-public struct Image: Decodable, Hashable {
-    var id: Int
-    var personID: Int
-    var personURL: String
+public struct Image: Decodable {
+    let id: Int
+    let personID: Int
+    let personURL: String
 
     private enum CodingKeys: String, CodingKey {
         case id, personID = "person_id", personURL = "image_url"
-    }
-    
-    public static func == (lhs: Image, rhs: Image) -> Bool {
-        lhs.id == rhs.id
     }
 }

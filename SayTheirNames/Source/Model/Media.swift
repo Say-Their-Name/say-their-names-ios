@@ -24,14 +24,10 @@
 
 import Foundation
 
-protocol MediaInterface: Decodable {
-    var url: String { get set }
-}
+public struct Media: Decodable {
+    let url: String
 
-public struct Media: MediaInterface, Hashable {
-    var url: String
-
-    enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case url
     }
 }

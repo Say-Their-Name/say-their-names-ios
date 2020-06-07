@@ -53,7 +53,8 @@ class CustomSearchBar: UIView {
         self.homeController = controller
         guard let superView = controller.view else { return }
         let textFieldInsideSearchBar = searchBar.value(forKey: "searchField") as? UITextField
-        textFieldInsideSearchBar?.textColor = .white
+        textFieldInsideSearchBar?.textColor = UIColor.STN.white
+        textFieldInsideSearchBar?.leftView?.tintColor = UIColor.STN.white
         alpha = 0
         searchResultView.alpha = 0
         anchor(
@@ -61,14 +62,14 @@ class CustomSearchBar: UIView {
             top: superView.safeAreaLayoutGuide.topAnchor,
             leading: superView.leadingAnchor,
             trailing: superView.trailingAnchor,
-            size: CGSize(width: 0, height: 60))
+            size: Theme.Screens.SearchBar.size)
         
         cancelSearchButton.anchor(
             superView: self,
             top: topAnchor,
             bottom: bottomAnchor,
             trailing: trailingAnchor,
-            padding: UIEdgeInsets(right: 16))
+            padding: UIEdgeInsets(right: Theme.Components.Padding.medium))
         
         searchBar.anchor(
             superView: self,
@@ -76,7 +77,7 @@ class CustomSearchBar: UIView {
             leading: leadingAnchor,
             bottom: bottomAnchor,
             trailing: cancelSearchButton.leadingAnchor,
-            padding: UIEdgeInsets(left: 16, right: 16))
+            padding: UIEdgeInsets(left: Theme.Components.Padding.medium, right: Theme.Components.Padding.medium))
         
         searchResultView.anchor(
             superView: superView,
@@ -84,7 +85,7 @@ class CustomSearchBar: UIView {
             leading: superView.leadingAnchor,
             bottom: superView.bottomAnchor,
             trailing: superView.trailingAnchor,
-            padding: .init(top: -5))
+            padding: .init(top: -Theme.Components.Padding.tiny))
         
         tableView.anchor(
             superView: searchResultView,
@@ -120,7 +121,7 @@ class CustomSearchBar: UIView {
             self.alpha = 1
             homeController.customNavBar.alpha = 0
             self.searchResultView.alpha = 1
-            homeController.customNavBar.frame.size = CGSize(width: homeController.view.frame.width, height: self.frame.height + 60)
+            homeController.customNavBar.frame.size = CGSize(width: homeController.view.frame.width, height: self.frame.height + Theme.Screens.SearchBar.size.height)
         }, completion: { _ in
             self.searchBar.becomeFirstResponder()
         })
@@ -165,15 +166,5 @@ extension CustomSearchBar: UITableViewDataSource, UITableViewDelegate, UISearchB
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-    }
-}
-
-extension UIEdgeInsets {
-    init(top: CGFloat = 0, left: CGFloat = 0, bottom: CGFloat = 0, right: CGFloat = 0) {
-        self.init()
-        self.top = top
-        self.left = left
-        self.bottom = bottom
-        self.right = right
     }
 }

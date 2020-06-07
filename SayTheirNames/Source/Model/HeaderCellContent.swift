@@ -1,8 +1,9 @@
 //
-//  Services.swift
+//  HeaderCellContent.swift
 //  SayTheirNames
 //
-//  Copyright (c) 2020 Say Their Names Team (https://github.com/Say-Their-Name)
+//  Created by Thomas Murray on 05/06/2020.
+//  Copyright © 2020 Franck-Stephane Ndame Mpouli. All rights reserved.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -22,25 +23,13 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-import UIKit
+import Foundation
 
-protocol Servicing {
-    var image: ImageService { get }
-    var dateFormatter: DateFormatterService { get }
-    var network: NetworkRequestor { get }
-}
-/// This is a core class that holds all instances responsible for logic
-final class Service: Servicing {
-    lazy private(set) var image = ImageService()
-    lazy private(set) var dateFormatter = DateFormatterService()
-    lazy private(set) var network = NetworkRequestor()
-    
-    static let shared = Service()
-    
-    // MARK: - Init
-    init() {
-        Log.mode = .all
-        Log.print("SayTheirNames Version: \(Bundle.versionBuildString)")
-        Log.print("Starting Services")
-    }
+//TODO: - replace with actual model for header cell
+struct HeaderCellContent: Hashable {
+
+    let id = UUID()
+    let title: String?
+    let description: String?
+
 }

@@ -24,12 +24,12 @@
 
 import Foundation
 
-public struct SocialMedia: Decodable, Hashable {
-    var title: String
-    var type: String
-    var link: String
+public struct SocialMedia: Decodable {
+    let title: String
+    let type: String
+    let link: String
 
-    enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case title, type, link
     }
 }

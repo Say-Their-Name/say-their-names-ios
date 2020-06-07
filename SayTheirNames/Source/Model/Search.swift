@@ -1,5 +1,5 @@
 //
-//  BaseViewController.swift
+//  Petition.swift
 //  SayTheirNames
 //
 //  Copyright (c) 2020 Say Their Names Team (https://github.com/Say-Their-Name)
@@ -22,15 +22,25 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-import UIKit
+import Foundation
 
-class BaseViewController: UIViewController {
-    let service: Servicing
+public struct SearchResponsePage: Decodable {
+    let people: [Person]
+    let donations: [Donation]
+    let petitions: [Petition]
+    let link: Link
     
-    required init?(coder: NSCoder) { fatalError("") }
+    private enum CodingKeys: String, CodingKey {
+        case people, donations, petitions, link = "links", data = "data"
+    }
     
-    required init(service: Servicing) {
-        self.service = service
-        super.init(nibName: nil, bundle: nil)
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        let data = try container.nestedContainer(keyedBy: CodingKeys.self, forKey: .data)
+        self.people = try data.decodeIfPresent([Person].self, forKey: .people) ?? []
+        self.donations = try data.decodeIfPresent([Donation].self, forKey: .donations) ?? []
+        self.petitions = try data.decodeIfPresent([Petition].self, forKey: .petitions) ?? []
+        self.link = try data.decodeIfPresent(Link.self, forKey: .link) ?? Link(first: "", last: "", prev: "", next: "")
     }
 }

@@ -24,7 +24,7 @@
 
 import UIKit
 
-final class DonationsMoreDetailsController: BaseViewController {
+final class DonationsMoreDetailsController: UIViewController, ServiceReferring {
     // MARK: - Section Layout Kind
     enum DonationSectionLayoutKind: Int, CaseIterable {
         case title = 0
@@ -39,6 +39,7 @@ final class DonationsMoreDetailsController: BaseViewController {
     static let sectionTitleSupplementaryView = "sectionTitle"
     
     // MARK: - Property
+    var service: Servicing
     var donation: Donation!
     
     internal let emptyKind = "empty-kind"
@@ -50,6 +51,16 @@ final class DonationsMoreDetailsController: BaseViewController {
         NSAttributedString.Key.font: UIFont.STN.navBarTitle
     ]
 
+    // MARK: - Initialization
+    required init(service: Servicing) {
+        self.service = service
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     // MARK: - View
     private lazy var collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: Self.donationMoreDetailsCVLayout)

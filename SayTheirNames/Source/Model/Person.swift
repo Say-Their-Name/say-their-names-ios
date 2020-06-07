@@ -88,7 +88,7 @@ struct Person: Decodable {
         self.petitions = try container.decodeIfPresent(PetitionsResponsePage.self, forKey: .petitions) ?? PetitionsResponsePage()
         self.media = try container.decodeIfPresent([Media].self, forKey: .media) ?? []
         self.socialMedia = try container.decodeIfPresent([SocialMedia].self, forKey: .socialMedia) ?? []
-    }
+    }    
 }
 
 struct PersonsResponsePage: Decodable {
