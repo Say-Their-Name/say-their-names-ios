@@ -46,7 +46,8 @@ final class HomeView: UIView {
         let locationLayout = UICollectionViewFlowLayout()
         locationLayout.scrollDirection = .horizontal
         locationLayout.sectionInsetReference = .fromContentInset
-        locationLayout.sectionInset = UIEdgeInsets(0, Self.insetRegular, 0, Self.insetRegular) // TODO: also respect traits
+        let inset = Theme.Components.edgeMargin
+        locationLayout.sectionInset = UIEdgeInsets(0, inset, 0, inset)
         let locationCollectionView = UICollectionView(frame: .zero, collectionViewLayout: locationLayout)
         locationCollectionView.contentInsetAdjustmentBehavior = .always
         return locationCollectionView
@@ -62,11 +63,14 @@ final class HomeView: UIView {
 
     weak var peopleDataSource: PersonCollectionViewDataSourceHelper?
 
+    private static var horizontalPaddingBetween: CGFloat { Theme.Components.Padding.small }
+
     // MARK: - Methods
     private func makePeopleCollectionViewLayout() -> UICollectionViewLayout {
         let layout = UICollectionViewCompositionalLayout(sectionProvider: { [weak self] (sectionIndex: Int,
             layoutEnviroment: NSCollectionLayoutEnvironment)
             -> NSCollectionLayoutSection? in
+            
             guard let sections = self?.peopleDataSource?.dataSource.snapshot().sectionIdentifiers else {return nil}
             let deviceWidth = layoutEnviroment.traitCollection.horizontalSizeClass
 
@@ -81,38 +85,40 @@ final class HomeView: UIView {
                                                       heightDimension: .fractionalHeight(1.0))
                 let layoutItem = NSCollectionLayoutItem(layoutSize: itemSize)
                 
+                let height = Theme.Screens.Home.CellSize.carouselCardHeight
                 let layoutGroupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(groupWidth),
-                                                             heightDimension: .absolute(170))
+                                                             heightDimension: .absolute(height))
                 let group = NSCollectionLayoutGroup.horizontal(layoutSize: layoutGroupSize, subitems: [layoutItem])
-                group.interItemSpacing = .fixed(Self.interSpacingH)
+//                group.interItemSpacing = .fixed(Theme.Components.Padding.medium)
                 
                 let headerSection = NSCollectionLayoutSection(group: group)
                 headerSection.orthogonalScrollingBehavior = .groupPaging
-                headerSection.interGroupSpacing = Self.interSpacingH
+                headerSection.interGroupSpacing = Self.horizontalPaddingBetween
                 section = headerSection
             
             case .main:
-                let columns = deviceWidth == .compact ? 2 : 4
                 
                 let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
                 let layoutItem = NSCollectionLayoutItem(layoutSize: itemSize)
 
-                let layoutGroupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(300))
+                let height = Theme.Screens.Home.CellSize.peopleHeight
+                let columns = deviceWidth == .compact ? Theme.Screens.Home.Columns.compactScreenWidth : Theme.Screens.Home.Columns.wideScreenWidth
+                let layoutGroupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(height))
                 let group = NSCollectionLayoutGroup.horizontal(layoutSize: layoutGroupSize, subitem: layoutItem, count: columns)
-                group.interItemSpacing = .fixed(Self.interSpacingH)
+                group.interItemSpacing = .fixed(Self.horizontalPaddingBetween)
                 
                 let mainSection = NSCollectionLayoutSection(group: group)
                 section = mainSection
             }
             
-            let inset = deviceWidth == .compact ? Self.insetCompact : Self.insetRegular
+            let inset = Theme.Components.edgeMargin
             section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: inset, bottom: 0, trailing: inset)
             
             return section
         })
         
         let config = UICollectionViewCompositionalLayoutConfiguration()
-        config.interSectionSpacing = Self.interSpacingV
+        config.interSectionSpacing = Theme.Components.Padding.medium
         layout.configuration = config
         return layout
     }
@@ -227,19 +233,4 @@ final class HomeView: UIView {
             styleLabels()
         }
     }
-    
-    // MARK: - Constants
-    
-    // TODO: cleanup unused constants
-    static let CustomNavigationBarHeight: CGFloat = 70
-    static let PeopleCollectionViewHeight: CGFloat = 70
-    static let ButtonSize: CGSize = .init(width: 40, height: 40)
-    static let CustomNavBarMargin: CGFloat = 16
-    static let SeparatorHeight: CGFloat = 1
-    
-    static let insetCompact: CGFloat = 16
-    static let insetRegular: CGFloat = 20
-    
-    static let interSpacingH: CGFloat = 10
-    static let interSpacingV: CGFloat = 20
 }
