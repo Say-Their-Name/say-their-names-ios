@@ -99,21 +99,25 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         homeNC.isNavigationBarHidden = true
         homeNC.tabBarItem.image = UIImage(named: "gallery")
         homeNC.tabBarItem.title = Strings.home
+        homeNC.tabBarItem.accessibilityIdentifier = AccessibilityId.homeTabBarButton
         
         donationsNC.isNavigationBarHidden = true
         donationsNC.tabBarItem.image = UIImage(named: "heart")
         donationsNC.tabBarItem.selectedImage = UIImage(named: "heart_active")
         donationsNC.tabBarItem.title = Strings.donations
+        donationsNC.tabBarItem.accessibilityIdentifier = AccessibilityId.donationsTabBarButton
                
         petitionsNC.isNavigationBarHidden = true
         petitionsNC.tabBarItem.image = UIImage(named: "petition")
         petitionsNC.tabBarItem.selectedImage = UIImage(named: "petition_active")
         petitionsNC.tabBarItem.title = Strings.petitions
+        petitionsNC.tabBarItem.accessibilityIdentifier = AccessibilityId.petitionsTabBarButton
         
-        aboutNC.isNavigationBarHidden = true
-        aboutNC.tabBarItem.image = UIImage(named: "settings")
-        aboutNC.tabBarItem.selectedImage = UIImage(named: "settings_active")
         aboutNC.tabBarItem.title = Strings.about
+        aboutNC.tabBarItem.selectedImage = UIImage(named: "settings_active")
+        aboutNC.tabBarItem.image = UIImage(named: "settings")
+        aboutNC.isNavigationBarHidden = true
+        aboutNC.tabBarItem.accessibilityIdentifier = AccessibilityId.settingsTabBarButton
         
         viewControllers = [homeNC, donationsNC, petitionsNC, aboutNC]
     }
@@ -145,5 +149,12 @@ private extension MainTabBarController {
             launchView.removeFromSuperview()
             self.launchScreen = nil
         })
+    }
+    
+    struct AccessibilityId {
+        static let homeTabBarButton = "homeTabBarButton"
+        static let donationsTabBarButton = "donationsTabBarButton"
+        static let petitionsTabBarButton = "petitionsTabBarButton"
+        static let settingsTabBarButton = "settingsTabBarButton"
     }
 }
