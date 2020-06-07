@@ -54,16 +54,16 @@ final class DependencyContainer: Dependency {
 
 // MARK: - DependencyInject
 @propertyWrapper
-struct DependencyInject<S: Dependency> {
-    var serviceHandle: S
+struct DependencyInject<D: Dependency> {
+    var dependency: D
     
     init() {
-        self.serviceHandle = DependencyInjectionFactory.notShared.resolve(S.self)
+        self.dependency = DependencyInjectionFactory.notShared.resolve(D.self)
     }
     
-    public var wrappedValue: S {
-        get { serviceHandle }
-        mutating set { serviceHandle = newValue }
+    public var wrappedValue: D {
+        get { dependency }
+        mutating set { dependency = newValue }
     }
 }
 
@@ -72,15 +72,15 @@ private class DependencyInjectionFactory {
     static let notShared = DependencyInjectionFactory()
     var factoryDict: [String: Any] = [:]
     
-    func add<S: Dependency>(handle: S) {
+    func add<D: Dependency>(handle: D) {
         let key = String(describing: handle.self)
         self.factoryDict[key] = handle
     }
 
-    func resolve<S: Dependency>(_ type: S.Type) -> S {
+    func resolve<D: Dependency>(_ type: D.Type) -> D {
         let key = String(reflecting: type)
         let component = self.factoryDict[key]
         
-        return component as! S
+        return component as! D
     }
 }
