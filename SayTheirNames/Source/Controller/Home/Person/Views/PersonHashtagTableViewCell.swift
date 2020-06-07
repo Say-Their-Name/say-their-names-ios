@@ -49,7 +49,7 @@ class PersonHashtagTableViewCell: UITableViewCell {
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.alwaysBounceHorizontal = true
         collectionView.backgroundColor = UIColor.STN.white
-        collectionView.contentInset = .init(left: 32,right: 32)
+        collectionView.contentInset = .init(left: Theme.Components.Padding.large,right: Theme.Components.Padding.large)
         return collectionView
     }()
     
@@ -69,14 +69,14 @@ class PersonHashtagTableViewCell: UITableViewCell {
         hashtagLabel.anchor(superView: self,
                             top: topAnchor,
                             leading: leadingAnchor,
-                            padding: .init(top: 48, left: 32))
+                            padding: .init(top: Theme.Components.Padding.big, left: Theme.Components.Padding.large))
         collectionView.anchor(superView: self,
                               top: hashtagLabel.bottomAnchor,
                               leading: leadingAnchor,
                               trailing: trailingAnchor,
-                              padding: .init(top: 16),
-                              size: .init(width: 0, height: 40))
-        heightAnchor.constraint(equalToConstant: 160).isActive = true
+                              padding: .init(top: Theme.Components.Padding.medium),
+                              size: .init(width: 0, height: Theme.Screens.Home.Person.Hashtag.collectionviewHeight))
+        heightAnchor.constraint(equalToConstant: Theme.Screens.Home.Person.Hashtag.height).isActive = true
     }
     
     public func registerCell(with cell: UICollectionViewCell.Type) {
@@ -106,7 +106,7 @@ extension PersonHashtagTableViewCell: UICollectionViewDelegate, UICollectionView
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 170, height: 35)
+        return Theme.Screens.Home.Person.Hashtag.collectionviewItemSize
     }
     
     // Add spaces at the beginning and the end of the collection view

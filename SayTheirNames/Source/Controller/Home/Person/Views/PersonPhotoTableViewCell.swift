@@ -54,7 +54,7 @@ class PersonPhotoTableViewCell: UITableViewCell {
         guard !haveSetConstraints else { return }
         haveSetConstraints = true
 
-        imageWithBlurView.heightAnchor.constraint(equalToConstant: 420).isActive = true
+        imageWithBlurView.heightAnchor.constraint(equalToConstant: Theme.Screens.Home.Person.Photo.imageBlurHeight).isActive = true
     }
     
     // MARK: - Method
