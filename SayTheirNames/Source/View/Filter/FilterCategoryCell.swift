@@ -27,7 +27,6 @@ import UIKit
 final class FilterCategoryCell: UICollectionViewCell {
     
     private var titleLabel = UILabel.create {
-        $0.translatesAutoresizingMaskIntoConstraints = false
         $0.font = UIFont.STN.locationText
         $0.textAlignment = .center
     }
@@ -58,12 +57,7 @@ final class FilterCategoryCell: UICollectionViewCell {
     private func setupSubviews() {
         addSubview(titleLabel)
         
-        NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: topAnchor),
-            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
-            titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
-            titleLabel.bottomAnchor.constraint(equalTo: bottomAnchor)
-        ])
+        titleLabel.fillSuperview()
     }
 
     func configure(with filterCategory: FilterCategory) {
