@@ -71,7 +71,7 @@ final class PersonCell: UICollectionViewCell {
         btn.addTarget(self, action: #selector(didTapBookmark), for: .touchUpInside)
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.isAccessibilityElement = true
-        btn.isHidden = true // feature is disabled for v1
+        btn.isHidden = !FeatureFlags.bookmarksEnabled
         return btn
     }()
     

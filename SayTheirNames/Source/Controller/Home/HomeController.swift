@@ -44,14 +44,14 @@ final class HomeController: UIViewController {
     private let searchBar = CustomSearchBar()
     
     // MARK: - CV Data Sources
-//    private lazy var locationsDataSourceHelper = LocationCollectionViewDataSourceHelper(collectionView: locationCollectionView)
+    private lazy var locationsDataSourceHelper = LocationCollectionViewDataSourceHelper(collectionView: locationCollectionView)
     private lazy var peopleDataSourceHelper = PersonCollectionViewDataSourceHelper(collectionView: peopleCollectionView)
     
     private lazy var homeView = HomeView()
     
     var customNavBar: UIView { homeView.customNavigationBar }
     
-    private var locationCollectionView: UICollectionView? { nil } // { homeView.locationCollectionView }
+    private var locationCollectionView: UICollectionView { homeView.locationCollectionView }
     private var peopleCollectionView: UICollectionView { homeView.peopleCollectionView }
     private var searchButton: UIButton { homeView.searchButton }
     
@@ -72,10 +72,11 @@ final class HomeController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-//        // Select first location by default
-//        // FIXME: can have multiple selected. need one source-of-truth here.
-//        let selectedIndexPath = IndexPath(item: 0, section: 0)
-//        locationCollectionView.selectItem(at: selectedIndexPath, animated: false, scrollPosition: .centeredVertically)
+        // Select first location by default
+        // FIXME: can have multiple selected. need one source-of-truth here.
+        guard FeatureFlags.filtersEnabled else { return }
+        let selectedIndexPath = IndexPath(item: 0, section: 0)
+        locationCollectionView.selectItem(at: selectedIndexPath, animated: false, scrollPosition: .centeredVertically)
     }
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -94,14 +95,14 @@ final class HomeController: UIViewController {
             .init(title: "#BLACKLIVESMATTER", description: "How to get involved")
         ]
         
-//        // TO-DO: Dummy data for now, should update after API call to get locations
-//        let locations: [Location] = [.init(name: "ALL"),
-//                         .init(name: "RECENT"),
-//                         .init(name: "MISSOURI"),
-//                         .init(name: "TEXAS"),
-//                         .init(name: "NEW YORK")]
-//
-//        locationsDataSourceHelper.setLocations(locations)
+        // TO-DO: Dummy data for now, should update after API call to get locations
+        let locations: [Location] = [.init(name: "ALL"),
+                         .init(name: "RECENT"),
+                         .init(name: "MISSOURI"),
+                         .init(name: "TEXAS"),
+                         .init(name: "NEW YORK")]
+
+        locationsDataSourceHelper.setLocations(locations)
         
         // FIXME: This should be setup in a better place, for now this loads out data
         self.network.fetchPeople { [weak self] (result) in
@@ -114,9 +115,9 @@ final class HomeController: UIViewController {
             }
         }
 
-//        locationCollectionView.delegate = self
-//        locationCollectionView.dataSource = locationsDataSourceHelper.dataSource
-//        locationCollectionView.accessibilityIdentifier = "locationCollection"
+        locationCollectionView.delegate = self
+        locationCollectionView.dataSource = locationsDataSourceHelper.dataSource
+        locationCollectionView.accessibilityIdentifier = "locationCollection"
         peopleCollectionView.delegate = self
         peopleCollectionView.dataSource = peopleDataSourceHelper.dataSource
         peopleCollectionView.accessibilityIdentifier = "peopleCollection"
