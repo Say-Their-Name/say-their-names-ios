@@ -1,5 +1,5 @@
 //
-//  FilterCategoryCell.swift
+//  DMDTextContentCell.swift
 //  SayTheirNames
 //
 //  Copyright (c) 2020 Say Their Names Team (https://github.com/Say-Their-Name)
@@ -24,55 +24,39 @@
 
 import UIKit
 
-final class FilterCategoryCell: UICollectionViewCell {
+class DMDTextContentCell: UICollectionViewCell {
+    // MARK: - Property
+    static let reuseIdentifier = "donations-more-details-text-content-cell"
     
-    private var titleLabel = UILabel.create {
-        $0.font = UIFont.STN.locationText
-        $0.textAlignment = .center
-    }
+    // MARK: - View
+    lazy var contentTextView: UITextView = {
+        let textView = UITextView()
+        textView.textColor = .black
+        textView.font = UIFont(name: "Karla-Regular", size: 17)
+        textView.isEditable = false
+        textView.isScrollEnabled = false
+        return textView
+    }()
     
-    override var isSelected: Bool {
-        didSet {
-            backgroundColor = isSelected ? UIColor.STN.black : .clear
-            titleLabel.textColor = isSelected ? UIColor.STN.white : UIColor.STN.black
-        }
-    }
-    
+    // MARK: - Initialization
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setupSelf()
-        setupSubviews()
+        
+        configureSubview()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
-    private func setupSelf() {
-        layer.borderColor = UIColor.STN.black.cgColor
-        layer.borderWidth = 1.5
-        contentView.translatesAutoresizingMaskIntoConstraints = false
+    
+    // MARK: - Class Method
+    private func configureSubview() {
+        contentView.addSubview(contentTextView)
+        contentTextView.fillSuperview(superView: contentView, padding: .zero)
     }
     
-    private func setupSubviews() {
-        addSubview(titleLabel)
-        
-        titleLabel.fillSuperview()
-    }
-
-    func configure(with filterCategory: FilterCategory) {
-        titleLabel.text = filterCategory.name
-    }
-
-    override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
-        setNeedsLayout()
-        layoutIfNeeded()
-        layoutAttributes.frame = contentView.frame
-        return layoutAttributes
-    }
-    
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        titleLabel.text = nil
+    // MARK: - Configure Cell
+    func setContent(text: String) {
+        contentTextView.text = text
     }
 }

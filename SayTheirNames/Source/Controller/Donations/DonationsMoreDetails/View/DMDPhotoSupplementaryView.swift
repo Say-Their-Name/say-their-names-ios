@@ -1,5 +1,5 @@
 //
-//  FilterCategoryCell.swift
+//  DMDPhotoSupplementaryView.swift
 //  SayTheirNames
 //
 //  Copyright (c) 2020 Say Their Names Team (https://github.com/Say-Their-Name)
@@ -24,55 +24,28 @@
 
 import UIKit
 
-final class FilterCategoryCell: UICollectionViewCell {
+class DMDPhotoSupplementaryView: UICollectionReusableView {
+    // MARK: - Property
+    static let reuseIdentifier = "donations-more-details-photo-view"
     
-    private var titleLabel = UILabel.create {
-        $0.font = UIFont.STN.locationText
-        $0.textAlignment = .center
-    }
+    // MARK: - View
+    let imageWithBlurView = ImageWithBlurView(frame: .zero)
     
-    override var isSelected: Bool {
-        didSet {
-            backgroundColor = isSelected ? UIColor.STN.black : .clear
-            titleLabel.textColor = isSelected ? UIColor.STN.white : UIColor.STN.black
-        }
-    }
-    
+    // MARK: - Initialization
     override init(frame: CGRect) {
-        super.init(frame: frame)
-        setupSelf()
-        setupSubviews()
+        super.init(frame: .zero)
+        
+        backgroundColor = .red
+        clipsToBounds = true
+        imageWithBlurView.fillSuperview(superView: self, padding: .zero)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
-    private func setupSelf() {
-        layer.borderColor = UIColor.STN.black.cgColor
-        layer.borderWidth = 1.5
-        contentView.translatesAutoresizingMaskIntoConstraints = false
-    }
-    
-    private func setupSubviews() {
-        addSubview(titleLabel)
-        
-        titleLabel.fillSuperview()
-    }
-
-    func configure(with filterCategory: FilterCategory) {
-        titleLabel.text = filterCategory.name
-    }
-
-    override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
-        setNeedsLayout()
-        layoutIfNeeded()
-        layoutAttributes.frame = contentView.frame
-        return layoutAttributes
-    }
-    
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        titleLabel.text = nil
+    // MARK: - Method
+    public func configure(_ person: Person) {
+        imageWithBlurView.setup(person)
     }
 }

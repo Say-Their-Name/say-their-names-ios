@@ -1,8 +1,9 @@
 //
-//  CallToActionCollectionView.swift
+//  HeaderCellContent.swift
 //  SayTheirNames
 //
-//  Copyright (c) 2020 Say Their Names Team (https://github.com/Say-Their-Name)
+//  Created by Thomas Murray on 05/06/2020.
+//  Copyright © 2020 Franck-Stephane Ndame Mpouli. All rights reserved.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -22,25 +23,13 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-import UIKit
+import Foundation
 
-class CallToActionCollectionView: UICollectionView {
-    
-    init() {
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .vertical
-        layout.itemSize = UICollectionViewFlowLayout.automaticSize
-        layout.estimatedItemSize = CGSize(width: 330, height: 330)
-        
-        super.init(frame: .zero, collectionViewLayout: layout)
-        setupSelf()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError()
-    }
-    
-    private func setupSelf() {
-        backgroundColor = .systemBackground
-    }
+//TODO: - replace with actual model for header cell
+struct HeaderCellContent: Hashable {
+
+    let id = UUID()
+    let title: String?
+    let description: String?
+
 }

@@ -1,5 +1,5 @@
 //
-//  CallToActionCollectionView.swift
+//  UIEdgeInsets+init.swift
 //  SayTheirNames
 //
 //  Copyright (c) 2020 Say Their Names Team (https://github.com/Say-Their-Name)
@@ -24,23 +24,17 @@
 
 import UIKit
 
-class CallToActionCollectionView: UICollectionView {
-    
-    init() {
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .vertical
-        layout.itemSize = UICollectionViewFlowLayout.automaticSize
-        layout.estimatedItemSize = CGSize(width: 330, height: 330)
-        
-        super.init(frame: .zero, collectionViewLayout: layout)
-        setupSelf()
+extension UIEdgeInsets {
+    init(top: CGFloat = 0, left: CGFloat = 0, bottom: CGFloat = 0, right: CGFloat = 0) {
+        self.init()
+        self.top = top
+        self.left = left
+        self.bottom = bottom
+        self.right = right
     }
     
-    required init?(coder: NSCoder) {
-        fatalError()
-    }
-    
-    private func setupSelf() {
-        backgroundColor = .systemBackground
-    }
+    static let medium: UIEdgeInsets = UIEdgeInsets(top: Theme.Components.Padding.medium,
+                                                   left: Theme.Components.Padding.medium,
+                                                   bottom: Theme.Components.Padding.medium,
+                                                   right: Theme.Components.Padding.medium)
 }

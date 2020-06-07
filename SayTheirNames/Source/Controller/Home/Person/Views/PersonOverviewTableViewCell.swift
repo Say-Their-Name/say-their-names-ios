@@ -56,7 +56,7 @@ class PersonOverviewTableViewCell: UITableViewCell {
         stack.axis = .vertical
         stack.distribution = .fill
         stack.alignment = .top
-        stack.spacing = 10
+        stack.spacing = Theme.Screens.Home.Person.stackViewSpacing
         return stack
     }()
     
@@ -73,7 +73,8 @@ class PersonOverviewTableViewCell: UITableViewCell {
     private func setupLayout() {
         stack.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(stack)
-        stack.fillSuperview(superView: contentView, padding: .init(top: 32, left: 32, bottom: 0, right: 32))
+        stack.fillSuperview(superView: contentView,
+                            padding: .init(top: Theme.Components.Padding.large, left: Theme.Components.Padding.large, right: Theme.Components.Padding.large))
 
     }
     

@@ -59,7 +59,14 @@ final class DonationsController: UIViewController, ServiceReferring {
             return cell
         }
         donationManager.didSelectItem = { donation in
-            print(donation)
+//            print(donation)
+            
+            // TODO: Move this out
+            let detailVC = DonationsMoreDetailsController(service: self.service)
+            detailVC.donation = donation
+            let navigationController = UINavigationController(rootViewController: detailVC)
+            
+            self.present(navigationController, animated: true, completion: nil)
         }
         ui.bindDonationManager(donationManager)
         
