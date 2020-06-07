@@ -26,6 +26,9 @@ import UIKit
 
 final class DonationsController: UIViewController {
 
+    @DependencyInject
+    private var network: NetworkRequestor
+    
     private let donationManager = DonationsCollectionViewManager()
     private let filterManager = DonationFilterViewManager()
     private let ui = DonationsView()
@@ -79,7 +82,7 @@ final class DonationsController: UIViewController {
     }
     
     private func getDonations() {
-        service.network.fetchDonations { [weak self] result in
+        network.fetchDonations { [weak self] result in
             switch result {
             case .success(let response):
                 let donations = response.all
