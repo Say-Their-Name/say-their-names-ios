@@ -48,7 +48,7 @@ final class HomeController: UIViewController, ServiceReferring {
     private lazy var locationsDataSourceHelper = LocationCollectionViewDataSourceHelper(collectionView: locationCollectionView)
     private lazy var peopleDataSourceHelper = PersonCollectionViewDataSourceHelper(collectionView: peopleCollectionView)
     
-    private let homeView = HomeView()
+    private lazy var homeView = HomeView()
     
     var customNavBar: UIView { homeView.customNavigationBar }
     
@@ -57,9 +57,9 @@ final class HomeController: UIViewController, ServiceReferring {
     private var searchButton: UIButton { homeView.searchButton }
     
     // MARK: - ClASS METHODS
-
     override func loadView() {
         self.view = homeView
+        homeView.peopleDataSource = peopleDataSourceHelper
     }
 
     override func viewDidLoad() {
@@ -88,6 +88,12 @@ final class HomeController: UIViewController, ServiceReferring {
     }
     
     fileprivate func setupCollectionView() {
+
+        let carouselData: [HeaderCellContent] = [
+            .init(title: "#BLACKLIVESMATTER", description: "How to get involved"),
+            .init(title: "#BLACKLIVESMATTER", description: "How to get involved"),
+            .init(title: "#BLACKLIVESMATTER", description: "How to get involved")
+        ]
         
         // TO-DO: Dummy data for now, should update after API call to get locations
         let locations: [Location] = [.init(name: "ALL"),
@@ -97,12 +103,11 @@ final class HomeController: UIViewController, ServiceReferring {
                          .init(name: "NEW YORK")]
 
         locationsDataSourceHelper.setLocations(locations)
-        
         // FIXME: This should be setup in a better place, for now this loads out data
         self.service.network.fetchPeople { [weak self] (result) in
             switch result {
             case .success(let page):
-                self?.peopleDataSourceHelper.setPeople(page.all)
+                self?.peopleDataSourceHelper.setPeople(page.all, carouselData: carouselData)
                 self?.peopleCollectionView.reloadData()
             case .failure(let error):
                 Log.print(error)
@@ -126,33 +131,12 @@ final class HomeController: UIViewController, ServiceReferring {
 
 // MARK: - UICOLLECTIONVIEW EXTENSION
 extension HomeController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        referenceSizeForHeaderInSection section: Int) -> CGSize {
-        if collectionView === locationCollectionView {
-            return Theme.Screens.Home.HeaderSize.location
-        }
-        else if collectionView === peopleCollectionView {
-            let width = collectionView.frame.width - Theme.Components.Padding.large
-            return CGSize(width: width, height: Theme.Screens.Home.HeaderSize.peopleHeight)
-        }
-        else {
-            return CGSize.zero
-        }
-    }
 
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
         if collectionView === locationCollectionView {
             return Theme.Screens.Home.CellSize.location
-        }
-        else if collectionView === peopleCollectionView {
-            let width = homeView.safeWidth(for: collectionView)
-            let isPortrait = traitCollection.horizontalSizeClass == .compact && traitCollection.verticalSizeClass == .regular
-            let cellWidth = width / (isPortrait ? Theme.Screens.Home.Columns.portrait : Theme.Screens.Home.Columns.landscape)
-            return CGSize(width: cellWidth, height: Theme.Screens.Home.CellSize.peopleHeight)
         }
         else {
             return CGSize.zero
@@ -160,6 +144,7 @@ extension HomeController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+
         if collectionView === locationCollectionView {
             // nothing for now
         }
