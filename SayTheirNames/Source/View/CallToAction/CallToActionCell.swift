@@ -95,11 +95,11 @@ final class CallToActionCell: UICollectionViewCell {
     private func setupSubviews() {
         imageView.addSubview(tagView)
         stackView.addArrangedSubviews(
-            imageView,
             titleLabel,
             bodyLabel,
             actionButton
         )
+        containerView.addSubview(imageView)
         containerView.addSubview(stackView)
         contentView.addSubview(containerView)
         
@@ -107,26 +107,15 @@ final class CallToActionCell: UICollectionViewCell {
         NSLayoutConstraint.activate([
             tagView.topAnchor.constraint(equalTo: imageView.topAnchor, constant: 8),
             tagView.trailingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: -Self.defaultPadding),
-            
-            imageView.leadingAnchor.constraint(equalTo: stackView.leadingAnchor),
-            imageView.trailingAnchor.constraint(equalTo: stackView.trailingAnchor),
+            imageView.topAnchor.constraint(equalTo: containerView.topAnchor),
+            imageView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
+            imageView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
             imageView.heightAnchor.constraint(equalToConstant: Self.imageViewHeight),
-            
-            titleLabel.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: Self.defaultPadding),
-            titleLabel.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: -Self.defaultPadding),
-            
-            bodyLabel.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: Self.defaultPadding),
-            bodyLabel.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: -Self.defaultPadding),
-            
-            actionButton.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: Self.defaultPadding),
-            actionButton.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: -Self.defaultPadding),
             actionButton.heightAnchor.constraint(equalToConstant: Self.actionButtonHeight),
-            
-            stackView.topAnchor.constraint(equalTo: containerView.topAnchor),
-            stackView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
-            stackView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
+            stackView.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: Self.defaultPadding),
+            stackView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: Self.defaultPadding),
+            stackView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -Self.defaultPadding),
             stackView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -Self.defaultPadding),
-        
             containerView.topAnchor.constraint(equalTo: guide.topAnchor),
             containerView.leadingAnchor.constraint(equalTo: guide.leadingAnchor),
             containerView.trailingAnchor.constraint(equalTo: guide.trailingAnchor),
@@ -174,6 +163,7 @@ final class CallToActionCell: UICollectionViewCell {
     }
 }
 
+// TODO: Move this to the theming section
 private extension CallToActionCell {
     static let actionButtonBorderWidth: CGFloat = 2
     static let actionButtonHeight: CGFloat = 50
