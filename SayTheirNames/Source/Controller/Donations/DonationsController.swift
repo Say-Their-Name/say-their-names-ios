@@ -45,7 +45,7 @@ final class DonationsController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "DONATIONS"
+        navigationItem.title = Strings.donations
         configure()
     }
     

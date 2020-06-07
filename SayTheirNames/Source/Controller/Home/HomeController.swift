@@ -62,7 +62,7 @@ final class HomeController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = UIColor.STN.black
         searchBar.setup(withController: self)
-        navigationItem.title = "SAY THEIR NAMES"
+        navigationItem.title = Strings.home
         setupCollectionView()
         setupSearchButton()
     }
@@ -123,7 +123,7 @@ final class HomeController: UIViewController {
     }
     
     // MARK: - Button Actions
-    @objc func searchButtonPressed(_ sender: Any) {
+    @objc private func searchButtonPressed(_ sender: Any) {
         UIImpactFeedbackGenerator().impactOccurred()
         searchBar.show()
     }
