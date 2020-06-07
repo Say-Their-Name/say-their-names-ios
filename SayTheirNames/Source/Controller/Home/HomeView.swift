@@ -93,7 +93,6 @@ final class HomeView: UIView {
                 let layoutGroupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(groupWidth),
                                                              heightDimension: .absolute(height))
                 let group = NSCollectionLayoutGroup.horizontal(layoutSize: layoutGroupSize, subitems: [layoutItem])
-//                group.interItemSpacing = .fixed(Theme.Components.Padding.medium)
                 
                 let headerSection = NSCollectionLayoutSection(group: group)
                 headerSection.orthogonalScrollingBehavior = .groupPaging
@@ -131,6 +130,7 @@ final class HomeView: UIView {
         let bookmarkImage = UIImage(named: "white-bookmark")
         let bookmarkButton = UIButton(image: bookmarkImage)
         bookmarkButton.accessibilityLabel = L10n.bookmark
+        bookmarkButton.isHidden = true // feature is disabled for v1
         return bookmarkButton
     }()
     
