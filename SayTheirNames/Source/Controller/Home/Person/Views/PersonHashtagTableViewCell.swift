@@ -48,7 +48,7 @@ class PersonHashtagTableViewCell: UITableViewCell {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.alwaysBounceHorizontal = true
-        collectionView.backgroundColor = .white
+        collectionView.backgroundColor = UIColor.STN.white
         collectionView.contentInset = .init(left: 32,right: 32)
         return collectionView
     }()
@@ -57,7 +57,7 @@ class PersonHashtagTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
          super.init(style: style, reuseIdentifier: reuseIdentifier)
-         backgroundColor = .white
+         backgroundColor = UIColor.STN.white
          setupLayout()
     }
     

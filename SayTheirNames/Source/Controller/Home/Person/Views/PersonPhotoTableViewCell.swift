@@ -37,7 +37,7 @@ class PersonPhotoTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        backgroundColor = .red
+        backgroundColor = UIColor.STN.red
         contentView.clipsToBounds = true
         imageWithBlurView.fillSuperview(superView: contentView, padding: .zero)
         accessibilityTraits.insert(.image)
