@@ -1,5 +1,5 @@
 //
-//  ColorResource.swift
+//  STNNavigationBar.swift
 //  SayTheirNames
 //
 //  Copyright (c) 2020 Say Their Names Team (https://github.com/Say-Their-Name)
@@ -24,35 +24,40 @@
 
 import UIKit
 
-extension UIColor {
+final class STNNavigationBar: UIView {
     
-    private static func dynamic(light: UIColor, dark: UIColor) -> UIColor {
-        return .init { trait in
-            return trait.isDarkModeOn ? dark : light
-        }
+    private lazy var titleLabel = UILabel.create {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.font = UIFont.STN.navBarTitle
+        $0.textColor = .white
+        $0.text = title
     }
     
-    /// A collection of common colors
-    enum STN {
-
-        static let black: UIColor = UIColor(named: "black") ?? .black
-        static let white: UIColor = UIColor(named: "white") ?? .white
-        static let gray: UIColor = UIColor(named: "grey") ?? .gray
+    private let title: String
+    
+    init(title: String) {
+        self.title = title
+        super.init(frame: .zero)
         
-		// MARK: - Applications
-
-        static let tint: UIColor = UIColor(named: "tint") ?? .black
-
-		// MARK: - Labels
-
-        static let primaryLabel: UIColor = UIColor(named: "primaryLabel") ?? .label
-        static let secondaryLabel: UIColor = UIColor(named: "secondaryLabel") ?? .secondaryLabel
-        
-        /// Light (STN.black) - Dark (STN.white)
-        static let actionButton: UIColor = dynamic(
-            light: Self.black,
-            dark: Self.white
-        )
+        setupSelf()
+        setupSubviews()
     }
-
+    
+    required init?(coder: NSCoder) {
+        fatalError()
+    }
+    
+    private func setupSelf() {
+        backgroundColor = UIColor.STN.black
+    }
+    
+    private func setupSubviews() {
+        addSubview(titleLabel)
+        
+        let guide = layoutMarginsGuide
+        NSLayoutConstraint.activate([
+            titleLabel.bottomAnchor.constraint(equalTo: guide.bottomAnchor, constant: -8),
+            titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor)
+        ])
+    }
 }

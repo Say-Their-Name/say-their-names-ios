@@ -1,5 +1,5 @@
 //
-//  LocationCell.swift
+//  FilterCategoryCell.swift
 //  SayTheirNames
 //
 //  Copyright (c) 2020 Say Their Names Team (https://github.com/Say-Their-Name)
@@ -24,60 +24,61 @@
 
 import UIKit
 
-class LocationCell: UICollectionViewCell {
+final class FilterCategoryCell: UICollectionViewCell {
     
-    var titleLabel: UILabel = {
-        let label = UILabel()
-        label.textAlignment = .center
-        return label
-    }()
+    private var titleLabel = UILabel.create {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.font = UIFont.STN.locationText
+        $0.textAlignment = .center
+    }
     
     override var isSelected: Bool {
         didSet {
             backgroundColor = isSelected ? UIColor.STN.black : .clear
             titleLabel.textColor = isSelected ? UIColor.STN.white : UIColor.STN.black
-            if isSelected {
-                accessibilityTraits.insert(.selected)
-            } else {
-                accessibilityTraits.remove(.selected)
-            }
         }
     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        addSubview(titleLabel)
-        titleLabel.fillSuperview()
-        layer.borderColor = UIColor.STN.black.cgColor
-        layer.borderWidth = 1.5
-        accessibilityTraits.insert(.button)
+        setupSelf()
+        setupSubviews()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
-    override func didMoveToSuperview() {
-        super.didMoveToSuperview()
-        
-        styleLabels()
+    private func setupSelf() {
+        layer.borderColor = UIColor.STN.black.cgColor
+        layer.borderWidth = 1.5
+        contentView.translatesAutoresizingMaskIntoConstraints = false
     }
     
-    func configure(with location: Location) {
-        titleLabel.text = location.name
+    private func setupSubviews() {
+        addSubview(titleLabel)
+        
+        NSLayoutConstraint.activate([
+            titleLabel.topAnchor.constraint(equalTo: topAnchor),
+            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
+            titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+            titleLabel.bottomAnchor.constraint(equalTo: bottomAnchor)
+        ])
     }
 
-    private func styleLabels() {
+    func configure(with filterCategory: FilterCategory) {
+        titleLabel.text = filterCategory.name
+    }
 
-        titleLabel.font = UIFont.STN.locationText
+    override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
+        setNeedsLayout()
+        layoutIfNeeded()
+        layoutAttributes.frame = contentView.frame
+        return layoutAttributes
     }
     
-    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        super.traitCollectionDidChange(previousTraitCollection)
-        
-        if traitCollection.preferredContentSizeCategory != previousTraitCollection?.preferredContentSizeCategory {
-            styleLabels()
-        }
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        titleLabel.text = nil
     }
-
 }

@@ -1,8 +1,6 @@
 //
-//  ColorResource.swift
+//  DonationsCollectionViewManager.swift
 //  SayTheirNames
-//
-//  Copyright (c) 2020 Say Their Names Team (https://github.com/Say-Their-Name)
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -24,35 +22,15 @@
 
 import UIKit
 
-extension UIColor {
+final class DonationsCollectionViewManager: CollectionViewManager<SingleSection, Donation> {
     
-    private static func dynamic(light: UIColor, dark: UIColor) -> UIColor {
-        return .init { trait in
-            return trait.isDarkModeOn ? dark : light
-        }
+    override func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        sizeForItemAt indexPath: IndexPath
+    ) -> CGSize {
+        let width = collectionView.bounds.width
+        let height = super.collectionView(collectionView, layout: collectionViewLayout, sizeForItemAt: indexPath).height
+        return CGSize(width: width, height: height)
     }
-    
-    /// A collection of common colors
-    enum STN {
-
-        static let black: UIColor = UIColor(named: "black") ?? .black
-        static let white: UIColor = UIColor(named: "white") ?? .white
-        static let gray: UIColor = UIColor(named: "grey") ?? .gray
-        
-		// MARK: - Applications
-
-        static let tint: UIColor = UIColor(named: "tint") ?? .black
-
-		// MARK: - Labels
-
-        static let primaryLabel: UIColor = UIColor(named: "primaryLabel") ?? .label
-        static let secondaryLabel: UIColor = UIColor(named: "secondaryLabel") ?? .secondaryLabel
-        
-        /// Light (STN.black) - Dark (STN.white)
-        static let actionButton: UIColor = dynamic(
-            light: Self.black,
-            dark: Self.white
-        )
-    }
-
 }

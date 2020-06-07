@@ -1,8 +1,6 @@
 //
-//  ColorResource.swift
+//  DonationFilterViewManager.swift
 //  SayTheirNames
-//
-//  Copyright (c) 2020 Say Their Names Team (https://github.com/Say-Their-Name)
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -24,35 +22,24 @@
 
 import UIKit
 
-extension UIColor {
+/// Responsible for managing the donation filters in the `UICollectionView`
+final class DonationFilterViewManager: CollectionViewManager<SingleSection, DonationFilter> {
     
-    private static func dynamic(light: UIColor, dark: UIColor) -> UIColor {
-        return .init { trait in
-            return trait.isDarkModeOn ? dark : light
-        }
-    }
+    private let filters: [DonationFilter] = [
+        .all,
+        .victims,
+        .protesters,
+        .businesses
+    ]
     
-    /// A collection of common colors
-    enum STN {
+    override func configure(with collectionView: UICollectionView) {
+        super.configure(with: collectionView)
 
-        static let black: UIColor = UIColor(named: "black") ?? .black
-        static let white: UIColor = UIColor(named: "white") ?? .white
-        static let gray: UIColor = UIColor(named: "grey") ?? .gray
-        
-		// MARK: - Applications
+        // Populate collectionView
+        set(filters)
 
-        static let tint: UIColor = UIColor(named: "tint") ?? .black
-
-		// MARK: - Labels
-
-        static let primaryLabel: UIColor = UIColor(named: "primaryLabel") ?? .label
-        static let secondaryLabel: UIColor = UIColor(named: "secondaryLabel") ?? .secondaryLabel
-        
-        /// Light (STN.black) - Dark (STN.white)
-        static let actionButton: UIColor = dynamic(
-            light: Self.black,
-            dark: Self.white
-        )
+        // Select first item
+        let firstIndex = IndexPath(item: 0, section: 0)
+        collectionView.selectItem(at: firstIndex, animated: false, scrollPosition: .left)
     }
-
 }

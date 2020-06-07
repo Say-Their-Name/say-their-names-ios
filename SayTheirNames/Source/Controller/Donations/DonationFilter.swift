@@ -1,8 +1,6 @@
 //
-//  ColorResource.swift
+//  DonationFilter.swift
 //  SayTheirNames
-//
-//  Copyright (c) 2020 Say Their Names Team (https://github.com/Say-Their-Name)
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -22,37 +20,25 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-import UIKit
+import Foundation
 
-extension UIColor {
+enum DonationFilter {
+    case all, businesses, protesters, victims
     
-    private static func dynamic(light: UIColor, dark: UIColor) -> UIColor {
-        return .init { trait in
-            return trait.isDarkModeOn ? dark : light
+    var title: String {
+        switch self {
+        case .all:
+            return Strings.filterAll
+        case .businesses:
+            return Strings.filterBusinesses
+        case .protesters:
+            return Strings.filterProtesters
+        case .victims:
+            return Strings.filterVictims
         }
     }
-    
-    /// A collection of common colors
-    enum STN {
+}
 
-        static let black: UIColor = UIColor(named: "black") ?? .black
-        static let white: UIColor = UIColor(named: "white") ?? .white
-        static let gray: UIColor = UIColor(named: "grey") ?? .gray
-        
-		// MARK: - Applications
-
-        static let tint: UIColor = UIColor(named: "tint") ?? .black
-
-		// MARK: - Labels
-
-        static let primaryLabel: UIColor = UIColor(named: "primaryLabel") ?? .label
-        static let secondaryLabel: UIColor = UIColor(named: "secondaryLabel") ?? .secondaryLabel
-        
-        /// Light (STN.black) - Dark (STN.white)
-        static let actionButton: UIColor = dynamic(
-            light: Self.black,
-            dark: Self.white
-        )
-    }
-
+extension DonationFilter: FilterCategory {
+    var name: String { title }
 }
