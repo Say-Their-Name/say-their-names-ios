@@ -40,9 +40,6 @@ final class CallToActionCell: UICollectionViewCell {
     private lazy var tagView = TagView.create {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.isHidden = true
-        
-        // TODO: remove dummy data
-        $0.setTitle(to: "VERIFIED")
     }
     
     private lazy var titleLabel = UILabel.create {
@@ -141,8 +138,7 @@ final class CallToActionCell: UICollectionViewCell {
         super.prepareForReuse()
         actionButton.setTitle(nil, for: .normal)
         bodyLabel.text = nil
-        // TODO: Reenable when placeholder is finished
-//        imageView.image = nil
+        imageView.image = nil
         tagView.prepareForReuse()
         titleLabel.text = nil
     }
