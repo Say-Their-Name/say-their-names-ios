@@ -1,5 +1,5 @@
 //
-//  Navigator.swift
+//  UIApplication+STN.swift
 //  SayTheirNames
 //
 //  Copyright (c) 2020 Say Their Names Team (https://github.com/Say-Their-Name)
@@ -24,29 +24,8 @@
 
 import UIKit
 
-final class Navigator: ServiceReferring {
-    let service: Servicing
-    let window: UIWindow
-    let rootViewController: MainTabBarController
-    
-    // MARK: - Public methods
-    
-    init(service: Servicing = Service.shared) {
-        self.service = service
-        self.rootViewController = MainTabBarController(service: service)
-        self.window = UIWindow()
-    }
-    
-    func installSceneInWindow(_ scene: UIWindowScene) -> UIWindow {
-        self.window.frame = scene.coordinateSpace.bounds
-        self.window.windowScene = scene
-        self.window.rootViewController = self.rootViewController
-        self.window.makeKeyAndVisible()
-        
-        return self.window
-    }
-    
-    func setNeedsStatusBarAppearanceUpdate() {
-        self.rootViewController.setNeedsStatusBarAppearanceUpdate()
+extension UIApplication {
+    class var stn: STNAppDelegate {
+        return UIApplication.shared.delegate as! STNAppDelegate
     }
 }

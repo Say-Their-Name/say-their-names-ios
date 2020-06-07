@@ -27,7 +27,7 @@ import Alamofire
 
 // MARK: - NetworkRequestor
 
-final class NetworkRequestor {
+final class NetworkRequestor: Dependency {
     let concurrentQueue = DispatchQueue(label: "NetworkRequestor", attributes: .concurrent)
     let session: Session
 
