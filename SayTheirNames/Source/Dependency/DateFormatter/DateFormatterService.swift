@@ -32,7 +32,7 @@ protocol DateFormatterType {
 
 extension DateFormatter: DateFormatterType { }
 
-final class DateFormatterService: Servicing {
+final class DateFormatterService: Dependency {
     
     /// To keep thread safe, designate this queue for searching cached formatters.
     let dateFormattersQueue = DispatchQueue(label: "com.stn.date.formatter.queue")

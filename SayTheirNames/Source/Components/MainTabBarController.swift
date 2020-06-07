@@ -25,7 +25,7 @@
 import UIKit
 
 class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
-    @ServiceInject private var network: NetworkRequestor
+    @DependencyInject private var network: NetworkRequestor
     
     // Params
     private let defaultBarTint: UIColor = .white

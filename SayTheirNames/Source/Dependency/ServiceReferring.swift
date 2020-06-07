@@ -26,6 +26,6 @@ import UIKit
 
 /// Protocol describing a type that can hold a reference to `Servicing`
 protocol ServiceReferring {
-    var service: Servicing { get }
-    init(service: Servicing)
+    var service: Dependency { get }
+    init(service: Dependency)
 }

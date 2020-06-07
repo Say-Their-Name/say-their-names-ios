@@ -29,7 +29,7 @@ private let headerIdentifier = "PersonHeaderCell"
 private let peopleIdentifier = "PersonCell"
 
 final class HomeController: UIViewController {
-    @ServiceInject private var network: NetworkRequestor
+    @DependencyInject private var network: NetworkRequestor
     
     required init() {
         super.init(nibName: nil, bundle: nil)

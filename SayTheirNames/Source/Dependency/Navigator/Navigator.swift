@@ -24,7 +24,7 @@
 
 import UIKit
 
-final class Navigator: Servicing {
+final class Navigator: Dependency {
     private let window: UIWindow = UIWindow()
     lazy private(set) var rootViewController: MainTabBarController = MainTabBarController()
     

@@ -24,13 +24,13 @@
 
 import UIKit
 
-// MARK: - Servicing
-protocol Servicing {
+// MARK: - Dependency
+protocol Dependency {
     
 }
 
-// MARK: - Service
-final class Service: Servicing {
+// MARK: - DependencyContainer
+final class DependencyContainer: Dependency {
     lazy private(set) var navigator = Navigator()
     lazy private(set) var image = ImageService()
     lazy private(set) var dateFormatter = DateFormatterService()
@@ -43,21 +43,22 @@ final class Service: Servicing {
         Log.print("Starting Services")
         
         // Handle our Injection
-        ServiceInjectionFactory.notShared.add(handle: self)
-        ServiceInjectionFactory.notShared.add(handle: self.navigator)
-        ServiceInjectionFactory.notShared.add(handle: self.image)
-        ServiceInjectionFactory.notShared.add(handle: self.dateFormatter)
-        ServiceInjectionFactory.notShared.add(handle: self.network)
+        let injectionFactory = DependencyInjectionFactory.notShared
+        injectionFactory.add(handle: self)
+        injectionFactory.add(handle: self.navigator)
+        injectionFactory.add(handle: self.image)
+        injectionFactory.add(handle: self.dateFormatter)
+        injectionFactory.add(handle: self.network)
     }
 }
 
 // MARK: - ServiceInject
 @propertyWrapper
-struct ServiceInject<S: Servicing> {
+struct DependencyInject<S: Dependency> {
     var serviceHandle: S
     
     init() {
-        self.serviceHandle = ServiceInjectionFactory.notShared.resolve(S.self)
+        self.serviceHandle = DependencyInjectionFactory.notShared.resolve(S.self)
     }
     
     public var wrappedValue: S {
@@ -67,16 +68,16 @@ struct ServiceInject<S: Servicing> {
 }
 
 // MARK: - InjectionFactory
-private class ServiceInjectionFactory {
-    static let notShared = ServiceInjectionFactory()
+private class DependencyInjectionFactory {
+    static let notShared = DependencyInjectionFactory()
     var factoryDict: [String: Any] = [:]
     
-    func add<S: Servicing>(handle: S) {
+    func add<S: Dependency>(handle: S) {
         let key = String(describing: handle.self)
         self.factoryDict[key] = handle
     }
 
-    func resolve<S: Servicing>(_ type: S.Type) -> S {
+    func resolve<S: Dependency>(_ type: S.Type) -> S {
         let key = String(reflecting: type)
         let component = self.factoryDict[key]
         
