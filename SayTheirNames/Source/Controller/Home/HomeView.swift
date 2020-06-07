@@ -47,6 +47,7 @@ final class HomeView: UIView {
     
     lazy private(set) var locationCollectionView: UICollectionView? = {
         return nil
+//        TODO: Add back in when filters are enabled
 //        let locationLayout = UICollectionViewFlowLayout()
 //        locationLayout.scrollDirection = .horizontal
 //        locationLayout.sectionInsetReference = .fromContentInset
@@ -142,6 +143,7 @@ final class HomeView: UIView {
         return searchButton
     }()
     
+//    TODO: Add in when filters are reimplemented
 //    let separator: UIView! = {
 //        let separator = UIView()
 //        separator.backgroundColor = UIColor.STN.separator
@@ -183,6 +185,7 @@ final class HomeView: UIView {
             bottom: bottomAnchor,
             trailing: trailingAnchor)
         
+//    TODO: Add in when filters are reimplemented
 //        locationCollectionView.anchor(
 //            superView: collections,
 //            top: collections.topAnchor,
