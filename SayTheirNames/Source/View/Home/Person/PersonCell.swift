@@ -32,6 +32,7 @@ final class PersonCell: UICollectionViewCell {
         imgV.image = UIImage(named: "man-in-red-jacket-1681010")
         imgV.contentMode = .scaleAspectFill
         imgV.clipsToBounds = true
+        imgV.setContentHuggingPriority(.defaultLow, for: .vertical)
         imgV.translatesAutoresizingMaskIntoConstraints = false
         imgV.accessibilityIgnoresInvertColors = true
         return imgV
@@ -42,6 +43,7 @@ final class PersonCell: UICollectionViewCell {
         lbl.text = "GEORGE FLOYD"
         lbl.textColor = UIColor.STN.primaryLabel
         lbl.lineBreakMode = .byTruncatingTail
+        lbl.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
         lbl.translatesAutoresizingMaskIntoConstraints = false
         lbl.isAccessibilityElement = true
         lbl.accessibilityLabel = lbl.text
@@ -62,6 +64,8 @@ final class PersonCell: UICollectionViewCell {
         let bookmarkImage = UIImage(named: "bookmark")
         let btn = UIButton(image: bookmarkImage)
         btn.contentMode = .scaleAspectFill
+        btn.setContentHuggingPriority(.defaultHigh, for: .horizontal)
+        btn.setImage(UIImage(named: "bookmark"), for: .normal)
         btn.addTarget(self, action: #selector(didTapBookmark), for: .touchUpInside)
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.isAccessibilityElement = true
@@ -72,6 +76,7 @@ final class PersonCell: UICollectionViewCell {
         let stack = UIStackView()
         stack.axis = .vertical
         stack.spacing = 10
+        stack.distribution = .fill
         stack.translatesAutoresizingMaskIntoConstraints = false
         return stack
     }()
@@ -109,12 +114,12 @@ final class PersonCell: UICollectionViewCell {
             nameLabel.topAnchor.constraint(equalTo: labelsAndButtonContainer.topAnchor),
             nameLabel.leadingAnchor.constraint(equalTo: labelsAndButtonContainer.leadingAnchor),
             nameLabel.trailingAnchor.constraint(equalTo: bookmarkButton.leadingAnchor, constant: 4),
-            
+
             dateOfIncidentLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor),
             dateOfIncidentLabel.leadingAnchor.constraint(equalTo: nameLabel.leadingAnchor),
             dateOfIncidentLabel.bottomAnchor.constraint(equalTo: labelsAndButtonContainer.bottomAnchor, constant: -20),
             dateOfIncidentLabel.trailingAnchor.constraint(equalTo: labelsAndButtonContainer.trailingAnchor),
-            
+
             bookmarkButton.topAnchor.constraint(equalTo: nameLabel.topAnchor),
             bookmarkButton.trailingAnchor.constraint(equalTo: labelsAndButtonContainer.trailingAnchor)
         ])

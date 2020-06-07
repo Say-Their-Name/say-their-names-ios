@@ -21,7 +21,15 @@ internal enum L10n {
   internal static let close = L10n.tr("Localizable", "close")
   /// Donations
   internal static let donations = L10n.tr("Localizable", "donations")
-  /// Find Out More
+  /// ALL
+  internal static let filterAll = L10n.tr("Localizable", "filter_all")
+  /// BUSINESSES
+  internal static let filterBusinesses = L10n.tr("Localizable", "filter_businesses")
+  /// PROTESTERS
+  internal static let filterProtesters = L10n.tr("Localizable", "filter_protesters")
+  /// VICTIMS
+  internal static let filterVictims = L10n.tr("Localizable", "filter_victims")
+  /// FIND OUT MORE
   internal static let findOutMore = L10n.tr("Localizable", "find_out_more")
   /// Home
   internal static let home = L10n.tr("Localizable", "home")

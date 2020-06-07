@@ -35,7 +35,7 @@ class PersonInfoTableViewCell: UITableViewCell {
         view.distribution = .fill
         view.alignment = .fill
         view.axis = .vertical
-        view.spacing = 10
+        view.spacing = Theme.Screens.Home.Person.stackViewSpacing
         return view
     }()
     
@@ -44,7 +44,7 @@ class PersonInfoTableViewCell: UITableViewCell {
         view.distribution = .fill
         view.axis = .horizontal
         view.alignment = .fill
-        view.spacing = 10
+        view.spacing = Theme.Screens.Home.Person.stackViewSpacing
         return view
     }()
     
@@ -59,7 +59,7 @@ class PersonInfoTableViewCell: UITableViewCell {
         view.distribution = .fill
         view.alignment = .top
         view.axis = .horizontal
-        view.spacing = 8
+        view.spacing = Theme.Screens.Home.Person.stackViewSpacing
         return view
     }()
        
@@ -68,7 +68,7 @@ class PersonInfoTableViewCell: UITableViewCell {
         view.axis = .vertical
         view.distribution = .fill
         view.alignment = .leading
-        view.spacing = 10
+        view.spacing = Theme.Screens.Home.Person.stackViewSpacing
         return view
     }()
     
@@ -102,7 +102,7 @@ class PersonInfoTableViewCell: UITableViewCell {
     lazy var nameLabel: UILabel = {
         let label = UILabel(frame: .zero)
         label.text = "FIRSTNAME LAST"
-        label.textColor = UIColor(red: 16/255.0, green: 16/255.0, blue: 16/255.0, alpha: 1)
+        label.textColor = UIColor.STN.detailLabel
         label.font = UIFont.STN.bannerTitle
         label.numberOfLines = 0
         label.minimumScaleFactor = 0.5
@@ -113,7 +113,7 @@ class PersonInfoTableViewCell: UITableViewCell {
     lazy var ageTitleLabel: UILabel = {
         let label = UILabel()
         label.text = L10n.Person.age.uppercased()
-        label.textColor = UIColor(red: 16/255.0, green: 16/255.0, blue: 16/255.0, alpha: 0.5)
+        label.textColor = UIColor.STN.lightHeader
         label.font = UIFont.STN.detailViewFieldTitle
         label.numberOfLines = 1
         label.minimumScaleFactor = 0.5
@@ -124,7 +124,7 @@ class PersonInfoTableViewCell: UITableViewCell {
     lazy var childrenTitleLabel: UILabel = {
         let label = UILabel()
         label.text = L10n.Person.children.uppercased()
-        label.textColor = UIColor(red: 16/255.0, green: 16/255.0, blue: 16/255.0, alpha: 0.5)
+        label.textColor = UIColor.STN.lightHeader
         label.font = UIFont.STN.detailViewFieldTitle
         label.numberOfLines = 1
         label.minimumScaleFactor = 0.5
@@ -146,7 +146,7 @@ class PersonInfoTableViewCell: UITableViewCell {
     lazy var ageLabel: UILabel = {
         let label = UILabel()
         label.text = "46"
-        label.textColor = UIColor(red: 16/255.0, green: 16/255.0, blue: 16/255.0, alpha: 1)
+        label.textColor = UIColor.STN.detailLabel
         label.font = UIFont.STN.detailViewField
         label.numberOfLines = 1
         label.minimumScaleFactor = 0.5
@@ -157,7 +157,7 @@ class PersonInfoTableViewCell: UITableViewCell {
     lazy var childrenLabel: UILabel = {
         let label = UILabel()
         label.text = "2"
-        label.textColor = UIColor(red: 16/255.0, green: 16/255.0, blue: 16/255.0, alpha: 1)
+        label.textColor = UIColor.STN.detailLabel
         label.font = UIFont.STN.detailViewField
         label.numberOfLines = 1
         label.minimumScaleFactor = 0.5
@@ -168,7 +168,7 @@ class PersonInfoTableViewCell: UITableViewCell {
     lazy var locationLabel: UILabel = {
         let label = UILabel()
         label.text = "Missisippi, Denver Cloud Source, United States of America"
-        label.textColor = UIColor(red: 16/255.0, green: 16/255.0, blue: 16/255.0, alpha: 1)
+        label.textColor = UIColor.STN.detailLabel
         label.font = UIFont.STN.detailViewField
         label.numberOfLines = 0
         label.minimumScaleFactor = 0.5
@@ -178,19 +178,19 @@ class PersonInfoTableViewCell: UITableViewCell {
     
     lazy var verticalSeparatorView: UIView = {
         let view = UIView(frame: .zero)
-        view.backgroundColor = UIColor(red: 196/255.0, green: 196/255.0, blue: 196/255.0, alpha: 0.4)
+        view.backgroundColor = UIColor.STN.separator
         return view
     }()
     
     lazy var horizontalSeparatorView: UIView = {
         let view = UIView(frame: .zero)
-        view.backgroundColor = UIColor(red: 196/255.0, green: 196/255.0, blue: 196/255.0, alpha: 0.4)
+        view.backgroundColor = UIColor.STN.separator
         return view
     }()
     
     lazy var secondHorizontalSeparatorView: UIView = {
            let view = UIView(frame: .zero)
-           view.backgroundColor = UIColor(red: 196/255.0, green: 196/255.0, blue: 196/255.0, alpha: 0.4)
+           view.backgroundColor = UIColor.STN.separator
            return view
        }()
     
@@ -211,13 +211,18 @@ class PersonInfoTableViewCell: UITableViewCell {
     }
     
     private func setupLayout() {
-        containerStack.fillSuperview(superView: contentView, padding: .init(top: 32, left: 32, bottom: 0, right: 16))
-        ageContainerStack.widthAnchor.constraint(equalToConstant: 60).isActive = true
+        containerStack.fillSuperview(superView: contentView,
+                                     padding: .init(top: Theme.Components.Padding.large,
+                                                    left: Theme.Components.Padding.large,
+                                                    bottom: 0,
+                                                    right: Theme.Components.Padding.medium))
+        ageContainerStack.widthAnchor.constraint(equalToConstant: Theme.Screens.Home.Person.Info.ageConatinerWidth).isActive = true
         childrenContainerStack.widthAnchor.constraint(equalToConstant: 90).isActive = true
-        locationContainerStack.widthAnchor.constraint(greaterThanOrEqualToConstant: 50).isActive = true
-        verticalSeparatorView.anchor(size: .init(width: 150, height: 1.5))
-        horizontalSeparatorView.anchor(size: .init(width: 1.5, height: 30))
-        secondHorizontalSeparatorView.anchor(size: .init(width: 1.5, height: 30))
+        locationContainerStack.widthAnchor.constraint(greaterThanOrEqualToConstant: Theme.Screens.Home.Person.Info.locationContainerWidth)
+            .isActive = true
+        verticalSeparatorView.anchor(size: Theme.Screens.Home.Person.Info.verticalSeperatorSize)
+        horizontalSeparatorView.anchor(size: Theme.Screens.Home.Person.Info.horizontalSeperatorSize)
+        secondHorizontalSeparatorView.anchor(size: Theme.Screens.Home.Person.Info.horizontalSeperatorSize)
 
     }
 }

@@ -46,40 +46,98 @@ class PersonCollectionViewDataSourceHelperTests: XCTestCase {
                       "Section identifiers should be empty on initialization")
     }
     
-    func testSetPeople() {
-        sut.setPeople([])
-        let sectionIdentifiers = sut.dataSource.snapshot().sectionIdentifiers
+    func testSetPeopleAndCarouselEmpty() {
+        sut.setPeople([], carouselData: [])
+        let snapshot = sut.dataSource.snapshot()
         
-        XCTAssertTrue(sectionIdentifiers.count == 1 &&
-            sectionIdentifiers.first == .main,
-                      "Found more sections than expected")
+        XCTAssertEqual(snapshot.sectionIdentifiers, [.carousel, .main],
+                      "Found incorrect sections")
+        XCTAssertEqual(snapshot.itemIdentifiers(inSection: .main).count, 0, "Main section should have 0 items")
+        XCTAssertEqual(snapshot.itemIdentifiers(inSection: .carousel).count, 0, "Carousel section should have 0 items")
     }
     
-    func testAppendPeople() {
-        sut.setPeople([])
-        let initialPeopleCount = sut.dataSource.snapshot().numberOfItems
-        let newPeople = createPeople()
+    func testSetPeopleAndCarouselNonEmptyPeople() {
+        let people = createPeople(rangeOfIndices: 1...5)
+        sut.setPeople(people, carouselData: [])
+        let snapshot = sut.dataSource.snapshot()
+        
+        XCTAssertEqual(snapshot.sectionIdentifiers, [.carousel, .main],
+                      "Found incorrect sections")
+        XCTAssertEqual(snapshot.itemIdentifiers(inSection: .main).count, 5, "Main section should have 5 items")
+        XCTAssertEqual(snapshot.itemIdentifiers(inSection: .carousel).count, 0, "Carousel section should have 0 items")
+    }
+    
+    func testSetPeopleAndCarouselNonEmptyCarousel() {
+        let carouselData = createCarouselData(rangeOfIndices: 1...3)
+        sut.setPeople([], carouselData: carouselData)
+        let snapshot = sut.dataSource.snapshot()
+
+        XCTAssertEqual(snapshot.sectionIdentifiers, [.carousel, .main],
+                      "Found incorrect sections")
+        XCTAssertEqual(snapshot.itemIdentifiers(inSection: .main).count, 0, "Main section should have 0 items")
+        XCTAssertEqual(snapshot.itemIdentifiers(inSection: .carousel).count, 3, "Carousel section should have 3 items")
+    }
+    
+    func testSetPeopleAndCarouselNonEmptyBoth() {
+        let people = createPeople(rangeOfIndices: 1...5)
+        let carouselData = createCarouselData(rangeOfIndices: 1...3)
+        sut.setPeople(people, carouselData: carouselData)
+        let snapshot = sut.dataSource.snapshot()
+
+        XCTAssertEqual(snapshot.sectionIdentifiers, [.carousel, .main],
+                      "Found incorrect sections")
+        XCTAssertEqual(snapshot.itemIdentifiers(inSection: .main).count, 5, "Main section should have 5 items")
+        XCTAssertEqual(snapshot.itemIdentifiers(inSection: .carousel).count, 3, "Carousel section should have 3 items")
+
+    }
+    
+    func testAppendPeopleToEmpty() {
+        sut.setPeople([], carouselData: [])
+        let newPeople = createPeople(rangeOfIndices: 1...5)
         sut.appendPeople(newPeople)
         
-        let currentIndexCount = sut.dataSource.snapshot().numberOfItems
-        
-        XCTAssertEqual(currentIndexCount, newPeople.count + initialPeopleCount,
-                       "Number of items does not match initial items + appended items")
+        let snapshot = sut.dataSource.snapshot()
+
+        XCTAssertEqual(snapshot.sectionIdentifiers, [.carousel, .main],
+                      "Found incorrect sections")
+        XCTAssertEqual(snapshot.itemIdentifiers(inSection: .main).count, 5, "Main section should have 5 items")
+        XCTAssertEqual(snapshot.itemIdentifiers(inSection: .carousel).count, 0, "Carousel section should have 0 items")
+    }
+    
+    func testAppendPeopleToNonEmpty() {
+        let people = createPeople(rangeOfIndices: 1...5)
+        let carouselData = createCarouselData(rangeOfIndices: 1...3)
+        sut.setPeople(people, carouselData: carouselData)
+
+        let newPeople = createPeople(rangeOfIndices: 11...19)
+        sut.appendPeople(newPeople)
+
+        let snapshot = sut.dataSource.snapshot()
+
+        XCTAssertEqual(snapshot.sectionIdentifiers, [.carousel, .main],
+                      "Found incorrect sections")
+        XCTAssertEqual(snapshot.itemIdentifiers(inSection: .main).count, 5+9, "Main section should have 5+9=14 items")
+        XCTAssertEqual(snapshot.itemIdentifiers(inSection: .carousel).count, 3, "Carousel section should still have 3 items")
     }
     
     func testPersonAtIndex() {
-        let people = createPeople()
-        let index = 1
+        let people = createPeople(rangeOfIndices: 1...5)
+        let carouselData = createCarouselData(rangeOfIndices: 12...15)
+        sut.setPeople(people, carouselData: carouselData)
         
-        sut.setPeople(people)
-        
-        let person = sut.person(at: index)
-        XCTAssertEqual(person, people[index],
+        let person0 = sut.person(at: 0)
+        let person4 = sut.person(at: 4)
+
+        XCTAssertEqual(person0, people[0],
+                       "Item returned does not match item at same index in array")
+        XCTAssertEqual(person4, people[4],
                        "Item returned does not match item at same index in array")
     }
+
+    // MARK: - Help -
     
-    func createPeople() -> [Person] {
-        return (0..<5).map { index in
+    private func createPeople(rangeOfIndices: ClosedRange<Int>) -> [Person] {
+        return rangeOfIndices.map { index in
             Person(id: index,
                    fullName: "",
                    dob: "",
@@ -98,4 +156,9 @@ class PersonCollectionViewDataSourceHelperTests: XCTestCase {
         }
     }
     
+    private func createCarouselData(rangeOfIndices: ClosedRange<Int>) -> [HeaderCellContent] {
+        return rangeOfIndices.map { _ in
+            HeaderCellContent(title: "hello", description: "world")
+        }
+    }
 }

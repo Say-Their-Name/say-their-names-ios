@@ -19,7 +19,7 @@ class ImageWithBlurView: UIView {
     
     lazy var frontImageContainerView: UIView = {
         let view = UIView()
-        view.backgroundColor = .yellow
+        view.backgroundColor = UIColor.STN.yellow
         view.clipsToBounds = true
         return view
     }()
@@ -67,6 +67,7 @@ class ImageWithBlurView: UIView {
     
     // MARK: - Method
     public func setup(_ person: Person) {
+        guard person.images.first != nil else { return }
         frontImageView.populate(withURL: person.images[0].personURL)
         bgImageView.populate(withURL: person.images[0].personURL)
     }

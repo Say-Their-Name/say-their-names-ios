@@ -11,8 +11,12 @@
 "petitions" = "Petitions";
 "about" = "About";
 "cancel"= "Cancel";
-"find_out_more" = "Find Out More";
+"find_out_more" = "FIND OUT MORE";
 "verified" = "verfied";
+"filter_all" = "ALL";
+"filter_businesses" = "BUSINESSES";
+"filter_protesters" = "PROTESTERS";
+"filter_victims" = "VICTIMS";
 "share" = "Share";
 "close" = "Close";
 "say_their_names" = "Say their names";

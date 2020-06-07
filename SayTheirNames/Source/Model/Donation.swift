@@ -22,7 +22,7 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-import Foundation
+import UIKit
 
 public struct Donation: Decodable {
     let id: Int
@@ -37,6 +37,26 @@ public struct Donation: Decodable {
     }
 }
 
+extension Donation: Hashable {}
+
+extension Donation: CallToAction {
+    var actionTitle: String {
+        Strings.findOutMore
+    }
+    var body: String {
+        description
+    }
+    var imagePath: String? {
+        // TODO: update image properly
+        nil
+    }
+    
+    var tag: String? {
+        // TODO: update logic to show verified or not
+        return "VERIFIED"
+    }
+}
+
 struct DonationType: Codable {
     let id: String
     let type: String
@@ -45,6 +65,8 @@ struct DonationType: Codable {
         case id, type
     }
 }
+
+extension DonationType: Hashable {}
 
 public struct DonationsResponsePage: Decodable {
     var all: [Donation]

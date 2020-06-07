@@ -24,7 +24,10 @@
 
 import UIKit
 
-class DonationsController: UIViewController {
+final class DonationsController: UIViewController {
+
+    private let donationManager = DonationsCollectionViewManager()
+    private let filterManager = DonationFilterViewManager()
     private let ui = DonationsView()
     
     required init() {
@@ -35,5 +38,89 @@ class DonationsController: UIViewController {
     
     override func loadView() {
         view = ui
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        configure()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        getDonations()
+    }
+    
+    private func configure() {
+        donationManager.cellForItem = { (collectionView, indexPath, donation) in
+            let cell: CallToActionCell = collectionView.dequeueCell(for: indexPath)
+            cell.configure(with: donation)
+            return cell
+        }
+        donationManager.didSelectItem = { donation in
+//            print(donation)
+            
+            // TODO: Move this out
+            let detailVC = DonationsMoreDetailsController()
+            detailVC.donation = donation
+            let navigationController = UINavigationController(rootViewController: detailVC)
+            
+            self.present(navigationController, animated: true, completion: nil)
+        }
+        ui.bindDonationManager(donationManager)
+        
+        filterManager.cellForItem = { (collectionView, indexPath, filter) in
+            let cell: FilterCategoryCell = collectionView.dequeueCell(for: indexPath)
+            cell.configure(with: filter)
+            return cell
+        }
+        filterManager.didSelectItem = { filter in
+            print(filter)
+        }
+        ui.bindFilterManager(filterManager)
+    }
+    
+    private func getDonations() {
+        // TODO: Remove dummy data once donations is fixed
+        let dummyDonations = Array(0 ... 10).map { index in
+            Donation(
+                id: index,
+                title: "Black Lives Matter Resources",
+                description: "Following the tragic news surrounding the murder of George Floyd by Minneapolis police officers...",
+                link: "",
+                person: Person.init(
+                    id: index,
+                    fullName: "",
+                    doi: Date(),
+                    childrenCount: "",
+                    age: "",
+                    city: "",
+                    country: "",
+                    bio: "",
+                    context: "",
+                    images: [],
+                    donations: DonationsResponsePage(),
+                    petitions: PetitionsResponsePage(),
+                    media: [],
+                    socialMedia: []
+                ),
+                type: DonationType(
+                    id: "",
+                    type: ""
+                )
+            )
+        }
+        donationManager.set(dummyDonations)
+        
+        // TODO: uncomment once `fetchDonations` is fixed
+//        service.network.fetchDonations { [weak self] result in
+//            switch result {
+//            case .success(let response):
+//                let donations = response.all
+//                self?.donationManager.set(donations)
+//
+//            case .failure(let error):
+//                print(error)
+//            }
+//        }
     }
 }

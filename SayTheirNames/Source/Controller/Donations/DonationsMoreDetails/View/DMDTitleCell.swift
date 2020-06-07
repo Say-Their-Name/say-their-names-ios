@@ -1,5 +1,5 @@
 //
-//  LocationCell.swift
+//  DMDTitleCell.swift
 //  SayTheirNames
 //
 //  Copyright (c) 2020 Say Their Names Team (https://github.com/Say-Their-Name)
@@ -24,60 +24,40 @@
 
 import UIKit
 
-class LocationCell: UICollectionViewCell {
+final class DMDTitleCell: UICollectionViewCell {
+    // MARK: - Property
+    static let reuseIdentifier = "donations-more-details-title-cell"
     
-    var titleLabel: UILabel = {
-        let label = UILabel()
+    // MARK: - View
+    private let titleLabel: UILabel = {
+        let label = UILabel(frame: .zero)
+        label.numberOfLines = 0
         label.textAlignment = .center
+        label.adjustsFontSizeToFitWidth = true
+        label.font = UIFont.STN.title
         return label
     }()
     
-    override var isSelected: Bool {
-        didSet {
-            backgroundColor = isSelected ? UIColor.STN.black : .clear
-            titleLabel.textColor = isSelected ? UIColor.STN.white : UIColor.STN.black
-            if isSelected {
-                accessibilityTraits.insert(.selected)
-            } else {
-                accessibilityTraits.remove(.selected)
-            }
-        }
-    }
-    
+    // MARK: - Initialization
     override init(frame: CGRect) {
         super.init(frame: frame)
-        addSubview(titleLabel)
-        titleLabel.fillSuperview()
-        layer.borderColor = UIColor.STN.black.cgColor
-        layer.borderWidth = 1.5
-        accessibilityTraits.insert(.button)
+        
+        configureSubview()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
-    override func didMoveToSuperview() {
-        super.didMoveToSuperview()
+    
+    // MARK: - Class Method
+    private func configureSubview() {
+        contentView.addSubview(titleLabel)
         
-        styleLabels()
+        titleLabel.fillSuperview(superView: contentView, padding: .zero)
     }
     
-    func configure(with location: Location) {
-        titleLabel.text = location.name
+    // MARK: - Configure Cell
+    func configure(for donation: Donation) {
+        titleLabel.text = donation.title
     }
-
-    private func styleLabels() {
-
-        titleLabel.font = UIFont.STN.locationText
-    }
-    
-    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        super.traitCollectionDidChange(previousTraitCollection)
-        
-        if traitCollection.preferredContentSizeCategory != previousTraitCollection?.preferredContentSizeCategory {
-            styleLabels()
-        }
-    }
-
 }

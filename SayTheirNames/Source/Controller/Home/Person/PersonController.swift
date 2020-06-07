@@ -101,7 +101,7 @@ class PersonController: UIViewController {
         tableView.allowsSelection = false
         tableView.insetsContentViewsToSafeArea = false
         tableView.backgroundColor = .clear
-        tableView.contentInset = .init(top: 16)
+        tableView.contentInset = .init(top: Theme.Components.Padding.medium)
         return tableView
     }()
     
@@ -117,7 +117,8 @@ class PersonController: UIViewController {
         let gesture = UITapGestureRecognizer(target: self, action: #selector(dismissAction(_:)))
         let button = UIButton(type: .system)
         button.setImage(UIImage(named: "Close Icon")?.withRenderingMode(.alwaysOriginal), for: .normal)
-        button.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
+        button.frame = CGRect(x: 0, y: 0, width: Theme.Components.Button.Size.small.width,
+                              height: Theme.Components.Button.Size.small.height)
         button.addGestureRecognizer(gesture)
         button.accessibilityLabel = L10n.close
         return button
@@ -127,7 +128,8 @@ class PersonController: UIViewController {
         let gesture = UITapGestureRecognizer(target: self, action: #selector(shareAction(_:)))
         let button = UIButton(type: .system)
         button.setImage(UIImage(named: "share_white")?.withRenderingMode(.alwaysOriginal), for: .normal)
-        button.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
+        button.frame = CGRect(x: 0, y: 0, width: Theme.Components.Button.Size.small.width,
+                              height: Theme.Components.Button.Size.small.height)
         button.addGestureRecognizer(gesture)
         button.accessibilityLabel = L10n.share
         return button
@@ -152,7 +154,7 @@ class PersonController: UIViewController {
 
     override func loadView() {
         super.loadView()
-        view.backgroundColor = .black
+        view.backgroundColor = UIColor.STN.red
         setupNavigationBarItems()
         setupSubViews()
     }
@@ -175,7 +177,7 @@ private extension PersonController {
     
     func setupNavigationBarItems() {
         navigationController?.navigationBar.isTranslucent = false
-        navigationController?.navigationBar.barTintColor = .black
+        navigationController?.navigationBar.barTintColor = UIColor.STN.black
         // TODO: Once Theme.swift/etc gets added this may not be required
         navigationController?.navigationBar.titleTextAttributes = navigationBarTextAttributes
 
@@ -193,7 +195,7 @@ private extension PersonController {
     
     func setupSubViews() {
         backgroundFistImageView.anchor(superView: view, top: view.topAnchor,
-                               padding: .init(top:32), size: .init(width: 110, height: 110))
+                                       padding: .init(top:Theme.Components.Padding.large), size: Theme.Screens.Home.Person.backgroundFistSize)
         backgroundFistImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         setupTableView()
         setupDonationBottomView()
@@ -213,7 +215,8 @@ private extension PersonController {
         donationButtonContainerView.translatesAutoresizingMaskIntoConstraints = false
         donationButtonContainerView.anchor(superView: view, top: nil, leading: view.leadingAnchor,
                                            bottom: view.bottomAnchor, trailing: view.trailingAnchor,
-                                           padding: .zero, size: CGSize(width: view.bounds.width, height: 105))
+                                           padding: .zero,
+                                           size: CGSize(width: view.bounds.width, height: Theme.Screens.Home.Person.donationViewHeight))
         
         tableView.anchor(superView: nil, top: nil, leading: nil,
                          bottom: donationButtonContainerView.topAnchor, trailing: nil,
