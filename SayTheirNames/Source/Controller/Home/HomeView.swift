@@ -29,14 +29,14 @@ final class HomeView: UIView {
     private let navigationBarLabel: UILabel = {
         let label = UILabel()
         label.text = Strings.sayTheirNames.uppercased()
-        label.textColor = .white
+        label.textColor = UIColor.STN.white
 
         return label
     }()
     
     let customNavigationBar: UIView = {
         let customNavigationBar = UIView()
-        customNavigationBar.backgroundColor = .black
+        customNavigationBar.backgroundColor = UIColor.STN.black
         return customNavigationBar
     }()
     
@@ -78,7 +78,7 @@ final class HomeView: UIView {
     
     let separator: UIView! = {
         let separator = UIView()
-        separator.backgroundColor = .systemGray6
+        separator.backgroundColor = UIColor.STN.separator
         return separator
     }()
     
@@ -101,7 +101,7 @@ final class HomeView: UIView {
     override func didMoveToSuperview() {
         super.didMoveToSuperview()
         createLayout()
-        backgroundColor = .black
+        backgroundColor = UIColor.STN.black
         
         styleLabels()
     }

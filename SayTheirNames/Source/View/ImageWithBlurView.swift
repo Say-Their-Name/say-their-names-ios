@@ -19,7 +19,7 @@ class ImageWithBlurView: UIView {
     
     lazy var frontImageContainerView: UIView = {
         let view = UIView()
-        view.backgroundColor = .yellow
+        view.backgroundColor = UIColor.STN.yellow
         view.clipsToBounds = true
         return view
     }()

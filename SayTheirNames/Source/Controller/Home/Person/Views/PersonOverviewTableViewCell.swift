@@ -33,7 +33,7 @@ class PersonOverviewTableViewCell: UITableViewCell {
     lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Their Story"
-        label.textColor = UIColor(red: 16/255.0, green: 16/255.0, blue: 16/255.0, alpha: 1)
+        label.textColor = UIColor.STN.strongHeader
         label.font = UIFont.STN.sectionHeader
         label.numberOfLines = 1
         label.minimumScaleFactor = 0.5
@@ -43,7 +43,7 @@ class PersonOverviewTableViewCell: UITableViewCell {
     
     lazy var descriptionLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .black
+        label.textColor = UIColor.STN.black
         label.font = UIFont.STN.body
         label.numberOfLines = 0
         label.minimumScaleFactor = 0.5
@@ -62,7 +62,7 @@ class PersonOverviewTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        backgroundColor = .white
+        backgroundColor = UIColor.STN.white
         setupLayout()
     }
     
