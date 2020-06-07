@@ -45,7 +45,7 @@ class SayTheirNamesUITests: XCTestCase {
     func testHomeScreenLoading() {
         // Make sure we're displaying the collection views
         XCTAssertTrue(app.isDisplayingPeopleCollection)
-        XCTAssertTrue(app.isDisplayingLocationCollection)
+        XCTAssertFalse(app.isDisplayingLocationCollection, "Filters on home are disabled for v1")
         
         // Make sure we are displaying all tab bar items
         XCTAssertTrue(app.isDisplayingTabBarItems)
@@ -53,13 +53,15 @@ class SayTheirNamesUITests: XCTestCase {
     
     func testTappingLocations() {
         let locationCount = app.locationCount
-
-        if locationCount == 0 {
-            XCTFail("Location count should not be 0")
+        
+        if locationCount != 0 {
+            XCTFail("Filters on home are disabled for v1")
         }
-        for index in 0..<locationCount {
-            XCTAssertTrue(app.locationCellForIndex(index: index).isHittable)
-            app.locationCellForIndex(index: index).tap()
+        else {
+            for index in 0..<locationCount {
+                XCTAssertTrue(app.locationCellForIndex(index: index).isHittable)
+                app.locationCellForIndex(index: index).tap()
+            }
         }
     }
     
