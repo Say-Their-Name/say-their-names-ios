@@ -24,9 +24,7 @@
 
 import UIKit
 
-class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
-    @DependencyInject private var network: NetworkRequestor
-    
+class MainTabBarController: UITabBarController, UITabBarControllerDelegate {    
     // Params
     private let defaultBarTint: UIColor = UIColor.STN.barTint
     private let defaultTint = UIColor.STN.tint
