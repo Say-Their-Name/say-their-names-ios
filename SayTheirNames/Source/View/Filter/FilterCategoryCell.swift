@@ -58,12 +58,7 @@ final class FilterCategoryCell: UICollectionViewCell {
     private func setupSubviews() {
         addSubview(titleLabel)
         
-        NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: topAnchor),
-            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
-            titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
-            titleLabel.bottomAnchor.constraint(equalTo: bottomAnchor)
-        ])
+        titleLabel.fillSuperview()
     }
 
     func configure(with filterCategory: FilterCategory) {
