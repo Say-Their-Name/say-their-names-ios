@@ -39,21 +39,21 @@ final class LineCarouselControl: UIControl {
     private var currentPageIndicatorTintColor: UIColor? = UIColor.STN.black
     private lazy var stackView = UIStackView.init(frame: self.bounds)
     override var bounds: CGRect {
-        didSet {
+        didSet(oldValue) {
             self.numberOfLines.forEach {
                 self.setupLineAppearance($0)
             }
         }
     }
     var numberOfLines = [UIView]() {
-        didSet{
+        didSet(oldValue) {
             if numberOfLines.count == numberOfPages {
                 setupViews()
             }
         }
     }
     var numberOfPages: Int = 0 {
-        didSet{
+        didSet(oldValue) {
             for tag in 0 ..< numberOfPages {
                 print(tag)
                 let line = getLineView()
@@ -63,7 +63,7 @@ final class LineCarouselControl: UIControl {
         }
     }
     var currentPage: Int = 0 {
-        didSet {
+        didSet(oldValue) {
             _ = numberOfLines.map { view in
                 if currentPage == view.tag {
                     UIView.animate(withDuration: 0.2, animations: {
@@ -79,11 +79,6 @@ final class LineCarouselControl: UIControl {
     weak var delegate: LineCarouselControlProtocol?
 
     // MARK: - Intialisers
-    convenience init() {
-        self.init(frame: .zero)
-        setupViews()
-    }
-
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
@@ -141,7 +136,7 @@ final class LineCarouselControl: UIControl {
     @objc private func onPageControlTapped(_ sender: UITapGestureRecognizer) {
         guard let selectedLine = sender.view else { return }
         delegate?.didSelectLineAt(selectedLine.tag)
-        _ = numberOfLines.map { view in
+        _ = numberOfLines.forEach { view in
             if view.tag == selectedLine.tag {
                 currentPage = selectedLine.tag
                 UIView.animate(withDuration: 0.2, animations: {
