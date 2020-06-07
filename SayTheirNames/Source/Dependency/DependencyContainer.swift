@@ -52,7 +52,7 @@ final class DependencyContainer: Dependency {
     }
 }
 
-// MARK: - ServiceInject
+// MARK: - DependencyInject
 @propertyWrapper
 struct DependencyInject<S: Dependency> {
     var serviceHandle: S
@@ -67,7 +67,7 @@ struct DependencyInject<S: Dependency> {
     }
 }
 
-// MARK: - InjectionFactory
+// MARK: - DependencyInjectionFactory
 private class DependencyInjectionFactory {
     static let notShared = DependencyInjectionFactory()
     var factoryDict: [String: Any] = [:]
