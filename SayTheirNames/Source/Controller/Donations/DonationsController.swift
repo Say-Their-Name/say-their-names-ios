@@ -92,8 +92,7 @@ final class DonationsController: UIViewController, ServiceReferring {
                 person: Person.init(
                     id: index,
                     fullName: "",
-                    dob: "",
-                    doi: "",
+                    doi: Date(),
                     childrenCount: "",
                     age: "",
                     city: "",
