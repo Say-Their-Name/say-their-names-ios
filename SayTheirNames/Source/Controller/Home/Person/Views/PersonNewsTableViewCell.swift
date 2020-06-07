@@ -54,7 +54,7 @@ class PersonNewsTableViewCell: UITableViewCell {
     lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.text = "NEWS"
-        label.textColor = UIColor(red: 16/255.0, green: 16/255.0, blue: 16/255.0, alpha: 1)
+        label.textColor = UIColor.STN.strongHeader
         label.font = UIFont.STN.sectionHeader
         label.numberOfLines = 1
         label.minimumScaleFactor = 0.5
@@ -70,7 +70,7 @@ class PersonNewsTableViewCell: UITableViewCell {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.alwaysBounceHorizontal = true
-        collectionView.backgroundColor = .white
+        collectionView.backgroundColor = UIColor.STN.white
         collectionView.contentInset = .init(left: 32,right: 32)
         return collectionView
     }()
@@ -82,7 +82,7 @@ class PersonNewsTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
          super.init(style: style, reuseIdentifier: reuseIdentifier)
-         backgroundColor = .white
+         backgroundColor = UIColor.STN.white
          setupLayout()
     }
     

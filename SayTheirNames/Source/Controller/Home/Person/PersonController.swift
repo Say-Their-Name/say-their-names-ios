@@ -154,7 +154,7 @@ class PersonController: UIViewController, ServiceReferring {
 
     override func loadView() {
         super.loadView()
-        view.backgroundColor = .black
+        view.backgroundColor = UIColor.STN.red
         setupNavigationBarItems()
         setupSubViews()
     }
@@ -177,7 +177,7 @@ private extension PersonController {
     
     func setupNavigationBarItems() {
         navigationController?.navigationBar.isTranslucent = false
-        navigationController?.navigationBar.barTintColor = .black
+        navigationController?.navigationBar.barTintColor = UIColor.STN.black
         // TODO: Once Theme.swift/etc gets added this may not be required
         navigationController?.navigationBar.titleTextAttributes = navigationBarTextAttributes
 
