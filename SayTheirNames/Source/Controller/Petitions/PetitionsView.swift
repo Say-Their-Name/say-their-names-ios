@@ -66,7 +66,7 @@ final class PetitionsView: UIView {
             collectionView.topAnchor.constraint(equalTo: navBarView.bottomAnchor),
             collectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: bottomAnchor)
+            collectionView.bottomAnchor.constraint(equalTo: safeGuide.bottomAnchor)
         ])
     }
 
