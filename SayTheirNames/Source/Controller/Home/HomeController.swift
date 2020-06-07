@@ -28,11 +28,10 @@ import UIKit
 private let headerIdentifier = "PersonHeaderCell"
 private let peopleIdentifier = "PersonCell"
 
-final class HomeController: UIViewController, ServiceReferring {
-    let service: Servicing
+final class HomeController: UIViewController {
+    @ServiceInject private var service: Service
     
-    required init(service: Servicing) {
-        self.service = service
+    required init() {
         super.init(nibName: nil, bundle: nil)
     }
     

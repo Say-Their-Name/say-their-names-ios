@@ -84,7 +84,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
     }
 
     @objc fileprivate func setupTabViews() {
-        let homeController = HomeController(service: self.service)
+        let homeController = HomeController()
         let homeNC = UINavigationController(rootViewController: homeController)
         
         let donationsController = DonationsController(service: self.service)

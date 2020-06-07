@@ -24,7 +24,10 @@
 import Foundation
 
 protocol DateFormatterType {
+    var timeStyle: DateFormatter.Style { get set }
+    
     func string(from date: Date) -> String
+    func date(from string: String) -> Date?
 }
 
 extension DateFormatter: DateFormatterType { }
@@ -59,6 +62,11 @@ class DateFormatterService {
         let dateFormatter = cachedDateFormatter(withFormat: "y/MM/dd")
         let formattedDate = dateFormatter.string(from: date)
         return ("Date: \(formattedDate)")
+    }
+    
+    func dateForYearMonthDayString(_ dateString: String) -> Date? {
+        let dateFormatter = cachedDateFormatter(withFormat: "y/MM/dd")
+        return dateFormatter.date(from: dateString)
     }
     
     // MARK: - Hour minute

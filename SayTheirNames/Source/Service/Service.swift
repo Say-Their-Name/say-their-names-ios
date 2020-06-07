@@ -25,22 +25,38 @@
 import UIKit
 
 protocol Servicing {
+    var navigator: Navigator { get }
     var image: ImageService { get }
     var dateFormatter: DateFormatterService { get }
     var network: NetworkRequestor { get }
 }
+
 /// This is a core class that holds all instances responsible for logic
 final class Service: Servicing {
+    lazy private(set) var navigator = Navigator()
     lazy private(set) var image = ImageService()
     lazy private(set) var dateFormatter = DateFormatterService()
     lazy private(set) var network = NetworkRequestor()
-    
-    static let shared = Service()
     
     // MARK: - Init
     init() {
         Log.mode = .all
         Log.print("SayTheirNames Version: \(Bundle.versionBuildString)")
         Log.print("Starting Services")
+        
+    }
+}
+
+@propertyWrapper
+struct ServiceInject {
+    private static var service: Service!
+    
+    init() { }
+    init(service: Service) {
+        ServiceInject.service = service
+    }
+
+    public var wrappedValue: Service {
+        ServiceInject.service
     }
 }

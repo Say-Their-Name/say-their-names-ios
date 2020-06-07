@@ -27,8 +27,8 @@ import Foundation
 struct Person: Decodable {
     let id: Int
     let fullName: String
-    let dob: String
-    let doi: String
+    let dob: Date
+    let doi: Date
     let childrenCount: String
     let age: String
     let city: String
@@ -47,8 +47,8 @@ struct Person: Decodable {
         socialMedia = "social_media"
     }
     
-    init(id: Int, fullName: String, dob: String,
-         doi: String, childrenCount: String, age: String,
+    init(id: Int, fullName: String, dob: Date,
+         doi: Date, childrenCount: String, age: String,
          city: String, country: String, bio: String,
          context: String, images: [Image], donations: DonationsResponsePage,
          petitions: PetitionsResponsePage, media: [Media], socialMedia: [SocialMedia]) {
@@ -74,8 +74,6 @@ struct Person: Decodable {
         
         self.id = try container.decodeIfPresent(Int.self, forKey: .id) ?? -1
         self.fullName = try container.decodeIfPresent(String.self, forKey: .fullName) ?? ""
-        self.dob = try container.decodeIfPresent(String.self, forKey: .dob) ?? ""
-        self.doi = try container.decodeIfPresent(String.self, forKey: .doi) ?? ""
         self.childrenCount = try container.decodeIfPresent(String.self, forKey: .childrenCount) ?? "0"
         self.age = try container.decodeIfPresent(String.self, forKey: .age) ?? ""
         self.city = try container.decodeIfPresent(String.self, forKey: .city) ?? ""
@@ -88,6 +86,15 @@ struct Person: Decodable {
         self.petitions = try container.decodeIfPresent(PetitionsResponsePage.self, forKey: .petitions) ?? PetitionsResponsePage()
         self.media = try container.decodeIfPresent([Media].self, forKey: .media) ?? []
         self.socialMedia = try container.decodeIfPresent([SocialMedia].self, forKey: .socialMedia) ?? []
+        
+        // Date
+        let dateFormatter = DateFormatterService()
+        
+        let dob = try container.decodeIfPresent(String.self, forKey: .dob) ?? ""
+        self.dob = dateFormatter.dateForYearMonthDayString(dob) ?? Date()
+        
+        let doi = try container.decodeIfPresent(String.self, forKey: .doi) ?? ""
+        self.doi = dateFormatter.dateForYearMonthDayString(doi) ?? Date()
     }    
 }
 
