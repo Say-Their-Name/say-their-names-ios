@@ -71,6 +71,7 @@ final class HomeController: UIViewController {
         super.viewWillAppear(animated)
         // Select first location by default
         // FIXME: can have multiple selected. need one source-of-truth here.
+        guard FeatureFlags.filtersEnabled else { return }
         let selectedIndexPath = IndexPath(item: 0, section: 0)
         locationCollectionView.selectItem(at: selectedIndexPath, animated: false, scrollPosition: .centeredVertically)
     }
@@ -103,6 +104,7 @@ final class HomeController: UIViewController {
                          .init(name: "NEW YORK")]
 
         locationsDataSourceHelper.setLocations(locations)
+        
         // FIXME: This should be setup in a better place, for now this loads out data
         self.network.fetchPeople { [weak self] (result) in
             switch result {

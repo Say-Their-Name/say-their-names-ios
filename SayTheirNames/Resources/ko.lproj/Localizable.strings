@@ -1,0 +1,34 @@
+/* 
+  Localizable.strings
+  SayTheirNames
+
+  Created by Kyle Lee on 6/1/20.
+  Edited by @cdowney102 on 6/5/20.
+  Copyright © 2020 Franck-Stephane Ndame Mpouli. All rights reserved.
+*/
+
+"home" = "홈";
+"donations" = "기부하기";
+"petitions" = "청원하기";
+"about" = "요약";
+"cancel"= "취소";
+"find_out_more" = "더 알아보기";
+"verified" = "검증된 사이트";
+"filter_all" = "전체";
+"filter_businesses" = "업체 (목록)";
+"filter_protesters" = "시위자 (명단)";
+"filter_victims" = "희생자 (명단)";
+"share" = "공유하기";
+"close" = "닫기";
+"say_their_names" = "희생자들의 이름을 외쳐봅니다";
+"bookmark" = "북마크";
+"search" = "검색 /검색하기";
+"person.say_their_names" = "희생자들의 이름을 외쳐봅니다";
+"person.age" = "나이";
+"person.children" = "희생자 자녀 수";
+"person.location" = "지역";
+"person.their_story" = "희생자의 스토리";
+"person.outcome" = "그 후 스토리";
+"person.news" = "뉴스";
+"person.media" = "미디어";
+"person.hashtags" = "해시태그";
