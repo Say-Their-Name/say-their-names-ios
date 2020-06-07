@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Karla-Bold.ttf">
+            <string>Karla-Bold</string>
+        </array>
+        <array key="Karla-Regular.ttf">
+            <string>Karla-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="PersonHeaderCell" customModule="Say_Their_Names" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="340" height="150"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="340" height="150"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Group 6" translatesAutoresizingMaskIntoConstraints="NO" id="cWb-JY-xrH">
+                        <rect key="frame" x="16" y="16" width="308" height="134"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#BLACKLIVESMATTER" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Foa-vl-Pbm">
+                        <rect key="frame" x="32" y="87" width="193" height="23"/>
+                        <accessibility key="accessibilityConfiguration" label="hashtag, black laaivz matter">
+                            <accessibilityTraits key="traits" staticText="YES"/>
+                        </accessibility>
+                        <fontDescription key="fontDescription" name="Karla-Bold" family="Karla" pointSize="19"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How to get involved" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GRU-7r-4UI">
+                        <rect key="frame" x="32" y="114" width="151" height="20"/>
+                        <fontDescription key="fontDescription" name="Karla-Regular" family="Karla" pointSize="17"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="cWb-JY-xrH" secondAttribute="bottom" id="LYF-Po-1Wz"/>
+                <constraint firstItem="cWb-JY-xrH" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="16" id="MEd-we-4uI"/>
+                <constraint firstAttribute="trailing" secondItem="cWb-JY-xrH" secondAttribute="trailing" constant="16" id="Ngl-uU-jxn"/>
+                <constraint firstItem="Foa-vl-Pbm" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="32" id="QhQ-i4-YMO"/>
+                <constraint firstItem="GRU-7r-4UI" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="32" id="eDE-0m-Snw"/>
+                <constraint firstItem="GRU-7r-4UI" firstAttribute="top" secondItem="Foa-vl-Pbm" secondAttribute="bottom" constant="4" id="eE5-yb-iWl"/>
+                <constraint firstAttribute="bottom" secondItem="GRU-7r-4UI" secondAttribute="bottom" constant="16" id="edU-Id-bqd"/>
+                <constraint firstItem="cWb-JY-xrH" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="16" id="jow-s7-LIf"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <point key="canvasLocation" x="139" y="153"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="Group 6" width="340" height="147"/>
+    </resources>
+</document>
