@@ -68,7 +68,13 @@ final class DonationsMoreDetailsController: BaseViewController {
                                padding: .init(top:32), size: .init(width: 110, height: 110))
         backgroundFistImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         
-        collectionView.anchor(superView: view, top: view.topAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor, padding: UIEdgeInsets.zero, size: CGSize.zero)
+        collectionView.anchor(superView: view,
+                              top: view.topAnchor,
+                              leading: view.leadingAnchor,
+                              bottom: nil,
+                              trailing: view.trailingAnchor,
+                              padding: UIEdgeInsets.zero,
+                              size: CGSize.zero)
         
         setupDonationButton()
         
