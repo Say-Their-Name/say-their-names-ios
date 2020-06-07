@@ -1,8 +1,6 @@
 //
-//  CustomNavigationBar.swift
+//  DonationFilterViewManager.swift
 //  SayTheirNames
-//
-//  Copyright (c) 2020 Say Their Names Team (https://github.com/Say-Their-Name)
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -24,22 +22,24 @@
 
 import UIKit
 
-class CustomNavigationBar: UIView {
-
-    var path: UIBezierPath!
+/// Responsible for managing the donation filters in the `UICollectionView`
+final class DonationFilterViewManager: CollectionViewManager<SingleSection, DonationFilter> {
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-     
-        self.backgroundColor = UIColor.STN.darkGray
-    }
-     
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
+    private let filters: [DonationFilter] = [
+        .all,
+        .victims,
+        .protesters,
+        .businesses
+    ]
     
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
+    override func configure(with collectionView: UICollectionView) {
+        super.configure(with: collectionView)
 
+        // Populate collectionView
+        set(filters)
+
+        // Select first item
+        let firstIndex = IndexPath(item: 0, section: 0)
+        collectionView.selectItem(at: firstIndex, animated: false, scrollPosition: .left)
+    }
 }

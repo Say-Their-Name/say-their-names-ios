@@ -82,6 +82,10 @@ with a meaningful error message.
 Before making a PR, check that the code has access control (variables that can be private, are),
 variables have meaningful names, etc.
 
+Also check that your code follows some general guidelines for consistency: 
+- We use Dependency Injection 
+- Use Theme
+
 When reviewing PRs, comments about code style are welcome, but keep in mind that
 this project is developed by volunteers from all over the world.
 Due to this there might not always be one consistent style throughout the project

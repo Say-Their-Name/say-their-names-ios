@@ -1,5 +1,5 @@
 //
-//  CustomNavigationBar.swift
+//  UITraitCollection++.swift
 //  SayTheirNames
 //
 //  Copyright (c) 2020 Say Their Names Team (https://github.com/Say-Their-Name)
@@ -24,22 +24,8 @@
 
 import UIKit
 
-class CustomNavigationBar: UIView {
-
-    var path: UIBezierPath!
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-     
-        self.backgroundColor = UIColor.STN.darkGray
+extension UITraitCollection {
+    var isDarkModeOn: Bool {
+        userInterfaceStyle == .dark
     }
-     
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-    
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-
 }

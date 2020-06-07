@@ -1,8 +1,6 @@
 //
-//  CustomNavigationBar.swift
+//  UIStackView++.swift
 //  SayTheirNames
-//
-//  Copyright (c) 2020 Say Their Names Team (https://github.com/Say-Their-Name)
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -24,22 +22,8 @@
 
 import UIKit
 
-class CustomNavigationBar: UIView {
-
-    var path: UIBezierPath!
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-     
-        self.backgroundColor = UIColor.STN.darkGray
+extension UIStackView {
+    func addArrangedSubviews(_ views: UIView...) {
+        views.forEach { self.addArrangedSubview($0) }
     }
-     
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-    
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-
 }

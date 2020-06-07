@@ -1,5 +1,5 @@
 //
-//  PersonMediaCollectionViewCell.swift
+//  TagView.swift
 //  SayTheirNames
 //
 //  Copyright (c) 2020 Say Their Names Team (https://github.com/Say-Their-Name)
@@ -24,40 +24,46 @@
 
 import UIKit
 
-class PersonMediaCollectionViewCell: UICollectionViewCell {
+final class TagView: UIView {
     
-    static var reuseIdentifier: String {
-        return "\(Self.self)"
+    private lazy var titleLabel = UILabel.create {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.textColor = UIColor.STN.white
+        $0.font = UIFont.STN.verifiedTag
     }
-    
-    lazy var mediaImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: "media-image-2")
-        imageView.contentMode = .scaleAspectFill
-        imageView.clipsToBounds = true
-        return imageView
-    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = UIColor.STN.white
-        setupLayout()
+
+        setupSelf()
+        setupSubviews()
     }
-       
+    
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        fatalError()
     }
-       
-    private func setupLayout() {
-        mediaImageView.translatesAutoresizingMaskIntoConstraints = false
-        contentView.addSubview(mediaImageView)
-        contentView.clipsToBounds = true
+    
+    private func setupSelf() {
+        backgroundColor = UIColor.STN.black
+    }
+    
+    private func setupSubviews() {
+        addSubview(titleLabel)
         
+        let guide = layoutMarginsGuide
         NSLayoutConstraint.activate([
-            mediaImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0),
-            mediaImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0),
-            mediaImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
-            mediaImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0),
+            titleLabel.topAnchor.constraint(equalTo: guide.topAnchor),
+            titleLabel.leadingAnchor.constraint(equalTo: guide.leadingAnchor),
+            titleLabel.trailingAnchor.constraint(equalTo: guide.trailingAnchor),
+            titleLabel.bottomAnchor.constraint(equalTo: guide.bottomAnchor)
         ])
+    }
+    
+    func setTitle(to title: String) {
+        titleLabel.text = title
+    }
+    
+    func prepareForReuse() {
+        titleLabel.text = nil
     }
 }

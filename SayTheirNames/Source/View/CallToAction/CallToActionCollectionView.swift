@@ -1,5 +1,5 @@
 //
-//  PersonPhotoTableViewCell.swift
+//  CallToActionCollectionView.swift
 //  SayTheirNames
 //
 //  Copyright (c) 2020 Say Their Names Team (https://github.com/Say-Their-Name)
@@ -24,42 +24,23 @@
 
 import UIKit
 
-class PersonPhotoTableViewCell: UITableViewCell {
+class CallToActionCollectionView: UICollectionView {
     
-    static var reuseIdentifier: String {
-        return "\(Self.self)"
-    }
-    
-    // MARK: - View
-    let imageWithBlurView = ImageWithBlurView(frame: .zero)
+    init() {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+        layout.itemSize = UICollectionViewFlowLayout.automaticSize
+        layout.estimatedItemSize = CGSize(width: 330, height: 300)
         
-    // MARK: - Initialization
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
-        backgroundColor = UIColor.STN.red
-        contentView.clipsToBounds = true
-        imageWithBlurView.fillSuperview(superView: contentView, padding: .zero)
-        accessibilityTraits.insert(.image)
+        super.init(frame: .zero, collectionViewLayout: layout)
+        setupSelf()
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
-    var haveSetConstraints = false
-    override func updateConstraints() {
-        super.updateConstraints()
-        
-        guard !haveSetConstraints else { return }
-        haveSetConstraints = true
-
-        imageWithBlurView.heightAnchor.constraint(equalToConstant: Theme.Screens.Home.Person.Photo.imageBlurHeight).isActive = true
+        fatalError()
     }
     
-    // MARK: - Method
-    public func setupCell(_ person: Person) {
-        imageWithBlurView.setup(person)
-        accessibilityLabel = "\(person.fullName)"
+    private func setupSelf() {
+        backgroundColor = .systemBackground
     }
 }

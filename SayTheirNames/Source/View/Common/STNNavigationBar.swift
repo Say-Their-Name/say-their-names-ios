@@ -1,5 +1,5 @@
 //
-//  PersonMediaCollectionViewCell.swift
+//  STNNavigationBar.swift
 //  SayTheirNames
 //
 //  Copyright (c) 2020 Say Their Names Team (https://github.com/Say-Their-Name)
@@ -24,40 +24,40 @@
 
 import UIKit
 
-class PersonMediaCollectionViewCell: UICollectionViewCell {
+final class STNNavigationBar: UIView {
     
-    static var reuseIdentifier: String {
-        return "\(Self.self)"
+    private lazy var titleLabel = UILabel.create {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.font = UIFont.STN.navBarTitle
+        $0.textColor = UIColor.STN.white
+        $0.text = title
     }
     
-    lazy var mediaImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: "media-image-2")
-        imageView.contentMode = .scaleAspectFill
-        imageView.clipsToBounds = true
-        return imageView
-    }()
+    private let title: String
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        backgroundColor = UIColor.STN.white
-        setupLayout()
-    }
-       
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-       
-    private func setupLayout() {
-        mediaImageView.translatesAutoresizingMaskIntoConstraints = false
-        contentView.addSubview(mediaImageView)
-        contentView.clipsToBounds = true
+    init(title: String) {
+        self.title = title
+        super.init(frame: .zero)
         
+        setupSelf()
+        setupSubviews()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError()
+    }
+    
+    private func setupSelf() {
+        backgroundColor = UIColor.STN.black
+    }
+    
+    private func setupSubviews() {
+        addSubview(titleLabel)
+        
+        let guide = layoutMarginsGuide
         NSLayoutConstraint.activate([
-            mediaImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0),
-            mediaImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0),
-            mediaImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
-            mediaImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0),
+            titleLabel.bottomAnchor.constraint(equalTo: guide.bottomAnchor, constant: -8),
+            titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor)
         ])
     }
 }

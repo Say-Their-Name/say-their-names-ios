@@ -33,7 +33,7 @@ class PersonOverviewTableViewCell: UITableViewCell {
     lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Their Story"
-        label.textColor = UIColor(red: 16/255.0, green: 16/255.0, blue: 16/255.0, alpha: 1)
+        label.textColor = UIColor.STN.strongHeader
         label.font = UIFont.STN.sectionHeader
         label.numberOfLines = 1
         label.minimumScaleFactor = 0.5
@@ -43,7 +43,7 @@ class PersonOverviewTableViewCell: UITableViewCell {
     
     lazy var descriptionLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .black
+        label.textColor = UIColor.STN.black
         label.font = UIFont.STN.body
         label.numberOfLines = 0
         label.minimumScaleFactor = 0.5
@@ -56,13 +56,13 @@ class PersonOverviewTableViewCell: UITableViewCell {
         stack.axis = .vertical
         stack.distribution = .fill
         stack.alignment = .top
-        stack.spacing = 10
+        stack.spacing = Theme.Screens.Home.Person.stackViewSpacing
         return stack
     }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        backgroundColor = .white
+        backgroundColor = UIColor.STN.white
         setupLayout()
     }
     
@@ -73,7 +73,8 @@ class PersonOverviewTableViewCell: UITableViewCell {
     private func setupLayout() {
         stack.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(stack)
-        stack.fillSuperview(superView: contentView, padding: .init(top: 32, left: 32, bottom: 0, right: 32))
+        stack.fillSuperview(superView: contentView,
+                            padding: .init(top: Theme.Components.Padding.large, left: Theme.Components.Padding.large, right: Theme.Components.Padding.large))
 
     }
     

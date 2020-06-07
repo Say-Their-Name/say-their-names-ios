@@ -11,6 +11,8 @@ import Foundation
 // swiftlint:disable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:disable nesting type_body_length type_name
 internal enum L10n {
+  /// About
+  internal static let about = L10n.tr("Localizable", "about")
   /// Bookmark
   internal static let bookmark = L10n.tr("Localizable", "bookmark")
   /// Cancel
@@ -19,7 +21,15 @@ internal enum L10n {
   internal static let close = L10n.tr("Localizable", "close")
   /// Donations
   internal static let donations = L10n.tr("Localizable", "donations")
-  /// Find Out More
+  /// ALL
+  internal static let filterAll = L10n.tr("Localizable", "filter_all")
+  /// BUSINESSES
+  internal static let filterBusinesses = L10n.tr("Localizable", "filter_businesses")
+  /// PROTESTERS
+  internal static let filterProtesters = L10n.tr("Localizable", "filter_protesters")
+  /// VICTIMS
+  internal static let filterVictims = L10n.tr("Localizable", "filter_victims")
+  /// FIND OUT MORE
   internal static let findOutMore = L10n.tr("Localizable", "find_out_more")
   /// Home
   internal static let home = L10n.tr("Localizable", "home")
@@ -29,8 +39,6 @@ internal enum L10n {
   internal static let sayTheirNames = L10n.tr("Localizable", "say_their_names")
   /// Search
   internal static let search = L10n.tr("Localizable", "search")
-  /// Settings
-  internal static let about = L10n.tr("Localizable", "about")
   /// Share
   internal static let share = L10n.tr("Localizable", "share")
   /// verfied

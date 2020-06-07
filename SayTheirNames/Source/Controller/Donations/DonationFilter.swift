@@ -1,8 +1,6 @@
 //
-//  CustomNavigationBar.swift
+//  DonationFilter.swift
 //  SayTheirNames
-//
-//  Copyright (c) 2020 Say Their Names Team (https://github.com/Say-Their-Name)
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -22,24 +20,25 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-import UIKit
+import Foundation
 
-class CustomNavigationBar: UIView {
-
-    var path: UIBezierPath!
+enum DonationFilter {
+    case all, businesses, protesters, victims
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-     
-        self.backgroundColor = UIColor.STN.darkGray
+    var title: String {
+        switch self {
+        case .all:
+            return Strings.filterAll
+        case .businesses:
+            return Strings.filterBusinesses
+        case .protesters:
+            return Strings.filterProtesters
+        case .victims:
+            return Strings.filterVictims
+        }
     }
-     
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-    
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
+}
 
+extension DonationFilter: FilterCategory {
+    var name: String { title }
 }

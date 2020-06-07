@@ -1,8 +1,6 @@
 //
-//  CustomNavigationBar.swift
+//  Creatable.swift
 //  SayTheirNames
-//
-//  Copyright (c) 2020 Say Their Names Team (https://github.com/Say-Their-Name)
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -24,22 +22,21 @@
 
 import UIKit
 
-class CustomNavigationBar: UIView {
-
-    var path: UIBezierPath!
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-     
-        self.backgroundColor = UIColor.STN.darkGray
-    }
-     
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-    
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-
+protocol Creatable: UIView {
+    init()
 }
+
+extension Creatable {
+    static func create(handleCreation: (Self) -> Void = { _ in }) -> Self {
+        let view = Self.init()
+        handleCreation(view)
+        return view
+    }
+
+    func configure(handleConfiguration: (Self) -> Void) -> Self {
+        handleConfiguration(self)
+        return self
+    }
+}
+
+extension UIView: Creatable {}

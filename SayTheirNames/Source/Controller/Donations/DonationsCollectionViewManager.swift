@@ -1,8 +1,6 @@
 //
-//  CustomNavigationBar.swift
+//  DonationsCollectionViewManager.swift
 //  SayTheirNames
-//
-//  Copyright (c) 2020 Say Their Names Team (https://github.com/Say-Their-Name)
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -24,22 +22,15 @@
 
 import UIKit
 
-class CustomNavigationBar: UIView {
-
-    var path: UIBezierPath!
+final class DonationsCollectionViewManager: CollectionViewManager<SingleSection, Donation> {
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-     
-        self.backgroundColor = UIColor.STN.darkGray
+    override func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        sizeForItemAt indexPath: IndexPath
+    ) -> CGSize {
+        let width = collectionView.bounds.width
+        let height = super.collectionView(collectionView, layout: collectionViewLayout, sizeForItemAt: indexPath).height
+        return CGSize(width: width, height: height)
     }
-     
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-    
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-
 }

@@ -64,7 +64,7 @@ final class HomeController: UIViewController, ServiceReferring {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .black
+        view.backgroundColor = UIColor.STN.black
         navigationController?.navigationBar.isHidden = true
         searchBar.setup(withController: self)
         setupCollectionView()
@@ -136,7 +136,7 @@ extension HomeController: UICollectionViewDelegateFlowLayout {
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView === locationCollectionView {
-            return CGSize(width: 103, height: 36)
+            return Theme.Screens.Home.CellSize.location
         }
         else {
             return CGSize.zero

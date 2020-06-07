@@ -1,8 +1,6 @@
 //
-//  CustomNavigationBar.swift
+//  FiltersCollectionView.swift
 //  SayTheirNames
-//
-//  Copyright (c) 2020 Say Their Names Team (https://github.com/Say-Their-Name)
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -24,22 +22,29 @@
 
 import UIKit
 
-class CustomNavigationBar: UIView {
-
-    var path: UIBezierPath!
+final class FiltersCollectionView: UICollectionView {
+    init() {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.sectionInsetReference = .fromContentInset
+        layout.sectionInset = Self.layoutInsets
+        layout.itemSize = UICollectionViewFlowLayout.automaticSize
+        layout.estimatedItemSize = Self.estimatedItemSize
+        
+        super.init(frame: .zero, collectionViewLayout: layout)
+        setupSelf()
+    }
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-     
-        self.backgroundColor = UIColor.STN.darkGray
-    }
-     
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+    required init?(coder: NSCoder) {
+        fatalError()
     }
     
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    private func setupSelf() {
+        backgroundColor = .systemBackground
     }
+}
 
+extension FiltersCollectionView {
+    private static let layoutInsets = UIEdgeInsets(left: 16, right: 16)
+    private static let estimatedItemSize = CGSize(width: 103, height: 36)
 }

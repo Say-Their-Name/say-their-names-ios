@@ -1,5 +1,5 @@
 //
-//  CustomNavigationBar.swift
+//  UIEdgeInsets+init.swift
 //  SayTheirNames
 //
 //  Copyright (c) 2020 Say Their Names Team (https://github.com/Say-Their-Name)
@@ -24,22 +24,17 @@
 
 import UIKit
 
-class CustomNavigationBar: UIView {
-
-    var path: UIBezierPath!
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-     
-        self.backgroundColor = UIColor.STN.darkGray
-    }
-     
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+extension UIEdgeInsets {
+    init(top: CGFloat = 0, left: CGFloat = 0, bottom: CGFloat = 0, right: CGFloat = 0) {
+        self.init()
+        self.top = top
+        self.left = left
+        self.bottom = bottom
+        self.right = right
     }
     
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-
+    static let medium: UIEdgeInsets = UIEdgeInsets(top: Theme.Components.Padding.medium,
+                                                   left: Theme.Components.Padding.medium,
+                                                   bottom: Theme.Components.Padding.medium,
+                                                   right: Theme.Components.Padding.medium)
 }

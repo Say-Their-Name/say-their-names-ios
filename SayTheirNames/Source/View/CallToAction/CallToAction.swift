@@ -1,8 +1,6 @@
 //
-//  CustomNavigationBar.swift
+//  CallToAction.swift
 //  SayTheirNames
-//
-//  Copyright (c) 2020 Say Their Names Team (https://github.com/Say-Their-Name)
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -22,24 +20,12 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-import UIKit
+import Foundation
 
-class CustomNavigationBar: UIView {
-
-    var path: UIBezierPath!
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-     
-        self.backgroundColor = UIColor.STN.darkGray
-    }
-     
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-    
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-
+protocol CallToAction {
+    var actionTitle: String { get }
+    var imagePath: String? { get }
+    var body: String { get }
+    var tag: String? { get }
+    var title: String { get }
 }

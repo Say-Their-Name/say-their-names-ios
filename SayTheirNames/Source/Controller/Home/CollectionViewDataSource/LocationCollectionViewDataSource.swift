@@ -35,18 +35,19 @@ final class LocationCollectionViewDataSourceHelper {
     let dataSource: LocationCollectionViewDataSource
     
     init(collectionView: UICollectionView) {
-        collectionView.register(cellType: LocationCell.self)
+        collectionView.register(cellType: FilterCategoryCell.self)
 
         self.dataSource =
             LocationCollectionViewDataSource(collectionView: collectionView) { (collectionView, indexPath, location) -> UICollectionViewCell? in
-                let cell: LocationCell = collectionView.dequeueCell(for: indexPath)
-                cell.configure(with: location)
-                cell.accessibilityIdentifier = "locationCell\(indexPath.item)"
-                cell.isAccessibilityElement = true
-                let (index, total) = collectionView.displayableIndexAndTotal(fromIndexPath: indexPath, section: 0)
-                let localizedLocation = location.name.capitalized(with: Locale.current)
-                cell.accessibilityLabel = "\(localizedLocation), \(index) of \(total)"
-                return cell
+
+            let cell: FilterCategoryCell = collectionView.dequeueCell(for: indexPath)
+            cell.configure(with: location)
+            cell.accessibilityIdentifier = "locationCell\(indexPath.item)"
+            cell.isAccessibilityElement = true
+            let (index, total) = collectionView.displayableIndexAndTotal(fromIndexPath: indexPath, section: 0)
+            let localizedLocation = location.name.capitalized(with: Locale.current)
+            cell.accessibilityLabel = "\(localizedLocation), \(index) of \(total)"
+            return cell
         }
     }
     

@@ -31,14 +31,14 @@ final class HomeView: UIView {
     private let navigationBarLabel: UILabel = {
         let label = UILabel()
         label.text = Strings.sayTheirNames.uppercased()
-        label.textColor = .white
+        label.textColor = UIColor.STN.white
 
         return label
     }()
     
     let customNavigationBar: UIView = {
         let customNavigationBar = UIView()
-        customNavigationBar.backgroundColor = .black
+        customNavigationBar.backgroundColor = UIColor.STN.black
         return customNavigationBar
     }()
     
@@ -134,14 +134,14 @@ final class HomeView: UIView {
     
     let separator: UIView! = {
         let separator = UIView()
-        separator.backgroundColor = .systemGray6
+        separator.backgroundColor = UIColor.STN.separator
         return separator
     }()
     
     override func didMoveToSuperview() {
         super.didMoveToSuperview()
         createLayout()
-        backgroundColor = .black // needed?
+        backgroundColor = UIColor.STN.black // needed?
         
         styleLabels()
     }
@@ -165,7 +165,7 @@ final class HomeView: UIView {
             top: safeAreaLayoutGuide.topAnchor,
             leading: leadingAnchor,
             trailing: trailingAnchor,
-            size: .init(width: 0, height: Self.CustomNavigationBarHeight))
+            size: Theme.Screens.Home.NavigationBar.size)
         collections.anchor(
             superView: self,
             top: customNavigationBar.bottomAnchor,
@@ -178,13 +178,13 @@ final class HomeView: UIView {
             top: collections.topAnchor,
             leading: collections.leadingAnchor,
             trailing: collections.trailingAnchor,
-            size: .init(width: 0, height: Self.PeopleCollectionViewHeight))
+            size: Theme.Screens.Home.LocationView.size)
         separator.anchor(
             superView: collections,
             top: locationCollectionView.bottomAnchor,
             leading: collections.leadingAnchor,
             trailing: collections.trailingAnchor,
-            size: .init(width: 0, height: Self.SeparatorHeight))
+            size: Theme.Screens.Home.SeparatorView.size)
         peopleCollectionView.anchor(
             superView: collections,
             top: separator.safeAreaLayoutGuide.bottomAnchor,
@@ -197,19 +197,22 @@ final class HomeView: UIView {
         let bar = customNavigationBar
 
         let buttonStack = UIStackView(arrangedSubviews: [bookmarkButton,searchButton])
-        buttonStack.spacing = 8
+        buttonStack.spacing = Theme.Components.Padding.small
         buttonStack.distribution = .fillEqually
         
-        navigationBarLabel.anchor(superView: bar, leading: bar.leadingAnchor, bottom: bar.bottomAnchor, padding: .init(left: 16, bottom: 16))
+        navigationBarLabel.anchor(superView: bar,
+                                  leading: bar.leadingAnchor,
+                                  bottom: bar.bottomAnchor,
+                                  padding: .init(left: Theme.Components.Padding.medium, bottom: Theme.Components.Padding.medium))
         bar.addSubview(buttonStack)
         [bookmarkButton, searchButton].forEach {
-            $0.widthAnchor.constraint(equalToConstant: Self.ButtonSize.height).isActive = true
-            $0.heightAnchor.constraint(equalToConstant: Self.ButtonSize.width).isActive = true
+            $0.widthAnchor.constraint(equalToConstant: Theme.Components.Button.Size.medium.height).isActive = true
+            $0.heightAnchor.constraint(equalToConstant: Theme.Components.Button.Size.medium.width).isActive = true
         }
-        buttonStack.anchor(superView: bar, trailing: bar.trailingAnchor, padding: .init(right: 16))
+        buttonStack.anchor(superView: bar, trailing: bar.trailingAnchor, padding: .init(right: Theme.Components.Padding.medium))
         buttonStack.centerYAnchor.constraint(equalTo: navigationBarLabel.centerYAnchor).isActive = true
         
-        navigationBarLabel.trailingAnchor.constraint(equalTo: buttonStack.leadingAnchor, constant: 4).isActive = true
+        navigationBarLabel.trailingAnchor.constraint(equalTo: buttonStack.leadingAnchor, constant: Theme.Components.Padding.tiny).isActive = true
     }
 
     private func styleLabels() {
