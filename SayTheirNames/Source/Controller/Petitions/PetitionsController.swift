@@ -46,6 +46,7 @@ final class PetitionsController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
+        navigationItem.title = Strings.petitions
     }
         
     override func viewWillAppear(_ animated: Bool) {

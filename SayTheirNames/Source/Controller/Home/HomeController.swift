@@ -48,12 +48,9 @@ final class HomeController: UIViewController {
     private lazy var peopleDataSourceHelper = PersonCollectionViewDataSourceHelper(collectionView: peopleCollectionView)
     
     private lazy var homeView = HomeView()
-    
-    var customNavBar: UIView { homeView.customNavigationBar }
-    
+        
     private var locationCollectionView: UICollectionView { homeView.locationCollectionView }
-    private var peopleCollectionView: UICollectionView { homeView.peopleCollectionView }
-    private var searchButton: UIButton { homeView.searchButton }
+    private var peopleCollectionView: UICollectionView { homeView.peopleCollectionView }    
     
     // MARK: - ClASS METHODS
     override func loadView() {
@@ -64,8 +61,8 @@ final class HomeController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.STN.black
-        navigationController?.navigationBar.isHidden = true
         searchBar.setup(withController: self)
+        navigationItem.title = Strings.home
         setupCollectionView()
         setupSearchButton()
     }
@@ -84,7 +81,11 @@ final class HomeController: UIViewController {
     }
     
     private func setupSearchButton() {
-        searchButton.addTarget(self, action: #selector(searchButtonPressed(_:)), for: .touchUpInside)
+        let searchImage = UIImage(named: "white-search")?.withRenderingMode(.alwaysOriginal)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: searchImage,
+                                                            style: .plain,
+                                                            target: self,
+                                                            action: #selector(searchButtonPressed(_:)))
     }
     
     fileprivate func setupCollectionView() {
@@ -123,8 +124,8 @@ final class HomeController: UIViewController {
         peopleCollectionView.accessibilityIdentifier = "peopleCollection"
     }
     
-    // MARK: - IBACTIONS
-    @IBAction func searchButtonPressed(_ sender: Any) {
+    // MARK: - Button Actions
+    @objc private func searchButtonPressed(_ sender: Any) {
         UIImpactFeedbackGenerator().impactOccurred()
         searchBar.show()
     }

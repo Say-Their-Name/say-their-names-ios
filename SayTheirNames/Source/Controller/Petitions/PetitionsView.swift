@@ -25,13 +25,7 @@
 import UIKit
 
 final class PetitionsView: UIView {
-        
-    private lazy var navBarView = STNNavigationBar(
-        title: Strings.petitions.uppercased()
-    ).configure {
-        $0.translatesAutoresizingMaskIntoConstraints = false
-    }
-    
+
     private lazy var collectionView = CallToActionCollectionView().configure {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.register(cellType: CallToActionCell.self)
@@ -54,16 +48,11 @@ final class PetitionsView: UIView {
     
     /// Adds and configures constraints for subviews
     private func setupSubviews() {
-        addSubview(navBarView)
         addSubview(collectionView)
         
         let safeGuide = safeAreaLayoutGuide
         NSLayoutConstraint.activate([
-            navBarView.topAnchor.constraint(equalTo: safeGuide.topAnchor),
-            navBarView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            navBarView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            navBarView.heightAnchor.constraint(equalToConstant: Self.navBarViewHeight),
-            collectionView.topAnchor.constraint(equalTo: navBarView.bottomAnchor),
+            collectionView.topAnchor.constraint(equalTo: safeGuide.topAnchor),
             collectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
             collectionView.bottomAnchor.constraint(equalTo: safeGuide.bottomAnchor)
