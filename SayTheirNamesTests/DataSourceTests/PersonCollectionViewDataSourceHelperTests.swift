@@ -140,7 +140,8 @@ class PersonCollectionViewDataSourceHelperTests: XCTestCase {
         return rangeOfIndices.map { index in
             Person(id: index,
                    fullName: "",
-                   doi: Date(),
+                   dob: "",
+                   doi: "",
                    childrenCount: "",
                    age: "",
                    city: "",
