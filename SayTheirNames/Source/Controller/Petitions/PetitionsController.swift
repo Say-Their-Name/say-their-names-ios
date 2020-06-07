@@ -25,11 +25,8 @@
 import UIKit
 
 /// Controller responsible for showing the petitions
-final class PetitionsController: UIViewController, ServiceReferring {
-    var service: Servicing
-    
-    init(service: Servicing) {
-        self.service = service
+final class PetitionsController: UIViewController {
+    init() {
         super.init(nibName: nil, bundle: nil)
     }
         
@@ -82,7 +79,7 @@ final class PetitionsController: UIViewController, ServiceReferring {
         
         // People CollectionView
         // let selectedPerson = peopleDataSource.fetchPerson(at: indexPath.item)
-        let detailViewController = PetitionDetailViewController(service: service, petition: petition)
+        let detailViewController = PetitionDetailViewController(petition: petition)
         
         let navigationController = UINavigationController(rootViewController: detailViewController)
         navigationController.navigationBar.isHidden = true

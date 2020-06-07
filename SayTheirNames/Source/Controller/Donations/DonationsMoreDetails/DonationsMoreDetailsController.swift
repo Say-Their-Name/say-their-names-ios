@@ -24,7 +24,7 @@
 
 import UIKit
 
-final class DonationsMoreDetailsController: UIViewController, ServiceReferring {
+final class DonationsMoreDetailsController: UIViewController {
     // MARK: - Section Layout Kind
     enum DonationSectionLayoutKind: Int, CaseIterable {
         case title = 0
@@ -39,7 +39,6 @@ final class DonationsMoreDetailsController: UIViewController, ServiceReferring {
     static let sectionTitleSupplementaryView = "sectionTitle"
     
     // MARK: - Property
-    var service: Servicing
     var donation: Donation!
     
     internal let emptyKind = "empty-kind"
@@ -52,8 +51,7 @@ final class DonationsMoreDetailsController: UIViewController, ServiceReferring {
     ]
 
     // MARK: - Initialization
-    required init(service: Servicing) {
-        self.service = service
+    required init() {
         super.init(nibName: nil, bundle: nil)
     }
     
