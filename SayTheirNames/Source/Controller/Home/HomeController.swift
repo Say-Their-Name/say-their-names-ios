@@ -48,6 +48,7 @@ final class HomeController: UIViewController {
     private lazy var peopleDataSourceHelper = PersonCollectionViewDataSourceHelper(collectionView: peopleCollectionView)
     
     private lazy var homeView = HomeView()
+    
     var customNavBar: UIView { homeView.customNavigationBar }
     
     private var locationCollectionView: UICollectionView { homeView.locationCollectionView }
