@@ -48,14 +48,16 @@ final class Service: Servicing {
 
 @propertyWrapper
 struct ServiceInject {
-    private static var service: Service!
+    private static var hiddenService: Service!
     
     init() { }
     init(service: Service) {
-        ServiceInject.service = service
+        if ServiceInject.hiddenService == nil {
+            ServiceInject.hiddenService = service
+        }
     }
 
     public var wrappedValue: Service {
-        ServiceInject.service
+        ServiceInject.hiddenService
     }
 }
