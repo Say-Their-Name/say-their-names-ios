@@ -26,6 +26,8 @@ import UIKit
 
 final class HomeView: UIView {
 
+    // MARK: - Properties
+
     private let navigationBarLabel: UILabel = {
         let label = UILabel()
         label.text = Strings.sayTheirNames.uppercased()
@@ -40,26 +42,86 @@ final class HomeView: UIView {
         return customNavigationBar
     }()
     
-    lazy var locationCollectionView: UICollectionView = {
+    lazy private(set) var locationCollectionView: UICollectionView = {
         let locationLayout = UICollectionViewFlowLayout()
         locationLayout.scrollDirection = .horizontal
         locationLayout.sectionInsetReference = .fromContentInset
-        locationLayout.sectionInset = UIEdgeInsets(left: Theme.Components.Padding.medium, right: Theme.Components.Padding.medium)
-        
+        let inset = Theme.Components.edgeMargin
+        locationLayout.sectionInset = UIEdgeInsets(0, inset, 0, inset)
         let locationCollectionView = UICollectionView(frame: .zero, collectionViewLayout: locationLayout)
         locationCollectionView.contentInsetAdjustmentBehavior = .always
         return locationCollectionView
     }()
     
-    lazy var peopleCollectionView: UICollectionView = {
-        let peopleLayout = UICollectionViewFlowLayout()
-        peopleLayout.scrollDirection = .vertical
-        peopleLayout.sectionInset = UIEdgeInsets.medium
-        
-        let peopleCollectionView = UICollectionView(frame: .zero, collectionViewLayout: peopleLayout)
-        peopleCollectionView.contentInsetAdjustmentBehavior = .always
+    lazy private(set) var peopleCollectionView: UICollectionView = {
+        let headerLayout = makePeopleCollectionViewLayout()
+        let peopleCollectionView = UICollectionView(frame: .zero, collectionViewLayout: headerLayout)
+        peopleCollectionView.contentInset.top = 20
+        peopleCollectionView.contentInset.bottom = 20
         return peopleCollectionView
     }()
+
+    weak var peopleDataSource: PersonCollectionViewDataSourceHelper?
+
+    private static var horizontalPaddingBetween: CGFloat { Theme.Components.Padding.small }
+
+    // MARK: - Methods
+    private func makePeopleCollectionViewLayout() -> UICollectionViewLayout {
+        let layout = UICollectionViewCompositionalLayout(sectionProvider: { [weak self] (sectionIndex: Int,
+            layoutEnviroment: NSCollectionLayoutEnvironment)
+            -> NSCollectionLayoutSection? in
+            
+            guard let sections = self?.peopleDataSource?.dataSource.snapshot().sectionIdentifiers else {return nil}
+            let deviceWidth = layoutEnviroment.traitCollection.horizontalSizeClass
+
+            let section: NSCollectionLayoutSection
+            
+            switch sections[sectionIndex] {
+
+            case .carousel:
+                let groupWidth: CGFloat = deviceWidth == .compact ? 0.75 : 0.4 // TODO: pick pretty numbers later, consult with UX
+
+                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                                      heightDimension: .fractionalHeight(1.0))
+                let layoutItem = NSCollectionLayoutItem(layoutSize: itemSize)
+                
+                let height = Theme.Screens.Home.CellSize.carouselCardHeight
+                let layoutGroupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(groupWidth),
+                                                             heightDimension: .absolute(height))
+                let group = NSCollectionLayoutGroup.horizontal(layoutSize: layoutGroupSize, subitems: [layoutItem])
+//                group.interItemSpacing = .fixed(Theme.Components.Padding.medium)
+                
+                let headerSection = NSCollectionLayoutSection(group: group)
+                headerSection.orthogonalScrollingBehavior = .groupPaging
+                headerSection.interGroupSpacing = Self.horizontalPaddingBetween
+                section = headerSection
+            
+            case .main:
+                
+                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
+                let layoutItem = NSCollectionLayoutItem(layoutSize: itemSize)
+
+                let height = Theme.Screens.Home.CellSize.peopleHeight
+                let columns = deviceWidth == .compact ? Theme.Screens.Home.Columns.compactScreenWidth : Theme.Screens.Home.Columns.wideScreenWidth
+                let layoutGroupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(height))
+                let group = NSCollectionLayoutGroup.horizontal(layoutSize: layoutGroupSize, subitem: layoutItem, count: columns)
+                group.interItemSpacing = .fixed(Self.horizontalPaddingBetween)
+                
+                let mainSection = NSCollectionLayoutSection(group: group)
+                section = mainSection
+            }
+            
+            let inset = Theme.Components.edgeMargin
+            section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: inset, bottom: 0, trailing: inset)
+            
+            return section
+        })
+        
+        let config = UICollectionViewCompositionalLayoutConfiguration()
+        config.interSectionSpacing = Theme.Components.Padding.medium
+        layout.configuration = config
+        return layout
+    }
     
     let bookmarkButton: UIButton = {
         let bookmarkImage = UIImage(named: "white-bookmark")
@@ -82,26 +144,10 @@ final class HomeView: UIView {
         return separator
     }()
     
-    func safeWidth(for collectionView: UICollectionView) -> CGFloat {
-        let width = collectionView.frame.width -
-            collectionView.safeAreaInsets.left -
-            collectionView.safeAreaInsets.right -
-            collectionView.layoutMargins.left -
-            collectionView.layoutMargins.right
-        
-        var flowLayoutMargins: CGFloat = 0
-        
-        if let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-            flowLayoutMargins = flowLayout.sectionInset.left + flowLayout.sectionInset.right
-        }
-        
-        return width - flowLayoutMargins
-    }
-    
     override func didMoveToSuperview() {
         super.didMoveToSuperview()
         createLayout()
-        backgroundColor = UIColor.STN.black
+        backgroundColor = UIColor.STN.black // needed?
         
         styleLabels()
     }
@@ -114,6 +160,7 @@ final class HomeView: UIView {
         addSubview(customNavigationBar)
 
         let collections = UIView()
+        collections.backgroundColor = .systemBackground
         addSubview(collections)
         
         locationCollectionView.backgroundColor = .systemBackground
@@ -146,9 +193,9 @@ final class HomeView: UIView {
             size: Theme.Screens.Home.SeparatorView.size)
         peopleCollectionView.anchor(
             superView: collections,
-            top: separator.bottomAnchor,
+            top: separator.safeAreaLayoutGuide.bottomAnchor,
             leading: collections.leadingAnchor,
-            bottom: collections.bottomAnchor,
+            bottom: collections.safeAreaLayoutGuide.bottomAnchor,
             trailing: collections.trailingAnchor)
     }
     

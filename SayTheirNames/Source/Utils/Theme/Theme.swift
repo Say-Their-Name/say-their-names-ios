@@ -45,6 +45,8 @@ enum Theme {
                 static let small: CGSize = .init(width: 34, height: 34)
             }
         }
+        
+        static let edgeMargin: CGFloat = 16
     }
     
     // MARK: - Screens
@@ -56,16 +58,13 @@ enum Theme {
         // MARK: - Home
         enum Home {
             enum Columns {
-                static let portrait: CGFloat = 2
-                static let landscape: CGFloat = 4
+                static let compactScreenWidth: Int = 2
+                static let wideScreenWidth: Int = 4
             }
             enum CellSize {
                 static let location: CGSize = CGSize(width: 103, height: 36)
                 static let peopleHeight: CGFloat = 300
-            }
-            enum HeaderSize {
-                static let location: CGSize = .zero
-                static let peopleHeight: CGFloat = 170
+                static let carouselCardHeight: CGFloat = 170
             }
             enum NavigationBar {
                 static let size: CGSize = .init(width: 0, height: 70)
