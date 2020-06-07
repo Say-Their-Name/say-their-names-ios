@@ -1,0 +1,33 @@
+/*
+  Localizable.strings
+  SayTheirNames
+
+  Created by Abdullah Alosaimi on 6/7/20.
+  Copyright © 2020 Franck-Stephane Ndame Mpouli. All rights reserved.
+*/
+
+"home" = "الرئيسية";
+"donations" = "التبرعات";
+"petitions" = "العرائض";
+"about" = "حول";
+"cancel"= "إلغاء";
+"find_out_more" = "المزيد";
+"verified" = "موثق";
+"filter_all" = "الكل";
+"filter_businesses" = "المشاريع";
+"filter_protesters" = "المتظاهرين";
+"filter_victims" = "الضحايا";
+"share" = "انشر";
+"close" = "اغلاق";
+"say_their_names" = "Say their names";
+"bookmark" = "اضف الى العلامات المرجعية";
+"search" = "بحث";
+"person.say_their_names" = "Say their names";
+"person.age" = "العمر";
+"person.children" = "الأطفال";
+"person.location" = "المكان";
+"person.their_story" = "الحادثة";
+"person.outcome" = "النتيجة";
+"person.news" = "أخبار";
+"person.media" = "الوسائط";
+"person.hashtags" = "الوسوم";
