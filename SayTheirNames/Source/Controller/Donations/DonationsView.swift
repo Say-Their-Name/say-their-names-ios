@@ -69,7 +69,7 @@ final class DonationsView: UIView {
             donationsCollectionView.topAnchor.constraint(equalTo: filtersView.bottomAnchor),
             donationsCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
             donationsCollectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            donationsCollectionView.bottomAnchor.constraint(equalTo: safeGuide.bottomAnchor)
+            donationsCollectionView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
     }
     
