@@ -24,22 +24,19 @@
 
 import UIKit
 
-final class PetitionDetailViewController: UIViewController, ServiceReferring {
-    
-    var service: Servicing
+final class PetitionDetailViewController: UIViewController {
     var petition: PresentedPetition?
     
     private let petitionDetailView = PetitionDetailView()
     
-    required init(service: Servicing) {
-        self.service = service
+    required init() {
         super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder: NSCoder) { fatalError("This should not be called") }
 
-    convenience init(service: Servicing, petition: PresentedPetition) {
-        self.init(service: service)
+    convenience init(petition: PresentedPetition) {
+        self.init()
         self.petition = petition
     }
     

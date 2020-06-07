@@ -1,5 +1,5 @@
 //
-//  Services.swift
+//  BaseServiceiewController.swift
 //  SayTheirNames
 //
 //  Copyright (c) 2020 Say Their Names Team (https://github.com/Say-Their-Name)
@@ -24,23 +24,8 @@
 
 import UIKit
 
-protocol Servicing {
-    var image: ImageService { get }
-    var dateFormatter: DateFormatterService { get }
-    var network: NetworkRequestor { get }
-}
-/// This is a core class that holds all instances responsible for logic
-final class Service: Servicing {
-    lazy private(set) var image = ImageService()
-    lazy private(set) var dateFormatter = DateFormatterService()
-    lazy private(set) var network = NetworkRequestor()
-    
-    static let shared = Service()
-    
-    // MARK: - Init
-    init() {
-        Log.mode = .all
-        Log.print("SayTheirNames Version: \(Bundle.versionBuildString)")
-        Log.print("Starting Services")
-    }
+/// Protocol describing a type that can hold a reference to `Servicing`
+protocol ServiceReferring {
+    var service: Dependency { get }
+    init(service: Dependency)
 }
