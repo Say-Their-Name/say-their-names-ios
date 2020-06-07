@@ -43,7 +43,6 @@ final class Service: Servicing {
         Log.mode = .all
         Log.print("SayTheirNames Version: \(Bundle.versionBuildString)")
         Log.print("Starting Services")
-        
     }
 }
 

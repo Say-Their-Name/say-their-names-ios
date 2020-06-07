@@ -25,10 +25,8 @@
 import UIKit
 
 final class Navigator {
-    @ServiceInject private var service: Service
-    
     private let window: UIWindow = UIWindow()
-    lazy private(set) var rootViewController: MainTabBarController = { MainTabBarController(service: self.service) }()
+    private let rootViewController: MainTabBarController = MainTabBarController()
     
     // MARK: - Public methods
     

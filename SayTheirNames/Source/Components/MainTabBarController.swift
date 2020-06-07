@@ -25,7 +25,7 @@
 import UIKit
 
 class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
-    let service: Servicing
+    @ServiceInject private var service: Service
     
     // Params
     private let defaultBarTint: UIColor = .white
@@ -39,8 +39,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
     private var launchScreen: LaunchScreen?
     
     required init?(coder aDecoder: NSCoder) { fatalError("") }
-    init(service: Servicing) {
-        self.service = service
+    init() {
         super.init(nibName: nil, bundle: nil)
     }
 
