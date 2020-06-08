@@ -81,7 +81,7 @@ final class HomeController: UIViewController {
     }
     
     private func setupSearchButton() {
-        let searchImage = UIImage(named: "white-search")?.withRenderingMode(.alwaysOriginal)
+        let searchImage = UIImage(asset: STNImage.searchWhite)?.withRenderingMode(.alwaysOriginal)
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: searchImage,
                                                             style: .plain,
                                                             target: self,

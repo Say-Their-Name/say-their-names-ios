@@ -131,6 +131,7 @@
 		B3D6B6B3248987AD00D3118C /* CONTRIBUTING.md in Resources */ = {isa = PBXBuildFile; fileRef = B3D6B6B1248987AD00D3118C /* CONTRIBUTING.md */; };
 		B3D6B6B52489A59700D3118C /* UICollectionReusableView+Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D6B6B42489A59700D3118C /* UICollectionReusableView+Reusable.swift */; };
 		C0594BFA248754A200260BAD /* UICollectionView++.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0594BF9248754A200260BAD /* UICollectionView++.swift */; };
+		D42BC32D248E290E006A7F4B /* assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42BC32C248E290E006A7F4B /* assets.swift */; };
 		D787FC9B248A71A3001FC6FF /* ImageWithBlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D787FC9A248A71A3001FC6FF /* ImageWithBlurView.swift */; };
 		D787FC9D248B36B3001FC6FF /* HashtagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D787FC9C248B36B3001FC6FF /* HashtagView.swift */; };
 		D7A96091248A676A005E0153 /* ButtonContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A96090248A676A005E0153 /* ButtonContainerView.swift */; };
@@ -314,6 +315,7 @@
 		B4C2225CE2734B7F1B4D3F86 /* Pods-Say Their NamesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Say Their NamesTests.debug.xcconfig"; path = "Target Support Files/Pods-Say Their NamesTests/Pods-Say Their NamesTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C0594BF9248754A200260BAD /* UICollectionView++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView++.swift"; sourceTree = "<group>"; };
 		D107CEC59C11537D09D9DB2E /* Pods-Say Their Names.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Say Their Names.release.xcconfig"; path = "Target Support Files/Pods-Say Their Names/Pods-Say Their Names.release.xcconfig"; sourceTree = "<group>"; };
+		D42BC32C248E290E006A7F4B /* assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = assets.swift; sourceTree = "<group>"; };
 		D4BA10D0248A8F7300E29A3F /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		D639F16885E8E79F7E336CC2 /* Pods-Say Their Names.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Say Their Names.debug.xcconfig"; path = "Target Support Files/Pods-Say Their Names/Pods-Say Their Names.debug.xcconfig"; sourceTree = "<group>"; };
 		D787FC9A248A71A3001FC6FF /* ImageWithBlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageWithBlurView.swift; sourceTree = "<group>"; };
@@ -535,6 +537,7 @@
 		9E24499E2485E9A000B149DF /* Generated */ = {
 			isa = PBXGroup;
 			children = (
+				D42BC32C248E290E006A7F4B /* assets.swift */,
 				9E24499F2485EA0B00B149DF /* strings.swift */,
 			);
 			path = Generated;
@@ -1292,6 +1295,7 @@
 				9EC6DD4E248B834B006CC5A7 /* DonationFilter.swift in Sources */,
 				5D456A3D248734CA009FAD34 /* PersonCollectionViewDataSource.swift in Sources */,
 				DB188809248A8F1100FDAEE3 /* HeaderCellContent.swift in Sources */,
+				D42BC32D248E290E006A7F4B /* assets.swift in Sources */,
 				A91B07A824835CF700DB803C /* CustomNavigationBar.swift in Sources */,
 				9E7DBAF3248481DA00635A56 /* DownloadOperation.swift in Sources */,
 				7A5BFA172488315D00BC265A /* DonationsView.swift in Sources */,

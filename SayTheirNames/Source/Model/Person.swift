@@ -29,8 +29,8 @@ struct Person: Decodable {
     let fullName: String
     let identifier: String
     let doi: Date
-    let childrenCount: String
-    let age: String
+    let childrenCount: Int
+    let age: Int
     let city: String
     let country: String
     let bio: String
@@ -49,7 +49,7 @@ struct Person: Decodable {
     }
     
     init(id: Int, fullName: String, identifier: String,
-         doi: Date, childrenCount: String, age: String,
+         doi: Date, childrenCount: Int, age: Int,
          city: String, country: String, bio: String,
          context: String, images: [Image], donations: [Donation],
          petitions: [Petition], media: [Media], socialMedia: [SocialMedia], hashtag: [Hashtag]
@@ -78,8 +78,8 @@ struct Person: Decodable {
         self.id = try container.decodeIfPresent(Int.self, forKey: .id) ?? -1
         self.fullName = try container.decodeIfPresent(String.self, forKey: .fullName) ?? ""
         self.identifier = try container.decodeIfPresent(String.self, forKey: .identifier) ?? ""
-        self.childrenCount = try container.decodeIfPresent(String.self, forKey: .childrenCount) ?? "0"
-        self.age = try container.decodeIfPresent(String.self, forKey: .age) ?? ""
+        self.childrenCount = try container.decodeIfPresent(Int.self, forKey: .childrenCount) ?? 0
+        self.age = try container.decodeIfPresent(Int.self, forKey: .age) ?? 0
         self.city = try container.decodeIfPresent(String.self, forKey: .city) ?? ""
         self.country = try container.decodeIfPresent(String.self, forKey: .country) ?? ""
         self.bio = try container.decodeIfPresent(String.self, forKey: .bio) ?? ""
