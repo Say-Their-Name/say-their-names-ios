@@ -34,15 +34,14 @@ extension UIColor {
     
     /// A collection of common colors
     enum STN {
-
-        static let black: UIColor = UIColor(named: "black") ?? .black
-        static let white: UIColor = UIColor(named: "white") ?? .white
-        static let gray: UIColor = UIColor(named: "grey") ?? .gray
-        static let darkGray = UIColor.darkGray
-        static let yellow = UIColor.yellow
-        static let red = UIColor.red
         static let navBarBackground = UIColor.dynamic(light: .black, dark: .black)
         static let navBarForeground = UIColor.dynamic(light: .white, dark: .white)
+        static let black: UIColor = .black
+        static let white: UIColor = .white
+        static let gray: UIColor = .gray
+        static let darkGray: UIColor = .darkGray
+        static let yellow: UIColor = .yellow
+        static let red: UIColor = .red
         
 		// MARK: - Applications
         
