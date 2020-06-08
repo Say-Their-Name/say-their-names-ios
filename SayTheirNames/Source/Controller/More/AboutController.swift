@@ -25,15 +25,18 @@
 import UIKit
 
 class AboutController: UIViewController {
-    private let aboutView = AboutView()
 
     required init() {
         super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder: NSCoder) { fatalError("This should not be called") }
-
-    override func loadView() {
-        self.view = aboutView
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        let about = AboutView(frame: self.view.frame)
+        self.view.addSubview(about)
+        navigationItem.title = Strings.more
     }
+
 }

@@ -116,7 +116,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
                 
         aboutNC.tabBarItem.image = UIImage(asset: STNImage.settings)
         aboutNC.tabBarItem.selectedImage = UIImage(asset: STNImage.settingsActive)
-        aboutNC.tabBarItem.title = Strings.about
+        aboutNC.tabBarItem.title = Strings.more
         
         viewControllers = [homeNC, donationsNC, petitionsNC, aboutNC]
     }
