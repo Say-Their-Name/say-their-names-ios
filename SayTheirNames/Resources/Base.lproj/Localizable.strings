@@ -22,6 +22,8 @@
 "say_their_names" = "Say their names";
 "bookmark" = "Bookmark";
 "search" = "Search";
+"donate" = "Donate";
+"description" = "Description";
 "person.say_their_names" = "Say their names";
 "person.age" = "Age";
 "person.children" = "Children";
