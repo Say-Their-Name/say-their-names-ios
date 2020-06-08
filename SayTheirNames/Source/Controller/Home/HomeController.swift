@@ -24,10 +24,6 @@
 
 import UIKit
 
-// MARK: - IDENTIFIERS
-private let headerIdentifier = "PersonHeaderCell"
-private let peopleIdentifier = "PersonCell"
-
 final class HomeController: UIViewController {
     @DependencyInject private var network: NetworkRequestor
     
