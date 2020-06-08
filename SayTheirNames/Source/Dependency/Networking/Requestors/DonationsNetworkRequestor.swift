@@ -34,11 +34,11 @@ enum DonationsEnvironment {
 extension NetworkRequestor {
     // MARK: - Public methods
     
-    public func fetchDonations(completion: @escaping (Result<DonationsResponsePage, AFError>) -> Swift.Void) {
+    public func fetchDonations(completion: @escaping (Result<DonationsResponsePage, Swift.Error>) -> Swift.Void) {
         self.fetchDecodable(DonationsEnvironment.baseURLString, completion: completion)
     }
     
-    public func fetchDonationsByPersonName(_ name: String, completion: @escaping (Result<DonationsResponsePage, AFError>) -> Swift.Void) {
+    public func fetchDonationsByPersonName(_ name: String, completion: @escaping (Result<DonationsResponsePage, Swift.Error>) -> Swift.Void) {
         guard let components = URLComponents(string: DonationsEnvironment.baseURLString, item: URLQueryItem(name: "name", value: name)),
               let urlString = components.url?.absoluteString
         else {
@@ -50,7 +50,7 @@ extension NetworkRequestor {
         self.fetchDecodable(urlString, completion: completion)
     }
     
-    public func fetchDonationsByType(_ type: String, completion: @escaping (Result<DonationsResponsePage, AFError>) -> Swift.Void) {
+    public func fetchDonationsByType(_ type: String, completion: @escaping (Result<DonationsResponsePage, Swift.Error>) -> Swift.Void) {
         guard let components = URLComponents(string: DonationsEnvironment.baseURLString, item: URLQueryItem(name: "type", value: type)),
               let urlString = components.url?.absoluteString
         else {
