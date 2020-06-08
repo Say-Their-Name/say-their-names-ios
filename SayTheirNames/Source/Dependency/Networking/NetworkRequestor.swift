@@ -40,7 +40,8 @@ final class NetworkRequestor: Dependency {
     public func fetchDecodable<T: Decodable>(_ url: String, completion: @escaping (Result<T, Swift.Error>) -> Swift.Void) {
         let request = self.session.request(url, headers: self.headers)
         request.responseDecodable(of: T.self, queue: self.concurrentQueue) { (response) in
-            DispatchQueue.mainAsync {             completion(response.result.swiftError)
+            DispatchQueue.mainAsync {
+                completion(response.result.swiftError)
             }
         }
     }
@@ -59,12 +60,7 @@ final class NetworkRequestor: Dependency {
         }
     }
 }
-// MARK: - Result + swiftError
-extension Result where Failure == AFError {
-    var swiftError: Result<Success, Error> {
-        return self.mapError{$0.swiftError}
-    }
-}
+
 // MARK: - AFError + swiftError
 extension AFError {
     var swiftError: Error {
