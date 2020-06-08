@@ -88,7 +88,8 @@ class PersonController: UIViewController {
     
     @DependencyInject private var network: NetworkRequestor
     public var person: Person!
-
+    private var isLoading = true
+    
     private let donationButtonContainerView = DontainButtonContainerView(frame: .zero)
     private let tableViewCells: [PersonCellType] = {
         return [.photo, .info, .story, .outcome, .news([]), .medias([]), .hashtags]
@@ -151,11 +152,10 @@ class PersonController: UIViewController {
         super.viewDidLoad()
         view.accessibilityIdentifier = "personView"
         
-        self.network.fetchPersonDetails(person.identifier) { result in
+        self.network.fetchPersonDetails(with: person.identifier) { [weak self] result in
             switch result {
-            case .success(let person):
-                print(person)
-                
+            case .success(let personResult):
+                self?.configure(with: personResult.person)
             case .failure(let error):
                 Log.print(error)
             }
@@ -179,6 +179,11 @@ class PersonController: UIViewController {
     
     private func registerCells(to tableView: UITableView) {
         PersonCellType.allCases.forEach { $0.register(to: tableView) }
+    }
+    
+    // TODO: Update UITableView sections based on what info we have
+    private func configure(with person: Person) {
+        self.person = person
     }
 }
 

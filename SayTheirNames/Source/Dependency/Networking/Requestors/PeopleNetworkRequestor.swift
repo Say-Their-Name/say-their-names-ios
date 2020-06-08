@@ -84,7 +84,7 @@ extension NetworkRequestor {
         self.fetchDecodable(urlString, completion: completion)
     }
     
-    public func fetchPersonDetails(_ identifier: String, completion: @escaping (Result<PersonResponsePage, AFError>) -> Swift.Void) {
+    public func fetchPersonDetails(with identifier: String, completion: @escaping (Result<PersonResponsePage, AFError>) -> Swift.Void) {
         guard let components = URLComponents(string: PersonEnvironment.baseURLString + "/" + identifier),
               let urlString = components.url?.absoluteString
         else {
