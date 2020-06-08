@@ -152,7 +152,8 @@ class PersonCollectionViewDataSourceHelperTests: XCTestCase {
                    donations: [],
                    petitions: [],
                    media: [],
-                   socialMedia: [])
+                   socialMedia: [],
+                   hashtag: [])
         }
     }
     
