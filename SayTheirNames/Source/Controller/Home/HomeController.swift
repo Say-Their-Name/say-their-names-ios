@@ -127,7 +127,6 @@ final class HomeController: UIViewController {
         peopleCollectionView.accessibilityIdentifier = "peopleCollection"
     }
     
-<<<<<<< HEAD
     private func setupPaginator() {
         // MARK: - Carousel data
         
@@ -213,15 +212,6 @@ extension HomeController: DeepLinkHandle {
         
         if indexPath.row == collectionView.numberOfItems(inSection: indexPath.section) - 1 {
             paginator.loadNextPage()
-        }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        guard collectionView === peopleCollectionView else { return }
-        guard peopleDataSourceHelper.section(at: indexPath.section) == .main else { return }
-        
-        if indexPath.row == collectionView.numberOfItems(inSection: indexPath.section) - 1 {
-            viewModel.loadNextPage()
         }
     }
 }
