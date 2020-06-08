@@ -86,10 +86,10 @@ typealias DontainButtonContainerView = ButtonContainerView
 
 class PersonController: UIViewController {
     
+    @DependencyInject private var network: NetworkRequestor
     public var person: Person!
-    
+
     private let donationButtonContainerView = DontainButtonContainerView(frame: .zero)
-    
     private let tableViewCells: [PersonCellType] = {
         return [.photo, .info, .story, .outcome, .news([]), .medias([]), .hashtags]
     }()
@@ -150,6 +150,16 @@ class PersonController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.accessibilityIdentifier = "personView"
+        
+        self.network.fetchPersonDetails(person.identifier) { result in
+            switch result {
+            case .success(let person):
+                print(person)
+                
+            case .failure(let error):
+                Log.print(error)
+            }
+        }
     }
 
     override func loadView() {
@@ -176,21 +186,9 @@ class PersonController: UIViewController {
 private extension PersonController {
     
     func setupNavigationBarItems() {
-        navigationController?.navigationBar.isTranslucent = false
-        navigationController?.navigationBar.barTintColor = UIColor.STN.black
-        // TODO: Once Theme.swift/etc gets added this may not be required
-        navigationController?.navigationBar.titleTextAttributes = navigationBarTextAttributes
-
         title = L10n.Person.sayTheirNames.uppercased()
-        accessibilityLabel = L10n.Person.sayTheirNames
-
-        navigationController?.navigationBar.titleTextAttributes = [
-        NSAttributedString.Key.foregroundColor: UIColor.white,
-        NSAttributedString.Key.font: UIFont.STN.navBarTitle
-        ]
-       
-       navigationItem.leftBarButtonItem = UIBarButtonItem(customView: dismissButton)
-       navigationItem.rightBarButtonItem = UIBarButtonItem(customView: shareButton)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: dismissButton)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: shareButton)
     }
     
     func setupSubViews() {
