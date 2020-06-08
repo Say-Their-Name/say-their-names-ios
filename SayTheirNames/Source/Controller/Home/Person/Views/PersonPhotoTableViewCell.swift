@@ -59,7 +59,7 @@ class PersonPhotoTableViewCell: UITableViewCell {
     
     // MARK: - Method
     public func setupCell(_ person: Person) {
-        imageWithBlurView.setup(person)
+        imageWithBlurView.setup(withURL: person.images.first?.personURL ?? "")
         accessibilityLabel = "\(person.fullName)"
     }
 }

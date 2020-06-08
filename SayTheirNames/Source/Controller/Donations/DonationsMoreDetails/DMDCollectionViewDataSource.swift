@@ -102,8 +102,7 @@ extension DonationsMoreDetailsController: UICollectionViewDataSource {
                 withReuseIdentifier: DMDPhotoSupplementaryView.reuseIdentifier,
                 for: indexPath) as? DMDPhotoSupplementaryView {
                 
-                let person = donation.person
-                person.flatMap { photoView.configure($0) }
+                photoView.configure(withURL: donation.bannerImagePath ?? "")
                 return photoView
             }
             
