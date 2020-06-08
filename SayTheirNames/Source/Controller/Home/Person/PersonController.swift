@@ -164,7 +164,7 @@ class PersonController: UIViewController {
 
     override func loadView() {
         super.loadView()
-        view.backgroundColor = UIColor.STN.red
+        view.backgroundColor = UIColor(asset: STNAsset.Color.red)
         setupNavigationBarItems()
         setupSubViews()
     }

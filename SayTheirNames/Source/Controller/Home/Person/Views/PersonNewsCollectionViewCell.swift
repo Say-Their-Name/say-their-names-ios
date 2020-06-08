@@ -24,7 +24,7 @@ class PersonNewsCollectionViewCell: UICollectionViewCell {
     
     lazy var sourceContainer: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor.STN.yellow
+        view.backgroundColor = UIColor(asset: STNAsset.Color.yellow)
         view.clipsToBounds = true
         view.addSubview(sourceImageView)
         return view
@@ -44,13 +44,13 @@ class PersonNewsCollectionViewCell: UICollectionViewCell {
         label.font = UIFont.STN.sectionHeader
         label.adjustsFontSizeToFitWidth = true
         label.minimumScaleFactor = 0.5
-        label.textColor = UIColor.STN.detailLabel
+        label.textColor = UIColor(asset: STNAsset.Color.detailLabel)
         return label
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = UIColor.STN.background
+        backgroundColor = UIColor(asset: STNAsset.Color.background)
         setupLayout()
     }
     

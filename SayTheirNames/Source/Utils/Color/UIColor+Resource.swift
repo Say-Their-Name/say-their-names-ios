@@ -34,58 +34,58 @@ extension UIColor {
     
     /// A collection of common colors
     enum STN {
-        static let navBarBackground = UIColor.dynamic(light: .black, dark: .black)
-        static let navBarForeground = UIColor.dynamic(light: .white, dark: .white)
-        static let black: UIColor = .black
-        static let white: UIColor = .white
-        static let gray: UIColor = .gray
-        static let darkGray: UIColor = .darkGray
-        static let yellow: UIColor = .yellow
-        static let red: UIColor = .red
+//        static let navBarBackground = UIColor.dynamic(light: .black, dark: .black)
+//        static let navBarForeground = UIColor.dynamic(light: .white, dark: .white)
+//        static let black: UIColor = .black
+//        static let white: UIColor = .white
+//        static let gray: UIColor = .gray
+//        static let darkGray: UIColor = .darkGray
+//        static let yellow: UIColor = .yellow
+//        static let red: UIColor = .red
         
 		// MARK: - Applications
         
         // MARK: - TabBar
-        static let tabBarTint = UIColor.dynamic(light: .black, dark: .white)
+//        static let tabBarTint = UIColor.dynamic(light: .black, dark: .white)
         
-        static let tabBarBarTint = UIColor.dynamic(light: .white, dark: .black)
+//        static let tabBarBarTint = UIColor.dynamic(light: .white, dark: .black)
         
-        static let tabBarUnselectedItemTint = UIColor.dynamic(
-            light: UIColor(hexString: "#616377").withAlphaComponent(0.568),
-            dark: UIColor(hexString: "#FFFFFF").withAlphaComponent(0.568)
-        )
-        static let tabBarBorder = UIColor.dynamic(
-            light: UIColor(hexString: "#F0F0F0"),
-            dark: UIColor(hexString: "#0A0A0A")
-        )
+//        static let tabBarUnselectedItemTint = UIColor.dynamic(
+//            light: UIColor(hexString: "#616377").withAlphaComponent(0.568),
+//            dark: UIColor(hexString: "#FFFFFF").withAlphaComponent(0.568)
+//        )
+//        static let tabBarBorder = UIColor.dynamic(
+//            light: UIColor(hexString: "#F0F0F0"),
+//            dark: UIColor(hexString: "#0A0A0A")
+//        )
         
         // MARK: - Labels
-        static let primaryLabel = UIColor.label
+//        static let primaryLabel = UIColor.label
         
-        static let secondaryLabel = UIColor.secondaryLabel
+//        static let secondaryLabel = UIColor.secondaryLabel
         
-        static let strongHeader = UIColor.dynamic(
-            light: UIColor(hexString: "#101010"),
-            dark: UIColor(hexString: "#F0F0F0")
-        )
-        static let detailLabel = UIColor.dynamic(
-            light: UIColor(hexString: "#101010"),
-            dark: UIColor(hexString: "#F0F0F0")
-        )
-        static let lightHeader = UIColor.dynamic(
-            light: UIColor(hexString: "#101010").withAlphaComponent(0.5),
-            dark: UIColor(hexString: "#F0F0F0").withAlphaComponent(0.5)
-        )
-        static let separator = UIColor.dynamic(
-            light: UIColor(hexString: "#C4C4C4").withAlphaComponent(0.4),
-            dark: UIColor(hexString: "#C4C4C4").withAlphaComponent(0.4)
-        )
-        static let background = UIColor.dynamic(light: .white, dark: .black)
+//        static let strongHeader = UIColor.dynamic(
+//            light: UIColor(hexString: "#101010"),
+//            dark: UIColor(hexString: "#F0F0F0")
+//        )
+//        static let detailLabel = UIColor.dynamic(
+//            light: UIColor(hexString: "#101010"),
+//            dark: UIColor(hexString: "#F0F0F0")
+//        )
+//        static let lightHeader = UIColor.dynamic(
+//            light: UIColor(hexString: "#101010").withAlphaComponent(0.5),
+//            dark: UIColor(hexString: "#F0F0F0").withAlphaComponent(0.5)
+//        )
+//        static let separator = UIColor.dynamic(
+//            light: UIColor(hexString: "#C4C4C4").withAlphaComponent(0.4),
+//            dark: UIColor(hexString: "#C4C4C4").withAlphaComponent(0.4)
+//        )
+//        static let background = UIColor.dynamic(light: .white, dark: .black)
 
-        static let actionButtonTint = UIColor.dynamic(light: .white, dark: .black)
+//        static let actionButtonTint = UIColor.dynamic(light: .white, dark: .black)
 
         /// Light (STN.black) - Dark (STN.white)
-        static let actionButton = UIColor.dynamic(light: Self.black, dark: Self.white)
+//        static let actionButton = UIColor.dynamic(light: Self.black, dark: Self.white)
     }
 
 }

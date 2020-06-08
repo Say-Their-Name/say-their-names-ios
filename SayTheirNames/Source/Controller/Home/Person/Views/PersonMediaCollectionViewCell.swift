@@ -40,7 +40,7 @@ class PersonMediaCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = UIColor.STN.white
+        backgroundColor = UIColor(asset: STNAsset.Color.white)
         setupLayout()
     }
        

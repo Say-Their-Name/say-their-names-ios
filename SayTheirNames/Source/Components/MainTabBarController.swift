@@ -64,12 +64,12 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
     fileprivate func setupTabBarStyle() {
         tabBar.isTranslucent = true
         tabBar.layer.borderWidth = 0.9
-        tabBar.layer.borderColor = UIColor.STN.tabBarBorder.cgColor
+        tabBar.layer.borderColor = UIColor(asset: STNAsset.Color.tabBarBorder).cgColor
         tabBar.clipsToBounds = true
-        tabBar.backgroundColor = UIColor.STN.background
-        tabBar.barTintColor = UIColor.STN.tabBarBarTint
-        tabBar.tintColor = UIColor.STN.tabBarTint
-        tabBar.unselectedItemTintColor = UIColor.STN.tabBarUnselectedItemTint
+        tabBar.backgroundColor = UIColor(asset: STNAsset.Color.background)
+        tabBar.barTintColor = UIColor(asset: STNAsset.Color.tabBarBarTint)
+        tabBar.tintColor = UIColor(asset: STNAsset.Color.tabBarTint)
+        tabBar.unselectedItemTintColor = UIColor(asset: STNAsset.Color.tabBarUnselectedItemTint)
         UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: UIFont.STN.tabButtonTitle], for: .normal)
     }
     
@@ -77,12 +77,12 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
         
-        appearance.backgroundColor = UIColor.STN.navBarBackground//black
+        appearance.backgroundColor = UIColor(asset: STNAsset.Color.navBarBackground)//black
         let attrs = [
-            NSAttributedString.Key.foregroundColor: UIColor.STN.navBarForeground,
+            NSAttributedString.Key.foregroundColor: UIColor(asset: STNAsset.Color.navBarForeground),
             NSAttributedString.Key.font: UIFont.STN.navBarTitle
         ]
-        appearance.titleTextAttributes = attrs
+        appearance.titleTextAttributes = attrs as [NSAttributedString.Key: Any]
         
         UINavigationBar.appearance().standardAppearance = appearance
     }
@@ -126,7 +126,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         }
     }
     private func updateCGColors() {
-       tabBar.layer.borderColor = UIColor.STN.tabBarBorder.cgColor
+       tabBar.layer.borderColor = UIColor(asset: STNAsset.Color.tabBarBorder).cgColor
     }
 
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {

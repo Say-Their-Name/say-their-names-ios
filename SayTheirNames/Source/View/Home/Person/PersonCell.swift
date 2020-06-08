@@ -43,7 +43,7 @@ final class PersonCell: UICollectionViewCell {
     private lazy var nameLabel: UILabel = {
         let lbl = UILabel()
         lbl.text = "GEORGE FLOYD"
-        lbl.textColor = UIColor.STN.primaryLabel
+        lbl.textColor = UIColor(asset: STNAsset.Color.primaryLabel)
         lbl.lineBreakMode = .byTruncatingTail
         lbl.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
         lbl.translatesAutoresizingMaskIntoConstraints = false
@@ -55,7 +55,7 @@ final class PersonCell: UICollectionViewCell {
     private lazy var dateOfIncidentLabel: UILabel = {
         let lbl = UILabel()
         lbl.text = "25.05.2020"
-        lbl.textColor = UIColor.STN.secondaryLabel
+        lbl.textColor = UIColor(asset: STNAsset.Color.secondaryLabel)
         lbl.lineBreakMode = .byTruncatingTail
         lbl.isAccessibilityElement = true
         lbl.translatesAutoresizingMaskIntoConstraints = false

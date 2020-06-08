@@ -102,7 +102,7 @@ class PersonInfoTableViewCell: UITableViewCell {
     lazy var nameLabel: UILabel = {
         let label = UILabel(frame: .zero)
         label.text = "FIRSTNAME LAST"
-        label.textColor = UIColor.STN.detailLabel
+        label.textColor = UIColor(asset: STNAsset.Color.detailLabel)
         label.font = UIFont.STN.bannerTitle
         label.numberOfLines = 0
         label.minimumScaleFactor = 0.5
@@ -113,7 +113,7 @@ class PersonInfoTableViewCell: UITableViewCell {
     lazy var ageTitleLabel: UILabel = {
         let label = UILabel()
         label.text = L10n.Person.age.uppercased()
-        label.textColor = UIColor.STN.lightHeader
+        label.textColor = UIColor(asset: STNAsset.Color.lightHeader)
         label.font = UIFont.STN.detailViewFieldTitle
         label.numberOfLines = 1
         label.minimumScaleFactor = 0.5
@@ -124,7 +124,7 @@ class PersonInfoTableViewCell: UITableViewCell {
     lazy var childrenTitleLabel: UILabel = {
         let label = UILabel()
         label.text = L10n.Person.children.uppercased()
-        label.textColor = UIColor.STN.lightHeader
+        label.textColor = UIColor(asset: STNAsset.Color.lightHeader)
         label.font = UIFont.STN.detailViewFieldTitle
         label.numberOfLines = 1
         label.minimumScaleFactor = 0.5
@@ -135,7 +135,7 @@ class PersonInfoTableViewCell: UITableViewCell {
     lazy var locationTitleLabel: UILabel = {
         let label = UILabel()
         label.text = L10n.Person.location.uppercased()
-        label.textColor = UIColor.STN.lightHeader
+        label.textColor = UIColor(asset: STNAsset.Color.lightHeader)
         label.font = UIFont.STN.detailViewFieldTitle
         label.numberOfLines = 1
         label.minimumScaleFactor = 0.5
@@ -146,7 +146,7 @@ class PersonInfoTableViewCell: UITableViewCell {
     lazy var ageLabel: UILabel = {
         let label = UILabel()
         label.text = "46"
-        label.textColor = UIColor.STN.detailLabel
+        label.textColor = UIColor(asset: STNAsset.Color.detailLabel)
         label.font = UIFont.STN.detailViewField
         label.numberOfLines = 1
         label.minimumScaleFactor = 0.5
@@ -157,7 +157,7 @@ class PersonInfoTableViewCell: UITableViewCell {
     lazy var childrenLabel: UILabel = {
         let label = UILabel()
         label.text = "2"
-        label.textColor = UIColor.STN.detailLabel
+        label.textColor = UIColor(asset: STNAsset.Color.detailLabel)
         label.font = UIFont.STN.detailViewField
         label.numberOfLines = 1
         label.minimumScaleFactor = 0.5
@@ -168,7 +168,7 @@ class PersonInfoTableViewCell: UITableViewCell {
     lazy var locationLabel: UILabel = {
         let label = UILabel()
         label.text = "Missisippi, Denver Cloud Source, United States of America"
-        label.textColor = UIColor.STN.detailLabel
+        label.textColor = UIColor(asset: STNAsset.Color.detailLabel)
         label.font = UIFont.STN.detailViewField
         label.numberOfLines = 0
         label.minimumScaleFactor = 0.5
@@ -178,19 +178,19 @@ class PersonInfoTableViewCell: UITableViewCell {
     
     lazy var verticalSeparatorView: UIView = {
         let view = UIView(frame: .zero)
-        view.backgroundColor = UIColor.STN.separator
+        view.backgroundColor = UIColor(asset: STNAsset.Color.separator)
         return view
     }()
     
     lazy var horizontalSeparatorView: UIView = {
         let view = UIView(frame: .zero)
-        view.backgroundColor = UIColor.STN.separator
+        view.backgroundColor = UIColor(asset: STNAsset.Color.separator)
         return view
     }()
     
     lazy var secondHorizontalSeparatorView: UIView = {
            let view = UIView(frame: .zero)
-           view.backgroundColor = UIColor.STN.separator
+           view.backgroundColor = UIColor(asset: STNAsset.Color.separator)
            return view
        }()
     

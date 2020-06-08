@@ -87,7 +87,7 @@ final class DonationsMoreDetailsController: UIViewController {
     
     // MARK: - Class Method
     private func configureSubview() {
-        view.backgroundColor = UIColor.STN.white
+        view.backgroundColor = UIColor(asset: STNAsset.Color.white)
         
         backgroundFistImageView.anchor(superView: view, top: view.topAnchor,
                                padding: .init(top:32), size: .init(width: 110, height: 110))

@@ -33,7 +33,7 @@ class PersonHashtagTableViewCell: UITableViewCell {
     lazy var hashtagLabel: UILabel = {
         let label = UILabel()
         label.text = L10n.Person.hashtags.uppercased()
-        label.textColor = UIColor.STN.strongHeader
+        label.textColor = UIColor(asset: STNAsset.Color.strongHeader)
         label.font = UIFont.STN.sectionHeader
         label.numberOfLines = 1
         label.minimumScaleFactor = 0.5
@@ -48,7 +48,7 @@ class PersonHashtagTableViewCell: UITableViewCell {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.alwaysBounceHorizontal = true
-        collectionView.backgroundColor = UIColor.STN.background
+        collectionView.backgroundColor = UIColor(asset: STNAsset.Color.background)
         collectionView.contentInset = .init(left: Theme.Components.Padding.large,right: Theme.Components.Padding.large)
         return collectionView
     }()
@@ -57,7 +57,7 @@ class PersonHashtagTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
          super.init(style: style, reuseIdentifier: reuseIdentifier)
-         backgroundColor = UIColor.STN.background
+         backgroundColor = UIColor(asset: STNAsset.Color.background)
          setupLayout()
     }
     
