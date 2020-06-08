@@ -50,7 +50,7 @@ class PersonNewsCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = UIColor.STN.white
+        backgroundColor = UIColor.STN.background
         setupLayout()
     }
     

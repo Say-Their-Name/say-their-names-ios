@@ -15,7 +15,7 @@ class HashtagView: UIView {
         label.text = "#JUSTICEFORFIRST"
         label.font = UIFont.STN.hashtagButton
         label.adjustsFontSizeToFitWidth = true
-        label.textColor = UIColor.STN.black
+        label.textColor = UIColor.STN.primaryLabel
         label.textAlignment = .center
         return label
     }()
@@ -33,6 +33,16 @@ class HashtagView: UIView {
     // MARK: - Configure Subview
     private func configureView() {
         layer.borderWidth = 1.5
+        layer.borderColor = UIColor.STN.primaryLabel.cgColor
         hashtagLabel.fillSuperview(superView: self)
+    }
+    private func updateCGColors() {
+        layer.borderColor = UIColor.STN.primaryLabel.cgColor
+    }
+
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        self.updateCGColors()
+        self.setNeedsDisplay()
     }
 }

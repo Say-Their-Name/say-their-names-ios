@@ -135,7 +135,7 @@ class PersonInfoTableViewCell: UITableViewCell {
     lazy var locationTitleLabel: UILabel = {
         let label = UILabel()
         label.text = L10n.Person.location.uppercased()
-        label.textColor = UIColor(red: 16/255.0, green: 16/255.0, blue: 16/255.0, alpha: 0.5)
+        label.textColor = UIColor.STN.lightHeader
         label.font = UIFont.STN.detailViewFieldTitle
         label.numberOfLines = 1
         label.minimumScaleFactor = 0.5

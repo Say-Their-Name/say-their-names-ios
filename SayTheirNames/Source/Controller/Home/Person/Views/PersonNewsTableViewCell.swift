@@ -70,7 +70,7 @@ class PersonNewsTableViewCell: UITableViewCell {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.alwaysBounceHorizontal = true
-        collectionView.backgroundColor = UIColor.STN.white
+        collectionView.backgroundColor = UIColor.STN.background
         collectionView.contentInset = .init(left: Theme.Components.Padding.large,right: Theme.Components.Padding.large)
         return collectionView
     }()
@@ -82,7 +82,7 @@ class PersonNewsTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
          super.init(style: style, reuseIdentifier: reuseIdentifier)
-         backgroundColor = UIColor.STN.white
+         backgroundColor = UIColor.STN.background
          setupLayout()
     }
     
