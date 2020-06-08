@@ -205,8 +205,8 @@ class PersonInfoTableViewCell: UITableViewCell {
     
     public func setupCell(_ person: Person) {
         nameLabel.text = person.fullName.uppercased()
-        ageLabel.text = person.age
-        childrenLabel.text = person.childrenCount
+        ageLabel.text = "\(person.age)"
+        childrenLabel.text = "\(person.childrenCount)"
         locationLabel.text = person.country.uppercased()
     }
     
