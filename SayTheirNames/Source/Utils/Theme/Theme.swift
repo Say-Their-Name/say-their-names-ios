@@ -38,12 +38,20 @@ enum Theme {
             static let extraLarge: CGFloat = 40
             static let big: CGFloat = 48
         }
+        
         // MARK: - Button
         enum Button {
             enum Size {
                 static let medium: CGSize = .init(width: 40, height: 40)
                 static let small: CGSize = .init(width: 34, height: 34)
             }
+        }
+        
+        // MARK: - Filter
+        enum Filter {
+            static let height: CGFloat = 68
+            static let cellSize: CGSize = .init(width: 103, height: 36)
+            static let padding: CGFloat = Padding.medium
         }
         
         static let edgeMargin: CGFloat = 16
