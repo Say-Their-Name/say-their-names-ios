@@ -26,9 +26,6 @@ import UIKit
 
 class MainTabBarController: UITabBarController, UITabBarControllerDelegate {    
     // Params
-    private let defaultBarTint: UIColor = UIColor.STN.barTint
-    private let defaultTint = UIColor.STN.tint
-    private let defaultUnselectedTint = UIColor.STN.unselectedTint
     private var launchScreen: LaunchScreen?
     
     required init?(coder aDecoder: NSCoder) { fatalError("") }
@@ -69,10 +66,10 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         tabBar.layer.borderWidth = 0.9
         tabBar.layer.borderColor = UIColor.STN.tabBarBorder.cgColor
         tabBar.clipsToBounds = true
-        tabBar.backgroundColor = UIColor.STN.white
-        tabBar.barTintColor = defaultBarTint
-        tabBar.tintColor = defaultTint
-        tabBar.unselectedItemTintColor = defaultUnselectedTint
+        tabBar.backgroundColor = UIColor.STN.background
+        tabBar.barTintColor = UIColor.STN.tabBarBarTint
+        tabBar.tintColor = UIColor.STN.tabBarTint
+        tabBar.unselectedItemTintColor = UIColor.STN.tabBarUnselectedItemTint
         UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: UIFont.STN.tabButtonTitle], for: .normal)
     }
     
@@ -127,6 +124,15 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         for item in items {
             item.imageInsets = UIEdgeInsets(top: Theme.Components.Padding.medium, left: 0, bottom: 0, right: 0)
         }
+    }
+    private func updateCGColors() {
+       tabBar.layer.borderColor = UIColor.STN.tabBarBorder.cgColor
+    }
+
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        self.updateCGColors()
+        tabBar.setNeedsDisplay()
     }
 }
 

@@ -43,11 +43,21 @@ extension UIColor {
         static let red = UIColor.red
         
 		// MARK: - Applications
-        static let tint: UIColor = UIColor(named: "tint") ?? .black
-        static let barTint = UIColor.white
-        static let unselectedTint = UIColor(red: 0.3803921569, green: 0.3882352941, blue: 0.4666666667, alpha: 0.5681668134)
-        static let tabBarBorder = UIColor(red: 0.9451505829, green: 0.9451505829, blue: 0.9451505829, alpha: 1)
-		
+        
+        // MARK: - TabBar
+        static let tabBarTint = UIColor.dynamic(light: .black, dark: .white)
+        
+        static let tabBarBarTint = UIColor.dynamic(light: .white, dark: .black)
+        
+        static let tabBarUnselectedItemTint = UIColor.dynamic(
+            light: UIColor(hexString: "#616377").withAlphaComponent(0.568),
+            dark: UIColor(hexString: "#FFFFFF").withAlphaComponent(0.568)
+        )
+        static let tabBarBorder = UIColor.dynamic(
+            light: UIColor(hexString: "#F0F0F0"),
+            dark: UIColor(hexString: "#0A0A0A")
+        )
+        
         // MARK: - Labels
         static let primaryLabel: UIColor = UIColor(named: "primaryLabel") ?? .label
         static let secondaryLabel: UIColor = UIColor(named: "secondaryLabel") ?? .secondaryLabel
@@ -61,6 +71,8 @@ extension UIColor {
             light: Self.black,
             dark: Self.white
         )
+        static let background = UIColor.dynamic(light: .white, dark: .black)
+
     }
 
 }
