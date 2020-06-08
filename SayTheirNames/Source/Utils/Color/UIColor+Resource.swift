@@ -59,20 +59,32 @@ extension UIColor {
         )
         
         // MARK: - Labels
-        static let primaryLabel: UIColor = UIColor(named: "primaryLabel") ?? .label
-        static let secondaryLabel: UIColor = UIColor(named: "secondaryLabel") ?? .secondaryLabel
-        static let strongHeader = UIColor(red: 16/255.0, green: 16/255.0, blue: 16/255.0, alpha: 1)
-        static let detailLabel = UIColor(red: 16/255.0, green: 16/255.0, blue: 16/255.0, alpha: 1)
-        static let lightHeader = UIColor(red: 16/255.0, green: 16/255.0, blue: 16/255.0, alpha: 0.5)
+        static let primaryLabel = UIColor.label
         
-        static let separator = UIColor(red: 196/255.0, green: 196/255.0, blue: 196/255.0, alpha: 0.4)
-        /// Light (STN.black) - Dark (STN.white)
-        static let actionButton: UIColor = dynamic(
-            light: Self.black,
-            dark: Self.white
+        static let secondaryLabel = UIColor.secondaryLabel
+        
+        static let strongHeader = UIColor.dynamic(
+            light: UIColor(hexString: "#101010"),
+            dark: UIColor(hexString: "#F0F0F0")
+        )
+        static let detailLabel = UIColor.dynamic(
+            light: UIColor(hexString: "#101010"),
+            dark: UIColor(hexString: "#F0F0F0")
+        )
+        static let lightHeader = UIColor.dynamic(
+            light: UIColor(hexString: "#101010").withAlphaComponent(0.5),
+            dark: UIColor(hexString: "#F0F0F0").withAlphaComponent(0.5)
+        )
+        static let separator = UIColor.dynamic(
+            light: UIColor(hexString: "#C4C4C4").withAlphaComponent(0.4),
+            dark: UIColor(hexString: "#C4C4C4").withAlphaComponent(0.4)
         )
         static let background = UIColor.dynamic(light: .white, dark: .black)
 
+        static let actionButtonTint = UIColor.dynamic(light: .white, dark: .black)
+
+        /// Light (STN.black) - Dark (STN.white)
+        static let actionButton = UIColor.dynamic(light: Self.black, dark: Self.white)
     }
 
 }
