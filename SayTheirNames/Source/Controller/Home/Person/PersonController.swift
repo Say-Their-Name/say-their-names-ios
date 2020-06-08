@@ -86,10 +86,11 @@ typealias DontainButtonContainerView = ButtonContainerView
 
 class PersonController: UIViewController {
     
+    @DependencyInject private var network: NetworkRequestor
     public var person: Person!
+    private var isLoading = true
     
     private let donationButtonContainerView = DontainButtonContainerView(frame: .zero)
-    
     private let tableViewCells: [PersonCellType] = {
         return [.photo, .info, .story, .outcome, .news([]), .medias([]), .hashtags]
     }()
@@ -150,6 +151,15 @@ class PersonController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.accessibilityIdentifier = "personView"
+        
+        self.network.fetchPersonDetails(with: person.identifier) { [weak self] result in
+            switch result {
+            case .success(let personResult):
+                self?.configure(with: personResult.person)
+            case .failure(let error):
+                Log.print(error)
+            }
+        }
     }
 
     override func loadView() {
@@ -170,27 +180,20 @@ class PersonController: UIViewController {
     private func registerCells(to tableView: UITableView) {
         PersonCellType.allCases.forEach { $0.register(to: tableView) }
     }
+    
+    // TODO: Update UITableView sections based on what info we have
+    private func configure(with person: Person) {
+        self.person = person
+    }
 }
 
 // MARK: - UIView Setup Methods
 private extension PersonController {
     
     func setupNavigationBarItems() {
-        navigationController?.navigationBar.isTranslucent = false
-        navigationController?.navigationBar.barTintColor = UIColor.STN.black
-        // TODO: Once Theme.swift/etc gets added this may not be required
-        navigationController?.navigationBar.titleTextAttributes = navigationBarTextAttributes
-
         title = L10n.Person.sayTheirNames.uppercased()
-        accessibilityLabel = L10n.Person.sayTheirNames
-
-        navigationController?.navigationBar.titleTextAttributes = [
-        NSAttributedString.Key.foregroundColor: UIColor.white,
-        NSAttributedString.Key.font: UIFont.STN.navBarTitle
-        ]
-       
-       navigationItem.leftBarButtonItem = UIBarButtonItem(customView: dismissButton)
-       navigationItem.rightBarButtonItem = UIBarButtonItem(customView: shareButton)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: dismissButton)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: shareButton)
     }
     
     func setupSubViews() {

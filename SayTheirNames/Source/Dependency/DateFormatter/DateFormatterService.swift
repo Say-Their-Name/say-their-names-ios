@@ -61,7 +61,7 @@ final class DateFormatterService: Dependency {
     func formatYearMonthDayDate(_ date: Date) -> String {
         let dateFormatter = cachedDateFormatter(withFormat: "y/MM/dd")
         let formattedDate = dateFormatter.string(from: date)
-        return ("Date: \(formattedDate)")
+        return formattedDate
     }
     
     func dateForYearMonthDayString(_ dateString: String) -> Date? {
