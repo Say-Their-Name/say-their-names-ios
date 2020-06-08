@@ -27,33 +27,29 @@ import XCTest
 
 class DateFormatterServiceTests: XCTestCase {
     
-    let dateFormatterService = DateFormatterService()
-    
-    func testDateOfBirthFormat() {
-        guard let dob = Date.dateFrom(year: 2020, month: 06, day: 03) else {
-            XCTFail("unable to create dob")
-            return
-        }
-
-        let formattedDate = dateFormatterService.formatYearMonthDayDate(dob)
-
-        XCTAssertEqual(formattedDate, "2020/06/03")
-    }
-    
-    func testHourMinuteFormat() {
-        guard let hourMin = Date.dateFrom(year: 2020, month: 06, day: 03, hour: 4, minute: 11) else {
+    func testDateOfIncidentFormatter() {
+        guard let date = Date.dateFrom(year: 2020, month: 06, day: 03) else {
             XCTFail("unable to create date")
             return
         }
-
-        let formattedDate = dateFormatterService.formatHourMinuteDate(hourMin)
-
-        XCTAssertEqual(formattedDate, "04:11")
+        let dateFormatterService = DateFormatterService(localeProvider: { Locale(identifier: "en_US") })
+        let formattedDate = dateFormatterService.dateOfIncidentString(from: date)
+        XCTAssertEqual(formattedDate, "6/3/20", "The date should be formatted according to US date format")
+    }
+    
+    func testDateOfIncidentFormatterRespectsLocale() {
+        guard let date = Date.dateFrom(year: 2020, month: 06, day: 03) else {
+            XCTFail("unable to create date")
+            return
+        }
+        let dateFormatterService = DateFormatterService(localeProvider: { Locale(identifier: "en_DK") })
+        let formattedDate = dateFormatterService.dateOfIncidentString(from: date)
+        XCTAssertEqual(formattedDate, "03/06/2020", "The date should be formatted according to DK date format")
     }
 }
 
 extension Date {
-    static func dateFrom(year: Int, month: Int,  day: Int, hour: Int = 0, minute: Int = 0, second: Int = 0) -> Date? {
+    fileprivate static func dateFrom(year: Int, month: Int,  day: Int, hour: Int = 0, minute: Int = 0, second: Int = 0) -> Date? {
         var components = DateComponents()
         components.year = year
         components.month = month
