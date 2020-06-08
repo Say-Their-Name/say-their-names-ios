@@ -41,6 +41,7 @@ enum Theme {
         
         // MARK: Line limit 
         enum LineLimit {
+            static let none: Int = 0 
             static let single: Int = 1
             static let double: Int = 2
             static let triple: Int = 3

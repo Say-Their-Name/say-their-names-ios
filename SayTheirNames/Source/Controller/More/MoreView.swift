@@ -29,6 +29,7 @@ final class MoreView: UIView {
     
     private lazy var aboutCard: UIView = {
         let logo = UIImageView(image: UIImage(named: "logo"))
+        
         let label = UILabel()
         label.text = "SAY THEIR NAME"
         label.textColor = UIColor.STN.white
@@ -98,7 +99,7 @@ final class MoreView: UIView {
              developerSection(),
              designerSection(),
              thankYouLabel])
-
+        
         contentView.axis = .vertical
         contentView.spacing = Theme.Components.Padding.extraLarge
         contentView.translatesAutoresizingMaskIntoConstraints = false
@@ -108,16 +109,17 @@ final class MoreView: UIView {
         scrollView.addSubview(contentView)
         addSubview(scrollView)
         
+        scrollView.anchor(superView: self, top: topAnchor, leading: leadingAnchor,
+                          bottom: bottomAnchor, trailing: trailingAnchor, padding: .zero, size: .zero)
+        contentView.anchor(superView: scrollView, top: scrollView.topAnchor, leading: nil,
+                           bottom: nil, trailing: nil,
+                           padding: UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20), size: .zero)
+        
         NSLayoutConstraint.activate([
             aboutCard.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 20),
             aboutCard.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             aboutCard.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             aboutCard.heightAnchor.constraint(equalToConstant: 150),
-            contentView.topAnchor.constraint(equalTo: topAnchor, constant: 0),
-            scrollView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            scrollView.topAnchor.constraint(equalTo: topAnchor, constant: 20),
-            scrollView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            scrollView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -20),
             thankYouLabel.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor)
         ])
     }
@@ -182,7 +184,7 @@ private extension MoreView {
         
         switch section {
         case .history:
-            bodyLabel.text = "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturiasdlnalkd"
+            bodyLabel.text = "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturiasdlnalkd."
         case .developer:
             bodyLabel.text = "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis"
         case .designer:
