@@ -27,6 +27,7 @@ import Foundation
 struct Person: Decodable {
     let id: Int
     let fullName: String
+    let identifier: String
     let doi: Date
     let childrenCount: String
     let age: String
@@ -35,24 +36,26 @@ struct Person: Decodable {
     let bio: String
     let context: String
     let images: [Image]
-    let donations: DonationsResponsePage
-    let petitions: PetitionsResponsePage
+    let donations: [Donation]
+    let petitions: [Petition]
     let media: [Media]
     let socialMedia: [SocialMedia]
-    
+
     private enum CodingKeys: String, CodingKey {
-        case id, fullName = "full_name", dob = "date_of_birth", doi = "date_of_incident", childrenCount = "number_of_children",
+        case id, fullName = "full_name", identifier, dob = "date_of_birth", doi = "date_of_incident", childrenCount = "number_of_children",
         age, city, country, bio, context, images, donations = "donation_links", petitions = "petition_links", media = "media_links",
         socialMedia = "social_media"
     }
     
-    init(id: Int, fullName: String,
+    init(id: Int, fullName: String, identifier: String,
          doi: Date, childrenCount: String, age: String,
          city: String, country: String, bio: String,
-         context: String, images: [Image], donations: DonationsResponsePage,
-         petitions: PetitionsResponsePage, media: [Media], socialMedia: [SocialMedia]) {
+         context: String, images: [Image], donations: [Donation],
+         petitions: [Petition], media: [Media], socialMedia: [SocialMedia]
+    ) {
         self.id = id
         self.fullName = fullName
+        self.identifier = identifier
         self.doi = doi
         self.childrenCount = childrenCount
         self.age = age
@@ -72,6 +75,7 @@ struct Person: Decodable {
         
         self.id = try container.decodeIfPresent(Int.self, forKey: .id) ?? -1
         self.fullName = try container.decodeIfPresent(String.self, forKey: .fullName) ?? ""
+        self.identifier = try container.decodeIfPresent(String.self, forKey: .identifier) ?? ""
         self.childrenCount = try container.decodeIfPresent(String.self, forKey: .childrenCount) ?? "0"
         self.age = try container.decodeIfPresent(String.self, forKey: .age) ?? ""
         self.city = try container.decodeIfPresent(String.self, forKey: .city) ?? ""
@@ -80,8 +84,8 @@ struct Person: Decodable {
         self.context = try container.decodeIfPresent(String.self, forKey: .context) ?? ""
         
         self.images = try container.decodeIfPresent([Image].self, forKey: .images) ?? []
-        self.donations = try container.decodeIfPresent(DonationsResponsePage.self, forKey: .donations) ?? DonationsResponsePage()
-        self.petitions = try container.decodeIfPresent(PetitionsResponsePage.self, forKey: .petitions) ?? PetitionsResponsePage()
+        self.donations = try container.decodeIfPresent([Donation].self, forKey: .donations) ?? []
+        self.petitions = try container.decodeIfPresent([Petition].self, forKey: .petitions) ?? []
         self.media = try container.decodeIfPresent([Media].self, forKey: .media) ?? []
         self.socialMedia = try container.decodeIfPresent([SocialMedia].self, forKey: .socialMedia) ?? []
 
@@ -112,6 +116,14 @@ struct PersonsResponsePage: Decodable {
     }
 }
 
+struct PersonResponsePage: Decodable {
+    let person: Person
+    
+    private enum CodingKeys: String, CodingKey {
+        case person = "data"
+    }
+}
+
 extension Person: Equatable, Hashable {
     static func == (lhs: Person, rhs: Person) -> Bool {
         return lhs.id == rhs.id
@@ -120,8 +132,4 @@ extension Person: Equatable, Hashable {
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
-}
-
-extension Person {
-    
 }
