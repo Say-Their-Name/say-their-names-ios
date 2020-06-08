@@ -136,7 +136,7 @@ class PersonNewsTableViewCell: UITableViewCell {
 }
 
 extension PersonNewsTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    
+
     // The data we passed from the TableView send them to the CollectionView Model
     func updateCellWithNews(_ news: [Person]) {
         self.news = news

@@ -93,4 +93,9 @@ final class CarouselCollectionViewCell: UICollectionViewCell {
                                      right: 0))
         }
     }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        imageView.sd_cancelCurrentImageLoad()
+    }
 }

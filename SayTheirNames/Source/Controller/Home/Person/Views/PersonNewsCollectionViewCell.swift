@@ -100,4 +100,9 @@ class PersonNewsCollectionViewCell: UICollectionViewCell {
             }
         }
     }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.newsImageView.sd_cancelCurrentImageLoad()
+    }
 }
