@@ -25,6 +25,7 @@
 import UIKit
 
 extension UIEdgeInsets {
+
     init(top: CGFloat = 0, left: CGFloat = 0, bottom: CGFloat = 0, right: CGFloat = 0) {
         self.init()
         self.top = top
@@ -33,8 +34,8 @@ extension UIEdgeInsets {
         self.right = right
     }
     
-    static let medium: UIEdgeInsets = UIEdgeInsets(top: Theme.Components.Padding.medium,
-                                                   left: Theme.Components.Padding.medium,
-                                                   bottom: Theme.Components.Padding.medium,
-                                                   right: Theme.Components.Padding.medium)
+    static let medium: UIEdgeInsets = .init(top: Theme.Components.Padding.medium,
+                                            left: Theme.Components.Padding.medium,
+                                            bottom: Theme.Components.Padding.medium,
+                                            right: Theme.Components.Padding.medium)
 }
