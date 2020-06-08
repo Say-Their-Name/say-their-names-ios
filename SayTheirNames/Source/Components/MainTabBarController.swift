@@ -77,9 +77,9 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
         
-        appearance.backgroundColor = UIColor.STN.black
+        appearance.backgroundColor = UIColor.STN.navBarBackground//black
         let attrs = [
-            NSAttributedString.Key.foregroundColor: UIColor.STN.white,
+            NSAttributedString.Key.foregroundColor: UIColor.STN.navBarForeground,
             NSAttributedString.Key.font: UIFont.STN.navBarTitle
         ]
         appearance.titleTextAttributes = attrs

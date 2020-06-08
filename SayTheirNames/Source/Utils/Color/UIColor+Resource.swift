@@ -41,6 +41,8 @@ extension UIColor {
         static let darkGray = UIColor.darkGray
         static let yellow = UIColor.yellow
         static let red = UIColor.red
+        static let navBarBackground = UIColor.dynamic(light: .black, dark: .black)
+        static let navBarForeground = UIColor.dynamic(light: .white, dark: .white)
         
 		// MARK: - Applications
         
