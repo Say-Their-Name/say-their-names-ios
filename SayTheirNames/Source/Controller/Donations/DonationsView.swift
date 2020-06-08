@@ -58,7 +58,7 @@ final class DonationsView: UIView {
     private func setupSubviews() {
         addSubview(filtersView)
         addSubview(donationsCollectionView)
-        
+
         let safeGuide = safeAreaLayoutGuide
         NSLayoutConstraint.activate([            
             filtersView.topAnchor.constraint(equalTo: safeGuide.topAnchor),
@@ -86,5 +86,5 @@ final class DonationsView: UIView {
 
 private extension DonationsView {
     static let navBarViewHeight: CGFloat = 70
-    static let filtersViewHeight: CGFloat = 70
+    static let filtersViewHeight: CGFloat = 68
 }

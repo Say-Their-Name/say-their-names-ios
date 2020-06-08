@@ -31,7 +31,8 @@ class CallToActionCollectionView: UICollectionView {
         layout.scrollDirection = .vertical
         layout.itemSize = UICollectionViewFlowLayout.automaticSize
         layout.estimatedItemSize = CGSize(width: 330, height: 330)
-        
+        layout.minimumLineSpacing = Theme.Components.Padding.medium
+        layout.sectionInset = UIEdgeInsets(top: 0, bottom: Theme.Components.Padding.medium)
         super.init(frame: .zero, collectionViewLayout: layout)
         setupSelf()
     }

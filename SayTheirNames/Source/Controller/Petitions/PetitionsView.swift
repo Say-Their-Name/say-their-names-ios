@@ -25,65 +25,48 @@
 import UIKit
 
 final class PetitionsView: UIView {
-                
-    lazy var tableView: UITableView = {
-        let tableView = UITableView(frame: .zero, style: .plain)
-        tableView.separatorStyle = .none
-        tableView.backgroundColor = Self.TableViewBackgroundColor
-        return tableView
-    }()
-       
-    override func didMoveToSuperview() {
-        super.didMoveToSuperview()
-        
-        backgroundColor = Self.BackgroundColor        
+
+    private lazy var collectionView = CallToActionCollectionView().configure {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.register(cellType: CallToActionCell.self)
     }
-
-    private var hasLayedOutSubviews = false
-    private func createLayout() {
-        super.updateConstraints()
-        
-        guard !hasLayedOutSubviews else { return }
-        hasLayedOutSubviews = true
-                        
-        addSubview(tableView)
-
-        // all subviews should use custom constraints
-        [
-            tableView,
-            ].forEach {
-            $0.translatesAutoresizingMaskIntoConstraints = false
-        }
-    }
-
-    // ensure that updateConstraints is always called
-    override class var requiresConstraintBasedLayout: Bool { true }
     
-    private var haveCreatedConstraints = false
-    override func updateConstraints() {
-        super.updateConstraints()
-                
-        createLayout()
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupSelf()
+        setupSubviews()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError()
+    }
 
-        guard !haveCreatedConstraints else { return }
-        haveCreatedConstraints = true
+    /// Configures properties for the view itself
+    private func setupSelf() {
+        backgroundColor = UIColor.STN.black
+    }
+    
+    /// Adds and configures constraints for subviews
+    private func setupSubviews() {
+        addSubview(collectionView)
         
+        let safeGuide = safeAreaLayoutGuide
         NSLayoutConstraint.activate([
-            tableView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
-            tableView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-            tableView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
+            collectionView.topAnchor.constraint(equalTo: safeGuide.topAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
     }
 
+    /// Binds a `CollectionViewManager` to the `collectionView`
+    func bindPetitionManager(_ manager: PetitionsCollectionViewManager) {
+        manager.configure(with: collectionView)
+    }
 }
 
 // MARK: - Constants
 extension PetitionsView {
-    
-    static let CustomNavigationBarHeight: CGFloat = 70
-    static let CustomNavigationBarTextColor = UIColor.white
-    static let CustomNavigationBarBackgroundColor = UIColor.black
-    static let BackgroundColor = UIColor.black
-    static let TableViewBackgroundColor = UIColor.systemBackground
+    static let navBarViewHeight: CGFloat = 70
+    static let filtersViewHeight: CGFloat = 70
 }
