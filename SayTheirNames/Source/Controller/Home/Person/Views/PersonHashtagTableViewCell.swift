@@ -54,7 +54,7 @@ class PersonHashtagTableViewCell: UITableViewCell {
     }()
     
     private var identifier: String = ""
-    public var person: Person!
+    public var hashtags: [Hashtag] = []
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
          super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -94,7 +94,7 @@ class PersonHashtagTableViewCell: UITableViewCell {
 extension PersonHashtagTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return person.hashtag.count
+        return hashtags.count
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -104,7 +104,8 @@ extension PersonHashtagTableViewCell: UICollectionViewDelegate, UICollectionView
     // Set the data for each cell (color and color name)
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! PersonHashtagCollectionViewCell
-        cell.updateHashtag(person.hashtag[indexPath.row])
+        let hashtag = hashtags[indexPath.row]
+        cell.setupHashtag(hashtag)
         return cell
     }
     

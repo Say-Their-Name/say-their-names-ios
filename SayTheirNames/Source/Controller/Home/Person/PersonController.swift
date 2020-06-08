@@ -277,7 +277,7 @@ extension PersonController: UITableViewDataSource {
             return cell
         case .hashtags:
             let hashtagsCell = cell as! PersonHashtagTableViewCell
-            hashtagsCell.person = person
+            hashtagsCell.hashtags = person.hashtag
             hashtagsCell.registerCell(with: PersonHashtagCollectionViewCell.self)
             return hashtagsCell
         }

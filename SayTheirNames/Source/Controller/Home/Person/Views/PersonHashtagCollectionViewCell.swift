@@ -45,7 +45,7 @@ class PersonHashtagCollectionViewCell: UICollectionViewCell {
         hashtagView.fillSuperview(superView: self)
     }
     
-    public func updateHashtag(_ hashtag: Hashtag) {
+    public func setupHashtag(_ hashtag: Hashtag) {
         hashtagView.hashtagLabel.text = hashtag.tag.uppercased()
     }
 }

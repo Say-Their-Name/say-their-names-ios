@@ -15,6 +15,7 @@ class HashtagView: UIView {
         label.text = "#JUSTICEFORFIRST"
         label.font = UIFont.STN.hashtagButton
         label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = 0.5
         label.textColor = UIColor.STN.black
         label.textAlignment = .center
         return label
@@ -33,6 +34,6 @@ class HashtagView: UIView {
     // MARK: - Configure Subview
     private func configureView() {
         layer.borderWidth = 1.5
-        hashtagLabel.fillSuperview(superView: self)
+        hashtagLabel.anchor(superView: self, top: topAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5), size: .zero)
     }
 }
