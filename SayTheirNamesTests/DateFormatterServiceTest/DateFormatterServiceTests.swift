@@ -37,7 +37,7 @@ class DateFormatterServiceTests: XCTestCase {
 
         let formattedDate = dateFormatterService.formatYearMonthDayDate(dob)
 
-        XCTAssertEqual(formattedDate, "Date: 2020/06/03")
+        XCTAssertEqual(formattedDate, "2020/06/03")
     }
     
     func testHourMinuteFormat() {

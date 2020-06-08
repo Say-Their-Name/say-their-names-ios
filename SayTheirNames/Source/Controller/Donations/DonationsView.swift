@@ -64,8 +64,6 @@ final class DonationsView: UIView {
             filtersView.topAnchor.constraint(equalTo: safeGuide.topAnchor),
             filtersView.leadingAnchor.constraint(equalTo: leadingAnchor),
             filtersView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            filtersView.heightAnchor.constraint(equalToConstant: Self.filtersViewHeight),
-            
             donationsCollectionView.topAnchor.constraint(equalTo: filtersView.bottomAnchor),
             donationsCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
             donationsCollectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
@@ -82,9 +80,4 @@ final class DonationsView: UIView {
     func bindDonationManager(_ donationManager: DonationsCollectionViewManager) {
         donationManager.configure(with: donationsCollectionView)
     }
-}
-
-private extension DonationsView {
-    static let navBarViewHeight: CGFloat = 70
-    static let filtersViewHeight: CGFloat = 68
 }

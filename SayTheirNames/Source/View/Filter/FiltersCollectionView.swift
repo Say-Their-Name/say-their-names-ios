@@ -27,9 +27,10 @@ final class FiltersCollectionView: UICollectionView {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         layout.sectionInsetReference = .fromContentInset
-        layout.sectionInset = Self.layoutInsets
+        layout.sectionInset = UIEdgeInsets(left: Theme.Components.Filter.padding,
+                                           right: Theme.Components.Filter.padding)
         layout.itemSize = UICollectionViewFlowLayout.automaticSize
-        layout.estimatedItemSize = Self.estimatedItemSize
+        layout.estimatedItemSize = Theme.Components.Filter.cellSize
         
         super.init(frame: .zero, collectionViewLayout: layout)
         setupSelf()
@@ -42,9 +43,8 @@ final class FiltersCollectionView: UICollectionView {
     private func setupSelf() {
         backgroundColor = .systemBackground
     }
-}
-
-extension FiltersCollectionView {
-    private static let layoutInsets = UIEdgeInsets(left: 16, right: 16)
-    private static let estimatedItemSize = CGSize(width: 103, height: 36)
+    
+    override var intrinsicContentSize: CGSize {
+        return CGSize(width: UIView.noIntrinsicMetric, height: Theme.Components.Filter.height)
+    }
 }
