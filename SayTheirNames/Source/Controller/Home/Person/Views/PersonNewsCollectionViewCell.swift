@@ -16,7 +16,7 @@ class PersonNewsCollectionViewCell: UICollectionViewCell {
     
     lazy var newsImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "media-image-1")
+        imageView.image = UIImage(asset: STNImage.mediaImage1)
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         return imageView
@@ -32,7 +32,7 @@ class PersonNewsCollectionViewCell: UICollectionViewCell {
     
     lazy var sourceImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "news_bbc")
+        imageView.image = UIImage(asset: STNImage.newsBbc)
         imageView.contentMode = .scaleAspectFill
         return imageView
     }()

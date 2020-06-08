@@ -32,7 +32,7 @@ class PersonMediaCollectionViewCell: UICollectionViewCell {
     
     lazy var mediaImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "media-image-2")
+        imageView.image = UIImage(asset: STNImage.mediaImage2)
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         return imageView
