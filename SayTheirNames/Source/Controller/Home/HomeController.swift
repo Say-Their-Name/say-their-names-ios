@@ -48,12 +48,9 @@ final class HomeController: UIViewController {
     private lazy var peopleDataSourceHelper = PersonCollectionViewDataSourceHelper(collectionView: peopleCollectionView)
     
     private lazy var homeView = HomeView()
-    
-    var customNavBar: UIView { homeView.customNavigationBar }
-    
+        
     private var locationCollectionView: UICollectionView { homeView.locationCollectionView }
-    private var peopleCollectionView: UICollectionView { homeView.peopleCollectionView }
-    private var searchButton: UIButton { homeView.searchButton }
+    private var peopleCollectionView: UICollectionView { homeView.peopleCollectionView }    
     
     // MARK: - ClASS METHODS
     override func loadView() {
@@ -64,8 +61,8 @@ final class HomeController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.STN.black
-        navigationController?.navigationBar.isHidden = true
         searchBar.setup(withController: self)
+        navigationItem.title = Strings.home
         setupCollectionView()
         setupSearchButton()
     }
@@ -74,6 +71,7 @@ final class HomeController: UIViewController {
         super.viewWillAppear(animated)
         // Select first location by default
         // FIXME: can have multiple selected. need one source-of-truth here.
+        guard FeatureFlags.filtersEnabled else { return }
         let selectedIndexPath = IndexPath(item: 0, section: 0)
         locationCollectionView.selectItem(at: selectedIndexPath, animated: false, scrollPosition: .centeredVertically)
     }
@@ -83,7 +81,11 @@ final class HomeController: UIViewController {
     }
     
     private func setupSearchButton() {
-        searchButton.addTarget(self, action: #selector(searchButtonPressed(_:)), for: .touchUpInside)
+        let searchImage = UIImage(named: "white-search")?.withRenderingMode(.alwaysOriginal)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: searchImage,
+                                                            style: .plain,
+                                                            target: self,
+                                                            action: #selector(searchButtonPressed(_:)))
     }
     
     fileprivate func setupCollectionView() {
@@ -102,6 +104,7 @@ final class HomeController: UIViewController {
                          .init(name: "NEW YORK")]
 
         locationsDataSourceHelper.setLocations(locations)
+        
         // FIXME: This should be setup in a better place, for now this loads out data
         self.network.fetchPeople { [weak self] (result) in
             switch result {
@@ -121,8 +124,8 @@ final class HomeController: UIViewController {
         peopleCollectionView.accessibilityIdentifier = "peopleCollection"
     }
     
-    // MARK: - IBACTIONS
-    @IBAction func searchButtonPressed(_ sender: Any) {
+    // MARK: - Button Actions
+    @objc private func searchButtonPressed(_ sender: Any) {
         UIImpactFeedbackGenerator().impactOccurred()
         searchBar.show()
     }

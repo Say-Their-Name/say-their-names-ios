@@ -115,13 +115,11 @@ class CustomSearchBar: UIView {
     }
     
     open func show() {
-        guard let homeController = homeController else { return }
+        guard homeController != nil else { return }
         alpha = 0
         UIView.animate(withDuration: 0.3, animations: {
-            self.alpha = 1
-            homeController.customNavBar.alpha = 0
+            self.alpha = 1            
             self.searchResultView.alpha = 1
-            homeController.customNavBar.frame.size = CGSize(width: homeController.view.frame.width, height: self.frame.height + Theme.Screens.SearchBar.size.height)
         }, completion: { _ in
             self.searchBar.becomeFirstResponder()
         })
@@ -132,9 +130,7 @@ class CustomSearchBar: UIView {
         homeController.view.endEditing(true)
         UIView.animate(withDuration: 0.3, animations: {
             self.alpha = 0
-            homeController.customNavBar.alpha = 1
-            self.searchResultView.alpha = 0
-            homeController.customNavBar.frame.size = CGSize(width: homeController.view.frame.width, height: homeController.view.frame.height)
+            self.searchResultView.alpha = 0            
         }, completion: nil)
     }
 }

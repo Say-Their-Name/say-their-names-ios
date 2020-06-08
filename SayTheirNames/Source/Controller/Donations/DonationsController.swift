@@ -26,6 +26,9 @@ import UIKit
 
 final class DonationsController: UIViewController {
 
+    @DependencyInject
+    private var network: NetworkRequestor
+    
     private let donationManager = DonationsCollectionViewManager()
     private let filterManager = DonationFilterViewManager()
     private let ui = DonationsView()
@@ -42,6 +45,7 @@ final class DonationsController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = Strings.donations
         configure()
     }
     
@@ -57,7 +61,6 @@ final class DonationsController: UIViewController {
             return cell
         }
         donationManager.didSelectItem = { donation in
-//            print(donation)
             
             // TODO: Move this out
             let detailVC = DonationsMoreDetailsController()
@@ -80,47 +83,15 @@ final class DonationsController: UIViewController {
     }
     
     private func getDonations() {
-        // TODO: Remove dummy data once donations is fixed
-        let dummyDonations = Array(0 ... 10).map { index in
-            Donation(
-                id: index,
-                title: "Black Lives Matter Resources",
-                description: "Following the tragic news surrounding the murder of George Floyd by Minneapolis police officers...",
-                link: "",
-                person: Person.init(
-                    id: index,
-                    fullName: "",
-                    doi: Date(),
-                    childrenCount: "",
-                    age: "",
-                    city: "",
-                    country: "",
-                    bio: "",
-                    context: "",
-                    images: [],
-                    donations: DonationsResponsePage(),
-                    petitions: PetitionsResponsePage(),
-                    media: [],
-                    socialMedia: []
-                ),
-                type: DonationType(
-                    id: "",
-                    type: ""
-                )
-            )
+        network.fetchDonations { [weak self] result in
+            switch result {
+            case .success(let response):
+                let donations = response.all
+                self?.donationManager.set(donations)
+
+            case .failure(let error):
+                print(error)
+            }
         }
-        donationManager.set(dummyDonations)
-        
-        // TODO: uncomment once `fetchDonations` is fixed
-//        service.network.fetchDonations { [weak self] result in
-//            switch result {
-//            case .success(let response):
-//                let donations = response.all
-//                self?.donationManager.set(donations)
-//
-//            case .failure(let error):
-//                print(error)
-//            }
-//        }
     }
 }

@@ -26,73 +26,63 @@ import UIKit
 
 /// Controller responsible for showing the petitions
 final class PetitionsController: UIViewController {
-    init() {
+
+    @DependencyInject
+    private var network: NetworkRequestor
+    
+    private let petitionsManager = PetitionsCollectionViewManager()
+    private let ui = PetitionsView()
+
+    required init() {
         super.init(nibName: nil, bundle: nil)
     }
-        
-    private lazy var petitionsView = PetitionsView()
-    private var petitionsTableView: UITableView { petitionsView.tableView }
-
-    private lazy var dataSource: PetitionsTableViewDataSource = {
-        
-        let dataSource = PetitionsTableViewDataSource()
-        dataSource.configure(tableView: petitionsTableView)
-        
-        dataSource.findOutMoreAction = { [weak self] petition in
-            
-            self?.showDetailViewController(for: petition)
-        }
-        return dataSource
-    }()
-        
-    required init?(coder: NSCoder) { fatalError("This should not be called") }
-
+    
+    required init?(coder: NSCoder) {  fatalError("init(coder:) has not been implemented") }
+    
     override func loadView() {
-        self.view = petitionsView
+        view = ui
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        petitionsTableView.delegate = self
-        
-        // build mock data for display now
-        // in the future, we'll get petitions from the network
-        let longTitle = "Editing the new edition of revolution"
-        let shortTitle = "Justice for George Floyd"
-        
-        let dummyPetitions = [
-            MockPetition(title: longTitle, verified: true, hasImage: true),
-            MockPetition(title: longTitle, verified: false, hasImage: false),
-            MockPetition(title: longTitle, verified: true, hasImage: true),
-            MockPetition(title: longTitle, verified: true, hasImage: false),
-            MockPetition(title: shortTitle, verified: true, hasImage: true),
-            MockPetition(title: shortTitle, verified: true, hasImage: false),
-            MockPetition(title: shortTitle, verified: false, hasImage: true),
-            MockPetition(title: shortTitle, verified: true, hasImage: false)
-        ]
-        
-        dataSource.set(petitions: dummyPetitions)
+        configure()
+        navigationItem.title = Strings.petitions
     }
         
-    private func showDetailViewController(for petition: PresentedPetition) {
-        
-        // People CollectionView
-        // let selectedPerson = peopleDataSource.fetchPerson(at: indexPath.item)
-        let detailViewController = PetitionDetailViewController(petition: petition)
-        
-        let navigationController = UINavigationController(rootViewController: detailViewController)
-        navigationController.navigationBar.isHidden = true
-        present(navigationController, animated: true, completion: nil)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        getPetitions()
     }
-}
-
-// MARK: - UITableViewDelegate
-extension PetitionsController: UITableViewDelegate {
     
-    func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
-        // there's no real selected state in this design,
-        // we simply show another view controller when the find out more button is tapped
-        false
+    private func configure() {
+        petitionsManager.cellForItem = { (collectionView, indexPath, donation) in
+            let cell: CallToActionCell = collectionView.dequeueCell(for: indexPath)
+            cell.configure(with: donation)
+            return cell
+        }
+        petitionsManager.didSelectItem = { donation in
+            
+            // TODO: Move this out
+//            let detailVC = DonationsMoreDetailsController()
+//            detailVC.donation = donation
+//            let navigationController = UINavigationController(rootViewController: detailVC)
+//
+//            self.present(navigationController, animated: true, completion: nil)
+        }
+        ui.bindPetitionManager(petitionsManager)
+    }
+    
+    private func getPetitions() {
+        
+        network.fetchPetitions { [weak self] result in
+            switch result {
+            case .success(let response):
+                let petitions = response.all
+                self?.petitionsManager.set(petitions)
+
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
 }

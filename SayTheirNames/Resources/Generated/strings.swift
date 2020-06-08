@@ -41,7 +41,7 @@ internal enum L10n {
   internal static let search = L10n.tr("Localizable", "search")
   /// Share
   internal static let share = L10n.tr("Localizable", "share")
-  /// verfied
+  /// verified
   internal static let verified = L10n.tr("Localizable", "verified")
 
   internal enum Person {

@@ -1,5 +1,5 @@
 //
-//  PetitionsTableViewDataSource.swift
+//  PetitionsCollectionViewManager.swift
 //  Say Their Names
 //
 //  Copyright (c) 2020 Say Their Names Team (https://github.com/Say-Their-Name)
@@ -24,41 +24,15 @@
 
 import UIKit
 
-final class PetitionsTableViewDataSource: NSObject {
-
-    var findOutMoreAction: (PresentedPetition) -> Void = { _ in }
+final class PetitionsCollectionViewManager: CollectionViewManager<SingleSection, Petition> {
     
-    private(set) var petitions: [PresentedPetition] = []
-    private(set) var tableView: UITableView?
-    
-    func set(petitions: [PresentedPetition]) {
-        self.petitions = petitions
-        tableView?.reloadData()
-    }
-    
-    func configure(tableView: UITableView) {
-        tableView.register(cellType: PetitionTableViewCell.self)
-        tableView.dataSource = self
-        
-        self.tableView = tableView
-    }
-}
-
-// MARK: - UITableViewDataSource
-extension PetitionsTableViewDataSource: UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        petitions.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell: PetitionTableViewCell = tableView.dequeueCell(for: indexPath)
-        let petition = petitions[indexPath.item]
-        cell.configure(with: petition)
-        cell.findOutMoreAction = { [weak self] in
-            self?.findOutMoreAction(petition)
-        }
-        return cell
+    override func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        sizeForItemAt indexPath: IndexPath
+    ) -> CGSize {
+        let width = collectionView.bounds.width
+        let height = super.collectionView(collectionView, layout: collectionViewLayout, sizeForItemAt: indexPath).height
+        return CGSize(width: width, height: height)
     }
 }
