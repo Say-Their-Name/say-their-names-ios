@@ -273,7 +273,7 @@ extension PersonController: UITableViewDataSource {
             let newsCell = cell as! PersonMediaTableViewCell
             newsCell.cellDelegate = self
             newsCell.registerCell(with: PersonMediaCollectionViewCell.self, type: PersonNewsCellType.medias)
-            newsCell.updateCellWithNews(news)
+            newsCell.updateCellWithMedias(news)
             return cell
         case .hashtags:
             let hashtagsCell = cell as! PersonHashtagTableViewCell

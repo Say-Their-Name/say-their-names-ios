@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import LinkPresentation
 
 class PersonNewsCollectionViewCell: UICollectionViewCell {
- 
+     
     static var reuseIdentifier: String {
         return "\(Self.self)"
     }
@@ -89,5 +90,13 @@ class PersonNewsCollectionViewCell: UICollectionViewCell {
             sourceInfoLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
             sourceInfoLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0),
         ])
+    }
+    
+    func configure(with url: URL) {
+        self.newsImageView.sd_setImage(with: url, placeholderImage: UIImage(named: "image-placeholder")) { image, error, type, url in
+            if let image = image, let extendedObject = image.sd_extendedObject as? LPLinkMetadata {
+                self.sourceInfoLabel.text = extendedObject.title
+            }
+        }
     }
 }

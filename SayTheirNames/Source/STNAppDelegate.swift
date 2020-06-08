@@ -23,6 +23,8 @@
 //  THE SOFTWARE.
 
 import UIKit
+import SDWebImage
+import SDWebImageLinkPlugin
 
 public func exceptionHandler(exception: NSException) {
     Log.print("\n\n------------------- EXCEPTION -------------------\n")
@@ -36,6 +38,10 @@ class STNAppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         NSSetUncaughtExceptionHandler(exceptionHandler)
+        
+        // Setup SDWebImage Plugins
+        SDImageLoadersManager.shared.addLoader(SDImageLinkLoader.shared)
+        SDWebImageManager.defaultImageLoader = SDImageLoadersManager.shared
         
         return true
     }

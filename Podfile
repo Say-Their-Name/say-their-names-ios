@@ -9,6 +9,7 @@ target 'SayTheirNames' do
   pod 'SwiftGen', '~> 6.0'
   pod 'SwiftLint', '~> 0.39.2'
   pod 'SDWebImage', '~> 5.0'
+  pod 'SDWebImageLinkPlugin', '~> 0.3'
   pod 'Alamofire', '~> 5.2'
 
   target 'SayTheirNamesTests' do

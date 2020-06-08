@@ -51,6 +51,8 @@ class PersonNewsTableViewCell: UITableViewCell {
         return "\(Self.self)"
     }
     
+    private var identifier: String = "PersonNewsCollectionViewCell"
+
     lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.text = "NEWS"
@@ -122,7 +124,13 @@ class PersonNewsTableViewCell: UITableViewCell {
         cellType = type
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.register(cellType: cell)
+        
+        switch type {
+        case .medias:
+            collectionView.register(PersonMediaCollectionViewCell.self, forCellWithReuseIdentifier: PersonMediaCollectionViewCell.reuseIdentifier)
+        case .news:
+            collectionView.register(PersonNewsCollectionViewCell.self, forCellWithReuseIdentifier: PersonNewsCollectionViewCell.reuseIdentifier)
+        }
         updateCellViews()
     }
 }
@@ -150,8 +158,15 @@ extension PersonNewsTableViewCell: UICollectionViewDelegate, UICollectionViewDat
     
     // Set the data for each cell (color and color name)
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellType.identifier, for: indexPath)
-        return cell
+        switch cellType {
+        case .medias:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PersonMediaCollectionViewCell.reuseIdentifier, for: indexPath) as! PersonMediaCollectionViewCell
+            return cell
+        case .news:
+            let mediaCell = collectionView.dequeueReusableCell(withReuseIdentifier: PersonNewsCollectionViewCell.reuseIdentifier, for: indexPath) as! PersonNewsCollectionViewCell
+            mediaCell.configure(with: URL(string: "https://www.bbc.com/news/world-us-canada-52960227")!)
+            return mediaCell
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView,
