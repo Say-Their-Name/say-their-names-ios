@@ -125,8 +125,7 @@ final class DonationsMoreDetailsController: UIViewController {
         // TODO: Once Theme.swift/etc gets added this may not be required
         navigationController?.navigationBar.titleTextAttributes = self.navigationBarTextAttributes
         
-        // TODO: Localization
-        self.title = "Say Their Names".uppercased()
+        self.title = L10n.sayTheirNames.uppercased()
         self.navigationController?.navigationBar.titleTextAttributes =
         [NSAttributedString.Key.foregroundColor: UIColor.white,
          NSAttributedString.Key.font: UIFont(name: "Karla-Regular", size: 19) ?? UIFont.systemFont(ofSize: 17)]

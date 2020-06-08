@@ -19,6 +19,10 @@ internal enum L10n {
   internal static let cancel = L10n.tr("Localizable", "cancel")
   /// Close
   internal static let close = L10n.tr("Localizable", "close")
+  /// Description
+  internal static let description = L10n.tr("Localizable", "description")
+  /// Donate
+  internal static let donate = L10n.tr("Localizable", "donate")
   /// Donations
   internal static let donations = L10n.tr("Localizable", "donations")
   /// ALL
