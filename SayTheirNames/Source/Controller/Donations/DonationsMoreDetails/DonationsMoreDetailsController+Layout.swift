@@ -68,7 +68,7 @@ extension DonationsMoreDetailsController {
                 
                 return section
                 
-            // Description and outcome section layout
+            // Description section layout
             case DonationSectionLayoutKind.description.rawValue:
                 // Item
                 let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(200.0))
@@ -77,7 +77,7 @@ extension DonationsMoreDetailsController {
                 // Group
                 let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: itemSize.heightDimension)
                 let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 1)
-
+                
                 // Section
                 let section = NSCollectionLayoutSection(group: group)
                 section.contentInsets = NSDirectionalEdgeInsets(top: 0.0, leading: horizontalPadding, bottom: 0.0, trailing: horizontalPadding)
@@ -88,7 +88,36 @@ extension DonationsMoreDetailsController {
                     NSCollectionLayoutBoundarySupplementaryItem(layoutSize: titleViewSize,
                                                                 elementKind: DonationsMoreDetailsController.sectionTitleSupplementaryView,
                                                                 alignment: .top)
-
+                
+                section.boundarySupplementaryItems = [titleView]
+                
+                return section
+                
+            // Outcome section layout
+            case DonationSectionLayoutKind.outcome.rawValue:
+                // Item
+                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                                      heightDimension: FeatureFlags.dmdOutcomeSectionEnabled ?
+                                                        .estimated(200.0) : .absolute(0.1))
+                let item = NSCollectionLayoutItem(layoutSize: itemSize)
+                
+                // Group
+                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: itemSize.heightDimension)
+                let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 1)
+                
+                // Section
+                let section = NSCollectionLayoutSection(group: group)
+                section.contentInsets = NSDirectionalEdgeInsets(top: 0.0, leading: horizontalPadding, bottom: 0.0, trailing: horizontalPadding)
+                
+                // Supplementary
+                let titleViewSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                                           heightDimension: FeatureFlags.dmdOutcomeSectionEnabled ?
+                                                            .estimated(22.5) : .absolute(0.1))
+                let titleView =
+                    NSCollectionLayoutBoundarySupplementaryItem(layoutSize: titleViewSize,
+                                                                elementKind: DonationsMoreDetailsController.sectionTitleSupplementaryView,
+                                                                alignment: .top)
+                
                 section.boundarySupplementaryItems = [titleView]
                 
                 return section
