@@ -40,18 +40,19 @@ struct Person: Decodable {
     let petitions: [Petition]
     let media: [Media]
     let socialMedia: [SocialMedia]
+    let hashtag: [Hashtag]
 
     private enum CodingKeys: String, CodingKey {
         case id, fullName = "full_name", identifier, dob = "date_of_birth", doi = "date_of_incident", childrenCount = "number_of_children",
         age, city, country, bio, context, images, donations = "donation_links", petitions = "petition_links", media = "media_links",
-        socialMedia = "social_media"
+        socialMedia = "social_media", hashtag = "hash_tags"
     }
     
     init(id: Int, fullName: String, identifier: String,
          doi: Date, childrenCount: String, age: String,
          city: String, country: String, bio: String,
          context: String, images: [Image], donations: [Donation],
-         petitions: [Petition], media: [Media], socialMedia: [SocialMedia]
+         petitions: [Petition], media: [Media], socialMedia: [SocialMedia], hashtag: [Hashtag]
     ) {
         self.id = id
         self.fullName = fullName
@@ -68,6 +69,7 @@ struct Person: Decodable {
         self.petitions = petitions
         self.media = media
         self.socialMedia = socialMedia
+        self.hashtag = hashtag
     }
     
     init(from decoder: Decoder) throws {
@@ -88,6 +90,7 @@ struct Person: Decodable {
         self.petitions = try container.decodeIfPresent([Petition].self, forKey: .petitions) ?? []
         self.media = try container.decodeIfPresent([Media].self, forKey: .media) ?? []
         self.socialMedia = try container.decodeIfPresent([SocialMedia].self, forKey: .socialMedia) ?? []
+        self.hashtag = try container.decodeIfPresent([Hashtag].self, forKey: .hashtag) ?? []
 
         let doi = try container.decodeIfPresent(TimeInterval.self, forKey: .doi) ?? 0
         self.doi = Date(timeIntervalSince1970: doi)

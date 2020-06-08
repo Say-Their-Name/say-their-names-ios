@@ -1,5 +1,5 @@
 //
-//  PersonHashtagCollectionViewCell.swift
+//  Media.swift
 //  SayTheirNames
 //
 //  Copyright (c) 2020 Say Their Names Team (https://github.com/Say-Their-Name)
@@ -22,30 +22,13 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-import UIKit
+import Foundation
 
-class PersonHashtagCollectionViewCell: UICollectionViewCell {
-    
-    static var reuseIdentifier: String {
-        return "\(Self.self)"
-    }
-    
-    let hashtagView = HashtagView(frame: .zero)
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setupLayout()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    private func setupLayout() {
-        hashtagView.fillSuperview(superView: self)
-    }
-    
-    public func updateHashtag(_ hashtag: Hashtag) {
-        hashtagView.hashtagLabel.text = hashtag.tag.uppercased()
+public struct Hashtag: Decodable {
+    let tag: String
+    let link: String
+
+    private enum CodingKeys: String, CodingKey {
+        case tag, link
     }
 }
