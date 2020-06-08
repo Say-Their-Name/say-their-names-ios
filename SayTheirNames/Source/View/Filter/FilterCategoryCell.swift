@@ -33,8 +33,8 @@ final class FilterCategoryCell: UICollectionViewCell {
     
     override var isSelected: Bool {
         didSet {
-            backgroundColor = isSelected ? UIColor(asset: STNAsset.Color.black) : .clear
-            titleLabel.textColor = isSelected ? UIColor(asset: STNAsset.Color.white) : UIColor(asset: STNAsset.Color.black)
+            backgroundColor = isSelected ? UIColor(asset: STNAsset.Color.actionButton) : .clear
+            titleLabel.textColor = isSelected ? UIColor(asset: STNAsset.Color.actionButtonTint) : UIColor(asset: STNAsset.Color.strongHeader)
         }
     }
     
