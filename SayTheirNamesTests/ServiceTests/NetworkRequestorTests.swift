@@ -52,8 +52,8 @@ final class NetworkRequestorTests: XCTestCase {
     func test_fetchDecodable_returnsObject() {
         guard let url = URL(string: Environment.serverURLString),
             let mockString = "{\"data\":\"Testing\"}".data(using: .utf8) else {
-            XCTFail("Could not complete test setup.")
-            return
+                XCTFail("Could not complete test setup.")
+                return
         }
         Mock(url: url, dataType: .json, statusCode: 200, data: [.get: mockString]).register()
 
@@ -81,8 +81,15 @@ final class NetworkRequestorTests: XCTestCase {
         let requestExpectation = expectation(description: "Request should return")
         sut.fetchDecodable(url.absoluteString) { (result: Result<TestObject, Swift.Error>) in
             switch result {
-            case .failure:
-                requestExpectation.fulfill()
+            case .failure(let error as AFError):
+                switch error {
+                case .responseSerializationFailed(reason: .inputDataNilOrZeroLength):
+                    
+                    requestExpectation.fulfill()
+
+                default:
+                    XCTFail("Expected a decoding failure")
+                }
             default:
                 XCTFail("Expected a decoding failure")
             }
