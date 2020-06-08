@@ -24,7 +24,7 @@
 
 import UIKit
 
-class AboutController: UIViewController {
+class MoreController: UIViewController {
 
     required init() {
         super.init(nibName: nil, bundle: nil)
@@ -34,8 +34,8 @@ class AboutController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let about = AboutView(frame: self.view.frame)
-        self.view.addSubview(about)
+        let moreView = MoreView(frame: self.view.frame)
+        self.view.addSubview(moreView)
         navigationItem.title = Strings.more
     }
 

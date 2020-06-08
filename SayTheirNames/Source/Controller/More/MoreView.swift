@@ -24,8 +24,8 @@
 
 import UIKit
 
-/// The UI for About
-final class AboutView: UIView {
+/// The UI for More
+final class MoreView: UIView {
     
     private lazy var aboutCard: UIView = {
         let logo = UIImageView(image: UIImage(named: "logo"))
@@ -96,10 +96,6 @@ final class AboutView: UIView {
     
     /// Adds and configures constraints for subviews
     private func setupSubviews() {
-        setupStackView()
-    }
-    
-    private func setupStackView() {
         // content
         let contentView = UIStackView(
             arrangedSubviews:
@@ -133,7 +129,8 @@ final class AboutView: UIView {
 }
 
 // MARK: - Configurations
-private extension AboutView {
+private extension MoreView {
+    
     static let contentPadding: CGFloat = 40
     static let sectionPadding: CGFloat = 8
     static let descriptionNumOfLines: Int = 5
