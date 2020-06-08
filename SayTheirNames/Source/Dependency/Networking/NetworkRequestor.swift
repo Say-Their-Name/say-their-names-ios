@@ -60,10 +60,3 @@ final class NetworkRequestor: Dependency {
         }
     }
 }
-
-// MARK: - AFError + swiftError
-extension AFError {
-    var swiftError: Error {
-        return self as Swift.Error
-    }
-}
