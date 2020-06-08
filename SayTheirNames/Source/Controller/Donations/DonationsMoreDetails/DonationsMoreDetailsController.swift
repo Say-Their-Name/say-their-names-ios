@@ -70,7 +70,7 @@ final class DonationsMoreDetailsController: UIViewController {
     
     lazy var backgroundFistImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(asset: STNImage.stnLogoWhite)
+        imageView.image = UIImage(asset: STNAsset.Image.stnLogoWhite)
         imageView.contentMode = .scaleAspectFit
         imageView.clipsToBounds = true
         return imageView
@@ -131,13 +131,13 @@ final class DonationsMoreDetailsController: UIViewController {
          NSAttributedString.Key.font: UIFont(name: "Karla-Regular", size: 19) ?? UIFont.systemFont(ofSize: 17)]
 
         let dismissButton = UIButton(type: .system)
-        dismissButton.setImage(UIImage(asset: STNImage.close)?.withRenderingMode(.alwaysOriginal), for: .normal)
+        dismissButton.setImage(UIImage(asset: STNAsset.Image.close)?.withRenderingMode(.alwaysOriginal), for: .normal)
         dismissButton.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
         dismissButton.addTarget(self, action: #selector(dismissAction(_:)), for: .touchUpInside)
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: dismissButton)
         
         let shareButton = UIButton(type: .system)
-        shareButton.setImage(UIImage(asset: STNImage.shareWhite)?.withRenderingMode(.alwaysOriginal), for: .normal)
+        shareButton.setImage(UIImage(asset: STNAsset.Image.shareWhite)?.withRenderingMode(.alwaysOriginal), for: .normal)
         shareButton.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
         shareButton.addTarget(self, action: #selector(shareAction(_:)), for: .touchUpInside)
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: shareButton)

@@ -34,7 +34,7 @@ final class CallToActionCell: UICollectionViewCell {
         $0.clipsToBounds = true
         
         // TODO: set proper placeholder
-        $0.image = UIImage(asset: STNImage.mediaImage2)
+        $0.image = UIImage(asset: STNAsset.Image.mediaImage2)
     }
     
     private lazy var tagView = TagView.create {

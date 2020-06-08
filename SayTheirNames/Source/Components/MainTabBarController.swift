@@ -100,19 +100,19 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         let aboutController = AboutController()
         let aboutNC = UINavigationController(rootViewController: aboutController)
                                     
-        homeNC.tabBarItem.image = UIImage(asset: STNImage.gallery)
+        homeNC.tabBarItem.image = UIImage(asset: STNAsset.Image.gallery)
         homeNC.tabBarItem.title = Strings.home
                 
-        donationsNC.tabBarItem.image = UIImage(asset: STNImage.heart)
-        donationsNC.tabBarItem.selectedImage = UIImage(asset: STNImage.heartActive)
+        donationsNC.tabBarItem.image = UIImage(asset: STNAsset.Image.heart)
+        donationsNC.tabBarItem.selectedImage = UIImage(asset: STNAsset.Image.heartActive)
         donationsNC.tabBarItem.title = Strings.donations
                        
-        petitionsNC.tabBarItem.image = UIImage(asset: STNImage.petition)
-        petitionsNC.tabBarItem.selectedImage = UIImage(asset: STNImage.petitionActive)
+        petitionsNC.tabBarItem.image = UIImage(asset: STNAsset.Image.petition)
+        petitionsNC.tabBarItem.selectedImage = UIImage(asset: STNAsset.Image.petitionActive)
         petitionsNC.tabBarItem.title = Strings.petitions
                 
-        aboutNC.tabBarItem.image = UIImage(asset: STNImage.settings)
-        aboutNC.tabBarItem.selectedImage = UIImage(asset: STNImage.settingsActive)
+        aboutNC.tabBarItem.image = UIImage(asset: STNAsset.Image.settings)
+        aboutNC.tabBarItem.selectedImage = UIImage(asset: STNAsset.Image.settingsActive)
         aboutNC.tabBarItem.title = Strings.about
         
         viewControllers = [homeNC, donationsNC, petitionsNC, aboutNC]

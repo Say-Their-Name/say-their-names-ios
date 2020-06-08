@@ -31,7 +31,7 @@ final class PersonCell: UICollectionViewCell {
     
     private lazy var profileImageView: UIImageView = {
         let imgV = UIImageView()
-        imgV.image = UIImage(asset: STNImage.manInRedJacket)
+        imgV.image = UIImage(asset: STNAsset.Image.manInRedJacket)
         imgV.contentMode = .scaleAspectFill
         imgV.clipsToBounds = true
         imgV.setContentHuggingPriority(.defaultLow, for: .vertical)
@@ -63,7 +63,7 @@ final class PersonCell: UICollectionViewCell {
     }()
     
     private lazy var bookmarkButton: UIButton = {
-        let bookmarkImage = UIImage(asset: STNImage.bookmark)
+        let bookmarkImage = UIImage(asset: STNAsset.Image.bookmark)
         let btn = UIButton(image: bookmarkImage)
         btn.contentMode = .scaleAspectFill
         btn.setContentHuggingPriority(.defaultHigh, for: .horizontal)
