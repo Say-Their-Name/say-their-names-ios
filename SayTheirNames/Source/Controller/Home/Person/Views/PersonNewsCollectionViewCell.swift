@@ -93,7 +93,8 @@ class PersonNewsCollectionViewCell: UICollectionViewCell {
     }
     
     func configure(with url: URL) {
-        self.newsImageView.sd_setImage(with: url, placeholderImage: UIImage(named: "image-placeholder")) { image, error, type, url in
+        self.newsImageView.sd_setImage(with: url,
+                                       placeholderImage: UIImage(named: "image-placeholder")) { image, _, _, _ in
             if let image = image, let extendedObject = image.sd_extendedObject as? LPLinkMetadata {
                 self.sourceInfoLabel.text = extendedObject.title
             }

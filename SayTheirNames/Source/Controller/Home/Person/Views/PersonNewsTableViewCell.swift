@@ -160,11 +160,16 @@ extension PersonNewsTableViewCell: UICollectionViewDelegate, UICollectionViewDat
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch cellType {
         case .medias:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PersonMediaCollectionViewCell.reuseIdentifier, for: indexPath) as! PersonMediaCollectionViewCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PersonMediaCollectionViewCell.reuseIdentifier,
+                                                          for: indexPath) as! PersonMediaCollectionViewCell
             return cell
         case .news:
-            let mediaCell = collectionView.dequeueReusableCell(withReuseIdentifier: PersonNewsCollectionViewCell.reuseIdentifier, for: indexPath) as! PersonNewsCollectionViewCell
-            mediaCell.configure(with: URL(string: "https://www.bbc.com/news/world-us-canada-52960227")!)
+            let mediaCell = collectionView.dequeueReusableCell(withReuseIdentifier: PersonNewsCollectionViewCell.reuseIdentifier,
+                                                               for: indexPath) as! PersonNewsCollectionViewCell
+            if let url = URL(string: "https://www.bbc.com/news/world-us-canada-52960227") {
+                mediaCell.configure(with: url)
+            }
+            
             return mediaCell
         }
     }
