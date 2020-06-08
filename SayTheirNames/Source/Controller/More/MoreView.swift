@@ -31,7 +31,7 @@ final class MoreView: UIView {
         let logo = UIImageView(image: UIImage(named: "logo"))
         let label = UILabel()
         label.text = "SAY THEIR NAME"
-        label.textColor = .white
+        label.textColor = UIColor.STN.white
         label.font = UIFont.STN.bannerTitle
         label.adjustsFontSizeToFitWidth = true
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -47,7 +47,7 @@ final class MoreView: UIView {
         hashTag.font = UIFont.systemFont(ofSize: 15, weight: .regular)
         hashTag.textColor = .white
         hashTag.adjustsFontSizeToFitWidth = true
-        hashTag.numberOfLines = 1
+        hashTag.numberOfLines = Theme.Components.LineLimit.single
         hashTag.translatesAutoresizingMaskIntoConstraints = false
         
         let vStack = UIStackView(arrangedSubviews: [header, hashTag])
@@ -74,29 +74,23 @@ final class MoreView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = UIColor.STN.primaryLabel
         label.font = UIFont.STN.ctaTitle
-        label.numberOfLines = 2
+        label.numberOfLines = Theme.Components.LineLimit.double
         label.text = Strings.massiveThankYou
         return label
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setupSelf()
+        backgroundColor = UIColor.STN.white
+        setupSubviews()
     }
     
     required init?(coder: NSCoder) {
         fatalError()
     }
     
-    /// Configures properties for the view itself
-    private func setupSelf() {
-        backgroundColor = .systemBackground
-        setupSubviews()
-    }
-    
-    /// Adds and configures constraints for subviews
+    /// Configures constraints for subviews
     private func setupSubviews() {
-        // content
         let contentView = UIStackView(
             arrangedSubviews:
             [aboutCard,
@@ -104,8 +98,9 @@ final class MoreView: UIView {
              developerSection(),
              designerSection(),
              thankYouLabel])
+
         contentView.axis = .vertical
-        contentView.spacing = Self.contentPadding
+        contentView.spacing = Theme.Components.Padding.extraLarge
         contentView.translatesAutoresizingMaskIntoConstraints = false
         
         // scroll view
@@ -130,15 +125,11 @@ final class MoreView: UIView {
 
 // MARK: - Configurations
 private extension MoreView {
-    
-    static let contentPadding: CGFloat = 40
-    static let sectionPadding: CGFloat = 8
-    static let descriptionNumOfLines: Int = 5
-    
+        
     private func historySection() -> UIStackView {
         let stackCard = UIStackView(arrangedSubviews: [titleLabel(.history), descriptionLable(.history)])
         stackCard.axis = .vertical
-        stackCard.spacing = 8
+        stackCard.spacing = Theme.Components.Padding.small
         stackCard.translatesAutoresizingMaskIntoConstraints = false
         
         return stackCard
@@ -147,7 +138,7 @@ private extension MoreView {
     private func developerSection() -> UIStackView {
         let stackCard = UIStackView(arrangedSubviews: [titleLabel(.developer), descriptionLable(.developer), actionButton(.developer)])
         stackCard.axis = .vertical
-        stackCard.spacing = Self.sectionPadding
+        stackCard.spacing = Theme.Components.Padding.small
         stackCard.translatesAutoresizingMaskIntoConstraints = false
         
         return stackCard
@@ -156,7 +147,7 @@ private extension MoreView {
     private func designerSection() -> UIStackView {
         let stackCard = UIStackView(arrangedSubviews: [titleLabel(.designer), descriptionLable(.designer), actionButton(.designer)])
         stackCard.axis = .vertical
-        stackCard.spacing = Self.sectionPadding
+        stackCard.spacing = Theme.Components.Padding.small
         stackCard.translatesAutoresizingMaskIntoConstraints = false
         
         return stackCard
@@ -168,7 +159,7 @@ private extension MoreView {
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.textColor = UIColor.STN.primaryLabel
         titleLabel.font = UIFont.STN.ctaTitle
-        titleLabel.numberOfLines = 2
+        titleLabel.numberOfLines = Theme.Components.LineLimit.double
         
         switch section {
         case .history:
@@ -187,7 +178,7 @@ private extension MoreView {
         bodyLabel.translatesAutoresizingMaskIntoConstraints = false
         bodyLabel.textColor = UIColor.STN.primaryLabel
         bodyLabel.font = UIFont.STN.ctaBody
-        bodyLabel.numberOfLines = Self.descriptionNumOfLines
+        bodyLabel.numberOfLines = Theme.Components.LineLimit.quintuple
         
         switch section {
         case .history:
@@ -208,7 +199,7 @@ private extension MoreView {
         actionButton.titleLabel?.font = UIFont.STN.sectionHeader
         actionButton.layer.borderWidth = 2
         actionButton.tintColor = UIColor.STN.actionButton
-        actionButton.setTitleColor(.white, for: .normal)
+        actionButton.setTitleColor(UIColor.STN.white, for: .normal)
         actionButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
         switch section {

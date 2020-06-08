@@ -39,6 +39,15 @@ enum Theme {
             static let big: CGFloat = 48
         }
         
+        // MARK: Line limit 
+        enum LineLimit {
+            static let single: Int = 1
+            static let double: Int = 2
+            static let triple: Int = 3
+            static let quadruple: Int = 4
+            static let quintuple: Int = 5
+        }
+        
         // MARK: - Button
         enum Button {
             enum Size {
