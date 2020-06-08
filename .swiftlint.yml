@@ -35,3 +35,10 @@ excluded:
   - Vendors
   - Frameworks
   - Fastlane
+  
+custom_rules:
+  swiftgen_assets:
+    name: "SwiftGen Image Assets"
+    regex: '(UIImage)(\.init)?\(named: ?"?.+"?(, ?in:.+?, ?compatibleWith:.+?)?\)|#imageLiteral\(resourceName: ?".+"\)'
+    message: "Use STNImage.<asset> instead"
+    severity: error
