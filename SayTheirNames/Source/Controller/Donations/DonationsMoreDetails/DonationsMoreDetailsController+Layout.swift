@@ -69,7 +69,7 @@ extension DonationsMoreDetailsController {
                 return section
                 
             // Description and outcome section layout
-            case DonationSectionLayoutKind.description.rawValue, DonationSectionLayoutKind.outcome.rawValue:
+            case DonationSectionLayoutKind.description.rawValue:
                 // Item
                 let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(200.0))
                 let item = NSCollectionLayoutItem(layoutSize: itemSize)

@@ -64,18 +64,6 @@ extension DonationsMoreDetailsController: UICollectionViewDataSource {
             textCell.setContent(text: donation.description)
             return textCell
             
-        // Outcome Section
-        case DonationSectionLayoutKind.outcome.rawValue:
-            guard let textCell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: DMDTextContentCell.reuseIdentifier,
-                for: indexPath) as? DMDTextContentCell else {
-                    fatalError("Cannot create new cell")
-            }
-            
-            // Configure cell
-//            textCell.setContent(text: donation.outcome)
-            return textCell
-        
         // Social Media Hashtags Section
         case DonationSectionLayoutKind.socialMedia.rawValue:
             guard let hashtagCell = collectionView.dequeueReusableCell(
@@ -130,8 +118,6 @@ extension DonationsMoreDetailsController: UICollectionViewDataSource {
                 switch indexPath.section {
                 case DonationSectionLayoutKind.description.rawValue:
                     titleView.setTitle(text: "description".uppercased())
-                case DonationSectionLayoutKind.outcome.rawValue:
-                    titleView.setTitle(text: "outcome".uppercased())
                 case DonationSectionLayoutKind.socialMedia.rawValue:
                     titleView.setTitle(text: "social media hashtags".uppercased())
                 default:
