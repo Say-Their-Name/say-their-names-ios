@@ -126,6 +126,7 @@
 		A9B9056D248B4EA300F9EEFA /* URLComponents+STN.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B9056C248B4EA300F9EEFA /* URLComponents+STN.swift */; };
 		A9B9056F248C90FB00F9EEFA /* UIApplication+STN.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B9056E248C90FB00F9EEFA /* UIApplication+STN.swift */; };
 		B3168337248C3BF400C03DEB /* UIButton++.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3168336248C3BF400C03DEB /* UIButton++.swift */; };
+		B336C6D6248E4BBA00A1AECB /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B336C6D5248E4BBA00A1AECB /* HomeViewModel.swift */; };
 		B386F9552482FB540037A38D /* UIFontSTNTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B386F9542482FB540037A38D /* UIFontSTNTests.swift */; };
 		B386F958248526C70037A38D /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = B386F957248526C70037A38D /* Location.swift */; };
 		B3D6B6A92486EE3300D3118C /* DependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B07B724846B0C00DB803C /* DependencyContainer.swift */; };
@@ -313,6 +314,7 @@
 		A9B9056C248B4EA300F9EEFA /* URLComponents+STN.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URLComponents+STN.swift"; sourceTree = "<group>"; };
 		A9B9056E248C90FB00F9EEFA /* UIApplication+STN.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+STN.swift"; sourceTree = "<group>"; };
 		B3168336248C3BF400C03DEB /* UIButton++.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton++.swift"; sourceTree = "<group>"; };
+		B336C6D5248E4BBA00A1AECB /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		B386F9542482FB540037A38D /* UIFontSTNTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontSTNTests.swift; sourceTree = "<group>"; };
 		B386F957248526C70037A38D /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		B3D6B6AE2487E10100D3118C /* Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
@@ -727,6 +729,7 @@
 			children = (
 				5D456A3924870C9F009FAD34 /* CollectionViewDataSource */,
 				A91B077324835CF700DB803C /* HomeController.swift */,
+				B336C6D5248E4BBA00A1AECB /* HomeViewModel.swift */,
 				7C47A93424873F1200B8D3BE /* HomeView.swift */,
 				A91B077424835CF700DB803C /* Person */,
 			);
@@ -1291,6 +1294,7 @@
 				A91B07B324835CF700DB803C /* SceneDelegate.swift in Sources */,
 				9E920260248C2A080007AFCE /* CallToActionCollectionView.swift in Sources */,
 				A91B079524835CF700DB803C /* UIColor+Resource.swift in Sources */,
+				B336C6D6248E4BBA00A1AECB /* HomeViewModel.swift in Sources */,
 				D787FC9B248A71A3001FC6FF /* ImageWithBlurView.swift in Sources */,
 				1897247B248D766F00836B62 /* FeatureFlags.swift in Sources */,
 				9E7DBAF9248481FC00635A56 /* Operation++.swift in Sources */,
