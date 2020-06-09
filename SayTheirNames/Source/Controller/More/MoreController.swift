@@ -1,5 +1,5 @@
 //
-//  AboutController.swift
+//  MoreController.swift
 //  SayTheirNames
 //
 //  Copyright (c) 2020 Say Their Names Team (https://github.com/Say-Their-Name)
@@ -25,6 +25,8 @@
 import UIKit
 
 class MoreController: UIViewController {
+    
+    private let moreView = MoreView()
 
     required init() {
         super.init(nibName: nil, bundle: nil)
@@ -32,10 +34,12 @@ class MoreController: UIViewController {
     
     required init?(coder: NSCoder) { fatalError("This should not be called") }
     
+    override func loadView() {
+        view = moreView
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        let moreView = MoreView(frame: self.view.frame)
-        self.view.addSubview(moreView)
         navigationItem.title = Strings.more
     }
 

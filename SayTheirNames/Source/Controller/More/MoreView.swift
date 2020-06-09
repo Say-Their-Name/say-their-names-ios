@@ -27,48 +27,7 @@ import UIKit
 /// The UI for More
 final class MoreView: UIView {
     
-    private lazy var aboutCard: UIView = {
-        let logo = UIImageView(image: UIImage(named: "logo"))
-        
-        let label = UILabel()
-        label.text = "SAY THEIR NAME"
-        label.textColor = UIColor.STN.white
-        label.font = UIFont.STN.bannerTitle
-        label.adjustsFontSizeToFitWidth = true
-        label.translatesAutoresizingMaskIntoConstraints = false
-        
-        let header = UIStackView(arrangedSubviews: [logo, label])
-        header.axis = .horizontal
-        header.alignment = .center
-        header.spacing = 8
-        header.translatesAutoresizingMaskIntoConstraints = false
-        
-        let hashTag = UILabel()
-        hashTag.text = "#BLACKLIVESMATTER"
-        hashTag.font = UIFont.systemFont(ofSize: 15, weight: .regular)
-        hashTag.textColor = .white
-        hashTag.adjustsFontSizeToFitWidth = true
-        hashTag.numberOfLines = Theme.Components.LineLimit.single
-        hashTag.translatesAutoresizingMaskIntoConstraints = false
-        
-        let vStack = UIStackView(arrangedSubviews: [header, hashTag])
-        vStack.axis = .vertical
-        vStack.alignment = .center
-        vStack.spacing = 10
-        vStack.translatesAutoresizingMaskIntoConstraints = false
-        
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFill
-        imageView.backgroundColor = .black
-        imageView.addSubview(vStack)
-        
-        NSLayoutConstraint.activate([
-            vStack.centerXAnchor.constraint(equalTo: imageView.centerXAnchor),
-            vStack.centerYAnchor.constraint(equalTo: imageView.centerYAnchor),
-        ])
-        
-        return imageView
-    }()
+    private let moreCard = MoreCard()
     
     private lazy var thankYouLabel: UILabel = {
         let label = UILabel()
@@ -94,7 +53,7 @@ final class MoreView: UIView {
     private func setupSubviews() {
         let contentView = UIStackView(
             arrangedSubviews:
-            [aboutCard,
+            [moreCard,
              historySection(),
              developerSection(),
              designerSection(),
@@ -116,10 +75,10 @@ final class MoreView: UIView {
                            padding: UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20), size: .zero)
         
         NSLayoutConstraint.activate([
-            aboutCard.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 20),
-            aboutCard.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            aboutCard.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            aboutCard.heightAnchor.constraint(equalToConstant: 150),
+            moreCard.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 20),
+            moreCard.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            moreCard.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            moreCard.heightAnchor.constraint(equalToConstant: 150),
             thankYouLabel.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor)
         ])
     }
@@ -129,7 +88,7 @@ final class MoreView: UIView {
 private extension MoreView {
         
     private func historySection() -> UIStackView {
-        let stackCard = UIStackView(arrangedSubviews: [titleLabel(.history), descriptionLable(.history)])
+        let stackCard = UIStackView(arrangedSubviews: [titleLabel(.history), descriptionLabel(.history)])
         stackCard.axis = .vertical
         stackCard.spacing = Theme.Components.Padding.small
         stackCard.translatesAutoresizingMaskIntoConstraints = false
@@ -138,7 +97,7 @@ private extension MoreView {
     }
     
     private func developerSection() -> UIStackView {
-        let stackCard = UIStackView(arrangedSubviews: [titleLabel(.developer), descriptionLable(.developer), actionButton(.developer)])
+        let stackCard = UIStackView(arrangedSubviews: [titleLabel(.developer), descriptionLabel(.developer), actionButton(.developer)])
         stackCard.axis = .vertical
         stackCard.spacing = Theme.Components.Padding.small
         stackCard.translatesAutoresizingMaskIntoConstraints = false
@@ -147,7 +106,7 @@ private extension MoreView {
     }
     
     private func designerSection() -> UIStackView {
-        let stackCard = UIStackView(arrangedSubviews: [titleLabel(.designer), descriptionLable(.designer), actionButton(.designer)])
+        let stackCard = UIStackView(arrangedSubviews: [titleLabel(.designer), descriptionLabel(.designer), actionButton(.designer)])
         stackCard.axis = .vertical
         stackCard.spacing = Theme.Components.Padding.small
         stackCard.translatesAutoresizingMaskIntoConstraints = false
@@ -174,7 +133,7 @@ private extension MoreView {
         return titleLabel
     }
     
-    private func descriptionLable(_ section: section) -> UILabel {
+    private func descriptionLabel(_ section: section) -> UILabel {
         let bodyLabel = UILabel()
         
         bodyLabel.translatesAutoresizingMaskIntoConstraints = false
