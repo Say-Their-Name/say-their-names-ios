@@ -27,11 +27,11 @@ import UIKit
 final class MoreCard: UIView {
     
     private lazy var contentCard: UIView = {
-        let logo = UIImageView(image: UIImage(asset: STNImage.stnLogoWhite))
+        let logo = UIImageView(image: UIImage(asset: STNAsset.Image.stnLogoWhite))
         
         let label = UILabel()
         label.text = "SAY THEIR NAME"
-        label.textColor = UIColor.STN.white
+        label.textColor = STNAsset.Color.white.color
         label.font = UIFont.STN.bannerTitle
         label.adjustsFontSizeToFitWidth = true
         label.translatesAutoresizingMaskIntoConstraints = false

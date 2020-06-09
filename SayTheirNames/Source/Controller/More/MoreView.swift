@@ -32,7 +32,7 @@ final class MoreView: UIView {
     private lazy var thankYouLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = UIColor.STN.primaryLabel
+        label.textColor = STNAsset.Color.primaryLabel.color
         label.font = UIFont.STN.ctaTitle
         label.numberOfLines = Theme.Components.LineLimit.double
         label.text = Strings.massiveThankYou
@@ -41,7 +41,7 @@ final class MoreView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = UIColor.STN.white
+        backgroundColor = STNAsset.Color.white.color
         setupSubviews()
     }
     
@@ -118,7 +118,7 @@ private extension MoreView {
         let titleLabel = UILabel()
         
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.textColor = UIColor.STN.primaryLabel
+        titleLabel.textColor = STNAsset.Color.primaryLabel.color
         titleLabel.font = UIFont.STN.ctaTitle
         titleLabel.numberOfLines = Theme.Components.LineLimit.double
         
@@ -137,7 +137,7 @@ private extension MoreView {
         let bodyLabel = UILabel()
         
         bodyLabel.translatesAutoresizingMaskIntoConstraints = false
-        bodyLabel.textColor = UIColor.STN.primaryLabel
+        bodyLabel.textColor = STNAsset.Color.primaryLabel.color
         bodyLabel.font = UIFont.STN.ctaBody
         bodyLabel.numberOfLines = Theme.Components.LineLimit.quintuple
         
@@ -156,11 +156,11 @@ private extension MoreView {
     private func actionButton(_ section: section) -> UIButton {
         let actionButton = UIButton()
         actionButton.translatesAutoresizingMaskIntoConstraints = false
-        actionButton.layer.backgroundColor = UIColor.STN.actionButton.cgColor
+        actionButton.layer.backgroundColor = STNAsset.Color.actionButton.color.cgColor
         actionButton.titleLabel?.font = UIFont.STN.sectionHeader
         actionButton.layer.borderWidth = 2
-        actionButton.tintColor = UIColor.STN.actionButton
-        actionButton.setTitleColor(UIColor.STN.white, for: .normal)
+        actionButton.tintColor = STNAsset.Color.actionButton.color
+        actionButton.setTitleColor(STNAsset.Color.white.color, for: .normal)
         actionButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
         switch section {
