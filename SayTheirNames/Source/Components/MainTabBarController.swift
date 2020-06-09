@@ -169,6 +169,7 @@ extension MainTabBarController: DeepLinkPresentable {
             guard let controller = navController.viewControllers.first else { return }
             
             if type(of: deepLink).details.canDisplayClass(type(of: controller)) {
+                self.dismiss(animated: false)
                 self.selectedIndex = index
                 
                 if let handleController = controller as? DeepLinkPresentable {
