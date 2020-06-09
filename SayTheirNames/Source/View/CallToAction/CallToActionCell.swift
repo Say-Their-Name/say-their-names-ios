@@ -26,7 +26,8 @@ import UIKit
 
 final class CallToActionCell: UICollectionViewCell {
     
-    var executeAction: (() -> Void)?
+    var id: Int?
+    var executeAction: ((Int?) -> Void)?
     
     private lazy var imageView = UIImageView.create {
         $0.translatesAutoresizingMaskIntoConstraints = false
@@ -128,11 +129,12 @@ final class CallToActionCell: UICollectionViewCell {
         tagView.isHidden = cta.tag == nil || cta.tag?.isEmpty == true
         cta.tag.flatMap { tagView.setTitle(to: $0) }
         titleLabel.text = cta.title
+        id = cta.id
     }
     
     @objc
     private func didTapActionButton() {
-        executeAction?()
+        executeAction?(id)
     }
     
     override func prepareForReuse() {

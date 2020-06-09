@@ -35,7 +35,6 @@ final class DonationsMoreDetailsController: UIViewController {
     
     // MARK: - Supplementary View Kind
     static let photoSupplementaryView = "photo"
-    static let donationButtonSupplementaryView = "donationButton"
     static let sectionTitleSupplementaryView = "sectionTitle"
     
     // MARK: - Property
@@ -113,9 +112,6 @@ final class DonationsMoreDetailsController: UIViewController {
         collectionView.register(DMDPhotoSupplementaryView.self,
                                 forSupplementaryViewOfKind: DonationsMoreDetailsController.photoSupplementaryView,
                                 withReuseIdentifier: DMDPhotoSupplementaryView.reuseIdentifier)
-        collectionView.register(DMDDonationButtonSupplementaryView.self,
-                                forSupplementaryViewOfKind: DonationsMoreDetailsController.donationButtonSupplementaryView,
-                                withReuseIdentifier: DMDDonationButtonSupplementaryView.reuseIdentifier)
         collectionView.register(DMDSectionTitleSupplementaryView.self,
                                 forSupplementaryViewOfKind: DonationsMoreDetailsController.sectionTitleSupplementaryView,
                                 withReuseIdentifier: DMDSectionTitleSupplementaryView.reuseIdentifier)
@@ -151,6 +147,7 @@ final class DonationsMoreDetailsController: UIViewController {
             // TODO: Donation button action
         }
         
+        donationButtonContainerView.setButtonTitle("view GoFundMe page")
         donationButtonContainerView.translatesAutoresizingMaskIntoConstraints = false
         donationButtonContainerView.backgroundColor = UIColor(asset: STNAsset.Color.background)
         view.addSubview(donationButtonContainerView)

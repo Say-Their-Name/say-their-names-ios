@@ -45,7 +45,7 @@ class DMDPhotoSupplementaryView: UICollectionReusableView {
     }
 
     // MARK: - Method
-    public func configure(_ person: Person) {
-        imageWithBlurView.setup(person)
+    public func configure(withURLString string: String?) {
+        imageWithBlurView.setup(withURLString: string)
     }
 }

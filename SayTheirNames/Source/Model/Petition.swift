@@ -24,17 +24,52 @@
 
 import Foundation
 
-public struct Petition: Decodable {
+struct Petition: Decodable {
     let id: Int
+    let identifier: String
     let title: String
     let description: String
+    let outcome: String
     let link: String
+    let outcomeImagePath: String
     let person: Person?
-    let bannerImagePath: String?
+    let bannerImagePath: String
+    let shareable: Shareable
     
     enum CodingKeys: String, CodingKey {
-        case id, title, description, link, person
-        case bannerImagePath = "banner_img_url"
+        case id, identifier, title, description, outcome, link, person
+        case outcomeImagePath = "outcome_img_url", bannerImagePath = "banner_img_url", shareable = "sharable_links"
+    }
+    
+    init(id: Int, identifier: String, title: String,
+         description: String, outcome: String, link: String,
+         outcomeImagePath: String, person: Person?,
+         bannerImagePath: String, shareable: Shareable) {
+        self.id = id
+        self.identifier = identifier
+        self.title = title
+        self.description = description
+        self.outcome = outcome
+        self.link = link
+        self.outcomeImagePath = outcomeImagePath
+        self.person = person
+        self.bannerImagePath = bannerImagePath
+        self.shareable = shareable
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        self.id = try container.decodeIfPresent(Int.self, forKey: .id) ?? -1
+        self.identifier = try container.decodeIfPresent(String.self, forKey: .identifier) ?? ""
+        self.title = try container.decodeIfPresent(String.self, forKey: .title) ?? ""
+        self.description = try container.decodeIfPresent(String.self, forKey: .description) ?? ""
+        self.outcome = try container.decodeIfPresent(String.self, forKey: .outcome) ?? ""
+        self.link = try container.decodeIfPresent(String.self, forKey: .link) ?? ""
+        self.outcomeImagePath = try container.decodeIfPresent(String.self, forKey: .outcomeImagePath) ?? ""
+        self.person = try container.decodeIfPresent(Person.self, forKey: .person) ?? Person(from: decoder)
+        self.bannerImagePath = try container.decodeIfPresent(String.self, forKey: .bannerImagePath) ?? ""
+        self.shareable = try container.decodeIfPresent(Shareable.self, forKey: .shareable) ?? Shareable()
     }
 }
 

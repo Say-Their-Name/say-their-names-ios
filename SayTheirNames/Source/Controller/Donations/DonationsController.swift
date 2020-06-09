@@ -32,7 +32,8 @@ final class DonationsController: UIViewController {
     private let donationManager = DonationsCollectionViewManager()
     private let filterManager = DonationFilterViewManager()
     private let ui = DonationsView()
-    
+    private var donations: [Donation]?
+
     required init() {
         super.init(nibName: nil, bundle: nil)
     }
@@ -55,16 +56,13 @@ final class DonationsController: UIViewController {
     }
     
     private func configure() {
-        donationManager.cellForItem = { (collectionView, indexPath, donation) in
+        donationManager.cellForItem = { [unowned self] (collectionView, indexPath, donation) in
             let cell: CallToActionCell = collectionView.dequeueCell(for: indexPath)
             cell.configure(with: donation)
+            cell.executeAction = self.moreButtonPressed
             return cell
         }
-        donationManager.didSelectItem = { [weak self] donation in
-            
-            // TODO: Move this out
-            self?.showDontationsDetails(withDonation: donation)
-        }
+
         ui.bindDonationManager(donationManager)
         
         filterManager.cellForItem = { (collectionView, indexPath, filter) in
@@ -82,9 +80,8 @@ final class DonationsController: UIViewController {
         network.fetchDonations { [weak self] result in
             switch result {
             case .success(let response):
-                let donations = response.all
-                self?.donationManager.set(donations)
-
+                self?.donations = response.all
+                self?.donations.flatMap { self?.donationManager.set($0) }
             case .failure(let error):
                 print(error)
             }
@@ -99,6 +96,14 @@ final class DonationsController: UIViewController {
         self.present(navigationController, animated: true, completion: nil)
     }
     
+    private lazy var moreButtonPressed: ((Int?) -> Void) = { [unowned self] id in
+        guard
+            let id = id,
+            let donation = self.donations?.first(where: { $0.id == id })
+            else { return }
+        
+        self.showDontationsDetails(withDonation: donation)
+    }
 }
 
 extension DonationsController: DeepLinkHandle {

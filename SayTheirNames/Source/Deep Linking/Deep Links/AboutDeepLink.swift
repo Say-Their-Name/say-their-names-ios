@@ -27,7 +27,7 @@ import UIKit
 struct AboutDeepLink: DeepLink {
     let linkDetails: DeepLinkDetails
     static let details = DeepLinkDetails(
-        displayClass: AboutController.self,
+        displayClass: MoreController.self,
         type: AboutDeepLink.self
     )
     .schemes(["stn", "https"])

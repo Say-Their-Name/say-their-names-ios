@@ -1,5 +1,5 @@
 //
-//  AboutController.swift
+//  DonationTypes.swift
 //  SayTheirNames
 //
 //  Copyright (c) 2020 Say Their Names Team (https://github.com/Say-Their-Name)
@@ -22,18 +22,10 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-import UIKit
+import Foundation
 
-class AboutController: UIViewController {
-    private let aboutView = AboutView()
-
-    required init() {
-        super.init(nibName: nil, bundle: nil)
-    }
+enum DonationTypes: Int {
+    case victims = 1, protesters, movement
     
-    required init?(coder: NSCoder) { fatalError("This should not be called") }
-
-    override func loadView() {
-        self.view = aboutView
-    }
+    var id: Int { return self.rawValue }
 }

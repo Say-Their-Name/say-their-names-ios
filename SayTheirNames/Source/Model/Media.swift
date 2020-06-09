@@ -25,9 +25,11 @@
 import Foundation
 
 public struct Media: Decodable {
-    let url: String
+    let id: Int
+    let personId: Int
+    let imageUrl: String
 
     private enum CodingKeys: String, CodingKey {
-        case url
+        case id, personId = "person_id", imageUrl = "image_url"
     }
 }

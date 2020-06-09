@@ -1,5 +1,5 @@
 //
-//  AboutView.swift
+//  Shareable.swift
 //  SayTheirNames
 //
 //  Copyright (c) 2020 Say Their Names Team (https://github.com/Say-Their-Name)
@@ -22,47 +22,19 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-import UIKit
+import Foundation
 
-/// The UI for About
-final class AboutView: UIView {
-
-    private lazy var aboutLabel: UILabel = {
-        let label = UILabel()
-        label.text = Strings.about
-        label.textAlignment = .center
-        label.translatesAutoresizingMaskIntoConstraints = false
-
-        return label
-    }()
-
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setupSelf()
-    }
-
-    required init?(coder: NSCoder) {
-        fatalError()
-    }
-
-    /// Configures properties for the view itself
-    private func setupSelf() {
-        backgroundColor = .systemBackground
-        setupSubviews()
-    }
-
-    /// Adds and configures constraints for subviews
-    private func setupSubviews() {
-        setupAboutLabel()
+public struct Shareable: Decodable {
+    var base: String = ""
+    var facebook: String = ""
+    var twitter: String = ""
+    var whatsapp: String = ""
+    
+    init(){}
+    
+    private enum CodingKeys: String, CodingKey {
+        case base, facebook, twitter, whatsapp
     }
 }
 
-// MARK: - Configurations
-private extension AboutView {
-
-    private func setupAboutLabel() {
-        addSubview(aboutLabel)
-        aboutLabel.fillSuperview()
-    }
-
-}
+extension Shareable: Hashable {}

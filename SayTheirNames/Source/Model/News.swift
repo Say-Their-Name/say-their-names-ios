@@ -1,5 +1,5 @@
 //
-//  UIEdgeInsets+init.swift
+//  News.swift
 //  SayTheirNames
 //
 //  Copyright (c) 2020 Say Their Names Team (https://github.com/Say-Their-Name)
@@ -22,20 +22,12 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-import UIKit
+import Foundation
 
-extension UIEdgeInsets {
+public struct News: Decodable {
+    let url: String
 
-    init(top: CGFloat = 0, left: CGFloat = 0, bottom: CGFloat = 0, right: CGFloat = 0) {
-        self.init()
-        self.top = top
-        self.left = left
-        self.bottom = bottom
-        self.right = right
+    private enum CodingKeys: String, CodingKey {
+        case url
     }
-    
-    static let medium: UIEdgeInsets = .init(top: Theme.Components.Padding.medium,
-                                            left: Theme.Components.Padding.medium,
-                                            bottom: Theme.Components.Padding.medium,
-                                            right: Theme.Components.Padding.medium)
 }
