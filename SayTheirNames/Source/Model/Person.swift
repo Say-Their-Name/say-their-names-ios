@@ -52,9 +52,10 @@ struct Person: Decodable {
     }
     
     init(id: Int, fullName: String, identifier: String,
-         doi: Date, childrenCount: Int?, age: Int?,
-         city: String, country: String, story: String, outcome: String, shareable: Shareable?, images: [Image], donations: [Donation],
-         petitions: [Petition], medias: [Media], news: [News], socialMedia: [SocialMedia], hashtags: [Hashtag]
+         doi: Date, childrenCount: Int?, age: Int?, city: String,
+         country: String, story: String, outcome: String, shareable: Shareable?,
+         images: [Image], donations: [Donation], petitions: [Petition],
+         medias: [Media], news: [News], socialMedia: [SocialMedia], hashtags: [Hashtag]
     ) {
         self.id = id
         self.fullName = fullName

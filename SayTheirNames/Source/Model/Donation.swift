@@ -31,11 +31,11 @@ public struct Donation: Decodable {
     let description: String
     let outcome: String?
     let link: String
-    let outcomeImagePath: String?
+    let outcomeImagePath: String
     let person: Person?
     let type: DonationType?
-    let bannerImagePath: String?
-    let shareable: Shareable?
+    let bannerImagePath: String
+    let shareable: Shareable
     
     private enum CodingKeys: String, CodingKey {
         case id, identifier, title, description, outcome, link, person, type

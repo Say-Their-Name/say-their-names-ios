@@ -31,10 +31,10 @@ public struct Petition: Decodable {
     let description: String
     let outcome: String?
     let link: String
-    let outcomeImagePath: String?
+    let outcomeImagePath: String
     let person: Person?
-    let bannerImagePath: String?
-    let shareable: Shareable?
+    let bannerImagePath: String
+    let shareable: Shareable
     
     enum CodingKeys: String, CodingKey {
         case id, identifier, title, description, outcome, link, person
