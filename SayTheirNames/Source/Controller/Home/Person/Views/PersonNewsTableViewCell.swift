@@ -127,7 +127,7 @@ class PersonNewsTableViewCell: UITableViewCell {
         
         switch type {
         case .medias:
-            collectionView.register(PersonMediaCollectionViewCell.self, forCellWithReuseIdentifier: PersonMediaCollectionViewCell.reuseIdentifier)
+                    collectionView.register(cellType:PersonMediaCollectionViewCell.self
         case .news:
             collectionView.register(PersonNewsCollectionViewCell.self, forCellWithReuseIdentifier: PersonNewsCollectionViewCell.reuseIdentifier)
         }
