@@ -131,6 +131,8 @@ final class HomeController: UIViewController {
     }
     
     private func showPersonDetails(withPerson: Person) {
+        self.dismiss(animated: false, completion: nil)
+        
         let personController = PersonController()
         personController.person = withPerson
         

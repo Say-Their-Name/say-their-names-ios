@@ -72,6 +72,16 @@ final class PetitionsController: UIViewController {
         ui.bindPetitionManager(petitionsManager)
     }
     
+    private func showPetitionDetails(withPetition: Petition) {
+        self.dismiss(animated: false, completion: nil)
+        
+        let detailVC = PetitionDetailViewController()
+        //detailVC.petition = withPetition
+        let navigationController = UINavigationController(rootViewController: detailVC)
+        
+        self.present(navigationController, animated: true, completion: nil)
+    }
+    
     private func getPetitions() {
         
         network.fetchPetitions { [weak self] result in
@@ -94,6 +104,7 @@ extension PetitionsController: DeepLinkHandle {
         self.network.fetchPetitionDetails(with: deepLink.value) { [weak self] in
             switch $0 {
             case .success(let page):
+                self?.showPetitionDetails(withPetition: page.petition)
                 Log.print(page)
             case .failure(let error):
                 Log.print(error)

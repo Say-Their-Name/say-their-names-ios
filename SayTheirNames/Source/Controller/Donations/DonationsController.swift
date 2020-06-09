@@ -89,6 +89,8 @@ final class DonationsController: UIViewController {
     }
     
     private func showDontationsDetails(withDonation: Donation) {
+        self.dismiss(animated: false, completion: nil)
+        
         let detailVC = DonationsMoreDetailsController()
         detailVC.donation = withDonation
         let navigationController = UINavigationController(rootViewController: detailVC)
