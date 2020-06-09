@@ -160,7 +160,7 @@ extension PersonNewsTableViewCell: UICollectionViewDelegate, UICollectionViewDat
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch cellType {
         case .medias:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PersonMediaCollectionViewCell.reuseIdentifier,
+            let cell: PersonMediaCollectionViewCell = collectionView.dequeueCell(for: indexPath)
                                                           for: indexPath) as! PersonMediaCollectionViewCell
             return cell
         case .news:
