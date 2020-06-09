@@ -60,4 +60,8 @@ class PersonMediaCollectionViewCell: UICollectionViewCell {
             mediaImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0),
         ])
     }
+    
+    func updateCell(with mediaUrl: String){
+        mediaImageView.populate(withURL: mediaUrl)
+    }
 }
