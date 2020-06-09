@@ -153,8 +153,8 @@ class PersonController: UIViewController {
         view.accessibilityIdentifier = "personView"
         self.network.fetchPersonDetails(with: person.identifier) { [weak self] result in
             switch result {
-            case .success(let personResult):
-                self?.configure(with: personResult.person)
+            case .success(let response):
+                self?.configure(with: response.person)
             case .failure(let error):
                 Log.print(error)
             }
@@ -277,7 +277,7 @@ extension PersonController: UITableViewDataSource {
             return cell
         case .hashtags:
             let hashtagsCell = cell as! PersonHashtagTableViewCell
-            hashtagsCell.hashtags = person.hashtag
+            hashtagsCell.hashtags = person.hashtags
             hashtagsCell.registerCell(with: PersonHashtagCollectionViewCell.self)
             return hashtagsCell
         }

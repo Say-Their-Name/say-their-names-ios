@@ -42,19 +42,19 @@ struct Person: Decodable {
     let petitions: [Petition]
     let media: [Media]
     let socialMedia: [SocialMedia]
-    let hashtag: [Hashtag]
+    let hashtags: [Hashtag]
     
     private enum CodingKeys: String, CodingKey {
         case id, fullName = "full_name", identifier, doi = "date_of_incident", childrenCount = "number_of_children",
         age, city, country, story = "their_story", outcome, context, shareable = "sharable_links", images, donations = "donation_links", petitions = "petition_links", media = "media_links",
-        socialMedia = "social_media", hashtag = "hash_tags"
+        socialMedia = "social_media", hashtags = "hash_tags"
     }
     
     init(id: Int, fullName: String, identifier: String,
          doi: Date, childrenCount: Int?, age: Int?,
          city: String, country: String, story: String, outcome: String?,
          context: String, shareable: Shareable?, images: [Image], donations: [Donation],
-         petitions: [Petition], media: [Media], socialMedia: [SocialMedia], hashtag: [Hashtag]
+         petitions: [Petition], media: [Media], socialMedia: [SocialMedia], hashtags: [Hashtag]
     ) {
         self.id = id
         self.fullName = fullName
@@ -73,7 +73,7 @@ struct Person: Decodable {
         self.petitions = petitions
         self.media = media
         self.socialMedia = socialMedia
-        self.hashtag = hashtag
+        self.hashtags = hashtags
     }
     
     init(from decoder: Decoder) throws {
@@ -96,7 +96,7 @@ struct Person: Decodable {
         self.petitions = try container.decodeIfPresent([Petition].self, forKey: .petitions) ?? []
         self.media = try container.decodeIfPresent([Media].self, forKey: .media) ?? []
         self.socialMedia = try container.decodeIfPresent([SocialMedia].self, forKey: .socialMedia) ?? []
-        self.hashtag = try container.decodeIfPresent([Hashtag].self, forKey: .hashtag) ?? []
+        self.hashtags = try container.decodeIfPresent([Hashtag].self, forKey: .hashtags) ?? []
 
         let doi = try container.decodeIfPresent(TimeInterval.self, forKey: .doi) ?? 0
         self.doi = Date(timeIntervalSince1970: doi)
