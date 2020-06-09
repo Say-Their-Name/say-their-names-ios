@@ -24,15 +24,32 @@
 
 import UIKit
 
-// MARK: - IDENTIFIERS
-private let headerIdentifier = "PersonHeaderCell"
-private let peopleIdentifier = "PersonCell"
+extension PersonsResponsePage: PaginatorResponsePage {
+    typealias Element = Person
+}
 
 final class HomeController: UIViewController {
     @DependencyInject private var network: NetworkRequestor
     
     required init() {
+        
+        weak var weakSelf: HomeController?
+        
+        self.paginator =
+            Paginator<Person, PersonsResponsePage>(pageLoader: { (link: Link?, completion: @escaping (Result<PersonsResponsePage, Error>) -> Void) in
+            guard let strongSelf = weakSelf else { return }
+            
+            // call network
+            if let link = link {
+                strongSelf.network.fetchPeopleWithLink(link, completion: completion)
+            }
+            else {
+                strongSelf.network.fetchPeople(completion: completion)
+            }
+        })
         super.init(nibName: nil, bundle: nil)
+        
+        weakSelf = self
     }
     
     @available(*, unavailable)
@@ -42,6 +59,8 @@ final class HomeController: UIViewController {
 
     // MARK: - CONSTANTS
     private let searchBar = CustomSearchBar()
+
+    private let paginator: Paginator<Person, PersonsResponsePage>
     
     // MARK: - CV Data Sources
     private lazy var locationsDataSourceHelper = LocationCollectionViewDataSourceHelper(collectionView: locationCollectionView)
@@ -65,6 +84,7 @@ final class HomeController: UIViewController {
         navigationItem.title = Strings.home
         setupCollectionView()
         setupSearchButton()
+        setupPaginator()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -88,13 +108,7 @@ final class HomeController: UIViewController {
                                                             action: #selector(searchButtonPressed(_:)))
     }
     
-    fileprivate func setupCollectionView() {
-
-        let carouselData: [HeaderCellContent] = [
-            .init(title: "#BLACKLIVESMATTER", description: "How to get involved"),
-            .init(title: "#BLACKLIVESMATTER", description: "How to get involved"),
-            .init(title: "#BLACKLIVESMATTER", description: "How to get involved")
-        ]
+    private func setupCollectionView() {
         
         // TO-DO: Dummy data for now, should update after API call to get locations
         let locations: [Location] = [.init(name: "ALL"),
@@ -105,23 +119,31 @@ final class HomeController: UIViewController {
 
         locationsDataSourceHelper.setLocations(locations)
         
-        // FIXME: This should be setup in a better place, for now this loads out data
-        self.network.fetchPeople { [weak self] (result) in
-            switch result {
-            case .success(let page):
-                self?.peopleDataSourceHelper.setPeople(page.all, carouselData: carouselData)
-                self?.peopleCollectionView.reloadData()
-            case .failure(let error):
-                Log.print(error)
-            }
-        }
-
         locationCollectionView.delegate = self
         locationCollectionView.dataSource = locationsDataSourceHelper.dataSource
         locationCollectionView.accessibilityIdentifier = "locationCollection"
         peopleCollectionView.delegate = self
         peopleCollectionView.dataSource = peopleDataSourceHelper.dataSource
         peopleCollectionView.accessibilityIdentifier = "peopleCollection"
+    }
+    
+    private func setupPaginator() {
+        // MARK: - Carousel data
+        
+        let carouselData: [HeaderCellContent] = [
+            .init(title: "#BLACKLIVESMATTER", description: "How to get involved"),
+            .init(title: "#BLACKLIVESMATTER", description: "How to get involved"),
+            .init(title: "#BLACKLIVESMATTER", description: "How to get involved")
+        ]
+        
+        paginator.firstPageDataLoadedHandler = { [weak self] (data: [Person]) in
+            self?.peopleDataSourceHelper.setPeople(data, carouselData: carouselData)
+        }
+        paginator.subsequentPageDataLoadedHandler = { [weak self] (data: [Person]) in
+            self?.peopleDataSourceHelper.appendPeople(data)
+        }
+        
+        paginator.loadNextPage()
     }
     
     // MARK: - Button Actions
@@ -159,6 +181,15 @@ extension HomeController: UICollectionViewDelegateFlowLayout {
             let navigationController = UINavigationController(rootViewController: personController)
             navigationController.modalPresentationStyle = .fullScreen
             present(navigationController, animated: true, completion: nil)
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        guard collectionView === peopleCollectionView else { return }
+        guard peopleDataSourceHelper.section(at: indexPath.section) == .main else { return }
+        
+        if indexPath.row == collectionView.numberOfItems(inSection: indexPath.section) - 1 {
+            paginator.loadNextPage()
         }
     }
 }

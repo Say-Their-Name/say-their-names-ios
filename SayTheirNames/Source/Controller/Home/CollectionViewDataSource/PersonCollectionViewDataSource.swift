@@ -98,4 +98,8 @@ final class PersonCollectionViewDataSourceHelper {
         }
     }
 
+    func section(at index: Int) -> Section {
+        let allSections = dataSource.snapshot().sectionIdentifiers
+        return allSections[index]
+    }
 }

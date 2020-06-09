@@ -24,7 +24,7 @@
 
 import Foundation
 
-public struct Link: Decodable {
+public struct Link: Decodable, Equatable {
     let first: String
     let last: String
     let prev: String?
