@@ -33,23 +33,23 @@ final class HomeController: UIViewController {
     
     required init() {
         
-        weak var wself: HomeController?
+        weak var weakSelf: HomeController?
         
         self.paginator =
             Paginator<Person, PersonsResponsePage>(pageLoader: { (link: Link?, completion: @escaping (Result<PersonsResponsePage, Error>) -> Void) in
-            guard let sself = wself else { return }
+            guard let strongSelf = weakSelf else { return }
             
             // call network
             if let link = link {
-                sself.network.fetchPeopleWithLink(link, completion: completion)
+                strongSelf.network.fetchPeopleWithLink(link, completion: completion)
             }
             else {
-                sself.network.fetchPeople(completion: completion)
+                strongSelf.network.fetchPeople(completion: completion)
             }
         })
         super.init(nibName: nil, bundle: nil)
         
-        wself = self
+        weakSelf = self
     }
     
     @available(*, unavailable)
