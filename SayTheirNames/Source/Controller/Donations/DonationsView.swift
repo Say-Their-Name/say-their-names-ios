@@ -34,7 +34,7 @@ final class DonationsView: UIView {
         $0.showsHorizontalScrollIndicator = false
     }
     
-    public lazy var donationsCollectionView = CallToActionCollectionView().configure {
+    private lazy var donationsCollectionView = CallToActionCollectionView().configure {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.register(cellType: CallToActionCell.self)
     }

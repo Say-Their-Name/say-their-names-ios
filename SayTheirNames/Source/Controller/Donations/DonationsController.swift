@@ -41,10 +41,10 @@ final class DonationsController: UIViewController {
     private var paginator: Paginator<Donation, DonationsResponsePage>
     
     required init() {
-        weak var wself: DonationsController?
+        weak var weakself: DonationsController?
         self.paginator =
             Paginator<Donation, DonationsResponsePage> { (link: Link?, completion: @escaping (Result<DonationsResponsePage, Error>) -> Void) in
-                guard let self = wself else { return }
+                guard let self = weakself else { return }
                 if let link = link {
                     self.network.fetchDonations(with: link, completion: completion)
                 } else {
@@ -52,7 +52,7 @@ final class DonationsController: UIViewController {
                 }
         }
         super.init(nibName: nil, bundle: nil)
-        wself = self
+        weakself = self
     }
     
     required init?(coder: NSCoder) {  fatalError("init(coder:) has not been implemented") }
@@ -87,13 +87,14 @@ final class DonationsController: UIViewController {
         }
         
         donationManager.willDisplayCell = { (collectionView, indexPath) in
-            guard collectionView === self.ui.donationsCollectionView else { return }
-            guard self.donationManager.section(at: indexPath.section) == .main else { return }
+            guard type(of: collectionView) == CallToActionCollectionView.self,
+                self.donationManager.section(at: indexPath.section) == .main else { return }
             
             if indexPath.row == collectionView.numberOfItems(inSection: indexPath.section) - 1 {
                 self.paginator.loadNextPage()
             }
         }
+        
         ui.bindDonationManager(donationManager)
         
         filterManager.cellForItem = { (collectionView, indexPath, filter) in
@@ -113,7 +114,7 @@ final class DonationsController: UIViewController {
         }
         
         paginator.subsequentPageDataLoadedHandler = { [weak self] (data: [Donation]) in
-            self?.donationManager.set(data)
+            self?.donationManager.append(data, in: .main)
         }
         
         paginator.loadNextPage()
