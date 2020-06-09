@@ -159,19 +159,16 @@ private extension MainTabBarController {
 
 extension MainTabBarController: DeepLinkHandle {
     func handle(deepLink: DeepLink) {
-        Log.print(deepLink)
-
-        if type(of: deepLink) == HomeDeepLink.self {
-            self.selectedIndex = 0
-        }
-        else if type(of: deepLink) == DonationsDeepLink.self {
-            self.selectedIndex = 1
-        }
-        else if type(of: deepLink) == PetitionsDeepLink.self {
-                self.selectedIndex = 2
-        }
-        else if type(of: deepLink) == AboutDeepLink.self {
-            self.selectedIndex = 3
+        guard let controllers = self.viewControllers as? [UINavigationController] else { return }
+        for (index, navController) in controllers.enumerated() {
+            guard let controller = navController.viewControllers.first else { return }
+            
+            if deepLink.linkDetails.canDisplayClass(type(of: controller)) {
+                self.selectedIndex = index
+                if let home = controller as? HomeController {
+                    home.handle(deepLink: deepLink)
+                }
+            }
         }
     }
 }

@@ -25,8 +25,9 @@
 import UIKit
 
 struct PersonDeepLink: DeepLink {
+    let linkDetails: DeepLinkDetails
     static let details = DeepLinkDetails(
-        displayClass: PersonController.self,
+        displayClass: HomeController.self,
         type: PersonDeepLink.self
     )
     .schemes(["stn", "https"])
@@ -35,7 +36,8 @@ struct PersonDeepLink: DeepLink {
     
     public let name: String
     init(name: String) {
-        self.name = name
+        self.linkDetails = type(of: self).details
+        self.name = name.replacingOccurrences(of: "-", with: " ")
     }
     
     static func deepLink(fromComponents: [String]? = nil) -> DeepLink? {

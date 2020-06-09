@@ -25,6 +25,7 @@
 import UIKit
 
 struct AboutDeepLink: DeepLink {
+    let linkDetails: DeepLinkDetails
     static let details = DeepLinkDetails(
         displayClass: AboutController.self,
         type: AboutDeepLink.self
@@ -34,7 +35,7 @@ struct AboutDeepLink: DeepLink {
     .path("about")
     
     init() {
-        
+        self.linkDetails = type(of: self).details
     }
     
     static func deepLink(fromComponents: [String]? = nil) -> DeepLink? {

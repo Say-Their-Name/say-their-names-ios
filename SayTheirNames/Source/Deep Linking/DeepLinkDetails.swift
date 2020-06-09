@@ -51,6 +51,10 @@ public struct DeepLinkDetails {
         return self.appending(schemes: self.schemes, hosts: self.hosts, paths: self.paths + [.string(value: path, optional: optional)])
     }
     
+    public func canDisplayClass(_ displayClass: UIViewController.Type) -> Bool {
+        return self.displayClass == displayClass
+    }
+    
     func deepLink(matching context: UIOpenURLContext) -> DeepLink? {
         guard let scheme = context.url.scheme, let host = context.url.host
         else { return nil }

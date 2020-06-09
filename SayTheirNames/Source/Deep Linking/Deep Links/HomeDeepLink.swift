@@ -25,6 +25,7 @@
 import UIKit
 
 struct HomeDeepLink: DeepLink {
+    let linkDetails: DeepLinkDetails
     static let details = DeepLinkDetails(
         displayClass: HomeController.self,
         type: HomeDeepLink.self
@@ -33,7 +34,7 @@ struct HomeDeepLink: DeepLink {
     .host("saytheirname.netlify.app")
 
     init() {
-        
+        self.linkDetails = type(of: self).details
     }
     
     static func deepLink(fromComponents: [String]? = nil) -> DeepLink? {

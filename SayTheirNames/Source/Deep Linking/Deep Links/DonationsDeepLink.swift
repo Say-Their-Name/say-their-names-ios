@@ -25,6 +25,7 @@
 import UIKit
 
 struct DonationsDeepLink: DeepLink {
+    let linkDetails: DeepLinkDetails
     static let details = DeepLinkDetails(
         displayClass: DonationsController.self,
         type: DonationsDeepLink.self
@@ -34,7 +35,7 @@ struct DonationsDeepLink: DeepLink {
     .path("donations")
     
     init() {
-        
+        self.linkDetails = type(of: self).details
     }
     
     static func deepLink(fromComponents: [String]? = nil) -> DeepLink? {
@@ -43,8 +44,9 @@ struct DonationsDeepLink: DeepLink {
 }
 
 struct DonateDeepLink: DeepLink {
+    let linkDetails: DeepLinkDetails
     static let details = DeepLinkDetails(
-        displayClass: DonationsMoreDetailsController.self,
+        displayClass: DonationsController.self,
         type: DonateDeepLink.self
     )
     .schemes(["stn", "https"])
@@ -53,7 +55,8 @@ struct DonateDeepLink: DeepLink {
     
     public let name: String
     init(name: String) {
-        self.name = name
+        self.linkDetails = type(of: self).details
+        self.name = name.replacingOccurrences(of: "-", with: " ")
     }
     
     static func deepLink(fromComponents: [String]? = nil) -> DeepLink? {
