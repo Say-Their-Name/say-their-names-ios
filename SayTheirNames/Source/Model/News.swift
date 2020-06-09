@@ -1,5 +1,5 @@
 //
-//  Media.swift
+//  News.swift
 //  SayTheirNames
 //
 //  Copyright (c) 2020 Say Their Names Team (https://github.com/Say-Their-Name)
@@ -24,7 +24,7 @@
 
 import Foundation
 
-public struct Media: Decodable {
+public struct News: Decodable {
     let url: String
 
     private enum CodingKeys: String, CodingKey {

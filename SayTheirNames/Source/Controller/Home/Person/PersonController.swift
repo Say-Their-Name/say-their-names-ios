@@ -154,6 +154,7 @@ class PersonController: UIViewController {
         self.network.fetchPersonDetails(with: person.identifier) { [weak self] result in
             switch result {
             case .success(let response):
+                print("Response: ", response.person)
                 self?.configure(with: response.person)
             case .failure(let error):
                 Log.print(error)
