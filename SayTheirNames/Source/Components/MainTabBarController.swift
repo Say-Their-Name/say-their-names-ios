@@ -24,7 +24,7 @@
 
 import UIKit
 
-class MainTabBarController: UITabBarController, UITabBarControllerDelegate {    
+class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
     // Params
     private var launchScreen: LaunchScreen?
     
@@ -159,5 +159,22 @@ private extension MainTabBarController {
             launchView.removeFromSuperview()
             self.launchScreen = nil
         })
+    }
+}
+
+extension MainTabBarController: DeepLinkHandle {
+    func handle(deepLink: DeepLink) {
+        guard let controllers = self.viewControllers as? [UINavigationController] else { return }
+        for (index, navController) in controllers.enumerated() {
+            guard let controller = navController.viewControllers.first else { return }
+            
+            if deepLink.linkDetails.canDisplayClass(type(of: controller)) {
+                self.selectedIndex = index
+                
+                if let handleController = controller as? DeepLinkHandle {
+                    handleController.handle(deepLink: deepLink)
+                }
+            }
+        }
     }
 }

@@ -126,3 +126,11 @@ public struct DonationsResponsePage: Decodable {
         self.link = try container.decodeIfPresent(Link.self, forKey: .link) ?? Link(first: "", last: "", prev: "", next: "")
     }
 }
+
+struct DonationResponsePage: Decodable {
+    let donation: Donation
+    
+    private enum CodingKeys: String, CodingKey {
+        case donation = "data"
+    }
+}

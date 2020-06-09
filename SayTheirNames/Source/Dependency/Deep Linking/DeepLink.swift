@@ -1,5 +1,5 @@
 //
-//  SceneDelegate.swift
+//  DeepLink.swift
 //  SayTheirNames
 //
 //  Copyright (c) 2020 Say Their Names Team (https://github.com/Say-Their-Name)
@@ -24,20 +24,12 @@
 
 import UIKit
 
-class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-    var window: UIWindow?
+protocol DeepLink {
+    static var details: DeepLinkDetails { get }
+    static func deepLink(fromComponents: [String]?) -> DeepLink?
+    var linkDetails: DeepLinkDetails { get }
+}
 
-    @DependencyInject private var navigator: Navigator
-    @DependencyInject private var deepLinkHandler: DeepLinkHandler
-    
-    func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        guard let windowScene = (scene as? UIWindowScene) else { return }
-                
-        self.window = self.navigator.installSceneInWindow(windowScene)
-        self.scene(scene, openURLContexts: connectionOptions.urlContexts)
-    }
-    
-    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
-        self.deepLinkHandler.handle(urlContext: URLContexts)
-    }
+protocol DeepLinkHandle {
+    func handle(deepLink: DeepLink)
 }

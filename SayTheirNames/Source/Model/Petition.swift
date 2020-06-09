@@ -113,3 +113,11 @@ public struct PetitionsResponsePage: Decodable {
         self.link = try container.decodeIfPresent(Link.self, forKey: .link) ?? Link(first: "", last: "", prev: "", next: "")
     }
 }
+
+struct PetitionResponsePage: Decodable {
+    let petition: Petition
+    
+    private enum CodingKeys: String, CodingKey {
+        case petition = "data"
+    }
+}

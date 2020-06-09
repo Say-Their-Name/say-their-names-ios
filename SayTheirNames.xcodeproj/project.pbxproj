@@ -127,6 +127,14 @@
 		A9AC832C248B33770000A851 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AC832B248B33770000A851 /* Search.swift */; };
 		A9B9056D248B4EA300F9EEFA /* URLComponents+STN.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B9056C248B4EA300F9EEFA /* URLComponents+STN.swift */; };
 		A9B9056F248C90FB00F9EEFA /* UIApplication+STN.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B9056E248C90FB00F9EEFA /* UIApplication+STN.swift */; };
+		A9B90572248F482800F9EEFA /* DeepLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B90571248F482800F9EEFA /* DeepLink.swift */; };
+		A9B90574248F533A00F9EEFA /* DeepLinkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B90573248F533A00F9EEFA /* DeepLinkHandler.swift */; };
+		A9B90577248F535F00F9EEFA /* PersonDeepLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B90576248F535F00F9EEFA /* PersonDeepLink.swift */; };
+		A9B90579248FD8FE00F9EEFA /* HomeDeepLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B90578248FD8FE00F9EEFA /* HomeDeepLink.swift */; };
+		A9B9057B248FDC8B00F9EEFA /* DeepLinkDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B9057A248FDC8B00F9EEFA /* DeepLinkDetails.swift */; };
+		A9B9057D248FDE9000F9EEFA /* DonationsDeepLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B9057C248FDE9000F9EEFA /* DonationsDeepLink.swift */; };
+		A9B9057F248FE39C00F9EEFA /* PetitionsDeepLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B9057E248FE39C00F9EEFA /* PetitionsDeepLink.swift */; };
+		A9B90581248FE41400F9EEFA /* AboutDeepLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B90580248FE41400F9EEFA /* AboutDeepLink.swift */; };
 		B3168337248C3BF400C03DEB /* UIButton++.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3168336248C3BF400C03DEB /* UIButton++.swift */; };
 		B336C6D6248E4BBA00A1AECB /* Paginator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B336C6D5248E4BBA00A1AECB /* Paginator.swift */; };
 		B365F45C248FD6340007FC31 /* PaginatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B365F45B248FD6340007FC31 /* PaginatorTests.swift */; };
@@ -318,6 +326,14 @@
 		A9AC832B248B33770000A851 /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
 		A9B9056C248B4EA300F9EEFA /* URLComponents+STN.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URLComponents+STN.swift"; sourceTree = "<group>"; };
 		A9B9056E248C90FB00F9EEFA /* UIApplication+STN.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+STN.swift"; sourceTree = "<group>"; };
+		A9B90571248F482800F9EEFA /* DeepLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLink.swift; sourceTree = "<group>"; };
+		A9B90573248F533A00F9EEFA /* DeepLinkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkHandler.swift; sourceTree = "<group>"; };
+		A9B90576248F535F00F9EEFA /* PersonDeepLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDeepLink.swift; sourceTree = "<group>"; };
+		A9B90578248FD8FE00F9EEFA /* HomeDeepLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDeepLink.swift; sourceTree = "<group>"; };
+		A9B9057A248FDC8B00F9EEFA /* DeepLinkDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkDetails.swift; sourceTree = "<group>"; };
+		A9B9057C248FDE9000F9EEFA /* DonationsDeepLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationsDeepLink.swift; sourceTree = "<group>"; };
+		A9B9057E248FE39C00F9EEFA /* PetitionsDeepLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetitionsDeepLink.swift; sourceTree = "<group>"; };
+		A9B90580248FE41400F9EEFA /* AboutDeepLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutDeepLink.swift; sourceTree = "<group>"; };
 		B3168336248C3BF400C03DEB /* UIButton++.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton++.swift"; sourceTree = "<group>"; };
 		B336C6D5248E4BBA00A1AECB /* Paginator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Paginator.swift; sourceTree = "<group>"; };
 		B365F45B248FD6340007FC31 /* PaginatorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaginatorTests.swift; sourceTree = "<group>"; };
@@ -639,9 +655,9 @@
 				1897247A248D766F00836B62 /* FeatureFlags.swift */,
 				A91B078224835CF700DB803C /* Components */,
 				A91B077124835CF700DB803C /* Controller */,
+				A91B07B624846AFD00DB803C /* Dependency */,
 				A91B07BB24846ECB00DB803C /* Log */,
 				A91B078524835CF700DB803C /* Model */,
-				A91B07B624846AFD00DB803C /* Dependency */,
 				A91B076524835CF700DB803C /* Utils */,
 				A91B078924835CF700DB803C /* View */,
 			);
@@ -860,6 +876,7 @@
 			children = (
 				A91B07B724846B0C00DB803C /* DependencyContainer.swift */,
 				7A5BFA182488821500BC265A /* DateFormatterService.swift */,
+				A9B90570248F425C00F9EEFA /* Deep Linking */,
 				9E7DBAE7248481DA00635A56 /* ImageDownloader */,
 				A91B07BE2484704200DB803C /* Navigator */,
 				A93367C1248983B1001F1E28 /* Networking */,
@@ -902,6 +919,29 @@
 				A9AC8329248B31FE0000A851 /* SearchNetworkRequestor.swift */,
 			);
 			path = Requestors;
+			sourceTree = "<group>";
+		};
+		A9B90570248F425C00F9EEFA /* Deep Linking */ = {
+			isa = PBXGroup;
+			children = (
+				A9B90571248F482800F9EEFA /* DeepLink.swift */,
+				A9B9057A248FDC8B00F9EEFA /* DeepLinkDetails.swift */,
+				A9B90573248F533A00F9EEFA /* DeepLinkHandler.swift */,
+				A9B90575248F535200F9EEFA /* Deep Links */,
+			);
+			path = "Deep Linking";
+			sourceTree = "<group>";
+		};
+		A9B90575248F535200F9EEFA /* Deep Links */ = {
+			isa = PBXGroup;
+			children = (
+				A9B90580248FE41400F9EEFA /* AboutDeepLink.swift */,
+				A9B9057C248FDE9000F9EEFA /* DonationsDeepLink.swift */,
+				A9B90578248FD8FE00F9EEFA /* HomeDeepLink.swift */,
+				A9B90576248F535F00F9EEFA /* PersonDeepLink.swift */,
+				A9B9057E248FE39C00F9EEFA /* PetitionsDeepLink.swift */,
+			);
+			path = "Deep Links";
 			sourceTree = "<group>";
 		};
 		B13DE7CF27E7C1C98AA12017 /* Frameworks */ = {
@@ -1262,6 +1302,7 @@
 				7419B4B8248A2E0800D466C8 /* PersonMediaCollectionViewCell.swift in Sources */,
 				A91B07A924835CF700DB803C /* Person.swift in Sources */,
 				A93367C8248983B1001F1E28 /* DonationsNetworkRequestor.swift in Sources */,
+				A9B9057F248FE39C00F9EEFA /* PetitionsDeepLink.swift in Sources */,
 				7419B4B4248A2E0800D466C8 /* PersonInfoTableViewCell.swift in Sources */,
 				A93367CC248983B1001F1E28 /* NetworkRequestor.swift in Sources */,
 				9E7DBAFC2484822A00635A56 /* Operators.swift in Sources */,
@@ -1281,6 +1322,7 @@
 				D7F3F63B248D3FBA00F66E72 /* DMDTextContentCell.swift in Sources */,
 				9E7DBAF6248481DA00635A56 /* AsyncOperation.swift in Sources */,
 				A91B07C02484705400DB803C /* Navigator.swift in Sources */,
+				A9B90577248F535F00F9EEFA /* PersonDeepLink.swift in Sources */,
 				A91B07BD24846ED700DB803C /* Log.swift in Sources */,
 				A93367D2248985B6001F1E28 /* SocialMedia.swift in Sources */,
 				DB1887FF248A519600FDAEE3 /* LineCarouselControl.swift in Sources */,
@@ -1302,6 +1344,7 @@
 				9E974591248B8A5000DB5E32 /* FilterCategory.swift in Sources */,
 				B3D6B6B52489A59700D3118C /* UICollectionReusableView+Reusable.swift in Sources */,
 				D7F3F637248D3FBA00F66E72 /* DMDCollectionViewDataSource.swift in Sources */,
+				A9B9057D248FDE9000F9EEFA /* DonationsDeepLink.swift in Sources */,
 				A91B079C24835CF700DB803C /* HomeController.swift in Sources */,
 				D7F3F63C248D3FBA00F66E72 /* DMDSectionTitleSupplementaryView.swift in Sources */,
 				3A33EF65248ABC7500580D1E /* Theme.swift in Sources */,
@@ -1321,6 +1364,7 @@
 				7A829502248B299C00A8D7D8 /* MoreView.swift in Sources */,
 				7A829500248B298E00A8D7D8 /* MoreController.swift in Sources */,
 				83E9CAD02484A504001D173A /* LaunchScreen.swift in Sources */,
+				A9B90574248F533A00F9EEFA /* DeepLinkHandler.swift in Sources */,
 				D7F3F63E248D3FBA00F66E72 /* DonationsMoreDetailsController.swift in Sources */,
 				74D9FDCD248FC01600E06C0C /* Shareable.swift in Sources */,
 				D7F3F63A248D3FBA00F66E72 /* DMDHashtagCell.swift in Sources */,
@@ -1330,8 +1374,11 @@
 				A91B07C82484751700DB803C /* String+STN.swift in Sources */,
 				7CE75F462489B78400168DDA /* PetitionDetailViewController.swift in Sources */,
 				7419B4B5248A2E0800D466C8 /* PersonNewsTableViewCell.swift in Sources */,
+				A9B90579248FD8FE00F9EEFA /* HomeDeepLink.swift in Sources */,
 				A93367D6248985F5001F1E28 /* DispatchQueue+STN.swift in Sources */,
 				9EC6DD4E248B834B006CC5A7 /* DonationFilter.swift in Sources */,
+				A9B9057B248FDC8B00F9EEFA /* DeepLinkDetails.swift in Sources */,
+				A9B90572248F482800F9EEFA /* DeepLink.swift in Sources */,
 				5D456A3D248734CA009FAD34 /* PersonCollectionViewDataSource.swift in Sources */,
 				DB188809248A8F1100FDAEE3 /* HeaderCellContent.swift in Sources */,
 				D42BC32D248E290E006A7F4B /* assets.swift in Sources */,
@@ -1357,6 +1404,7 @@
 				7CE75F402489B78400168DDA /* PetitionsView.swift in Sources */,
 				A91B07AD24835CF700DB803C /* PersonCell.swift in Sources */,
 				9E7DBAF2248481DA00635A56 /* ImageProvider.swift in Sources */,
+				A9B90581248FE41400F9EEFA /* AboutDeepLink.swift in Sources */,
 				D757CF08248F3A9C008874B4 /* DonationTypes.swift in Sources */,
 				A93367D3248985B6001F1E28 /* Link.swift in Sources */,
 				D7F3F638248D3FBA00F66E72 /* DMDTitleCell.swift in Sources */,

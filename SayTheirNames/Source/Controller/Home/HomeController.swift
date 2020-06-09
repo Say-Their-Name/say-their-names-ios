@@ -151,6 +151,17 @@ final class HomeController: UIViewController {
         UIImpactFeedbackGenerator().impactOccurred()
         searchBar.show()
     }
+    
+    private func showPersonDetails(withPerson: Person) {
+        self.dismiss(animated: false)
+        
+        let personController = PersonController()
+        personController.person = withPerson
+        
+        let navigationController = UINavigationController(rootViewController: personController)
+        navigationController.modalPresentationStyle = .fullScreen
+        self.present(navigationController, animated: true, completion: nil)
+    }
 }
 
 // MARK: - UICOLLECTIONVIEW EXTENSION
@@ -175,12 +186,23 @@ extension HomeController: UICollectionViewDelegateFlowLayout {
         else if collectionView === peopleCollectionView {
             // People CollectionView
             
-            let selectedPerson = peopleDataSourceHelper.person(at: indexPath.item)
-            let personController = PersonController()
-            personController.person = selectedPerson
-            let navigationController = UINavigationController(rootViewController: personController)
-            navigationController.modalPresentationStyle = .fullScreen
-            present(navigationController, animated: true, completion: nil)
+            guard let selectedPerson = peopleDataSourceHelper.person(at: indexPath.item) else { return }
+            self.showPersonDetails(withPerson: selectedPerson)
+        }
+    }
+}
+
+extension HomeController: DeepLinkHandle {
+    func handle(deepLink: DeepLink) {
+        guard let deepLink = deepLink as? PersonDeepLink else { return }
+        
+        self.network.fetchPersonDetails(with: deepLink.value) { [weak self] in
+            switch $0 {
+            case .success(let page):
+                self?.showPersonDetails(withPerson: page.person)
+            case .failure(let error):
+                Log.print(error)
+            }
         }
     }
     

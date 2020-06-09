@@ -88,14 +88,38 @@ final class DonationsController: UIViewController {
         }
     }
     
+    private func showDontationsDetails(withDonation: Donation) {
+        self.dismiss(animated: false)
+        
+        let detailVC = DonationsMoreDetailsController()
+        detailVC.donation = withDonation
+        let navigationController = UINavigationController(rootViewController: detailVC)
+        
+        self.present(navigationController, animated: true, completion: nil)
+    }
+    
     private lazy var moreButtonPressed: ((Int?) -> Void) = { [unowned self] id in
         guard
             let id = id,
             let donation = self.donations?.first(where: { $0.id == id })
             else { return }
-        let detailVC = DonationsMoreDetailsController()
-        detailVC.donation = donation
-        let navigationController = UINavigationController(rootViewController: detailVC)
-        self.present(navigationController, animated: true, completion: nil)
+        
+        self.showDontationsDetails(withDonation: donation)
+    }
+}
+
+extension DonationsController: DeepLinkHandle {
+    func handle(deepLink: DeepLink) {
+        guard let deepLink = deepLink as? DonateDeepLink else { return }
+        
+        self.network.fetchDonationDetails(with: deepLink.value) { [weak self] in
+            switch $0 {
+            case .success(let page):
+                self?.showDontationsDetails(withDonation: page.donation)
+
+            case .failure(let error):
+                Log.print(error)
+             }
+        }
     }
 }

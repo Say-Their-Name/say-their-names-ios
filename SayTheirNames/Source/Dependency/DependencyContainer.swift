@@ -35,12 +35,25 @@ final class DependencyContainer: Dependency {
     let image = ImageService()
     let dateFormatter = DateFormatterService()
     let network = NetworkRequestor()
+    let deepLinkHandler: DeepLinkHandler
     
     // MARK: - Init
     init() {
         Log.mode = .all
         Log.print("SayTheirNames Version: \(Bundle.versionBuildString)")
         Log.print("Starting Services")
+        
+        // Handler
+        let deepLinkTypes: [DeepLink.Type] = [
+            HomeDeepLink.self,
+            PersonDeepLink.self,
+            DonationsDeepLink.self,
+            DonateDeepLink.self,
+            PetitionsDeepLink.self,
+            SignDeepLink.self,
+            AboutDeepLink.self
+        ]
+        self.deepLinkHandler = DeepLinkHandler(deepLinkTypes: deepLinkTypes, navigator: self.navigator)
         
         // Handle our Injection
         let injectionFactory = __DependencyInjectionFactory.shared
@@ -49,6 +62,7 @@ final class DependencyContainer: Dependency {
         injectionFactory.add(handle: self.image)
         injectionFactory.add(handle: self.dateFormatter)
         injectionFactory.add(handle: self.network)
+        injectionFactory.add(handle: self.deepLinkHandler)
     }
 }
 

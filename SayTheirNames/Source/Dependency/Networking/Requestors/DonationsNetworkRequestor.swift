@@ -61,4 +61,8 @@ extension NetworkRequestor {
         
         self.fetchDecodable(urlString, completion: completion)
     }
+    
+    public func fetchDonationDetails(with identifier: String, completion: @escaping (Result<DonationResponsePage, Swift.Error>) -> Swift.Void) {
+        self.fetchDecodable(DonationsEnvironment.baseURLString + "/" + identifier, completion: completion)
+    }
 }
