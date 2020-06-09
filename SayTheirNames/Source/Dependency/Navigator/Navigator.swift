@@ -24,7 +24,7 @@
 
 import UIKit
 
-final class Navigator: Dependency, DeepLinkPresentable {
+final class Navigator: Dependency, DeepLinkPresenter {
     private let window: UIWindow = UIWindow()
     lazy private(set) var rootViewController: MainTabBarController = MainTabBarController()
     

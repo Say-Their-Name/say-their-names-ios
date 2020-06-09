@@ -201,7 +201,7 @@ extension HomeController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-extension HomeController: DeepLinkPresentable {
+extension HomeController: DeepLinkPresenter {
     func present(deepLink: DeepLink) {
         guard let deepLink = deepLink as? PersonDeepLink else { return }
         

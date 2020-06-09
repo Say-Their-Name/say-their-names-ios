@@ -32,6 +32,5 @@ struct HomeDeepLink: DeepLink {
     .schemes(DeepLinkSupport.Schema.all)
     .host(DeepLinkSupport.Host.default)
 
-    init() { }
-    init?(components: [String]?) { }
+    init(components: [String]? = nil) { }
 }

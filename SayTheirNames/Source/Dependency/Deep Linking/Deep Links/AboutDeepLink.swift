@@ -33,5 +33,5 @@ struct AboutDeepLink: DeepLink {
     .host(DeepLinkSupport.Host.default)
     .path(DeepLinkSupport.Path.about)
     
-    init?(components: [String]?) { }
+    init(components: [String]? = nil) { }
 }

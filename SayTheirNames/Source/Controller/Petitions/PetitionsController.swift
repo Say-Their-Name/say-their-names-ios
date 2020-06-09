@@ -95,7 +95,7 @@ final class PetitionsController: UIViewController {
     }
 }
 
-extension PetitionsController: DeepLinkPresentable {
+extension PetitionsController: DeepLinkPresenter {
     func present(deepLink: DeepLink) {
         guard let deepLink = deepLink as? SignDeepLink else { return }
         

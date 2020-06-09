@@ -162,7 +162,7 @@ private extension MainTabBarController {
     }
 }
 
-extension MainTabBarController: DeepLinkPresentable {
+extension MainTabBarController: DeepLinkPresenter {
     func present(deepLink: DeepLink) {
         guard let controllers = self.viewControllers as? [UINavigationController] else { return }
         for (index, navController) in controllers.enumerated() {
@@ -172,7 +172,7 @@ extension MainTabBarController: DeepLinkPresentable {
                 self.dismiss(animated: false)
                 self.selectedIndex = index
                 
-                if let handleController = controller as? DeepLinkPresentable {
+                if let handleController = controller as? DeepLinkPresenter {
                     handleController.present(deepLink: deepLink)
                 }
             }

@@ -38,27 +38,27 @@ public struct DeepLinkDetails {
         self.init(schemes: [], hosts: [], paths: [], displayClass: displayClass, type: type)
     }
     
-    public func host(_ host: String) -> DeepLinkDetails {
+    func host(_ host: String) -> DeepLinkDetails {
         return self.appending(schemes: self.schemes, hosts: self.hosts + [host], paths: self.paths)
     }
     
-    public func schemes(_ schemes: [String]) -> DeepLinkDetails {
+    func schemes(_ schemes: [String]) -> DeepLinkDetails {
         return self.appending(schemes: self.schemes + schemes, hosts: self.hosts, paths: self.paths)
     }
     
-    public func path(_ path: String, optional: Bool = false) -> DeepLinkDetails {
+    func path(_ path: String, optional: Bool = false) -> DeepLinkDetails {
         return self.appending(schemes: self.schemes, hosts: self.hosts, paths: self.paths + [.string(value: path, optional: optional)])
     }
     
-    public func canDisplayClass(_ displayClass: UIViewController.Type) -> Bool {
+    func canDisplayClass(_ displayClass: UIViewController.Type) -> Bool {
         return self.displayClass == displayClass
     }
     
-    public func uses(scheme: String, host: String) -> Bool {
+    func uses(scheme: String, host: String) -> Bool {
         return self.schemes.contains(scheme) && self.hosts.contains(host)
     }
     
-    public func has(location: String) -> Bool {
+    func has(location: String) -> Bool {
         for path in self.paths {
             switch path {
             case let .string(value, _):

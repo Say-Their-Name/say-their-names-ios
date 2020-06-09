@@ -33,7 +33,7 @@ struct PetitionsDeepLink: DeepLink {
     .host(DeepLinkSupport.Host.default)
     .path(DeepLinkSupport.Path.petitions)
     
-    init?(components: [String]?) { }
+    init(components: [String]? = nil) { }
 }
 
 struct SignDeepLink: DeepLink {
@@ -50,7 +50,7 @@ struct SignDeepLink: DeepLink {
         self.value = value
     }
     
-    init?(components: [String]?) {
+    init?(components: [String]? = nil) {
         guard let value = components?.first else {
             return nil
         }

@@ -38,7 +38,7 @@ struct PersonDeepLink: DeepLink {
         self.value = value
     }
     
-    init?(components: [String]?) {
+    init?(components: [String]? = nil) {
         guard let value = components?.first else {
             return nil
         }

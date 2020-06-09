@@ -33,7 +33,7 @@ struct DonationsDeepLink: DeepLink {
     .host(DeepLinkSupport.Host.default)
     .path(DeepLinkSupport.Path.donations)
 
-    init?(components: [String]?) { }
+    init(components: [String]? = nil) { }
 }
 
 struct DonateDeepLink: DeepLink {

@@ -29,6 +29,6 @@ protocol DeepLink {
     init?(components: [String]?)
 }
 
-protocol DeepLinkPresentable {
+protocol DeepLinkPresenter {
     func present(deepLink: DeepLink)
 }
