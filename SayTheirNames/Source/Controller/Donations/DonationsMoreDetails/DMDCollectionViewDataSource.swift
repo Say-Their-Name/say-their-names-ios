@@ -103,7 +103,13 @@ extension DonationsMoreDetailsController: UICollectionViewDataSource {
                 withReuseIdentifier: DMDPhotoSupplementaryView.reuseIdentifier,
                 for: indexPath) as? DMDPhotoSupplementaryView {
                 
-                photoView.configure(withURLString: donation.bannerImagePath)
+                switch donation.type?.id {
+                case DonationTypes.movement.id:
+                    photoView.configure(withURLString: donation.bannerImagePath)
+                default:
+                    photoView.configure(withURLString: donation.person?.images.first?.personURL)
+                }
+                
                 return photoView
             }
             
