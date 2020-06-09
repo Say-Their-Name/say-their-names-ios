@@ -11,6 +11,7 @@
 		18BE76CE248EF57A004100EE /* Result+STN.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BE76CD248EF57A004100EE /* Result+STN.swift */; };
 		18BE76D2248EF9D5004100EE /* AFError+STN.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BE76D1248EF9D5004100EE /* AFError+STN.swift */; };
 		24671846248E1E1A006F14B5 /* Hashtag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24671845248E1E1A006F14B5 /* Hashtag.swift */; };
+		2C06BBA4248E7130002508FC /* UIEdgeInsetsInitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C06BBA3248E7130002508FC /* UIEdgeInsetsInitTests.swift */; };
 		332F22BEB81BC34837C12842 /* Pods_SayTheirNamesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B491840AD61AD287986EE601 /* Pods_SayTheirNamesTests.framework */; };
 		36EE56E7248AF96100E424A7 /* PersonCollectionViewDataSourceHelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EE56E6248AF96100E424A7 /* PersonCollectionViewDataSourceHelperTests.swift */; };
 		3A33EF65248ABC7500580D1E /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A33EF64248ABC7500580D1E /* Theme.swift */; };
@@ -183,6 +184,7 @@
 		18BF12F4248ABC8B00A60BB3 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		20AABB4794146889EEF753BB /* Pods-Say Their NamesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Say Their NamesTests.release.xcconfig"; path = "Target Support Files/Pods-Say Their NamesTests/Pods-Say Their NamesTests.release.xcconfig"; sourceTree = "<group>"; };
 		24671845248E1E1A006F14B5 /* Hashtag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hashtag.swift; sourceTree = "<group>"; };
+		2C06BBA3248E7130002508FC /* UIEdgeInsetsInitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIEdgeInsetsInitTests.swift; sourceTree = "<group>"; };
 		36EE56E6248AF96100E424A7 /* PersonCollectionViewDataSourceHelperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonCollectionViewDataSourceHelperTests.swift; sourceTree = "<group>"; };
 		39C05132613A992F23ECED58 /* Pods-SayTheirNames.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SayTheirNames.debug.xcconfig"; path = "Target Support Files/Pods-SayTheirNames/Pods-SayTheirNames.debug.xcconfig"; sourceTree = "<group>"; };
 		3A33EF64248ABC7500580D1E /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
@@ -902,6 +904,7 @@
 			isa = PBXGroup;
 			children = (
 				B386F9542482FB540037A38D /* UIFontSTNTests.swift */,
+				2C06BBA3248E7130002508FC /* UIEdgeInsetsInitTests.swift */,
 			);
 			path = ExtensionsTests;
 			sourceTree = "<group>";
@@ -1362,6 +1365,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A5BFA1B2488871C00BC265A /* DateFormatterServiceTests.swift in Sources */,
+				2C06BBA4248E7130002508FC /* UIEdgeInsetsInitTests.swift in Sources */,
 				B386F9552482FB540037A38D /* UIFontSTNTests.swift in Sources */,
 				7C166DC0248BB0310017A25A /* SearchNetworkRequestorTests.swift in Sources */,
 				5F62B732248975CF00ACE032 /* LocationCollectionViewDataSourceTests.swift in Sources */,
