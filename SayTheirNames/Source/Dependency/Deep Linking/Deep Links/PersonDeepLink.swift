@@ -29,7 +29,7 @@ struct PersonDeepLink: DeepLink {
         displayClass: HomeController.self,
         type: PersonDeepLink.self
     )
-    .schemes(DeepLinkSupport.Schema.default)
+    .schemes(DeepLinkSupport.Schema.all)
     .host(DeepLinkSupport.Host.default)
     .path(DeepLinkSupport.Path.profile)
     

@@ -29,7 +29,7 @@ struct AboutDeepLink: DeepLink {
         displayClass: MoreController.self,
         type: AboutDeepLink.self
     )
-    .schemes(DeepLinkSupport.Schema.default)
+    .schemes(DeepLinkSupport.Schema.all)
     .host(DeepLinkSupport.Host.default)
     .path(DeepLinkSupport.Path.about)
     

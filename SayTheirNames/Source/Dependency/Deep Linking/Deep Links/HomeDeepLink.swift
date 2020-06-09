@@ -29,7 +29,7 @@ struct HomeDeepLink: DeepLink {
         displayClass: HomeController.self,
         type: HomeDeepLink.self
     )
-    .schemes(DeepLinkSupport.Schema.default)
+    .schemes(DeepLinkSupport.Schema.all)
     .host(DeepLinkSupport.Host.default)
 
     init() { }

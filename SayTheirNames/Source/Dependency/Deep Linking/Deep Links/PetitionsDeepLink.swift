@@ -29,7 +29,7 @@ struct PetitionsDeepLink: DeepLink {
         displayClass: PetitionsController.self,
         type: PetitionsDeepLink.self
     )
-    .schemes(DeepLinkSupport.Schema.default)
+    .schemes(DeepLinkSupport.Schema.all)
     .host(DeepLinkSupport.Host.default)
     .path(DeepLinkSupport.Path.petitions)
     
@@ -41,7 +41,7 @@ struct SignDeepLink: DeepLink {
         displayClass: PetitionsController.self,
         type: SignDeepLink.self
     )
-    .schemes(DeepLinkSupport.Schema.default)
+    .schemes(DeepLinkSupport.Schema.all)
     .host(DeepLinkSupport.Host.default)
     .path(DeepLinkSupport.Path.sign)
     

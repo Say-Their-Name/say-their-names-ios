@@ -26,7 +26,9 @@ import Foundation
 
 struct DeepLinkSupport {
     enum Schema {
-        static let `default` = ["stn", "https"]
+        static let stn = "stn"
+        static let https = "https"
+        static let all = [Schema.stn, Schema.https]
     }
     
     enum Host {
