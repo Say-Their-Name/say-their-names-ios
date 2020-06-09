@@ -31,7 +31,7 @@ class DMDTextContentCell: UICollectionViewCell {
     // MARK: - View
     lazy var contentTextView: UITextView = {
         let textView = UITextView()
-        textView.textColor = .black
+        textView.textColor = UIColor(asset: STNAsset.Color.primaryLabel)
         textView.font = UIFont(name: "Karla-Regular", size: 17)
         textView.isEditable = false
         textView.isScrollEnabled = false

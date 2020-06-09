@@ -33,8 +33,8 @@ final class FilterCategoryCell: UICollectionViewCell {
     
     override var isSelected: Bool {
         didSet {
-            backgroundColor = isSelected ? UIColor.STN.black : .clear
-            titleLabel.textColor = isSelected ? UIColor.STN.white : UIColor.STN.black
+            backgroundColor = isSelected ? UIColor(asset: STNAsset.Color.actionButton) : .clear
+            titleLabel.textColor = isSelected ? UIColor(asset: STNAsset.Color.actionButtonTint) : UIColor(asset: STNAsset.Color.strongHeader)
         }
     }
     
@@ -49,7 +49,7 @@ final class FilterCategoryCell: UICollectionViewCell {
     }
 
     private func setupSelf() {
-        layer.borderColor = UIColor.STN.black.cgColor
+        layer.borderColor = UIColor(asset: STNAsset.Color.black).cgColor
         layer.borderWidth = 1.5
         contentView.translatesAutoresizingMaskIntoConstraints = false
     }

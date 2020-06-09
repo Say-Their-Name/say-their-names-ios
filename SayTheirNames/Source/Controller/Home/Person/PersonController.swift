@@ -108,7 +108,7 @@ class PersonController: UIViewController {
     
     lazy var backgroundFistImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(asset: STNImage.stnLogoWhite)
+        imageView.image = UIImage(asset: STNAsset.Image.stnLogoWhite)
         imageView.contentMode = .scaleAspectFit
         imageView.clipsToBounds = true
         return imageView
@@ -117,7 +117,7 @@ class PersonController: UIViewController {
     lazy var dismissButton: UIButton = {
         let gesture = UITapGestureRecognizer(target: self, action: #selector(dismissAction(_:)))
         let button = UIButton(type: .system)
-        button.setImage(UIImage(asset: STNImage.close)?.withRenderingMode(.alwaysOriginal), for: .normal)
+        button.setImage(UIImage(asset: STNAsset.Image.close)?.withRenderingMode(.alwaysOriginal), for: .normal)
         button.frame = CGRect(x: 0, y: 0, width: Theme.Components.Button.Size.small.width,
                               height: Theme.Components.Button.Size.small.height)
         button.addGestureRecognizer(gesture)
@@ -128,7 +128,7 @@ class PersonController: UIViewController {
     lazy var shareButton: UIButton = {
         let gesture = UITapGestureRecognizer(target: self, action: #selector(shareAction(_:)))
         let button = UIButton(type: .system)
-        button.setImage(UIImage(asset: STNImage.shareWhite)?.withRenderingMode(.alwaysOriginal), for: .normal)
+        button.setImage(UIImage(asset: STNAsset.Image.shareWhite)?.withRenderingMode(.alwaysOriginal), for: .normal)
         button.frame = CGRect(x: 0, y: 0, width: Theme.Components.Button.Size.small.width,
                               height: Theme.Components.Button.Size.small.height)
         button.addGestureRecognizer(gesture)
@@ -164,7 +164,7 @@ class PersonController: UIViewController {
 
     override func loadView() {
         super.loadView()
-        view.backgroundColor = UIColor.STN.red
+        view.backgroundColor = UIColor(asset: STNAsset.Color.red)
         setupNavigationBarItems()
         setupSubViews()
     }

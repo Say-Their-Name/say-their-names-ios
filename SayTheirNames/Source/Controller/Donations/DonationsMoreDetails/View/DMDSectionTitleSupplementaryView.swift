@@ -31,7 +31,7 @@ class DMDSectionTitleSupplementaryView: UICollectionReusableView {
     // MARK: - View
     lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.textColor = UIColor(red: 16/255.0, green: 16/255.0, blue: 16/255.0, alpha: 1)
+        label.textColor = UIColor(asset: STNAsset.Color.primaryLabel)
         label.font = UIFont(name: "Karla-Bold", size: 19)
         label.numberOfLines = 1
         label.minimumScaleFactor = 0.5
