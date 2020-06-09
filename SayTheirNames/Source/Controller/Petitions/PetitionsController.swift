@@ -96,7 +96,7 @@ final class PetitionsController: UIViewController {
 }
 
 extension PetitionsController: DeepLinkPresenter {
-    func present(deepLink: DeepLink) {
+    func handle(deepLink: DeepLink) {
         guard let deepLink = deepLink as? SignDeepLink else { return }
         
         self.network.fetchPetitionDetails(with: deepLink.value) { [weak self] in

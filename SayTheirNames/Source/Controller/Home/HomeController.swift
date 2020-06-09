@@ -202,7 +202,7 @@ extension HomeController: UICollectionViewDelegateFlowLayout {
 }
 
 extension HomeController: DeepLinkPresenter {
-    func present(deepLink: DeepLink) {
+    func handle(deepLink: DeepLink) {
         guard let deepLink = deepLink as? PersonDeepLink else { return }
         
         self.network.fetchPersonDetails(with: deepLink.value) { [weak self] in

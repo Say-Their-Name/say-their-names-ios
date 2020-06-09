@@ -30,5 +30,5 @@ protocol DeepLink {
 }
 
 protocol DeepLinkPresenter {
-    func present(deepLink: DeepLink)
+    func handle(deepLink: DeepLink)
 }

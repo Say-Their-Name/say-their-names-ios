@@ -38,7 +38,7 @@ final class DeepLinkHandler: Dependency {
     public func handle(urlContext: Set<UIOpenURLContext>) {
         for context in urlContext {
              if let deepLink = self.deepLink(matching: context) {
-                self.navigator.present(deepLink: deepLink)
+                self.navigator.handle(deepLink: deepLink)
                 return
             }
         }

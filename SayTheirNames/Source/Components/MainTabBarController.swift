@@ -163,7 +163,7 @@ private extension MainTabBarController {
 }
 
 extension MainTabBarController: DeepLinkPresenter {
-    func present(deepLink: DeepLink) {
+    func handle(deepLink: DeepLink) {
         guard let controllers = self.viewControllers as? [UINavigationController] else { return }
         for (index, navController) in controllers.enumerated() {
             guard let controller = navController.viewControllers.first else { return }
@@ -173,7 +173,7 @@ extension MainTabBarController: DeepLinkPresenter {
                 self.selectedIndex = index
                 
                 if let handleController = controller as? DeepLinkPresenter {
-                    handleController.present(deepLink: deepLink)
+                    handleController.handle(deepLink: deepLink)
                 }
             }
         }

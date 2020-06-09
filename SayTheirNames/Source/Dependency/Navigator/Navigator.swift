@@ -43,7 +43,7 @@ final class Navigator: Dependency, DeepLinkPresenter {
         self.rootViewController.setNeedsStatusBarAppearanceUpdate()
     }
     
-    func present(deepLink: DeepLink) {
-        self.rootViewController.present(deepLink: deepLink)
+    func handle(deepLink: DeepLink) {
+        self.rootViewController.handle(deepLink: deepLink)
     }
 }
