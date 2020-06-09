@@ -1,5 +1,5 @@
 //
-//  PersonDeepLink.swift
+//  DeepLinkSupport.swift
 //  SayTheirNames
 //
 //  Copyright (c) 2020 Say Their Names Team (https://github.com/Say-Their-Name)
@@ -22,27 +22,25 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-import UIKit
+import Foundation
 
-struct PersonDeepLink: DeepLink {
-    static let details = DeepLinkDetails(
-        displayClass: HomeController.self,
-        type: PersonDeepLink.self
-    )
-    .schemes(DeepLinkSupport.Schema.all)
-    .host(DeepLinkSupport.Host.default)
-    .path(DeepLinkSupport.Path.profile)
-    
-    public let value: String
-    init(value: String) {
-        self.value = value
+enum DeepLinkSupport {
+    enum Schema {
+        static let stn = "stn"
+        static let https = "https"
+        static let all = [Schema.stn, Schema.https]
     }
     
-    init?(components: [String]? = nil) {
-        guard let value = components?.first else {
-            return nil
-        }
-            
-        self.init(value: value)
+    enum Host {
+        static let `default` = "saytheirname.netlify.app"
+    }
+
+    enum Path {
+        static let about = "about"
+        static let donations = "donations"
+        static let donate = "donate"
+        static let profile = "profile"
+        static let petitions = "petitions"
+        static let sign = "sign"
     }
 }
