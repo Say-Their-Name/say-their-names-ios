@@ -26,16 +26,20 @@ import UIKit
 
 public struct Donation: Decodable {
     let id: Int
+    let identifier: String
     let title: String
     let description: String
+    let outcome: String?
     let link: String
+    let outcomeImagePath: String?
     let person: Person?
     let type: DonationType?
     let bannerImagePath: String?
+    let shareable: Shareable?
     
     private enum CodingKeys: String, CodingKey {
-        case id, title, description, link, person, type
-        case bannerImagePath = "banner_img_url"
+        case id, identifier, title, description, outcome, link, person, type
+        case outcomeImagePath = "outcome_img_url", bannerImagePath = "banner_img_url", shareable = "sharable_links"
     }
 }
 

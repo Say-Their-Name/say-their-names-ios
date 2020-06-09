@@ -33,25 +33,27 @@ struct Person: Decodable {
     let age: Int?
     let city: String
     let country: String
-    let bio: String
+    let story: String
+    let outcome: String?
     let context: String
+    let shareable: Shareable?
     let images: [Image]
     let donations: [Donation]
     let petitions: [Petition]
     let media: [Media]
     let socialMedia: [SocialMedia]
     let hashtag: [Hashtag]
-
+    
     private enum CodingKeys: String, CodingKey {
-        case id, fullName = "full_name", identifier, dob = "date_of_birth", doi = "date_of_incident", childrenCount = "number_of_children",
-        age, city, country, bio, context, images, donations = "donation_links", petitions = "petition_links", media = "media_links",
+        case id, fullName = "full_name", identifier, doi = "date_of_incident", childrenCount = "number_of_children",
+        age, city, country, story = "their_story", outcome, context, shareable = "sharable_links", images, donations = "donation_links", petitions = "petition_links", media = "media_links",
         socialMedia = "social_media", hashtag = "hash_tags"
     }
     
     init(id: Int, fullName: String, identifier: String,
          doi: Date, childrenCount: Int?, age: Int?,
-         city: String, country: String, bio: String,
-         context: String, images: [Image], donations: [Donation],
+         city: String, country: String, story: String, outcome: String?,
+         context: String, shareable: Shareable?, images: [Image], donations: [Donation],
          petitions: [Petition], media: [Media], socialMedia: [SocialMedia], hashtag: [Hashtag]
     ) {
         self.id = id
@@ -62,8 +64,10 @@ struct Person: Decodable {
         self.age = age
         self.city = city
         self.country = country
-        self.bio = bio
+        self.story = story
+        self.outcome = outcome
         self.context = context
+        self.shareable = shareable
         self.images = images
         self.donations = donations
         self.petitions = petitions
@@ -82,8 +86,10 @@ struct Person: Decodable {
         self.age = try container.decodeIfPresent(Int.self, forKey: .age)
         self.city = try container.decodeIfPresent(String.self, forKey: .city) ?? ""
         self.country = try container.decodeIfPresent(String.self, forKey: .country) ?? ""
-        self.bio = try container.decodeIfPresent(String.self, forKey: .bio) ?? ""
+        self.story = try container.decodeIfPresent(String.self, forKey: .story) ?? ""
+        self.outcome = try container.decodeIfPresent(String.self, forKey: .outcome) ?? ""
         self.context = try container.decodeIfPresent(String.self, forKey: .context) ?? ""
+        self.shareable =  try container.decodeIfPresent(Shareable.self, forKey: .shareable)
         
         self.images = try container.decodeIfPresent([Image].self, forKey: .images) ?? []
         self.donations = try container.decodeIfPresent([Donation].self, forKey: .donations) ?? []

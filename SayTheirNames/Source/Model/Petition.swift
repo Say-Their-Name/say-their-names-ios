@@ -26,15 +26,19 @@ import Foundation
 
 public struct Petition: Decodable {
     let id: Int
+    let identifier: String
     let title: String
     let description: String
+    let outcome: String?
     let link: String
+    let outcomeImagePath: String?
     let person: Person?
     let bannerImagePath: String?
+    let shareable: Shareable?
     
     enum CodingKeys: String, CodingKey {
-        case id, title, description, link, person
-        case bannerImagePath = "banner_img_url"
+        case id, identifier, title, description, outcome, link, person
+        case outcomeImagePath = "outcome_img_url", bannerImagePath = "banner_img_url", shareable = "sharable_links"
     }
 }
 

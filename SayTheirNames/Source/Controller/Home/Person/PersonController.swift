@@ -151,7 +151,6 @@ class PersonController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.accessibilityIdentifier = "personView"
-        
         self.network.fetchPersonDetails(with: person.identifier) { [weak self] result in
             switch result {
             case .success(let personResult):
@@ -184,6 +183,7 @@ class PersonController: UIViewController {
     // TODO: Update UITableView sections based on what info we have
     private func configure(with person: Person) {
         self.person = person
+        tableView.reloadData()
     }
 }
 
@@ -257,7 +257,7 @@ extension PersonController: UITableViewDataSource {
             return infoCell
         case .story:
             let storyCell = cell as! PersonOverviewTableViewCell
-            storyCell.setupCell(title: L10n.Person.theirStory, description: person.bio)
+            storyCell.setupCell(title: L10n.Person.theirStory, description: person.story)
             return storyCell
         case .outcome:
             let overviewCell = cell as! PersonOverviewTableViewCell
