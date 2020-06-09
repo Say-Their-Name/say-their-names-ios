@@ -48,6 +48,11 @@
                BlueprintName = "SayTheirNamesTests"
                ReferencedContainer = "container:SayTheirNames.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "Model_SearchTests">
+               </Test>
+            </SkippedTests>
          </TestableReference>
          <TestableReference
             skipped = "NO">
