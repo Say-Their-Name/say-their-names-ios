@@ -35,7 +35,7 @@ class DMDPhotoSupplementaryView: UICollectionReusableView {
     override init(frame: CGRect) {
         super.init(frame: .zero)
         
-        backgroundColor = .red
+        backgroundColor = UIColor(asset: STNAsset.Color.red)
         clipsToBounds = true
         imageWithBlurView.fillSuperview(superView: self, padding: .zero)
     }
@@ -45,7 +45,7 @@ class DMDPhotoSupplementaryView: UICollectionReusableView {
     }
 
     // MARK: - Method
-    public func configure(_ person: Person) {
-        imageWithBlurView.setup(person)
+    public func configure(withURLString string: String?) {
+        imageWithBlurView.setup(withURLString: string)
     }
 }

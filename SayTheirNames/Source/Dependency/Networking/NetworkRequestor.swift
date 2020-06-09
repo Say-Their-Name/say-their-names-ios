@@ -26,7 +26,6 @@ import Foundation
 import Alamofire
 
 // MARK: - NetworkRequestor
-
 final class NetworkRequestor: Dependency {
     let session: Session
     let concurrentQueue = DispatchQueue(label: "NetworkRequestor", attributes: .concurrent)
@@ -38,24 +37,26 @@ final class NetworkRequestor: Dependency {
     
     // MARK: - Public methods
     
-    public func fetchDecodable<T: Decodable>(_ url: String, completion: @escaping (Result<T, AFError>) -> Swift.Void) {
+    public func fetchDecodable<T: Decodable>(_ url: String, completion: @escaping (Result<T, Swift.Error>) -> Swift.Void) {
         let request = self.session.request(url, headers: self.headers)
         request.responseDecodable(of: T.self, queue: self.concurrentQueue) { (response) in
-            DispatchQueue.mainAsync { completion(response.result) }
+            DispatchQueue.mainAsync {
+                completion(response.result.swiftError)
+            }
         }
     }
     
-    public func fetchData(_ url: String, completion: @escaping (Result<Data, AFError>) -> Swift.Void) {
+    public func fetchData(_ url: String, completion: @escaping (Result<Data, Swift.Error>) -> Swift.Void) {
         let request = self.session.request(url, headers: self.headers)
         request.responseData(queue: self.concurrentQueue) { (response) in
-            DispatchQueue.mainAsync { completion(response.result) }
+            completion(response.result.swiftError)
         }
     }
     
-    public func fetchJSON(_ url: String, completion: @escaping (Result<Any, AFError>) -> Swift.Void) {
+    public func fetchJSON(_ url: String, completion: @escaping (Result<Any, Swift.Error>) -> Swift.Void) {
         let request = self.session.request(url, headers: self.headers)
         request.responseJSON(queue: self.concurrentQueue) { (response) in
-            DispatchQueue.mainAsync { completion(response.result) }
+            completion(response.result.swiftError)
         }
     }
 }

@@ -73,9 +73,10 @@ extension DonationsMoreDetailsController: UICollectionViewDataSource {
             }
             
             // Configure cell
-//            textCell.setContent(text: donation.outcome)
+            textCell.setContent(text: donation.description)
+            textCell.isHidden = !FeatureFlags.dmdOutcomeSectionEnabled
             return textCell
-        
+            
         // Social Media Hashtags Section
         case DonationSectionLayoutKind.socialMedia.rawValue:
             guard let hashtagCell = collectionView.dequeueReusableCell(
@@ -102,23 +103,14 @@ extension DonationsMoreDetailsController: UICollectionViewDataSource {
                 withReuseIdentifier: DMDPhotoSupplementaryView.reuseIdentifier,
                 for: indexPath) as? DMDPhotoSupplementaryView {
                 
-                let person = donation.person
-                person.flatMap { photoView.configure($0) }
-                return photoView
-            }
-            
-        case DonationsMoreDetailsController.donationButtonSupplementaryView:
-            // DonationButtonSupplementaryView
-            if let buttonView = collectionView.dequeueReusableSupplementaryView(
-                ofKind: kind,
-                withReuseIdentifier: DMDDonationButtonSupplementaryView.reuseIdentifier,
-                for: indexPath) as? DMDDonationButtonSupplementaryView {
-                
-                buttonView.setButtonPressed {
-                    // TODO: Donation Button Action
+                switch donation.type?.id {
+                case DonationTypes.movement.id:
+                    photoView.configure(withURLString: donation.bannerImagePath)
+                default:
+                    photoView.configure(withURLString: donation.person?.images.first?.personURL)
                 }
                 
-                return buttonView
+                return photoView
             }
     
         case DonationsMoreDetailsController.sectionTitleSupplementaryView:
@@ -130,11 +122,12 @@ extension DonationsMoreDetailsController: UICollectionViewDataSource {
                 
                 switch indexPath.section {
                 case DonationSectionLayoutKind.description.rawValue:
-                    titleView.setTitle(text: "description".uppercased())
+                    titleView.setTitle(text: L10n.description.uppercased())
                 case DonationSectionLayoutKind.outcome.rawValue:
-                    titleView.setTitle(text: "outcome".uppercased())
+                    titleView.setTitle(text: L10n.Person.outcome.uppercased())
+                    titleView.isHidden = !FeatureFlags.dmdOutcomeSectionEnabled
                 case DonationSectionLayoutKind.socialMedia.rawValue:
-                    titleView.setTitle(text: "social media hashtags".uppercased())
+                    titleView.setTitle(text: L10n.Person.hashtags.uppercased())
                 default:
                     return UICollectionReusableView(frame: .zero)
                 }

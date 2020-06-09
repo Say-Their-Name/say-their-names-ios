@@ -17,7 +17,7 @@ class PersonNewsCollectionViewCell: UICollectionViewCell {
     
     lazy var newsImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "media-image-1")
+        imageView.image = UIImage(asset: STNAsset.Image.mediaImage1)
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         return imageView
@@ -25,7 +25,7 @@ class PersonNewsCollectionViewCell: UICollectionViewCell {
     
     lazy var sourceContainer: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor.STN.yellow
+        view.backgroundColor = UIColor(asset: STNAsset.Color.yellow)
         view.clipsToBounds = true
         view.addSubview(sourceImageView)
         return view
@@ -33,7 +33,7 @@ class PersonNewsCollectionViewCell: UICollectionViewCell {
     
     lazy var sourceImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "news_bbc")
+        imageView.image = UIImage(asset: STNAsset.Image.newsBbc)
         imageView.contentMode = .scaleAspectFill
         return imageView
     }()
@@ -45,13 +45,13 @@ class PersonNewsCollectionViewCell: UICollectionViewCell {
         label.font = UIFont.STN.sectionHeader
         label.adjustsFontSizeToFitWidth = true
         label.minimumScaleFactor = 0.5
-        label.textColor = UIColor.STN.detailLabel
+        label.textColor = UIColor(asset: STNAsset.Color.detailLabel)
         return label
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = UIColor.STN.white
+        backgroundColor = UIColor(asset: STNAsset.Color.background)
         setupLayout()
     }
     

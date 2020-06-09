@@ -35,7 +35,6 @@ final class DonationsMoreDetailsController: UIViewController {
     
     // MARK: - Supplementary View Kind
     static let photoSupplementaryView = "photo"
-    static let donationButtonSupplementaryView = "donationButton"
     static let sectionTitleSupplementaryView = "sectionTitle"
     
     // MARK: - Property
@@ -46,7 +45,7 @@ final class DonationsMoreDetailsController: UIViewController {
     internal let emptyViewIdentifier = "empty-view-identifier"
     
     private let navigationBarTextAttributes = [
-        NSAttributedString.Key.foregroundColor: UIColor.white,
+        NSAttributedString.Key.foregroundColor: UIColor(asset: STNAsset.Color.navBarForeground),
         NSAttributedString.Key.font: UIFont.STN.navBarTitle
     ]
 
@@ -70,7 +69,7 @@ final class DonationsMoreDetailsController: UIViewController {
     
     lazy var backgroundFistImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "STN-Logo-white")
+        imageView.image = UIImage(asset: STNAsset.Image.stnLogoWhite)
         imageView.contentMode = .scaleAspectFit
         imageView.clipsToBounds = true
         return imageView
@@ -87,7 +86,7 @@ final class DonationsMoreDetailsController: UIViewController {
     
     // MARK: - Class Method
     private func configureSubview() {
-        view.backgroundColor = UIColor.STN.white
+        view.backgroundColor = UIColor(asset: STNAsset.Color.background)
         
         backgroundFistImageView.anchor(superView: view, top: view.topAnchor,
                                padding: .init(top:32), size: .init(width: 110, height: 110))
@@ -113,9 +112,6 @@ final class DonationsMoreDetailsController: UIViewController {
         collectionView.register(DMDPhotoSupplementaryView.self,
                                 forSupplementaryViewOfKind: DonationsMoreDetailsController.photoSupplementaryView,
                                 withReuseIdentifier: DMDPhotoSupplementaryView.reuseIdentifier)
-        collectionView.register(DMDDonationButtonSupplementaryView.self,
-                                forSupplementaryViewOfKind: DonationsMoreDetailsController.donationButtonSupplementaryView,
-                                withReuseIdentifier: DMDDonationButtonSupplementaryView.reuseIdentifier)
         collectionView.register(DMDSectionTitleSupplementaryView.self,
                                 forSupplementaryViewOfKind: DonationsMoreDetailsController.sectionTitleSupplementaryView,
                                 withReuseIdentifier: DMDSectionTitleSupplementaryView.reuseIdentifier)
@@ -123,22 +119,21 @@ final class DonationsMoreDetailsController: UIViewController {
     
     private func setupNavigationBarItems() {
         // TODO: Once Theme.swift/etc gets added this may not be required
-        navigationController?.navigationBar.titleTextAttributes = self.navigationBarTextAttributes
+        navigationController?.navigationBar.titleTextAttributes = self.navigationBarTextAttributes as [NSAttributedString.Key: Any]
         
-        // TODO: Localization
-        self.title = "Say Their Names".uppercased()
+        self.title = L10n.sayTheirNames.uppercased()
         self.navigationController?.navigationBar.titleTextAttributes =
-        [NSAttributedString.Key.foregroundColor: UIColor.white,
+            [NSAttributedString.Key.foregroundColor: UIColor(asset: STNAsset.Color.navBarForeground) ?? .white,
          NSAttributedString.Key.font: UIFont(name: "Karla-Regular", size: 19) ?? UIFont.systemFont(ofSize: 17)]
 
         let dismissButton = UIButton(type: .system)
-        dismissButton.setImage(UIImage(named: "Close Icon")?.withRenderingMode(.alwaysOriginal), for: .normal)
+        dismissButton.setImage(UIImage(asset: STNAsset.Image.close)?.withRenderingMode(.alwaysOriginal), for: .normal)
         dismissButton.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
         dismissButton.addTarget(self, action: #selector(dismissAction(_:)), for: .touchUpInside)
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: dismissButton)
         
         let shareButton = UIButton(type: .system)
-        shareButton.setImage(UIImage(named: "share_white")?.withRenderingMode(.alwaysOriginal), for: .normal)
+        shareButton.setImage(UIImage(asset: STNAsset.Image.shareWhite)?.withRenderingMode(.alwaysOriginal), for: .normal)
         shareButton.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
         shareButton.addTarget(self, action: #selector(shareAction(_:)), for: .touchUpInside)
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: shareButton)
@@ -152,8 +147,9 @@ final class DonationsMoreDetailsController: UIViewController {
             // TODO: Donation button action
         }
         
+        donationButtonContainerView.setButtonTitle("view GoFundMe page")
         donationButtonContainerView.translatesAutoresizingMaskIntoConstraints = false
-        donationButtonContainerView.backgroundColor = .white
+        donationButtonContainerView.backgroundColor = UIColor(asset: STNAsset.Color.background)
         view.addSubview(donationButtonContainerView)
         donationButtonContainerView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         donationButtonContainerView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true

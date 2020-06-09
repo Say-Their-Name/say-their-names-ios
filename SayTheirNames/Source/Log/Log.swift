@@ -24,8 +24,9 @@
 
 import UIKit
 
-// MARK: - Log
-public struct Log {
+// MARK: - Log namespace
+public enum Log {
+    
     public static var mode: Mode = .none
     
     public struct Mode: OptionSet {
@@ -53,14 +54,16 @@ public struct Log {
         Swift.print("\(prefix)\(stringItem)", terminator: terminator)
         #endif
     }
-    
+
+    private static let dateFormatterService = DateFormatterService()
+
     private static func _modePrefix(file: String, function: String, line: Int) -> String {
+        
         var result: String = ""
         
         if self.mode.contains(.date) {
-            let formatter = DateFormatterService()
-            let dateString = formatter.formatYearMonthDayAndTime(Date())
-            result += dateString
+            result += dateFormatterService.humanReadableTimestampString(from: Date())
+            result += " "
         }
         
         if self.mode.contains(.fileName) {

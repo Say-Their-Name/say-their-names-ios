@@ -32,10 +32,10 @@ class DMDDonationButtonSupplementaryView: UICollectionReusableView {
     // MARK: - View
     private lazy var button: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Donate".uppercased(), for: .normal)
+        button.setTitle(L10n.donate.uppercased(), for: .normal)
         button.titleLabel?.font = UIFont.STN.sectionHeader
-        button.backgroundColor = .black
-        button.tintColor = .white
+        button.backgroundColor = UIColor(asset: STNAsset.Color.actionButton)
+        button.tintColor = UIColor(asset: STNAsset.Color.actionButtonTint)
         button.addTarget(self, action: #selector(buttonDidPress(_:)), for: .touchUpInside)
         return button
     }()
