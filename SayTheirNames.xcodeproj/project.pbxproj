@@ -752,7 +752,6 @@
 			children = (
 				5D456A3924870C9F009FAD34 /* CollectionViewDataSource */,
 				A91B077324835CF700DB803C /* HomeController.swift */,
-				B336C6D5248E4BBA00A1AECB /* HomeViewModel.swift */,
 				7C47A93424873F1200B8D3BE /* HomeView.swift */,
 				A91B077424835CF700DB803C /* Person */,
 			);
@@ -955,6 +954,14 @@
 			sourceTree = "<group>";
 		};
 		B336C6D7248FB6E500A1AECB /* Pagination */ = {
+			isa = PBXGroup;
+			children = (
+				B336C6D5248E4BBA00A1AECB /* Paginator.swift */,
+			);
+			path = Pagination;
+			sourceTree = "<group>";
+		};
+		B386F9532482FB2E0037A38D /* ExtensionsTests */ = {
 			isa = PBXGroup;
 			children = (
 				B336C6D5248E4BBA00A1AECB /* Paginator.swift */,
