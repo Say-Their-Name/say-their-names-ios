@@ -53,6 +53,7 @@ internal enum STNAsset {
     internal static let bookmarkWhite = ImageAsset(name: "bookmark_white")
     internal static let close = ImageAsset(name: "close")
     internal static let gallery = ImageAsset(name: "gallery")
+    internal static let galleryActive = ImageAsset(name: "gallery_active")
     internal static let heart = ImageAsset(name: "heart")
     internal static let heartActive = ImageAsset(name: "heart_active")
     internal static let newsBbc = ImageAsset(name: "news_bbc")
