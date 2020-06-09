@@ -58,7 +58,7 @@ final class MoreCard: UIView {
         
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
-        imageView.backgroundColor = .black
+        imageView.backgroundColor = STNAsset.Color.cellBackground.color
         imageView.addSubview(vStack)
         
         NSLayoutConstraint.activate([

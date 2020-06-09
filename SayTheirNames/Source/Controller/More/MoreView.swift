@@ -67,7 +67,7 @@ final class MoreView: UIView {
         let scrollView = UIScrollView(frame: frame)
         scrollView.addSubview(contentView)
         addSubview(scrollView)
-        
+        scrollView.backgroundColor = STNAsset.Color.background.color
         scrollView.anchor(superView: self, top: topAnchor, leading: leadingAnchor,
                           bottom: bottomAnchor, trailing: trailingAnchor, padding: .zero, size: .zero)
         contentView.anchor(superView: scrollView, top: scrollView.topAnchor, leading: nil,
@@ -156,11 +156,11 @@ private extension MoreView {
     private func actionButton(_ section: section) -> UIButton {
         let actionButton = UIButton()
         actionButton.translatesAutoresizingMaskIntoConstraints = false
-        actionButton.layer.backgroundColor = STNAsset.Color.actionButton.color.cgColor
+
         actionButton.titleLabel?.font = UIFont.STN.sectionHeader
         actionButton.layer.borderWidth = 2
-        actionButton.tintColor = STNAsset.Color.actionButton.color
-        actionButton.setTitleColor(STNAsset.Color.white.color, for: .normal)
+        actionButton.backgroundColor = STNAsset.Color.actionButton.color
+        actionButton.setTitleColor(STNAsset.Color.actionButtonTint.color, for: .normal)
         actionButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
         switch section {
