@@ -651,7 +651,6 @@
 				1897247A248D766F00836B62 /* FeatureFlags.swift */,
 				A91B078224835CF700DB803C /* Components */,
 				A91B077124835CF700DB803C /* Controller */,
-				A9B90570248F425C00F9EEFA /* Deep Linking */,
 				A91B07B624846AFD00DB803C /* Dependency */,
 				A91B07BB24846ECB00DB803C /* Log */,
 				A91B078524835CF700DB803C /* Model */,
@@ -872,6 +871,7 @@
 			children = (
 				A91B07B724846B0C00DB803C /* DependencyContainer.swift */,
 				7A5BFA182488821500BC265A /* DateFormatterService.swift */,
+				A9B90570248F425C00F9EEFA /* Deep Linking */,
 				9E7DBAE7248481DA00635A56 /* ImageDownloader */,
 				A91B07BE2484704200DB803C /* Navigator */,
 				A93367C1248983B1001F1E28 /* Networking */,
