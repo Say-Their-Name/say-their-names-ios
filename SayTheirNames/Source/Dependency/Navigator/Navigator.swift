@@ -24,7 +24,7 @@
 
 import UIKit
 
-final class Navigator: Dependency {
+final class Navigator: Dependency, DeepLinkHandle {
     private let window: UIWindow = UIWindow()
     lazy private(set) var rootViewController: MainTabBarController = MainTabBarController()
     
@@ -44,6 +44,6 @@ final class Navigator: Dependency {
     }
     
     func handle(deepLink: DeepLink) {
-        Log.print(deepLink)
+        self.rootViewController.handle(deepLink: deepLink)
     }
 }

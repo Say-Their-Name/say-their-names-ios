@@ -28,3 +28,7 @@ protocol DeepLink {
     static var details: DeepLinkDetails { get }
     static func deepLink(fromComponents: [String]?) -> DeepLink?
 }
+
+protocol DeepLinkHandle {
+    func handle(deepLink: DeepLink)
+}

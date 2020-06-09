@@ -24,7 +24,7 @@
 
 import UIKit
 
-class MainTabBarController: UITabBarController, UITabBarControllerDelegate {    
+class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
     // Params
     private var launchScreen: LaunchScreen?
     
@@ -154,5 +154,24 @@ private extension MainTabBarController {
             launchView.removeFromSuperview()
             self.launchScreen = nil
         })
+    }
+}
+
+extension MainTabBarController: DeepLinkHandle {
+    func handle(deepLink: DeepLink) {
+        Log.print(deepLink)
+
+        if type(of: deepLink) == HomeDeepLink.self {
+            self.selectedIndex = 0
+        }
+        else if type(of: deepLink) == DonationsDeepLink.self {
+            self.selectedIndex = 1
+        }
+        else if type(of: deepLink) == PetitionsDeepLink.self {
+                self.selectedIndex = 2
+        }
+        else if type(of: deepLink) == AboutDeepLink.self {
+            self.selectedIndex = 3
+        }
     }
 }

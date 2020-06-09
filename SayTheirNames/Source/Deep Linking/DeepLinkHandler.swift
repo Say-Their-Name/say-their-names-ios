@@ -38,6 +38,7 @@ final class DeepLinkHandler: Dependency {
             for deepLinkType in self.deepLinkTypes {
                 if let deepLink = deepLinkType.details.deepLink(matching: context) {
                     self.navigator.handle(deepLink: deepLink)
+                    return
                 }
             }
         }
