@@ -72,7 +72,7 @@ struct Donation: Decodable {
         self.person = try container.decodeIfPresent(Person.self, forKey: .person) ?? Person(from: decoder)
         self.type = try container.decodeIfPresent(DonationType.self, forKey: .type) ?? DonationType()
         self.bannerImagePath = try container.decodeIfPresent(String.self, forKey: .bannerImagePath) ?? ""
-        self.shareable =  try container.decodeIfPresent(Shareable.self, forKey: .shareable) ?? Shareable()
+        self.shareable = try container.decodeIfPresent(Shareable.self, forKey: .shareable) ?? Shareable()
     }
 }
 
