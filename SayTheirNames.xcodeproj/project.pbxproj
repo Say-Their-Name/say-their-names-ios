@@ -37,8 +37,9 @@
 		7A5BFA172488315D00BC265A /* DonationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5BFA162488315D00BC265A /* DonationsView.swift */; };
 		7A5BFA192488821500BC265A /* DateFormatterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5BFA182488821500BC265A /* DateFormatterService.swift */; };
 		7A5BFA1B2488871C00BC265A /* DateFormatterServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5BFA1A2488871C00BC265A /* DateFormatterServiceTests.swift */; };
-		7A829500248B298E00A8D7D8 /* AboutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8294FF248B298E00A8D7D8 /* AboutController.swift */; };
-		7A829502248B299C00A8D7D8 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A829501248B299C00A8D7D8 /* AboutView.swift */; };
+		7A829500248B298E00A8D7D8 /* MoreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8294FF248B298E00A8D7D8 /* MoreController.swift */; };
+		7A829502248B299C00A8D7D8 /* MoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A829501248B299C00A8D7D8 /* MoreView.swift */; };
+		7A829508248F0DDC00A8D7D8 /* MoreCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A829507248F0DDC00A8D7D8 /* MoreCard.swift */; };
 		7C166DC0248BB0310017A25A /* SearchNetworkRequestorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C166DBF248BB0310017A25A /* SearchNetworkRequestorTests.swift */; };
 		7C47A93524873F1200B8D3BE /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C47A93424873F1200B8D3BE /* HomeView.swift */; };
 		7CAD53E3248A2A9F001CFF08 /* NetworkRequestorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAD53E2248A2A9F001CFF08 /* NetworkRequestorTests.swift */; };
@@ -216,8 +217,9 @@
 		7A5BFA162488315D00BC265A /* DonationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationsView.swift; sourceTree = "<group>"; };
 		7A5BFA182488821500BC265A /* DateFormatterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DateFormatterService.swift; path = DateFormatter/DateFormatterService.swift; sourceTree = "<group>"; };
 		7A5BFA1A2488871C00BC265A /* DateFormatterServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DateFormatterServiceTests.swift; path = DateFormatterServiceTest/DateFormatterServiceTests.swift; sourceTree = "<group>"; };
-		7A8294FF248B298E00A8D7D8 /* AboutController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutController.swift; sourceTree = "<group>"; };
-		7A829501248B299C00A8D7D8 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
+		7A8294FF248B298E00A8D7D8 /* MoreController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreController.swift; sourceTree = "<group>"; };
+		7A829501248B299C00A8D7D8 /* MoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreView.swift; sourceTree = "<group>"; };
+		7A829507248F0DDC00A8D7D8 /* MoreCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreCard.swift; sourceTree = "<group>"; };
 		7C166DBF248BB0310017A25A /* SearchNetworkRequestorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchNetworkRequestorTests.swift; sourceTree = "<group>"; };
 		7C47A93424873F1200B8D3BE /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		7CAD53E2248A2A9F001CFF08 /* NetworkRequestorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequestorTests.swift; sourceTree = "<group>"; };
@@ -480,8 +482,9 @@
 		7A8294FE248B297A00A8D7D8 /* More */ = {
 			isa = PBXGroup;
 			children = (
-				7A8294FF248B298E00A8D7D8 /* AboutController.swift */,
-				7A829501248B299C00A8D7D8 /* AboutView.swift */,
+				7A8294FF248B298E00A8D7D8 /* MoreController.swift */,
+				7A829501248B299C00A8D7D8 /* MoreView.swift */,
+				7A829507248F0DDC00A8D7D8 /* MoreCard.swift */,
 			);
 			path = More;
 			sourceTree = "<group>";
@@ -1242,6 +1245,7 @@
 				9E5F937D248C1F2D00CB57BF /* STNNavigationBar.swift in Sources */,
 				24671846248E1E1A006F14B5 /* Hashtag.swift in Sources */,
 				D7F3F639248D3FBA00F66E72 /* DMDPhotoSupplementaryView.swift in Sources */,
+				7A829508248F0DDC00A8D7D8 /* MoreCard.swift in Sources */,
 				A93367C9248983B1001F1E28 /* PetitionsNetworkRequestor.swift in Sources */,
 				A93367CB248983B1001F1E28 /* Environment.swift in Sources */,
 				9EC6DD4A248B7FC0006CC5A7 /* FiltersCollectionView.swift in Sources */,
@@ -1287,8 +1291,8 @@
 				9E7DBAF4248481DA00635A56 /* ImageCreationOperation.swift in Sources */,
 				DB188806248A51A800FDAEE3 /* CarouselCollectionViewCell.swift in Sources */,
 				F2725A8B24881A8E00507DC4 /* UITableViewCell++.swift in Sources */,
-				7A829502248B299C00A8D7D8 /* AboutView.swift in Sources */,
-				7A829500248B298E00A8D7D8 /* AboutController.swift in Sources */,
+				7A829502248B299C00A8D7D8 /* MoreView.swift in Sources */,
+				7A829500248B298E00A8D7D8 /* MoreController.swift in Sources */,
 				83E9CAD02484A504001D173A /* LaunchScreen.swift in Sources */,
 				D7F3F63E248D3FBA00F66E72 /* DonationsMoreDetailsController.swift in Sources */,
 				D7F3F63A248D3FBA00F66E72 /* DMDHashtagCell.swift in Sources */,
