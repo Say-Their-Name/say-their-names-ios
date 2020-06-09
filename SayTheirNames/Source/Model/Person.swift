@@ -36,7 +36,7 @@ struct Person: Decodable {
     let story: String
     let outcome: String
     let biography: String
-    let shareable: Shareable?
+    let shareable: Shareable
     let images: [Image]
     let donations: [Donation]
     let petitions: [Petition]
@@ -55,7 +55,7 @@ struct Person: Decodable {
     init(id: Int, fullName: String, identifier: String,
          doi: Date, childrenCount: Int?, age: Int?, city: String,
          country: String, story: String, biography: String, outcome: String,
-         shareable: Shareable?, images: [Image], donations: [Donation], petitions: [Petition], medias: [Media],
+         shareable: Shareable, images: [Image], donations: [Donation], petitions: [Petition], medias: [Media],
          news: [News], socialMedia: [SocialMedia], hashtags: [Hashtag]
     ) {
         self.id = id
@@ -92,7 +92,7 @@ struct Person: Decodable {
         self.story = try container.decodeIfPresent(String.self, forKey: .story) ?? ""
         self.outcome = try container.decodeIfPresent(String.self, forKey: .outcome) ?? ""
         self.biography = try container.decodeIfPresent(String.self, forKey: .biography) ?? ""
-        self.shareable =  try container.decodeIfPresent(Shareable.self, forKey: .shareable)
+        self.shareable =  try container.decodeIfPresent(Shareable.self, forKey: .shareable) ?? Shareable()
         
         self.images = try container.decodeIfPresent([Image].self, forKey: .images) ?? []
         self.donations = try container.decodeIfPresent([Donation].self, forKey: .donations) ?? []

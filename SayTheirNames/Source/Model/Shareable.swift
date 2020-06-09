@@ -25,11 +25,13 @@
 import Foundation
 
 public struct Shareable: Decodable {
-    let base: String
-    let facebook: String
-    let twitter: String
-    let whatsapp: String
-
+    var base: String = ""
+    var facebook: String = ""
+    var twitter: String = ""
+    var whatsapp: String = ""
+    
+    init(){}
+    
     private enum CodingKeys: String, CodingKey {
         case base, facebook, twitter, whatsapp
     }
