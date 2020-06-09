@@ -108,8 +108,8 @@ final class DonationsController: UIViewController {
     }
 }
 
-extension DonationsController: DeepLinkHandle {
-    func handle(deepLink: DeepLink) {
+extension DonationsController: DeepLinkPresentable {
+    func present(deepLink: DeepLink) {
         guard let deepLink = deepLink as? DonateDeepLink else { return }
         
         self.network.fetchDonationDetails(with: deepLink.value) { [weak self] in

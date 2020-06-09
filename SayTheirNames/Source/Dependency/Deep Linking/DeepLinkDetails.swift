@@ -30,7 +30,6 @@ public struct DeepLinkDetails {
     private var paths: [PathPart]
     private var displayClass: UIViewController.Type
     private var type: DeepLink.Type
-    
     private enum PathPart { case string(value: String, optional: Bool) }
 
     // MARK: - Public
@@ -55,35 +54,21 @@ public struct DeepLinkDetails {
         return self.displayClass == displayClass
     }
     
-    func deepLink(matching context: UIOpenURLContext) -> DeepLink? {
-        guard let scheme = context.url.scheme, let host = context.url.host
-        else { return nil }
-
-        if self.schemes.contains(scheme) || self.hosts.contains(host) {
-            var components = context.url.pathComponents.filter { $0 != "/" }
-
-            // We are navigating to home
-            if components.count == 0 {
-                return HomeDeepLink()
-            }
-            
-            // Return DeepLink
-            guard let location = components.first,
-                  let locationIndex = components.firstIndex(of: location)
-            else { return nil }
-            
-            for path in self.paths {
-                switch path {
-                case let .string(value, _):
-                    if value == location {
-                        components.remove(at: locationIndex)
-                        return self.type.deepLink(fromComponents: components)
-                    }
+    public func uses(scheme: String, host: String) -> Bool {
+        return self.schemes.contains(scheme) && self.hosts.contains(host)
+    }
+    
+    public func has(location: String) -> Bool {
+        for path in self.paths {
+            switch path {
+            case let .string(value, _):
+                if value == location {
+                    return true
                 }
             }
         }
         
-        return nil
+        return false
     }
     
     // MARK: - Private

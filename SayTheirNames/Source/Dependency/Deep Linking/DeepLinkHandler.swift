@@ -33,14 +33,48 @@ final class DeepLinkHandler: Dependency {
         self.navigator = navigator
     }
     
+    // MARK: - Public
+    
     public func handle(urlContext: Set<UIOpenURLContext>) {
         for context in urlContext {
-            for deepLinkType in self.deepLinkTypes {
-                if let deepLink = deepLinkType.details.deepLink(matching: context) {
-                    self.navigator.handle(deepLink: deepLink)
-                    return
+             if let deepLink = self.deepLink(matching: context) {
+                self.navigator.present(deepLink: deepLink)
+                return
+            }
+        }
+    }
+    
+    // MARK: - Private
+    
+    private func deepLink(matching context: UIOpenURLContext) -> DeepLink? {
+        guard let scheme = context.url.scheme, let host = context.url.host
+        else { return nil }
+        
+        for deepLinkType in self.deepLinkTypes {
+            let details = deepLinkType.details
+            
+            if details.uses(scheme: scheme, host: host) {
+                var components = context.url.pathComponents.filter { $0 != "/" }
+
+                // We are navigating to home
+                if components.count == 0 {
+                    return HomeDeepLink()
+                }
+                
+                // Check location
+                guard let location = components.first,
+                      let locationIndex = components.firstIndex(of: location)
+                else { return nil }
+                
+                if details.has(location: location) {
+                    components.remove(at: locationIndex)
+                    
+                    // Return DeepLink
+                    return deepLinkType.init(components: components)
                 }
             }
         }
+
+        return nil
     }
 }

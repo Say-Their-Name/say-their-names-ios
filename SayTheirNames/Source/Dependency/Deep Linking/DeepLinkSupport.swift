@@ -1,5 +1,5 @@
 //
-//  AboutDeepLink.swift
+//  DeepLinkSchema.swift
 //  SayTheirNames
 //
 //  Copyright (c) 2020 Say Their Names Team (https://github.com/Say-Their-Name)
@@ -22,16 +22,23 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-import UIKit
+import Foundation
 
-struct AboutDeepLink: DeepLink {
-    static let details = DeepLinkDetails(
-        displayClass: MoreController.self,
-        type: AboutDeepLink.self
-    )
-    .schemes(DeepLinkSupport.Schema.default)
-    .host(DeepLinkSupport.Host.default)
-    .path(DeepLinkSupport.Path.about)
+struct DeepLinkSupport {
+    enum Schema {
+        static let `default` = ["stn", "https"]
+    }
     
-    init?(components: [String]?) { }
+    enum Host {
+        static let `default` = "saytheirname.netlify.app"
+    }
+
+    enum Path {
+        static let about = "about"
+        static let donations = "donations"
+        static let donate = "donate"
+        static let profile = "profile"
+        static let petitions = "petitions"
+        static let sign = "sign"
+    }
 }

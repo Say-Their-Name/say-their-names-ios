@@ -26,10 +26,9 @@ import UIKit
 
 protocol DeepLink {
     static var details: DeepLinkDetails { get }
-    static func deepLink(fromComponents: [String]?) -> DeepLink?
-    var linkDetails: DeepLinkDetails { get }
+    init?(components: [String]?)
 }
 
-protocol DeepLinkHandle {
-    func handle(deepLink: DeepLink)
+protocol DeepLinkPresentable {
+    func present(deepLink: DeepLink)
 }

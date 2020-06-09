@@ -25,26 +25,24 @@
 import UIKit
 
 struct PersonDeepLink: DeepLink {
-    let linkDetails: DeepLinkDetails
     static let details = DeepLinkDetails(
         displayClass: HomeController.self,
         type: PersonDeepLink.self
     )
-    .schemes(["stn", "https"])
-    .host("saytheirname.netlify.app")
-    .path("profile")
+    .schemes(DeepLinkSupport.Schema.default)
+    .host(DeepLinkSupport.Host.default)
+    .path(DeepLinkSupport.Path.profile)
     
     public let value: String
     init(value: String) {
-        self.linkDetails = type(of: self).details
         self.value = value
     }
     
-    static func deepLink(fromComponents: [String]? = nil) -> DeepLink? {
-        guard let value = fromComponents?.first else {
+    init?(components: [String]?) {
+        guard let value = components?.first else {
             return nil
         }
-        
-        return self.init(value: value)
+            
+        self.init(value: value)
     }
 }

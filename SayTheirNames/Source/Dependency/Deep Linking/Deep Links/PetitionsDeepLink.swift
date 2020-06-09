@@ -25,45 +25,36 @@
 import UIKit
 
 struct PetitionsDeepLink: DeepLink {
-    let linkDetails: DeepLinkDetails
     static let details = DeepLinkDetails(
         displayClass: PetitionsController.self,
         type: PetitionsDeepLink.self
     )
-    .schemes(["stn", "https"])
-    .host("saytheirname.netlify.app")
-    .path("petitions")
+    .schemes(DeepLinkSupport.Schema.default)
+    .host(DeepLinkSupport.Host.default)
+    .path(DeepLinkSupport.Path.petitions)
     
-    init() {
-        self.linkDetails = type(of: self).details
-    }
-    
-    static func deepLink(fromComponents: [String]? = nil) -> DeepLink? {
-        return self.init()
-    }
+    init?(components: [String]?) { }
 }
 
 struct SignDeepLink: DeepLink {
-    let linkDetails: DeepLinkDetails
     static let details = DeepLinkDetails(
         displayClass: PetitionsController.self,
         type: SignDeepLink.self
     )
-    .schemes(["stn", "https"])
-    .host("saytheirname.netlify.app")
-    .path("sign")
+    .schemes(DeepLinkSupport.Schema.default)
+    .host(DeepLinkSupport.Host.default)
+    .path(DeepLinkSupport.Path.sign)
     
     public let value: String
     init(value: String) {
-        self.linkDetails = type(of: self).details
         self.value = value
     }
     
-    static func deepLink(fromComponents: [String]? = nil) -> DeepLink? {
-        guard let value = fromComponents?.first else {
+    init?(components: [String]?) {
+        guard let value = components?.first else {
             return nil
         }
-        
-        return self.init(value: value)
+            
+        self.init(value: value)
     }
 }
