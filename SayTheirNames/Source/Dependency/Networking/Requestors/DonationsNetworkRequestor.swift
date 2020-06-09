@@ -38,6 +38,7 @@ extension NetworkRequestor {
         self.fetchDecodable(DonationsEnvironment.baseURLString, completion: completion)
     }
     
+    /// Use this to get paginated response for Donations
     public func fetchDonations(with link: Link, completion: @escaping (Result<DonationsResponsePage, Swift.Error>) -> Swift.Void) {
         guard let nextUrl = link.next else {
             let error = AFError.parameterEncodingFailed(reason: .missingURL)
