@@ -56,12 +56,6 @@ final class Paginator<Element, Page: PaginatorResponsePage> where Page.Element =
         self.state = .notLoading
     }
     
-    /// Loads first page
-    func refresh() {
-        pageLink = nil
-        load()
-    }
-    
     /// Loads next page
     func loadNextPage() {
         load()

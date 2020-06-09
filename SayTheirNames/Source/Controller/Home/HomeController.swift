@@ -143,7 +143,7 @@ final class HomeController: UIViewController {
             self?.peopleDataSourceHelper.appendPeople(data)
         }
         
-        paginator.refresh()
+        paginator.loadNextPage()
     }
     
     // MARK: - Button Actions
