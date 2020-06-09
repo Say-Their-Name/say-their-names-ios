@@ -1,5 +1,5 @@
 //
-//  DeepLinkSchema.swift
+//  DeepLinkSupport.swift
 //  SayTheirNames
 //
 //  Copyright (c) 2020 Say Their Names Team (https://github.com/Say-Their-Name)
