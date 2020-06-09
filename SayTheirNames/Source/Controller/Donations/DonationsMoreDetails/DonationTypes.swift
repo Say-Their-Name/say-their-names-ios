@@ -24,17 +24,8 @@
 
 import Foundation
 
-enum DonationTypes {
+enum DonationTypes: Int {
     case victims, protesters, movement
     
-    var id: Int {
-        switch self {
-        case .victims:
-            return 1
-        case .protesters:
-            return 2
-        case .movement:
-            return 3
-        }
-    }
+    var id: Int { return self.rawValue }
 }
