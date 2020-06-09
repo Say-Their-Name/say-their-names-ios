@@ -29,7 +29,7 @@ final class STNNavigationBar: UIView {
     private lazy var titleLabel = UILabel.create {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.font = UIFont.STN.navBarTitle
-        $0.textColor = UIColor.STN.white
+        $0.textColor = UIColor(asset: STNAsset.Color.white)
         $0.text = title
     }
     
@@ -48,7 +48,7 @@ final class STNNavigationBar: UIView {
     }
     
     private func setupSelf() {
-        backgroundColor = UIColor.STN.black
+        backgroundColor = UIColor(asset: STNAsset.Color.black)
     }
     
     private func setupSubviews() {

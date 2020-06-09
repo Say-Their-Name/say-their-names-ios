@@ -28,7 +28,7 @@ final class TagView: UIView {
     
     private lazy var titleLabel = UILabel.create {
         $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.textColor = UIColor.STN.white
+        $0.textColor = UIColor(asset: STNAsset.Color.white)
         $0.font = UIFont.STN.verifiedTag
     }
     
@@ -44,7 +44,7 @@ final class TagView: UIView {
     }
     
     private func setupSelf() {
-        backgroundColor = UIColor.STN.black
+        backgroundColor = UIColor(asset: STNAsset.Color.black)
     }
     
     private func setupSubviews() {
