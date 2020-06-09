@@ -55,23 +55,23 @@ class UIEdgeInsetsInitTests: XCTestCase {
         XCTAssertEqual(subject.left, 0)
     }
     
-    func test_medium_top_isEqualToExpectedValue() {
+    func test_medium_top_isEqualToThemeComponentsPaddingMedium() {
         subject = .medium
-        XCTAssertEqual(subject.top, 16)
+        XCTAssertEqual(subject.top, Theme.Components.Padding.medium)
     }
     
-    func test_medium_bottom_isEqualToExpectedValue() {
+    func test_medium_bottom_isEqualToThemeComponentsPaddingMedium() {
         subject = .medium
-        XCTAssertEqual(subject.bottom, 16)
+        XCTAssertEqual(subject.bottom, Theme.Components.Padding.medium)
     }
     
-    func test_medium_right_isEqualToExpectedValue() {
+    func test_medium_right_isEqualToThemeComponentsPaddingMedium() {
         subject = .medium
-        XCTAssertEqual(subject.right, 16)
+        XCTAssertEqual(subject.right, Theme.Components.Padding.medium)
     }
     
-    func test_medium_left_isEqualToExpectedValue() {
+    func test_medium_left_isEqualToThemeComponentsPaddingMedium() {
         subject = .medium
-        XCTAssertEqual(subject.left, 16)
+        XCTAssertEqual(subject.left, Theme.Components.Padding.medium)
     }
 }
