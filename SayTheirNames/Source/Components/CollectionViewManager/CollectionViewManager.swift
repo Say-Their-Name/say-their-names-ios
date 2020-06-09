@@ -38,6 +38,7 @@ class CollectionViewManager<Section: Hashable, Item: Hashable>: NSObject, UIColl
     /// Callback that returns the selected item
     var didSelectItem: ((Item) -> Void)?
     
+    /// Callback that returns the collectionView and the indexPath of the cell to be displayed
     var willDisplayCell: ((_ collectionView: UICollectionView, _ forItemAt: IndexPath) -> Void)?
     
     /// Collection view tied to the DataSource
@@ -61,6 +62,13 @@ class CollectionViewManager<Section: Hashable, Item: Hashable>: NSObject, UIColl
             snapshot.appendSections([section])
             snapshot.appendItems(items)
         }
+    }
+    
+    /// Updates the snapshot items with new items
+    func append(_ items: [Item], in section: Section) {
+        guard var snapshot = dataSource?.snapshot() else { return }
+        snapshot.appendItems(items, toSection: section)
+        dataSource?.apply(snapshot)
     }
     
     /// Removes all items from the DataSource
