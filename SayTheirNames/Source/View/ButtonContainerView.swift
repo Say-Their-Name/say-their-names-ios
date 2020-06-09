@@ -16,8 +16,8 @@ class ButtonContainerView: UIView {
     private lazy var button: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Donate".uppercased(), for: .normal)
-        button.backgroundColor = UIColor.STN.black
-        button.tintColor = UIColor.STN.white
+        button.backgroundColor = UIColor(asset: STNAsset.Color.actionButton)
+        button.tintColor = UIColor(asset: STNAsset.Color.actionButtonTint)
         button.addTarget(self, action: #selector(buttonDidPress(_:)), for: .touchUpInside)
         return button
     }()
@@ -35,11 +35,11 @@ class ButtonContainerView: UIView {
     
     // MARK: - Configure Subview
     private func configureView() {
-        self.backgroundColor = UIColor.STN.white
+        self.backgroundColor = UIColor(asset: STNAsset.Color.background)
 
         // Separator
         let separator = UIView(frame: .zero)
-        separator.backgroundColor = UIColor.STN.separator
+        separator.backgroundColor = UIColor(asset: STNAsset.Color.separator)
         
         addSubview(separator)
         addSubview(button)
