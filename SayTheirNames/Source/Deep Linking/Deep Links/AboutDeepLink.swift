@@ -1,5 +1,5 @@
 //
-//  Navigator.swift
+//  AboutDeepLink.swift
 //  SayTheirNames
 //
 //  Copyright (c) 2020 Say Their Names Team (https://github.com/Say-Their-Name)
@@ -24,26 +24,20 @@
 
 import UIKit
 
-final class Navigator: Dependency {
-    private let window: UIWindow = UIWindow()
-    lazy private(set) var rootViewController: MainTabBarController = MainTabBarController()
+struct AboutDeepLink: DeepLink {
+    static let details = DeepLinkDetails(
+        displayClass: AboutController.self,
+        type: AboutDeepLink.self
+    )
+    .schemes(["stn", "https"])
+    .host("saytheirname.netlify.app")
+    .path("about")
     
-    // MARK: - Public methods
-    
-    func installSceneInWindow(_ scene: UIWindowScene) -> UIWindow {
-        self.window.frame = scene.coordinateSpace.bounds
-        self.window.windowScene = scene
-        self.window.rootViewController = self.rootViewController
-        self.window.makeKeyAndVisible()
+    init() {
         
-        return self.window
     }
     
-    func setNeedsStatusBarAppearanceUpdate() {
-        self.rootViewController.setNeedsStatusBarAppearanceUpdate()
-    }
-    
-    func handle(deepLink: DeepLink) {
-        Log.print(deepLink)
+    static func deepLink(fromComponents: [String]? = nil) -> DeepLink? {
+        return self.init()
     }
 }

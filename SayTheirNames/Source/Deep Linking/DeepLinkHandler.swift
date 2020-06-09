@@ -1,5 +1,5 @@
 //
-//  Navigator.swift
+//  DeepLinkHandler.swift
 //  SayTheirNames
 //
 //  Copyright (c) 2020 Say Their Names Team (https://github.com/Say-Their-Name)
@@ -24,26 +24,22 @@
 
 import UIKit
 
-final class Navigator: Dependency {
-    private let window: UIWindow = UIWindow()
-    lazy private(set) var rootViewController: MainTabBarController = MainTabBarController()
+final class DeepLinkHandler: Dependency {
+    private let deepLinkTypes: [DeepLink.Type]
+    private let navigator: Navigator
     
-    // MARK: - Public methods
-    
-    func installSceneInWindow(_ scene: UIWindowScene) -> UIWindow {
-        self.window.frame = scene.coordinateSpace.bounds
-        self.window.windowScene = scene
-        self.window.rootViewController = self.rootViewController
-        self.window.makeKeyAndVisible()
-        
-        return self.window
+    init(deepLinkTypes: [DeepLink.Type], navigator: Navigator) {
+        self.deepLinkTypes = deepLinkTypes
+        self.navigator = navigator
     }
     
-    func setNeedsStatusBarAppearanceUpdate() {
-        self.rootViewController.setNeedsStatusBarAppearanceUpdate()
-    }
-    
-    func handle(deepLink: DeepLink) {
-        Log.print(deepLink)
+    public func handle(urlContext: Set<UIOpenURLContext>) {
+        for context in urlContext {
+            for deepLinkType in self.deepLinkTypes {
+                if let deepLink = deepLinkType.details.deepLink(matching: context) {
+                    self.navigator.handle(deepLink: deepLink)
+                }
+            }
+        }
     }
 }

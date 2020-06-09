@@ -1,5 +1,5 @@
 //
-//  Navigator.swift
+//  PetitionsDeepLink.swift
 //  SayTheirNames
 //
 //  Copyright (c) 2020 Say Their Names Team (https://github.com/Say-Their-Name)
@@ -24,26 +24,43 @@
 
 import UIKit
 
-final class Navigator: Dependency {
-    private let window: UIWindow = UIWindow()
-    lazy private(set) var rootViewController: MainTabBarController = MainTabBarController()
+struct PetitionsDeepLink: DeepLink {
+    static let details = DeepLinkDetails(
+        displayClass: DonationsController.self,
+        type: PetitionsDeepLink.self
+    )
+    .schemes(["stn", "https"])
+    .host("saytheirname.netlify.app")
+    .path("petitions")
     
-    // MARK: - Public methods
-    
-    func installSceneInWindow(_ scene: UIWindowScene) -> UIWindow {
-        self.window.frame = scene.coordinateSpace.bounds
-        self.window.windowScene = scene
-        self.window.rootViewController = self.rootViewController
-        self.window.makeKeyAndVisible()
+    init() {
         
-        return self.window
     }
     
-    func setNeedsStatusBarAppearanceUpdate() {
-        self.rootViewController.setNeedsStatusBarAppearanceUpdate()
+    static func deepLink(fromComponents: [String]? = nil) -> DeepLink? {
+        return self.init()
+    }
+}
+
+struct SignDeepLink: DeepLink {
+    static let details = DeepLinkDetails(
+        displayClass: DonationsMoreDetailsController.self,
+        type: SignDeepLink.self
+    )
+    .schemes(["stn", "https"])
+    .host("saytheirname.netlify.app")
+    .path("sign")
+    
+    public let name: String
+    init(name: String) {
+        self.name = name
     }
     
-    func handle(deepLink: DeepLink) {
-        Log.print(deepLink)
+    static func deepLink(fromComponents: [String]? = nil) -> DeepLink? {
+        guard let name = fromComponents?.first else {
+            return nil
+        }
+        
+        return self.init(name: name)
     }
 }
