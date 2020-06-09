@@ -25,7 +25,10 @@
 import Foundation
 
 struct FeatureFlags {
+    /// Disabled for v1
     static let bookmarksEnabled = false
+    
+    /// Disabled for v1
     static let filtersEnabled = false
     static let dmdOutcomeSectionEnabled = false
 }
