@@ -73,7 +73,7 @@ final class PetitionsController: UIViewController {
     }
     
     private func showPetitionDetails(withPetition: Petition) {
-        self.dismiss(animated: false, completion: nil)
+        self.dismiss(animated: false)
         
         let detailVC = PetitionDetailViewController()
         //detailVC.petition = withPetition

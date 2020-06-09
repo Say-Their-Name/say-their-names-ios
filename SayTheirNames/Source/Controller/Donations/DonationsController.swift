@@ -89,7 +89,7 @@ final class DonationsController: UIViewController {
     }
     
     private func showDontationsDetails(withDonation: Donation) {
-        self.dismiss(animated: false, completion: nil)
+        self.dismiss(animated: false)
         
         let detailVC = DonationsMoreDetailsController()
         detailVC.donation = withDonation
