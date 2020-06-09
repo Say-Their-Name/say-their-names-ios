@@ -23,6 +23,7 @@
 import Foundation
 
 protocol CallToAction {
+    var id: Int { get }
     var actionTitle: String { get }
     var imagePath: String? { get }
     var body: String { get }
