@@ -76,8 +76,8 @@ final class DonationsController: UIViewController {
             return cell
         }
 
-        donationManager.didSelectItem = { donation in
-            
+        donationManager.didSelectItem = { [weak self] donation in
+            guard let self = self else { return }
             // TODO: Move this out
             let detailVC = DonationsMoreDetailsController()
             detailVC.donation = donation
@@ -86,7 +86,9 @@ final class DonationsController: UIViewController {
             self.present(navigationController, animated: true, completion: nil)
         }
         
-        donationManager.willDisplayCell = { (collectionView, indexPath) in
+        donationManager.willDisplayCell = { [weak self] (collectionView, indexPath) in
+            guard let self = self else { return }
+            
             guard type(of: collectionView) == CallToActionCollectionView.self,
                 self.donationManager.section(at: indexPath.section) == .main else { return }
             
