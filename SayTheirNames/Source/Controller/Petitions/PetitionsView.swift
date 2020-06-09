@@ -43,7 +43,7 @@ final class PetitionsView: UIView {
 
     /// Configures properties for the view itself
     private func setupSelf() {
-        backgroundColor = UIColor.STN.black
+        backgroundColor = UIColor(asset: STNAsset.Color.black)
     }
     
     /// Adds and configures constraints for subviews

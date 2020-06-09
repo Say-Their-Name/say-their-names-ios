@@ -60,7 +60,7 @@ final class HomeController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.STN.black
+        view.backgroundColor = UIColor(asset: STNAsset.Color.black)
         searchBar.setup(withController: self)
         navigationItem.title = Strings.home
         setupCollectionView()
@@ -81,7 +81,7 @@ final class HomeController: UIViewController {
     }
     
     private func setupSearchButton() {
-        let searchImage = UIImage(asset: STNImage.searchWhite)?.withRenderingMode(.alwaysOriginal)
+        let searchImage = UIImage(asset: STNAsset.Image.searchWhite)?.withRenderingMode(.alwaysOriginal)
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: searchImage,
                                                             style: .plain,
                                                             target: self,

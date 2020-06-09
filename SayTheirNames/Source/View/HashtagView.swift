@@ -16,7 +16,7 @@ class HashtagView: UIView {
         label.font = UIFont.STN.hashtagButton
         label.adjustsFontSizeToFitWidth = true
         label.minimumScaleFactor = 0.5
-        label.textColor = UIColor.STN.black
+        label.textColor = UIColor(asset: STNAsset.Color.primaryLabel)
         label.textAlignment = .center
         return label
     }()
@@ -34,6 +34,21 @@ class HashtagView: UIView {
     // MARK: - Configure Subview
     private func configureView() {
         layer.borderWidth = 1.5
-        hashtagLabel.anchor(superView: self, top: topAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5), size: .zero)
+        layer.borderColor = UIColor(asset: STNAsset.Color.primaryLabel).cgColor
+        hashtagLabel.anchor(superView: self,
+                            top: topAnchor,
+                            leading: leadingAnchor,
+                            bottom: bottomAnchor,
+                            trailing: trailingAnchor,
+                            padding: UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5), size: .zero)
+    }
+    private func updateCGColors() {
+        layer.borderColor = UIColor(asset: STNAsset.Color.primaryLabel).cgColor
+    }
+
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        self.updateCGColors()
+        self.setNeedsDisplay()
     }
 }
