@@ -172,7 +172,7 @@ extension HomeController: DeepLinkHandle {
     func handle(deepLink: DeepLink) {
         guard let deepLink = deepLink as? PersonDeepLink else { return }
         
-        self.network.fetchPersonDetails(with: deepLink.name) { [weak self] in
+        self.network.fetchPersonDetails(with: deepLink.value) { [weak self] in
             switch $0 {
             case .success(let page):
                 self?.showPersonDetails(withPerson: page.person)

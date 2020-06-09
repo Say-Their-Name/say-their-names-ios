@@ -53,17 +53,17 @@ struct DonateDeepLink: DeepLink {
     .host("saytheirname.netlify.app")
     .path("donate")
     
-    public let name: String
-    init(name: String) {
+    public let value: String
+    init(value: String) {
         self.linkDetails = type(of: self).details
-        self.name = name
+        self.value = value
     }
     
     static func deepLink(fromComponents: [String]? = nil) -> DeepLink? {
-        guard let name = fromComponents?.first else {
+        guard let value = fromComponents?.first else {
             return nil
         }
         
-        return self.init(name: name)
+        return self.init(value: value)
     }
 }

@@ -110,7 +110,7 @@ extension DonationsController: DeepLinkHandle {
     func handle(deepLink: DeepLink) {
         guard let deepLink = deepLink as? DonateDeepLink else { return }
         
-        self.network.fetchDonationDetails(with: deepLink.name) { [weak self] in
+        self.network.fetchDonationDetails(with: deepLink.value) { [weak self] in
             switch $0 {
             case .success(let page):
                 self?.showDontationsDetails(withDonation: page.donation)
