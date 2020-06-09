@@ -26,7 +26,7 @@ import UIKit
 
 final class MoreCard: UIView {
     
-    private lazy var aboutCard: UIView = {
+    private lazy var contentCard: UIView = {
         let logo = UIImageView(image: UIImage(asset: STNImage.stnLogoWhite))
         
         let label = UILabel()
@@ -82,8 +82,8 @@ final class MoreCard: UIView {
     
     /// Configures constraints for subviews
     private func setupSubviews() {
-        addSubview(aboutCard)
-        aboutCard.anchor(superView: self, top: topAnchor, leading: leadingAnchor,
+        addSubview(contentCard)
+        contentCard.anchor(superView: self, top: topAnchor, leading: leadingAnchor,
         bottom: bottomAnchor, trailing: trailingAnchor, padding: .zero, size: .zero)
     }
 }
