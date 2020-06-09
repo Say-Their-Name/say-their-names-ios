@@ -38,14 +38,14 @@ final class CarouselCollectionViewCell: UICollectionViewCell {
     private lazy var imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
-        imageView.backgroundColor = .black
+        imageView.backgroundColor = UIColor(asset: STNAsset.Color.cellBackground)//.black
         return imageView
     }()
     private var titleLabel: UILabel = {
         let label = UILabel()
         label.contentMode = .left
         label.font = UIFont.systemFont(ofSize: 19, weight: .bold)
-        label.textColor = .white
+        label.textColor = UIColor(asset: STNAsset.Color.white)
         label.adjustsFontSizeToFitWidth = true
         label.numberOfLines = 1
         return label
@@ -54,7 +54,7 @@ final class CarouselCollectionViewCell: UICollectionViewCell {
         let label = UILabel()
         label.contentMode = .left
         label.font = UIFont.systemFont(ofSize: 17, weight: .regular)
-        label.textColor = .white
+        label.textColor = UIColor(asset: STNAsset.Color.white)
         label.adjustsFontSizeToFitWidth = true
         label.numberOfLines = 1
         return label

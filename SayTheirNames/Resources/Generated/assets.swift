@@ -23,6 +23,7 @@ internal enum STNAsset {
     internal static let actionButtonTint = ColorAsset(name: "actionButtonTint")
     internal static let background = ColorAsset(name: "background")
     internal static let black = ColorAsset(name: "black")
+    internal static let cellBackground = ColorAsset(name: "cellBackground")
     internal static let darkGray = ColorAsset(name: "darkGray")
     internal static let detailLabel = ColorAsset(name: "detailLabel")
     internal static let gray = ColorAsset(name: "gray")
