@@ -1,5 +1,5 @@
 //
-//  STNDateFormatter.swift
+//  Media.swift
 //  SayTheirNames
 //
 //  Copyright (c) 2020 Say Their Names Team (https://github.com/Say-Their-Name)
@@ -21,38 +21,14 @@
 //  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
+
 import Foundation
 
-final class DateFormatterService: Dependency {
-    
-    typealias LocaleProvider = () -> Locale
-    
-    let localeProvider: LocaleProvider
-    
-    init(localeProvider: @escaping LocaleProvider = { Locale.autoupdatingCurrent }) {
-        self.localeProvider = localeProvider
-    }
-    
-    private lazy var dateOfIncidentFormatter: DateFormatter = {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .short
-        dateFormatter.timeStyle = .none
-        dateFormatter.locale = localeProvider()
-        return dateFormatter
-    }()
-    
-    private lazy var humanReadableTimestampFormatter: ISO8601DateFormatter = {
-        let formatter = ISO8601DateFormatter()
-        formatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds, .withTimeZone]
-        formatter.timeZone = TimeZone.current
-        return formatter
-    }()
+public struct Hashtag: Decodable {
+    let tag: String
+    let link: String
 
-    func dateOfIncidentString(from date: Date) -> String {
-        return dateOfIncidentFormatter.string(from: date)
-    }
-    
-    func humanReadableTimestampString(from date: Date) -> String {
-        return humanReadableTimestampFormatter.string(from: date)
+    private enum CodingKeys: String, CodingKey {
+        case tag, link
     }
 }

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1897247B248D766F00836B62 /* FeatureFlags.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1897247A248D766F00836B62 /* FeatureFlags.swift */; };
+		24671846248E1E1A006F14B5 /* Hashtag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24671845248E1E1A006F14B5 /* Hashtag.swift */; };
 		332F22BEB81BC34837C12842 /* Pods_SayTheirNamesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B491840AD61AD287986EE601 /* Pods_SayTheirNamesTests.framework */; };
 		36EE56E7248AF96100E424A7 /* PersonCollectionViewDataSourceHelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EE56E6248AF96100E424A7 /* PersonCollectionViewDataSourceHelperTests.swift */; };
 		3A33EF65248ABC7500580D1E /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A33EF64248ABC7500580D1E /* Theme.swift */; };
@@ -177,6 +178,7 @@
 		1897247A248D766F00836B62 /* FeatureFlags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureFlags.swift; sourceTree = "<group>"; };
 		18BF12F4248ABC8B00A60BB3 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		20AABB4794146889EEF753BB /* Pods-Say Their NamesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Say Their NamesTests.release.xcconfig"; path = "Target Support Files/Pods-Say Their NamesTests/Pods-Say Their NamesTests.release.xcconfig"; sourceTree = "<group>"; };
+		24671845248E1E1A006F14B5 /* Hashtag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hashtag.swift; sourceTree = "<group>"; };
 		36EE56E6248AF96100E424A7 /* PersonCollectionViewDataSourceHelperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonCollectionViewDataSourceHelperTests.swift; sourceTree = "<group>"; };
 		39C05132613A992F23ECED58 /* Pods-SayTheirNames.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SayTheirNames.debug.xcconfig"; path = "Target Support Files/Pods-SayTheirNames/Pods-SayTheirNames.debug.xcconfig"; sourceTree = "<group>"; };
 		3A33EF64248ABC7500580D1E /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
@@ -450,14 +452,14 @@
 		7419B4AC248A2DFB00D466C8 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				7419B4AE248A2E0800D466C8 /* PersonInfoTableViewCell.swift */,
-				7419B4AF248A2E0800D466C8 /* PersonNewsTableViewCell.swift */,
-				7419B4B0248A2E0800D466C8 /* PersonOverviewTableViewCell.swift */,
 				7419B4AD248A2E0800D466C8 /* PersonPhotoTableViewCell.swift */,
+				7419B4AE248A2E0800D466C8 /* PersonInfoTableViewCell.swift */,
+				7419B4B0248A2E0800D466C8 /* PersonOverviewTableViewCell.swift */,
+				7419B4AF248A2E0800D466C8 /* PersonNewsTableViewCell.swift */,
+				7419B4B1248A2E0800D466C8 /* PersonNewsCollectionViewCell.swift */,
+				7419B4B2248A2E0800D466C8 /* PersonMediaCollectionViewCell.swift */,
 				5B026C53248AEE8F00335A17 /* PersonHashtagTableViewCell.swift */,
 				5B026C51248AECB700335A17 /* PersonHashtagCollectionViewCell.swift */,
-				7419B4B2248A2E0800D466C8 /* PersonMediaCollectionViewCell.swift */,
-				7419B4B1248A2E0800D466C8 /* PersonNewsCollectionViewCell.swift */,
 			);
 			name = Cells;
 			path = Views;
@@ -772,6 +774,7 @@
 				A93367D0248985B6001F1E28 /* Image.swift */,
 				A93367CF248985B6001F1E28 /* Link.swift */,
 				A93367CD248985B6001F1E28 /* Media.swift */,
+				24671845248E1E1A006F14B5 /* Hashtag.swift */,
 				A93367CE248985B6001F1E28 /* SocialMedia.swift */,
 				A91B078724835CF700DB803C /* Donation.swift */,
 				B386F957248526C70037A38D /* Location.swift */,
@@ -1235,6 +1238,7 @@
 				D7F3F636248D3FBA00F66E72 /* DonationsMoreDetailsController+Layout.swift in Sources */,
 				A93367CA248983B1001F1E28 /* PeopleNetworkRequestor.swift in Sources */,
 				9E5F937D248C1F2D00CB57BF /* STNNavigationBar.swift in Sources */,
+				24671846248E1E1A006F14B5 /* Hashtag.swift in Sources */,
 				D7F3F639248D3FBA00F66E72 /* DMDPhotoSupplementaryView.swift in Sources */,
 				A93367C9248983B1001F1E28 /* PetitionsNetworkRequestor.swift in Sources */,
 				A93367CB248983B1001F1E28 /* Environment.swift in Sources */,
