@@ -1,5 +1,5 @@
 //
-//  HomeViewModel.swift
+//  Paginator.swift
 //  SayTheirNames
 //
 //  Copyright (c) 2020 Say Their Names Team (https://github.com/Say-Their-Name)
@@ -24,10 +24,16 @@
 
 import Foundation
 
-// TODO: shouldn't have to import Alamofire here
-import Alamofire
+protocol PaginatorResponsePage {
+    associatedtype Element
+    var all: [Element] { get }
+    var link: Link { get }
+}
 
-final class HomeViewModel {
+final class Paginator<Element, Page: PaginatorResponsePage> where Page.Element == Element {
+    
+    typealias PageLoaderCompletion = (Result<Page, Error>) -> Void
+    typealias PageLoader = (_ link: Link?, _ completion: @escaping PageLoaderCompletion) -> Void
     
     enum State {
         case loading
@@ -36,15 +42,17 @@ final class HomeViewModel {
     
     @DependencyInject private var network: NetworkRequestor
 
-    private var pageLink: Link?
     private(set) var state: State
     
-    // TODO: maybe better names
-    
-    var firstPageDataLoadedHandler: (([Person], [HeaderCellContent]) -> Void)?
-    var moreDataLoadedToAppendHandler: (([Person]) -> Void)?
+    let pageLoader: PageLoader
+        
+    var firstPageDataLoadedHandler: (([Element]) -> Void)?
+    var subsequentPageDataLoadedHandler: (([Element]) -> Void)?
 
-    init() {
+    private var pageLink: Link?
+
+    init(pageLoader: @escaping PageLoader) {
+        self.pageLoader = pageLoader
         self.state = .notLoading
     }
     
@@ -66,7 +74,7 @@ final class HomeViewModel {
         
         state = .loading
         
-        let handler = { [weak self] (result: Result<PersonsResponsePage, AFError>) in
+        let handler = { [weak self] (result: Result<Page, Error>) in
             guard let self = self else {
                 return
             }
@@ -77,11 +85,12 @@ final class HomeViewModel {
                 let isRefresh = self.pageLink == nil
                 
                 self.pageLink = page.link
+                
                 if isRefresh {
-                    self.firstPageDataLoadedHandler?(page.all, self.carouselData)
+                    self.firstPageDataLoadedHandler?(page.all)
                 }
                 else {
-                    self.moreDataLoadedToAppendHandler?(page.all)
+                    self.subsequentPageDataLoadedHandler?(page.all)
                 }
                 
             case .failure(let error):
@@ -91,17 +100,6 @@ final class HomeViewModel {
             self.state = .notLoading
         }
         
-        if let pageLink = self.pageLink {
-            self.network.fetchPeopleWithLink(pageLink, completion: handler)
-        }
-        else {
-            self.network.fetchPeople(completion: handler)
-        }
+        self.pageLoader(self.pageLink, handler)
     }
-    
-    private let carouselData: [HeaderCellContent] = [
-        .init(title: "#BLACKLIVESMATTER", description: "How to get involved"),
-        .init(title: "#BLACKLIVESMATTER", description: "How to get involved"),
-        .init(title: "#BLACKLIVESMATTER", description: "How to get involved")
-    ]
 }

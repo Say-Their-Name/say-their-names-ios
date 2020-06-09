@@ -24,11 +24,32 @@
 
 import UIKit
 
+extension PersonsResponsePage: PaginatorResponsePage {
+    typealias Element = Person
+}
+
 final class HomeController: UIViewController {
     @DependencyInject private var network: NetworkRequestor
     
     required init() {
+        
+        weak var wself: HomeController?
+        
+        self.paginator =
+            Paginator<Person, PersonsResponsePage>(pageLoader: { (link: Link?, completion: @escaping (Result<PersonsResponsePage, Error>) -> Void) in
+            guard let sself = wself else { return }
+            
+            // call network
+            if let link = link {
+                sself.network.fetchPeopleWithLink(link, completion: completion)
+            }
+            else {
+                sself.network.fetchPeople(completion: completion)
+            }
+        })
         super.init(nibName: nil, bundle: nil)
+        
+        wself = self
     }
     
     @available(*, unavailable)
@@ -39,7 +60,7 @@ final class HomeController: UIViewController {
     // MARK: - CONSTANTS
     private let searchBar = CustomSearchBar()
 
-    private let viewModel: HomeViewModel = .init()
+    private let paginator: Paginator<Person, PersonsResponsePage>
     
     // MARK: - CV Data Sources
     private lazy var locationsDataSourceHelper = LocationCollectionViewDataSourceHelper(collectionView: locationCollectionView)
@@ -63,7 +84,7 @@ final class HomeController: UIViewController {
         navigationItem.title = Strings.home
         setupCollectionView()
         setupSearchButton()
-        setupViewModel()
+        setupPaginator()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -106,15 +127,23 @@ final class HomeController: UIViewController {
         peopleCollectionView.accessibilityIdentifier = "peopleCollection"
     }
     
-    private func setupViewModel() {
-        viewModel.firstPageDataLoadedHandler = { [weak self] (data: [Person], carouselData: [HeaderCellContent]) in
+    private func setupPaginator() {
+        // MARK: - Carousel data
+        
+        let carouselData: [HeaderCellContent] = [
+            .init(title: "#BLACKLIVESMATTER", description: "How to get involved"),
+            .init(title: "#BLACKLIVESMATTER", description: "How to get involved"),
+            .init(title: "#BLACKLIVESMATTER", description: "How to get involved")
+        ]
+        
+        paginator.firstPageDataLoadedHandler = { [weak self] (data: [Person]) in
             self?.peopleDataSourceHelper.setPeople(data, carouselData: carouselData)
         }
-        viewModel.moreDataLoadedToAppendHandler = { [weak self] (data: [Person]) in
+        paginator.subsequentPageDataLoadedHandler = { [weak self] (data: [Person]) in
             self?.peopleDataSourceHelper.appendPeople(data)
         }
         
-        viewModel.refresh()
+        paginator.refresh()
     }
     
     // MARK: - Button Actions
@@ -160,7 +189,7 @@ extension HomeController: UICollectionViewDelegateFlowLayout {
         guard peopleDataSourceHelper.section(at: indexPath.section) == .main else { return }
         
         if indexPath.row == collectionView.numberOfItems(inSection: indexPath.section) - 1 {
-            viewModel.loadNextPage()
+            paginator.loadNextPage()
         }
     }
 }
