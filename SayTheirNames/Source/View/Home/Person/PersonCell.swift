@@ -26,12 +26,9 @@ import UIKit
 
 final class PersonCell: UICollectionViewCell {
     @DependencyInject private var dateFormatter: DateFormatterService
-
-    static let personIdentifier = "personCell"
     
     private lazy var profileImageView: UIImageView = {
         let imgV = UIImageView()
-        imgV.image = UIImage(named: "man-in-red-jacket-1681010")
         imgV.contentMode = .scaleAspectFill
         imgV.clipsToBounds = true
         imgV.setContentHuggingPriority(.defaultLow, for: .vertical)
@@ -42,8 +39,7 @@ final class PersonCell: UICollectionViewCell {
     
     private lazy var nameLabel: UILabel = {
         let lbl = UILabel()
-        lbl.text = "GEORGE FLOYD"
-        lbl.textColor = UIColor.STN.primaryLabel
+        lbl.textColor = UIColor(asset: STNAsset.Color.primaryLabel)
         lbl.lineBreakMode = .byTruncatingTail
         lbl.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
         lbl.translatesAutoresizingMaskIntoConstraints = false
@@ -54,8 +50,7 @@ final class PersonCell: UICollectionViewCell {
     
     private lazy var dateOfIncidentLabel: UILabel = {
         let lbl = UILabel()
-        lbl.text = "25.05.2020"
-        lbl.textColor = UIColor.STN.secondaryLabel
+        lbl.textColor = UIColor(asset: STNAsset.Color.secondaryLabel)
         lbl.lineBreakMode = .byTruncatingTail
         lbl.isAccessibilityElement = true
         lbl.translatesAutoresizingMaskIntoConstraints = false
@@ -63,11 +58,11 @@ final class PersonCell: UICollectionViewCell {
     }()
     
     private lazy var bookmarkButton: UIButton = {
-        let bookmarkImage = UIImage(named: "bookmark")
+        let bookmarkImage = UIImage(asset: STNAsset.Image.bookmark)
         let btn = UIButton(image: bookmarkImage)
         btn.contentMode = .scaleAspectFill
         btn.setContentHuggingPriority(.defaultHigh, for: .horizontal)
-        btn.setImage(UIImage(named: "bookmark"), for: .normal)
+        btn.setImage(bookmarkImage, for: .normal)
         btn.addTarget(self, action: #selector(didTapBookmark), for: .touchUpInside)
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.isAccessibilityElement = true
@@ -106,7 +101,7 @@ final class PersonCell: UICollectionViewCell {
     func configure(with person: Person) {
         profileImageView.populate(withURL: person.images.first?.personURL ?? "")
         nameLabel.text = person.fullName.uppercased()
-        dateOfIncidentLabel.text = self.dateFormatter.formatYearMonthDayDate(person.doi)
+        dateOfIncidentLabel.text = self.dateFormatter.dateOfIncidentString(from: person.doi)
     }
     
     private func setUp() {

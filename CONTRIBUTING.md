@@ -13,6 +13,13 @@ via a slack workspace, and to-dos are maintained on respective Trello boards.
 
 If you would like to join the slack workspace, use [this link](https://join.slack.com/t/saytheirnames/shared_invite/zt-eqjuatz7-fgh3zPRXIKiiXsC1Vf3oZA).
 
+## Useful resources
+
+[App designs](https://www.figma.com/file/AUlfUejB2SVF8ZHSzxne7O/STNS?node-id=1016%3A987)
+
+[API docs](https://say-their-name.github.io/say-their-names-api/#/)
+
+
 ## Git workflow
 
 The main branch is `development`, where all ongoing development work converges.

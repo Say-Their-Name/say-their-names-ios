@@ -19,7 +19,7 @@ class ImageWithBlurView: UIView {
     
     lazy var frontImageContainerView: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor.STN.yellow
+        view.backgroundColor = UIColor(asset: STNAsset.Color.yellow)
         view.clipsToBounds = true
         return view
     }()
@@ -27,7 +27,7 @@ class ImageWithBlurView: UIView {
     lazy var bgImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.frame = superview?.bounds ?? CGRect.zero
-        imageView.image = UIImage(named: "man-in-red-jacket-1681010")
+        imageView.image = UIImage(asset: STNAsset.Image.manInRedJacket)
         imageView.contentMode = .scaleAspectFill
         return imageView
     }()
@@ -35,7 +35,7 @@ class ImageWithBlurView: UIView {
     lazy var frontImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.frame = frontImageContainerView.bounds
-        imageView.image = UIImage(named: "man-in-red-jacket-1681010")
+        imageView.image = UIImage(asset: STNAsset.Image.manInRedJacket)
         imageView.contentMode = .scaleAspectFill
         return imageView
     }()

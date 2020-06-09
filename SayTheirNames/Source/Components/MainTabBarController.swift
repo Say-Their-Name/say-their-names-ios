@@ -26,9 +26,6 @@ import UIKit
 
 class MainTabBarController: UITabBarController, UITabBarControllerDelegate {    
     // Params
-    private let defaultBarTint: UIColor = UIColor.STN.barTint
-    private let defaultTint = UIColor.STN.tint
-    private let defaultUnselectedTint = UIColor.STN.unselectedTint
     private var launchScreen: LaunchScreen?
     
     required init?(coder aDecoder: NSCoder) { fatalError("") }
@@ -67,12 +64,12 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
     fileprivate func setupTabBarStyle() {
         tabBar.isTranslucent = true
         tabBar.layer.borderWidth = 0.9
-        tabBar.layer.borderColor = UIColor.STN.tabBarBorder.cgColor
+        tabBar.layer.borderColor = UIColor(asset: STNAsset.Color.tabBarBorder).cgColor
         tabBar.clipsToBounds = true
-        tabBar.backgroundColor = UIColor.STN.white
-        tabBar.barTintColor = defaultBarTint
-        tabBar.tintColor = defaultTint
-        tabBar.unselectedItemTintColor = defaultUnselectedTint
+        tabBar.backgroundColor = UIColor(asset: STNAsset.Color.background)
+        tabBar.barTintColor = UIColor(asset: STNAsset.Color.tabBarBarTint)
+        tabBar.tintColor = UIColor(asset: STNAsset.Color.tabBarTint)
+        tabBar.unselectedItemTintColor = UIColor(asset: STNAsset.Color.tabBarUnselectedItemTint)
         UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: UIFont.STN.tabButtonTitle], for: .normal)
     }
     
@@ -80,12 +77,12 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
         
-        appearance.backgroundColor = UIColor.STN.black
+        appearance.backgroundColor = UIColor(asset: STNAsset.Color.navBarBackground)//black
         let attrs = [
-            NSAttributedString.Key.foregroundColor: UIColor.STN.white,
+            NSAttributedString.Key.foregroundColor: UIColor(asset: STNAsset.Color.navBarForeground),
             NSAttributedString.Key.font: UIFont.STN.navBarTitle
         ]
-        appearance.titleTextAttributes = attrs
+        appearance.titleTextAttributes = attrs as [NSAttributedString.Key: Any]
         
         UINavigationBar.appearance().standardAppearance = appearance
     }
@@ -103,19 +100,19 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         let aboutController = AboutController()
         let aboutNC = UINavigationController(rootViewController: aboutController)
                                     
-        homeNC.tabBarItem.image = UIImage(named: "gallery")
+        homeNC.tabBarItem.image = UIImage(asset: STNAsset.Image.gallery)
         homeNC.tabBarItem.title = Strings.home
                 
-        donationsNC.tabBarItem.image = UIImage(named: "heart")
-        donationsNC.tabBarItem.selectedImage = UIImage(named: "heart_active")
+        donationsNC.tabBarItem.image = UIImage(asset: STNAsset.Image.heart)
+        donationsNC.tabBarItem.selectedImage = UIImage(asset: STNAsset.Image.heartActive)
         donationsNC.tabBarItem.title = Strings.donations
                        
-        petitionsNC.tabBarItem.image = UIImage(named: "petition")
-        petitionsNC.tabBarItem.selectedImage = UIImage(named: "petition_active")
+        petitionsNC.tabBarItem.image = UIImage(asset: STNAsset.Image.petition)
+        petitionsNC.tabBarItem.selectedImage = UIImage(asset: STNAsset.Image.petitionActive)
         petitionsNC.tabBarItem.title = Strings.petitions
                 
-        aboutNC.tabBarItem.image = UIImage(named: "settings")
-        aboutNC.tabBarItem.selectedImage = UIImage(named: "settings_active")
+        aboutNC.tabBarItem.image = UIImage(asset: STNAsset.Image.settings)
+        aboutNC.tabBarItem.selectedImage = UIImage(asset: STNAsset.Image.settingsActive)
         aboutNC.tabBarItem.title = Strings.about
         
         viewControllers = [homeNC, donationsNC, petitionsNC, aboutNC]
@@ -127,6 +124,15 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         for item in items {
             item.imageInsets = UIEdgeInsets(top: Theme.Components.Padding.medium, left: 0, bottom: 0, right: 0)
         }
+    }
+    private func updateCGColors() {
+       tabBar.layer.borderColor = UIColor(asset: STNAsset.Color.tabBarBorder).cgColor
+    }
+
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        self.updateCGColors()
+        tabBar.setNeedsDisplay()
     }
 }
 

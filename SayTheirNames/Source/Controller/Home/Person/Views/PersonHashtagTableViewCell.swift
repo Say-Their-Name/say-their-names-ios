@@ -33,7 +33,7 @@ class PersonHashtagTableViewCell: UITableViewCell {
     lazy var hashtagLabel: UILabel = {
         let label = UILabel()
         label.text = L10n.Person.hashtags.uppercased()
-        label.textColor = UIColor.STN.black
+        label.textColor = UIColor(asset: STNAsset.Color.strongHeader)
         label.font = UIFont.STN.sectionHeader
         label.numberOfLines = 1
         label.minimumScaleFactor = 0.5
@@ -48,16 +48,17 @@ class PersonHashtagTableViewCell: UITableViewCell {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.alwaysBounceHorizontal = true
-        collectionView.backgroundColor = UIColor.STN.white
+        collectionView.backgroundColor = UIColor(asset: STNAsset.Color.background)
         collectionView.contentInset = .init(left: Theme.Components.Padding.large,right: Theme.Components.Padding.large)
         return collectionView
     }()
     
     private var identifier: String = ""
+    public var hashtags: [Hashtag] = []
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
          super.init(style: style, reuseIdentifier: reuseIdentifier)
-         backgroundColor = UIColor.STN.white
+         backgroundColor = UIColor(asset: STNAsset.Color.background)
          setupLayout()
     }
     
@@ -79,18 +80,21 @@ class PersonHashtagTableViewCell: UITableViewCell {
         heightAnchor.constraint(equalToConstant: Theme.Screens.Home.Person.Hashtag.height).isActive = true
     }
     
+    // MARK: - Methods
     public func registerCell(with cell: UICollectionViewCell.Type) {
         identifier = cell.reuseIdentifier
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(cellType: cell)
+        collectionView.reloadData()
     }
+    
 }
 
 extension PersonHashtagTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return hashtags.count
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -100,6 +104,8 @@ extension PersonHashtagTableViewCell: UICollectionViewDelegate, UICollectionView
     // Set the data for each cell (color and color name)
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! PersonHashtagCollectionViewCell
+        let hashtag = hashtags[indexPath.row]
+        cell.setupHashtag(hashtag)
         return cell
     }
     

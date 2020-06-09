@@ -23,63 +23,36 @@
 //  THE SOFTWARE.
 import Foundation
 
-protocol DateFormatterType {
-    var timeStyle: DateFormatter.Style { get set }
-    
-    func string(from date: Date) -> String
-    func date(from string: String) -> Date?
-}
-
-extension DateFormatter: DateFormatterType { }
-
 final class DateFormatterService: Dependency {
     
-    /// To keep thread safe, designate this queue for searching cached formatters.
-    let dateFormattersQueue = DispatchQueue(label: "com.stn.date.formatter.queue")
-
-    private var dateFormatters = [String: DateFormatterType]()
-
-    private func cachedDateFormatter(withFormat format: String) -> DateFormatterType {
-        return dateFormattersQueue.sync {
-            let key = format
-            if let cachedFormatter = dateFormatters[key] {
-                return cachedFormatter
-            }
-            
-            let dateFormatter = DateFormatter()
-            dateFormatter.locale = Locale(identifier: "en_US_POSIX")
-            dateFormatter.dateFormat = format
-            
-            dateFormatters[key] = dateFormatter
-            
-            return dateFormatter
-        }
-    }
-
-    // MARK: - Year month day
-
-    func formatYearMonthDayDate(_ date: Date) -> String {
-        let dateFormatter = cachedDateFormatter(withFormat: "y/MM/dd")
-        let formattedDate = dateFormatter.string(from: date)
-        return formattedDate
+    typealias LocaleProvider = () -> Locale
+    
+    let localeProvider: LocaleProvider
+    
+    init(localeProvider: @escaping LocaleProvider = { Locale.autoupdatingCurrent }) {
+        self.localeProvider = localeProvider
     }
     
-    func dateForYearMonthDayString(_ dateString: String) -> Date? {
-        let dateFormatter = cachedDateFormatter(withFormat: "y/MM/dd")
-        return dateFormatter.date(from: dateString)
-    }
+    private lazy var dateOfIncidentFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .short
+        dateFormatter.timeStyle = .none
+        dateFormatter.locale = localeProvider()
+        return dateFormatter
+    }()
     
-    // MARK: - Hour minute
-    
-    func formatHourMinuteDate(_ date: Date) -> String {
-        let dateFormatter = cachedDateFormatter(withFormat: "HH:mm")
-        return dateFormatter.string(from: date)
-    }
+    private lazy var humanReadableTimestampFormatter: ISO8601DateFormatter = {
+        let formatter = ISO8601DateFormatter()
+        formatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds, .withTimeZone]
+        formatter.timeZone = TimeZone.current
+        return formatter
+    }()
 
-    // MARK: - Year month day Hours minutes seconds
+    func dateOfIncidentString(from date: Date) -> String {
+        return dateOfIncidentFormatter.string(from: date)
+    }
     
-    func formatYearMonthDayAndTime(_ date: Date) -> String {
-        let dateFormatter = cachedDateFormatter(withFormat: "yyyy-MM-dd HH:mm:ss.SSS ")
-        return dateFormatter.string(from: date)
+    func humanReadableTimestampString(from date: Date) -> String {
+        return humanReadableTimestampFormatter.string(from: date)
     }
 }

@@ -142,8 +142,8 @@ class PersonCollectionViewDataSourceHelperTests: XCTestCase {
                    fullName: "",
                    identifier: "",
                    doi: Date(),
-                   childrenCount: "",
-                   age: "",
+                   childrenCount: 0,
+                   age: 0,
                    city: "",
                    country: "",
                    bio: "",
@@ -152,7 +152,8 @@ class PersonCollectionViewDataSourceHelperTests: XCTestCase {
                    donations: [],
                    petitions: [],
                    media: [],
-                   socialMedia: [])
+                   socialMedia: [],
+                   hashtag: [])
         }
     }
     

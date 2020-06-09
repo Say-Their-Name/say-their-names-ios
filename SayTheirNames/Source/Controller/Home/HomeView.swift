@@ -111,7 +111,7 @@ final class HomeView: UIView {
             
     let separator: UIView! = {
         let separator = UIView()
-        separator.backgroundColor = UIColor.STN.separator
+        separator.backgroundColor = UIColor(asset: STNAsset.Color.separator)
         separator.isHidden = !FeatureFlags.filtersEnabled
         return separator
     }()
@@ -119,7 +119,7 @@ final class HomeView: UIView {
     override func didMoveToSuperview() {
         super.didMoveToSuperview()
         createLayout()
-        backgroundColor = UIColor.STN.black // needed?
+        backgroundColor = UIColor(asset: STNAsset.Color.black) // needed?
         
     }
     

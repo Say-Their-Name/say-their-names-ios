@@ -30,7 +30,7 @@ public extension UIImageView {
         self.sd_imageIndicator = SDWebImageActivityIndicator.gray
       self.sd_setImage(
         with: URL(string: url),
-        placeholderImage: UIImage(named: "image-placeholder")
+        placeholderImage: UIImage(asset: STNAsset.Image.placeholder)
       )
     }
 }

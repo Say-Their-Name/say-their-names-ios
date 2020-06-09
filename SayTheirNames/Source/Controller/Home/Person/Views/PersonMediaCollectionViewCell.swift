@@ -32,7 +32,7 @@ class PersonMediaCollectionViewCell: UICollectionViewCell {
     
     lazy var mediaImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "media-image-2")
+        imageView.image = UIImage(asset: STNAsset.Image.mediaImage2)
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         return imageView
@@ -40,7 +40,7 @@ class PersonMediaCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = UIColor.STN.white
+        backgroundColor = UIColor(asset: STNAsset.Color.white)
         setupLayout()
     }
        
