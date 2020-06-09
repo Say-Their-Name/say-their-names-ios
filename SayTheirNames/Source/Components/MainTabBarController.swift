@@ -97,8 +97,8 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         let petitionsController = PetitionsController()
         let petitionsNC = UINavigationController(rootViewController: petitionsController)
         
-        let aboutController = AboutController()
-        let aboutNC = UINavigationController(rootViewController: aboutController)
+        let moreController = MoreController()
+        let moreNC = UINavigationController(rootViewController: moreController)
                                     
         homeNC.tabBarItem.image = UIImage(asset: STNAsset.Image.gallery)
         homeNC.tabBarItem.title = Strings.home
@@ -111,11 +111,11 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         petitionsNC.tabBarItem.selectedImage = UIImage(asset: STNAsset.Image.petitionActive)
         petitionsNC.tabBarItem.title = Strings.petitions
                 
-        aboutNC.tabBarItem.image = UIImage(asset: STNAsset.Image.settings)
-        aboutNC.tabBarItem.selectedImage = UIImage(asset: STNAsset.Image.settingsActive)
-        aboutNC.tabBarItem.title = Strings.about
+        moreNC.tabBarItem.image = UIImage(asset: STNAsset.Image.settings)
+        moreNC.tabBarItem.selectedImage = UIImage(asset: STNAsset.Image.settingsActive)
+        moreNC.tabBarItem.title = Strings.more
         
-        viewControllers = [homeNC, donationsNC, petitionsNC, aboutNC]
+        viewControllers = [homeNC, donationsNC, petitionsNC, moreNC]
     }
 
     func setupTabBar() {
