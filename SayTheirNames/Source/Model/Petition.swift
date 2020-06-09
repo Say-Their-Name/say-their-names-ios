@@ -29,7 +29,7 @@ public struct Petition: Decodable {
     let identifier: String
     let title: String
     let description: String
-    let outcome: String?
+    let outcome: String
     let link: String
     let outcomeImagePath: String
     let person: Person?
