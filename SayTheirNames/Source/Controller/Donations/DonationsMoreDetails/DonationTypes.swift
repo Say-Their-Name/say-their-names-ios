@@ -24,8 +24,26 @@
 
 import Foundation
 
+// Donation Type Data
+//{
+//    "data": [
+//        {
+//            "id": 1,
+//            "type": "Victims"
+//        },
+//        {
+//            "id": 2,
+//            "type": "Protesters"
+//        },
+//        {
+//            "id": 3,
+//            "type": "Movement"
+//        }
+//    ]
+//}
+
 enum DonationTypes: Int {
-    case victims, protesters, movement
+    case victims = 1, protesters, movement
     
     var id: Int { return self.rawValue }
 }

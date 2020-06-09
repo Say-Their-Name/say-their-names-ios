@@ -112,20 +112,6 @@ extension DonationsMoreDetailsController: UICollectionViewDataSource {
                 
                 return photoView
             }
-            
-        case DonationsMoreDetailsController.donationButtonSupplementaryView:
-            // DonationButtonSupplementaryView
-            if let buttonView = collectionView.dequeueReusableSupplementaryView(
-                ofKind: kind,
-                withReuseIdentifier: DMDDonationButtonSupplementaryView.reuseIdentifier,
-                for: indexPath) as? DMDDonationButtonSupplementaryView {
-                
-                buttonView.setButtonPressed {
-                    // TODO: Donation Button Action
-                }
-                
-                return buttonView
-            }
     
         case DonationsMoreDetailsController.sectionTitleSupplementaryView:
             // SectionTitleSupplementaryView

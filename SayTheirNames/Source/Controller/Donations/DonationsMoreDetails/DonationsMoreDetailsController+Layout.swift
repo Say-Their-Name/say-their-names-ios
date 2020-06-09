@@ -84,16 +84,8 @@ extension DonationsMoreDetailsController {
                                                                 elementKind: DonationsMoreDetailsController.photoSupplementaryView,
                                                                 alignment: .top)
                 
-                // Button Supplementary View
-                let buttonViewSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(50))
-                let buttonView =
-                    NSCollectionLayoutBoundarySupplementaryItem(layoutSize: buttonViewSize,
-                                                                elementKind: DonationsMoreDetailsController.donationButtonSupplementaryView,
-                                                                alignment: .bottom)
-                buttonView.contentInsets = NSDirectionalEdgeInsets(top: 0.0, leading: horizontalPadding, bottom: 0.0, trailing: horizontalPadding)
-                
                 section.supplementariesFollowContentInsets = false
-                section.boundarySupplementaryItems = [photoView, buttonView]
+                section.boundarySupplementaryItems = [photoView]
                 
                 return section
                 
