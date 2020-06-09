@@ -43,7 +43,7 @@ final class LaunchScreen: UIView {
             print("Can't load `LaunchScreen` from nib")
             return nil
         }
-        view.backgroundColor = UIColor.STN.black
+        view.backgroundColor = UIColor(asset: STNAsset.Color.black)
         return view
     }
     

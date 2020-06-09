@@ -39,7 +39,7 @@ final class PersonCell: UICollectionViewCell {
     
     private lazy var nameLabel: UILabel = {
         let lbl = UILabel()
-        lbl.textColor = UIColor.STN.primaryLabel
+        lbl.textColor = UIColor(asset: STNAsset.Color.primaryLabel)
         lbl.lineBreakMode = .byTruncatingTail
         lbl.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
         lbl.translatesAutoresizingMaskIntoConstraints = false
@@ -50,7 +50,7 @@ final class PersonCell: UICollectionViewCell {
     
     private lazy var dateOfIncidentLabel: UILabel = {
         let lbl = UILabel()
-        lbl.textColor = UIColor.STN.secondaryLabel
+        lbl.textColor = UIColor(asset: STNAsset.Color.secondaryLabel)
         lbl.lineBreakMode = .byTruncatingTail
         lbl.isAccessibilityElement = true
         lbl.translatesAutoresizingMaskIntoConstraints = false
@@ -58,7 +58,7 @@ final class PersonCell: UICollectionViewCell {
     }()
     
     private lazy var bookmarkButton: UIButton = {
-        let bookmarkImage = UIImage(asset: STNImage.bookmark)
+        let bookmarkImage = UIImage(asset: STNAsset.Image.bookmark)
         let btn = UIButton(image: bookmarkImage)
         btn.contentMode = .scaleAspectFill
         btn.setContentHuggingPriority(.defaultHigh, for: .horizontal)

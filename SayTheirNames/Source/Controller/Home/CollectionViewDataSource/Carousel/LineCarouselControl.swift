@@ -35,8 +35,8 @@ protocol LineCarouselControlProtocol: class {
 final class LineCarouselControl: UIControl {
 
     // MARK: - Properties
-    private var pageIndicatorTintColor: UIColor? = UIColor.STN.gray
-    private var currentPageIndicatorTintColor: UIColor? = UIColor.STN.black
+    private var pageIndicatorTintColor: UIColor? = UIColor(asset: STNAsset.Color.gray)
+    private var currentPageIndicatorTintColor: UIColor? = UIColor(asset: STNAsset.Color.black)
     private lazy var stackView = UIStackView.init(frame: self.bounds)
     override var bounds: CGRect {
         didSet(oldValue) {
