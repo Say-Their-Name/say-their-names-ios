@@ -60,14 +60,10 @@ final class DonationsController: UIViewController {
             cell.configure(with: donation)
             return cell
         }
-        donationManager.didSelectItem = { donation in
+        donationManager.didSelectItem = { [weak self] donation in
             
             // TODO: Move this out
-            let detailVC = DonationsMoreDetailsController()
-            detailVC.donation = donation
-            let navigationController = UINavigationController(rootViewController: detailVC)
-            
-            self.present(navigationController, animated: true, completion: nil)
+            self?.showDontationsDetails(withDonation: donation)
         }
         ui.bindDonationManager(donationManager)
         
@@ -94,16 +90,27 @@ final class DonationsController: UIViewController {
             }
         }
     }
+    
+    private func showDontationsDetails(withDonation: Donation) {
+        let detailVC = DonationsMoreDetailsController()
+        detailVC.donation = withDonation
+        let navigationController = UINavigationController(rootViewController: detailVC)
+        
+        self.present(navigationController, animated: true, completion: nil)
+    }
+    
 }
 
 extension DonationsController: DeepLinkHandle {
     func handle(deepLink: DeepLink) {
         guard let deepLink = deepLink as? DonateDeepLink else { return }
         
-        self.network.fetchDonationsByPersonName(deepLink.name) { 
+        self.network.fetchDonationsByPersonName(deepLink.name) { [weak self] in
             switch $0 {
             case .success(let page):
-                Log.print(page)
+                guard let donation = page.all.first else { return }
+                self?.showDontationsDetails(withDonation: donation)
+
             case .failure(let error):
                 Log.print(error)
              }
