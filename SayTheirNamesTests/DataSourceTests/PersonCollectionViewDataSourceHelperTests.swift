@@ -146,14 +146,17 @@ class PersonCollectionViewDataSourceHelperTests: XCTestCase {
                    age: 0,
                    city: "",
                    country: "",
-                   bio: "",
-                   context: "",
+                   story: "",
+                   biography: "",
+                   outcome: "",
+                   shareable: Shareable(),
                    images: [],
                    donations: [],
                    petitions: [],
-                   media: [],
+                   medias: [],
+                   news: [],
                    socialMedia: [],
-                   hashtag: [])
+                   hashtags: [])
         }
     }
     

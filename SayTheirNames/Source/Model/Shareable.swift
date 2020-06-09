@@ -1,5 +1,5 @@
 //
-//  Media.swift
+//  Shareable.swift
 //  SayTheirNames
 //
 //  Copyright (c) 2020 Say Their Names Team (https://github.com/Say-Their-Name)
@@ -24,12 +24,17 @@
 
 import Foundation
 
-public struct Media: Decodable {
-    let id: Int
-    let personId: Int
-    let imageUrl: String
-
+public struct Shareable: Decodable {
+    var base: String = ""
+    var facebook: String = ""
+    var twitter: String = ""
+    var whatsapp: String = ""
+    
+    init(){}
+    
     private enum CodingKeys: String, CodingKey {
-        case id, personId = "person_id", imageUrl = "image_url"
+        case base, facebook, twitter, whatsapp
     }
 }
+
+extension Shareable: Hashable {}
