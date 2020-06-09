@@ -86,3 +86,18 @@ final class PetitionsController: UIViewController {
         }
     }
 }
+
+extension PetitionsController: DeepLinkHandle {
+    func handle(deepLink: DeepLink) {
+        guard let deepLink = deepLink as? SignDeepLink else { return }
+        
+        self.network.fetchPetitionsByPersonName(deepLink.name) { [weak self] in
+            switch $0 {
+            case .success(let page):
+                Log.print(page)
+            case .failure(let error):
+                Log.print(error)
+            }
+        }
+    }
+}

@@ -95,3 +95,18 @@ final class DonationsController: UIViewController {
         }
     }
 }
+
+extension DonationsController: DeepLinkHandle {
+    func handle(deepLink: DeepLink) {
+        guard let deepLink = deepLink as? DonateDeepLink else { return }
+        
+        self.network.fetchDonationsByPersonName(deepLink.name) { 
+            switch $0 {
+            case .success(let page):
+                Log.print(page)
+            case .failure(let error):
+                Log.print(error)
+             }
+        }
+    }
+}

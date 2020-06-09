@@ -170,10 +170,10 @@ extension HomeController: UICollectionViewDelegateFlowLayout {
 
 extension HomeController: DeepLinkHandle {
     func handle(deepLink: DeepLink) {
-        guard let personDeepLink = deepLink as? PersonDeepLink else { return }
+        guard let deepLink = deepLink as? PersonDeepLink else { return }
         
-        self.network.fetchPeopleByName(personDeepLink.name) { [weak self] (result) in
-            switch result {
+        self.network.fetchPeopleByName(deepLink.name) { [weak self] in
+            switch $0 {
             case .success(let page):
                 guard let person = page.all.first else { return }
                 self?.showPersonDetails(withPerson: person)

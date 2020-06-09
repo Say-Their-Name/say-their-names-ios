@@ -165,8 +165,9 @@ extension MainTabBarController: DeepLinkHandle {
             
             if deepLink.linkDetails.canDisplayClass(type(of: controller)) {
                 self.selectedIndex = index
-                if let home = controller as? HomeController {
-                    home.handle(deepLink: deepLink)
+                
+                if let handleController = controller as? DeepLinkHandle {
+                    handleController.handle(deepLink: deepLink)
                 }
             }
         }
