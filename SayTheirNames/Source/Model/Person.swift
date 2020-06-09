@@ -40,21 +40,23 @@ struct Person: Decodable {
     let images: [Image]
     let donations: [Donation]
     let petitions: [Petition]
+    let medias: [Media]
     let news: [News]
     let socialMedia: [SocialMedia]
     let hashtags: [Hashtag]
     
     private enum CodingKeys: String, CodingKey {
-        case id, fullName = "full_name", identifier, doi = "date_of_incident", childrenCount = "number_of_children",
-        age, city, country, story = "their_story", outcome, context, shareable = "sharable_links", images, donations = "donation_links", petitions = "petition_links", news = "news",
-        socialMedia = "social_media", hashtags = "hash_tags"
+        case id, fullName = "full_name", identifier, doi = "date_of_incident",
+        childrenCount = "number_of_children", age, city, country, story = "their_story",
+        outcome, context, shareable = "sharable_links", images, donations = "donation_links",
+        petitions = "petition_links", medias = "media", news, socialMedia = "social_media", hashtags = "hash_tags"
     }
     
     init(id: Int, fullName: String, identifier: String,
          doi: Date, childrenCount: Int?, age: Int?,
          city: String, country: String, story: String, outcome: String?,
          context: String, shareable: Shareable?, images: [Image], donations: [Donation],
-         petitions: [Petition], news: [News], socialMedia: [SocialMedia], hashtags: [Hashtag]
+         petitions: [Petition], medias: [Media], news: [News], socialMedia: [SocialMedia], hashtags: [Hashtag]
     ) {
         self.id = id
         self.fullName = fullName
@@ -71,6 +73,7 @@ struct Person: Decodable {
         self.images = images
         self.donations = donations
         self.petitions = petitions
+        self.medias = medias
         self.news = news
         self.socialMedia = socialMedia
         self.hashtags = hashtags
@@ -94,6 +97,7 @@ struct Person: Decodable {
         self.images = try container.decodeIfPresent([Image].self, forKey: .images) ?? []
         self.donations = try container.decodeIfPresent([Donation].self, forKey: .donations) ?? []
         self.petitions = try container.decodeIfPresent([Petition].self, forKey: .petitions) ?? []
+        self.medias = try container.decodeIfPresent([Media].self, forKey: .medias) ?? []
         self.news = try container.decodeIfPresent([News].self, forKey: .news) ?? []
         self.socialMedia = try container.decodeIfPresent([SocialMedia].self, forKey: .socialMedia) ?? []
         self.hashtags = try container.decodeIfPresent([Hashtag].self, forKey: .hashtags) ?? []

@@ -32,6 +32,7 @@
 		7419B4B8248A2E0800D466C8 /* PersonMediaCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7419B4B2248A2E0800D466C8 /* PersonMediaCollectionViewCell.swift */; };
 		7433B64B2484BABA005140D4 /* PersonPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7433B6492484BABA005140D4 /* PersonPhotoCell.swift */; };
 		74D9FDCD248FC01600E06C0C /* Shareable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D9FDCC248FC01600E06C0C /* Shareable.swift */; };
+		74D9FDCF248FC9FB00E06C0C /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D9FDCE248FC9FB00E06C0C /* Media.swift */; };
 		7789A5952489979700737E14 /* UIImageView+STN.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7789A5942489979700737E14 /* UIImageView+STN.swift */; };
 		7A5BFA0B248618B100BC265A /* SayTheirNamesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5BFA0A248618B100BC265A /* SayTheirNamesUITests.swift */; };
 		7A5BFA12248618C000BC265A /* XCUIApplication+SayTheirName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5BFA01248615C100BC265A /* XCUIApplication+SayTheirName.swift */; };
@@ -214,6 +215,7 @@
 		7419B4B2248A2E0800D466C8 /* PersonMediaCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonMediaCollectionViewCell.swift; sourceTree = "<group>"; };
 		7433B6492484BABA005140D4 /* PersonPhotoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonPhotoCell.swift; sourceTree = "<group>"; };
 		74D9FDCC248FC01600E06C0C /* Shareable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shareable.swift; sourceTree = "<group>"; };
+		74D9FDCE248FC9FB00E06C0C /* Media.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Media.swift; sourceTree = "<group>"; };
 		7789A5942489979700737E14 /* UIImageView+STN.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+STN.swift"; sourceTree = "<group>"; };
 		7A5BFA01248615C100BC265A /* XCUIApplication+SayTheirName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCUIApplication+SayTheirName.swift"; sourceTree = "<group>"; };
 		7A5BFA08248618B100BC265A /* SayTheirNamesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SayTheirNamesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -796,6 +798,7 @@
 				DB188808248A8F1100FDAEE3 /* HeaderCellContent.swift */,
 				A9AC832B248B33770000A851 /* Search.swift */,
 				74D9FDCC248FC01600E06C0C /* Shareable.swift */,
+				74D9FDCE248FC9FB00E06C0C /* Media.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1326,6 +1329,7 @@
 				9E92026B248C39090007AFCE /* UIStackView++.swift in Sources */,
 				7419B4B3248A2E0800D466C8 /* PersonPhotoTableViewCell.swift in Sources */,
 				9E920269248C36C50007AFCE /* TagView.swift in Sources */,
+				74D9FDCF248FC9FB00E06C0C /* Media.swift in Sources */,
 				A9B9056D248B4EA300F9EEFA /* URLComponents+STN.swift in Sources */,
 				A91B079E24835CF700DB803C /* PersonController.swift in Sources */,
 				A91B07C32484719C00DB803C /* Bundle+STN.swift in Sources */,
