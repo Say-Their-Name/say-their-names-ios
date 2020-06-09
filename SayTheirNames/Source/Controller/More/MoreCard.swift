@@ -65,7 +65,7 @@ final class MoreCard: UIView {
             vStack.centerXAnchor.constraint(equalTo: imageView.centerXAnchor),
             vStack.centerYAnchor.constraint(equalTo: imageView.centerYAnchor),
             logo.heightAnchor.constraint(equalToConstant: 30),
-            logo.widthAnchor.constraint(equalToConstant: 30)
+            logo.widthAnchor.constraint(equalToConstant: 20)
         ])
         
         return imageView
