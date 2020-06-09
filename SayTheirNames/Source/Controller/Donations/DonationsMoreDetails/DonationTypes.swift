@@ -1,5 +1,5 @@
 //
-//  FeatureFlags.swift
+//  DonationTypes.swift
 //  SayTheirNames
 //
 //  Copyright (c) 2020 Say Their Names Team (https://github.com/Say-Their-Name)
@@ -24,8 +24,8 @@
 
 import Foundation
 
-struct FeatureFlags {
-    static let bookmarksEnabled = false
-    static let filtersEnabled = false
-    static let dmdOutcomeSectionEnabled = false
+enum DonationTypes: Int {
+    case victims = 1, protesters, movement
+    
+    var id: Int { return self.rawValue }
 }
