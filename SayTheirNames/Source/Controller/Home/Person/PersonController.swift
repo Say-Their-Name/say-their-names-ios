@@ -262,7 +262,7 @@ extension PersonController: UITableViewDataSource {
             return storyCell
         case .outcome:
             let overviewCell = cell as! PersonOverviewTableViewCell
-            overviewCell.setupCell(title: L10n.Person.outcome, description: person.context)
+            overviewCell.setupCell(title: L10n.Person.outcome, description: person.outcome)
             return overviewCell
         case let .news(news):
             let newsCell = cell as! PersonNewsTableViewCell

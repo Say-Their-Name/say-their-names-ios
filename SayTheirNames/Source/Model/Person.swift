@@ -34,8 +34,7 @@ struct Person: Decodable {
     let city: String
     let country: String
     let story: String
-    let outcome: String?
-    let context: String
+    let outcome: String
     let shareable: Shareable?
     let images: [Image]
     let donations: [Donation]
@@ -48,14 +47,13 @@ struct Person: Decodable {
     private enum CodingKeys: String, CodingKey {
         case id, fullName = "full_name", identifier, doi = "date_of_incident",
         childrenCount = "number_of_children", age, city, country, story = "their_story",
-        outcome, context, shareable = "sharable_links", images, donations = "donation_links",
+        outcome, shareable = "sharable_links", images, donations = "donation_links",
         petitions = "petition_links", medias = "media", news, socialMedia = "social_media", hashtags = "hash_tags"
     }
     
     init(id: Int, fullName: String, identifier: String,
          doi: Date, childrenCount: Int?, age: Int?,
-         city: String, country: String, story: String, outcome: String?,
-         context: String, shareable: Shareable?, images: [Image], donations: [Donation],
+         city: String, country: String, story: String, outcome: String, shareable: Shareable?, images: [Image], donations: [Donation],
          petitions: [Petition], medias: [Media], news: [News], socialMedia: [SocialMedia], hashtags: [Hashtag]
     ) {
         self.id = id
@@ -68,7 +66,6 @@ struct Person: Decodable {
         self.country = country
         self.story = story
         self.outcome = outcome
-        self.context = context
         self.shareable = shareable
         self.images = images
         self.donations = donations
@@ -91,7 +88,6 @@ struct Person: Decodable {
         self.country = try container.decodeIfPresent(String.self, forKey: .country) ?? ""
         self.story = try container.decodeIfPresent(String.self, forKey: .story) ?? ""
         self.outcome = try container.decodeIfPresent(String.self, forKey: .outcome) ?? ""
-        self.context = try container.decodeIfPresent(String.self, forKey: .context) ?? ""
         self.shareable =  try container.decodeIfPresent(Shareable.self, forKey: .shareable)
         
         self.images = try container.decodeIfPresent([Image].self, forKey: .images) ?? []
