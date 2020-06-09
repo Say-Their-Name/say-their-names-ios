@@ -56,7 +56,7 @@ struct DonateDeepLink: DeepLink {
     public let name: String
     init(name: String) {
         self.linkDetails = type(of: self).details
-        self.name = name.replacingOccurrences(of: "-", with: " ")
+        self.name = name
     }
     
     static func deepLink(fromComponents: [String]? = nil) -> DeepLink? {
