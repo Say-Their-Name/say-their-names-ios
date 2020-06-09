@@ -49,4 +49,8 @@ extension NetworkRequestor {
         let url = "\(PetitionEnvironment.petitionsTypeSearchString)\(type)"
         self.fetchDecodable(url, completion: completion)
     }
+    
+    public func fetchPetitionDetails(with identifier: String, completion: @escaping (Result<PetitionResponsePage, Swift.Error>) -> Swift.Void) {
+        self.fetchDecodable(PetitionEnvironment.baseURLString + "/" + identifier, completion: completion)
+    }
 }
