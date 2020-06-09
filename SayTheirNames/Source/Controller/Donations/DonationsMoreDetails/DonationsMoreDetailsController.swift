@@ -46,7 +46,7 @@ final class DonationsMoreDetailsController: UIViewController {
     internal let emptyViewIdentifier = "empty-view-identifier"
     
     private let navigationBarTextAttributes = [
-        NSAttributedString.Key.foregroundColor: UIColor.white,
+        NSAttributedString.Key.foregroundColor: UIColor(asset: STNAsset.Color.navBarForeground),
         NSAttributedString.Key.font: UIFont.STN.navBarTitle
     ]
 
@@ -87,7 +87,7 @@ final class DonationsMoreDetailsController: UIViewController {
     
     // MARK: - Class Method
     private func configureSubview() {
-        view.backgroundColor = UIColor(asset: STNAsset.Color.white)
+        view.backgroundColor = UIColor(asset: STNAsset.Color.background)
         
         backgroundFistImageView.anchor(superView: view, top: view.topAnchor,
                                padding: .init(top:32), size: .init(width: 110, height: 110))
@@ -123,11 +123,11 @@ final class DonationsMoreDetailsController: UIViewController {
     
     private func setupNavigationBarItems() {
         // TODO: Once Theme.swift/etc gets added this may not be required
-        navigationController?.navigationBar.titleTextAttributes = self.navigationBarTextAttributes
+        navigationController?.navigationBar.titleTextAttributes = self.navigationBarTextAttributes as [NSAttributedString.Key: Any]
         
         self.title = L10n.sayTheirNames.uppercased()
         self.navigationController?.navigationBar.titleTextAttributes =
-        [NSAttributedString.Key.foregroundColor: UIColor.white,
+            [NSAttributedString.Key.foregroundColor: UIColor(asset: STNAsset.Color.navBarForeground) ?? .white,
          NSAttributedString.Key.font: UIFont(name: "Karla-Regular", size: 19) ?? UIFont.systemFont(ofSize: 17)]
 
         let dismissButton = UIButton(type: .system)
@@ -152,7 +152,7 @@ final class DonationsMoreDetailsController: UIViewController {
         }
         
         donationButtonContainerView.translatesAutoresizingMaskIntoConstraints = false
-        donationButtonContainerView.backgroundColor = .white
+        donationButtonContainerView.backgroundColor = UIColor(asset: STNAsset.Color.background)
         view.addSubview(donationButtonContainerView)
         donationButtonContainerView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         donationButtonContainerView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
