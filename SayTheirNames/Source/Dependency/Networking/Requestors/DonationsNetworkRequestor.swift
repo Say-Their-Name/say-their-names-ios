@@ -38,6 +38,16 @@ extension NetworkRequestor {
         self.fetchDecodable(DonationsEnvironment.baseURLString, completion: completion)
     }
     
+    public func fetchDonations(with link: Link, completion: @escaping (Result<DonationsResponsePage, Swift.Error>) -> Swift.Void) {
+        guard let nextUrl = link.next else {
+            let error = AFError.parameterEncodingFailed(reason: .missingURL)
+            completion(.failure(error))
+            return
+        }
+        
+        self.fetchDecodable(nextUrl, completion: completion)
+    }
+    
     public func fetchDonationsByPersonName(_ name: String, completion: @escaping (Result<DonationsResponsePage, Swift.Error>) -> Swift.Void) {
         guard let components = URLComponents(string: DonationsEnvironment.baseURLString, item: URLQueryItem(name: "name", value: name)),
               let urlString = components.url?.absoluteString

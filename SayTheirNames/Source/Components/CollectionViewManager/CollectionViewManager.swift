@@ -38,6 +38,8 @@ class CollectionViewManager<Section: Hashable, Item: Hashable>: NSObject, UIColl
     /// Callback that returns the selected item
     var didSelectItem: ((Item) -> Void)?
     
+    var willDisplayCell: ((_ collectionView: UICollectionView, _ forItemAt: IndexPath) -> Void)?
+    
     /// Collection view tied to the DataSource
     private var collectionView: UICollectionView?
     /// Diffable DataSource responsible for managing snapshots
@@ -90,6 +92,10 @@ class CollectionViewManager<Section: Hashable, Item: Hashable>: NSObject, UIColl
         let size = flowLayout.flatMap { $0.estimatedItemSize } ?? .zero
         return size
     }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        willDisplayCell?(collectionView, indexPath)
+    }
 }
 
 extension CollectionViewManager where Section == SingleSection {
@@ -99,5 +105,12 @@ extension CollectionViewManager where Section == SingleSection {
             snapshot.appendSections([.main])
             snapshot.appendItems(items)
         }
+    }
+}
+
+extension CollectionViewManager {
+    func section(at index: Int) -> Section? {
+        let allSections = dataSource?.snapshot().sectionIdentifiers
+        return allSections?[index]
     }
 }
