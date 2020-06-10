@@ -33,7 +33,7 @@ final class CallToActionCell: UICollectionViewCell {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.contentMode = .scaleAspectFill
         $0.clipsToBounds = true
-        
+        $0.isHidden = true
         // TODO: set proper placeholder
         $0.image = UIImage(asset: STNAsset.Image.mediaImage2)
     }
@@ -127,9 +127,10 @@ final class CallToActionCell: UICollectionViewCell {
     func configure(with cta: CallToAction) {
         actionButton.setTitle(cta.actionTitle, for: .normal)
         bodyLabel.text = cta.body
-        cta.imagePath.flatMap { imageView.populate(withURL: $0) }
-        tagView.isHidden = cta.tag == nil || cta.tag?.isEmpty == true
-        cta.tag.flatMap { tagView.setTitle(to: $0) }
+        // removed from this version
+//        cta.imagePath.flatMap { imageView.populate(withURL: $0) }
+//        tagView.isHidden = cta.tag == nil || cta.tag?.isEmpty == true
+//        cta.tag.flatMap { tagView.setTitle(to: $0) }
         titleLabel.text = cta.title
         id = cta.id
     }
@@ -180,6 +181,6 @@ private extension CallToActionCell {
     static let actionButtonHeight: CGFloat = 50
     static let containerViewBorderWidth: CGFloat = 2
     static let defaultPadding: CGFloat = 16
-    static let imageViewHeight: CGFloat = 125
+    static let imageViewHeight: CGFloat = 0 //125 removed from this version
     static let stackViewSpacing: CGFloat = 8
 }
