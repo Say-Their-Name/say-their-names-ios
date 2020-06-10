@@ -24,11 +24,17 @@
 
 import Foundation
 import LinkPresentation
+import SDWebImage
 
 struct LinkInformation: Hashable {
     let url: URL
-    let title: String
+    let title: String?
     let image: UIImage?
+}
+
+protocol MetadataImageCache {
+    func store(_ image: UIImage, with key: String)
+    func fetchImage(with key: String) -> UIImage?
 }
 
 final class MetadataService: Dependency {
@@ -50,7 +56,12 @@ final class MetadataService: Dependency {
     private let queue = DispatchQueue(label: "stn.metadata-queue")
     private let resourceQueue = DispatchQueue(label: "stn.metadata-queue.resource")
     private var loadingOperations: [URL: OperationQueue] = [:]
-    let cache = NSCache<NSString, LPLinkMetadata>()
+    private let imageCache: MetadataImageCache
+    private let cache = NSCache<NSString, LPLinkMetadata>()
+    
+    init() {
+        self.imageCache = SDImageCache.shared
+    }
     
     // MARK: Public Methods
 
@@ -71,7 +82,7 @@ final class MetadataService: Dependency {
         self.fetchMetadata(for: url) { result in
             switch result {
             case .success(let metadata):
-                self.fetchResource(for: metadata, completionHandler: completionHandler)
+                self.fetchResource(for: metadata, url: url, completionHandler: completionHandler)
             case .failure(let error):
                 completionHandler(.failure(.failedToLoad(error.localizedDescription)))
             }
@@ -158,9 +169,11 @@ extension MetadataService {
 }
 
 // MARK: Resource Loading
+
 extension MetadataService {
     
     private func fetchResource(for metadata: LPLinkMetadata,
+                               url: URL,
                                completionHandler: @escaping LinkInformationHandler) {
         resourceQueue.async {
             guard let imageProvider = metadata.imageProvider else {
@@ -168,24 +181,34 @@ extension MetadataService {
                 return
             }
 
+            if let image = self.imageCache.fetchImage(with: url.absoluteString) {
+                completionHandler(.success(LinkInformation(url: url, title: metadata.title, image: image)))
+            }
+            
             imageProvider.loadObject(ofClass: UIImage.self) { image, error in
                 if let error = error {
                     completionHandler(.failure(.failedToLoad(error.localizedDescription)))
                 }
                 
-                guard let url = metadata.url,
-                    let title = metadata.title else {
-                        completionHandler(.failure(.failedToLoad("The metadata did not return a title or URL")))
-                        return
-                }
-                
                 if let image = image as? UIImage {
-                    let info = LinkInformation(url: url, title: title, image: image)
-                    completionHandler(.success(info))
+                    self.imageCache.store(image, with: url.absoluteString)
+                    completionHandler(.success(LinkInformation(url: url, title: metadata.title, image: image)))
                 } else {
-                    completionHandler(.failure(.noImageData))
+                    completionHandler(.success(LinkInformation(url: url, title: metadata.title, image: nil)))
                 }
             }
         }
+    }
+}
+
+// MARK: Image Caching
+
+extension SDImageCache: MetadataImageCache {
+    func store(_ image: UIImage, with key: String) {
+        SDImageCache.shared.storeImage(toMemory: image, forKey: key)
+    }
+    
+    func fetchImage(with key: String) -> UIImage? {
+        return SDImageCache.shared.imageFromCache(forKey: key, options: [], context: nil)
     }
 }

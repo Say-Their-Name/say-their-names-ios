@@ -185,8 +185,9 @@ class PersonController: UIViewController {
         
         // Warm up the MetadataService cache
         let urls = self.person.news.compactMap { URL(string: $0.url) }
+        print(urls)
         self.metadata.preheat(with: urls)
-        
+                
         tableView.reloadData()
     }
 }

@@ -30,6 +30,13 @@ struct News: Decodable {
     private enum CodingKeys: String, CodingKey {
         case url
     }
+    
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        let url = try container.decodeIfPresent(String.self, forKey: .url) ?? ""
+        self.url = url.trimmingCharacters(in: .whitespaces)
+    }
 }
 
 extension News: Equatable, Hashable {

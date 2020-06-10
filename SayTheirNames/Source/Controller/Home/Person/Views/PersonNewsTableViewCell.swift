@@ -159,10 +159,17 @@ extension PersonNewsTableViewCell: UICollectionViewDelegate, UICollectionViewDat
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellType.identifier, for: indexPath)
         switch cellType {
         case .news:
-            // UPDATE cell
-            return cell
+            guard let newsCell = cell as? PersonNewsCollectionViewCell else {
+                fatalError("Expecting PersonNewsCollectionViewCell but didn't get one!")
+            }
+            let newsItem = self.news[indexPath.row]
+            newsCell.configure(with: newsItem)
+            return newsCell
         case .medias:
-            let mediaCell = cell as! PersonMediaCollectionViewCell
+            guard let mediaCell = cell as? PersonMediaCollectionViewCell else {
+                fatalError("Expecting PersonMediaCollectionViewCell but didn't get one!")
+            }
+            
             let mediaUrl = medias[indexPath.row].imageUrl
             mediaCell.updateCell(with: mediaUrl)
             return mediaCell

@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import SDWebImage
 
 class PersonNewsCollectionViewCell: UICollectionViewCell {
  
+    @DependencyInject private var metadata: MetadataService
+
     static var reuseIdentifier: String {
         return "\(Self.self)"
     }
@@ -56,6 +59,23 @@ class PersonNewsCollectionViewCell: UICollectionViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func configure(with news: News) {
+        if let url = URL(string: news.url) {
+            self.metadata.fetchLinkInformation(from: url) { [weak self] result in
+                switch result {
+                case .success(let link):
+                    DispatchQueue.main.async {
+                        self?.newsImageView.image = link.image
+                        self?.sourceInfoLabel.text = link.title
+                    }
+                case .failure(let error):
+                    print(url)
+                    Log.print(error.localizedDescription)
+                }
+            }
+        }
     }
     
     private func setupLayout() {
