@@ -208,6 +208,11 @@ class PersonInfoTableViewCell: UITableViewCell {
         ageLabel.text = person.age.flatMap({ "\($0)" })
         childrenLabel.text = person.childrenCount.flatMap({ "\($0)" })
         locationLabel.text = person.country.uppercased()
+
+        if person.childrenCount == nil {
+            childrenContainerStack.isHidden = true
+            secondHorizontalSeparatorView.isHidden = true
+        }
     }
     
     private func setupLayout() {
