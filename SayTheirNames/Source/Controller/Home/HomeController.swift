@@ -37,7 +37,6 @@ final class HomeController: UIViewController {
     }
 
     // MARK: - CONSTANTS
-    private let searchBar = CustomSearchBar()
     let searchController = SearchViewController()
     // MARK: - CV Data Sources
     
@@ -63,8 +62,6 @@ final class HomeController: UIViewController {
         navigationItem.title = Strings.home
         setupCollectionView()
         setupSearchButton()
-        searchBar.setup(withController: self, andView: homeView)
-        view.bringSubviewToFront(searchBar)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -75,7 +72,6 @@ final class HomeController: UIViewController {
         let selectedIndexPath = IndexPath(item: 0, section: 0)
         locationCollectionView.selectItem(at: selectedIndexPath, animated: false, scrollPosition: .centeredVertically)
     }
-    
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent

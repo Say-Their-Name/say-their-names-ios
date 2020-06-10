@@ -149,7 +149,6 @@
 		DB188806248A51A800FDAEE3 /* CarouselCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB188802248A51A800FDAEE3 /* CarouselCollectionViewCell.swift */; };
 		DB188809248A8F1100FDAEE3 /* HeaderCellContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB188808248A8F1100FDAEE3 /* HeaderCellContent.swift */; };
 		DC4093DE248D8FB700C45D09 /* PetitionsCollectionViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4093DD248D8FB700C45D09 /* PetitionsCollectionViewManager.swift */; };
-		EEC3A1D42483D493001E7754 /* CustomSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC3A1D32483D493001E7754 /* CustomSearchBar.swift */; };
 		EEC3A1DC2483D6B6001E7754 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC3A1DA2483D6B6001E7754 /* SearchResultCell.swift */; };
 		EEC3A1DD2483D6B6001E7754 /* SearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EEC3A1DB2483D6B6001E7754 /* SearchResultCell.xib */; };
 		F2725A8B24881A8E00507DC4 /* UITableViewCell++.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2725A8A24881A8D00507DC4 /* UITableViewCell++.swift */; };
@@ -338,7 +337,6 @@
 		DC4093DD248D8FB700C45D09 /* PetitionsCollectionViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetitionsCollectionViewManager.swift; sourceTree = "<group>"; };
 		E0DB62D4E01FCED2ADD577B6 /* Pods-SayTheirNamesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SayTheirNamesTests.debug.xcconfig"; path = "Target Support Files/Pods-SayTheirNamesTests/Pods-SayTheirNamesTests.debug.xcconfig"; sourceTree = "<group>"; };
 		ED2DEB0A248454FD00EC784E /* CODE_OF_CONDUCT.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = CODE_OF_CONDUCT.md; sourceTree = "<group>"; };
-		EEC3A1D32483D493001E7754 /* CustomSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSearchBar.swift; sourceTree = "<group>"; };
 		EEC3A1DA2483D6B6001E7754 /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
 		EEC3A1DB2483D6B6001E7754 /* SearchResultCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchResultCell.xib; sourceTree = "<group>"; };
 		F2725A8A24881A8D00507DC4 /* UITableViewCell++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell++.swift"; sourceTree = "<group>"; };
@@ -771,7 +769,6 @@
 			children = (
 				9EC6DD44248B7826006CC5A7 /* CollectionViewManager */,
 				A91B078424835CF700DB803C /* CustomNavigationBar.swift */,
-				EEC3A1D32483D493001E7754 /* CustomSearchBar.swift */,
 				A91B078324835CF700DB803C /* MainTabBarController.swift */,
 			);
 			path = Components;
@@ -1260,7 +1257,6 @@
 				A91B07BD24846ED700DB803C /* Log.swift in Sources */,
 				A93367D2248985B6001F1E28 /* SocialMedia.swift in Sources */,
 				DB1887FF248A519600FDAEE3 /* LineCarouselControl.swift in Sources */,
-				EEC3A1D42483D493001E7754 /* CustomSearchBar.swift in Sources */,
 				9E7DBAF5248481DA00635A56 /* FileDownloader.swift in Sources */,
 				9EC6DD46248B7853006CC5A7 /* CollectionViewManager.swift in Sources */,
 				D7A96091248A676A005E0153 /* ButtonContainerView.swift in Sources */,

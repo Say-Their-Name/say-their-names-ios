@@ -31,9 +31,11 @@ class SearchViewController: UIViewController {
     
     private let searchBar = UISearchBar()
     private let tableView = UITableView()
+    private let searchBarContainer = UIView()
     private lazy var stackView = UIStackView(arrangedSubviews: [backButton, searchContainerView])
     private lazy var innerStackView = UIStackView(arrangedSubviews: [searchImageView, searchBar])
     
+    // MARK: - UI Elements
     private let searchContainerView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
@@ -63,24 +65,19 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.searchResult = self.people
-        
-        let searchBarContainer = UIView()
-        setupView(searchBarContainer)
-        
-        setupTableView(searchBarContainer)
+        setupViews()
+        setupTableView()
         setupSearchBar()
-        
     }
     
-    fileprivate func setupView(_ searchBarContainer: UIView) {
+    fileprivate func setupViews() {
         view.backgroundColor = .white
         searchBarContainer.anchor(
             superView: view, top: view.safeAreaLayoutGuide.topAnchor,
             leading: view.leadingAnchor, trailing: view.trailingAnchor,
-            size: .init(width: 0, height: 90))
-        
+            size: Theme.Screens.Search.barSize)
         backButton.anchor(size: .init(width: 50, height: 50))
-        stackView.spacing = 16
+        stackView.spacing = Theme.Components.Padding.medium
         stackView.anchor(
             superView: searchBarContainer, leading: searchBarContainer.leadingAnchor,
             bottom: searchBarContainer.bottomAnchor,
@@ -96,15 +93,15 @@ class SearchViewController: UIViewController {
     
     fileprivate func setupSearchBar() {
         searchBar.searchTextField.font = UIFont(name: "Karla-Regular", size: 16)
-        searchBar.tintColor = .black
+        searchBar.tintColor = UIColor.STN.black
         searchBar.barStyle = .black
-        searchBar.backgroundColor = .white
+        searchBar.backgroundColor = UIColor.STN.white
         searchBar.searchBarStyle = UISearchBar.Style.minimal
         searchBar.setImage(UIImage(), for: .search, state: .normal)
         searchBar.setSearchFieldBackgroundImage(UIImage(), for: .normal)
     }
     
-    fileprivate func setupTableView(_ searchBarContainer: UIView) {
+    fileprivate func setupTableView() {
         tableView.anchor(
             superView: view,
             top: searchBarContainer.bottomAnchor,
@@ -143,7 +140,7 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate, UISe
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 55
+        return Theme.Screens.Search.cellHeight
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
