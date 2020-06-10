@@ -978,6 +978,14 @@
 			path = Pagination;
 			sourceTree = "<group>";
 		};
+		B386F9532482FB2E0037A38D /* ExtensionsTests */ = {
+			isa = PBXGroup;
+			children = (
+				B336C6D5248E4BBA00A1AECB /* Paginator.swift */,
+			);
+			path = Pagination;
+			sourceTree = "<group>";
+		};
 		B365F45A248FD4950007FC31 /* UtilsTests */ = {
 			isa = PBXGroup;
 			children = (
