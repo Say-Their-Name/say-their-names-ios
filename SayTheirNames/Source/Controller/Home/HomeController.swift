@@ -131,11 +131,11 @@ final class HomeController: UIViewController {
     private func setupPaginator() {
         // MARK: - Carousel data
         
-        let carouselData: [HeaderCellContent] = [
-            .init(title: "#BLACKLIVESMATTER", description: "How to get involved"),
+        let carouselData: [HeaderCellContent] = FeatureFlags.carouselOnHome ? [
+            .init(title: "#BLACKLIVESMATTER", description: "How to get involved - donate now!"),
             .init(title: "#BLACKLIVESMATTER", description: "How to get involved"),
             .init(title: "#BLACKLIVESMATTER", description: "How to get involved")
-        ]
+            ] : []
         
         paginator.firstPageDataLoadedHandler = { [weak self] (data: [Person]) in
             self?.peopleDataSourceHelper.setPeople(data, carouselData: carouselData)

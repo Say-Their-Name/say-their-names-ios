@@ -50,7 +50,7 @@ class PersonCollectionViewDataSourceHelperTests: XCTestCase {
         sut.setPeople([], carouselData: [])
         let snapshot = sut.dataSource.snapshot()
         
-        XCTAssertEqual(snapshot.sectionIdentifiers, [.carousel, .main],
+        XCTAssertEqual(snapshot.sectionIdentifiers, [.main],
                       "Found incorrect sections")
         XCTAssertEqual(snapshot.itemIdentifiers(inSection: .main).count, 0, "Main section should have 0 items")
         XCTAssertEqual(snapshot.itemIdentifiers(inSection: .carousel).count, 0, "Carousel section should have 0 items")
@@ -61,7 +61,7 @@ class PersonCollectionViewDataSourceHelperTests: XCTestCase {
         sut.setPeople(people, carouselData: [])
         let snapshot = sut.dataSource.snapshot()
         
-        XCTAssertEqual(snapshot.sectionIdentifiers, [.carousel, .main],
+        XCTAssertEqual(snapshot.sectionIdentifiers, [.main],
                       "Found incorrect sections")
         XCTAssertEqual(snapshot.itemIdentifiers(inSection: .main).count, 5, "Main section should have 5 items")
         XCTAssertEqual(snapshot.itemIdentifiers(inSection: .carousel).count, 0, "Carousel section should have 0 items")
@@ -98,7 +98,7 @@ class PersonCollectionViewDataSourceHelperTests: XCTestCase {
         
         let snapshot = sut.dataSource.snapshot()
 
-        XCTAssertEqual(snapshot.sectionIdentifiers, [.carousel, .main],
+        XCTAssertEqual(snapshot.sectionIdentifiers, [.main],
                       "Found incorrect sections")
         XCTAssertEqual(snapshot.itemIdentifiers(inSection: .main).count, 5, "Main section should have 5 items")
         XCTAssertEqual(snapshot.itemIdentifiers(inSection: .carousel).count, 0, "Carousel section should have 0 items")

@@ -29,6 +29,11 @@ struct FeatureFlags {
     /// Disabled for v1
     static let bookmarksEnabled = false
     static let filtersEnabled = false
-    static let dmdOutcomeSectionEnabled = false
     static let searchEnabled = false
+
+    /// Disabled due to lack of data in the API
+    static let dmdOutcomeSectionEnabled = false
+
+    /// Disabled for v1, might be revisited later
+    static let carouselOnHome = false
 }
