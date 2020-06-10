@@ -33,6 +33,7 @@
 "person.news" = "News";
 "person.media" = "Media";
 "person.hashtags" = "Social Media Hashtags";
+"person.hashtagCopyTip" = "Press and hold to copy";
 "get_involved_dev.title" = "HOW DO I GET INVOLVED AS A DEVELOPER?";
 "get_involved_design.title" = "HOW DO I GET INVOLVED AS A DESIGNER?";
 "view_repo" = "VIEW OUR REPO";

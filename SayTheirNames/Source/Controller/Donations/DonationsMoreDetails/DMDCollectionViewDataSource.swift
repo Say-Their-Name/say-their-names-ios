@@ -52,7 +52,7 @@ extension DonationsMoreDetailsController: UICollectionViewDataSource {
             titleCell.configure(for: donation)
             return titleCell
             
-        // Decription Section
+        // Description Section
         case DonationSectionLayoutKind.description.rawValue:
             guard let textCell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: DMDTextContentCell.reuseIdentifier,

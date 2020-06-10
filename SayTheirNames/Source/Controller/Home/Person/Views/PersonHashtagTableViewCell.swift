@@ -40,6 +40,16 @@ class PersonHashtagTableViewCell: UITableViewCell {
         label.adjustsFontSizeToFitWidth = true
         return label
     }()
+    lazy var hashtagCopyTipLabel: UILabel = {
+        let label = UILabel()
+        label.text = L10n.Person.hashtagCopyTip.localizedUppercase
+        label.textColor = UIColor(asset: STNAsset.Color.strongHeader)
+        label.font = UIFont.STN.bannerSubitle
+        label.numberOfLines = 1
+        label.minimumScaleFactor = 0.5
+        label.adjustsFontSizeToFitWidth = true
+        return label
+    }()
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
@@ -71,8 +81,14 @@ class PersonHashtagTableViewCell: UITableViewCell {
                             top: topAnchor,
                             leading: leadingAnchor,
                             padding: .init(top: Theme.Components.Padding.big, left: Theme.Components.Padding.large))
+        hashtagCopyTipLabel.anchor(superView: self,
+                                   top: hashtagLabel.bottomAnchor,
+                                   leading: leadingAnchor,
+                                   trailing: trailingAnchor,
+                                   padding: .init(left: Theme.Components.Padding.large),
+                                   size: CGSize(width: 0, height: 20))
         collectionView.anchor(superView: self,
-                              top: hashtagLabel.bottomAnchor,
+                              top: hashtagCopyTipLabel.bottomAnchor,
                               leading: leadingAnchor,
                               trailing: trailingAnchor,
                               padding: .init(top: Theme.Components.Padding.medium),
