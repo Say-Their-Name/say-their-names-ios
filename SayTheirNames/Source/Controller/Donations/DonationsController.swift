@@ -38,7 +38,7 @@ final class DonationsController: UIViewController {
     private let ui = DonationsView()
     private var donations: [Donation]?
 
-    private var paginator: Paginator<Donation, DonationsResponsePage>
+    private let paginator: Paginator<Donation, DonationsResponsePage>
     
     required init() {
         weak var weakself: DonationsController?
@@ -78,12 +78,7 @@ final class DonationsController: UIViewController {
 
         donationManager.didSelectItem = { [weak self] donation in
             guard let self = self else { return }
-            // TODO: Move this out
-            let detailVC = DonationsMoreDetailsController()
-            detailVC.donation = donation
-            let navigationController = UINavigationController(rootViewController: detailVC)
-            
-            self.present(navigationController, animated: true, completion: nil)
+            self.showDonationsDetail(with: donation)
         }
         
         donationManager.willDisplayCell = { [weak self] (collectionView, indexPath) in
@@ -108,6 +103,13 @@ final class DonationsController: UIViewController {
             print(filter)
         }
         ui.bindFilterManager(filterManager)
+    }
+    
+    private func showDonationsDetail(with donation: Donation) {
+        let detailVC = DonationsMoreDetailsController()
+        detailVC.donation = donation
+        let navigationController = UINavigationController(rootViewController: detailVC)
+        self.present(navigationController, animated: true, completion: nil)
     }
     
     private func setupPaginator() {
