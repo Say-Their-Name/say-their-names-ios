@@ -25,6 +25,9 @@
 import XCTest
 @testable import Say_Their_Names
 
+/// Unit Tests for the Model objects.
+/// Validation is based on JSON data from the API endpoints, currently found
+/// in an asset catalog of the Test bundle.
 class ModelTests: XCTestCase {
 
     let decoder = JSONDecoder()
@@ -34,7 +37,6 @@ class ModelTests: XCTestCase {
     var searchData: Data = Data()
     
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
         
         let bundle = try XCTUnwrap(Bundle(identifier: "stn.Say-Their-NamesTests"))
         peopleData = try XCTUnwrap(NSDataAsset(name: "people", bundle: bundle)).data
@@ -44,13 +46,9 @@ class ModelTests: XCTestCase {
         
     }
     
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-    
+    /// Decodes the response from the /people API endpoint and validates
+    /// the data structure as well as basic assertions about the content
     func testDecodePeopleData() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
         
         let json = peopleData
         let personsResponse = try decoder.decode(PersonsResponsePage.self, from: json)
@@ -61,6 +59,8 @@ class ModelTests: XCTestCase {
         XCTAssertEqual(personsResponse.all.count, 12, "There should be exactly 12 persons.")
     }
 
+    /// Decodes the response from the /donations API endpoint and validates
+    /// the data structure as well as basic assertions about the content
     func testDecodeDonationsData() throws {
         
         let json = petitionsData
@@ -72,9 +72,9 @@ class ModelTests: XCTestCase {
         XCTAssertEqual(donationsResponse.all.count, 12, "There should be exactly 12 donations.")
     }
 
+    /// Decodes the response from the /petitions API endpoint and validates
+    /// the data structure as well as basic assertions about the content
     func testDecodePetitionsData() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
         
         let json = petitionsData
         let petitionsResponse = try decoder.decode(PetitionsResponsePage.self, from: json)
@@ -85,6 +85,8 @@ class ModelTests: XCTestCase {
         XCTAssertEqual(petitionsResponse.all.count, 12, "There should be exactly 12 petitions.")
     }
     
+    /// Decodes the response from the /search API endpoint and validates
+    /// the data structure as well as basic assertions about the content
     func testDecodeSearchData() throws {
         
         let json = searchData
@@ -96,13 +98,6 @@ class ModelTests: XCTestCase {
         XCTAssertEqual(searchResponse.people.count, 2, "There should be exactly 2 persons.")
         XCTAssertEqual(searchResponse.donations.count, 2, "There should be exactly 2 donations.")
         
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
     }
 
 }
