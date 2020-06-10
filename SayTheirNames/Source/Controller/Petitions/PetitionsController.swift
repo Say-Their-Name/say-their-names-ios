@@ -36,7 +36,7 @@ final class PetitionsController: UIViewController {
     
     private let petitionsManager = PetitionsCollectionViewManager()
     private let ui = PetitionsView()
-    private var petitions: [Petition]?
+    
     private lazy var paginator: Paginator<Petition, PetitionsResponsePage> = initializePaginator()
 
     required init() {
