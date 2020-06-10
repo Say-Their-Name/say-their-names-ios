@@ -87,6 +87,8 @@ typealias DontainButtonContainerView = ButtonContainerView
 class PersonController: UIViewController {
     
     @DependencyInject private var network: NetworkRequestor
+    @DependencyInject private var metadata: MetadataService
+    
     public var person: Person!
     private var isLoading = true
     
@@ -183,6 +185,11 @@ class PersonController: UIViewController {
     // TODO: Update UITableView sections based on what info we have
     private func configure(with person: Person) {
         self.person = person
+        
+        // Warm up the MetadataService cache
+        let urls = self.person.news.compactMap { URL(string: $0.url) }
+        self.metadata.preheat(with: urls)
+        
         tableView.reloadData()
     }
 }

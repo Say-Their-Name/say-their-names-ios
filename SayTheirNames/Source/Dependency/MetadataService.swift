@@ -32,9 +32,9 @@ struct LinkInformation: Hashable {
     let image: UIImage?
 }
 
-final class MetadataService: NSObject {
+final class MetadataService: Dependency {
 
-    // MARK: Error Types
+    // MARK: Types
     enum LinkError: Error {
         case failedToLoad(String)
         case noImageData
@@ -44,10 +44,12 @@ final class MetadataService: NSObject {
         case failedToLoad(String)
     }
     
+    typealias MetadataResultHandler = ((Result<LPLinkMetadata?, MetadataError>) -> Void)
+    
     private let queue = DispatchQueue(label: "stn.metadata-queue")
     private let resourceQueue = DispatchQueue(label: "stn.metadata-queue.resource")
     private var loadingOperations: [URL: OperationQueue] = [:]
-    private let cache = NSCache<NSString, LPLinkMetadata>()
+    let cache = NSCache<NSString, LPLinkMetadata>()
     
     // MARK: Convenience Methods
     
@@ -57,54 +59,12 @@ final class MetadataService: NSObject {
         b) the cached metadata
      */
     func preheat(with urls: [URL]) {
-        _ = urls.map { self.fetchMetadata(for: $0) }
+        _ = urls.map { self.fetchMetadata(for: $0, completionHandler: nil) }
     }
     
     // MARK: Metadata Methods
     
-    func fetchMetadata(for url: URL, completionHandler: @escaping (Result<LPLinkMetadata?, MetadataError>) -> Void) {
-        queue.async {
-            if let queue = self.loadingOperations[url] {
-                queue.addOperation {
-                    completionHandler(.success(self.fetchMetadata(for: url)))
-                }
-            } else {
-                let localQueue = OperationQueue()
-                localQueue.isSuspended = true
-                self.loadingOperations[url] = localQueue
-                
-                localQueue.addOperation {
-                    completionHandler(.success(self.fetchMetadata(for: url)))
-                }
-                
-                DispatchQueue.main.async {
-                    let provider = LPMetadataProvider()
-                    provider.shouldFetchSubresources = true
-                    provider.timeout = 30
-                    
-                    provider.startFetchingMetadata(for: url, completionHandler: { meta, error in
-                        
-                        if let error = error {
-                            completionHandler(.failure(.failedToLoad(error.localizedDescription)))
-                        }
-                        
-                        if let metadata = meta {
-                            self.store(metadata, for: url)
-                        } else {
-                            completionHandler(.failure(.failedToLoad("No metadata was returned from the URL: " + url.absoluteString)))
-                        }
-                        
-                        self.queue.async {
-                            self.loadingOperations.removeValue(forKey: url)
-                            localQueue.isSuspended = false
-                        }
-                    })
-                }
-            }
-        }
-    }
-    
-    func fetchMetadata(for url: URL) -> LPLinkMetadata? {
+    func metadata(for url: URL) -> LPLinkMetadata? {
         let urlString = url.absoluteString as NSString
         return cache.object(forKey: urlString)
     }
@@ -112,6 +72,56 @@ final class MetadataService: NSObject {
     func store(_ metadata: LPLinkMetadata, for url: URL) {
         let urlString = url.absoluteString as NSString
         self.cache.setObject(metadata, forKey: urlString)
+    }
+    
+    func fetchMetadata(for url: URL, completionHandler: MetadataResultHandler?) {
+        if let metadata = self.metadata(for: url) {
+            completionHandler?(.success(metadata))
+        } else {
+            queue.async {
+                if let queue = self.loadingOperations[url] {
+                    queue.addOperation {
+                        completionHandler?(.success(self.metadata(for: url)))
+                    }
+                } else {
+                    self.loadMetadata(for: url, completionHandler: completionHandler)
+                }
+            }
+        }
+    }
+    
+    private func loadMetadata(for url: URL, completionHandler: MetadataResultHandler?) {
+        let localQueue = OperationQueue()
+        localQueue.isSuspended = true
+        self.loadingOperations[url] = localQueue
+        
+        localQueue.addOperation {
+            completionHandler?(.success(self.metadata(for: url)))
+        }
+        
+        DispatchQueue.main.async {
+            let provider = LPMetadataProvider()
+            provider.shouldFetchSubresources = true
+            provider.timeout = 60
+            
+            provider.startFetchingMetadata(for: url, completionHandler: { meta, error in
+                
+                if let error = error {
+                    completionHandler?(.failure(.failedToLoad(error.localizedDescription)))
+                }
+                
+                if let metadata = meta {
+                    self.store(metadata, for: url)
+                } else {
+                    completionHandler?(.failure(.failedToLoad("No metadata was returned from the URL: " + url.absoluteString)))
+                }
+                
+                self.queue.async {
+                    self.loadingOperations.removeValue(forKey: url)
+                    localQueue.isSuspended = false
+                }
+            })
+        }
     }
     
     // MARK: Resource Loading Methods
@@ -130,10 +140,14 @@ final class MetadataService: NSObject {
                     completionHandler(.failure(.failedToLoad(error.localizedDescription)))
                 }
                 
+                guard let url = metadata.url,
+                    let title = metadata.title else {
+                        completionHandler(.failure(.failedToLoad("The metadata did not return a title or URL")))
+                        return
+                }
+                
                 if let image = image as? UIImage {
-                    let info = LinkInformation(url: metadata.url!,
-                                             title: metadata.title!,
-                                             image: image)
+                    let info = LinkInformation(url: url, title: title, image: image)
                     completionHandler(.success(info))
                 } else {
                     completionHandler(.failure(.noImageData))
