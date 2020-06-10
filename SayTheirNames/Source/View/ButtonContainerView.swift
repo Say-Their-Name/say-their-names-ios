@@ -13,14 +13,14 @@ class ButtonContainerView: UIView {
     private var buttonPressedAction: (() -> Void)?
     private var buttonTitle = L10n.donate {
         didSet {
-            button.setTitle(buttonTitle.uppercased(), for: .normal)
+            button.setTitle(buttonTitle.localizedUppercase, for: .normal)
         }
     }
     
     // MARK: - View
     private lazy var button: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle(buttonTitle.uppercased(), for: .normal)
+        button.setTitle(buttonTitle.localizedUppercase, for: .normal)
         button.backgroundColor = UIColor(asset: STNAsset.Color.actionButton)
         button.tintColor = UIColor(asset: STNAsset.Color.actionButtonTint)
         button.addTarget(self, action: #selector(buttonDidPress(_:)), for: .touchUpInside)

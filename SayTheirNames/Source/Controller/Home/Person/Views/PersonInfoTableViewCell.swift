@@ -112,7 +112,7 @@ class PersonInfoTableViewCell: UITableViewCell {
     
     lazy var ageTitleLabel: UILabel = {
         let label = UILabel()
-        label.text = L10n.Person.age.uppercased()
+        label.text = L10n.Person.age.localizedUppercase
         label.textColor = UIColor(asset: STNAsset.Color.lightHeader)
         label.font = UIFont.STN.detailViewFieldTitle
         label.numberOfLines = 1
@@ -123,7 +123,7 @@ class PersonInfoTableViewCell: UITableViewCell {
     
     lazy var childrenTitleLabel: UILabel = {
         let label = UILabel()
-        label.text = L10n.Person.children.uppercased()
+        label.text = L10n.Person.children.localizedUppercase
         label.textColor = UIColor(asset: STNAsset.Color.lightHeader)
         label.font = UIFont.STN.detailViewFieldTitle
         label.numberOfLines = 1
@@ -134,7 +134,7 @@ class PersonInfoTableViewCell: UITableViewCell {
     
     lazy var locationTitleLabel: UILabel = {
         let label = UILabel()
-        label.text = L10n.Person.location.uppercased()
+        label.text = L10n.Person.location.localizedUppercase
         label.textColor = UIColor(asset: STNAsset.Color.lightHeader)
         label.font = UIFont.STN.detailViewFieldTitle
         label.numberOfLines = 1
@@ -204,10 +204,10 @@ class PersonInfoTableViewCell: UITableViewCell {
     }
     
     public func setupCell(_ person: Person) {
-        nameLabel.text = person.fullName.uppercased()
+        nameLabel.text = person.fullName.localizedUppercase
         ageLabel.text = person.age.flatMap({ "\($0)" })
         childrenLabel.text = person.childrenCount.flatMap({ "\($0)" })
-        locationLabel.text = person.country.uppercased()
+        locationLabel.text = person.country.localizedUppercase
 
         if person.childrenCount == nil {
             childrenContainerStack.isHidden = true
