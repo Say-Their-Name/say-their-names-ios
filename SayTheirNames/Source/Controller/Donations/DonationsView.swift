@@ -56,15 +56,20 @@ final class DonationsView: UIView {
     
     /// Adds and configures constraints for subviews
     private func setupSubviews() {
-        addSubview(filtersView)
-        addSubview(donationsCollectionView)
-
         let safeGuide = safeAreaLayoutGuide
-        NSLayoutConstraint.activate([            
-            filtersView.topAnchor.constraint(equalTo: safeGuide.topAnchor),
-            filtersView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            filtersView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            donationsCollectionView.topAnchor.constraint(equalTo: filtersView.bottomAnchor),
+
+        if FeatureFlags.filtersEnabled {
+            addSubview(filtersView)
+            NSLayoutConstraint.activate([
+                filtersView.topAnchor.constraint(equalTo: safeGuide.topAnchor),
+                filtersView.leadingAnchor.constraint(equalTo: leadingAnchor),
+                filtersView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            ])
+        }
+
+        addSubview(donationsCollectionView)
+        NSLayoutConstraint.activate([
+            donationsCollectionView.topAnchor.constraint(equalTo: FeatureFlags.filtersEnabled ? filtersView.bottomAnchor : safeGuide.topAnchor),
             donationsCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
             donationsCollectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
             donationsCollectionView.bottomAnchor.constraint(equalTo: bottomAnchor)
@@ -73,6 +78,7 @@ final class DonationsView: UIView {
     
     /// Binds a `CollectionViewManager` to the `filterView`
     func bindFilterManager(_ filterManager: DonationFilterViewManager) {
+        guard FeatureFlags.filtersEnabled else { return }
         filterManager.configure(with: filtersView)
     }
     
