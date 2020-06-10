@@ -11,6 +11,8 @@ import Foundation
 // swiftlint:disable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:disable nesting type_body_length type_name
 internal enum L10n {
+  /// About
+  internal static let about = L10n.tr("Localizable", "about")
   /// Bookmark
   internal static let bookmark = L10n.tr("Localizable", "bookmark")
   /// Cancel
@@ -39,8 +41,6 @@ internal enum L10n {
   internal static let joinSlack = L10n.tr("Localizable", "join_slack")
   /// A MASSIVE THANK YOU TO EVERYONE INVOLVED
   internal static let massiveThankYou = L10n.tr("Localizable", "massive_thank_you")
-  /// More
-  internal static let more = L10n.tr("Localizable", "more")
   /// Petitions
   internal static let petitions = L10n.tr("Localizable", "petitions")
   /// Say their names
