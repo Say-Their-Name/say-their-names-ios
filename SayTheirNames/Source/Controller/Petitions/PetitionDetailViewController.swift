@@ -47,7 +47,7 @@ final class PetitionDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        petitionDetailView.dismissButton.addTarget(self, action: #selector(dismiss(_:)), for: .touchUpInside)
+        setupNavigationBarItems()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -56,8 +56,38 @@ final class PetitionDetailViewController: UIViewController {
         petitionDetailView.set(petition: petition)
     }
 
-    @objc
-    private func dismiss(_ sender: Any) {
+    private let navigationBarTextAttributes = [
+        NSAttributedString.Key.foregroundColor: UIColor(asset: STNAsset.Color.navBarForeground),
+        NSAttributedString.Key.font: UIFont.STN.navBarTitle
+    ]
+    private func setupNavigationBarItems() {
+        // TODO: Once Theme.swift/etc gets added this may not be required
+        navigationController?.navigationBar.titleTextAttributes = self.navigationBarTextAttributes as [NSAttributedString.Key: Any]
+        
+        self.title = L10n.petitions.localizedUppercase
+        self.navigationController?.navigationBar.titleTextAttributes =
+            [NSAttributedString.Key.foregroundColor: UIColor(asset: STNAsset.Color.navBarForeground) ?? .white,
+         NSAttributedString.Key.font: UIFont(name: "Karla-Regular", size: 19) ?? UIFont.systemFont(ofSize: 17)]
+
+        let dismissButton = UIButton(type: .system)
+        dismissButton.setImage(UIImage(asset: STNAsset.Image.close)?.withRenderingMode(.alwaysOriginal), for: .normal)
+        dismissButton.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
+        dismissButton.addTarget(self, action: #selector(dismissAction(_:)), for: .touchUpInside)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: dismissButton)
+        
+        let shareButton = UIButton(type: .system)
+        shareButton.setImage(UIImage(asset: STNAsset.Image.shareWhite)?.withRenderingMode(.alwaysOriginal), for: .normal)
+        shareButton.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
+        shareButton.addTarget(self, action: #selector(shareAction(_:)), for: .touchUpInside)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: shareButton)
+        
+        navigationController?.navigationBar.isTranslucent = false
+        navigationController?.navigationBar.barTintColor = .black
+    }
+    @objc private func dismissAction(_ sender: Any) {
         dismiss(animated: true)
+    }
+    @objc func shareAction(_ sender: Any) {
+        // TODO: Share button action
     }
 }

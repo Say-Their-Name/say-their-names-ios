@@ -76,7 +76,8 @@ class PersonNewsTableViewCell: UITableViewCell {
     }()
     
     weak var cellDelegate: CollectionViewCellDelegate?
-    var news: [Person]?
+    var medias: [Media] = []
+    var news: [News] = []
     
     private var cellType: PersonNewsCellType = PersonNewsCellType.news
     
@@ -114,7 +115,7 @@ class PersonNewsTableViewCell: UITableViewCell {
     // Updates current cell content views
     private func updateCellViews() {
         let titleText = (cellType == PersonNewsCellType.medias) ? L10n.Person.media : L10n.Person.news
-        titleLabel.text = titleText.uppercased()
+        titleLabel.text = titleText.localizedUppercase
     }
     
     // Registers collection view cells and update current cell content views
@@ -130,18 +131,23 @@ class PersonNewsTableViewCell: UITableViewCell {
 extension PersonNewsTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     // The data we passed from the TableView send them to the CollectionView Model
-    func updateCellWithNews(_ news: [Person]) {
+    func updateCellWithNews(_ news: [News]) {
         self.news = news
         self.collectionView.reloadData()
     }
     
-    func updateCellWithMedias(_ news: [Person]) {
-        self.news = news
+    func updateCellWithMedias(_ medias: [Media]) {
+        self.medias = medias
         self.collectionView.reloadData()
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        switch cellType {
+        case .news:
+            return news.count
+        case .medias:
+            return medias.count
+        }
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -151,7 +157,16 @@ extension PersonNewsTableViewCell: UICollectionViewDelegate, UICollectionViewDat
     // Set the data for each cell (color and color name)
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellType.identifier, for: indexPath)
-        return cell
+        switch cellType {
+        case .news:
+            // UPDATE cell
+            return cell
+        case .medias:
+            let mediaCell = cell as! PersonMediaCollectionViewCell
+            let mediaUrl = medias[indexPath.row].imageUrl
+            mediaCell.updateCell(with: mediaUrl)
+            return mediaCell
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView,

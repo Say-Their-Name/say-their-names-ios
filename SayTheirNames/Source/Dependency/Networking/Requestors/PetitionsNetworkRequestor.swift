@@ -40,6 +40,15 @@ extension NetworkRequestor {
         self.fetchDecodable(PetitionEnvironment.baseURLString, completion: completion)
     }
     
+    public func fetchPetitions(with link: Link, completion: @escaping (Result<PetitionsResponsePage, Swift.Error>) -> Swift.Void) {
+        guard let nextUrl = link.next else {
+            let error = AFError.parameterEncodingFailed(reason: .missingURL)
+            completion(.failure(error))
+            return
+        }
+        self.fetchDecodable(nextUrl, completion: completion)
+    }
+    
     public func fetchPetitionsByPersonName(_ name: String, completion: @escaping (Result<DonationsResponsePage, Swift.Error>) -> Swift.Void) {
         let url = "\(PetitionEnvironment.petitionsSearchString)\(name)"
         self.fetchDecodable(url, completion: completion)

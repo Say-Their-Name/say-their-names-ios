@@ -29,8 +29,8 @@ enum PersonCellType: Equatable {
     case info
     case story
     case outcome
-    case news([Person])
-    case medias([Person])
+    case news
+    case medias
     case hashtags
     
     var identifier: String {
@@ -77,7 +77,7 @@ enum PersonCellType: Equatable {
     }
     
     static var allCases: [PersonCellType] {
-        return [.photo, .info, .story, .outcome, .news([]), .medias([]), .hashtags]
+        return [.photo, .info, .story, .outcome, .news, .medias, .hashtags]
     }
 }
 
@@ -94,7 +94,7 @@ class PersonController: UIViewController {
     
     private let donationButtonContainerView = DontainButtonContainerView(frame: .zero)
     private let tableViewCells: [PersonCellType] = {
-        return [.photo, .info, .story, .outcome, .news([]), .medias([]), .hashtags]
+        return [.photo, .info, .story, .outcome, .news, .medias, .hashtags]
     }()
     
     private var tableView: UITableView = {
@@ -103,8 +103,6 @@ class PersonController: UIViewController {
         tableView.separatorStyle = .none
         tableView.allowsSelection = false
         tableView.insetsContentViewsToSafeArea = false
-        tableView.backgroundColor = .clear
-        tableView.contentInset = .init(top: Theme.Components.Padding.medium)
         return tableView
     }()
     
@@ -165,7 +163,6 @@ class PersonController: UIViewController {
 
     override func loadView() {
         super.loadView()
-        view.backgroundColor = UIColor(asset: STNAsset.Color.red)
         setupNavigationBarItems()
         setupSubViews()
     }
@@ -198,7 +195,7 @@ class PersonController: UIViewController {
 private extension PersonController {
     
     func setupNavigationBarItems() {
-        title = L10n.Person.sayTheirNames.uppercased()
+        title = L10n.Person.sayTheirNames.localizedUppercase
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: dismissButton)
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: shareButton)
     }
@@ -270,17 +267,17 @@ extension PersonController: UITableViewDataSource {
             let overviewCell = cell as! PersonOverviewTableViewCell
             overviewCell.setupCell(title: L10n.Person.outcome, description: person.outcome)
             return overviewCell
-        case let .news(news):
+        case .news:
             let newsCell = cell as! PersonNewsTableViewCell
             newsCell.cellDelegate = self
             newsCell.registerCell(with: PersonNewsCollectionViewCell.self, type: PersonNewsCellType.news)
-            newsCell.updateCellWithNews(news)
+            newsCell.updateCellWithNews(person.news)
             return cell
-        case let .medias(news):
+        case .medias:
             let newsCell = cell as! PersonMediaTableViewCell
             newsCell.cellDelegate = self
             newsCell.registerCell(with: PersonMediaCollectionViewCell.self, type: PersonNewsCellType.medias)
-            newsCell.updateCellWithNews(news)
+            newsCell.updateCellWithMedias(person.medias)
             return cell
         case .hashtags:
             let hashtagsCell = cell as! PersonHashtagTableViewCell
