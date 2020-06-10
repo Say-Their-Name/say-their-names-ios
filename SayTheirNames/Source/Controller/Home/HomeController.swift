@@ -101,6 +101,7 @@ final class HomeController: UIViewController {
     }
     
     private func setupSearchButton() {
+        guard FeatureFlags.searchEnabled else { return }
         let searchImage = UIImage(asset: STNAsset.Image.searchWhite)?.withRenderingMode(.alwaysOriginal)
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: searchImage,
                                                             style: .plain,
