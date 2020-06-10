@@ -72,13 +72,10 @@ final class DonationsController: UIViewController {
         donationManager.cellForItem = { [unowned self] (collectionView, indexPath, donation) in
             let cell: CallToActionCell = collectionView.dequeueCell(for: indexPath)
             cell.configure(with: donation)
-            cell.executeAction = self.moreButtonPressed
+            cell.executeAction = { [weak self] _ in
+                self?.showDonationsDetail(with: donation)
+            }
             return cell
-        }
-
-        donationManager.didSelectItem = { [weak self] donation in
-            guard let self = self else { return }
-            self.showDonationsDetail(with: donation)
         }
         
         donationManager.willDisplayCell = { [weak self] (collectionView, indexPath) in
@@ -130,15 +127,6 @@ final class DonationsController: UIViewController {
         let navigationController = UINavigationController(rootViewController: detailVC)
         
         self.present(navigationController, animated: true)
-    }
-    
-    private lazy var moreButtonPressed: ((Int?) -> Void) = { [unowned self] id in
-        guard
-            let id = id,
-            let donation = self.donations?.first(where: { $0.id == id })
-            else { return }
-        
-        self.showDontationsDetails(withDonation: donation)
     }
 }
 
