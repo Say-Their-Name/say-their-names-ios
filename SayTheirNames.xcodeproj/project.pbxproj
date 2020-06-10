@@ -58,6 +58,8 @@
 		83E9CAD22484A514001D173A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83E9CAD12484A514001D173A /* LaunchScreen.xib */; };
 		83E9CAD42484A5DC001D173A /* UIViewController+TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E9CAD32484A5DC001D173A /* UIViewController+TabBar.swift */; };
 		83E9CAD72484A6A2001D173A /* LaunchScreenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E9CAD62484A6A2001D173A /* LaunchScreenTests.swift */; };
+		8E4155A42490605800333D76 /* JSONDataModelAPIs.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E4155A32490605800333D76 /* JSONDataModelAPIs.xcassets */; };
+		8E4155A6249076CA00333D76 /* ModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4155A5249076CA00333D76 /* ModelTests.swift */; };
 		9E24499D2485E98C00B149DF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9E24499B2485E98C00B149DF /* Localizable.strings */; };
 		9E2449A02485EA0B00B149DF /* strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E24499F2485EA0B00B149DF /* strings.swift */; };
 		9E2449A32485EA7600B149DF /* Typealiases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2449A22485EA7600B149DF /* Typealiases.swift */; };
@@ -255,6 +257,8 @@
 		83E9CAD62484A6A2001D173A /* LaunchScreenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenTests.swift; sourceTree = "<group>"; };
 		846B629F2487CCFF00C0D1D5 /* ru-RU */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "ru-RU"; path = "ru-RU.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		846B62A02487CD1900C0D1D5 /* ru-RU */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "ru-RU"; path = "ru-RU.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		8E4155A32490605800333D76 /* JSONDataModelAPIs.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = JSONDataModelAPIs.xcassets; sourceTree = "<group>"; };
+		8E4155A5249076CA00333D76 /* ModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTests.swift; sourceTree = "<group>"; };
 		8E94BA59248A0A4100242FBA /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9E24499C2485E98C00B149DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9E24499F2485EA0B00B149DF /* strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = strings.swift; sourceTree = "<group>"; };
@@ -452,6 +456,7 @@
 		5B3ED7552481CA000033FF79 /* SayTheirNamesTests */ = {
 			isa = PBXGroup;
 			children = (
+				8EF154AE249025E400CA2B32 /* Model */,
 				B365F45A248FD4950007FC31 /* UtilsTests */,
 				5F62B730248975B200ACE032 /* DataSourceTests */,
 				83E9CAD52484A683001D173A /* LaunchTests */,
@@ -554,6 +559,15 @@
 				83E9CAD62484A6A2001D173A /* LaunchScreenTests.swift */,
 			);
 			path = LaunchTests;
+			sourceTree = "<group>";
+		};
+		8EF154AE249025E400CA2B32 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8E4155A5249076CA00333D76 /* ModelTests.swift */,
+				8E4155A32490605800333D76 /* JSONDataModelAPIs.xcassets */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		9E21B39AF7D1469ECEF226CC /* Pods */ = {
@@ -1166,6 +1180,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E4155A42490605800333D76 /* JSONDataModelAPIs.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1450,6 +1465,7 @@
 				5F62B732248975CF00ACE032 /* LocationCollectionViewDataSourceTests.swift in Sources */,
 				B365F45C248FD6340007FC31 /* PaginatorTests.swift in Sources */,
 				7CAD53EA248A32FC001CFF08 /* PeopleNetworkRequestorTests.swift in Sources */,
+				8E4155A6249076CA00333D76 /* ModelTests.swift in Sources */,
 				7CAD53E6248A2AEE001CFF08 /* DonationsNetworkRequestorTests.swift in Sources */,
 				7CAD53E3248A2A9F001CFF08 /* NetworkRequestorTests.swift in Sources */,
 				7CAD53E8248A326F001CFF08 /* PetitionsNetworkRequestorTests.swift in Sources */,
