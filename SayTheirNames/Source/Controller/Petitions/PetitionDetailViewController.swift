@@ -25,7 +25,7 @@
 import UIKit
 
 final class PetitionDetailViewController: UIViewController {
-    var petition: PresentedPetition?
+    var petition: Petition?
     
     private let petitionDetailView = PetitionDetailView()
     
@@ -35,7 +35,7 @@ final class PetitionDetailViewController: UIViewController {
     
     required init?(coder: NSCoder) { fatalError("This should not be called") }
 
-    convenience init(petition: PresentedPetition) {
+    convenience init(petition: Petition) {
         self.init()
         self.petition = petition
     }

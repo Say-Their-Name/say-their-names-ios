@@ -26,8 +26,8 @@ import UIKit
 
 // Most of this implementation is here as a placeholder
 final class PetitionDetailView: UIView {
-
-    private(set) var petition: PresentedPetition?
+    //FIXME:
+    private(set) var petition: Petition?//PresentedPetition?
 
     let titleLabel: UILabel = {
        let label = UILabel()
@@ -45,6 +45,7 @@ final class PetitionDetailView: UIView {
     
     let imageView: UIImageView = {
         let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
         imageView.accessibilityIgnoresInvertColors = true
         return imageView
     }()
@@ -79,16 +80,17 @@ final class PetitionDetailView: UIView {
         styleLabels()
     }
     
-    func set(petition: PresentedPetition?) {
+    func set(petition: Petition?) {
         self.petition = petition
         updateUI()
     }
     
     private func updateUI() {
         titleLabel.text = petition?.title ?? ""
-        summaryLabel.text = petition?.summary ?? ""
-        imageView.image = petition?.image
-        verifiedLabel.text = petition?.isVerified == true ? "verified" : "not verified"
+        summaryLabel.text = petition?.body
+        imageView.populate(withURL: petition?.imagePath ?? "")
+        //FIXME:
+        verifiedLabel.text = "verified" //petition?.isVerified == true ? "verified" : "not verified"
     }
     
     private func styleLabels() {

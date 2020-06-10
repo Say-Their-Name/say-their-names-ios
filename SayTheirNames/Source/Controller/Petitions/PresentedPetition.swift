@@ -33,6 +33,6 @@ import UIKit
 protocol PresentedPetition {
     var title: String { get }
     var summary: String { get }
-    var image: UIImage? { get }
+    var image: String? { get }
     var isVerified: Bool { get }
 }
