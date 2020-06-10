@@ -100,7 +100,7 @@ final class PersonCell: UICollectionViewCell {
     
     func configure(with person: Person) {
         profileImageView.populate(withURL: person.images.first?.personURL ?? "")
-        nameLabel.text = person.fullName.uppercased()
+        nameLabel.text = person.fullName.localizedUppercase
         dateOfIncidentLabel.text = self.dateFormatter.dateOfIncidentString(from: person.doi)
     }
     

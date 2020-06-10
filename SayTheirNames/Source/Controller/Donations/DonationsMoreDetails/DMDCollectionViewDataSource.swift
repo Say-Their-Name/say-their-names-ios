@@ -122,12 +122,12 @@ extension DonationsMoreDetailsController: UICollectionViewDataSource {
                 
                 switch indexPath.section {
                 case DonationSectionLayoutKind.description.rawValue:
-                    titleView.setTitle(text: L10n.description.uppercased())
+                    titleView.setTitle(text: L10n.description.localizedUppercase)
                 case DonationSectionLayoutKind.outcome.rawValue:
-                    titleView.setTitle(text: L10n.Person.outcome.uppercased())
+                    titleView.setTitle(text: L10n.Person.outcome.localizedUppercase)
                     titleView.isHidden = !FeatureFlags.dmdOutcomeSectionEnabled
                 case DonationSectionLayoutKind.socialMedia.rawValue:
-                    titleView.setTitle(text: L10n.Person.hashtags.uppercased())
+                    titleView.setTitle(text: L10n.Person.hashtags.localizedUppercase)
                 default:
                     return UICollectionReusableView(frame: .zero)
                 }

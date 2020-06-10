@@ -188,7 +188,7 @@ class PersonController: UIViewController {
 private extension PersonController {
     
     func setupNavigationBarItems() {
-        title = L10n.Person.sayTheirNames.uppercased()
+        title = L10n.Person.sayTheirNames.localizedUppercase
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: dismissButton)
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: shareButton)
     }
