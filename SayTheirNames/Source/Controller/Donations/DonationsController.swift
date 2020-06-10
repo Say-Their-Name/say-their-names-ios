@@ -24,6 +24,10 @@
 
 import UIKit
 
+extension DonationsResponsePage: PaginatorResponsePage {
+    typealias Element = Donation
+}
+
 final class DonationsController: UIViewController {
 
     @DependencyInject
@@ -34,8 +38,21 @@ final class DonationsController: UIViewController {
     private let ui = DonationsView()
     private var donations: [Donation]?
 
+    private let paginator: Paginator<Donation, DonationsResponsePage>
+    
     required init() {
+        weak var weakself: DonationsController?
+        self.paginator =
+            Paginator<Donation, DonationsResponsePage> { (link: Link?, completion: @escaping (Result<DonationsResponsePage, Error>) -> Void) in
+                guard let self = weakself else { return }
+                if let link = link {
+                    self.network.fetchDonations(with: link, completion: completion)
+                } else {
+                    self.network.fetchDonations(completion: completion)
+                }
+        }
         super.init(nibName: nil, bundle: nil)
+        weakself = self
     }
     
     required init?(coder: NSCoder) {  fatalError("init(coder:) has not been implemented") }
@@ -48,11 +65,7 @@ final class DonationsController: UIViewController {
         super.viewDidLoad()
         navigationItem.title = Strings.donations
         configure()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        getDonations()
+        setupPaginator()
     }
     
     private func configure() {
@@ -63,6 +76,22 @@ final class DonationsController: UIViewController {
             return cell
         }
 
+        donationManager.didSelectItem = { [weak self] donation in
+            guard let self = self else { return }
+            self.showDonationsDetail(with: donation)
+        }
+        
+        donationManager.willDisplayCell = { [weak self] (collectionView, indexPath) in
+            guard let self = self else { return }
+            
+            guard type(of: collectionView) == CallToActionCollectionView.self,
+                self.donationManager.section(at: indexPath.section) == .main else { return }
+            
+            if indexPath.row == collectionView.numberOfItems(inSection: indexPath.section) - 1 {
+                self.paginator.loadNextPage()
+            }
+        }
+        
         ui.bindDonationManager(donationManager)
         
         filterManager.cellForItem = { (collectionView, indexPath, filter) in
@@ -76,16 +105,23 @@ final class DonationsController: UIViewController {
         ui.bindFilterManager(filterManager)
     }
     
-    private func getDonations() {
-        network.fetchDonations { [weak self] result in
-            switch result {
-            case .success(let response):
-                self?.donations = response.all
-                self?.donations.flatMap { self?.donationManager.set($0) }
-            case .failure(let error):
-                print(error)
-            }
+    private func showDonationsDetail(with donation: Donation) {
+        let detailVC = DonationsMoreDetailsController()
+        detailVC.donation = donation
+        let navigationController = UINavigationController(rootViewController: detailVC)
+        self.present(navigationController, animated: true, completion: nil)
+    }
+    
+    private func setupPaginator() {
+        paginator.firstPageDataLoadedHandler = { [weak self] (data: [Donation]) in
+            self?.donationManager.set(data)
         }
+        
+        paginator.subsequentPageDataLoadedHandler = { [weak self] (data: [Donation]) in
+            self?.donationManager.append(data, in: .main)
+        }
+        
+        paginator.loadNextPage()
     }
     
     private func showDontationsDetails(withDonation: Donation) {
