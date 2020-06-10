@@ -25,6 +25,7 @@ class HashtagView: UIView {
     override init(frame: CGRect) {
         super.init(frame: .zero)
         configureView()
+        setupLongPressGestureRecognizer()
     }
     
     required init?(coder: NSCoder) {
@@ -44,6 +45,20 @@ class HashtagView: UIView {
     }
     private func updateCGColors() {
         layer.borderColor = UIColor(asset: STNAsset.Color.primaryLabel).cgColor
+    }
+    
+    private func setupLongPressGestureRecognizer() {
+        addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(copyHashtagToClipboard)))
+    }
+    
+    @objc private func copyHashtagToClipboard(gestureRecognizer: UIGestureRecognizer) {
+        if gestureRecognizer.state == UIGestureRecognizer.State.began {
+            print("Copying \(hashtagLabel.text ?? "") to clipboard")
+            let pasteBoard = UIPasteboard.general
+            if let text = hashtagLabel.text {
+                pasteBoard.string = text
+            }
+        }
     }
 
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
