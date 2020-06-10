@@ -101,8 +101,6 @@ class PersonController: UIViewController {
         tableView.separatorStyle = .none
         tableView.allowsSelection = false
         tableView.insetsContentViewsToSafeArea = false
-        tableView.backgroundColor = .clear
-        tableView.contentInset = .init(top: Theme.Components.Padding.medium)
         return tableView
     }()
     
@@ -163,7 +161,6 @@ class PersonController: UIViewController {
 
     override func loadView() {
         super.loadView()
-        view.backgroundColor = UIColor(asset: STNAsset.Color.red)
         setupNavigationBarItems()
         setupSubViews()
     }
