@@ -41,7 +41,11 @@ extension NetworkRequestor {
     }
     
     public func fetchPetitions(with link: Link, completion: @escaping (Result<PetitionsResponsePage, Swift.Error>) -> Swift.Void) {
-        guard let nextUrl = link.next else { return }
+        guard let nextUrl = link.next else {
+            let error = AFError.parameterEncodingFailed(reason: .missingURL)
+            completion(.failure(error))
+            return
+        }
         self.fetchDecodable(nextUrl, completion: completion)
     }
     
