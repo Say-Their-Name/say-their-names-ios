@@ -108,6 +108,9 @@ final class PersonCell: UICollectionViewCell {
         labelsAndButtonContainer.addSubview(nameLabel)
         labelsAndButtonContainer.addSubview(dateOfIncidentLabel)
         labelsAndButtonContainer.addSubview(bookmarkButton)
+
+        containerStack.addArrangedSubview(profileImageView)
+        containerStack.addArrangedSubview(labelsAndButtonContainer)
         NSLayoutConstraint.activate([
             nameLabel.topAnchor.constraint(equalTo: labelsAndButtonContainer.topAnchor),
             nameLabel.leadingAnchor.constraint(equalTo: labelsAndButtonContainer.leadingAnchor),
@@ -119,7 +122,11 @@ final class PersonCell: UICollectionViewCell {
             dateOfIncidentLabel.trailingAnchor.constraint(equalTo: labelsAndButtonContainer.trailingAnchor),
 
             bookmarkButton.topAnchor.constraint(equalTo: nameLabel.topAnchor),
-            bookmarkButton.trailingAnchor.constraint(equalTo: labelsAndButtonContainer.trailingAnchor)
+            bookmarkButton.trailingAnchor.constraint(equalTo: labelsAndButtonContainer.trailingAnchor),
+
+            profileImageView.heightAnchor.constraint(lessThanOrEqualTo: containerStack.heightAnchor, multiplier: 0.8),
+
+            labelsAndButtonContainer.heightAnchor.constraint(greaterThanOrEqualTo: containerStack.heightAnchor, multiplier: 0.2, constant: -20)
         ])
         
         containerStack.addArrangedSubview(profileImageView)
