@@ -160,7 +160,6 @@ final class HomeController: UIViewController {
         personController.person = withPerson
         
         let navigationController = UINavigationController(rootViewController: personController)
-        navigationController.modalPresentationStyle = .fullScreen
         self.present(navigationController, animated: true, completion: nil)
     }
 }
