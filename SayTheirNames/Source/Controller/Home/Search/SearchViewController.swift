@@ -47,18 +47,18 @@ class SearchViewController: UIViewController {
 
     private let searchImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = STNImage.search.image
-        imageView.tintColor = UIColor.STN.black
+        imageView.image = STNAsset.Image.search.image
+        imageView.tintColor = STNAsset.Color.black.color
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     
     private let backButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setImage(STNImage.arrowLeft.image, for: .normal)
+        button.setImage(STNAsset.Image.arrowLeft.image, for: .normal)
         button.addTarget(self, action: #selector(handleBackButton), for: .touchUpInside)
-        button.backgroundColor = UIColor.STN.black
-        button.tintColor = UIColor.STN.white
+        button.backgroundColor = STNAsset.Color.black.color
+        button.tintColor = STNAsset.Color.white.color
         return button
     }()
     
@@ -93,9 +93,9 @@ class SearchViewController: UIViewController {
     
     fileprivate func setupSearchBar() {
         searchBar.searchTextField.font = UIFont(name: "Karla-Regular", size: 16)
-        searchBar.tintColor = UIColor.STN.black
+        searchBar.tintColor = STNAsset.Color.black.color
         searchBar.barStyle = .black
-        searchBar.backgroundColor = UIColor.STN.white
+        searchBar.backgroundColor = STNAsset.Color.white.color
         searchBar.searchBarStyle = UISearchBar.Style.minimal
         searchBar.setImage(UIImage(), for: .search, state: .normal)
         searchBar.setSearchFieldBackgroundImage(UIImage(), for: .normal)

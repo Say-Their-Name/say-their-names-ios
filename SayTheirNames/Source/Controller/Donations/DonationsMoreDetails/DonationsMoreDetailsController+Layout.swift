@@ -33,6 +33,35 @@ extension DonationsMoreDetailsController {
         let layout = UICollectionViewCompositionalLayout {
             (sectionIndex: Int,
             _ : NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection in
+            
+            // Later Feature
+            // Outcome Section
+            if FeatureFlags.dmdOutcomeSectionEnabled && sectionIndex == DonationSectionLayoutKind.outcome.rawValue {
+                // Item
+                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(200.0))
+                let item = NSCollectionLayoutItem(layoutSize: itemSize)
+                
+                // Group
+                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: itemSize.heightDimension)
+                let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 1)
+                
+                // Section
+                let section = NSCollectionLayoutSection(group: group)
+                section.contentInsets = NSDirectionalEdgeInsets(top: 0.0, leading: horizontalPadding, bottom: 0.0, trailing: horizontalPadding)
+                
+                // Supplementary
+                let titleViewSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                                           heightDimension: .estimated(22.5))
+                let titleView =
+                    NSCollectionLayoutBoundarySupplementaryItem(layoutSize: titleViewSize,
+                                                                elementKind: DonationsMoreDetailsController.sectionTitleSupplementaryView,
+                                                                alignment: .top)
+                
+                section.boundarySupplementaryItems = [titleView]
+                
+                return section
+            }
+
             switch sectionIndex {
             // Title section layout
             case DonationSectionLayoutKind.title.rawValue:
@@ -55,21 +84,13 @@ extension DonationsMoreDetailsController {
                                                                 elementKind: DonationsMoreDetailsController.photoSupplementaryView,
                                                                 alignment: .top)
                 
-                // Button Supplementary View
-                let buttonViewSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(50))
-                let buttonView =
-                    NSCollectionLayoutBoundarySupplementaryItem(layoutSize: buttonViewSize,
-                                                                elementKind: DonationsMoreDetailsController.donationButtonSupplementaryView,
-                                                                alignment: .bottom)
-                buttonView.contentInsets = NSDirectionalEdgeInsets(top: 0.0, leading: horizontalPadding, bottom: 0.0, trailing: horizontalPadding)
-                
                 section.supplementariesFollowContentInsets = false
-                section.boundarySupplementaryItems = [photoView, buttonView]
+                section.boundarySupplementaryItems = [photoView]
                 
                 return section
                 
-            // Description and outcome section layout
-            case DonationSectionLayoutKind.description.rawValue, DonationSectionLayoutKind.outcome.rawValue:
+            // Description section layout
+            case DonationSectionLayoutKind.description.rawValue:
                 // Item
                 let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(200.0))
                 let item = NSCollectionLayoutItem(layoutSize: itemSize)
@@ -77,7 +98,7 @@ extension DonationsMoreDetailsController {
                 // Group
                 let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: itemSize.heightDimension)
                 let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 1)
-
+                
                 // Section
                 let section = NSCollectionLayoutSection(group: group)
                 section.contentInsets = NSDirectionalEdgeInsets(top: 0.0, leading: horizontalPadding, bottom: 0.0, trailing: horizontalPadding)
@@ -88,11 +109,11 @@ extension DonationsMoreDetailsController {
                     NSCollectionLayoutBoundarySupplementaryItem(layoutSize: titleViewSize,
                                                                 elementKind: DonationsMoreDetailsController.sectionTitleSupplementaryView,
                                                                 alignment: .top)
-
+                
                 section.boundarySupplementaryItems = [titleView]
                 
                 return section
-                
+
             // Social Media Hashtags section layout
             case DonationSectionLayoutKind.socialMedia.rawValue:
                 // Item

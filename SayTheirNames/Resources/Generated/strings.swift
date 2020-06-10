@@ -11,8 +11,6 @@ import Foundation
 // swiftlint:disable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:disable nesting type_body_length type_name
 internal enum L10n {
-  /// About
-  internal static let about = L10n.tr("Localizable", "about")
   /// Bookmark
   internal static let bookmark = L10n.tr("Localizable", "bookmark")
   /// Cancel
@@ -37,6 +35,12 @@ internal enum L10n {
   internal static let findOutMore = L10n.tr("Localizable", "find_out_more")
   /// Home
   internal static let home = L10n.tr("Localizable", "home")
+  /// JOIN OUR SLACK CHANNEL
+  internal static let joinSlack = L10n.tr("Localizable", "join_slack")
+  /// A MASSIVE THANK YOU TO EVERYONE INVOLVED
+  internal static let massiveThankYou = L10n.tr("Localizable", "massive_thank_you")
+  /// More
+  internal static let more = L10n.tr("Localizable", "more")
   /// Petitions
   internal static let petitions = L10n.tr("Localizable", "petitions")
   /// Say their names
@@ -47,6 +51,23 @@ internal enum L10n {
   internal static let share = L10n.tr("Localizable", "share")
   /// verified
   internal static let verified = L10n.tr("Localizable", "verified")
+  /// VIEW OUR REPO
+  internal static let viewRepo = L10n.tr("Localizable", "view_repo")
+
+  internal enum GetInvolvedDesign {
+    /// HOW DO I GET INVOLVED AS A DESIGNER?
+    internal static let title = L10n.tr("Localizable", "get_involved_design.title")
+  }
+
+  internal enum GetInvolvedDev {
+    /// HOW DO I GET INVOLVED AS A DEVELOPER?
+    internal static let title = L10n.tr("Localizable", "get_involved_dev.title")
+  }
+
+  internal enum MoreHistory {
+    /// SOME HISTORY ON THE SAY THEIR NAME MOVEMENT
+    internal static let title = L10n.tr("Localizable", "more_history.title")
+  }
 
   internal enum Person {
     /// Age

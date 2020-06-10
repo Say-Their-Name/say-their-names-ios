@@ -37,7 +37,7 @@ class PersonPhotoTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        backgroundColor = UIColor.STN.red
+        backgroundColor = UIColor(asset: STNAsset.Color.red)
         contentView.clipsToBounds = true
         imageWithBlurView.fillSuperview(superView: contentView, padding: .zero)
         accessibilityTraits.insert(.image)
@@ -59,7 +59,7 @@ class PersonPhotoTableViewCell: UITableViewCell {
     
     // MARK: - Method
     public func setupCell(_ person: Person) {
-        imageWithBlurView.setup(person)
+        imageWithBlurView.setup(withURLString: person.images.first?.personURL)
         accessibilityLabel = "\(person.fullName)"
     }
 }

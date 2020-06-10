@@ -108,7 +108,7 @@ class PersonController: UIViewController {
     
     lazy var backgroundFistImageView: UIImageView = {
         let imageView = UIImageView()
-//        imageView.image = UIImage(asset: STNImage.stnLogoWhite)
+        imageView.image = UIImage(asset: STNAsset.Image.stnLogoWhite)
         imageView.contentMode = .scaleAspectFit
         imageView.clipsToBounds = true
         return imageView
@@ -117,7 +117,7 @@ class PersonController: UIViewController {
     lazy var dismissButton: UIButton = {
         let gesture = UITapGestureRecognizer(target: self, action: #selector(dismissAction(_:)))
         let button = UIButton(type: .system)
-        button.setImage(UIImage(asset: STNImage.close)?.withRenderingMode(.alwaysOriginal), for: .normal)
+        button.setImage(UIImage(asset: STNAsset.Image.close)?.withRenderingMode(.alwaysOriginal), for: .normal)
         button.frame = CGRect(x: 0, y: 0, width: Theme.Components.Button.Size.small.width,
                               height: Theme.Components.Button.Size.small.height)
         button.addGestureRecognizer(gesture)
@@ -128,7 +128,7 @@ class PersonController: UIViewController {
     lazy var shareButton: UIButton = {
         let gesture = UITapGestureRecognizer(target: self, action: #selector(shareAction(_:)))
         let button = UIButton(type: .system)
-        button.setImage(UIImage(asset: STNImage.shareWhite)?.withRenderingMode(.alwaysOriginal), for: .normal)
+        button.setImage(UIImage(asset: STNAsset.Image.shareWhite)?.withRenderingMode(.alwaysOriginal), for: .normal)
         button.frame = CGRect(x: 0, y: 0, width: Theme.Components.Button.Size.small.width,
                               height: Theme.Components.Button.Size.small.height)
         button.addGestureRecognizer(gesture)
@@ -151,11 +151,10 @@ class PersonController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.accessibilityIdentifier = "personView"
-        
         self.network.fetchPersonDetails(with: person.identifier) { [weak self] result in
             switch result {
-            case .success(let personResult):
-                self?.configure(with: personResult.person)
+            case .success(let response):
+                self?.configure(with: response.person)
             case .failure(let error):
                 Log.print(error)
             }
@@ -164,7 +163,7 @@ class PersonController: UIViewController {
 
     override func loadView() {
         super.loadView()
-        view.backgroundColor = UIColor.STN.black
+        view.backgroundColor = UIColor(asset: STNAsset.Color.black)
         setupNavigationBarItems()
         setupSubViews()
     }
@@ -184,6 +183,7 @@ class PersonController: UIViewController {
     // TODO: Update UITableView sections based on what info we have
     private func configure(with person: Person) {
         self.person = person
+        tableView.reloadData()
     }
 }
 
@@ -257,11 +257,11 @@ extension PersonController: UITableViewDataSource {
             return infoCell
         case .story:
             let storyCell = cell as! PersonOverviewTableViewCell
-            storyCell.setupCell(title: L10n.Person.theirStory, description: person.bio)
+            storyCell.setupCell(title: L10n.Person.theirStory, description: person.story)
             return storyCell
         case .outcome:
             let overviewCell = cell as! PersonOverviewTableViewCell
-            overviewCell.setupCell(title: L10n.Person.outcome, description: person.context)
+            overviewCell.setupCell(title: L10n.Person.outcome, description: person.outcome)
             return overviewCell
         case let .news(news):
             let newsCell = cell as! PersonNewsTableViewCell
@@ -277,7 +277,7 @@ extension PersonController: UITableViewDataSource {
             return cell
         case .hashtags:
             let hashtagsCell = cell as! PersonHashtagTableViewCell
-            hashtagsCell.hashtags = person.hashtag
+            hashtagsCell.hashtags = person.hashtags
             hashtagsCell.registerCell(with: PersonHashtagCollectionViewCell.self)
             return hashtagsCell
         }

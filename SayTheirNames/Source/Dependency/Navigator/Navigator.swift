@@ -24,7 +24,7 @@
 
 import UIKit
 
-final class Navigator: Dependency {
+final class Navigator: Dependency, DeepLinkPresenter {
     private let window: UIWindow = UIWindow()
     lazy private(set) var rootViewController: MainTabBarController = MainTabBarController()
     
@@ -41,5 +41,9 @@ final class Navigator: Dependency {
     
     func setNeedsStatusBarAppearanceUpdate() {
         self.rootViewController.setNeedsStatusBarAppearanceUpdate()
+    }
+    
+    func handle(deepLink: DeepLink) {
+        self.rootViewController.handle(deepLink: deepLink)
     }
 }

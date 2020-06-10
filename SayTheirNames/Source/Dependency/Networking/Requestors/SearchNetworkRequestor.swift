@@ -33,7 +33,7 @@ enum SearchEnvironment {
 extension NetworkRequestor {
     // MARK: - Public methods
     
-    public func searchByQuery(_ query: String, completion: @escaping (Result<SearchResponsePage, AFError>) -> Swift.Void) {
+    public func searchByQuery(_ query: String, completion: @escaping (Result<SearchResponsePage, Swift.Error>) -> Swift.Void) {
         guard let components = URLComponents(string: SearchEnvironment.baseURLString, item: URLQueryItem(name: "query", value: query)),
               let urlString = components.url?.absoluteString
         else {

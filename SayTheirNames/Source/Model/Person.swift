@@ -29,30 +29,34 @@ struct Person: Decodable {
     let fullName: String
     let identifier: String
     let doi: Date
-    let childrenCount: Int
-    let age: Int
+    let childrenCount: Int?
+    let age: Int?
     let city: String
     let country: String
-    let bio: String
-    let context: String
+    let story: String
+    let outcome: String
+    let biography: String
+    let shareable: Shareable
     let images: [Image]
     let donations: [Donation]
     let petitions: [Petition]
-    let media: [Media]
+    let medias: [Media]
+    let news: [News]
     let socialMedia: [SocialMedia]
-    let hashtag: [Hashtag]
-
+    let hashtags: [Hashtag]
+    
     private enum CodingKeys: String, CodingKey {
-        case id, fullName = "full_name", identifier, dob = "date_of_birth", doi = "date_of_incident", childrenCount = "number_of_children",
-        age, city, country, bio, context, images, donations = "donation_links", petitions = "petition_links", media = "media_links",
-        socialMedia = "social_media", hashtag = "hash_tags"
+        case id, fullName = "full_name", identifier, doi = "date_of_incident",
+        childrenCount = "number_of_children", age, city, country, story = "their_story",
+        biography, outcome, shareable = "sharable_links", images, donations = "donation_links",
+        petitions = "petition_links", medias = "media", news, socialMedia = "social_media", hashtags = "hash_tags"
     }
     
     init(id: Int, fullName: String, identifier: String,
-         doi: Date, childrenCount: Int, age: Int,
-         city: String, country: String, bio: String,
-         context: String, images: [Image], donations: [Donation],
-         petitions: [Petition], media: [Media], socialMedia: [SocialMedia], hashtag: [Hashtag]
+         doi: Date, childrenCount: Int?, age: Int?, city: String,
+         country: String, story: String, biography: String, outcome: String,
+         shareable: Shareable, images: [Image], donations: [Donation], petitions: [Petition], medias: [Media],
+         news: [News], socialMedia: [SocialMedia], hashtags: [Hashtag]
     ) {
         self.id = id
         self.fullName = fullName
@@ -62,14 +66,17 @@ struct Person: Decodable {
         self.age = age
         self.city = city
         self.country = country
-        self.bio = bio
-        self.context = context
+        self.story = story
+        self.outcome = outcome
+        self.shareable = shareable
         self.images = images
         self.donations = donations
         self.petitions = petitions
-        self.media = media
+        self.medias = medias
+        self.news = news
         self.socialMedia = socialMedia
-        self.hashtag = hashtag
+        self.hashtags = hashtags
+        self.biography = biography
     }
     
     init(from decoder: Decoder) throws {
@@ -78,19 +85,22 @@ struct Person: Decodable {
         self.id = try container.decodeIfPresent(Int.self, forKey: .id) ?? -1
         self.fullName = try container.decodeIfPresent(String.self, forKey: .fullName) ?? ""
         self.identifier = try container.decodeIfPresent(String.self, forKey: .identifier) ?? ""
-        self.childrenCount = try container.decodeIfPresent(Int.self, forKey: .childrenCount) ?? 0
-        self.age = try container.decodeIfPresent(Int.self, forKey: .age) ?? 0
+        self.childrenCount = try container.decodeIfPresent(Int.self, forKey: .childrenCount)
+        self.age = try container.decodeIfPresent(Int.self, forKey: .age)
         self.city = try container.decodeIfPresent(String.self, forKey: .city) ?? ""
         self.country = try container.decodeIfPresent(String.self, forKey: .country) ?? ""
-        self.bio = try container.decodeIfPresent(String.self, forKey: .bio) ?? ""
-        self.context = try container.decodeIfPresent(String.self, forKey: .context) ?? ""
+        self.story = try container.decodeIfPresent(String.self, forKey: .story) ?? ""
+        self.outcome = try container.decodeIfPresent(String.self, forKey: .outcome) ?? ""
+        self.biography = try container.decodeIfPresent(String.self, forKey: .biography) ?? ""
+        self.shareable =  try container.decodeIfPresent(Shareable.self, forKey: .shareable) ?? Shareable()
         
         self.images = try container.decodeIfPresent([Image].self, forKey: .images) ?? []
         self.donations = try container.decodeIfPresent([Donation].self, forKey: .donations) ?? []
         self.petitions = try container.decodeIfPresent([Petition].self, forKey: .petitions) ?? []
-        self.media = try container.decodeIfPresent([Media].self, forKey: .media) ?? []
+        self.medias = try container.decodeIfPresent([Media].self, forKey: .medias) ?? []
+        self.news = try container.decodeIfPresent([News].self, forKey: .news) ?? []
         self.socialMedia = try container.decodeIfPresent([SocialMedia].self, forKey: .socialMedia) ?? []
-        self.hashtag = try container.decodeIfPresent([Hashtag].self, forKey: .hashtag) ?? []
+        self.hashtags = try container.decodeIfPresent([Hashtag].self, forKey: .hashtags) ?? []
 
         let doi = try container.decodeIfPresent(TimeInterval.self, forKey: .doi) ?? 0
         self.doi = Date(timeIntervalSince1970: doi)

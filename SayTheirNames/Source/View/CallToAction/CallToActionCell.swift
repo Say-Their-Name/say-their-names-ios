@@ -26,7 +26,8 @@ import UIKit
 
 final class CallToActionCell: UICollectionViewCell {
     
-    var executeAction: (() -> Void)?
+    var id: Int?
+    var executeAction: ((Int?) -> Void)?
     
     private lazy var imageView = UIImageView.create {
         $0.translatesAutoresizingMaskIntoConstraints = false
@@ -34,7 +35,7 @@ final class CallToActionCell: UICollectionViewCell {
         $0.clipsToBounds = true
         
         // TODO: set proper placeholder
-        $0.image = UIImage(asset: STNImage.mediaImage2)
+        $0.image = UIImage(asset: STNAsset.Image.mediaImage2)
     }
     
     private lazy var tagView = TagView.create {
@@ -44,25 +45,25 @@ final class CallToActionCell: UICollectionViewCell {
     
     private lazy var titleLabel = UILabel.create {
         $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.textColor = UIColor.STN.primaryLabel
+        $0.textColor = UIColor(asset: STNAsset.Color.primaryLabel)
         $0.font = UIFont.STN.ctaTitle
         $0.numberOfLines = 2
     }
     
     private lazy var bodyLabel = UILabel.create {
         $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.textColor = UIColor.STN.primaryLabel
+        $0.textColor = UIColor(asset: STNAsset.Color.primaryLabel)
         $0.font = UIFont.STN.ctaBody
         $0.numberOfLines = 3
     }
     
     private lazy var actionButton = UIButton.create {
         $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.layer.borderColor = UIColor.STN.actionButton.cgColor
+        $0.layer.borderColor = UIColor(asset: STNAsset.Color.actionButton).cgColor
         $0.titleLabel?.font = UIFont.STN.sectionHeader
         $0.layer.borderWidth = Self.actionButtonBorderWidth
-        $0.tintColor = UIColor.STN.actionButton
-        $0.setTitleColor(UIColor.STN.primaryLabel, for: .normal)
+        $0.tintColor = UIColor(asset: STNAsset.Color.actionButton)
+        $0.setTitleColor(UIColor(asset: STNAsset.Color.primaryLabel), for: .normal)
         $0.addTarget(self, action: #selector(didTapActionButton), for: .touchUpInside)
     }
     
@@ -77,7 +78,7 @@ final class CallToActionCell: UICollectionViewCell {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.backgroundColor = .tertiarySystemBackground
         $0.layer.borderWidth = Self.containerViewBorderWidth
-        $0.layer.borderColor = UIColor.STN.gray.cgColor
+        $0.layer.borderColor = UIColor(asset: STNAsset.Color.gray).cgColor
     }
     
     override init(frame: CGRect) {
@@ -128,11 +129,12 @@ final class CallToActionCell: UICollectionViewCell {
         tagView.isHidden = cta.tag == nil || cta.tag?.isEmpty == true
         cta.tag.flatMap { tagView.setTitle(to: $0) }
         titleLabel.text = cta.title
+        id = cta.id
     }
     
     @objc
     private func didTapActionButton() {
-        executeAction?()
+        executeAction?(id)
     }
     
     override func prepareForReuse() {
@@ -157,6 +159,16 @@ final class CallToActionCell: UICollectionViewCell {
         layoutAttributes.frame = frame
         
         return layoutAttributes
+    }
+    private func updateCGColors() {
+        actionButton.layer.borderColor = UIColor(asset: STNAsset.Color.actionButton).cgColor
+        containerView.layer.borderColor = UIColor(asset: STNAsset.Color.gray).cgColor
+    }
+
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        self.updateCGColors()
+        self.setNeedsDisplay()
     }
 }
 

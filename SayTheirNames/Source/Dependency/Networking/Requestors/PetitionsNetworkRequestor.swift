@@ -36,17 +36,21 @@ enum PetitionEnvironment {
 extension NetworkRequestor {
     // MARK: - Public methods
     
-    public func fetchPetitions(completion: @escaping (Result<PetitionsResponsePage, AFError>) -> Swift.Void) {
+    public func fetchPetitions(completion: @escaping (Result<PetitionsResponsePage, Swift.Error>) -> Swift.Void) {
         self.fetchDecodable(PetitionEnvironment.baseURLString, completion: completion)
     }
     
-    public func fetchPetitionsByPersonName(_ name: String, completion: @escaping (Result<DonationsResponsePage, AFError>) -> Swift.Void) {
+    public func fetchPetitionsByPersonName(_ name: String, completion: @escaping (Result<DonationsResponsePage, Swift.Error>) -> Swift.Void) {
         let url = "\(PetitionEnvironment.petitionsSearchString)\(name)"
         self.fetchDecodable(url, completion: completion)
     }
     
-    public func fetchPetitionsByType(_ type: String, completion: @escaping (Result<DonationsResponsePage, AFError>) -> Swift.Void) {
+    public func fetchPetitionsByType(_ type: String, completion: @escaping (Result<DonationsResponsePage, Swift.Error>) -> Swift.Void) {
         let url = "\(PetitionEnvironment.petitionsTypeSearchString)\(type)"
         self.fetchDecodable(url, completion: completion)
+    }
+    
+    public func fetchPetitionDetails(with identifier: String, completion: @escaping (Result<PetitionResponsePage, Swift.Error>) -> Swift.Void) {
+        self.fetchDecodable(PetitionEnvironment.baseURLString + "/" + identifier, completion: completion)
     }
 }

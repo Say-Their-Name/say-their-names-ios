@@ -58,12 +58,12 @@ final class HomeView: UIView {
             layoutEnviroment: NSCollectionLayoutEnvironment)
             -> NSCollectionLayoutSection? in
             
-            guard let sections = self?.peopleDataSource?.dataSource.snapshot().sectionIdentifiers else {return nil}
+            guard let sectionKind = self?.peopleDataSource?.section(at: sectionIndex) else {return nil}
             let deviceWidth = layoutEnviroment.traitCollection.horizontalSizeClass
 
             let section: NSCollectionLayoutSection
             
-            switch sections[sectionIndex] {
+            switch sectionKind {
 
             case .carousel:
                 let groupWidth: CGFloat = deviceWidth == .compact ? 0.75 : 0.4 // TODO: pick pretty numbers later, consult with UX
@@ -111,7 +111,7 @@ final class HomeView: UIView {
             
     let separator: UIView! = {
         let separator = UIView()
-        separator.backgroundColor = UIColor.STN.separator
+        separator.backgroundColor = UIColor(asset: STNAsset.Color.separator)
         separator.isHidden = !FeatureFlags.filtersEnabled
         return separator
     }()
@@ -119,7 +119,7 @@ final class HomeView: UIView {
     override func didMoveToSuperview() {
         super.didMoveToSuperview()
         createLayout()
-        backgroundColor = UIColor.STN.black // needed?
+        backgroundColor = UIColor(asset: STNAsset.Color.black) // needed?
         
     }
     

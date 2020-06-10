@@ -31,7 +31,7 @@ class CustomNavigationBar: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
      
-        self.backgroundColor = UIColor.STN.darkGray
+        self.backgroundColor = UIColor(asset: STNAsset.Color.darkGray)
     }
      
     required init?(coder aDecoder: NSCoder) {
