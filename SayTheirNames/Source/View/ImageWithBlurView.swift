@@ -37,6 +37,9 @@ class ImageWithBlurView: UIView {
         imageView.frame = frontImageContainerView.bounds
         imageView.image = UIImage(asset: STNAsset.Image.manInRedJacket)
         imageView.contentMode = .scaleAspectFill
+        imageView.isAccessibilityElement = true
+        imageView.accessibilityIdentifier = "frontImage"
+        imageView.accessibilityTraits = .image
         return imageView
     }()
 

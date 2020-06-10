@@ -18,6 +18,7 @@ class HashtagView: UIView {
         label.minimumScaleFactor = 0.5
         label.textColor = UIColor(asset: STNAsset.Color.primaryLabel)
         label.textAlignment = .center
+        label.isAccessibilityElement = true
         return label
     }()
 
