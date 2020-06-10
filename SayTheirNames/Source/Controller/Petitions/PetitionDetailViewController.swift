@@ -82,7 +82,7 @@ final class PetitionDetailViewController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: shareButton)
         
         navigationController?.navigationBar.isTranslucent = false
-        navigationController?.navigationBar.barTintColor = .black
+        navigationController?.navigationBar.barTintColor = STNAsset.Color.navBarBackground.color
     }
     @objc private func dismissAction(_ sender: Any) {
         dismiss(animated: true)
