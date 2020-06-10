@@ -26,22 +26,7 @@ class PersonNewsCollectionViewCell: UICollectionViewCell {
         return imageView
     }()
     
-    lazy var sourceContainer: UIView = {
-        let view = UIView()
-        view.backgroundColor = UIColor(asset: STNAsset.Color.yellow)
-        view.clipsToBounds = true
-        view.addSubview(sourceImageView)
-        return view
-    }()
-    
-    lazy var sourceImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(asset: STNAsset.Image.newsBbc)
-        imageView.contentMode = .scaleAspectFill
-        return imageView
-    }()
-    
-    lazy var sourceInfoLabel: UILabel = {
+    lazy var newsTitleLabel: UILabel = {
         let label = UILabel()
         label.text = ""
         label.numberOfLines = 3
@@ -83,7 +68,7 @@ class PersonNewsCollectionViewCell: UICollectionViewCell {
                     case .success(let link):
                         DispatchQueue.main.async {
                             self?.newsImageView.image = link.image
-                            self?.sourceInfoLabel.text = link.title
+                            self?.newsTitleLabel.text = link.title
                             self?.loadingIndicator.stopAnimating()
                         }
                     case .failure(let error):
@@ -100,20 +85,17 @@ class PersonNewsCollectionViewCell: UICollectionViewCell {
         
         self.news = nil
         self.newsImageView.image = UIImage(asset: STNAsset.Image.placeholder)
-        self.sourceInfoLabel.text = ""
+        self.newsTitleLabel.text = ""
         self.loadingIndicator.startAnimating()
     }
     
     private func setupLayout() {
         newsImageView.translatesAutoresizingMaskIntoConstraints = false
-        sourceContainer.translatesAutoresizingMaskIntoConstraints = false
-        sourceImageView.translatesAutoresizingMaskIntoConstraints = false
-        sourceInfoLabel.translatesAutoresizingMaskIntoConstraints = false
+        newsTitleLabel.translatesAutoresizingMaskIntoConstraints = false
         loadingIndicator.translatesAutoresizingMaskIntoConstraints = false
         
         contentView.addSubview(newsImageView)
-        contentView.addSubview(sourceContainer)
-        contentView.addSubview(sourceInfoLabel)
+        contentView.addSubview(newsTitleLabel)
         contentView.addSubview(loadingIndicator)
         
         NSLayoutConstraint.activate([
@@ -122,20 +104,10 @@ class PersonNewsCollectionViewCell: UICollectionViewCell {
             newsImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
             newsImageView.heightAnchor.constraint(equalToConstant: 165),
             
-            sourceContainer.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0),
-            sourceContainer.topAnchor.constraint(equalTo: newsImageView.bottomAnchor, constant: 0),
-            sourceContainer.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
-            sourceContainer.heightAnchor.constraint(equalToConstant: 30),
-            
-            sourceImageView.leadingAnchor.constraint(equalTo: sourceContainer.leadingAnchor, constant: 0),
-            sourceImageView.topAnchor.constraint(equalTo: sourceContainer.topAnchor, constant: 0),
-            sourceImageView.trailingAnchor.constraint(equalTo: sourceContainer.trailingAnchor, constant: 0),
-            sourceImageView.bottomAnchor.constraint(equalTo: sourceContainer.bottomAnchor, constant: 0),
-            
-            sourceInfoLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0),
-            sourceInfoLabel.topAnchor.constraint(equalTo: sourceContainer.bottomAnchor, constant: 5),
-            sourceInfoLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
-            sourceInfoLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0),
+            newsTitleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0),
+            newsTitleLabel.topAnchor.constraint(equalTo: newsImageView.bottomAnchor, constant: 5),
+            newsTitleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
+            newsTitleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0),
             
             loadingIndicator.centerYAnchor.constraint(equalTo: newsImageView.centerYAnchor),
             loadingIndicator.centerXAnchor.constraint(equalTo: newsImageView.centerXAnchor),
