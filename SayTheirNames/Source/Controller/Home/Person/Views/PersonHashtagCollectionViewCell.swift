@@ -46,6 +46,6 @@ class PersonHashtagCollectionViewCell: UICollectionViewCell {
     }
     
     public func setupHashtag(_ hashtag: Hashtag) {
-        hashtagView.hashtagLabel.text = hashtag.tag.uppercased()
+        hashtagView.hashtagLabel.text = hashtag.tag.localizedUppercase
     }
 }

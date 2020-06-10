@@ -85,7 +85,7 @@ class PersonOverviewTableViewCell: UITableViewCell {
     }
     
     public func setupCell(title: String, description: String) {
-        titleLabel.text = title.uppercased()
+        titleLabel.text = title.localizedUppercase
         descriptionLabel.text = (description.isEmpty) ? "-" : description
     }
 }

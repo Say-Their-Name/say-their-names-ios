@@ -90,7 +90,7 @@ extension Donation: CallToAction {
     }
     
     var tag: String? {
-        type?.type.uppercased()
+        type?.type.localizedUppercase
     }
 }
 

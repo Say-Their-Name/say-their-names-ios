@@ -64,7 +64,7 @@ final class PetitionDetailViewController: UIViewController {
         // TODO: Once Theme.swift/etc gets added this may not be required
         navigationController?.navigationBar.titleTextAttributes = self.navigationBarTextAttributes as [NSAttributedString.Key: Any]
         
-        self.title = L10n.petitions.uppercased()
+        self.title = L10n.petitions.localizedUppercase
         self.navigationController?.navigationBar.titleTextAttributes =
             [NSAttributedString.Key.foregroundColor: UIColor(asset: STNAsset.Color.navBarForeground) ?? .white,
          NSAttributedString.Key.font: UIFont(name: "Karla-Regular", size: 19) ?? UIFont.systemFont(ofSize: 17)]
