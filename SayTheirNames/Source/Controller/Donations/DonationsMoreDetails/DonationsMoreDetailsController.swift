@@ -139,7 +139,7 @@ final class DonationsMoreDetailsController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: shareButton)
         
         navigationController?.navigationBar.isTranslucent = false
-        navigationController?.navigationBar.barTintColor = .black
+        navigationController?.navigationBar.barTintColor = STNAsset.Color.navBarBackground.color
     }
     
     private func setupDonationButton() {
