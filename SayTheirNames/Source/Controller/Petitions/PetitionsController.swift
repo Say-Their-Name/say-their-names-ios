@@ -37,30 +37,29 @@ final class PetitionsController: UIViewController {
     private let petitionsManager = PetitionsCollectionViewManager()
     private let ui = PetitionsView()
     private var petitions: [Petition]?
-    private let paginator: Paginator<Petition, PetitionsResponsePage>
+    private lazy var paginator: Paginator<Petition, PetitionsResponsePage> = initializePaginator()
 
     required init() {
-        var weakSelf: PetitionsController?
-        self.paginator =
-            Paginator<Petition, PetitionsResponsePage>(pageLoader: { (link: Link?,
-                completion: @escaping (Result<PetitionsResponsePage, Error>) -> Void) in
-                
-            guard let self = weakSelf else { return }
-            
-            if let link = link {
-                self.network.fetchPetitions(with: link, completion: completion)
-            } else {
-                self.network.fetchPetitions(completion: completion)
-            }
-        })
         super.init(nibName: nil, bundle: nil)
-        weakSelf = self
     }
     
     required init?(coder: NSCoder) {  fatalError("init(coder:) has not been implemented") }
     
     override func loadView() {
         view = ui
+    }
+    
+    private func initializePaginator() -> Paginator<Petition, PetitionsResponsePage> {
+        let paginator =
+            Paginator<Petition, PetitionsResponsePage>(pageLoader: { [weak self] (link: Link?,
+                completion: @escaping (Result<PetitionsResponsePage, Error>) -> Void) in
+            if let link = link {
+                self?.network.fetchPetitions(with: link, completion: completion)
+            } else {
+                self?.network.fetchPetitions(completion: completion)
+            }
+        })
+        return paginator
     }
     
     override func viewDidLoad() {
@@ -77,6 +76,27 @@ final class PetitionsController: UIViewController {
             cell.executeAction = self.moreButtonPressed
             return cell
         }
+        petitionsManager.didSelectItem = { donation in
+            
+            // TODO: Move this out
+//            let detailVC = DonationsMoreDetailsController()
+//            detailVC.donation = donation
+//            let navigationController = UINavigationController(rootViewController: detailVC)
+//
+//            self.present(navigationController, animated: true, completion: nil)
+        }
+        
+        petitionsManager.willDisplayCell = { [weak self] (collectionView, indexPath) in
+            guard let self = self else { return }
+             
+             guard type(of: collectionView) == CallToActionCollectionView.self,
+                 self.petitionsManager.section(at: indexPath.section) == .main else { return }
+             
+             if indexPath.row == collectionView.numberOfItems(inSection: indexPath.section) - 1 {
+                 self.paginator.loadNextPage()
+             }
+        }
+        
         ui.bindPetitionManager(petitionsManager)
     }
     
@@ -94,7 +114,7 @@ final class PetitionsController: UIViewController {
         }
         
         paginator.subsequentPageDataLoadedHandler = { [weak self] petitions in
-            
+            self?.petitionsManager.append(petitions, in: .main)
         }
         
         paginator.loadNextPage()
