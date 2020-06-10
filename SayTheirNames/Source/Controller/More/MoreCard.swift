@@ -45,7 +45,7 @@ final class MoreCard: UIView {
         let hashTag = UILabel()
         hashTag.text = "#BLACKLIVESMATTER"
         hashTag.font = UIFont.systemFont(ofSize: 15, weight: .regular)
-        hashTag.textColor = .white
+        hashTag.textColor = STNAsset.Color.white.color
         hashTag.adjustsFontSizeToFitWidth = true
         hashTag.numberOfLines = Theme.Components.LineLimit.single
         hashTag.translatesAutoresizingMaskIntoConstraints = false
