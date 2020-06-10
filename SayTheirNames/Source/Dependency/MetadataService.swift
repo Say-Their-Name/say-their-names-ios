@@ -176,25 +176,18 @@ extension MetadataService {
                                url: URL,
                                completionHandler: @escaping LinkInformationHandler) {
         resourceQueue.async {
-            guard let imageProvider = metadata.imageProvider else {
-                completionHandler(.failure(.noImageData))
-                return
-            }
-
             if let image = self.imageCache.fetchImage(with: url.absoluteString) {
                 completionHandler(.success(LinkInformation(url: url, title: metadata.title, image: image)))
             }
             
-            imageProvider.loadObject(ofClass: UIImage.self) { image, error in
-                if let error = error {
-                    completionHandler(.failure(.failedToLoad(error.localizedDescription)))
-                }
-                
-                if let image = image as? UIImage {
-                    self.imageCache.store(image, with: url.absoluteString)
-                    completionHandler(.success(LinkInformation(url: url, title: metadata.title, image: image)))
-                } else {
-                    completionHandler(.success(LinkInformation(url: url, title: metadata.title, image: nil)))
+            if let imageProvider = metadata.imageProvider {
+                imageProvider.loadObject(ofClass: UIImage.self) { image, _ in
+                    if let image = image as? UIImage {
+                        self.imageCache.store(image, with: url.absoluteString)
+                        completionHandler(.success(LinkInformation(url: url, title: metadata.title, image: image)))
+                    } else {
+                        completionHandler(.success(LinkInformation(url: url, title: metadata.title, image: nil)))
+                    }
                 }
             }
         }
@@ -205,7 +198,7 @@ extension MetadataService {
 
 extension SDImageCache: MetadataImageCache {
     func store(_ image: UIImage, with key: String) {
-        SDImageCache.shared.storeImage(toMemory: image, forKey: key)
+        SDImageCache.shared.store(image, forKey: key, completion: nil)
     }
     
     func fetchImage(with key: String) -> UIImage? {

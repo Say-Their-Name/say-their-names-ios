@@ -12,14 +12,15 @@ import SDWebImage
 class PersonNewsCollectionViewCell: UICollectionViewCell {
  
     @DependencyInject private var metadata: MetadataService
-
+    private var news: News?
+    
     static var reuseIdentifier: String {
         return "\(Self.self)"
     }
     
     lazy var newsImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(asset: STNAsset.Image.mediaImage1)
+        imageView.image = UIImage(asset: STNAsset.Image.placeholder)
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         return imageView
@@ -42,10 +43,9 @@ class PersonNewsCollectionViewCell: UICollectionViewCell {
     
     lazy var sourceInfoLabel: UILabel = {
         let label = UILabel()
-        label.text = "Live updates: Another night of fire and fury as.."
+        label.text = ""
         label.numberOfLines = 3
         label.font = UIFont.STN.sectionHeader
-        label.adjustsFontSizeToFitWidth = true
         label.minimumScaleFactor = 0.5
         label.textColor = UIColor(asset: STNAsset.Color.detailLabel)
         return label
@@ -62,20 +62,35 @@ class PersonNewsCollectionViewCell: UICollectionViewCell {
     }
     
     func configure(with news: News) {
+        self.news = news
+        
         if let url = URL(string: news.url) {
             self.metadata.fetchLinkInformation(from: url) { [weak self] result in
-                switch result {
-                case .success(let link):
-                    DispatchQueue.main.async {
-                        self?.newsImageView.image = link.image
-                        self?.sourceInfoLabel.text = link.title
+                // This is a weird check, but it prevents a reusedCell from loading incorrect information.
+                // TODO: Long term, move this loading into Combine/Futures and move it back into a controller.
+                if let oldNews = self?.news, news == oldNews {
+                    
+                    switch result {
+                    case .success(let link):
+                        DispatchQueue.main.async {
+                            self?.newsImageView.image = link.image
+                            self?.sourceInfoLabel.text = link.title
+                        }
+                    case .failure(let error):
+                        print(url)
+                        Log.print(error.localizedDescription)
                     }
-                case .failure(let error):
-                    print(url)
-                    Log.print(error.localizedDescription)
                 }
             }
         }
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        self.news = nil
+        self.newsImageView.image = UIImage(asset: STNAsset.Image.placeholder)
+        self.sourceInfoLabel.text = ""
     }
     
     private func setupLayout() {
