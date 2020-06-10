@@ -24,7 +24,6 @@
 
 import Foundation
 import LinkPresentation
-import Dispatch
 
 struct LinkInformation: Hashable {
     let url: URL
@@ -35,6 +34,7 @@ struct LinkInformation: Hashable {
 final class MetadataService: Dependency {
 
     // MARK: Types
+    
     enum LinkError: Error {
         case failedToLoad(String)
         case noImageData
@@ -44,15 +44,16 @@ final class MetadataService: Dependency {
         case failedToLoad(String)
     }
     
-    typealias MetadataResultHandler = ((Result<LPLinkMetadata?, MetadataError>) -> Void)
+    typealias MetadataResultHandler = ((Result<LPLinkMetadata, MetadataError>) -> Void)
+    typealias LinkInformationHandler = ((Result<LinkInformation, LinkError>) -> Void)
     
     private let queue = DispatchQueue(label: "stn.metadata-queue")
     private let resourceQueue = DispatchQueue(label: "stn.metadata-queue.resource")
     private var loadingOperations: [URL: OperationQueue] = [:]
     let cache = NSCache<NSString, LPLinkMetadata>()
     
-    // MARK: Convenience Methods
-    
+    // MARK: Public Methods
+
     /*  This method is used to start loading a number of URLs (ideally when a view first loads).
         When the `fetchMetadata` method is called it will either use:
         a) the existing operation or
@@ -62,7 +63,25 @@ final class MetadataService: Dependency {
         _ = urls.map { self.fetchMetadata(for: $0, completionHandler: nil) }
     }
     
-    // MARK: Metadata Methods
+    // This method is used to fetch a LinkInformation object from a URL.
+    func fetchLinkInformation(from url: URL,
+                              completionHandler: @escaping LinkInformationHandler) {
+
+        // First, we fetch the metadata to get information about the URL
+        self.fetchMetadata(for: url) { result in
+            switch result {
+            case .success(let metadata):
+                self.fetchResource(for: metadata, completionHandler: completionHandler)
+            case .failure(let error):
+                completionHandler(.failure(.failedToLoad(error.localizedDescription)))
+            }
+        }
+    }
+}
+
+// MARK: Cache
+
+extension MetadataService {
     
     func metadata(for url: URL) -> LPLinkMetadata? {
         let urlString = url.absoluteString as NSString
@@ -73,6 +92,11 @@ final class MetadataService: Dependency {
         let urlString = url.absoluteString as NSString
         self.cache.setObject(metadata, forKey: urlString)
     }
+}
+
+// MARK: Metadata Loading
+
+extension MetadataService {
     
     func fetchMetadata(for url: URL, completionHandler: MetadataResultHandler?) {
         if let metadata = self.metadata(for: url) {
@@ -81,7 +105,11 @@ final class MetadataService: Dependency {
             queue.async {
                 if let queue = self.loadingOperations[url] {
                     queue.addOperation {
-                        completionHandler?(.success(self.metadata(for: url)))
+                        if let metadata = self.metadata(for: url) {
+                            completionHandler?(.success(metadata))
+                        } else {
+                            completionHandler?(.failure(.failedToLoad("Unable to find metadata with URL " + url.absoluteString)))
+                        }
                     }
                 } else {
                     self.loadMetadata(for: url, completionHandler: completionHandler)
@@ -96,7 +124,11 @@ final class MetadataService: Dependency {
         self.loadingOperations[url] = localQueue
         
         localQueue.addOperation {
-            completionHandler?(.success(self.metadata(for: url)))
+            if let metadata = self.metadata(for: url) {
+                completionHandler?(.success(metadata))
+            } else {
+                completionHandler?(.failure(.failedToLoad("Unable to find metadata with URL " + url.absoluteString)))
+            }
         }
         
         DispatchQueue.main.async {
@@ -123,12 +155,13 @@ final class MetadataService: Dependency {
             })
         }
     }
+}
+
+// MARK: Resource Loading
+extension MetadataService {
     
-    // MARK: Resource Loading Methods
-    
-    func fetchResource(for metadata: LPLinkMetadata,
-                       completionHandler: @escaping (Result<LinkInformation?, LinkError>) -> Void) {
-        
+    private func fetchResource(for metadata: LPLinkMetadata,
+                               completionHandler: @escaping LinkInformationHandler) {
         resourceQueue.async {
             guard let imageProvider = metadata.imageProvider else {
                 completionHandler(.failure(.noImageData))

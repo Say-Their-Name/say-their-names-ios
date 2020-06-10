@@ -24,10 +24,20 @@
 
 import Foundation
 
-public struct News: Decodable {
+struct News: Decodable {
     let url: String
 
     private enum CodingKeys: String, CodingKey {
         case url
+    }
+}
+
+extension News: Equatable, Hashable {
+    static func == (lhs: News, rhs: News) -> Bool {
+        return lhs.url == rhs.url
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(url)
     }
 }
