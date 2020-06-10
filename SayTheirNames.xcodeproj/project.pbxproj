@@ -135,6 +135,7 @@
 		A9B9057D248FDE9000F9EEFA /* DonationsDeepLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B9057C248FDE9000F9EEFA /* DonationsDeepLink.swift */; };
 		A9B9057F248FE39C00F9EEFA /* PetitionsDeepLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B9057E248FE39C00F9EEFA /* PetitionsDeepLink.swift */; };
 		A9B90581248FE41400F9EEFA /* AboutDeepLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B90580248FE41400F9EEFA /* AboutDeepLink.swift */; };
+		A9F2830F24903042004283ED /* DeepLinkSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F2830E24903042004283ED /* DeepLinkSupport.swift */; };
 		B3168337248C3BF400C03DEB /* UIButton++.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3168336248C3BF400C03DEB /* UIButton++.swift */; };
 		B336C6D6248E4BBA00A1AECB /* Paginator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B336C6D5248E4BBA00A1AECB /* Paginator.swift */; };
 		B365F45C248FD6340007FC31 /* PaginatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B365F45B248FD6340007FC31 /* PaginatorTests.swift */; };
@@ -334,6 +335,7 @@
 		A9B9057C248FDE9000F9EEFA /* DonationsDeepLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationsDeepLink.swift; sourceTree = "<group>"; };
 		A9B9057E248FE39C00F9EEFA /* PetitionsDeepLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetitionsDeepLink.swift; sourceTree = "<group>"; };
 		A9B90580248FE41400F9EEFA /* AboutDeepLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutDeepLink.swift; sourceTree = "<group>"; };
+		A9F2830E24903042004283ED /* DeepLinkSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkSupport.swift; sourceTree = "<group>"; };
 		B3168336248C3BF400C03DEB /* UIButton++.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton++.swift"; sourceTree = "<group>"; };
 		B336C6D5248E4BBA00A1AECB /* Paginator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Paginator.swift; sourceTree = "<group>"; };
 		B365F45B248FD6340007FC31 /* PaginatorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaginatorTests.swift; sourceTree = "<group>"; };
@@ -927,6 +929,7 @@
 				A9B90571248F482800F9EEFA /* DeepLink.swift */,
 				A9B9057A248FDC8B00F9EEFA /* DeepLinkDetails.swift */,
 				A9B90573248F533A00F9EEFA /* DeepLinkHandler.swift */,
+				A9F2830E24903042004283ED /* DeepLinkSupport.swift */,
 				A9B90575248F535200F9EEFA /* Deep Links */,
 			);
 			path = "Deep Linking";
@@ -1341,6 +1344,7 @@
 				9E92026D248C3F2F0007AFCE /* DonationsCollectionViewManager.swift in Sources */,
 				9E920263248C2BEB0007AFCE /* CallToActionCell.swift in Sources */,
 				B3D6B6AF2487E10100D3118C /* Reusable.swift in Sources */,
+				A9F2830F24903042004283ED /* DeepLinkSupport.swift in Sources */,
 				18BE76CE248EF57A004100EE /* Result+STN.swift in Sources */,
 				A9AC832A248B31FE0000A851 /* SearchNetworkRequestor.swift in Sources */,
 				C0594BFA248754A200260BAD /* UICollectionView++.swift in Sources */,

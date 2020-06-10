@@ -125,13 +125,11 @@ final class DonationsController: UIViewController {
     }
     
     private func showDontationsDetails(withDonation: Donation) {
-        self.dismiss(animated: false)
-        
         let detailVC = DonationsMoreDetailsController()
         detailVC.donation = withDonation
         let navigationController = UINavigationController(rootViewController: detailVC)
         
-        self.present(navigationController, animated: true, completion: nil)
+        self.present(navigationController, animated: true)
     }
     
     private lazy var moreButtonPressed: ((Int?) -> Void) = { [unowned self] id in
@@ -144,7 +142,7 @@ final class DonationsController: UIViewController {
     }
 }
 
-extension DonationsController: DeepLinkHandle {
+extension DonationsController: DeepLinkPresenter {
     func handle(deepLink: DeepLink) {
         guard let deepLink = deepLink as? DonateDeepLink else { return }
         
