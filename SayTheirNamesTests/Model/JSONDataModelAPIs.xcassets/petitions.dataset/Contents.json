@@ -1,0 +1,12 @@
+{
+  "data" : [
+    {
+      "filename" : "petitions.json",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
