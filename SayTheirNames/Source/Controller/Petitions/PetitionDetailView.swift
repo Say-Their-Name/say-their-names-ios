@@ -43,13 +43,6 @@ final class PetitionDetailView: UIView {
         return label
     }()
     
-    let dismissButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("Close", for: .normal)
-        button.setTitleColor(.black, for: .normal)
-        return button
-    }()
-    
     let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.accessibilityIgnoresInvertColors = true
@@ -60,9 +53,6 @@ final class PetitionDetailView: UIView {
     
     override func didMoveToSuperview() {
         super.didMoveToSuperview()
-        
-        dismissButton.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(dismissButton)
         
         let stack = UIStackView(arrangedSubviews: [
             titleLabel,
@@ -77,15 +67,12 @@ final class PetitionDetailView: UIView {
         
         NSLayoutConstraint.activate([
             
-            dismissButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
-            dismissButton.topAnchor.constraint(equalTo: topAnchor, constant: 10),
-            
             stack.centerXAnchor.constraint(equalTo: centerXAnchor),
             stack.centerYAnchor.constraint(equalTo: centerYAnchor),
             stack.widthAnchor.constraint(lessThanOrEqualToConstant: 300)
         ])
         
-        backgroundColor = UIColor(asset: STNAsset.Color.white)
+        backgroundColor = UIColor(asset: STNAsset.Color.background)
         
         updateUI()
         
