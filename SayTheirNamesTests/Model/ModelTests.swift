@@ -42,10 +42,6 @@ class ModelTests: XCTestCase {
         petitionsData = try XCTUnwrap(NSDataAsset(name: "petitions", bundle: bundle)).data
         searchData = try XCTUnwrap(NSDataAsset(name: "search", bundle: bundle)).data
         
-        let dateFormatter = DateFormatter()
-        dateFormatter.locale = Locale(identifier: "en_US")
-        dateFormatter.setLocalizedDateFormatFromTemplate("yyyy-MM-d")
-        decoder.dateDecodingStrategy = .formatted(dateFormatter)
     }
     
     override func tearDownWithError() throws {
