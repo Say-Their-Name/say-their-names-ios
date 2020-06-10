@@ -26,8 +26,8 @@ import UIKit
 
 // Most of this implementation is here as a placeholder
 final class PetitionDetailView: UIView {
-    //FIXME:
-    private(set) var petition: Petition?//PresentedPetition?
+    
+    private(set) var petition: Petition?
 
     let titleLabel: UILabel = {
        let label = UILabel()
@@ -50,8 +50,6 @@ final class PetitionDetailView: UIView {
         return imageView
     }()
     
-    let verifiedLabel = UILabel()
-    
     override func didMoveToSuperview() {
         super.didMoveToSuperview()
         
@@ -59,7 +57,6 @@ final class PetitionDetailView: UIView {
             titleLabel,
             summaryLabel,
             imageView,
-            verifiedLabel
         ])
         stack.axis = .vertical
         stack.translatesAutoresizingMaskIntoConstraints = false
@@ -89,15 +86,12 @@ final class PetitionDetailView: UIView {
         titleLabel.text = petition?.title ?? ""
         summaryLabel.text = petition?.body
         imageView.populate(withURL: petition?.imagePath ?? "")
-        //FIXME:
-        verifiedLabel.text = "verified" //petition?.isVerified == true ? "verified" : "not verified"
     }
     
     private func styleLabels() {
 
         titleLabel.font = UIFont.STN.bannerTitle
         summaryLabel.font = UIFont.STN.bannerSubitle
-        verifiedLabel.font = UIFont.STN.verifiedTag
     }
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
