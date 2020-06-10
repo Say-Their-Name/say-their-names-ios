@@ -24,6 +24,10 @@ class ButtonContainerView: UIView {
         button.backgroundColor = UIColor(asset: STNAsset.Color.actionButton)
         button.tintColor = UIColor(asset: STNAsset.Color.actionButtonTint)
         button.addTarget(self, action: #selector(buttonDidPress(_:)), for: .touchUpInside)
+        button.accessibilityIdentifier = "viewGoFundMePage"
+        button.isAccessibilityElement = true
+        button.accessibilityTraits = .button
+        button.accessibilityHint = "Tap to find out more information about funding"
         return button
     }()
     
