@@ -124,7 +124,9 @@ final class PersonCell: UICollectionViewCell {
             bookmarkButton.topAnchor.constraint(equalTo: nameLabel.topAnchor),
             bookmarkButton.trailingAnchor.constraint(equalTo: labelsAndButtonContainer.trailingAnchor),
 
-            profileImageView.heightAnchor.constraint(equalTo: containerStack.heightAnchor, multiplier: 0.8)
+            profileImageView.heightAnchor.constraint(lessThanOrEqualTo: containerStack.heightAnchor, multiplier: 0.8),
+
+             labelsAndButtonContainer.heightAnchor.constraint(greaterThanOrEqualTo: containerStack.heightAnchor, multiplier: 0.2, constant: -20)
         ])
         
         containerStack.addArrangedSubview(profileImageView)
