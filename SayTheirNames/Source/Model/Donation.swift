@@ -24,18 +24,55 @@
 
 import UIKit
 
-public struct Donation: Decodable {
+struct Donation: Decodable {
     let id: Int
+    let identifier: String
     let title: String
     let description: String
+    let outcome: String
     let link: String
+    let outcomeImagePath: String
     let person: Person?
     let type: DonationType?
-    let bannerImagePath: String?
+    let bannerImagePath: String
+    let shareable: Shareable
     
     private enum CodingKeys: String, CodingKey {
-        case id, title, description, link, person, type
-        case bannerImagePath = "banner_img_url"
+        case id, identifier, title, description, outcome, link, person, type
+        case outcomeImagePath = "outcome_img_url", bannerImagePath = "banner_img_url", shareable = "sharable_links"
+    }
+    
+    init(id: Int, identifier: String, title: String,
+         description: String, outcome: String, link: String,
+         outcomeImagePath: String, person: Person?, type: DonationType?,
+         bannerImagePath: String, shareable: Shareable) {
+        self.id = id
+        self.identifier = identifier
+        self.title = title
+        self.description = description
+        self.outcome = outcome
+        self.link = link
+        self.outcomeImagePath = outcomeImagePath
+        self.person = person
+        self.type = type
+        self.bannerImagePath = bannerImagePath
+        self.shareable = shareable
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        self.id = try container.decodeIfPresent(Int.self, forKey: .id) ?? -1
+        self.identifier = try container.decodeIfPresent(String.self, forKey: .identifier) ?? ""
+        self.title = try container.decodeIfPresent(String.self, forKey: .title) ?? ""
+        self.description = try container.decodeIfPresent(String.self, forKey: .description) ?? ""
+        self.outcome = try container.decodeIfPresent(String.self, forKey: .outcome) ?? ""
+        self.link = try container.decodeIfPresent(String.self, forKey: .link) ?? ""
+        self.outcomeImagePath = try container.decodeIfPresent(String.self, forKey: .outcomeImagePath) ?? ""
+        self.person = try container.decodeIfPresent(Person.self, forKey: .person) ?? Person(from: decoder)
+        self.type = try container.decodeIfPresent(DonationType.self, forKey: .type) ?? DonationType()
+        self.bannerImagePath = try container.decodeIfPresent(String.self, forKey: .bannerImagePath) ?? ""
+        self.shareable = try container.decodeIfPresent(Shareable.self, forKey: .shareable) ?? Shareable()
     }
 }
 
@@ -58,8 +95,8 @@ extension Donation: CallToAction {
 }
 
 struct DonationType: Codable {
-    let id: Int
-    let type: String
+    var id: Int = -1
+    var type: String = ""
     
     private enum CodingKeys: String, CodingKey {
         case id, type
@@ -87,5 +124,13 @@ public struct DonationsResponsePage: Decodable {
         
         self.all = try container.decodeIfPresent([Donation].self, forKey: .all) ?? []
         self.link = try container.decodeIfPresent(Link.self, forKey: .link) ?? Link(first: "", last: "", prev: "", next: "")
+    }
+}
+
+struct DonationResponsePage: Decodable {
+    let donation: Donation
+    
+    private enum CodingKeys: String, CodingKey {
+        case donation = "data"
     }
 }

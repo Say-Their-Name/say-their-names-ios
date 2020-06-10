@@ -38,6 +38,17 @@ extension NetworkRequestor {
         self.fetchDecodable(DonationsEnvironment.baseURLString, completion: completion)
     }
     
+    /// Use this to get paginated response for Donations
+    public func fetchDonations(with link: Link, completion: @escaping (Result<DonationsResponsePage, Swift.Error>) -> Swift.Void) {
+        guard let nextUrl = link.next else {
+            let error = AFError.parameterEncodingFailed(reason: .missingURL)
+            completion(.failure(error))
+            return
+        }
+        
+        self.fetchDecodable(nextUrl, completion: completion)
+    }
+    
     public func fetchDonationsByPersonName(_ name: String, completion: @escaping (Result<DonationsResponsePage, Swift.Error>) -> Swift.Void) {
         guard let components = URLComponents(string: DonationsEnvironment.baseURLString, item: URLQueryItem(name: "name", value: name)),
               let urlString = components.url?.absoluteString
@@ -60,5 +71,9 @@ extension NetworkRequestor {
         }
         
         self.fetchDecodable(urlString, completion: completion)
+    }
+    
+    public func fetchDonationDetails(with identifier: String, completion: @escaping (Result<DonationResponsePage, Swift.Error>) -> Swift.Void) {
+        self.fetchDecodable(DonationsEnvironment.baseURLString + "/" + identifier, completion: completion)
     }
 }

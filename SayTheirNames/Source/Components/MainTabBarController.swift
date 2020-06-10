@@ -24,7 +24,7 @@
 
 import UIKit
 
-class MainTabBarController: UITabBarController, UITabBarControllerDelegate {    
+class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
     // Params
     private var launchScreen: LaunchScreen?
     
@@ -101,19 +101,24 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         let moreNC = UINavigationController(rootViewController: moreController)
                                     
         homeNC.tabBarItem.image = UIImage(asset: STNAsset.Image.gallery)
+        homeNC.tabBarItem.selectedImage = UIImage(asset: STNAsset.Image.galleryActive)
         homeNC.tabBarItem.title = Strings.home
-                
+        homeNC.tabBarItem.imageInsets = UIEdgeInsets(top: Theme.Components.Padding.tiny)
+        
         donationsNC.tabBarItem.image = UIImage(asset: STNAsset.Image.heart)
         donationsNC.tabBarItem.selectedImage = UIImage(asset: STNAsset.Image.heartActive)
         donationsNC.tabBarItem.title = Strings.donations
+        donationsNC.tabBarItem.imageInsets = UIEdgeInsets(top: Theme.Components.Padding.tiny)
                        
         petitionsNC.tabBarItem.image = UIImage(asset: STNAsset.Image.petition)
         petitionsNC.tabBarItem.selectedImage = UIImage(asset: STNAsset.Image.petitionActive)
         petitionsNC.tabBarItem.title = Strings.petitions
+        petitionsNC.tabBarItem.imageInsets = UIEdgeInsets(top: Theme.Components.Padding.tiny)
                 
         moreNC.tabBarItem.image = UIImage(asset: STNAsset.Image.settings)
         moreNC.tabBarItem.selectedImage = UIImage(asset: STNAsset.Image.settingsActive)
         moreNC.tabBarItem.title = Strings.more
+        moreNC.tabBarItem.imageInsets = UIEdgeInsets(top: Theme.Components.Padding.tiny)
         
         viewControllers = [homeNC, donationsNC, petitionsNC, moreNC]
     }
@@ -154,5 +159,23 @@ private extension MainTabBarController {
             launchView.removeFromSuperview()
             self.launchScreen = nil
         })
+    }
+}
+
+extension MainTabBarController: DeepLinkPresenter {
+    func handle(deepLink: DeepLink) {
+        guard let controllers = self.viewControllers as? [UINavigationController] else { return }
+        for (index, navController) in controllers.enumerated() {
+            guard let controller = navController.viewControllers.first else { return }
+            
+            if type(of: deepLink).details.canDisplayClass(type(of: controller)) {
+                self.dismiss(animated: false)
+                self.selectedIndex = index
+                
+                if let handleController = controller as? DeepLinkPresenter {
+                    handleController.handle(deepLink: deepLink)
+                }
+            }
+        }
     }
 }

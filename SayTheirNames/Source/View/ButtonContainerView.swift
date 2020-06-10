@@ -11,11 +11,16 @@ import UIKit
 class ButtonContainerView: UIView {
     // MARK: - Property
     private var buttonPressedAction: (() -> Void)?
+    private var buttonTitle = L10n.donate {
+        didSet {
+            button.setTitle(buttonTitle.uppercased(), for: .normal)
+        }
+    }
     
     // MARK: - View
     private lazy var button: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Donate".uppercased(), for: .normal)
+        button.setTitle(buttonTitle.uppercased(), for: .normal)
         button.backgroundColor = UIColor(asset: STNAsset.Color.actionButton)
         button.tintColor = UIColor(asset: STNAsset.Color.actionButtonTint)
         button.addTarget(self, action: #selector(buttonDidPress(_:)), for: .touchUpInside)
@@ -33,6 +38,21 @@ class ButtonContainerView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Lifecycle
+    override func didMoveToSuperview() {
+        super.didMoveToSuperview()
+        
+        styleControls()
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+
+        if traitCollection.preferredContentSizeCategory != previousTraitCollection?.preferredContentSizeCategory {
+            styleControls()
+        }
+    }
+
     // MARK: - Configure Subview
     private func configureView() {
         self.backgroundColor = UIColor(asset: STNAsset.Color.background)
@@ -71,18 +91,8 @@ class ButtonContainerView: UIView {
         buttonPressedAction = action
     }
     
-    override func didMoveToSuperview() {
-        super.didMoveToSuperview()
-        
-        styleControls()
-    }
-    
-    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        super.traitCollectionDidChange(previousTraitCollection)
-
-        if traitCollection.preferredContentSizeCategory != previousTraitCollection?.preferredContentSizeCategory {
-            styleControls()
-        }
+    public func setButtonTitle(_ title: String) {
+        buttonTitle = title
     }
 
     private func styleControls() {
