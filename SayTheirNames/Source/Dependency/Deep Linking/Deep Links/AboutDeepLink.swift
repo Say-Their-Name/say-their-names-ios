@@ -25,20 +25,13 @@
 import UIKit
 
 struct AboutDeepLink: DeepLink {
-    let linkDetails: DeepLinkDetails
     static let details = DeepLinkDetails(
         displayClass: MoreController.self,
         type: AboutDeepLink.self
     )
-    .schemes(["stn", "https"])
-    .host("saytheirname.netlify.app")
-    .path("about")
+    .schemes(DeepLinkSupport.Schema.all)
+    .host(DeepLinkSupport.Host.default)
+    .path(DeepLinkSupport.Path.about)
     
-    init() {
-        self.linkDetails = type(of: self).details
-    }
-    
-    static func deepLink(fromComponents: [String]? = nil) -> DeepLink? {
-        return self.init()
-    }
+    init(components: [String]? = nil) { }
 }

@@ -190,9 +190,18 @@ extension HomeController: UICollectionViewDelegateFlowLayout {
             self.showPersonDetails(withPerson: selectedPerson)
         }
     }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        guard collectionView === peopleCollectionView else { return }
+        guard peopleDataSourceHelper.section(at: indexPath.section) == .main else { return }
+        
+        if indexPath.row == collectionView.numberOfItems(inSection: indexPath.section) - 1 {
+            paginator.loadNextPage()
+        }
+    }
 }
 
-extension HomeController: DeepLinkHandle {
+extension HomeController: DeepLinkPresenter {
     func handle(deepLink: DeepLink) {
         guard let deepLink = deepLink as? PersonDeepLink else { return }
         
@@ -203,15 +212,6 @@ extension HomeController: DeepLinkHandle {
             case .failure(let error):
                 Log.print(error)
             }
-        }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        guard collectionView === peopleCollectionView else { return }
-        guard peopleDataSourceHelper.section(at: indexPath.section) == .main else { return }
-        
-        if indexPath.row == collectionView.numberOfItems(inSection: indexPath.section) - 1 {
-            paginator.loadNextPage()
         }
     }
 }

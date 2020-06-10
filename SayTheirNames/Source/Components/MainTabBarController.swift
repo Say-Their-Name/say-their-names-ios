@@ -162,16 +162,17 @@ private extension MainTabBarController {
     }
 }
 
-extension MainTabBarController: DeepLinkHandle {
+extension MainTabBarController: DeepLinkPresenter {
     func handle(deepLink: DeepLink) {
         guard let controllers = self.viewControllers as? [UINavigationController] else { return }
         for (index, navController) in controllers.enumerated() {
             guard let controller = navController.viewControllers.first else { return }
             
-            if deepLink.linkDetails.canDisplayClass(type(of: controller)) {
+            if type(of: deepLink).details.canDisplayClass(type(of: controller)) {
+                self.dismiss(animated: false)
                 self.selectedIndex = index
                 
-                if let handleController = controller as? DeepLinkHandle {
+                if let handleController = controller as? DeepLinkPresenter {
                     handleController.handle(deepLink: deepLink)
                 }
             }
