@@ -24,6 +24,10 @@
 
 import UIKit
 
+extension PetitionsResponsePage: PaginatorResponsePage {
+    typealias Element = Petition
+}
+
 /// Controller responsible for showing the petitions
 final class PetitionsController: UIViewController {
 
@@ -32,6 +36,8 @@ final class PetitionsController: UIViewController {
     
     private let petitionsManager = PetitionsCollectionViewManager()
     private let ui = PetitionsView()
+    private var petitions: [Petition]?
+    private lazy var paginator: Paginator<Petition, PetitionsResponsePage> = initializePaginator()
 
     required init() {
         super.init(nibName: nil, bundle: nil)
@@ -43,21 +49,31 @@ final class PetitionsController: UIViewController {
         view = ui
     }
     
+    private func initializePaginator() -> Paginator<Petition, PetitionsResponsePage> {
+        let paginator =
+            Paginator<Petition, PetitionsResponsePage>(pageLoader: { [weak self] (link: Link?,
+                completion: @escaping (Result<PetitionsResponsePage, Error>) -> Void) in
+            if let link = link {
+                self?.network.fetchPetitions(with: link, completion: completion)
+            } else {
+                self?.network.fetchPetitions(completion: completion)
+            }
+        })
+        return paginator
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
         navigationItem.title = Strings.petitions
-    }
-        
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        getPetitions()
+        setupPaginator()
     }
     
     private func configure() {
-        petitionsManager.cellForItem = { (collectionView, indexPath, donation) in
+        petitionsManager.cellForItem = { [unowned self] (collectionView, indexPath, petition) in
             let cell: CallToActionCell = collectionView.dequeueCell(for: indexPath)
-            cell.configure(with: donation)
+            cell.configure(with: petition)
+            cell.executeAction = self.moreButtonPressed
             return cell
         }
         petitionsManager.didSelectItem = { donation in
@@ -69,10 +85,22 @@ final class PetitionsController: UIViewController {
 //
 //            self.present(navigationController, animated: true, completion: nil)
         }
+        
+        petitionsManager.willDisplayCell = { [weak self] (collectionView, indexPath) in
+            guard let self = self else { return }
+             
+             guard type(of: collectionView) == CallToActionCollectionView.self,
+                 self.petitionsManager.section(at: indexPath.section) == .main else { return }
+             
+             if indexPath.row == collectionView.numberOfItems(inSection: indexPath.section) - 1 {
+                 self.paginator.loadNextPage()
+             }
+        }
+        
         ui.bindPetitionManager(petitionsManager)
     }
     
-    private func showPetitionDetails(withPetition: Petition) {
+    private func showPetitionDetails(with petition: Petition) {
         let detailVC = PetitionDetailViewController()
         //detailVC.petition = withPetition
         let navigationController = UINavigationController(rootViewController: detailVC)
@@ -80,18 +108,24 @@ final class PetitionsController: UIViewController {
         self.present(navigationController, animated: true, completion: nil)
     }
     
-    private func getPetitions() {
-        
-        network.fetchPetitions { [weak self] result in
-            switch result {
-            case .success(let response):
-                let petitions = response.all
-                self?.petitionsManager.set(petitions)
-
-            case .failure(let error):
-                print(error)
-            }
+    private func setupPaginator() {
+        paginator.firstPageDataLoadedHandler = { [weak self] petitions in
+            self?.petitionsManager.set(petitions)
         }
+        
+        paginator.subsequentPageDataLoadedHandler = { [weak self] petitions in
+            self?.petitionsManager.append(petitions, in: .main)
+        }
+        
+        paginator.loadNextPage()
+    }
+    
+    private lazy var moreButtonPressed: ((Int?) -> Void) = { [unowned self] id in
+        guard
+            let id = id,
+            let petition = self.petitions?.first(where: { $0.id == id })
+            else { return }
+        self.showPetitionDetails(with: petition)
     }
 }
 
@@ -102,7 +136,7 @@ extension PetitionsController: DeepLinkPresenter {
         self.network.fetchPetitionDetails(with: deepLink.value) { [weak self] in
             switch $0 {
             case .success(let page):
-                self?.showPetitionDetails(withPetition: page.petition)
+                self?.showPetitionDetails(with: page.petition)
                 Log.print(page)
             case .failure(let error):
                 Log.print(error)
