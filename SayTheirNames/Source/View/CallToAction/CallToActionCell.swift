@@ -64,6 +64,8 @@ final class CallToActionCell: UICollectionViewCell {
         $0.layer.borderWidth = Self.actionButtonBorderWidth
         $0.tintColor = UIColor(asset: STNAsset.Color.actionButton)
         $0.setTitleColor(UIColor(asset: STNAsset.Color.primaryLabel), for: .normal)
+        $0.accessibilityIdentifier = "findOutMore"
+        $0.isAccessibilityElement = true
         $0.addTarget(self, action: #selector(didTapActionButton), for: .touchUpInside)
     }
     

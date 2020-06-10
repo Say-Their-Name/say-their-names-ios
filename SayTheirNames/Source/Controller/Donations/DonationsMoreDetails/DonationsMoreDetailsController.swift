@@ -33,6 +33,14 @@ final class DonationsMoreDetailsController: UIViewController {
         case socialMedia = 3
     }
     
+    // MARK: - Accessibility Identifiers
+    private enum AccessibilityIdentifers {
+        static let view = "donationsMoreDetails"
+        static let shareButton = "shareButton"
+        static let dimissButton = "dismissButton"
+        static let donationButtonContainerView = "donationButtonContainerView"
+    }
+    
     // MARK: - Supplementary View Kind
     static let photoSupplementaryView = "photo"
     static let sectionTitleSupplementaryView = "sectionTitle"
@@ -82,6 +90,8 @@ final class DonationsMoreDetailsController: UIViewController {
         configureSubview()
         setupNavigationBarItems()
         collectionView.dataSource = self
+        view.accessibilityIdentifier = AccessibilityIdentifers.view
+        donationButtonContainerView.accessibilityIdentifier = AccessibilityIdentifers.donationButtonContainerView
     }
     
     // MARK: - Class Method
@@ -130,12 +140,16 @@ final class DonationsMoreDetailsController: UIViewController {
         dismissButton.setImage(UIImage(asset: STNAsset.Image.close)?.withRenderingMode(.alwaysOriginal), for: .normal)
         dismissButton.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
         dismissButton.addTarget(self, action: #selector(dismissAction(_:)), for: .touchUpInside)
+        dismissButton.isAccessibilityElement = true
+        dismissButton.accessibilityIdentifier = AccessibilityIdentifers.dimissButton
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: dismissButton)
         
         let shareButton = UIButton(type: .system)
         shareButton.setImage(UIImage(asset: STNAsset.Image.shareWhite)?.withRenderingMode(.alwaysOriginal), for: .normal)
         shareButton.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
         shareButton.addTarget(self, action: #selector(shareAction(_:)), for: .touchUpInside)
+        shareButton.isAccessibilityElement = true
+        shareButton.accessibilityIdentifier = AccessibilityIdentifers.shareButton
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: shareButton)
         
         navigationController?.navigationBar.isTranslucent = false

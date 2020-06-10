@@ -35,6 +35,7 @@ final class DMDTitleCell: UICollectionViewCell {
         label.textAlignment = .center
         label.adjustsFontSizeToFitWidth = true
         label.font = UIFont.STN.title
+        label.isAccessibilityElement = true
         return label
     }()
     
