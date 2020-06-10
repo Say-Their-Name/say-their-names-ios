@@ -978,14 +978,6 @@
 			path = Pagination;
 			sourceTree = "<group>";
 		};
-		B386F9532482FB2E0037A38D /* ExtensionsTests */ = {
-			isa = PBXGroup;
-			children = (
-				B336C6D5248E4BBA00A1AECB /* Paginator.swift */,
-			);
-			path = Pagination;
-			sourceTree = "<group>";
-		};
 		B365F45A248FD4950007FC31 /* UtilsTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -1654,6 +1646,7 @@
 			baseConfigurationReference = 39C05132613A992F23ECED58 /* Pods-SayTheirNames.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
@@ -1663,8 +1656,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.1;
-				PRODUCT_BUNDLE_IDENTIFIER = "stn.Say-Their-Names";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.say-their-names";
 				PRODUCT_NAME = "Say Their Names";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1675,7 +1669,8 @@
 			baseConfigurationReference = 72373A43202B7215526324F7 /* Pods-SayTheirNames.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Franck Ndame (Q93T3ZJQ58)";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/SayTheirNames/Resources/Info.plist";
@@ -1684,8 +1679,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.1;
-				PRODUCT_BUNDLE_IDENTIFIER = "stn.Say-Their-Names";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.say-their-names";
 				PRODUCT_NAME = "Say Their Names";
+				PROVISIONING_PROFILE_SPECIFIER = "Say Their Names Distribution";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
