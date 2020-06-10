@@ -41,7 +41,9 @@ class SearchResultCell: UITableViewCell {
     
     var data: Person? {
         didSet {
-//            guard let data  = data else {return}
+            guard let data  = data else {return}
+//            if nameLabel == nil { return }
+//            nameLabel.text = data.fullName
         }
     }
     
@@ -54,6 +56,9 @@ class SearchResultCell: UITableViewCell {
             trailing: trailingAnchor,
             padding: .init(left: 16, right: 16),
             size: .init(width: 0, height: 1))
+        nameLabel.text = "franck"
+        guard let data  = data else {return}
+//        nameLabel.text = data.fullName
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

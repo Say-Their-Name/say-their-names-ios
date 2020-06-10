@@ -61,7 +61,7 @@ enum Theme {
     enum Screens {
         // MARK: - Search Bar
         enum SearchBar {
-            static let size: CGSize = .init(width: 0, height: 60)
+            static let size: CGSize = .init(width: 0, height: 150)
         }
         // MARK: - Home
         enum Home {

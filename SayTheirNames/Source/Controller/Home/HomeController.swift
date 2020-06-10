@@ -24,10 +24,6 @@
 
 import UIKit
 
-// MARK: - IDENTIFIERS
-private let headerIdentifier = "PersonHeaderCell"
-private let peopleIdentifier = "PersonCell"
-
 final class HomeController: UIViewController {
     @DependencyInject private var network: NetworkRequestor
     
@@ -42,8 +38,9 @@ final class HomeController: UIViewController {
 
     // MARK: - CONSTANTS
     private let searchBar = CustomSearchBar()
-    
+    let searchController = SearchViewController()
     // MARK: - CV Data Sources
+    
     private lazy var locationsDataSourceHelper = LocationCollectionViewDataSourceHelper(collectionView: locationCollectionView)
     private lazy var peopleDataSourceHelper = PersonCollectionViewDataSourceHelper(collectionView: peopleCollectionView)
     
@@ -56,15 +53,18 @@ final class HomeController: UIViewController {
     override func loadView() {
         self.view = homeView
         homeView.peopleDataSource = peopleDataSourceHelper
+//        searchBar.setup(withController: self, andView: homeView)
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.STN.black
-        searchBar.setup(withController: self)
+        
         navigationItem.title = Strings.home
         setupCollectionView()
         setupSearchButton()
+        searchBar.setup(withController: self, andView: homeView)
+        view.bringSubviewToFront(searchBar)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -75,7 +75,8 @@ final class HomeController: UIViewController {
         let selectedIndexPath = IndexPath(item: 0, section: 0)
         locationCollectionView.selectItem(at: selectedIndexPath, animated: false, scrollPosition: .centeredVertically)
     }
-
+    
+    
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
@@ -110,6 +111,7 @@ final class HomeController: UIViewController {
             switch result {
             case .success(let page):
                 self?.peopleDataSourceHelper.setPeople(page.all, carouselData: carouselData)
+                self?.searchController.setPeople(page.all)
                 self?.peopleCollectionView.reloadData()
             case .failure(let error):
                 Log.print(error)
@@ -127,7 +129,8 @@ final class HomeController: UIViewController {
     // MARK: - Button Actions
     @objc private func searchButtonPressed(_ sender: Any) {
         UIImpactFeedbackGenerator().impactOccurred()
-        searchBar.show()
+        navigationController?.navigationBar.isHidden = true
+        navigationController?.pushViewController(searchController, animated: true)
     }
 }
 

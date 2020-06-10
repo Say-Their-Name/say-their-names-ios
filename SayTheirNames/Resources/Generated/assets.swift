@@ -18,6 +18,7 @@
 
 // swiftlint:disable identifier_name line_length nesting type_body_length type_name
 internal enum STNImage {
+  internal static let like = ImageAsset(name: "Like")
   internal static let stnLogoBlaock = ImageAsset(name: "STN_logo_blaock")
   internal static let stnLogoWhite = ImageAsset(name: "STN_logo_white")
   internal static let arrowLeft = ImageAsset(name: "arrow_left")
@@ -29,7 +30,6 @@ internal enum STNImage {
   internal static let gallery = ImageAsset(name: "gallery")
   internal static let heart = ImageAsset(name: "heart")
   internal static let heartActive = ImageAsset(name: "heart_active")
-  internal static let like = ImageAsset(name: "like")
   internal static let newsBbc = ImageAsset(name: "news_bbc")
   internal static let petition = ImageAsset(name: "petition")
   internal static let petitionActive = ImageAsset(name: "petition_active")

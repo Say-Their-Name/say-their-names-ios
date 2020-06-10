@@ -108,7 +108,7 @@ class PersonController: UIViewController {
     
     lazy var backgroundFistImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(asset: STNImage.stnLogoWhite)
+//        imageView.image = UIImage(asset: STNImage.stnLogoWhite)
         imageView.contentMode = .scaleAspectFit
         imageView.clipsToBounds = true
         return imageView
@@ -164,7 +164,7 @@ class PersonController: UIViewController {
 
     override func loadView() {
         super.loadView()
-        view.backgroundColor = UIColor.STN.red
+        view.backgroundColor = UIColor.STN.black
         setupNavigationBarItems()
         setupSubViews()
     }
@@ -198,7 +198,7 @@ private extension PersonController {
     
     func setupSubViews() {
         backgroundFistImageView.anchor(superView: view, top: view.topAnchor,
-                                       padding: .init(top:Theme.Components.Padding.large), size: Theme.Screens.Home.Person.backgroundFistSize)
+                                       padding: .init(top:Theme.Components.Padding.extraLarge), size: Theme.Screens.Home.Person.backgroundFistSize)
         backgroundFistImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         setupTableView()
         setupDonationBottomView()

@@ -24,12 +24,24 @@
 
 import UIKit
 
+protocol CustomSearchBarDelegate: class {
+    func didSelect(person selectedPerson: Person)
+}
 class CustomSearchBar: UIView {
     
     var people = [Person]()
     var searchResult = [Person]()
+    weak var delegate: CustomSearchBarDelegate?
     
     private let searchBar = UISearchBar()
+    private let searchContainerView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .white
+        view.layer.shadowRadius = 4
+        view.layer.shadowOffset = .init(width: 0, height: 0.5)
+        view.layer.shadowOpacity = 0.3
+        return view
+    }()
     private var homeController: HomeController? // FIXME: retain cycle
     private let searchResultView: UIView = {
         let view = UIView()
@@ -39,46 +51,71 @@ class CustomSearchBar: UIView {
         let tv = UITableView()
         return tv
     }()
+    
+    private let searchImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = STNImage.search.image
+        imageView.tintColor = UIColor.STN.black
+        imageView.contentMode = .scaleAspectFit
+        return imageView
+    }()
+    
     private let cancelSearchButton: UIButton = {
-        let button = UIButton()
+        let button = UIButton(type: .system)
         button.setTitle(Strings.cancel, for: .normal)
         button.addTarget(self, action: #selector(hideSearchBar), for: .touchUpInside)
+        button.titleLabel?.font = UIFont(name: "Karla-Bold", size: 17)
+        button.tintColor = UIColor.STN.black
         return button
     }()
     
 //    private var statusBarAnimatableConfig: StatusBarAnimatableConfig {
 //        return StatusBarAnimatableConfig(prefersHidden: false, animation: .slide)}
     
-    open func setup(withController controller: HomeController) {
+    open func setup(withController controller: HomeController, andView hoemView: UIView) {
+        let window = UIApplication.shared.keyWindow!
         self.homeController = controller
-        guard let superView = controller.view else { return }
+        let superView = window
         let textFieldInsideSearchBar = searchBar.value(forKey: "searchField") as? UITextField
         textFieldInsideSearchBar?.textColor = UIColor.STN.white
         textFieldInsideSearchBar?.leftView?.tintColor = UIColor.STN.white
         alpha = 0
+        backgroundColor = .white
         searchResultView.alpha = 0
         anchor(
             superView: superView,
-            top: superView.safeAreaLayoutGuide.topAnchor,
+            top: superView.topAnchor,
             leading: superView.leadingAnchor,
             trailing: superView.trailingAnchor,
             size: Theme.Screens.SearchBar.size)
-        
+
         cancelSearchButton.anchor(
             superView: self,
-            top: topAnchor,
-            bottom: bottomAnchor,
             trailing: trailingAnchor,
             padding: UIEdgeInsets(right: Theme.Components.Padding.medium))
-        
-        searchBar.anchor(
+
+        searchContainerView.anchor(
             superView: self,
-            top: topAnchor,
             leading: leadingAnchor,
             bottom: bottomAnchor,
             trailing: cancelSearchButton.leadingAnchor,
-            padding: UIEdgeInsets(left: Theme.Components.Padding.medium, right: Theme.Components.Padding.medium))
+            padding: UIEdgeInsets(
+                left: Theme.Components.Padding.medium,
+                bottom: Theme.Components.Padding.medium,
+                right: Theme.Components.Padding.medium),
+                size: .init(width: 0, height: 45))
         
+        searchImageView.anchor(
+            superView: searchContainerView, leading: searchContainerView.leadingAnchor,
+            padding: .init(left: 18), size: .init(width: 23, height: 23))
+        searchImageView.centerYAnchor.constraint(equalTo: searchContainerView.centerYAnchor).isActive = true
+        searchBar.anchor(
+            superView: searchContainerView, leading: searchImageView.trailingAnchor,
+            trailing: searchContainerView.trailingAnchor, padding: .init(left: 0, right: 16),
+                         size: .init(width: 0, height: 40))
+        searchBar.centerYAnchor.constraint(equalTo: searchContainerView.centerYAnchor).isActive = true
+        cancelSearchButton.centerYAnchor.constraint(equalTo: searchContainerView.centerYAnchor).isActive = true
+
         searchResultView.anchor(
             superView: superView,
             top: bottomAnchor,
@@ -94,14 +131,18 @@ class CustomSearchBar: UIView {
             bottom: searchResultView.bottomAnchor,
             trailing: searchResultView.trailingAnchor)
         
+        searchResultView.clipsToBounds = false
         searchBar.delegate = self
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(cellType: SearchResultCell.self)
         tableView.tableFooterView = UIView()
-        tableView.separatorStyle = .none
+        tableView.separatorStyle = .singleLine
+        searchBar.barStyle = .black
+        searchBar.backgroundColor = .white
         searchBar.searchBarStyle = UISearchBar.Style.minimal
-        
+        searchBar.setImage(UIImage(), for: .search, state: .normal)
+
         let ViewForDoneButtonOnKeyboard = UIToolbar()
         let flexibleSpace: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
         ViewForDoneButtonOnKeyboard.sizeToFit()
@@ -114,8 +155,15 @@ class CustomSearchBar: UIView {
         self.endEditing(true)
     }
     
+    open func setPeople(passed: [Person]){
+        self.people = passed
+//        self.searchResult = passed
+//        tableView.reloadData()
+    }
     open func show() {
         guard homeController != nil else { return }
+        self.searchResult = self.people
+        tableView.reloadData()
         alpha = 0
         UIView.animate(withDuration: 0.3, animations: {
             self.alpha = 1            
@@ -142,18 +190,21 @@ extension CustomSearchBar: UITableViewDataSource, UITableViewDelegate, UISearchB
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! SearchResultCell
-        cell.isSeperatorViewHidden = indexPath.row == searchResult.count - 1
-        cell.data = searchResult[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: SearchResultCell.reuseIdentifier, for: indexPath)
+//        cell.isSeperatorViewHidden = indexPath.row == searchResult.count - 1
+        cell.textLabel?.font = UIFont(name: "Karla-Bold", size: 17)
+        cell.textLabel?.text = searchResult[indexPath.row].fullName
+//        cell.data = people[indexPath.row]
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 104
+        return 55
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.tableView.deselectRow(at: indexPath, animated: true)
+        delegate?.didSelect(person: searchResult[indexPath.row])
 //        guard let homeController = homeController else { return }
     }
     
@@ -162,5 +213,16 @@ extension CustomSearchBar: UITableViewDataSource, UITableViewDelegate, UISearchB
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        if let searchText = searchBar.text?.lowercased() {
+            self.searchResult = self.people.filter({ (person) -> Bool in
+                return person.fullName.lowercased().contains(searchText)
+            })
+        }
+
+            if searchResult.count < 1 {
+                self.searchResult = self.people
+            }
+            self.tableView.reloadData()
     }
 }
