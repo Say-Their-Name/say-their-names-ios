@@ -70,8 +70,10 @@ final class PersonCollectionViewDataSourceHelper {
     
     func setPeople(_ people: [Person], carouselData: [HeaderCellContent]) {
         var snapShot = NSDiffableDataSourceSnapshot<Section, SectionData>()
-        snapShot.appendSections([.carousel])
-        snapShot.appendItems(carouselData.map({ SectionData.header($0) }))
+        if carouselData.isEmpty == false {
+            snapShot.appendSections([.carousel])
+            snapShot.appendItems(carouselData.map({ SectionData.header($0) }))
+        }
         snapShot.appendSections([.main])
         snapShot.appendItems(people.map({ SectionData.person($0) }))
         dataSource.apply(snapShot)
