@@ -32,6 +32,7 @@ final class PetitionsController: UIViewController {
     
     private let petitionsManager = PetitionsCollectionViewManager()
     private let ui = PetitionsView()
+    private var petitions: [Petition]?
 
     required init() {
         super.init(nibName: nil, bundle: nil)
@@ -55,24 +56,16 @@ final class PetitionsController: UIViewController {
     }
     
     private func configure() {
-        petitionsManager.cellForItem = { (collectionView, indexPath, donation) in
+        petitionsManager.cellForItem = { [unowned self] (collectionView, indexPath, petition) in
             let cell: CallToActionCell = collectionView.dequeueCell(for: indexPath)
-            cell.configure(with: donation)
+            cell.configure(with: petition)
+            cell.executeAction = self.moreButtonPressed
             return cell
-        }
-        petitionsManager.didSelectItem = { donation in
-            
-            // TODO: Move this out
-//            let detailVC = DonationsMoreDetailsController()
-//            detailVC.donation = donation
-//            let navigationController = UINavigationController(rootViewController: detailVC)
-//
-//            self.present(navigationController, animated: true, completion: nil)
         }
         ui.bindPetitionManager(petitionsManager)
     }
     
-    private func showPetitionDetails(withPetition: Petition) {
+    private func showPetitionDetails(with petition: Petition) {
         let detailVC = PetitionDetailViewController()
         //detailVC.petition = withPetition
         let navigationController = UINavigationController(rootViewController: detailVC)
@@ -81,17 +74,23 @@ final class PetitionsController: UIViewController {
     }
     
     private func getPetitions() {
-        
         network.fetchPetitions { [weak self] result in
             switch result {
             case .success(let response):
-                let petitions = response.all
-                self?.petitionsManager.set(petitions)
-
+                self?.petitions = response.all
+                self?.petitions.flatMap { self?.petitionsManager.set($0) }
             case .failure(let error):
                 print(error)
             }
         }
+    }
+    
+    private lazy var moreButtonPressed: ((Int?) -> Void) = { [unowned self] id in
+        guard
+            let id = id,
+            let petition = self.petitions?.first(where: { $0.id == id })
+            else { return }
+        self.showPetitionDetails(with: petition)
     }
 }
 
@@ -102,7 +101,7 @@ extension PetitionsController: DeepLinkPresenter {
         self.network.fetchPetitionDetails(with: deepLink.value) { [weak self] in
             switch $0 {
             case .success(let page):
-                self?.showPetitionDetails(withPetition: page.petition)
+                self?.showPetitionDetails(with: page.petition)
                 Log.print(page)
             case .failure(let error):
                 Log.print(error)
