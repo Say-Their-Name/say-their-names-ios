@@ -24,6 +24,10 @@
 
 import UIKit
 
+extension PetitionsResponsePage: PaginatorResponsePage {
+    typealias Element = Petition
+}
+
 /// Controller responsible for showing the petitions
 final class PetitionsController: UIViewController {
 
@@ -33,9 +37,24 @@ final class PetitionsController: UIViewController {
     private let petitionsManager = PetitionsCollectionViewManager()
     private let ui = PetitionsView()
     private var petitions: [Petition]?
+    private let paginator: Paginator<Petition, PetitionsResponsePage>
 
     required init() {
+        var weakSelf: PetitionsController?
+        self.paginator =
+            Paginator<Petition, PetitionsResponsePage>(pageLoader: { (link: Link?,
+                completion: @escaping (Result<PetitionsResponsePage, Error>) -> Void) in
+                
+            guard let self = weakSelf else { return }
+            
+            if let link = link {
+                self.network.fetchPetitions(with: link, completion: completion)
+            } else {
+                self.network.fetchPetitions(completion: completion)
+            }
+        })
         super.init(nibName: nil, bundle: nil)
+        weakSelf = self
     }
     
     required init?(coder: NSCoder) {  fatalError("init(coder:) has not been implemented") }
@@ -48,11 +67,7 @@ final class PetitionsController: UIViewController {
         super.viewDidLoad()
         configure()
         navigationItem.title = Strings.petitions
-    }
-        
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        getPetitions()
+        setupPaginator()
     }
     
     private func configure() {
@@ -73,16 +88,16 @@ final class PetitionsController: UIViewController {
         self.present(navigationController, animated: true, completion: nil)
     }
     
-    private func getPetitions() {
-        network.fetchPetitions { [weak self] result in
-            switch result {
-            case .success(let response):
-                self?.petitions = response.all
-                self?.petitions.flatMap { self?.petitionsManager.set($0) }
-            case .failure(let error):
-                print(error)
-            }
+    private func setupPaginator() {
+        paginator.firstPageDataLoadedHandler = { [weak self] petitions in
+            self?.petitionsManager.set(petitions)
         }
+        
+        paginator.subsequentPageDataLoadedHandler = { [weak self] petitions in
+            
+        }
+        
+        paginator.loadNextPage()
     }
     
     private lazy var moreButtonPressed: ((Int?) -> Void) = { [unowned self] id in
