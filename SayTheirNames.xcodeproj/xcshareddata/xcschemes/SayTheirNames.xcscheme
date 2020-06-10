@@ -50,7 +50,10 @@
             </BuildableReference>
             <SkippedTests>
                <Test
-                  Identifier = "Model_SearchTests">
+                  Identifier = "ModelTests/testDecodeSearchData()">
+               </Test>
+               <Test
+                  Identifier = "ModelTests/testPerformanceExample()">
                </Test>
             </SkippedTests>
          </TestableReference>
