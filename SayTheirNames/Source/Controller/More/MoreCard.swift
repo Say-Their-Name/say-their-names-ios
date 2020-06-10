@@ -30,7 +30,7 @@ final class MoreCard: UIView {
         let logo = UIImageView(image: UIImage(asset: STNAsset.Image.stnLogoWhite))
         
         let label = UILabel()
-        label.text = "SAY THEIR NAME"
+        label.text = Strings.sayTheirNames.localizedUppercase
         label.textColor = STNAsset.Color.white.color
         label.font = UIFont.STN.bannerTitle
         label.adjustsFontSizeToFitWidth = true
