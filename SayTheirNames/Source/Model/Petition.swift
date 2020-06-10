@@ -87,7 +87,7 @@ extension Petition: CallToAction {
     }
     
     var tag: String? {
-//        type?.type.uppercased()
+//        type?.type.localizedUppercase
         return nil
     }
 }

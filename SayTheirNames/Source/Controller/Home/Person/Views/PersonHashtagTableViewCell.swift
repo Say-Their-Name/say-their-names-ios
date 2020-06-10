@@ -32,7 +32,7 @@ class PersonHashtagTableViewCell: UITableViewCell {
     
     lazy var hashtagLabel: UILabel = {
         let label = UILabel()
-        label.text = L10n.Person.hashtags.uppercased()
+        label.text = L10n.Person.hashtags.localizedUppercase
         label.textColor = UIColor(asset: STNAsset.Color.strongHeader)
         label.font = UIFont.STN.sectionHeader
         label.numberOfLines = 1
