@@ -72,7 +72,7 @@ final class PetitionDetailView: UIView {
             stack.widthAnchor.constraint(lessThanOrEqualToConstant: 300)
         ])
         
-        backgroundColor = UIColor(asset: STNAsset.Color.white)
+        backgroundColor = UIColor(asset: STNAsset.Color.background)
         
         updateUI()
         
