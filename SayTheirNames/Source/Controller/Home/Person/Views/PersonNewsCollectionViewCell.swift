@@ -51,10 +51,19 @@ class PersonNewsCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
+    lazy var loadingIndicator: UIActivityIndicatorView = {
+        let view = SDWebImageActivityIndicator.gray.indicatorView
+        view.hidesWhenStopped = true
+        return view
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = UIColor(asset: STNAsset.Color.background)
         setupLayout()
+        
+        // Start loading indicator
+        loadingIndicator.startAnimating()
     }
     
     required init?(coder: NSCoder) {
@@ -75,6 +84,7 @@ class PersonNewsCollectionViewCell: UICollectionViewCell {
                         DispatchQueue.main.async {
                             self?.newsImageView.image = link.image
                             self?.sourceInfoLabel.text = link.title
+                            self?.loadingIndicator.stopAnimating()
                         }
                     case .failure(let error):
                         print(url)
@@ -91,6 +101,7 @@ class PersonNewsCollectionViewCell: UICollectionViewCell {
         self.news = nil
         self.newsImageView.image = UIImage(asset: STNAsset.Image.placeholder)
         self.sourceInfoLabel.text = ""
+        self.loadingIndicator.startAnimating()
     }
     
     private func setupLayout() {
@@ -98,10 +109,12 @@ class PersonNewsCollectionViewCell: UICollectionViewCell {
         sourceContainer.translatesAutoresizingMaskIntoConstraints = false
         sourceImageView.translatesAutoresizingMaskIntoConstraints = false
         sourceInfoLabel.translatesAutoresizingMaskIntoConstraints = false
+        loadingIndicator.translatesAutoresizingMaskIntoConstraints = false
         
         contentView.addSubview(newsImageView)
         contentView.addSubview(sourceContainer)
         contentView.addSubview(sourceInfoLabel)
+        contentView.addSubview(loadingIndicator)
         
         NSLayoutConstraint.activate([
             newsImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0),
@@ -123,6 +136,9 @@ class PersonNewsCollectionViewCell: UICollectionViewCell {
             sourceInfoLabel.topAnchor.constraint(equalTo: sourceContainer.bottomAnchor, constant: 5),
             sourceInfoLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
             sourceInfoLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0),
+            
+            loadingIndicator.centerYAnchor.constraint(equalTo: newsImageView.centerYAnchor),
+            loadingIndicator.centerXAnchor.constraint(equalTo: newsImageView.centerXAnchor),
         ])
     }
 }
