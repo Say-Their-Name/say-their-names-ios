@@ -115,7 +115,7 @@ final class DonationsMoreDetailsController: UIViewController {
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: emptyCellIdentifier)
         collectionView.register(DMDTitleCell.self, forCellWithReuseIdentifier: DMDTitleCell.reuseIdentifier)
         collectionView.register(DMDTextContentCell.self, forCellWithReuseIdentifier: DMDTextContentCell.reuseIdentifier)
-        collectionView.register(DMDHashtagCell.self, forCellWithReuseIdentifier: DMDHashtagCell.reuseIdentifier)
+        collectionView.register(HashtagViewCollectionViewCell.self, forCellWithReuseIdentifier: HashtagViewCollectionViewCell.reuseIdentifier)
         collectionView.register(UICollectionReusableView.self,
                                 forSupplementaryViewOfKind: emptyKind,
                                 withReuseIdentifier: emptyViewIdentifier)

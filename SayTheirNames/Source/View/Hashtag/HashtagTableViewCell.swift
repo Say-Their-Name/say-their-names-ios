@@ -24,14 +24,14 @@
 
 import UIKit
 
-protocol PersonHashtagCollectionViewCellDelegate: class {
+protocol HashtagCollectionViewCellDelegate: class {
     func didTapHashtag(_ hashtag: Hashtag)
 }
 
-class PersonHashtagTableViewCell: UITableViewCell {
+class HashtagTableViewCell: UITableViewCell {
     
     private let hashtagSizeModel = HashtagSizingModel()
-    weak var cellDelegate: PersonHashtagCollectionViewCellDelegate?
+    weak var cellDelegate: HashtagCollectionViewCellDelegate?
 
     static var reuseIdentifier: String {
         return "\(Self.self)"
@@ -134,7 +134,7 @@ class PersonHashtagTableViewCell: UITableViewCell {
     
 }
 
-extension PersonHashtagTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension HashtagTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return hashtags.count
@@ -146,7 +146,7 @@ extension PersonHashtagTableViewCell: UICollectionViewDelegate, UICollectionView
     
     // Set the data for each cell (color and color name)
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! PersonHashtagCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! HashtagViewCollectionViewCell
         let hashtag = hashtags[indexPath.row]
         cell.setupHashtag(hashtag)
         return cell

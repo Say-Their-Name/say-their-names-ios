@@ -42,7 +42,7 @@ enum PersonCellType: Equatable {
         case .outcome: return PersonOverviewTableViewCell.reuseIdentifier
         case .news: return PersonNewsTableViewCell.reuseIdentifier
         case .medias: return PersonMediaTableViewCell.reuseIdentifier
-        case .hashtags: return PersonHashtagTableViewCell.reuseIdentifier
+        case .hashtags: return HashtagTableViewCell.reuseIdentifier
         }
     }
     
@@ -73,7 +73,7 @@ enum PersonCellType: Equatable {
         case .medias:
             tableView.register(cellType: PersonMediaTableViewCell.self)
         case .hashtags:
-            tableView.register(cellType: PersonHashtagTableViewCell.self)
+            tableView.register(cellType: HashtagTableViewCell.self)
         }
     }
     
@@ -281,10 +281,10 @@ extension PersonController: UITableViewDataSource {
             newsCell.updateCellWithMedias(person.medias)
             return cell
         case .hashtags:
-            let hashtagsCell = cell as! PersonHashtagTableViewCell
+            let hashtagsCell = cell as! HashtagTableViewCell
             hashtagsCell.cellDelegate = self
             hashtagsCell.configure(with: person.hashtags)
-            hashtagsCell.registerCell(with: PersonHashtagCollectionViewCell.self)
+            hashtagsCell.registerCell(with: HashtagViewCollectionViewCell.self)
             return hashtagsCell
         }
     }
@@ -307,9 +307,9 @@ extension PersonController: PersonCollectionViewCellDelegate {
     }
 }
 
-// MARK: PersonHashtagCollectionViewCellDelegate
+// MARK: HashtagCollectionViewCellDelegate
 
-extension PersonController: PersonHashtagCollectionViewCellDelegate {
+extension PersonController: HashtagCollectionViewCellDelegate {
     
     func didTapHashtag(_ hashtag: Hashtag) {
         if let url = URL(string: hashtag.link) {

@@ -124,6 +124,9 @@ enum Theme {
                 
             }
         }
-        
+        // Donation Details
+        enum DonationDetails {
+            static let horizontalPadding: CGFloat = 25
+        }
     }
 }

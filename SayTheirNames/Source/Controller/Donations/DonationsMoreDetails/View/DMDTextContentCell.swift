@@ -29,14 +29,23 @@ class DMDTextContentCell: UICollectionViewCell {
     static let reuseIdentifier = "donations-more-details-text-content-cell"
     
     // MARK: - View
-    lazy var contentTextView: UITextView = {
-        let textView = UITextView()
-        textView.textColor = UIColor(asset: STNAsset.Color.primaryLabel)
-        textView.font = UIFont(name: "Karla-Regular", size: 17)
-        textView.isEditable = false
-        textView.isScrollEnabled = false
-        return textView
+    lazy var contentTextLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = UIColor(asset: STNAsset.Color.primaryLabel)
+        label.font = UIFont.STN.body
+        label.numberOfLines = 0
+        label.adjustsFontForContentSizeCategory = true
+        return label
     }()
+    
+//    lazy var contentTextView: UITextView = {
+//        let textView = UITextView()
+//        textView.textColor = UIColor(asset: STNAsset.Color.primaryLabel)
+//        textView.font = UIFont(name: "Karla-Regular", size: 17)
+//        textView.isEditable = false
+//        textView.isScrollEnabled = false
+//        return textView
+//    }()
     
     // MARK: - Initialization
     override init(frame: CGRect) {
@@ -51,12 +60,12 @@ class DMDTextContentCell: UICollectionViewCell {
     
     // MARK: - Class Method
     private func configureSubview() {
-        contentView.addSubview(contentTextView)
-        contentTextView.fillSuperview(superView: contentView, padding: .zero)
+        contentView.addSubview(contentTextLabel)
+        contentTextLabel.fillSuperview(superView: contentView, padding: .zero)
     }
     
     // MARK: - Configure Cell
     func setContent(text: String) {
-        contentTextView.text = text
+        contentTextLabel.text = text
     }
 }

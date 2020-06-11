@@ -80,8 +80,8 @@ extension DonationsMoreDetailsController: UICollectionViewDataSource {
         // Social Media Hashtags Section
         case DonationSectionLayoutKind.socialMedia.rawValue:
             guard let hashtagCell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: DMDHashtagCell.reuseIdentifier,
-                for: indexPath) as? DMDHashtagCell else {
+                withReuseIdentifier: HashtagViewCollectionViewCell.reuseIdentifier,
+                for: indexPath) as? HashtagViewCollectionViewCell else {
                     fatalError("Cannot create new cell")
             }
 
