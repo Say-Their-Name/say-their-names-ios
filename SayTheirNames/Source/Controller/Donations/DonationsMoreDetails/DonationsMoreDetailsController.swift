@@ -25,6 +25,9 @@
 import UIKit
 
 final class DonationsMoreDetailsController: UIViewController {
+
+    @DependencyInject private var shareService: ShareService
+
     // MARK: - Section Layout Kind
     enum DonationSectionLayoutKind: Int, CaseIterable {
         case title = 0
@@ -161,7 +164,7 @@ final class DonationsMoreDetailsController: UIViewController {
             // TODO: Donation button action
         }
         
-        donationButtonContainerView.setButtonTitle("view GoFundMe page")
+        donationButtonContainerView.setButtonTitle(L10n.viewGoFundMePage)
         donationButtonContainerView.translatesAutoresizingMaskIntoConstraints = false
         donationButtonContainerView.backgroundColor = UIColor(asset: STNAsset.Color.background)
         view.addSubview(donationButtonContainerView)
@@ -179,7 +182,7 @@ final class DonationsMoreDetailsController: UIViewController {
     }
     
     @objc func shareAction(_ sender: Any) {
-        // TODO: Share button action
+        self.present(self.shareService.share(items: [self.donation.shareable]), animated: true)
     }
     
 }
