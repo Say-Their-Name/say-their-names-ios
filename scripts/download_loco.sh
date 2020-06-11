@@ -1,5 +1,8 @@
 #!/bin/sh
 
+## About
+## Run this script from the root of the repo
+
 function download_url {
   echo "https://localise.biz/api/export/locale/$1.strings?format=xcode&fallback=en&charset=utf8"
 }
