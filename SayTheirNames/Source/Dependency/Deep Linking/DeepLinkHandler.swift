@@ -36,25 +36,36 @@ final class DeepLinkHandler: Dependency {
     // MARK: - Public
     
     public func handle(urlContext: Set<UIOpenURLContext>) {
-        for context in urlContext {
-             if let deepLink = self.deepLink(matching: context) {
+        self.handle(urls: Set(urlContext.map { $0.url }))
+    }
+    
+    // We use this method as an entry point for unit tests.
+    // So we technically don't care about the resulting `DeepLink` array
+    // except for the unit tests.
+    @discardableResult
+    public func handle(urls: Set<URL>) -> [DeepLink] {
+        
+        var response: [DeepLink] = []
+        for url in urls {
+             if let deepLink = self.deepLink(matching: url) {
                 self.navigator.handle(deepLink: deepLink)
-                return
+                response.append(deepLink)
             }
         }
+        return response
     }
     
     // MARK: - Private
     
-    private func deepLink(matching context: UIOpenURLContext) -> DeepLink? {
-        guard let scheme = context.url.scheme, let host = context.url.host
+    private func deepLink(matching url: URL) -> DeepLink? {
+        guard let scheme = url.scheme, let host = url.host
         else { return nil }
         
         for deepLinkType in self.deepLinkTypes {
             let details = deepLinkType.details
             
             if details.uses(scheme: scheme, host: host) {
-                var components = context.url.pathComponents.filter { $0 != "/" }
+                var components = url.pathComponents.filter { $0 != "/" }
 
                 // We are navigating to home
                 if components.count == 0 {
