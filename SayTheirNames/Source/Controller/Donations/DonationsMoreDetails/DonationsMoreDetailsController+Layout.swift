@@ -27,7 +27,7 @@ import UIKit
 // MARK: - UICollectionViewLayout
 extension DonationsMoreDetailsController {
     static var donationMoreDetailsCVLayout: UICollectionViewLayout {
-        let horizontalPadding: CGFloat = 25
+        let horizontalPadding: CGFloat = Theme.Screens.DonationDetails.horizontalPadding
         
         // UICollectionViewCompositionalLayout in a layout provider
         let layout = UICollectionViewCompositionalLayout {
@@ -71,7 +71,7 @@ extension DonationsMoreDetailsController {
         }
         
         let config = UICollectionViewCompositionalLayoutConfiguration()
-        config.interSectionSpacing = 18
+        config.interSectionSpacing = Theme.Screens.DonationDetails.intersectionSpacing
         
         layout.configuration = config
         return layout

@@ -127,6 +127,7 @@ enum Theme {
         // Donation Details
         enum DonationDetails {
             static let horizontalPadding: CGFloat = 25
+            static let intersectionSpacing: CGFloat = 18
         }
     }
 }
