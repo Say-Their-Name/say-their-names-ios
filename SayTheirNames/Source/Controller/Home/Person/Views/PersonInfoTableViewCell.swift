@@ -224,6 +224,6 @@ class PersonInfoTableViewCell: UITableViewCell {
         verticalSeparatorView.anchor(size: Theme.Screens.Home.Person.Info.verticalSeperatorSize)
         horizontalSeparatorView.anchor(size: Theme.Screens.Home.Person.Info.horizontalSeperatorSize)
         secondHorizontalSeparatorView.anchor(size: Theme.Screens.Home.Person.Info.horizontalSeperatorSize)
-
+        backgroundColor = STNAsset.Color.background.color
     }
 }
