@@ -28,13 +28,13 @@ enum DonationFilter {
     var title: String {
         switch self {
         case .all:
-            return Strings.filterAll
+            return L10n.filterAll
         case .businesses:
-            return Strings.filterBusinesses
+            return L10n.filterBusinesses
         case .protesters:
-            return Strings.filterProtesters
+            return L10n.filterProtesters
         case .victims:
-            return Strings.filterVictims
+            return L10n.filterVictims
         }
     }
 }

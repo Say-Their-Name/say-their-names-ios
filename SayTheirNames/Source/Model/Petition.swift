@@ -84,7 +84,7 @@ extension Petition: Hashable {}
 
 extension Petition: CallToAction {
     var actionTitle: String {
-        Strings.findOutMore
+        L10n.findOutMore
     }
     var body: String {
         description
