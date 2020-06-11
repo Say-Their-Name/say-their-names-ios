@@ -73,6 +73,9 @@ class PersonNewsCollectionViewCell: UICollectionViewCell {
                         }
                     case .failure(let error):
                         print(url)
+                        DispatchQueue.main.async {
+                            self?.loadingIndicator.stopAnimating()
+                        }
                         Log.print(error.localizedDescription)
                     }
                 }
