@@ -58,7 +58,7 @@ final class DMDTitleCell: UICollectionViewCell {
     }
     
     // MARK: - Configure Cell
-    func configure(for donation: Donation) {
-        titleLabel.text = donation.title
+    func setTitle(_ title: String) {
+        titleLabel.text = title
     }
 }

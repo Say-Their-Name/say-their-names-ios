@@ -234,11 +234,12 @@ private extension PersonController {
             in
             guard let self = self else { return }
 
-            var donation = self.person.donations.first
-            let donationsDetailsVC = DonationsMoreDetailsController()
-            donationsDetailsVC.donation = donation
+            if let donation = self.person.donations.first {
+                let donationsDetailsVC = DonationsMoreDetailsController()
+                donationsDetailsVC.data = .donation(donation)
+                self.navigationController?.pushViewController(donationsDetailsVC, animated: true)
+            }
             
-            self.navigationController?.pushViewController(donationsDetailsVC, animated: true)
         }
     }
 }

@@ -110,7 +110,7 @@ final class DonationsController: UIViewController {
     
     private func showDonationsDetail(with donation: Donation) {
         let detailVC = DonationsMoreDetailsController()
-        detailVC.donation = donation
+        detailVC.data = .donation(donation)
         let navigationController = UINavigationController(rootViewController: detailVC)
         self.present(navigationController, animated: true, completion: nil)
     }

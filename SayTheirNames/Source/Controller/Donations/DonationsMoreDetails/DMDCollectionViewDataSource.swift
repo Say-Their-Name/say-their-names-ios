@@ -32,7 +32,7 @@ extension DonationsMoreDetailsController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if section == DonationSectionLayoutKind.socialMedia.rawValue {
-            return donation.hashtags.count
+            return data.entity.hashtags.count
         }
         
         return 1
@@ -49,7 +49,7 @@ extension DonationsMoreDetailsController: UICollectionViewDataSource {
             }
             
             // Configure cell
-            titleCell.configure(for: donation)
+            titleCell.setTitle(data.entity.title)
             return titleCell
             
         // Decription Section
@@ -61,7 +61,7 @@ extension DonationsMoreDetailsController: UICollectionViewDataSource {
             }
             
             // Configure cell
-            textCell.setContent(text: donation.description)
+            textCell.setContent(text: data.entity.description)
             return textCell
             
         // Outcome Section
@@ -73,7 +73,7 @@ extension DonationsMoreDetailsController: UICollectionViewDataSource {
             }
             
             // Configure cell
-            textCell.setContent(text: donation.description)
+            textCell.setContent(text: data.entity.description)
             textCell.isHidden = !FeatureFlags.dmdOutcomeSectionEnabled
             return textCell
             
@@ -85,7 +85,7 @@ extension DonationsMoreDetailsController: UICollectionViewDataSource {
                     fatalError("Cannot create new cell")
             }
             
-            let hashtag = donation.hashtags[indexPath.row]
+            let hashtag = data.entity.hashtags[indexPath.row]
             hashtagCell.setupHashtag(hashtag)
             return hashtagCell
             
@@ -105,11 +105,11 @@ extension DonationsMoreDetailsController: UICollectionViewDataSource {
                 withReuseIdentifier: DMDPhotoSupplementaryView.reuseIdentifier,
                 for: indexPath) as? DMDPhotoSupplementaryView {
                 
-                switch donation.type?.id {
+                switch data.entity.type?.id {
                 case DonationTypes.movement.id:
-                    photoView.configure(withURLString: donation.bannerImagePath)
+                    photoView.configure(withURLString: data.entity.bannerImagePath)
                 default:
-                    photoView.configure(withURLString: donation.person?.images.first?.personURL)
+                    photoView.configure(withURLString: data.entity.person?.images.first?.personURL)
                 }
                 
                 return photoView
