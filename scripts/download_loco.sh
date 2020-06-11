@@ -2,6 +2,7 @@
 
 ## About
 ## Run this script from the root of the repo
+## Run this script after updating translations on localise.biz
 
 function download_url {
   echo "https://localise.biz/api/export/locale/$1.strings?format=xcode&fallback=en&charset=utf8"
