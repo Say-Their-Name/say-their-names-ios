@@ -36,7 +36,7 @@ final class DependencyContainer: Dependency {
     let dateFormatter = DateFormatterService()
     let network = NetworkRequestor()
     let deepLinkHandler: DeepLinkHandler
-    let shareService = ShareService()
+    let metadata = MetadataService()
     
     // MARK: - Init
     init() {
@@ -64,7 +64,7 @@ final class DependencyContainer: Dependency {
         injectionFactory.add(handle: self.dateFormatter)
         injectionFactory.add(handle: self.network)
         injectionFactory.add(handle: self.deepLinkHandler)
-        injectionFactory.add(handle: self.shareService)
+        injectionFactory.add(handle: self.metadata)
     }
 }
 

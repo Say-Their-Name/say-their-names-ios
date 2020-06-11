@@ -24,10 +24,27 @@
 
 import Foundation
 
-public struct News: Decodable {
+struct News: Decodable {
     let url: String
 
     private enum CodingKeys: String, CodingKey {
         case url
+    }
+    
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        let url = try container.decodeIfPresent(String.self, forKey: .url) ?? ""
+        self.url = url.trimmingCharacters(in: .whitespaces)
+    }
+}
+
+extension News: Equatable, Hashable {
+    static func == (lhs: News, rhs: News) -> Bool {
+        return lhs.url == rhs.url
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(url)
     }
 }

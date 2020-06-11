@@ -36,4 +36,5 @@ struct FeatureFlags {
 
     /// Disabled for v1, might be revisited later
     static let carouselOnHome = false
+    static let callToActionCellImageShown = false
 }
