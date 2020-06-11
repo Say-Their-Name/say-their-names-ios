@@ -24,11 +24,21 @@
 
 import Foundation
 
-public struct Hashtag: Decodable {
+struct Hashtag: Decodable {
     let tag: String
     let link: String
 
     private enum CodingKeys: String, CodingKey {
         case tag, link
+    }
+}
+
+extension Hashtag: Equatable, Hashable {
+    static func == (lhs: Hashtag, rhs: Hashtag) -> Bool {
+        return lhs.tag == rhs.tag
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(tag)
     }
 }
