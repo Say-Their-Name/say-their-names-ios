@@ -21,6 +21,8 @@ class HashtagView: UIView {
         return label
     }()
 
+    private var originalText: String!
+    
     // MARK: - Initialization
     override init(frame: CGRect) {
         super.init(frame: .zero)
@@ -52,13 +54,19 @@ class HashtagView: UIView {
     }
     
     @objc private func copyHashtagToClipboard(gestureRecognizer: UIGestureRecognizer) {
+        
         if gestureRecognizer.state == UIGestureRecognizer.State.began {
             print("Copying \(hashtagLabel.text ?? "") to clipboard")
             let pasteBoard = UIPasteboard.general
             if let text = hashtagLabel.text {
-                pasteBoard.string = text
+                originalText = text
+                pasteBoard.string = originalText
+                hashtagLabel.text = "Copied"
             }
+        } else if gestureRecognizer.state == UIGestureRecognizer.State.ended {
+            hashtagLabel.text = originalText
         }
+        
     }
 
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
