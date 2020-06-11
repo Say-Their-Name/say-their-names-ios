@@ -37,10 +37,12 @@ internal enum L10n {
   internal static let findOutMore = L10n.tr("Localizable", "find_out_more")
   /// Home
   internal static let home = L10n.tr("Localizable", "home")
-  /// JOIN OUR SLACK CHANNEL
+  /// Joing our slack group
   internal static let joinSlack = L10n.tr("Localizable", "join_slack")
-  /// A MASSIVE THANK YOU TO EVERYONE INVOLVED
+  /// A massive thank you to everyone involved
   internal static let massiveThankYou = L10n.tr("Localizable", "massive_thank_you")
+  /// Follow Us
+    internal static let twitterFollowUs = L10n.tr("Localizable", "twitter_follow_us")
   /// Petitions
   internal static let petitions = L10n.tr("Localizable", "petitions")
   /// https://github.com/Say-Their-Name/say-their-names-ios
@@ -53,11 +55,31 @@ internal enum L10n {
   internal static let share = L10n.tr("Localizable", "share")
   /// https://saytheirnames.slack.com/join/shared_invite/zt-eqjuatz7-fgh3zPRXIKiiXsC1Vf3oZA#/
   internal static let slackUrl = L10n.tr("Localizable", "slack_url")
+  /// https://twitter.com/SayTheirName_io
+  internal static let twitterUrl = L10n.tr("Localizable", "twitter_url")
   /// verified
   internal static let verified = L10n.tr("Localizable", "verified")
   /// VIEW OUR REPO
   internal static let viewRepo = L10n.tr("Localizable", "view_repo")
+    
+  internal enum GetInvolved {
+    internal static let title = L10n.tr("Localizable", "get_involved.title")
+    internal static let button = L10n.tr("Localizable", "get_involved.button")
+    internal static let url = L10n.tr("Localizable", "get_involved.url")
+  }
+  
+  internal enum GetInvolvedRepo {
+    internal static let title = L10n.tr("Localizable", "get_involved_dev.title")
+    internal static let button = L10n.tr("Localizable", "get_involved_dev.button")
+    internal static let url = L10n.tr("Localizable", "get_involved_dev.url")
+  }
 
+  internal enum GetInvolvedTwitter {
+    internal static let title = L10n.tr("Localizable", "get_involved_twitter.title")
+    internal static let button = L10n.tr("Localizable", "get_involved_twitter.button")
+    internal static let url = L10n.tr("Localizable", "get_involved_twitter.url")
+  }
+    
   internal enum GetInvolvedDesign {
     /// HOW DO I GET INVOLVED AS A DESIGNER?
     internal static let title = L10n.tr("Localizable", "get_involved_design.title")
@@ -69,8 +91,10 @@ internal enum L10n {
   }
 
   internal enum MoreHistory {
-    /// SOME HISTORY ON THE SAY THEIR NAME MOVEMENT
-    internal static let title = L10n.tr("Localizable", "more_history.title")
+    /// About the project title
+    internal static let aboutTitle = L10n.tr("Localizable", "more_history.title")
+    /// About the project
+    internal static let aboutDesc = L10n.tr("Localizable", "more_history_desc")
   }
 
   internal enum Person {

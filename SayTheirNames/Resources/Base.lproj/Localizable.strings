@@ -33,11 +33,26 @@
 "person.news" = "News";
 "person.media" = "Media";
 "person.hashtags" = "Social Media Hashtags";
+
+"get_involved.title" = "HOW DO I GET INVOLVED";
+"get_involved.button" = "JOIN OUR SLACK CHANNEL";
+"get_involved.url" = "https://saytheirnames.slack.com/join/shared_invite/zt-eqjuatz7-fgh3zPRXIKiiXsC1Vf3oZA#/";
+
 "get_involved_dev.title" = "HOW DO I GET INVOLVED AS A DEVELOPER?";
-"get_involved_design.title" = "HOW DO I GET INVOLVED AS A DESIGNER?";
+"get_involved_dev.button" = "VIEW OUR REPO";
+"get_involved_dev.url" = "https://github.com/Say-Their-Name/say-their-names-ios";
+
+"get_involved_twitter.title" = "JOIN US ON TWITTER";
+"get_involved_twitter.button" = "FOLLOW US";
+"get_involved_twitter.url" = "https://twitter.com/SayTheirName_io";
+
 "view_repo" = "VIEW OUR REPO";
 "repo_url" = "https://github.com/Say-Their-Name/say-their-names-ios";
 "join_slack" = "JOIN OUR SLACK CHANNEL";
+"twitter_follow_us" = "FOLLOW US";
+"twitter_url" = "https://twitter.com/SayTheirName_io"; 
 "slack_url" = "https://saytheirnames.slack.com/join/shared_invite/zt-eqjuatz7-fgh3zPRXIKiiXsC1Vf3oZA#/";
 "more_history.title" = "SOME HISTORY ON THE SAY THEIR NAME MOVEMENT";
 "massive_thank_you" = "A MASSIVE THANK YOU TO EVERYONE INVOLVED";
+"more_history_desc" = "Say Their Names is a social movement to raise awareness for all the black victims of racial inequality all around the world. This movement is in support of the overall Black Lives Matter movement and aims to highlight individuals affected by anti-Black Violence. Say Their Names movement calls attention and demands justice for all victims.";
+

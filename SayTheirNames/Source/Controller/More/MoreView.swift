@@ -55,8 +55,9 @@ final class MoreView: UIView {
             arrangedSubviews:
             [moreCard,
              historySection(),
+             contributionSection(),
              developerSection(),
-             designerSection(),
+             
              thankYouLabel])
         
         contentView.axis = .vertical
@@ -65,9 +66,10 @@ final class MoreView: UIView {
         
         // scroll view
         let scrollView = UIScrollView(frame: frame)
+        scrollView.backgroundColor = STNAsset.Color.background.color
         scrollView.addSubview(contentView)
         addSubview(scrollView)
-        scrollView.backgroundColor = STNAsset.Color.background.color
+        
         scrollView.anchor(superView: self, top: topAnchor, leading: leadingAnchor,
                           bottom: bottomAnchor, trailing: trailingAnchor, padding: .zero, size: .zero)
         contentView.anchor(superView: scrollView, top: scrollView.topAnchor, leading: nil,
@@ -88,7 +90,7 @@ final class MoreView: UIView {
 private extension MoreView {
         
     private func historySection() -> UIStackView {
-        let stackCard = UIStackView(arrangedSubviews: [titleLabel(.history), descriptionLabel(.history)])
+        let stackCard = UIStackView(arrangedSubviews: [titleLabel(.history), descriptionLabel(.history, description: Strings.MoreHistory.aboutDesc)])
         stackCard.axis = .vertical
         stackCard.spacing = Theme.Components.Padding.small
         stackCard.translatesAutoresizingMaskIntoConstraints = false
@@ -105,8 +107,8 @@ private extension MoreView {
         return stackCard
     }
     
-    private func designerSection() -> UIStackView {
-        let stackCard = UIStackView(arrangedSubviews: [titleLabel(.designer), descriptionLabel(.designer), actionButton(.designer)])
+    private func contributionSection() -> UIStackView {
+        let stackCard = UIStackView(arrangedSubviews: [titleLabel(.contribution), descriptionLabel(.contribution), actionButton(.contribution)])
         stackCard.axis = .vertical
         stackCard.spacing = Theme.Components.Padding.small
         stackCard.translatesAutoresizingMaskIntoConstraints = false
@@ -124,32 +126,26 @@ private extension MoreView {
         
         switch section {
         case .history:
-            titleLabel.text = Strings.MoreHistory.title
+            titleLabel.text = Strings.MoreHistory.aboutTitle
+        case .contribution:
+            titleLabel.text = Strings.GetInvolved.title
         case .developer:
             titleLabel.text = Strings.GetInvolvedDev.title
-        case .designer:
-            titleLabel.text = Strings.GetInvolvedDesign.title
+        case .twitter:
+             titleLabel.text = Strings.GetInvolvedTwitter.title
         }
+        
         return titleLabel
     }
     
-    private func descriptionLabel(_ section: section) -> UILabel {
+    private func descriptionLabel(_ section: section, description: String = "") -> UILabel {
         let bodyLabel = UILabel()
         
         bodyLabel.translatesAutoresizingMaskIntoConstraints = false
         bodyLabel.textColor = STNAsset.Color.primaryLabel.color
         bodyLabel.font = UIFont.STN.ctaBody
-        bodyLabel.numberOfLines = Theme.Components.LineLimit.quintuple
-        
-        switch section {
-        case .history:
-            bodyLabel.text = "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturiasdlnalkd."
-        case .developer:
-            bodyLabel.text = "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis"
-        case .designer:
-            bodyLabel.text = "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis"
-        }
-        
+        bodyLabel.numberOfLines = Theme.Components.LineLimit.none
+        bodyLabel.text = description
         return bodyLabel
     }
     
@@ -164,19 +160,22 @@ private extension MoreView {
         actionButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
         switch section {
+        case .contribution:
+            actionButton.setTitle(Strings.joinSlack, for: .normal)
+            actionButton.addTarget(self, action: #selector(openSlackLink(sender:)), for: .touchUpInside)
         case .developer:
             actionButton.setTitle(Strings.viewRepo, for: .normal)
-            actionButton.addTarget(self, action: #selector(openRepo), for: .touchUpInside)
-        case .designer:
-            actionButton.setTitle(Strings.joinSlack, for: .normal)
-            actionButton.addTarget(self, action: #selector(openSlack), for: .touchUpInside)
+            actionButton.addTarget(self, action: #selector(openRepoLink(sender:)), for: .touchUpInside)
+        case .twitter:
+            actionButton.setTitle(Strings.twitterFollowUs, for: .normal)
+            actionButton.addTarget(self, action: #selector(openTwitterLink(sender:)), for: .touchUpInside)
         case .history: break
         }
         
         return actionButton
     }
     
-    @objc private func openRepo(sender: UIButton) {
+    @objc private func openRepoLink(sender: UIButton) {
         guard let repoURL = URL(string: Strings.repoUrl) else {
             assertionFailure("repoUrl was not generated")
             return
@@ -184,8 +183,17 @@ private extension MoreView {
         UIApplication.shared.open(repoURL)
     }
     
-    @objc private func openSlack(sender: UIButton) {
+    @objc private func openSlackLink(sender: UIButton) {
         guard let repoURL = URL(string: Strings.slackUrl) else {
+            assertionFailure("slackUrl was not generated")
+            return
+        }
+        UIApplication.shared.open(repoURL)
+    }
+ 
+    
+    @objc private func openTwitterLink(sender: UIButton) {
+        guard let repoURL = URL(string: Strings.twitterUrl) else {
             assertionFailure("slackUrl was not generated")
             return
         }
@@ -193,7 +201,7 @@ private extension MoreView {
     }
     
     enum section {
-        case developer, designer, history
+        case history, contribution, developer, twitter
     }
     
 }
