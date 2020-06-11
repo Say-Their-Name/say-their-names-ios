@@ -69,6 +69,13 @@ final class PetitionsController: UIViewController {
         setupPaginator()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if petitionsManager.hasAnyItems == false {
+            self.paginator.loadNextPage()
+        }
+    }
+    
     private func configure() {
         petitionsManager.cellForItem = { [unowned self] (collectionView, indexPath, petition) in
             let cell: CallToActionCell = collectionView.dequeueCell(for: indexPath)

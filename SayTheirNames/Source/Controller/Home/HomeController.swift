@@ -89,6 +89,11 @@ final class HomeController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        if peopleDataSourceHelper.hasAnyItems == false {
+            self.paginator.loadNextPage()
+        }
+
         // Select first location by default
         // FIXME: can have multiple selected. need one source-of-truth here.
         guard FeatureFlags.filtersEnabled else { return }

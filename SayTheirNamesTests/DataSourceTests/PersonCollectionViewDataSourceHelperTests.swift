@@ -54,6 +54,7 @@ class PersonCollectionViewDataSourceHelperTests: XCTestCase {
                       "Found incorrect sections")
         XCTAssertEqual(snapshot.itemIdentifiers(inSection: .main).count, 0, "Main section should have 0 items")
         XCTAssertEqual(snapshot.itemIdentifiers(inSection: .carousel).count, 0, "Carousel section should have 0 items")
+        XCTAssertFalse(sut.hasAnyItems)
     }
     
     func testSetPeopleAndCarouselNonEmptyPeople() {
@@ -65,6 +66,7 @@ class PersonCollectionViewDataSourceHelperTests: XCTestCase {
                       "Found incorrect sections")
         XCTAssertEqual(snapshot.itemIdentifiers(inSection: .main).count, 5, "Main section should have 5 items")
         XCTAssertEqual(snapshot.itemIdentifiers(inSection: .carousel).count, 0, "Carousel section should have 0 items")
+        XCTAssertTrue(sut.hasAnyItems)
     }
     
     func testSetPeopleAndCarouselNonEmptyCarousel() {
@@ -76,6 +78,7 @@ class PersonCollectionViewDataSourceHelperTests: XCTestCase {
                       "Found incorrect sections")
         XCTAssertEqual(snapshot.itemIdentifiers(inSection: .main).count, 0, "Main section should have 0 items")
         XCTAssertEqual(snapshot.itemIdentifiers(inSection: .carousel).count, 3, "Carousel section should have 3 items")
+        XCTAssertTrue(sut.hasAnyItems)
     }
     
     func testSetPeopleAndCarouselNonEmptyBoth() {
@@ -88,7 +91,7 @@ class PersonCollectionViewDataSourceHelperTests: XCTestCase {
                       "Found incorrect sections")
         XCTAssertEqual(snapshot.itemIdentifiers(inSection: .main).count, 5, "Main section should have 5 items")
         XCTAssertEqual(snapshot.itemIdentifiers(inSection: .carousel).count, 3, "Carousel section should have 3 items")
-
+        XCTAssertTrue(sut.hasAnyItems)
     }
     
     func testAppendPeopleToEmpty() {
@@ -102,6 +105,7 @@ class PersonCollectionViewDataSourceHelperTests: XCTestCase {
                       "Found incorrect sections")
         XCTAssertEqual(snapshot.itemIdentifiers(inSection: .main).count, 5, "Main section should have 5 items")
         XCTAssertEqual(snapshot.itemIdentifiers(inSection: .carousel).count, 0, "Carousel section should have 0 items")
+        XCTAssertTrue(sut.hasAnyItems)
     }
     
     func testAppendPeopleToNonEmpty() {
@@ -118,6 +122,7 @@ class PersonCollectionViewDataSourceHelperTests: XCTestCase {
                       "Found incorrect sections")
         XCTAssertEqual(snapshot.itemIdentifiers(inSection: .main).count, 5+9, "Main section should have 5+9=14 items")
         XCTAssertEqual(snapshot.itemIdentifiers(inSection: .carousel).count, 3, "Carousel section should still have 3 items")
+        XCTAssertTrue(sut.hasAnyItems)
     }
     
     func testPersonAtIndex() {

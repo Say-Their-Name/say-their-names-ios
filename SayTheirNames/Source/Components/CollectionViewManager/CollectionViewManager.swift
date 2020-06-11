@@ -42,7 +42,7 @@ class CollectionViewManager<Section: Hashable, Item: Hashable>: NSObject, UIColl
     var willDisplayCell: ((_ collectionView: UICollectionView, _ forItemAt: IndexPath) -> Void)?
     
     /// Collection view tied to the DataSource
-    private var collectionView: UICollectionView?
+    private(set) var collectionView: UICollectionView?
     /// Diffable DataSource responsible for managing snapshots
     private var dataSource: UICollectionViewDiffableDataSource<Section, Item>?
     
@@ -120,5 +120,14 @@ extension CollectionViewManager {
     func section(at index: Int) -> Section? {
         let allSections = dataSource?.snapshot().sectionIdentifiers
         return allSections?[index]
+    }
+}
+
+extension CollectionViewManager {
+    var hasAnyItems: Bool {
+        guard let allItems = dataSource?.snapshot().itemIdentifiers else {
+            return true
+        }
+        return allItems.isEmpty == false
     }
 }
