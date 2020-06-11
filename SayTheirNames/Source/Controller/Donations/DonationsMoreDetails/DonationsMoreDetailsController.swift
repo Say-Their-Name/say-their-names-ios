@@ -179,11 +179,16 @@ final class DonationsMoreDetailsController: UIViewController {
     }
     
     private func setupDonationButton() {
-        donationButtonContainerView.setButtonPressed {
-            // TODO: Donation button action
+        donationButtonContainerView.setButtonPressed { [weak self] in
+            guard let self = self else { return }
+            guard let donationURL = URL(string: self.donation.link) else {
+                       assertionFailure("Invalid donationURL")
+                       return
+                   }
+            UIApplication.shared.open(donationURL)
         }
         
-        donationButtonContainerView.setButtonTitle(L10n.viewGoFundMePage)
+        donationButtonContainerView.setButtonTitle(Strings.donateNow)
         donationButtonContainerView.translatesAutoresizingMaskIntoConstraints = false
         donationButtonContainerView.backgroundColor = UIColor(asset: STNAsset.Color.background)
         view.addSubview(donationButtonContainerView)
