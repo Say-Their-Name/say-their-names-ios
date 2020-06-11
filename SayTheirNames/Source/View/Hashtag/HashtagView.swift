@@ -79,7 +79,6 @@ class HashtagView: UIView {
     @objc private func copyHashtagToClipboard(gestureRecognizer: UIGestureRecognizer) {
         
         if gestureRecognizer.state == UIGestureRecognizer.State.began {
-            print("Copying \(hashtagLabel.text ?? "") to clipboard")
             let pasteBoard = UIPasteboard.general
             if let text = hashtagLabel.text {
                 originalText = text
