@@ -36,6 +36,8 @@
 "get_involved_dev.title" = "HOW DO I GET INVOLVED AS A DEVELOPER?";
 "get_involved_design.title" = "HOW DO I GET INVOLVED AS A DESIGNER?";
 "view_repo" = "VIEW OUR REPO";
+"repo_url" = "https://github.com/Say-Their-Name/say-their-names-ios";
 "join_slack" = "JOIN OUR SLACK CHANNEL";
+"slack_url" = "https://saytheirnames.slack.com/join/shared_invite/zt-eqjuatz7-fgh3zPRXIKiiXsC1Vf3oZA#/";
 "more_history.title" = "SOME HISTORY ON THE SAY THEIR NAME MOVEMENT";
 "massive_thank_you" = "A MASSIVE THANK YOU TO EVERYONE INVOLVED";

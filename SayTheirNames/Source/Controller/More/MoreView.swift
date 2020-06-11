@@ -166,12 +166,30 @@ private extension MoreView {
         switch section {
         case .developer:
             actionButton.setTitle(Strings.viewRepo, for: .normal)
+            actionButton.addTarget(self, action: #selector(openRepo), for: .touchUpInside)
         case .designer:
             actionButton.setTitle(Strings.joinSlack, for: .normal)
+            actionButton.addTarget(self, action: #selector(openSlack), for: .touchUpInside)
         case .history: break
         }
         
         return actionButton
+    }
+    
+    @objc private func openRepo(sender: UIButton) {
+        guard let repoURL = URL(string: Strings.repoUrl) else {
+            assertionFailure("repoUrl was not generated")
+            return
+        }
+        UIApplication.shared.open(repoURL)
+    }
+    
+    @objc private func openSlack(sender: UIButton) {
+        guard let repoURL = URL(string: Strings.slackUrl) else {
+            assertionFailure("slackUrl was not generated")
+            return
+        }
+        UIApplication.shared.open(repoURL)
     }
     
     enum section {
