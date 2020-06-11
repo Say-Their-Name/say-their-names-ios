@@ -68,7 +68,7 @@ internal enum L10n {
     internal static let url = L10n.tr("Localizable", "get_involved.url")
   }
   
-  internal enum GetInvolvedRepo {
+  internal enum GetInvolvedDev {
     internal static let title = L10n.tr("Localizable", "get_involved_dev.title")
     internal static let button = L10n.tr("Localizable", "get_involved_dev.button")
     internal static let url = L10n.tr("Localizable", "get_involved_dev.url")
@@ -84,11 +84,12 @@ internal enum L10n {
     /// HOW DO I GET INVOLVED AS A DESIGNER?
     internal static let title = L10n.tr("Localizable", "get_involved_design.title")
   }
-
-  internal enum GetInvolvedDev {
-    /// HOW DO I GET INVOLVED AS A DEVELOPER?
-    internal static let title = L10n.tr("Localizable", "get_involved_dev.title")
-  }
+    
+//
+//  internal enum GetInvolvedDev {
+//    /// HOW DO I GET INVOLVED AS A DEVELOPER?
+//    internal static let title = L10n.tr("Localizable", "get_involved_dev.title")
+//  }
 
   internal enum MoreHistory {
     /// About the project title

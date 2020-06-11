@@ -152,52 +152,39 @@ private extension MoreView {
     private func actionButton(_ section: section) -> UIButton {
         let actionButton = UIButton()
         actionButton.translatesAutoresizingMaskIntoConstraints = false
-
         actionButton.titleLabel?.font = UIFont.STN.sectionHeader
         actionButton.layer.borderWidth = 2
         actionButton.backgroundColor = STNAsset.Color.actionButton.color
         actionButton.setTitleColor(STNAsset.Color.actionButtonTint.color, for: .normal)
         actionButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
+        let tapGesture = STNTapGestureRecognizer(target: self, action: #selector(openLink(sender:)))
+        actionButton.addGestureRecognizer(tapGesture)
+        
         switch section {
         case .contribution:
             actionButton.setTitle(Strings.joinSlack, for: .normal)
-            actionButton.addTarget(self, action: #selector(openSlackLink(sender:)), for: .touchUpInside)
+            tapGesture.value = Strings.GetInvolved.url
         case .developer:
             actionButton.setTitle(Strings.viewRepo, for: .normal)
-            actionButton.addTarget(self, action: #selector(openRepoLink(sender:)), for: .touchUpInside)
+            tapGesture.value = Strings.GetInvolvedDev.url
         case .twitter:
             actionButton.setTitle(Strings.twitterFollowUs, for: .normal)
-            actionButton.addTarget(self, action: #selector(openTwitterLink(sender:)), for: .touchUpInside)
+            tapGesture.value = Strings.GetInvolvedTwitter.url
         case .history: break
         }
         
         return actionButton
     }
     
-    @objc private func openRepoLink(sender: UIButton) {
-        guard let repoURL = URL(string: Strings.repoUrl) else {
-            assertionFailure("repoUrl was not generated")
+    @objc private func openLink(sender: STNTapGestureRecognizer) {
+        guard let urlString = sender.value,
+            let url = URL(string: urlString) else {
+                assertionFailure("Failed to extract given url string: \(String(describing: sender.value))")
             return
         }
-        UIApplication.shared.open(repoURL)
-    }
-    
-    @objc private func openSlackLink(sender: UIButton) {
-        guard let repoURL = URL(string: Strings.slackUrl) else {
-            assertionFailure("slackUrl was not generated")
-            return
-        }
-        UIApplication.shared.open(repoURL)
-    }
- 
-    
-    @objc private func openTwitterLink(sender: UIButton) {
-        guard let repoURL = URL(string: Strings.twitterUrl) else {
-            assertionFailure("slackUrl was not generated")
-            return
-        }
-        UIApplication.shared.open(repoURL)
+        
+        UIApplication.shared.open(url)
     }
     
     enum section {
