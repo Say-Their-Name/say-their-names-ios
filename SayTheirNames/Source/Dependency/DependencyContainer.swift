@@ -37,6 +37,7 @@ final class DependencyContainer: Dependency {
     let network = NetworkRequestor()
     let deepLinkHandler: DeepLinkHandler
     let metadata = MetadataService()
+    let shareService = ShareService()
     
     // MARK: - Init
     init() {
@@ -65,6 +66,7 @@ final class DependencyContainer: Dependency {
         injectionFactory.add(handle: self.network)
         injectionFactory.add(handle: self.deepLinkHandler)
         injectionFactory.add(handle: self.metadata)
+        injectionFactory.add(handle: self.shareService)
     }
 }
 
