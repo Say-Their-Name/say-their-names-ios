@@ -65,7 +65,7 @@ final class PetitionsController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
-        navigationItem.title = Strings.petitions
+        navigationItem.title = Strings.petitions.localizedUppercase
         setupPaginator()
     }
     

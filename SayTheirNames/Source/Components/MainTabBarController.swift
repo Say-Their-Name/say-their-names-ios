@@ -117,7 +117,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
                 
         moreNC.tabBarItem.image = UIImage(asset: STNAsset.Image.settings)
         moreNC.tabBarItem.selectedImage = UIImage(asset: STNAsset.Image.settingsActive)
-        moreNC.tabBarItem.title = Strings.more
+        moreNC.tabBarItem.title = Strings.about
         moreNC.tabBarItem.imageInsets = UIEdgeInsets(top: Theme.Components.Padding.tiny)
         
         viewControllers = [homeNC, donationsNC, petitionsNC, moreNC]

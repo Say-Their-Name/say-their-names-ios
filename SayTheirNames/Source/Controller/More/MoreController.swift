@@ -24,6 +24,7 @@
 
 import UIKit
 
+/// About controller
 class MoreController: UIViewController {
     
     private let moreView = MoreView()
@@ -40,7 +41,7 @@ class MoreController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = Strings.more
+        navigationItem.title = Strings.about.localizedUppercase
     }
 
 }
