@@ -82,7 +82,7 @@ enum PersonCellType: Equatable {
 }
 
 // Alias for donation container view
-typealias DontainButtonContainerView = ButtonContainerView
+typealias DonationButtonContainerView = ButtonContainerView
 
 class PersonController: UIViewController {
     
@@ -90,7 +90,7 @@ class PersonController: UIViewController {
     public var person: Person!
     private var isLoading = true
     
-    private let donationButtonContainerView = DontainButtonContainerView(frame: .zero)
+    private let donationButtonContainerView = DonationButtonContainerView(frame: .zero)
     private let tableViewCells: [PersonCellType] = {
         return [.photo, .info, .story, .outcome, .news, .medias, .hashtags]
     }()
