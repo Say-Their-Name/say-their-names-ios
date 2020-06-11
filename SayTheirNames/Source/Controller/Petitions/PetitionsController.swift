@@ -36,7 +36,7 @@ final class PetitionsController: UIViewController {
     
     private let petitionsManager = PetitionsCollectionViewManager()
     private let ui = PetitionsView()
-    private var petitions: [Petition]?
+    
     private lazy var paginator: Paginator<Petition, PetitionsResponsePage> = initializePaginator()
 
     required init() {
@@ -73,17 +73,10 @@ final class PetitionsController: UIViewController {
         petitionsManager.cellForItem = { [unowned self] (collectionView, indexPath, petition) in
             let cell: CallToActionCell = collectionView.dequeueCell(for: indexPath)
             cell.configure(with: petition)
-            cell.executeAction = self.moreButtonPressed
+            cell.executeAction = { [weak self] id in
+               self?.showPetitionDetails(with: petition)
+            }
             return cell
-        }
-        petitionsManager.didSelectItem = { donation in
-            
-            // TODO: Move this out
-//            let detailVC = DonationsMoreDetailsController()
-//            detailVC.donation = donation
-//            let navigationController = UINavigationController(rootViewController: detailVC)
-//
-//            self.present(navigationController, animated: true, completion: nil)
         }
         
         petitionsManager.willDisplayCell = { [weak self] (collectionView, indexPath) in
@@ -102,7 +95,7 @@ final class PetitionsController: UIViewController {
     
     private func showPetitionDetails(with petition: Petition) {
         let detailVC = PetitionDetailViewController()
-        //detailVC.petition = withPetition
+        detailVC.petition = petition
         let navigationController = UINavigationController(rootViewController: detailVC)
         
         self.present(navigationController, animated: true, completion: nil)
@@ -118,14 +111,6 @@ final class PetitionsController: UIViewController {
         }
         
         paginator.loadNextPage()
-    }
-    
-    private lazy var moreButtonPressed: ((Int?) -> Void) = { [unowned self] id in
-        guard
-            let id = id,
-            let petition = self.petitions?.first(where: { $0.id == id })
-            else { return }
-        self.showPetitionDetails(with: petition)
     }
 }
 
