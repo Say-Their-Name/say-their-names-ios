@@ -41,7 +41,7 @@ class CustomSearchBar: UIView {
     }()
     private let cancelSearchButton: UIButton = {
         let button = UIButton()
-        button.setTitle(Strings.cancel, for: .normal)
+        button.setTitle(L10n.cancel, for: .normal)
         button.addTarget(self, action: #selector(hideSearchBar), for: .touchUpInside)
         return button
     }()

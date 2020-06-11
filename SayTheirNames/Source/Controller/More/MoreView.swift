@@ -44,7 +44,7 @@ final class MoreView: UIView {
         stack.translatesAutoresizingMaskIntoConstraints = false
         
         stack.addArrangedSubview(makeTitleLabel(for: .history))
-        stack.addArrangedSubview(makeDescriptionLabel(for: .history, with: Strings.MoreHistory.aboutDesc))
+        stack.addArrangedSubview(makeDescriptionLabel(for: .history, with: L10n.MoreHistory.aboutDesc))
         
         return stack
     }()
@@ -94,7 +94,7 @@ final class MoreView: UIView {
         label.textColor = STNAsset.Color.primaryLabel.color
         label.font = UIFont.STN.ctaTitle
         label.numberOfLines = Theme.Components.LineLimit.double
-        label.text = Strings.massiveThankYou
+        label.text = L10n.massiveThankYou
         return label
     }()
     
@@ -155,13 +155,13 @@ private extension MoreView {
         
         switch section {
         case .history:
-            label.text = Strings.MoreHistory.aboutTitle
+            label.text = L10n.MoreHistory.aboutTitle
         case .contribution:
-            label.text = Strings.GetInvolved.Slack.title
+            label.text = L10n.GetInvolved.Slack.title
         case .developer:
-            label.text = Strings.GetInvolved.Developer.title
+            label.text = L10n.GetInvolved.Developer.title
         case .twitter:
-            label.text = Strings.GetInvolved.Twitter.title
+            label.text = L10n.GetInvolved.Twitter.title
         }
         
         return label
@@ -188,13 +188,13 @@ private extension MoreView {
         
         switch section {
         case .contribution:
-            button.setTitle(Strings.GetInvolved.Slack.button, for: .normal)
+            button.setTitle(L10n.GetInvolved.Slack.button, for: .normal)
             button.addTarget(self, action: #selector(openSlackPage(_:)), for: .touchUpInside)
         case .developer:
-            button.setTitle(Strings.GetInvolved.Developer.button, for: .normal)
+            button.setTitle(L10n.GetInvolved.Developer.button, for: .normal)
             button.addTarget(self, action: #selector(openRepositoryPage(_:)), for: .touchUpInside)
         case .twitter:
-            button.setTitle(Strings.GetInvolved.Twitter.button, for: .normal)
+            button.setTitle(L10n.GetInvolved.Twitter.button, for: .normal)
             button.addTarget(self, action: #selector(openTwitterPage(_:)), for: .touchUpInside)
         case .history: break
         }
@@ -207,7 +207,7 @@ private extension MoreView {
 private extension MoreView {
     
     @objc func openSlackPage(_ sender: Any) {
-        guard let url = URL(string: Strings.GetInvolved.Slack.url) else {
+        guard let url = URL(string: L10n.GetInvolved.Slack.url) else {
             assertionFailure("Failed to create slack url")
             return
         }
@@ -216,7 +216,7 @@ private extension MoreView {
     }
     
     @objc func openTwitterPage(_ sender: Any) {
-        guard let url = URL(string: Strings.GetInvolved.Twitter.url) else {
+        guard let url = URL(string: L10n.GetInvolved.Twitter.url) else {
             assertionFailure("Failed to create twitter url")
             return
         }
@@ -225,7 +225,7 @@ private extension MoreView {
     }
     
     @objc func openRepositoryPage(_ sender: Any) {
-        guard let url = URL(string: Strings.GetInvolved.Developer.url) else {
+        guard let url = URL(string: L10n.GetInvolved.Developer.url) else {
             assertionFailure("Failed to create repo url")
             return
         }

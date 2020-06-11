@@ -83,7 +83,7 @@ extension Donation: Hashable {}
 
 extension Donation: CallToAction {
     var actionTitle: String {
-        Strings.findOutMore
+        L10n.findOutMore
     }
     var body: String {
         description

@@ -36,20 +36,22 @@
 "person.hashtags" = "Hashtags des réseaux sociaux";
 
 // Get Involved - Slack
-"get_involved.title" = "HOW DO I GET INVOLVED?";
-"get_involved.button" = "REJOINDRE NOTRE CANAL SUR SLACK";
-"get_involved.url" = "https://saytheirnames.slack.com/join/shared_invite/zt-eqjuatz7-fgh3zPRXIKiiXsC1Vf3oZA#/";
+"get_involved.slack.title" = "COMMENT PARTICIPER ?";
+"get_involved.slack.button" = "JOINDRE LE CANAL SLACK";
+"get_involved.slack.url" = "https://saytheirnames.slack.com/join/shared_invite/zt-eqjuatz7-fgh3zPRXIKiiXsC1Vf3oZA#/";
 
 // Get Involved - Developer
-"get_involved_dev.title" = "Participer en tant que développeur web?";
-"get_involved_dev.button" = "VOIR LE CODE SOURCE";
-"get_involved_dev.url" = "https://github.com/Say-Their-Name/";
+"get_involved.developer.title" = "PARTICIPER EN TANT QUE DÉVELOPPEUR WEB?";
+"get_involved.developer.button" = "VOIR LE CODE SOURCE";
+"get_involved.developer.url" = "https://github.com/Say-Their-Name/";
 
 // Get Involved - Twitter
-"get_involved_twitter.title" = "JOIN US ON TWITTER";
-"get_involved_twitter.button" = "FOLLOW US";
-"get_involved_twitter.url" = "https://twitter.com/SayTheirName_io";
+"get_involved.twitter.title" = "VENEZ NOUS REJOINDRE SUR TWITTER";
+"get_involved.twitter.button" = "SUIVEZ NOUS";
+"get_involved.twitter.url" = "https://twitter.com/SayTheirName_io";
 
-"more_history.title" = "L'HISTOIRE DU MOUVEMENT DIS LEURS NOMS";
+// More
+"more_history.aboutTitle" = "L'HISTOIRE DU MOUVEMENT DIS LEURS NOMS";
+"more_history.aboutDesc" = "Say Their Names is a social movement to raise awareness for all the black victims of racial inequality all around the world. This movement is in support of the overall Black Lives Matter movement and aims to highlight individuals affected by anti-Black Violence. Say Their Names movement calls attention and demands justice for all victims.";
+
 "massive_thank_you" = "UN GRAND MERCI A TOUS LES CONTRIBUTEURS";
-"more_history.desc" = "Say Their Names is a social movement to raise awareness for all the black victims of racial inequality all around the world. This movement is in support of the overall Black Lives Matter movement and aims to highlight individuals affected by anti-Black Violence. Say Their Names movement calls attention and demands justice for all victims.";

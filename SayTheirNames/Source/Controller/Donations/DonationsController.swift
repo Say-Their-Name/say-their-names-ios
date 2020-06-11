@@ -62,7 +62,7 @@ final class DonationsController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = Strings.donations.localizedUppercase
+        navigationItem.title = L10n.donations.localizedUppercase
         configure()
         setupPaginator()
     }
