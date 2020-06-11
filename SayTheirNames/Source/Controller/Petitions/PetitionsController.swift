@@ -101,8 +101,7 @@ final class PetitionsController: UIViewController {
     }
     
     private func showPetitionDetails(with petition: Petition) {
-        let detailVC = DonationsMoreDetailsController()
-        detailVC.data = .petition(petition)
+        let detailVC = DonationsMoreDetailsController(data: .petition(petition))
         let navigationController = UINavigationController(rootViewController: detailVC)
         
         self.present(navigationController, animated: true, completion: nil)

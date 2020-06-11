@@ -45,6 +45,8 @@ extension Donation: CommunitySupportEntity {
 extension Petition: CommunitySupportEntity {
 }
 
+// MARK: -
+
 final class DonationsMoreDetailsController: UIViewController {
 
     enum Data {
@@ -85,7 +87,7 @@ final class DonationsMoreDetailsController: UIViewController {
     static let sectionTitleSupplementaryView = "sectionTitle"
     
     // MARK: - Property
-    var data: Data!
+    private(set) var data: Data
     
     internal let emptyKind = "empty-kind"
     internal let emptyCellIdentifier = "empty-cell-identifier"
@@ -97,10 +99,12 @@ final class DonationsMoreDetailsController: UIViewController {
     ]
 
     // MARK: - Initialization
-    required init() {
+    required init(data: Data) {
+        self.data = data
         super.init(nibName: nil, bundle: nil)
     }
     
+    @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -134,7 +138,7 @@ final class DonationsMoreDetailsController: UIViewController {
         view.accessibilityIdentifier = AccessibilityIdentifers.view
         donationButtonContainerView.accessibilityIdentifier = AccessibilityIdentifers.donationButtonContainerView
              
-        switch data! {
+        switch data {
             
         case .petition(let petition):
             self.network.fetchPetitionDetails(with: petition.identifier) { [weak self] (result) in
@@ -238,8 +242,7 @@ final class DonationsMoreDetailsController: UIViewController {
             UIApplication.shared.open(donationURL)
         }
         
-
-        switch data! {
+        switch data {
         case .donation:
             donationButtonContainerView.setButtonTitle(L10n.donateNow)
         case .petition:
