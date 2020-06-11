@@ -62,7 +62,7 @@ final class DonationsController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = Strings.donations.localizedUppercase
+        navigationItem.title = L10n.donations.localizedUppercase
         configure()
         setupPaginator()
     }
@@ -109,8 +109,7 @@ final class DonationsController: UIViewController {
     }
     
     private func showDonationsDetail(with donation: Donation) {
-        let detailVC = DonationsMoreDetailsController()
-        detailVC.donation = donation
+        let detailVC = DonationsMoreDetailsController(data: .donation(donation))
         let navigationController = UINavigationController(rootViewController: detailVC)
         self.present(navigationController, animated: true, completion: nil)
     }

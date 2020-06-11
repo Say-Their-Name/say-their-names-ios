@@ -72,7 +72,7 @@ struct Donation: Decodable {
         self.link = try container.decodeIfPresent(String.self, forKey: .link) ?? ""
         self.outcomeImagePath = try container.decodeIfPresent(String.self, forKey: .outcomeImagePath) ?? ""
         self.person = try container.decodeIfPresent(Person.self, forKey: .person) ?? Person(from: decoder)
-        self.type = try container.decodeIfPresent(DonationType.self, forKey: .type) ?? DonationType()
+        self.type = try container.decodeIfPresent(DonationType.self, forKey: .type) 
         self.bannerImagePath = try container.decodeIfPresent(String.self, forKey: .bannerImagePath) ?? ""
         self.shareable = try container.decodeIfPresent(Shareable.self, forKey: .shareable) ?? Shareable()
         self.hashtags = try container.decodeIfPresent([Hashtag].self, forKey: .hashtags) ?? []
@@ -83,7 +83,7 @@ extension Donation: Hashable {}
 
 extension Donation: CallToAction {
     var actionTitle: String {
-        Strings.findOutMore
+        L10n.findOutMore
     }
     var body: String {
         description
