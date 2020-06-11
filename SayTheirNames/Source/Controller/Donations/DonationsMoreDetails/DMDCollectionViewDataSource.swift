@@ -67,7 +67,7 @@ extension DonationsMoreDetailsController: UICollectionViewDataSource {
             return hashtagCell
             
         default:
-            let cell: EmptyUICollectionViewCell = collectionView.dequeueCell(for: indexPath)
+            let cell: UICollectionViewCell = collectionView.dequeueCell(for: indexPath)
             return cell
         }
     }
@@ -107,8 +107,8 @@ extension DonationsMoreDetailsController: UICollectionViewDataSource {
                 
                 return titleView
         default:
-            let cell: EmptyUICollectionReusableView = collectionView.dequeueReusableSupplementaryView(forKind: emptyKind, for: indexPath)
-            return cell
+            let view: UICollectionReusableView = collectionView.dequeueReusableSupplementaryView(forKind: emptyKind, for: indexPath)
+            return view
         }
     }
     

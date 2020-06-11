@@ -132,11 +132,11 @@ final class DonationsMoreDetailsController: UIViewController {
         
         setupDonationButton()
 
-        collectionView.register(cellType: EmptyUICollectionViewCell.self)
+        collectionView.register(cellType: UICollectionViewCell.self)
         collectionView.register(cellType: DMDTitleCell.self)
         collectionView.register(cellType: DMDTextContentCell.self)
         collectionView.register(cellType: HashtagViewCollectionViewCell.self)
-        collectionView.registerReusableSupplementaryView(reusableViewType: EmptyUICollectionReusableView.self,
+        collectionView.registerReusableSupplementaryView(reusableViewType: UICollectionReusableView.self,
                                                          forKind: emptyKind)
         collectionView.registerReusableSupplementaryView(reusableViewType: DMDPhotoSupplementaryView.self,
                                                          forKind: DonationsMoreDetailsController.photoSupplementaryView)
