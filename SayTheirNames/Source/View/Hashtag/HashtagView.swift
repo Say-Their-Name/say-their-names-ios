@@ -39,7 +39,7 @@ class HashtagView: UIView {
         return label
     }()
 
-    private var originalText: String!
+    private var originalText = "#JUSTICEFORFIRST"
     
     // MARK: - Initialization
     override init(frame: CGRect) {
