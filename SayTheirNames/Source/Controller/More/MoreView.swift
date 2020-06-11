@@ -29,6 +29,14 @@ final class MoreView: UIView {
     
     private let moreCard = MoreCard()
     
+    /// Diplayed sections
+    enum MoreSection {
+        case history
+        case contribution
+        case developer
+        case twitter
+    }
+    
     private lazy var thankYouLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -57,7 +65,7 @@ final class MoreView: UIView {
              historySection(),
              contributionSection(),
              developerSection(),
-             
+             twitterSection(),
              thankYouLabel])
         
         contentView.axis = .vertical
@@ -90,16 +98,8 @@ final class MoreView: UIView {
 private extension MoreView {
         
     private func historySection() -> UIStackView {
-        let stackCard = UIStackView(arrangedSubviews: [titleLabel(.history), descriptionLabel(.history, description: Strings.MoreHistory.aboutDesc)])
-        stackCard.axis = .vertical
-        stackCard.spacing = Theme.Components.Padding.small
-        stackCard.translatesAutoresizingMaskIntoConstraints = false
-        
-        return stackCard
-    }
-    
-    private func developerSection() -> UIStackView {
-        let stackCard = UIStackView(arrangedSubviews: [titleLabel(.developer), descriptionLabel(.developer), actionButton(.developer)])
+        let stackCard = UIStackView(arrangedSubviews: [titleLabel(.history),
+                                                       descriptionLabel(.history, description: Strings.MoreHistory.aboutDesc)])
         stackCard.axis = .vertical
         stackCard.spacing = Theme.Components.Padding.small
         stackCard.translatesAutoresizingMaskIntoConstraints = false
@@ -108,7 +108,8 @@ private extension MoreView {
     }
     
     private func contributionSection() -> UIStackView {
-        let stackCard = UIStackView(arrangedSubviews: [titleLabel(.contribution), descriptionLabel(.contribution), actionButton(.contribution)])
+        let stackCard = UIStackView(arrangedSubviews: [titleLabel(.contribution),
+                                                       descriptionLabel(.contribution), actionButton(.contribution)])
         stackCard.axis = .vertical
         stackCard.spacing = Theme.Components.Padding.small
         stackCard.translatesAutoresizingMaskIntoConstraints = false
@@ -116,7 +117,27 @@ private extension MoreView {
         return stackCard
     }
     
-    private func titleLabel(_ section: section) -> UILabel {
+    private func developerSection() -> UIStackView {
+        let stackCard = UIStackView(arrangedSubviews: [titleLabel(.developer),
+                                                       descriptionLabel(.developer), actionButton(.developer)])
+        stackCard.axis = .vertical
+        stackCard.spacing = Theme.Components.Padding.small
+        stackCard.translatesAutoresizingMaskIntoConstraints = false
+        
+        return stackCard
+    }
+    
+    private func twitterSection() -> UIStackView {
+        let stackCard = UIStackView(arrangedSubviews: [titleLabel(.twitter),
+                                                       descriptionLabel(.twitter), actionButton(.twitter)])
+        stackCard.axis = .vertical
+        stackCard.spacing = Theme.Components.Padding.small
+        stackCard.translatesAutoresizingMaskIntoConstraints = false
+        
+        return stackCard
+    }
+    
+    private func titleLabel(_ section: MoreSection) -> UILabel {
         let titleLabel = UILabel()
         
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -138,7 +159,7 @@ private extension MoreView {
         return titleLabel
     }
     
-    private func descriptionLabel(_ section: section, description: String = "") -> UILabel {
+    private func descriptionLabel(_ section: MoreSection, description: String = "") -> UILabel {
         let bodyLabel = UILabel()
         
         bodyLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -149,7 +170,7 @@ private extension MoreView {
         return bodyLabel
     }
     
-    private func actionButton(_ section: section) -> UIButton {
+    private func actionButton(_ section: MoreSection) -> UIButton {
         let actionButton = UIButton()
         actionButton.translatesAutoresizingMaskIntoConstraints = false
         actionButton.titleLabel?.font = UIFont.STN.sectionHeader
@@ -163,13 +184,13 @@ private extension MoreView {
         
         switch section {
         case .contribution:
-            actionButton.setTitle(Strings.joinSlack, for: .normal)
+            actionButton.setTitle(Strings.GetInvolved.button, for: .normal)
             tapGesture.value = Strings.GetInvolved.url
         case .developer:
-            actionButton.setTitle(Strings.viewRepo, for: .normal)
+            actionButton.setTitle(Strings.GetInvolvedDev.button, for: .normal)
             tapGesture.value = Strings.GetInvolvedDev.url
         case .twitter:
-            actionButton.setTitle(Strings.twitterFollowUs, for: .normal)
+            actionButton.setTitle(Strings.GetInvolvedTwitter.button, for: .normal)
             tapGesture.value = Strings.GetInvolvedTwitter.url
         case .history: break
         }
@@ -186,9 +207,4 @@ private extension MoreView {
         
         UIApplication.shared.open(url)
     }
-    
-    enum section {
-        case history, contribution, developer, twitter
-    }
-    
 }
