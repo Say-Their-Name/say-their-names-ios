@@ -81,7 +81,7 @@ final class HomeController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = UIColor(asset: STNAsset.Color.black)
         searchBar.setup(withController: self)
-        navigationItem.title = Strings.sayTheirNames.localizedUppercase
+        navigationItem.title = L10n.sayTheirNames.localizedUppercase
         setupCollectionView()
         setupSearchButton()
         setupPaginator()

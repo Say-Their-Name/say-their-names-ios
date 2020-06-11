@@ -102,22 +102,22 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
                                     
         homeNC.tabBarItem.image = UIImage(asset: STNAsset.Image.gallery)
         homeNC.tabBarItem.selectedImage = UIImage(asset: STNAsset.Image.galleryActive)
-        homeNC.tabBarItem.title = Strings.home
+        homeNC.tabBarItem.title = L10n.home
         homeNC.tabBarItem.imageInsets = UIEdgeInsets(top: Theme.Components.Padding.tiny)
         
         donationsNC.tabBarItem.image = UIImage(asset: STNAsset.Image.heart)
         donationsNC.tabBarItem.selectedImage = UIImage(asset: STNAsset.Image.heartActive)
-        donationsNC.tabBarItem.title = Strings.donations
+        donationsNC.tabBarItem.title = L10n.donations
         donationsNC.tabBarItem.imageInsets = UIEdgeInsets(top: Theme.Components.Padding.tiny)
                        
         petitionsNC.tabBarItem.image = UIImage(asset: STNAsset.Image.petition)
         petitionsNC.tabBarItem.selectedImage = UIImage(asset: STNAsset.Image.petitionActive)
-        petitionsNC.tabBarItem.title = Strings.petitions
+        petitionsNC.tabBarItem.title = L10n.petitions
         petitionsNC.tabBarItem.imageInsets = UIEdgeInsets(top: Theme.Components.Padding.tiny)
                 
         moreNC.tabBarItem.image = UIImage(asset: STNAsset.Image.settings)
         moreNC.tabBarItem.selectedImage = UIImage(asset: STNAsset.Image.settingsActive)
-        moreNC.tabBarItem.title = Strings.about
+        moreNC.tabBarItem.title = L10n.about
         moreNC.tabBarItem.imageInsets = UIEdgeInsets(top: Theme.Components.Padding.tiny)
         
         viewControllers = [homeNC, donationsNC, petitionsNC, moreNC]

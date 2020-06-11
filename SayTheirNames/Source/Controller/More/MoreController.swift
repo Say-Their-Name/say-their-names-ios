@@ -41,7 +41,7 @@ class MoreController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = Strings.about.localizedUppercase
+        navigationItem.title = L10n.about.localizedUppercase
     }
 
 }

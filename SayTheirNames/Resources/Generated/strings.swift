@@ -39,7 +39,7 @@ internal enum L10n {
   internal static let findOutMore = L10n.tr("Localizable", "find_out_more")
   /// Home
   internal static let home = L10n.tr("Localizable", "home")
-  /// A massive thank you to everyone involved
+  /// A MASSIVE THANK YOU TO EVERYONE INVOLVED
   internal static let massiveThankYou = L10n.tr("Localizable", "massive_thank_you")
   /// Petitions
   internal static let petitions = L10n.tr("Localizable", "petitions")
@@ -52,35 +52,40 @@ internal enum L10n {
   /// verified
   internal static let verified = L10n.tr("Localizable", "verified")
 
-  /// Get Involved
   internal enum GetInvolved {
-    
-    enum Slack {
-        internal static let title = L10n.tr("Localizable", "get_involved.title")
-        internal static let button = L10n.tr("Localizable", "get_involved.button")
-        internal static let url = L10n.tr("Localizable", "get_involved.url")
+    internal enum Developer {
+      /// VIEW OUR GITHUB
+      internal static let button = L10n.tr("Localizable", "get_involved.developer.button")
+      /// HOW DO I GET INVOLVED AS A DEVELOPER?
+      internal static let title = L10n.tr("Localizable", "get_involved.developer.title")
+      /// https://github.com/Say-Their-Name/
+      internal static let url = L10n.tr("Localizable", "get_involved.developer.url")
     }
-    
-    enum Developer {
-        internal static let title = L10n.tr("Localizable", "get_involved_dev.title")
-        internal static let button = L10n.tr("Localizable", "get_involved_dev.button")
-        internal static let url = L10n.tr("Localizable", "get_involved_dev.url")
+    internal enum Slack {
+      /// JOIN OUR SLACK CHANNEL
+      internal static let button = L10n.tr("Localizable", "get_involved.slack.button")
+      /// HOW DO I GET INVOLVED?
+      internal static let title = L10n.tr("Localizable", "get_involved.slack.title")
+      /// https://saytheirnames.slack.com/join/shared_invite/zt-eqjuatz7-fgh3zPRXIKiiXsC1Vf3oZA#/
+      internal static let url = L10n.tr("Localizable", "get_involved.slack.url")
     }
-   
-    enum Twitter {
-        internal static let title = L10n.tr("Localizable", "get_involved_twitter.title")
-        internal static let button = L10n.tr("Localizable", "get_involved_twitter.button")
-        internal static let url = L10n.tr("Localizable", "get_involved_twitter.url")
+    internal enum Twitter {
+      /// FOLLOW US
+      internal static let button = L10n.tr("Localizable", "get_involved.twitter.button")
+      /// JOIN US ON TWITTER
+      internal static let title = L10n.tr("Localizable", "get_involved.twitter.title")
+      /// https://twitter.com/SayTheirName_io
+      internal static let url = L10n.tr("Localizable", "get_involved.twitter.url")
     }
   }
-  
+
   internal enum MoreHistory {
-    /// About the project title
-    internal static let aboutTitle = L10n.tr("Localizable", "more_history.title")
-    /// About the project
-    internal static let aboutDesc = L10n.tr("Localizable", "more_history_desc")
+    /// Say Their Names is a social movement to raise awareness for all the black victims of racial inequality all around the world. This movement is in support of the overall Black Lives Matter movement and aims to highlight individuals affected by anti-Black Violence. Say Their Names movement calls attention and demands justice for all victims.
+    internal static let aboutDesc = L10n.tr("Localizable", "more_history.aboutDesc")
+    /// SOME HISTORY ON THE SAY THEIR NAME MOVEMENT
+    internal static let aboutTitle = L10n.tr("Localizable", "more_history.aboutTitle")
   }
-  
+
   internal enum Person {
     /// Age
     internal static let age = L10n.tr("Localizable", "person.age")
