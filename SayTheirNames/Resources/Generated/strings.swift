@@ -91,12 +91,12 @@ internal enum L10n {
     internal static let age = L10n.tr("Localizable", "person.age")
     /// Children
     internal static let children = L10n.tr("Localizable", "person.children")
-    /// Social Media Hashtags
-    internal static let hashtags = L10n.tr("Localizable", "person.hashtags")
-    /// Press and hold to copy
-    internal static let hashtagCopyTip = L10n.tr("Localizable", "person.hashtagCopyTip")
     /// Copied
     internal static let copied = L10n.tr("Localizable", "person.copied")
+    /// Press and hold to copy
+    internal static let hashtagCopyTip = L10n.tr("Localizable", "person.hashtagCopyTip")
+    /// Social Media Hashtags
+    internal static let hashtags = L10n.tr("Localizable", "person.hashtags")
     /// Location
     internal static let location = L10n.tr("Localizable", "person.location")
     /// Media
