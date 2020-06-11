@@ -85,6 +85,8 @@ internal enum L10n {
     internal static let hashtags = L10n.tr("Localizable", "person.hashtags")
     /// Press and hold to copy
     internal static let hashtagCopyTip = L10n.tr("Localizable", "person.hashtagCopyTip")
+    /// Copied
+    internal static let copied = L10n.tr("Localizable", "person.copied")
     /// Location
     internal static let location = L10n.tr("Localizable", "person.location")
     /// Media

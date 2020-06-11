@@ -84,7 +84,7 @@ class HashtagView: UIView {
                 originalText = text
                 pasteBoard.string = originalText
                 UIView.animate(withDuration: 0.5) {
-                    self.hashtagLabel.text = "Copied"
+                    self.hashtagLabel.text = L10n.Person.copied.localizedUppercase
                     //Swapping the text and background color so indicate something has changed
                     self.backgroundColor = UIColor(asset: STNAsset.Color.strongHeader)
                     self.hashtagLabel.textColor = UIColor(asset: STNAsset.Color.background)
