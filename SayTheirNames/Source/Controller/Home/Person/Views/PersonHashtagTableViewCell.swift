@@ -24,9 +24,14 @@
 
 import UIKit
 
+protocol PersonHashtagCollectionViewCellDelegate: class {
+    func didTapHashtag(_ hashtag: Hashtag)
+}
+
 class PersonHashtagTableViewCell: UITableViewCell {
     
     private let hashtagSizeModel = HashtagSizingModel()
+    weak var cellDelegate: PersonHashtagCollectionViewCellDelegate?
 
     static var reuseIdentifier: String {
         return "\(Self.self)"
@@ -147,11 +152,8 @@ extension PersonHashtagTableViewCell: UICollectionViewDelegate, UICollectionView
         return cell
     }
     
-    // Add spaces at the beginning and the end of the collection view
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        insetForSectionAt section: Int) -> UIEdgeInsets {
-        return .zero
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let hashtag = self.hashtags[indexPath.row]
+        self.cellDelegate?.didTapHashtag(hashtag)
     }
-    
 }

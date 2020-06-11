@@ -282,6 +282,7 @@ extension PersonController: UITableViewDataSource {
             return cell
         case .hashtags:
             let hashtagsCell = cell as! PersonHashtagTableViewCell
+            hashtagsCell.cellDelegate = self
             hashtagsCell.configure(with: person.hashtags)
             hashtagsCell.registerCell(with: PersonHashtagCollectionViewCell.self)
             return hashtagsCell
@@ -289,7 +290,7 @@ extension PersonController: UITableViewDataSource {
     }
 }
 
-// MARK: - PersonCollectionViewCellDelegate
+// MARK: PersonCollectionViewCellDelegate
 
 extension PersonController: PersonCollectionViewCellDelegate {
     
@@ -303,5 +304,18 @@ extension PersonController: PersonCollectionViewCellDelegate {
     
     func didTapMediaItem(_ media: Media) {
         print("Did tap media")
+    }
+}
+
+// MARK: PersonHashtagCollectionViewCellDelegate
+
+extension PersonController: PersonHashtagCollectionViewCellDelegate {
+    
+    func didTapHashtag(_ hashtag: Hashtag) {
+        if let url = URL(string: hashtag.link) {
+            let vc = SFSafariViewController(url: url)
+            vc.modalPresentationStyle = .overFullScreen
+            self.present(vc, animated: true)
+        }
     }
 }
