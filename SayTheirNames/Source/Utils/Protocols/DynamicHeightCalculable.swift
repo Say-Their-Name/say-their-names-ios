@@ -1,5 +1,5 @@
 //
-//  DMDHashtagCell.swift
+//  DynamicHeightCalculable.swift
 //  SayTheirNames
 //
 //  Copyright (c) 2020 Say Their Names Team (https://github.com/Say-Their-Name)
@@ -24,26 +24,6 @@
 
 import UIKit
 
-class DMDHashtagCell: UICollectionViewCell {
-    // MARK: - Property
-    static let reuseIdentifier = "donations-more-details-hashtag-cell"
-    
-    // MARK: - View
-    let hashtagView = HashtagView(frame: .zero)
-    
-    // MARK: - Initialization
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        
-        configureCell()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    // MARK: - Configure Cell
-    private func configureCell() {
-        hashtagView.fillSuperview(superView: self)
-    }
+protocol DynamicHeightCalculable {
+    func height(forWidth: CGFloat) -> CGFloat
 }

@@ -30,8 +30,7 @@ extension DonationsResponsePage: PaginatorResponsePage {
 
 final class DonationsController: UIViewController {
 
-    @DependencyInject
-    private var network: NetworkRequestor
+    @DependencyInject private var network: NetworkRequestor
     
     private let donationManager = DonationsCollectionViewManager()
     private let filterManager = DonationFilterViewManager()
@@ -127,14 +126,6 @@ final class DonationsController: UIViewController {
         
         paginator.loadNextPage()
     }
-    
-    private func showDontationsDetails(withDonation: Donation) {
-        let detailVC = DonationsMoreDetailsController()
-        detailVC.donation = withDonation
-        let navigationController = UINavigationController(rootViewController: detailVC)
-        
-        self.present(navigationController, animated: true)
-    }
 }
 
 extension DonationsController: DeepLinkPresenter {
@@ -144,7 +135,7 @@ extension DonationsController: DeepLinkPresenter {
         self.network.fetchDonationDetails(with: deepLink.value) { [weak self] in
             switch $0 {
             case .success(let page):
-                self?.showDontationsDetails(withDonation: page.donation)
+                self?.showDonationsDetail(with: page.donation)
 
             case .failure(let error):
                 Log.print(error)

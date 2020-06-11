@@ -26,6 +26,7 @@ import UIKit
 
 final class DonationsMoreDetailsController: UIViewController {
 
+    @DependencyInject private var network: NetworkRequestor
     @DependencyInject private var shareService: ShareService
 
     // MARK: - Section Layout Kind
@@ -93,8 +94,26 @@ final class DonationsMoreDetailsController: UIViewController {
         configureSubview()
         setupNavigationBarItems()
         collectionView.dataSource = self
+        collectionView.delegate = self
+
         view.accessibilityIdentifier = AccessibilityIdentifers.view
         donationButtonContainerView.accessibilityIdentifier = AccessibilityIdentifers.donationButtonContainerView
+        
+        // Fetch Donation Details
+        self.network.fetchDonationDetails(with: donation.identifier) { [weak self] in
+            switch $0 {
+            case .success(let page):
+                self?.configure(with: page.donation)
+
+            case .failure(let error):
+                Log.print(error)
+             }
+        }
+    }
+    
+    private func configure(with donation: Donation) {
+        self.donation = donation
+        self.collectionView.reloadData()
     }
     
     // MARK: - Class Method
@@ -118,7 +137,7 @@ final class DonationsMoreDetailsController: UIViewController {
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: emptyCellIdentifier)
         collectionView.register(DMDTitleCell.self, forCellWithReuseIdentifier: DMDTitleCell.reuseIdentifier)
         collectionView.register(DMDTextContentCell.self, forCellWithReuseIdentifier: DMDTextContentCell.reuseIdentifier)
-        collectionView.register(DMDHashtagCell.self, forCellWithReuseIdentifier: DMDHashtagCell.reuseIdentifier)
+        collectionView.register(HashtagViewCollectionViewCell.self, forCellWithReuseIdentifier: HashtagViewCollectionViewCell.reuseIdentifier)
         collectionView.register(UICollectionReusableView.self,
                                 forSupplementaryViewOfKind: emptyKind,
                                 withReuseIdentifier: emptyViewIdentifier)
@@ -184,5 +203,19 @@ final class DonationsMoreDetailsController: UIViewController {
     @objc func shareAction(_ sender: Any) {
         self.present(self.shareService.share(items: [self.donation.shareable]), animated: true)
     }
+}
+
+// MARK: UICollectionViewDelegate
+
+extension DonationsMoreDetailsController: UICollectionViewDelegate {
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if indexPath.section == DonationSectionLayoutKind.socialMedia.rawValue {
+            let hashtag = donation.hashtags[indexPath.row]
+            
+            if let url = URL(string: hashtag.link) {
+                UIApplication.shared.open(url)
+            }
+        }
+    }
 }

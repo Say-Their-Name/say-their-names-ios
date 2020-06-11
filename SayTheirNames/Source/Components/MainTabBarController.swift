@@ -89,16 +89,16 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
 
     @objc fileprivate func setupTabViews() {
         let homeController = HomeController()
-        let homeNC = UINavigationController(rootViewController: homeController)
+        let homeNC = CustomNavigationController(rootViewController: homeController)
         
         let donationsController = DonationsController()
-        let donationsNC = UINavigationController(rootViewController: donationsController)
+        let donationsNC = CustomNavigationController(rootViewController: donationsController)
         
         let petitionsController = PetitionsController()
-        let petitionsNC = UINavigationController(rootViewController: petitionsController)
+        let petitionsNC = CustomNavigationController(rootViewController: petitionsController)
         
         let moreController = MoreController()
-        let moreNC = UINavigationController(rootViewController: moreController)
+        let moreNC = CustomNavigationController(rootViewController: moreController)
                                     
         homeNC.tabBarItem.image = UIImage(asset: STNAsset.Image.gallery)
         homeNC.tabBarItem.selectedImage = UIImage(asset: STNAsset.Image.galleryActive)
