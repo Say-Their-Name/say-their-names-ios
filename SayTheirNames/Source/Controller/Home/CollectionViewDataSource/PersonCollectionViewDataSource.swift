@@ -104,4 +104,9 @@ final class PersonCollectionViewDataSourceHelper {
         let allSections = dataSource.snapshot().sectionIdentifiers
         return allSections[index]
     }
+    
+    var hasAnyItems: Bool {
+        let allItems = dataSource.snapshot().itemIdentifiers
+        return allItems.isEmpty == false
+    }
 }

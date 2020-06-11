@@ -68,6 +68,13 @@ final class DonationsController: UIViewController {
         setupPaginator()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if donationManager.hasAnyItems == false {
+            self.paginator.loadNextPage()
+        }
+    }
+    
     private func configure() {
         donationManager.cellForItem = { [unowned self] (collectionView, indexPath, donation) in
             let cell: CallToActionCell = collectionView.dequeueCell(for: indexPath)
