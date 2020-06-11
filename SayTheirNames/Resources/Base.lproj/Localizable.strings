@@ -1,4 +1,4 @@
-/* 
+/*
   Localizable.strings
   SayTheirNames
 
@@ -34,6 +34,8 @@
 "person.news" = "News";
 "person.media" = "Media";
 "person.hashtags" = "Social Media Hashtags";
+"person.hashtagCopyTip" = "Press and hold to copy";
+"person.copied" = "Copied";
 
 // Get Involved - Slack
 "get_involved.slack.title" = "HOW DO I GET INVOLVED?";

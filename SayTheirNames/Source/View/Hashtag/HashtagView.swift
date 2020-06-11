@@ -39,10 +39,13 @@ class HashtagView: UIView {
         return label
     }()
 
+    private var originalText = "#JUSTICEFORFIRST"
+    
     // MARK: - Initialization
     override init(frame: CGRect) {
         super.init(frame: .zero)
         configureView()
+        setupLongPressGestureRecognizer()
     }
     
     required init?(coder: NSCoder) {
@@ -67,6 +70,34 @@ class HashtagView: UIView {
     
     private func updateCGColors() {
         layer.borderColor = UIColor(asset: STNAsset.Color.primaryLabel).cgColor
+    }
+    
+    private func setupLongPressGestureRecognizer() {
+        addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(copyHashtagToClipboard)))
+    }
+    
+    @objc private func copyHashtagToClipboard(gestureRecognizer: UIGestureRecognizer) {
+        
+        if gestureRecognizer.state == UIGestureRecognizer.State.began {
+            let pasteBoard = UIPasteboard.general
+            if let text = hashtagLabel.text {
+                originalText = text
+                pasteBoard.string = originalText
+                UIView.animate(withDuration: 0.5) {
+                    self.hashtagLabel.text = L10n.Person.copied.localizedUppercase
+                    //Swapping the text and background color so indicate something has changed
+                    self.backgroundColor = UIColor(asset: STNAsset.Color.strongHeader)
+                    self.hashtagLabel.textColor = UIColor(asset: STNAsset.Color.background)
+                }
+            }
+        } else if gestureRecognizer.state == UIGestureRecognizer.State.ended {
+            UIView.animate(withDuration: 0.5) {
+                self.hashtagLabel.text = self.originalText
+                self.backgroundColor = .clear
+                self.hashtagLabel.textColor = UIColor(asset: STNAsset.Color.strongHeader)
+            }
+        }
+        
     }
 
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
