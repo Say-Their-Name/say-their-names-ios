@@ -30,7 +30,8 @@ class CallToActionCollectionView: UICollectionView {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         layout.itemSize = UICollectionViewFlowLayout.automaticSize
-        layout.estimatedItemSize = CGSize(width: 330, height: 330)
+        let estimatedHeight = FeatureFlags.callToActionCellImageShown ? 330 : 220
+        layout.estimatedItemSize = CGSize(width: 330, height: estimatedHeight)
         layout.minimumLineSpacing = Theme.Components.Padding.medium
         layout.sectionInset = UIEdgeInsets(top: Theme.Components.Padding.medium, bottom: Theme.Components.Padding.medium)
         super.init(frame: .zero, collectionViewLayout: layout)
