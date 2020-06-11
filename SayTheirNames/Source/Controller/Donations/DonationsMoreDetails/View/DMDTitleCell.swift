@@ -25,8 +25,6 @@
 import UIKit
 
 final class DMDTitleCell: UICollectionViewCell {
-    // MARK: - Property
-    static let reuseIdentifier = "donations-more-details-title-cell"
     
     // MARK: - View
     private let titleLabel: UILabel = {

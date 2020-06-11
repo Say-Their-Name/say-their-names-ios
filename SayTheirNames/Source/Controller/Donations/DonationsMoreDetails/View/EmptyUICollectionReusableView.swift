@@ -1,5 +1,5 @@
 //
-//  DMDPhotoSupplementaryView.swift
+//  EmptyUICollectionReusableView.swift
 //  SayTheirNames
 //
 //  Copyright (c) 2020 Say Their Names Team (https://github.com/Say-Their-Name)
@@ -24,25 +24,15 @@
 
 import UIKit
 
-class DMDPhotoSupplementaryView: UICollectionReusableView {
-    
-    // MARK: - View
-    let imageWithBlurView = ImageWithBlurView(frame: .zero)
-    
+final class EmptyUICollectionReusableView: UICollectionReusableView {
+
     // MARK: - Initialization
     override init(frame: CGRect) {
         super.init(frame: .zero)
-        
-        clipsToBounds = true
-        imageWithBlurView.fillSuperview(superView: self, padding: .zero)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
-    // MARK: - Method
-    public func configure(withURLString string: String?) {
-        imageWithBlurView.setup(withURLString: string)
-    }
 }

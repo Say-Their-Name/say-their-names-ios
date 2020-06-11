@@ -13,11 +13,7 @@ class PersonNewsCollectionViewCell: UICollectionViewCell {
  
     @DependencyInject private var metadata: MetadataService
     private var news: News?
-    
-    static var reuseIdentifier: String {
-        return "\(Self.self)"
-    }
-    
+
     lazy var newsImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(asset: STNAsset.Image.placeholder)
