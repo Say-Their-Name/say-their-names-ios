@@ -182,7 +182,7 @@ final class DonationsMoreDetailsController: UIViewController {
             // TODO: Donation button action
         }
         
-        donationButtonContainerView.setButtonTitle("view GoFundMe page")
+        donationButtonContainerView.setButtonTitle(L10n.viewGoFundMePage)
         donationButtonContainerView.translatesAutoresizingMaskIntoConstraints = false
         donationButtonContainerView.backgroundColor = UIColor(asset: STNAsset.Color.background)
         view.addSubview(donationButtonContainerView)
