@@ -32,7 +32,7 @@ struct Donation: Decodable {
     let outcome: String
     let link: String
     let outcomeImagePath: String
-    let person: Person?
+    var person: Person?
     let type: DonationType?
     let bannerImagePath: String
     let shareable: Shareable
