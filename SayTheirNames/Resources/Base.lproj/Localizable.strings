@@ -35,6 +35,11 @@
 "person.hashtags" = "Social Media Hashtags";
 "person.hashtagCopyTip" = "Press and hold to copy";
 "person.copied" = "Copied";
+// Get Involved - Slack
+"get_involved.title" = "HOW DO I GET INVOLVED?";
+"get_involved.button" = "JOIN OUR SLACK CHANNEL";
+"get_involved.url" = "https://saytheirnames.slack.com/join/shared_invite/zt-eqjuatz7-fgh3zPRXIKiiXsC1Vf3oZA#/";
+// Get Involved - Developer
 "get_involved_dev.title" = "HOW DO I GET INVOLVED AS A DEVELOPER?";
 "get_involved_design.title" = "HOW DO I GET INVOLVED AS A DESIGNER?";
 "view_repo" = "VIEW OUR REPO";
