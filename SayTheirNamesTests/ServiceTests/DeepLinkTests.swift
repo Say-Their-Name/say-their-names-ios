@@ -40,16 +40,16 @@ class DeepLinkTests: XCTestCase {
     var dlDonationFloydG: URL!
     
     // The scheme and host that should be used.
-    let dlScheme = "stn"
-    let dlHost = "saytheirname.netlify.app"
+    let dlScheme = DeepLinkSupport.Schema.stn
+    let dlHost = DeepLinkSupport.Host.default
     
     // The relative paths for deep link URLs
-    let dlPathAbout = "about"
-    let dlPathPeopleJaoP = "profile/joao-pedro"
-    let dlPathPetitions = "petitions"
-    let dlPathDonations = "donations"
-    let dlPathPetitionScurlock = "petitions/petition-for-james-scurlock"
-    let dlPathDonationFloydG = "donate/donate-to-george-floyd"
+    let dlPathAbout = DeepLinkSupport.Path.about
+    let dlPathPeopleJaoP = DeepLinkSupport.Path.profile + "/joao-pedro"
+    let dlPathPetitions = DeepLinkSupport.Path.petitions
+    let dlPathDonations = DeepLinkSupport.Path.donations
+    let dlPathPetitionScurlock = DeepLinkSupport.Path.sign + "/petition-for-james-scurlock"
+    let dlPathDonationFloydG = DeepLinkSupport.Path.donate + "/donate-to-george-floyd"
     
     var container: DependencyContainer!
 
@@ -76,7 +76,7 @@ class DeepLinkTests: XCTestCase {
         self.helperAssertion(deeplinks: results,
                                  controller: MoreController.self,
                                  deeplinkDescription: "The About",
-                                 location: dlPathAbout)
+                                 location: DeepLinkSupport.Path.about)
     }
     
     /// Testing the People Detail deep link.
@@ -87,7 +87,7 @@ class DeepLinkTests: XCTestCase {
         self.helperAssertion(deeplinks: results,
                                  controller: HomeController.self,
                                  deeplinkDescription: "The People Detail",
-                                 location: dlPathPeopleJaoP)
+                                 location: DeepLinkSupport.Path.profile)
 
     }
     
@@ -98,7 +98,7 @@ class DeepLinkTests: XCTestCase {
         self.helperAssertion(deeplinks: results,
                                  controller: PetitionsController.self,
                                  deeplinkDescription: "The Petitions",
-                                 location: dlPathPetitions)
+                                 location: DeepLinkSupport.Path.petitions)
     }
 
     /// Testing the Donations deep link.
@@ -108,7 +108,7 @@ class DeepLinkTests: XCTestCase {
         self.helperAssertion(deeplinks: results,
                                  controller: DonationsController.self,
                                  deeplinkDescription: "The Donations",
-                                 location: dlPathDonations)
+                                 location: DeepLinkSupport.Path.donations)
     }
     
     /// Testing the Petitions Detail deep link.
@@ -119,7 +119,7 @@ class DeepLinkTests: XCTestCase {
         self.helperAssertion(deeplinks: results,
                              controller: PetitionsController.self,
                              deeplinkDescription: "The Petition Detail",
-                             location: dlPathPetitionScurlock)
+                             location: DeepLinkSupport.Path.sign)
     }
     
     /// Testing the Donation Detail deep link.
@@ -130,7 +130,7 @@ class DeepLinkTests: XCTestCase {
         self.helperAssertion(deeplinks: results,
                              controller: DonationsController.self,
                              deeplinkDescription: "The Donation Detail",
-                             location: dlPathDonationFloydG)
+                             location: DeepLinkSupport.Path.donate)
     }
 
     /// Helper method that will test the following assertions based
@@ -153,7 +153,7 @@ class DeepLinkTests: XCTestCase {
                           deeplinkDescription + " DeepLink should be shown in the \(controller.description())")
             XCTAssertTrue(details.uses(scheme: dlScheme, host: dlHost),
                           "The scheme or host is incorrect")
-            XCTAssertTrue(details.has(location: location.components(separatedBy: "/").first ?? location),
+            XCTAssertTrue(details.has(location: location),
                           "The path component is incorrect")
         }
 

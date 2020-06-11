@@ -60,6 +60,7 @@
 		8E1ECBF024908EC2009E6E44 /* DeepLinkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1ECBEF24908EC2009E6E44 /* DeepLinkTests.swift */; };
 		8E4155A42490605800333D76 /* JSONDataModelAPIs.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E4155A32490605800333D76 /* JSONDataModelAPIs.xcassets */; };
 		8E4155A6249076CA00333D76 /* ModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4155A5249076CA00333D76 /* ModelTests.swift */; };
+		8E5608142491C62400FF94C1 /* DeepLinkSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F2830E24903042004283ED /* DeepLinkSupport.swift */; };
 		9E24499D2485E98C00B149DF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9E24499B2485E98C00B149DF /* Localizable.strings */; };
 		9E2449A02485EA0B00B149DF /* strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E24499F2485EA0B00B149DF /* strings.swift */; };
 		9E2449A32485EA7600B149DF /* Typealiases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2449A22485EA7600B149DF /* Typealiases.swift */; };
@@ -1466,6 +1467,7 @@
 				B365F45C248FD6340007FC31 /* PaginatorTests.swift in Sources */,
 				7CAD53EA248A32FC001CFF08 /* PeopleNetworkRequestorTests.swift in Sources */,
 				8E4155A6249076CA00333D76 /* ModelTests.swift in Sources */,
+				8E5608142491C62400FF94C1 /* DeepLinkSupport.swift in Sources */,
 				7CAD53E6248A2AEE001CFF08 /* DonationsNetworkRequestorTests.swift in Sources */,
 				7CAD53E3248A2A9F001CFF08 /* NetworkRequestorTests.swift in Sources */,
 				7CAD53E8248A326F001CFF08 /* PetitionsNetworkRequestorTests.swift in Sources */,
