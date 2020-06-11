@@ -23,6 +23,7 @@
 //  THE SOFTWARE.
 
 import UIKit
+import SafariServices
 
 final class DonationsMoreDetailsController: UIViewController {
 
@@ -93,6 +94,8 @@ final class DonationsMoreDetailsController: UIViewController {
         configureSubview()
         setupNavigationBarItems()
         collectionView.dataSource = self
+        collectionView.delegate = self
+
         view.accessibilityIdentifier = AccessibilityIdentifers.view
         donationButtonContainerView.accessibilityIdentifier = AccessibilityIdentifers.donationButtonContainerView
         
@@ -200,5 +203,21 @@ final class DonationsMoreDetailsController: UIViewController {
     @objc func shareAction(_ sender: Any) {
         // TODO: Share button action
     }
+}
+
+// MARK: UICollectionViewDelegate
+
+extension DonationsMoreDetailsController: UICollectionViewDelegate {
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if indexPath.section == DonationSectionLayoutKind.socialMedia.rawValue {
+            let hashtag = donation.hashTags[indexPath.row]
+            
+            if let url = URL(string: hashtag.link) {
+                let vc = SFSafariViewController(url: url)
+                vc.modalPresentationStyle = .overFullScreen
+                self.present(vc, animated: true)
+            }
+        }
+    }
 }

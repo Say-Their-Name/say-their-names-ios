@@ -24,7 +24,7 @@
 
 import UIKit
 
-// MARK: - DataSource
+// MARK: - Data Source
 extension DonationsMoreDetailsController: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 4

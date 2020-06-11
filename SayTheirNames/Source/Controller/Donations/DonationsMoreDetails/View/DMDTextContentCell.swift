@@ -38,15 +38,6 @@ class DMDTextContentCell: UICollectionViewCell {
         return label
     }()
     
-//    lazy var contentTextView: UITextView = {
-//        let textView = UITextView()
-//        textView.textColor = UIColor(asset: STNAsset.Color.primaryLabel)
-//        textView.font = UIFont(name: "Karla-Regular", size: 17)
-//        textView.isEditable = false
-//        textView.isScrollEnabled = false
-//        return textView
-//    }()
-    
     // MARK: - Initialization
     override init(frame: CGRect) {
         super.init(frame: frame)
