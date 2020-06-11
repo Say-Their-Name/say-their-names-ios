@@ -41,7 +41,7 @@ class HashtagView: UIView {
                             leading: leadingAnchor,
                             bottom: bottomAnchor,
                             trailing: trailingAnchor,
-                            padding: UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5), size: .zero)
+                            padding: UIEdgeInsets(top: 5, left: 15, bottom: 5, right: 15), size: .zero)
     }
     private func updateCGColors() {
         layer.borderColor = UIColor(asset: STNAsset.Color.primaryLabel).cgColor
