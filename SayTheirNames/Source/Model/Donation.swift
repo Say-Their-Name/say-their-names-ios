@@ -36,17 +36,17 @@ struct Donation: Decodable {
     let type: DonationType?
     let bannerImagePath: String
     let shareable: Shareable
-    let hashTags: [Hashtag]
+    let hashtags: [Hashtag]
     
     private enum CodingKeys: String, CodingKey {
         case id, identifier, title, description, outcome, link, person, type
-        case outcomeImagePath = "outcome_img_url", bannerImagePath = "banner_img_url", shareable = "sharable_links", hashTags = "hash_tags"
+        case outcomeImagePath = "outcome_img_url", bannerImagePath = "banner_img_url", shareable = "sharable_links", hashtags = "hash_tags"
     }
     
     init(id: Int, identifier: String, title: String,
          description: String, outcome: String, link: String,
          outcomeImagePath: String, person: Person?, type: DonationType?,
-         bannerImagePath: String, shareable: Shareable, hashTags: [Hashtag]) {
+         bannerImagePath: String, shareable: Shareable, hashtags: [Hashtag]) {
         self.id = id
         self.identifier = identifier
         self.title = title
@@ -58,7 +58,7 @@ struct Donation: Decodable {
         self.type = type
         self.bannerImagePath = bannerImagePath
         self.shareable = shareable
-        self.hashTags = hashTags
+        self.hashtags = hashtags
     }
     
     init(from decoder: Decoder) throws {
@@ -75,7 +75,7 @@ struct Donation: Decodable {
         self.type = try container.decodeIfPresent(DonationType.self, forKey: .type) ?? DonationType()
         self.bannerImagePath = try container.decodeIfPresent(String.self, forKey: .bannerImagePath) ?? ""
         self.shareable = try container.decodeIfPresent(Shareable.self, forKey: .shareable) ?? Shareable()
-        self.hashTags = try container.decodeIfPresent([Hashtag].self, forKey: .hashTags) ?? []
+        self.hashtags = try container.decodeIfPresent([Hashtag].self, forKey: .hashtags) ?? []
     }
 }
 

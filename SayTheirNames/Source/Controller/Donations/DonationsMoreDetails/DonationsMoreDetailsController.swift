@@ -210,7 +210,7 @@ extension DonationsMoreDetailsController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.section == DonationSectionLayoutKind.socialMedia.rawValue {
-            let hashtag = donation.hashTags[indexPath.row]
+            let hashtag = donation.hashtags[indexPath.row]
             
             if let url = URL(string: hashtag.link) {
                 UIApplication.shared.open(url)

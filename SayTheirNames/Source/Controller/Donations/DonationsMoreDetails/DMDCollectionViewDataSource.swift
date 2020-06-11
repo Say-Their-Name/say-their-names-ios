@@ -32,7 +32,7 @@ extension DonationsMoreDetailsController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if section == DonationSectionLayoutKind.socialMedia.rawValue {
-            return donation.hashTags.count
+            return donation.hashtags.count
         }
         
         return 1
@@ -85,7 +85,7 @@ extension DonationsMoreDetailsController: UICollectionViewDataSource {
                     fatalError("Cannot create new cell")
             }
             
-            let hashtag = donation.hashTags[indexPath.row]
+            let hashtag = donation.hashtags[indexPath.row]
             hashtagCell.setupHashtag(hashtag)
             return hashtagCell
             

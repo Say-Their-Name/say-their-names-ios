@@ -76,7 +76,7 @@ class HashtagView: UIView {
     }
     
     override var intrinsicContentSize: CGSize {
-        return CGSize(width: self.hashtagLabel.frame.width + (Theme.Components.Padding.medium * 2),
+        return CGSize(width: self.hashtagLabel.frame.width + (Theme.Components.Padding.small * 2),
                       height: self.hashtagLabel.frame.height + (Theme.Components.Padding.small * 2))
     }
 }
