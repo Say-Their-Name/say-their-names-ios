@@ -1,5 +1,5 @@
 //
-//  Media.swift
+//  ShareService.swift
 //  SayTheirNames
 //
 //  Copyright (c) 2020 Say Their Names Team (https://github.com/Say-Their-Name)
@@ -22,23 +22,13 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-import Foundation
+import UIKit
 
-struct Hashtag: Decodable {
-    let tag: String
-    let link: String
+final class ShareService: Dependency {
+    public var items: [Shareable]?
 
-    private enum CodingKeys: String, CodingKey {
-        case tag, link
-    }
-}
-
-extension Hashtag: Equatable, Hashable {
-    static func == (lhs: Hashtag, rhs: Hashtag) -> Bool {
-        return lhs.tag == rhs.tag
-    }
-    
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(tag)
+    func share(items: [Shareable]) -> UIActivityViewController {
+        let activityViewController = UIActivityViewController(activityItems: items.map { $0.base }, applicationActivities: nil)
+        return activityViewController
     }
 }
