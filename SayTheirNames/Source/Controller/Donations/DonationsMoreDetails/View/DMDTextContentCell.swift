@@ -35,6 +35,7 @@ class DMDTextContentCell: UICollectionViewCell {
         textView.font = UIFont(name: "Karla-Regular", size: 17)
         textView.isEditable = false
         textView.isScrollEnabled = false
+        textView.textContainer.lineFragmentPadding = 0
         return textView
     }()
     
