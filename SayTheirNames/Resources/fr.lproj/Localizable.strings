@@ -1,57 +1,142 @@
-/* 
-  Localizable.strings
-  SayTheirNames
+/*
+ * Loco ios export: iOS Localizable.strings
+ * Project: Say Their Names
+ * Release: Working copy
+ * Locale: fr, French
+ * Exported by: Say Their Names
+ * Exported at: Thu, 11 Jun 2020 23:31:49 +0200
+ */
 
-  Created by Kyle Lee on 6/1/20.
-  Edited by @npvisual on 6/5/20.
-  Copyright © 2020 Franck-Stephane Ndame Mpouli. All rights reserved.
-*/
-
+/* loco:5ee29770f904c5151c1a2061
+ * Localizable.strings
+SayTheirNames
+Created by Abdullah Alosaimi on 6/7/20.
+Copyright © 2020 Franck-Stephane Ndame Mpouli. All rights reserved. */
 "home" = "Accueil";
+
+/* loco:5ee29770f904c5151c1a2062 */
 "donations" = "Les Dons";
+
+/* loco:5ee29770f904c5151c1a2063 */
 "petitions" = "Les Pétitions";
+
+/* loco:5ee29770f904c5151c1a2064 */
 "about" = "À propos";
-"cancel"= "Annuler";
+
+/* loco:5ee29770f904c5151c1a2065 */
+"cancel" = "Annuler";
+
+/* loco:5ee29770f904c5151c1a2066 */
 "find_out_more" = "Plus d'informations";
+
+/* loco:5ee29770f904c5151c1a2067 */
 "verified" = "verifié";
+
+/* loco:5ee29770f904c5151c1a2068 */
 "filter_all" = "TOUS";
+
+/* loco:5ee29770f904c5151c1a2069 */
 "filter_businesses" = "ENTREPRISES";
+
+/* loco:5ee29770f904c5151c1a206a */
 "filter_protesters" = "MANIFESTANTS";
+
+/* loco:5ee29770f904c5151c1a206b */
 "filter_victims" = "VICTIMES";
+
+/* loco:5ee29770f904c5151c1a206c */
 "share" = "Partager";
+
+/* loco:5ee29770f904c5151c1a206d */
 "close" = "Fermer";
+
+/* loco:5ee29770f904c5151c1a206e */
 "say_their_names" = "Dis leurs noms";
+
+/* loco:5ee29770f904c5151c1a206f */
 "bookmark" = "Signet";
+
+/* loco:5ee29770f904c5151c1a2070 */
 "search" = "Chercher";
+
+/* loco:5ee29770f904c5151c1a2071 */
 "donate" = "Donner";
+
+/* loco:5ee29770f904c5151c1a2072 */
+"DONATE NOW" = "DONATE NOW";
+
+/* loco:5ee29770f904c5151c1a2073 */
 "description" = "Description";
+
+/* loco:5ee29770f904c5151c1a2074 */
 "person.say_their_names" = "Dis leurs noms";
+
+/* loco:5ee29770f904c5151c1a2075 */
 "person.age" = "Âge";
+
+/* loco:5ee29770f904c5151c1a2076 */
 "person.children" = "Enfants";
+
+/* loco:5ee29770f904c5151c1a2077 */
 "person.location" = "Lieu";
+
+/* loco:5ee29770f904c5151c1a2078 */
 "person.their_story" = "Leur Histoire";
+
+/* loco:5ee29770f904c5151c1a2079 */
 "person.outcome" = "Les Faits";
+
+/* loco:5ee29770f904c5151c1a207a */
 "person.news" = "Les Actualités";
+
+/* loco:5ee29770f904c5151c1a207b */
 "person.media" = "Média";
+
+/* loco:5ee29770f904c5151c1a207c */
 "person.hashtags" = "Hashtags des réseaux sociaux";
 
-// Get Involved - Slack
+/* loco:5ee29770f904c5151c1a207d */
+"person.hashtagCopyTip" = "Press and hold to copy";
+
+/* loco:5ee29770f904c5151c1a207e */
+"person.copied" = "Copied";
+
+/* loco:5ee29770f904c5151c1a207f
+ * Get Involved - Slack */
 "get_involved.slack.title" = "COMMENT PARTICIPER ?";
+
+/* loco:5ee29770f904c5151c1a2080 */
 "get_involved.slack.button" = "JOINDRE LE CANAL SLACK";
+
+/* loco:5ee29770f904c5151c1a2081 */
 "get_involved.slack.url" = "https://saytheirnames.slack.com/join/shared_invite/zt-eqjuatz7-fgh3zPRXIKiiXsC1Vf3oZA#/";
 
-// Get Involved - Developer
+/* loco:5ee29770f904c5151c1a2082
+ * Get Involved - Developer */
 "get_involved.developer.title" = "PARTICIPER EN TANT QUE DÉVELOPPEUR WEB?";
+
+/* loco:5ee29770f904c5151c1a2083 */
 "get_involved.developer.button" = "VOIR LE CODE SOURCE";
+
+/* loco:5ee29770f904c5151c1a2084 */
 "get_involved.developer.url" = "https://github.com/Say-Their-Name/";
 
-// Get Involved - Twitter
+/* loco:5ee29770f904c5151c1a2085
+ * Get Involved - Twitter */
 "get_involved.twitter.title" = "VENEZ NOUS REJOINDRE SUR TWITTER";
+
+/* loco:5ee29770f904c5151c1a2086 */
 "get_involved.twitter.button" = "SUIVEZ NOUS";
+
+/* loco:5ee29770f904c5151c1a2087 */
 "get_involved.twitter.url" = "https://twitter.com/SayTheirName_io";
 
-// More
+/* loco:5ee29770f904c5151c1a2088
+ * More */
 "more_history.aboutTitle" = "L'HISTOIRE DU MOUVEMENT DIS LEURS NOMS";
+
+/* loco:5ee29770f904c5151c1a2089 */
 "more_history.aboutDesc" = "Say Their Names is a social movement to raise awareness for all the black victims of racial inequality all around the world. This movement is in support of the overall Black Lives Matter movement and aims to highlight individuals affected by anti-Black Violence. Say Their Names movement calls attention and demands justice for all victims.";
 
+/* loco:5ee29770f904c5151c1a208a */
 "massive_thank_you" = "UN GRAND MERCI A TOUS LES CONTRIBUTEURS";
