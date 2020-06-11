@@ -138,7 +138,7 @@ final class MoreView: UIView {
             moreCard.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             moreCard.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             moreCard.heightAnchor.constraint(equalToConstant: 150),
-            thankYouLabel.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor)
+            thankYouLabel.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -Theme.Components.Padding.large)
         ])
     }
 }
@@ -200,17 +200,6 @@ private extension MoreView {
         }
         
         return button
-    }
-    
-    /// Opens external links and accept custom gesture
-    @objc func openLink(sender: STNTapGestureRecognizer) {
-        guard let urlString = sender.value,
-            let url = URL(string: urlString) else {
-                assertionFailure("Failed to extract given url string: \(String(describing: sender.value))")
-            return
-        }
-        
-        UIApplication.shared.open(url)
     }
 }
 
