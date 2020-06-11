@@ -1,0 +1,142 @@
+/*
+ * Loco ios export: iOS Localizable.strings
+ * Project: Say Their Names
+ * Release: Working copy
+ * Locale: ru, Russian
+ * Exported by: Say Their Names
+ * Exported at: Thu, 11 Jun 2020 23:31:48 +0200
+ */
+
+/* loco:5ee29770f904c5151c1a2061
+ * Localizable.strings
+SayTheirNames
+Created by Abdullah Alosaimi on 6/7/20.
+Copyright © 2020 Franck-Stephane Ndame Mpouli. All rights reserved. */
+"home" = "Главная";
+
+/* loco:5ee29770f904c5151c1a2062 */
+"donations" = "Пожертвования";
+
+/* loco:5ee29770f904c5151c1a2063 */
+"petitions" = "Петиции";
+
+/* loco:5ee29770f904c5151c1a2064 */
+"about" = "О приложении";
+
+/* loco:5ee29770f904c5151c1a2065 */
+"cancel" = "Отмена";
+
+/* loco:5ee29770f904c5151c1a2066 */
+"find_out_more" = "УЗНАТЬ ПОДРОБНЕЕ";
+
+/* loco:5ee29770f904c5151c1a2067 */
+"verified" = "Проверено";
+
+/* loco:5ee29770f904c5151c1a2068 */
+"filter_all" = "ВСЕ";
+
+/* loco:5ee29770f904c5151c1a2069 */
+"filter_businesses" = "ПРЕДПРИЯТИЯ";
+
+/* loco:5ee29770f904c5151c1a206a */
+"filter_protesters" = "ПРОТЕСТУЮЩИЕ";
+
+/* loco:5ee29770f904c5151c1a206b */
+"filter_victims" = "ЖЕРТВЫ";
+
+/* loco:5ee29770f904c5151c1a206c */
+"share" = "Поделиться";
+
+/* loco:5ee29770f904c5151c1a206d */
+"close" = "Закрыть";
+
+/* loco:5ee29770f904c5151c1a206e */
+"say_their_names" = "Say their names";
+
+/* loco:5ee29770f904c5151c1a206f */
+"bookmark" = "Закладки";
+
+/* loco:5ee29770f904c5151c1a2070 */
+"search" = "Поиск";
+
+/* loco:5ee29770f904c5151c1a2071 */
+"donate" = "Пожертвовать";
+
+/* loco:5ee29770f904c5151c1a2072 */
+"DONATE NOW" = "Пожертвовать";
+
+/* loco:5ee29770f904c5151c1a2073 */
+"description" = "Описание";
+
+/* loco:5ee29770f904c5151c1a2074 */
+"person.say_their_names" = "Say their names";
+
+/* loco:5ee29770f904c5151c1a2075 */
+"person.age" = "Возраст";
+
+/* loco:5ee29770f904c5151c1a2076 */
+"person.children" = "Дети";
+
+/* loco:5ee29770f904c5151c1a2077 */
+"person.location" = "Местоположение";
+
+/* loco:5ee29770f904c5151c1a2078 */
+"person.their_story" = "История";
+
+/* loco:5ee29770f904c5151c1a2079 */
+"person.outcome" = "Результат";
+
+/* loco:5ee29770f904c5151c1a207a */
+"person.news" = "Новости";
+
+/* loco:5ee29770f904c5151c1a207b */
+"person.media" = "СМИ";
+
+/* loco:5ee29770f904c5151c1a207c */
+"person.hashtags" = "Хештеги в социальных сетях";
+
+/* loco:5ee29770f904c5151c1a207d */
+"person.hashtagCopyTip" = "Нажмите и удерживайте, чтобы скопировать";
+
+/* loco:5ee29770f904c5151c1a207e */
+"person.copied" = "Скопировано";
+
+/* loco:5ee29770f904c5151c1a207f
+ * Get Involved - Slack */
+"get_involved.slack.title" = "HOW DO I GET INVOLVED?";
+
+/* loco:5ee29770f904c5151c1a2080 */
+"get_involved.slack.button" = "JOIN OUR SLACK CHANNEL";
+
+/* loco:5ee29770f904c5151c1a2081 */
+"get_involved.slack.url" = "https://saytheirnames.slack.com/join/shared_invite/zt-eqjuatz7-fgh3zPRXIKiiXsC1Vf3oZA#/";
+
+/* loco:5ee29770f904c5151c1a2082
+ * Get Involved - Developer */
+"get_involved.developer.title" = "HOW DO I GET INVOLVED AS A DEVELOPER?";
+
+/* loco:5ee29770f904c5151c1a2083 */
+"get_involved.developer.button" = "VIEW OUR GITHUB";
+
+/* loco:5ee29770f904c5151c1a2084 */
+"get_involved.developer.url" = "https://github.com/Say-Their-Name/";
+
+/* loco:5ee29770f904c5151c1a2085
+ * Get Involved - Twitter */
+"get_involved.twitter.title" = "JOIN US ON TWITTER";
+
+/* loco:5ee29770f904c5151c1a2086 */
+"get_involved.twitter.button" = "FOLLOW US";
+
+/* loco:5ee29770f904c5151c1a2087 */
+"get_involved.twitter.url" = "https://twitter.com/SayTheirName_io";
+
+/* loco:5ee29770f904c5151c1a2088
+ * More */
+"more_history.aboutTitle" = "SOME HISTORY ON THE SAY THEIR NAME MOVEMENT";
+
+/* loco:5ee29770f904c5151c1a2089 */
+"more_history.aboutDesc" = "Say Their Names is a social movement to raise awareness for all the black victims of racial inequality all around the world. This movement is in support of the overall Black Lives Matter movement and aims to highlight individuals affected by anti-Black Violence. Say Their Names movement calls attention and demands justice for all victims.";
+
+/* loco:5ee29770f904c5151c1a208a */
+"massive_thank_you" = "A MASSIVE THANK YOU TO EVERYONE INVOLVED";
