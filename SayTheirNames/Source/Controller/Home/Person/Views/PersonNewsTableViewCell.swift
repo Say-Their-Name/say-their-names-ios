@@ -28,9 +28,9 @@ struct CollectionViewCellModel {
     var person: Person
 }
 
-protocol CollectionViewCellDelegate: class {
-    func collectionView(collectionviewcell: UICollectionViewCell?, index: Int, didTappedInTableViewCell: UITableViewCell)
-    // other delegate methods that you can define to perform action in viewcontroller
+protocol PersonCollectionViewCellDelegate: class {
+    func didTapNewsItem(_ news: News)
+    func didTapMediaItem(_ media: Media)
 }
 
 enum PersonNewsCellType: String {
@@ -75,7 +75,7 @@ class PersonNewsTableViewCell: UITableViewCell {
         return collectionView
     }()
     
-    weak var cellDelegate: CollectionViewCellDelegate?
+    weak var cellDelegate: PersonCollectionViewCellDelegate?
     var medias: [Media] = []
     var news: [News] = []
     
@@ -191,8 +191,14 @@ extension PersonNewsTableViewCell: UICollectionViewDelegate, UICollectionViewDat
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath)
-        self.cellDelegate?.collectionView(collectionviewcell: cell, index: indexPath.item, didTappedInTableViewCell: self)
+        switch cellType {
+        case .news:
+            let newsItem = self.news[indexPath.row]
+            self.cellDelegate?.didTapNewsItem(newsItem)
+        case .medias:
+            let mediaItem = medias[indexPath.row]
+            self.cellDelegate?.didTapMediaItem(mediaItem)
+        }
     }
 }
 

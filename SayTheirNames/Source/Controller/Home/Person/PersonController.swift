@@ -23,6 +23,7 @@
 //  THE SOFTWARE.
 
 import UIKit
+import SafariServices
 
 enum PersonCellType: Equatable {
     case photo
@@ -288,10 +289,19 @@ extension PersonController: UITableViewDataSource {
     }
 }
 
-// MARK: - CollectionViewCellDelegate Methods
-extension PersonController: CollectionViewCellDelegate {
+// MARK: - PersonCollectionViewCellDelegate
+
+extension PersonController: PersonCollectionViewCellDelegate {
     
-    func collectionView(collectionviewcell: UICollectionViewCell?, index: Int, didTappedInTableViewCell: UITableViewCell) {
-        print("\(index) tapped")
+    func didTapNewsItem(_ news: News) {
+        if let url = URL(string: news.url) {
+            let vc = SFSafariViewController(url: url)
+            vc.modalPresentationStyle = .overFullScreen
+            self.present(vc, animated: true)
+        }
+    }
+    
+    func didTapMediaItem(_ media: Media) {
+        print("Did tap media")
     }
 }
