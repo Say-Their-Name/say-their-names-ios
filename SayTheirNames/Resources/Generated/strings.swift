@@ -43,12 +43,16 @@ internal enum L10n {
   internal static let massiveThankYou = L10n.tr("Localizable", "massive_thank_you")
   /// Petitions
   internal static let petitions = L10n.tr("Localizable", "petitions")
+  /// https://github.com/Say-Their-Name/say-their-names-ios
+  internal static let repoUrl = L10n.tr("Localizable", "repo_url")
   /// Say their names
   internal static let sayTheirNames = L10n.tr("Localizable", "say_their_names")
   /// Search
   internal static let search = L10n.tr("Localizable", "search")
   /// Share
   internal static let share = L10n.tr("Localizable", "share")
+  /// https://saytheirnames.slack.com/join/shared_invite/zt-eqjuatz7-fgh3zPRXIKiiXsC1Vf3oZA#/
+  internal static let slackUrl = L10n.tr("Localizable", "slack_url")
   /// verified
   internal static let verified = L10n.tr("Localizable", "verified")
   /// VIEW OUR REPO
