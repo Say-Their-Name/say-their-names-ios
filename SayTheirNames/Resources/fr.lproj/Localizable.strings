@@ -35,6 +35,7 @@
 "person.media" = "Média";
 "person.hashtags" = "Hashtags des réseaux sociaux";
 
+// Get Involved - Slack
 "get_involved.title" = "HOW DO I GET INVOLVED?";
 "get_involved.button" = "REJOINDRE NOTRE CANAL SUR SLACK";
 "get_involved.url" = "https://saytheirnames.slack.com/join/shared_invite/zt-eqjuatz7-fgh3zPRXIKiiXsC1Vf3oZA#/";
@@ -51,6 +52,4 @@
 
 "more_history.title" = "L'HISTOIRE DU MOUVEMENT DIS LEURS NOMS";
 "massive_thank_you" = "UN GRAND MERCI A TOUS LES CONTRIBUTEURS";
-"more_history_desc" = "Say Their Names is a social movement to raise awareness for all the black victims of racial inequality all around the world. This movement is in support of the overall Black Lives Matter movement and aims to highlight individuals affected by anti-Black Violence. Say Their Names movement calls attention and demands justice for all victims.";
-
-"viewGoFundMePage" = "LIEN DE LA CAMPAGNE GOFUNDME";
+"more_history.desc" = "Say Their Names is a social movement to raise awareness for all the black victims of racial inequality all around the world. This movement is in support of the overall Black Lives Matter movement and aims to highlight individuals affected by anti-Black Violence. Say Their Names movement calls attention and demands justice for all victims.";
