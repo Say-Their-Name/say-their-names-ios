@@ -23,6 +23,8 @@ internal enum L10n {
   internal static let description = L10n.tr("Localizable", "description")
   /// Donate
   internal static let donate = L10n.tr("Localizable", "donate")
+  /// DONATE NOW
+  internal static let donateNow = L10n.tr("Localizable", "DONATE NOW")
   /// Donations
   internal static let donations = L10n.tr("Localizable", "donations")
   /// ALL
