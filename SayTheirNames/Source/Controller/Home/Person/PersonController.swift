@@ -96,7 +96,7 @@ class PersonController: UIViewController {
     
     private let donationButtonContainerView = DontainButtonContainerView(frame: .zero)
     private let tableViewCells: [PersonCellType] = {
-        return [.photo, .info, .story, .outcome, .news, .medias, .hashtags]
+        return [.photo, .info, .story, .news, .medias, .hashtags]
     }()
     
     private var tableView: UITableView = {
