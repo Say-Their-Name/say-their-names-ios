@@ -61,10 +61,19 @@ class HashtagView: UIView {
             if let text = hashtagLabel.text {
                 originalText = text
                 pasteBoard.string = originalText
-                hashtagLabel.text = "Copied"
+                UIView.animate(withDuration: 0.5) {
+                    self.hashtagLabel.text = "Copied"
+                    //Swapping the text and background color so indicate something has changed
+                    self.backgroundColor = UIColor(asset: STNAsset.Color.strongHeader)
+                    self.hashtagLabel.textColor = UIColor(asset: STNAsset.Color.background)
+                }
             }
         } else if gestureRecognizer.state == UIGestureRecognizer.State.ended {
-            hashtagLabel.text = originalText
+            UIView.animate(withDuration: 0.5) {
+                self.hashtagLabel.text = self.originalText
+                self.backgroundColor = .clear
+                self.hashtagLabel.textColor = UIColor(asset: STNAsset.Color.strongHeader)
+            }
         }
         
     }
