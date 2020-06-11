@@ -23,6 +23,7 @@
 //  THE SOFTWARE.
 
 import UIKit
+import SafariServices
 
 enum PersonCellType: Equatable {
     case photo
@@ -87,6 +88,8 @@ typealias DontainButtonContainerView = ButtonContainerView
 class PersonController: UIViewController {
     
     @DependencyInject private var network: NetworkRequestor
+    @DependencyInject private var metadata: MetadataService
+    
     public var person: Person!
     private var isLoading = true
     
@@ -180,6 +183,11 @@ class PersonController: UIViewController {
     // TODO: Update UITableView sections based on what info we have
     private func configure(with person: Person) {
         self.person = person
+        
+        // Warm up the MetadataService cache
+        let urls = self.person.news.compactMap { URL(string: $0.url) }
+        self.metadata.preheat(with: urls)
+                
         tableView.reloadData()
     }
 }
@@ -281,10 +289,19 @@ extension PersonController: UITableViewDataSource {
     }
 }
 
-// MARK: - CollectionViewCellDelegate Methods
-extension PersonController: CollectionViewCellDelegate {
+// MARK: - PersonCollectionViewCellDelegate
+
+extension PersonController: PersonCollectionViewCellDelegate {
     
-    func collectionView(collectionviewcell: UICollectionViewCell?, index: Int, didTappedInTableViewCell: UITableViewCell) {
-        print("\(index) tapped")
+    func didTapNewsItem(_ news: News) {
+        if let url = URL(string: news.url) {
+            let vc = SFSafariViewController(url: url)
+            vc.modalPresentationStyle = .overFullScreen
+            self.present(vc, animated: true)
+        }
+    }
+    
+    func didTapMediaItem(_ media: Media) {
+        print("Did tap media")
     }
 }
