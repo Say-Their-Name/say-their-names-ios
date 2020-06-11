@@ -25,11 +25,7 @@
 import UIKit
 
 class PersonPhotoTableViewCell: UITableViewCell {
-    
-    static var reuseIdentifier: String {
-        return "\(Self.self)"
-    }
-    
+
     // MARK: - View
     let imageWithBlurView = ImageWithBlurView(frame: .zero)
         

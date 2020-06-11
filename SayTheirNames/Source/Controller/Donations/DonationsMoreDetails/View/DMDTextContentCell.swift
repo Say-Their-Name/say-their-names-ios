@@ -25,8 +25,6 @@
 import UIKit
 
 class DMDTextContentCell: UICollectionViewCell {
-    // MARK: - Property
-    static let reuseIdentifier = "donations-more-details-text-content-cell"
     
     // MARK: - View
     lazy var contentTextLabel: UILabel = {

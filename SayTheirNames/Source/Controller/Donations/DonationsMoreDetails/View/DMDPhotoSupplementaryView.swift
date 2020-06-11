@@ -25,8 +25,6 @@
 import UIKit
 
 class DMDPhotoSupplementaryView: UICollectionReusableView {
-    // MARK: - Property
-    static let reuseIdentifier = "donations-more-details-photo-view"
     
     // MARK: - View
     let imageWithBlurView = ImageWithBlurView(frame: .zero)
