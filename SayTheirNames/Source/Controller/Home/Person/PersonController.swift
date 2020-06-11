@@ -235,7 +235,6 @@ private extension PersonController {
             guard let self = self else { return }
 
             var donation = self.person.donations.first
-            donation?.person = self.person
             let donationsDetailsVC = DonationsMoreDetailsController()
             donationsDetailsVC.donation = donation
             
