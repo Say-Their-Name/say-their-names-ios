@@ -81,6 +81,7 @@ enum Theme {
             }
             enum CellSize {
                 static let location: CGSize = CGSize(width: 103, height: 36)
+                static let heroHeight: CGFloat = 150
                 static let peopleHeight: CGFloat = 300
                 static let carouselCardHeight: CGFloat = 170
             }

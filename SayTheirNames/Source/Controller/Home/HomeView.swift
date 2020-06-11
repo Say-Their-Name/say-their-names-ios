@@ -95,6 +95,18 @@ final class HomeView: UIView {
                 
                 let mainSection = NSCollectionLayoutSection(group: group)
                 section = mainSection
+                
+            case .hero:
+                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
+                let layoutItem = NSCollectionLayoutItem(layoutSize: itemSize)
+                let height = Theme.Screens.Home.CellSize.heroHeight
+                let columns = 1
+                let layoutGroupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(height))
+                let group = NSCollectionLayoutGroup.horizontal(layoutSize: layoutGroupSize, subitem: layoutItem, count: columns)
+                group.interItemSpacing = .fixed(Self.horizontalPaddingBetween)
+                let heroSection = NSCollectionLayoutSection(group: group)
+                section = heroSection
+                
             }
             
             let inset = Theme.Components.edgeMargin
