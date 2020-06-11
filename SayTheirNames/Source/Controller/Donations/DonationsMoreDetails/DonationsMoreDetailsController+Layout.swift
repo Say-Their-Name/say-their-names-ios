@@ -25,59 +25,6 @@
 import UIKit
 
 // MARK: - UICollectionViewLayout
-extension DonationsMoreDetailsController {
-    static var donationMoreDetailsCVLayout: UICollectionViewLayout {
-        let horizontalPadding: CGFloat = Theme.Screens.DonationDetails.horizontalPadding
-        
-        // UICollectionViewCompositionalLayout in a layout provider
-        let layout = UICollectionViewCompositionalLayout {
-            (sectionIndex: Int,
-            _ : NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection in
-            
-            // Later Feature
-            // Outcome Section
-            if FeatureFlags.dmdOutcomeSectionEnabled && sectionIndex == DonationSectionLayoutKind.outcome.rawValue {
-                return DonationsMoreDetailsController.outcomeLayout()
-            }
-
-            switch sectionIndex {
-            // Title section layout
-            case DonationSectionLayoutKind.title.rawValue:
-                return DonationsMoreDetailsController.titleLayout()
-                
-            // Description section layout
-            case DonationSectionLayoutKind.description.rawValue:
-                return DonationsMoreDetailsController.descriptionLayout()
-
-            // Social Media Hashtags section layout
-            case DonationSectionLayoutKind.socialMedia.rawValue:
-                return DonationsMoreDetailsController.hashtagLayout()
-            
-            default:
-                // Item
-                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
-                let item = NSCollectionLayoutItem(layoutSize: itemSize)
-                
-                // Group
-                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(1.0))
-                let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitem: item, count: 1)
-                
-                // Section
-                let section = NSCollectionLayoutSection(group: group)
-                section.contentInsets = NSDirectionalEdgeInsets(top: 0.0, leading: horizontalPadding, bottom: 0.0, trailing: horizontalPadding)
-
-                return section
-            }
-        }
-        
-        let config = UICollectionViewCompositionalLayoutConfiguration()
-        config.interSectionSpacing = Theme.Screens.DonationDetails.intersectionSpacing
-        
-        layout.configuration = config
-        return layout
-    }
-    
-}
 
 // MARK: Layouts
 
