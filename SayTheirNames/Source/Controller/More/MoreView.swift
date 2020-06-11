@@ -43,8 +43,8 @@ final class MoreView: UIView {
         stack.spacing = Theme.Components.Padding.small
         stack.translatesAutoresizingMaskIntoConstraints = false
         
-        stack.addArrangedSubview(getTitleLabel(for: .history))
-        stack.addArrangedSubview(getDescriptionLabel(for: .history, with: Strings.MoreHistory.aboutDesc))
+        stack.addArrangedSubview(makeTitleLabel(for: .history))
+        stack.addArrangedSubview(makeDescriptionLabel(for: .history, with: Strings.MoreHistory.aboutDesc))
         
         return stack
     }()
@@ -55,9 +55,9 @@ final class MoreView: UIView {
         stack.spacing = Theme.Components.Padding.small
         stack.translatesAutoresizingMaskIntoConstraints = false
         
-        stack.addArrangedSubview(getTitleLabel(for: .contribution))
-        stack.addArrangedSubview(getDescriptionLabel(for: .contribution))
-        stack.addArrangedSubview(getActionButton(for: .contribution))
+        stack.addArrangedSubview(makeTitleLabel(for: .contribution))
+        stack.addArrangedSubview(makeDescriptionLabel(for: .contribution))
+        stack.addArrangedSubview(makeActionButton(for: .contribution))
 
         return stack
     }()
@@ -68,9 +68,9 @@ final class MoreView: UIView {
          stack.spacing = Theme.Components.Padding.small
          stack.translatesAutoresizingMaskIntoConstraints = false
         
-        stack.addArrangedSubview(getTitleLabel(for: .developer))
-        stack.addArrangedSubview(getDescriptionLabel(for: .developer))
-        stack.addArrangedSubview(getActionButton(for: .developer))
+        stack.addArrangedSubview(makeTitleLabel(for: .developer))
+        stack.addArrangedSubview(makeDescriptionLabel(for: .developer))
+        stack.addArrangedSubview(makeActionButton(for: .developer))
 
          return stack
      }()
@@ -81,9 +81,9 @@ final class MoreView: UIView {
         stack.spacing = Theme.Components.Padding.small
         stack.translatesAutoresizingMaskIntoConstraints = false
                   
-        stack.addArrangedSubview(getTitleLabel(for: .twitter))
-        stack.addArrangedSubview(getDescriptionLabel(for: .twitter))
-        stack.addArrangedSubview(getActionButton(for: .twitter))
+        stack.addArrangedSubview(makeTitleLabel(for: .twitter))
+        stack.addArrangedSubview(makeDescriptionLabel(for: .twitter))
+        stack.addArrangedSubview(makeActionButton(for: .twitter))
 
         return stack
     }()
@@ -146,7 +146,7 @@ final class MoreView: UIView {
 // MARK: - More Section Configuration
 private extension MoreView {
     
-    func getTitleLabel(for section: MoreSection) -> UILabel {
+    func makeTitleLabel(for section: MoreSection) -> UILabel {
         let label = UILabel()
         label.font = UIFont.STN.ctaTitle
         label.textColor = STNAsset.Color.primaryLabel.color
@@ -167,7 +167,7 @@ private extension MoreView {
         return label
     }
     
-    func getDescriptionLabel(for section: MoreSection, with description: String = "") -> UILabel {
+    func makeDescriptionLabel(for section: MoreSection, with description: String = "") -> UILabel {
         let label = UILabel()
         label.text = description
         label.font = UIFont.STN.ctaBody
@@ -177,7 +177,7 @@ private extension MoreView {
         return label
     }
     
-    func getActionButton(for section: MoreSection) -> UIButton {
+    func makeActionButton(for section: MoreSection) -> UIButton {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.titleLabel?.font = UIFont.STN.sectionHeader
@@ -186,19 +186,16 @@ private extension MoreView {
         button.setTitleColor(STNAsset.Color.actionButtonTint.color, for: .normal)
         button.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
-        let tapGesture = STNTapGestureRecognizer(target: self, action: #selector(openLink(sender:)))
-        button.addGestureRecognizer(tapGesture)
-        
         switch section {
         case .contribution:
             button.setTitle(Strings.GetInvolved.Slack.button, for: .normal)
-            tapGesture.value = Strings.GetInvolved.Slack.url
+            button.addTarget(self, action: #selector(openSlackPage(_:)), for: .touchUpInside)
         case .developer:
             button.setTitle(Strings.GetInvolved.Developer.button, for: .normal)
-            tapGesture.value = Strings.GetInvolved.Developer.url
+            button.addTarget(self, action: #selector(openRepositoryPage(_:)), for: .touchUpInside)
         case .twitter:
             button.setTitle(Strings.GetInvolved.Twitter.button, for: .normal)
-            tapGesture.value = Strings.GetInvolved.Twitter.url
+            button.addTarget(self, action: #selector(openTwitterPage(_:)), for: .touchUpInside)
         case .history: break
         }
         
@@ -210,6 +207,37 @@ private extension MoreView {
         guard let urlString = sender.value,
             let url = URL(string: urlString) else {
                 assertionFailure("Failed to extract given url string: \(String(describing: sender.value))")
+            return
+        }
+        
+        UIApplication.shared.open(url)
+    }
+}
+
+// MARK: - Button Action Responders
+private extension MoreView {
+    
+    @objc func openSlackPage(_ sender: Any) {
+        guard let url = URL(string: Strings.GetInvolved.Slack.url) else {
+            assertionFailure("Failed to create slack url")
+            return
+        }
+        
+        UIApplication.shared.open(url)
+    }
+    
+    @objc func openTwitterPage(_ sender: Any) {
+        guard let url = URL(string: Strings.GetInvolved.Twitter.url) else {
+            assertionFailure("Failed to create twitter url")
+            return
+        }
+        
+        UIApplication.shared.open(url)
+    }
+    
+    @objc func openRepositoryPage(_ sender: Any) {
+        guard let url = URL(string: Strings.GetInvolved.Developer.url) else {
+            assertionFailure("Failed to create repo url")
             return
         }
         
