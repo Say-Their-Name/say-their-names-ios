@@ -143,7 +143,10 @@ private extension MoreView {
         
         switch section {
         case .history:
-            bodyLabel.text = "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturiasdlnalkd."
+            bodyLabel.text = """
+            At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium
+            voluptatum deleniti atque corrupti quos dolores et quas molestias excepturiasdlnalkd.
+            """
         case .developer:
             bodyLabel.text = "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis"
         case .designer:

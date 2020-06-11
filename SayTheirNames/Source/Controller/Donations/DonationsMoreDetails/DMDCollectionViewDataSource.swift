@@ -24,7 +24,7 @@
 
 import UIKit
 
-// MARK: - DataSource
+// MARK: - Data Source
 extension DonationsMoreDetailsController: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 4
@@ -32,7 +32,7 @@ extension DonationsMoreDetailsController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if section == DonationSectionLayoutKind.socialMedia.rawValue {
-            return 4
+            return donation.hashtags.count
         }
         
         return 1
@@ -80,11 +80,13 @@ extension DonationsMoreDetailsController: UICollectionViewDataSource {
         // Social Media Hashtags Section
         case DonationSectionLayoutKind.socialMedia.rawValue:
             guard let hashtagCell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: DMDHashtagCell.reuseIdentifier,
-                for: indexPath) as? DMDHashtagCell else {
+                withReuseIdentifier: HashtagViewCollectionViewCell.reuseIdentifier,
+                for: indexPath) as? HashtagViewCollectionViewCell else {
                     fatalError("Cannot create new cell")
             }
-
+            
+            let hashtag = donation.hashtags[indexPath.row]
+            hashtagCell.setupHashtag(hashtag)
             return hashtagCell
             
         default:

@@ -25,6 +25,9 @@
 import UIKit
 
 final class PetitionDetailViewController: UIViewController {
+
+    @DependencyInject private var shareService: ShareService
+
     var petition: Petition?
     
     private let petitionDetailView = PetitionDetailView()
@@ -88,6 +91,7 @@ final class PetitionDetailViewController: UIViewController {
         dismiss(animated: true)
     }
     @objc func shareAction(_ sender: Any) {
-        // TODO: Share button action
+        guard let petition = self.petition else { return }
+        self.present(self.shareService.share(items: [petition.shareable]), animated: true)
     }
 }
