@@ -59,9 +59,9 @@ class HashtagView: UIView {
                             bottom: bottomAnchor,
                             trailing: trailingAnchor,
                             padding: UIEdgeInsets(top: Theme.Components.Padding.small,
-                                                  left: Theme.Components.Padding.medium,
+                                                  left: Theme.Components.Padding.small,
                                                   bottom: Theme.Components.Padding.small,
-                                                  right: Theme.Components.Padding.medium),
+                                                  right: Theme.Components.Padding.small),
                             size: .zero)
     }
     
