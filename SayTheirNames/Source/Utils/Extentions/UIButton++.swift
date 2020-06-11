@@ -23,6 +23,11 @@
 //  THE SOFTWARE.
 import UIKit
 
+/// Custom tap gesture that accepts a return value 
+class STNTapGestureRecognizer: UITapGestureRecognizer {
+    var value: String?
+}
+
 extension UIButton {
     convenience init(image: UIImage?) {
         self.init(frame: .zero)

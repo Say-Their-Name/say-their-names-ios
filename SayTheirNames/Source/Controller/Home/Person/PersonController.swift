@@ -230,8 +230,15 @@ private extension PersonController {
                          bottom: donationButtonContainerView.topAnchor, trailing: nil,
                          padding: .zero, size: .zero)
         
-        donationButtonContainerView.setButtonPressed {
-            // TODO: Donation button action
+        donationButtonContainerView.setButtonPressed { [weak self]
+            in
+            guard let self = self else { return }
+
+            var donation = self.person.donations.first
+            let donationsDetailsVC = DonationsMoreDetailsController()
+            donationsDetailsVC.donation = donation
+            
+            self.navigationController?.pushViewController(donationsDetailsVC, animated: true)
         }
     }
 }
