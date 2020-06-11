@@ -89,7 +89,8 @@ class PersonController: UIViewController {
     
     @DependencyInject private var network: NetworkRequestor
     @DependencyInject private var metadata: MetadataService
-    
+    @DependencyInject private var shareService: ShareService
+
     public var person: Person!
     private var isLoading = true
     
@@ -173,7 +174,7 @@ class PersonController: UIViewController {
     }
     
     @objc func shareAction(_ sender: Any) {
-        // TODO: Share button action
+        self.present(self.shareService.share(items: [self.person.shareable]), animated: true)
     }
     
     private func registerCells(to tableView: UITableView) {
