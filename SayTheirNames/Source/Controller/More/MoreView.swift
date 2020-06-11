@@ -37,6 +37,57 @@ final class MoreView: UIView {
         case twitter
     }
     
+    private lazy var historySection: UIStackView = {
+        let stack = UIStackView()
+        stack.axis = .vertical
+        stack.spacing = Theme.Components.Padding.small
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        
+        stack.addArrangedSubview(getTitleLabel(for: .history))
+        stack.addArrangedSubview(getDescriptionLabel(for: .history, with: Strings.MoreHistory.aboutDesc))
+        
+        return stack
+    }()
+    
+    private lazy var contributionSection: UIStackView = {
+        let stack = UIStackView()
+        stack.axis = .vertical
+        stack.spacing = Theme.Components.Padding.small
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        
+        stack.addArrangedSubview(getTitleLabel(for: .contribution))
+        stack.addArrangedSubview(getDescriptionLabel(for: .contribution))
+        stack.addArrangedSubview(getActionButton(for: .contribution))
+
+        return stack
+    }()
+    
+    private lazy var developerSection: UIStackView = {
+         let stack = UIStackView()
+         stack.axis = .vertical
+         stack.spacing = Theme.Components.Padding.small
+         stack.translatesAutoresizingMaskIntoConstraints = false
+        
+        stack.addArrangedSubview(getTitleLabel(for: .developer))
+        stack.addArrangedSubview(getDescriptionLabel(for: .developer))
+        stack.addArrangedSubview(getActionButton(for: .developer))
+
+         return stack
+     }()
+    
+    private lazy var twitterSection: UIStackView = {
+        let stack = UIStackView()
+        stack.axis = .vertical
+        stack.spacing = Theme.Components.Padding.small
+        stack.translatesAutoresizingMaskIntoConstraints = false
+                  
+        stack.addArrangedSubview(getTitleLabel(for: .twitter))
+        stack.addArrangedSubview(getDescriptionLabel(for: .twitter))
+        stack.addArrangedSubview(getActionButton(for: .twitter))
+
+        return stack
+    }()
+    
     private lazy var thankYouLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -59,28 +110,26 @@ final class MoreView: UIView {
     
     /// Configures constraints for subviews
     private func setupSubviews() {
-        let contentView = UIStackView(
-            arrangedSubviews:
-            [moreCard,
-             historySection(),
-             contributionSection(),
-             developerSection(),
-             twitterSection(),
-             thankYouLabel])
-        
-        contentView.axis = .vertical
-        contentView.spacing = Theme.Components.Padding.extraLarge
-        contentView.translatesAutoresizingMaskIntoConstraints = false
+        let stack = UIStackView()
+        stack.axis = .vertical
+        stack.spacing = Theme.Components.Padding.extraLarge
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.addArrangedSubview(moreCard)
+        stack.addArrangedSubview(historySection)
+        stack.addArrangedSubview(contributionSection)
+        stack.addArrangedSubview(developerSection)
+        stack.addArrangedSubview(twitterSection)
+        stack.addArrangedSubview(thankYouLabel)
         
         // scroll view
         let scrollView = UIScrollView(frame: frame)
         scrollView.backgroundColor = STNAsset.Color.background.color
-        scrollView.addSubview(contentView)
+        scrollView.addSubview(stack)
         addSubview(scrollView)
         
         scrollView.anchor(superView: self, top: topAnchor, leading: leadingAnchor,
                           bottom: bottomAnchor, trailing: trailingAnchor, padding: .zero, size: .zero)
-        contentView.anchor(superView: scrollView, top: scrollView.topAnchor, leading: nil,
+        stack.anchor(superView: scrollView, top: scrollView.topAnchor, leading: nil,
                            bottom: nil, trailing: nil,
                            padding: UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20), size: .zero)
         
@@ -94,111 +143,70 @@ final class MoreView: UIView {
     }
 }
 
-// MARK: - Configurations
+// MARK: - More Section Configuration
 private extension MoreView {
-        
-    private func historySection() -> UIStackView {
-        let stackCard = UIStackView(arrangedSubviews: [titleLabel(.history),
-                                                       descriptionLabel(.history, description: Strings.MoreHistory.aboutDesc)])
-        stackCard.axis = .vertical
-        stackCard.spacing = Theme.Components.Padding.small
-        stackCard.translatesAutoresizingMaskIntoConstraints = false
-        
-        return stackCard
-    }
     
-    private func contributionSection() -> UIStackView {
-        let stackCard = UIStackView(arrangedSubviews: [titleLabel(.contribution),
-                                                       descriptionLabel(.contribution), actionButton(.contribution)])
-        stackCard.axis = .vertical
-        stackCard.spacing = Theme.Components.Padding.small
-        stackCard.translatesAutoresizingMaskIntoConstraints = false
-        
-        return stackCard
-    }
-    
-    private func developerSection() -> UIStackView {
-        let stackCard = UIStackView(arrangedSubviews: [titleLabel(.developer),
-                                                       descriptionLabel(.developer), actionButton(.developer)])
-        stackCard.axis = .vertical
-        stackCard.spacing = Theme.Components.Padding.small
-        stackCard.translatesAutoresizingMaskIntoConstraints = false
-        
-        return stackCard
-    }
-    
-    private func twitterSection() -> UIStackView {
-        let stackCard = UIStackView(arrangedSubviews: [titleLabel(.twitter),
-                                                       descriptionLabel(.twitter), actionButton(.twitter)])
-        stackCard.axis = .vertical
-        stackCard.spacing = Theme.Components.Padding.small
-        stackCard.translatesAutoresizingMaskIntoConstraints = false
-        
-        return stackCard
-    }
-    
-    private func titleLabel(_ section: MoreSection) -> UILabel {
-        let titleLabel = UILabel()
-        
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.textColor = STNAsset.Color.primaryLabel.color
-        titleLabel.font = UIFont.STN.ctaTitle
-        titleLabel.numberOfLines = Theme.Components.LineLimit.double
+    func getTitleLabel(for section: MoreSection) -> UILabel {
+        let label = UILabel()
+        label.font = UIFont.STN.ctaTitle
+        label.textColor = STNAsset.Color.primaryLabel.color
+        label.numberOfLines = Theme.Components.LineLimit.double
+        label.translatesAutoresizingMaskIntoConstraints = false
         
         switch section {
         case .history:
-            titleLabel.text = Strings.MoreHistory.aboutTitle
+            label.text = Strings.MoreHistory.aboutTitle
         case .contribution:
-            titleLabel.text = Strings.GetInvolved.title
+            label.text = Strings.GetInvolved.Slack.title
         case .developer:
-            titleLabel.text = Strings.GetInvolvedDev.title
+            label.text = Strings.GetInvolved.Developer.title
         case .twitter:
-             titleLabel.text = Strings.GetInvolvedTwitter.title
+            label.text = Strings.GetInvolved.Twitter.title
         }
         
-        return titleLabel
+        return label
     }
     
-    private func descriptionLabel(_ section: MoreSection, description: String = "") -> UILabel {
-        let bodyLabel = UILabel()
-        
-        bodyLabel.translatesAutoresizingMaskIntoConstraints = false
-        bodyLabel.textColor = STNAsset.Color.primaryLabel.color
-        bodyLabel.font = UIFont.STN.ctaBody
-        bodyLabel.numberOfLines = Theme.Components.LineLimit.none
-        bodyLabel.text = description
-        return bodyLabel
+    func getDescriptionLabel(for section: MoreSection, with description: String = "") -> UILabel {
+        let label = UILabel()
+        label.text = description
+        label.font = UIFont.STN.ctaBody
+        label.textColor = STNAsset.Color.primaryLabel.color
+        label.numberOfLines = Theme.Components.LineLimit.none
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
     }
     
-    private func actionButton(_ section: MoreSection) -> UIButton {
-        let actionButton = UIButton()
-        actionButton.translatesAutoresizingMaskIntoConstraints = false
-        actionButton.titleLabel?.font = UIFont.STN.sectionHeader
-        actionButton.layer.borderWidth = 2
-        actionButton.backgroundColor = STNAsset.Color.actionButton.color
-        actionButton.setTitleColor(STNAsset.Color.actionButtonTint.color, for: .normal)
-        actionButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+    func getActionButton(for section: MoreSection) -> UIButton {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.titleLabel?.font = UIFont.STN.sectionHeader
+        button.layer.borderWidth = 2
+        button.backgroundColor = STNAsset.Color.actionButton.color
+        button.setTitleColor(STNAsset.Color.actionButtonTint.color, for: .normal)
+        button.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
         let tapGesture = STNTapGestureRecognizer(target: self, action: #selector(openLink(sender:)))
-        actionButton.addGestureRecognizer(tapGesture)
+        button.addGestureRecognizer(tapGesture)
         
         switch section {
         case .contribution:
-            actionButton.setTitle(Strings.GetInvolved.button, for: .normal)
-            tapGesture.value = Strings.GetInvolved.url
+            button.setTitle(Strings.GetInvolved.Slack.button, for: .normal)
+            tapGesture.value = Strings.GetInvolved.Slack.url
         case .developer:
-            actionButton.setTitle(Strings.GetInvolvedDev.button, for: .normal)
-            tapGesture.value = Strings.GetInvolvedDev.url
+            button.setTitle(Strings.GetInvolved.Developer.button, for: .normal)
+            tapGesture.value = Strings.GetInvolved.Developer.url
         case .twitter:
-            actionButton.setTitle(Strings.GetInvolvedTwitter.button, for: .normal)
-            tapGesture.value = Strings.GetInvolvedTwitter.url
+            button.setTitle(Strings.GetInvolved.Twitter.button, for: .normal)
+            tapGesture.value = Strings.GetInvolved.Twitter.url
         case .history: break
         }
         
-        return actionButton
+        return button
     }
     
-    @objc private func openLink(sender: STNTapGestureRecognizer) {
+    /// Opens external links and accept custom gesture
+    @objc func openLink(sender: STNTapGestureRecognizer) {
         guard let urlString = sender.value,
             let url = URL(string: urlString) else {
                 assertionFailure("Failed to extract given url string: \(String(describing: sender.value))")
