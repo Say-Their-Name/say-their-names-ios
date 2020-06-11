@@ -92,7 +92,7 @@ class PersonController: UIViewController {
     
     public var person: Person!
     private var isLoading = true
-    
+        
     private let donationButtonContainerView = DontainButtonContainerView(frame: .zero)
     private let tableViewCells: [PersonCellType] = {
         return [.photo, .info, .story, .outcome, .news, .medias, .hashtags]
@@ -161,7 +161,7 @@ class PersonController: UIViewController {
             }
         }
     }
-
+    
     override func loadView() {
         super.loadView()
         setupNavigationBarItems()
@@ -282,7 +282,7 @@ extension PersonController: UITableViewDataSource {
             return cell
         case .hashtags:
             let hashtagsCell = cell as! PersonHashtagTableViewCell
-            hashtagsCell.hashtags = person.hashtags
+            hashtagsCell.configure(with: person.hashtags)
             hashtagsCell.registerCell(with: PersonHashtagCollectionViewCell.self)
             return hashtagsCell
         }

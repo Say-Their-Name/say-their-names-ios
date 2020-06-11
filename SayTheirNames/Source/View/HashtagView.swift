@@ -8,14 +8,31 @@
 
 import UIKit
 
+struct HashtagSizingModel: DynamicHeightCalculable {
+        
+    public func height(forWidth: CGFloat) -> CGFloat {
+        let sizingLabel = UILabel()
+        sizingLabel.text = "#JUSTICEFORFIRST"
+        sizingLabel.font = UIFont.STN.hashtagButton
+        sizingLabel.adjustsFontForContentSizeCategory = true
+        sizingLabel.textColor = UIColor(asset: STNAsset.Color.primaryLabel)
+        sizingLabel.textAlignment = .center
+        sizingLabel.isAccessibilityElement = true
+
+        let maxSize = CGSize(width: forWidth, height: .greatestFiniteMagnitude)
+        let size = sizingLabel.sizeThatFits(maxSize)
+        
+        return size.height
+    }
+}
+
 class HashtagView: UIView {
     // MARK: - View
     lazy var hashtagLabel: UILabel = {
         let label = UILabel()
         label.text = "#JUSTICEFORFIRST"
         label.font = UIFont.STN.hashtagButton
-        label.adjustsFontSizeToFitWidth = true
-        label.minimumScaleFactor = 0.5
+        label.adjustsFontForContentSizeCategory = true
         label.textColor = UIColor(asset: STNAsset.Color.primaryLabel)
         label.textAlignment = .center
         label.isAccessibilityElement = true
@@ -41,8 +58,13 @@ class HashtagView: UIView {
                             leading: leadingAnchor,
                             bottom: bottomAnchor,
                             trailing: trailingAnchor,
-                            padding: UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5), size: .zero)
+                            padding: UIEdgeInsets(top: Theme.Components.Padding.small,
+                                                  left: Theme.Components.Padding.medium,
+                                                  bottom: Theme.Components.Padding.small,
+                                                  right: Theme.Components.Padding.medium),
+                            size: .zero)
     }
+    
     private func updateCGColors() {
         layer.borderColor = UIColor(asset: STNAsset.Color.primaryLabel).cgColor
     }
@@ -51,5 +73,10 @@ class HashtagView: UIView {
         super.traitCollectionDidChange(previousTraitCollection)
         self.updateCGColors()
         self.setNeedsDisplay()
+    }
+    
+    override var intrinsicContentSize: CGSize {
+        return CGSize(width: self.hashtagLabel.frame.width + (Theme.Components.Padding.medium * 2),
+                      height: self.hashtagLabel.frame.height + (Theme.Components.Padding.small * 2))
     }
 }
