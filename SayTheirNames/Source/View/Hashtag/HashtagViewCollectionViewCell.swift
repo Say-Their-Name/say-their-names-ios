@@ -26,10 +26,6 @@ import UIKit
 
 class HashtagViewCollectionViewCell: UICollectionViewCell {
     
-    static var reuseIdentifier: String {
-        return "\(Self.self)"
-    }
-    
     let hashtagView = HashtagView(frame: .zero)
     
     override var intrinsicContentSize: CGSize {
