@@ -32,7 +32,7 @@ extension DonationsMoreDetailsController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if section == DonationSectionLayoutKind.socialMedia.rawValue {
-            return donation.hashtags.count
+            return data.entity.hashtags.count
         }
         
         return 1
@@ -43,26 +43,26 @@ extension DonationsMoreDetailsController: UICollectionViewDataSource {
         // Title Section
         case DonationSectionLayoutKind.title.rawValue:
             let titleCell: DMDTitleCell = collectionView.dequeueCell(for: indexPath)
-            titleCell.configure(for: donation)
+            titleCell.setTitle(data.entity.title)
             return titleCell
             
         // Decription Section
         case DonationSectionLayoutKind.description.rawValue:
             let textCell: DMDTextContentCell = collectionView.dequeueCell(for: indexPath)
-            textCell.setContent(text: donation.description)
+            textCell.setContent(text: data.entity.description)
             return textCell
             
         // Outcome Section
         case DonationSectionLayoutKind.outcome.rawValue:
             let textCell: DMDTextContentCell = collectionView.dequeueCell(for: indexPath)
-            textCell.setContent(text: donation.description)
+            textCell.setContent(text: data.entity.description)
             textCell.isHidden = !FeatureFlags.dmdOutcomeSectionEnabled
             return textCell
             
         // Social Media Hashtags Section
         case DonationSectionLayoutKind.socialMedia.rawValue:
             let hashtagCell: HashtagViewCollectionViewCell = collectionView.dequeueCell(for: indexPath)
-            let hashtag = donation.hashtags[indexPath.row]
+            let hashtag = data.entity.hashtags[indexPath.row]
             hashtagCell.setupHashtag(hashtag)
             return hashtagCell
             
@@ -80,11 +80,11 @@ extension DonationsMoreDetailsController: UICollectionViewDataSource {
             // PhotoSupplementaryView
             let photoView: DMDPhotoSupplementaryView = collectionView.dequeueReusableSupplementaryView(forKind: kind,
                                                                                                        for: indexPath)
-                switch donation.type?.id {
+                switch data.entity.type?.id {
                 case DonationTypes.movement.id:
-                    photoView.configure(withURLString: donation.bannerImagePath)
+                    photoView.configure(withURLString: data.entity.bannerImagePath)
                 default:
-                    photoView.configure(withURLString: donation.person?.images.first?.personURL)
+                    photoView.configure(withURLString: data.entity.person?.images.first?.personURL)
                 }
 
                 return photoView

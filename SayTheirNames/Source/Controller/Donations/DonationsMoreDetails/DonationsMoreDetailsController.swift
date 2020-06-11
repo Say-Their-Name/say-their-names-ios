@@ -24,8 +24,45 @@
 
 import UIKit
 
+protocol CommunitySupportEntity {
+    var id: Int { get }
+    var identifier: String { get }
+    var title: String { get }
+    var description: String { get }
+    var type: DonationType? { get }
+    var outcome: String { get }
+    var link: String { get }
+    var outcomeImagePath: String { get }
+    var person: Person? { get }
+    var bannerImagePath: String { get }
+    var shareable: Shareable { get }
+    var hashtags: [Hashtag] { get }
+}
+
+extension Donation: CommunitySupportEntity {
+}
+
+extension Petition: CommunitySupportEntity {
+}
+
+// MARK: -
+
 final class DonationsMoreDetailsController: UIViewController {
 
+    enum Data {
+        case donation(Donation)
+        case petition(Petition)
+        
+        var entity: CommunitySupportEntity {
+            switch self {
+            case .donation(let donation):
+                return donation
+            case .petition(let petition):
+                return petition
+            }
+        }
+    }
+    
     @DependencyInject private var network: NetworkRequestor
     @DependencyInject private var shareService: ShareService
 
@@ -50,7 +87,7 @@ final class DonationsMoreDetailsController: UIViewController {
     static let sectionTitleSupplementaryView = "sectionTitle"
     
     // MARK: - Property
-    var donation: Donation!
+    private(set) var data: Data
     
     internal let emptyKind = "empty-kind"
     
@@ -60,10 +97,12 @@ final class DonationsMoreDetailsController: UIViewController {
     ]
 
     // MARK: - Initialization
-    required init() {
+    required init(data: Data) {
+        self.data = data
         super.init(nibName: nil, bundle: nil)
     }
     
+    @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -96,21 +135,36 @@ final class DonationsMoreDetailsController: UIViewController {
 
         view.accessibilityIdentifier = AccessibilityIdentifers.view
         donationButtonContainerView.accessibilityIdentifier = AccessibilityIdentifers.donationButtonContainerView
-        
-        // Fetch Donation Details
-        self.network.fetchDonationDetails(with: donation.identifier) { [weak self] in
-            switch $0 {
-            case .success(let page):
-                self?.configure(with: page.donation)
-
-            case .failure(let error):
-                Log.print(error)
-             }
+             
+        switch data {
+            
+        case .petition(let petition):
+            self.network.fetchPetitionDetails(with: petition.identifier) { [weak self] (result) in
+                switch result {
+                case .success(let page):
+                    self?.configure(with: Data.petition(page.petition))
+                    
+                case .failure(let error):
+                    Log.print(error)
+                }
+            }
+            
+        case .donation(let donation):
+            
+            self.network.fetchDonationDetails(with: donation.identifier) { [weak self] (result) in
+                switch result {
+                case .success(let page):
+                    self?.configure(with: Data.donation(page.donation))
+                    
+                case .failure(let error):
+                    Log.print(error)
+                }
+            }
         }
     }
     
-    private func configure(with donation: Donation) {
-        self.donation = donation
+    private func configure(with data: Data) {
+        self.data = data
         self.collectionView.reloadData()
     }
     
@@ -176,14 +230,20 @@ final class DonationsMoreDetailsController: UIViewController {
     private func setupDonationButton() {
         donationButtonContainerView.setButtonPressed { [weak self] in
             guard let self = self else { return }
-            guard let donationURL = URL(string: self.donation.link) else {
+            guard let donationURL = URL(string: self.data.entity.link) else {
                        assertionFailure("Invalid donationURL")
                        return
                    }
             UIApplication.shared.open(donationURL)
         }
         
-        donationButtonContainerView.setButtonTitle(Strings.donateNow)
+        switch data {
+        case .donation:
+            donationButtonContainerView.setButtonTitle(L10n.donateNow)
+        case .petition:
+            donationButtonContainerView.setButtonTitle("Sign") // TODO: localize
+        }
+
         donationButtonContainerView.translatesAutoresizingMaskIntoConstraints = false
         donationButtonContainerView.backgroundColor = UIColor(asset: STNAsset.Color.background)
         view.addSubview(donationButtonContainerView)
@@ -196,12 +256,12 @@ final class DonationsMoreDetailsController: UIViewController {
     }
     
     // MARK: - Button Action
-    @objc func dismissAction(_ sender: Any) {
+    @objc private func dismissAction(_ sender: Any) {
         navigationController?.dismiss(animated: true, completion: nil)
     }
     
-    @objc func shareAction(_ sender: Any) {
-        self.present(self.shareService.share(items: [self.donation.shareable]), animated: true)
+    @objc private func shareAction(_ sender: Any) {
+        self.present(self.shareService.share(items: [self.data.entity.shareable]), animated: true)
     }
 }
 
@@ -211,7 +271,7 @@ extension DonationsMoreDetailsController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.section == DonationSectionLayoutKind.socialMedia.rawValue {
-            let hashtag = donation.hashtags[indexPath.row]
+            let hashtag = data.entity.hashtags[indexPath.row]
             
             if let url = URL(string: hashtag.link) {
                 UIApplication.shared.open(url)
