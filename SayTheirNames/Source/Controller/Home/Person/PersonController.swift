@@ -23,7 +23,6 @@
 //  THE SOFTWARE.
 
 import UIKit
-import SafariServices
 
 enum PersonCellType: Equatable {
     case photo
@@ -42,7 +41,7 @@ enum PersonCellType: Equatable {
         case .outcome: return PersonOverviewTableViewCell.reuseIdentifier
         case .news: return PersonNewsTableViewCell.reuseIdentifier
         case .medias: return PersonMediaTableViewCell.reuseIdentifier
-        case .hashtags: return PersonHashtagTableViewCell.reuseIdentifier
+        case .hashtags: return HashtagTableViewCell.reuseIdentifier
         }
     }
     
@@ -73,7 +72,7 @@ enum PersonCellType: Equatable {
         case .medias:
             tableView.register(cellType: PersonMediaTableViewCell.self)
         case .hashtags:
-            tableView.register(cellType: PersonHashtagTableViewCell.self)
+            tableView.register(cellType: HashtagTableViewCell.self)
         }
     }
     
@@ -89,13 +88,14 @@ class PersonController: UIViewController {
     
     @DependencyInject private var network: NetworkRequestor
     @DependencyInject private var metadata: MetadataService
-    
+    @DependencyInject private var shareService: ShareService
+
     public var person: Person!
     private var isLoading = true
-    
+        
     private let donationButtonContainerView = DontainButtonContainerView(frame: .zero)
     private let tableViewCells: [PersonCellType] = {
-        return [.photo, .info, .story, .outcome, .news, .medias, .hashtags]
+        return [.photo, .info, .story, .news, .medias, .hashtags]
     }()
     
     private var tableView: UITableView = {
@@ -161,7 +161,7 @@ class PersonController: UIViewController {
             }
         }
     }
-
+    
     override func loadView() {
         super.loadView()
         setupNavigationBarItems()
@@ -173,7 +173,7 @@ class PersonController: UIViewController {
     }
     
     @objc func shareAction(_ sender: Any) {
-        // TODO: Share button action
+        self.present(self.shareService.share(items: [self.person.shareable]), animated: true)
     }
     
     private func registerCells(to tableView: UITableView) {
@@ -281,27 +281,37 @@ extension PersonController: UITableViewDataSource {
             newsCell.updateCellWithMedias(person.medias)
             return cell
         case .hashtags:
-            let hashtagsCell = cell as! PersonHashtagTableViewCell
-            hashtagsCell.hashtags = person.hashtags
-            hashtagsCell.registerCell(with: PersonHashtagCollectionViewCell.self)
+            let hashtagsCell = cell as! HashtagTableViewCell
+            hashtagsCell.cellDelegate = self
+            hashtagsCell.configure(with: person.hashtags)
+            hashtagsCell.registerCell(with: HashtagViewCollectionViewCell.self)
             return hashtagsCell
         }
     }
 }
 
-// MARK: - PersonCollectionViewCellDelegate
+// MARK: PersonCollectionViewCellDelegate
 
 extension PersonController: PersonCollectionViewCellDelegate {
     
     func didTapNewsItem(_ news: News) {
         if let url = URL(string: news.url) {
-            let vc = SFSafariViewController(url: url)
-            vc.modalPresentationStyle = .overFullScreen
-            self.present(vc, animated: true)
+            UIApplication.shared.open(url)
         }
     }
     
     func didTapMediaItem(_ media: Media) {
         print("Did tap media")
+    }
+}
+
+// MARK: HashtagCollectionViewCellDelegate
+
+extension PersonController: HashtagCollectionViewCellDelegate {
+    
+    func didTapHashtag(_ hashtag: Hashtag) {
+        if let url = URL(string: hashtag.link) {
+            UIApplication.shared.open(url)
+        }
     }
 }

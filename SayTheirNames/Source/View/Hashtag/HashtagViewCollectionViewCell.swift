@@ -1,5 +1,5 @@
 //
-//  PersonHashtagCollectionViewCell.swift
+//  HashtagViewCollectionViewCell.swift
 //  SayTheirNames
 //
 //  Copyright (c) 2020 Say Their Names Team (https://github.com/Say-Their-Name)
@@ -24,13 +24,17 @@
 
 import UIKit
 
-class PersonHashtagCollectionViewCell: UICollectionViewCell {
+class HashtagViewCollectionViewCell: UICollectionViewCell {
     
     static var reuseIdentifier: String {
         return "\(Self.self)"
     }
     
     let hashtagView = HashtagView(frame: .zero)
+    
+    override var intrinsicContentSize: CGSize {
+        return hashtagView.intrinsicContentSize
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)

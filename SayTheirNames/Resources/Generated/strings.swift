@@ -78,6 +78,9 @@ internal enum L10n {
     /// About the project
     internal static let aboutDesc = L10n.tr("Localizable", "more_history_desc")
   }
+  
+  // View GoFundMe Page
+  internal static let viewGoFundMePage = L10n.tr("Localizable", "viewGoFundMePage")
 
   internal enum Person {
     /// Age
