@@ -50,8 +50,6 @@
 		7CAD53EA248A32FC001CFF08 /* PeopleNetworkRequestorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAD53E9248A32FC001CFF08 /* PeopleNetworkRequestorTests.swift */; };
 		7CE75F402489B78400168DDA /* PetitionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE75F352489820700168DDA /* PetitionsView.swift */; };
 		7CE75F412489B78400168DDA /* PetitionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B077D24835CF700DB803C /* PetitionsController.swift */; };
-		7CE75F432489B78400168DDA /* PetitionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE75F312489820600168DDA /* PetitionDetailView.swift */; };
-		7CE75F462489B78400168DDA /* PetitionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE75F342489820700168DDA /* PetitionDetailViewController.swift */; };
 		83E9CAD02484A504001D173A /* LaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E9CACF2484A504001D173A /* LaunchScreen.swift */; };
 		83E9CAD22484A514001D173A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83E9CAD12484A514001D173A /* LaunchScreen.xib */; };
 		83E9CAD42484A5DC001D173A /* UIViewController+TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E9CAD32484A5DC001D173A /* UIViewController+TabBar.swift */; };
@@ -249,8 +247,6 @@
 		7CAD53E5248A2AEE001CFF08 /* DonationsNetworkRequestorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationsNetworkRequestorTests.swift; sourceTree = "<group>"; };
 		7CAD53E7248A326F001CFF08 /* PetitionsNetworkRequestorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetitionsNetworkRequestorTests.swift; sourceTree = "<group>"; };
 		7CAD53E9248A32FC001CFF08 /* PeopleNetworkRequestorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleNetworkRequestorTests.swift; sourceTree = "<group>"; };
-		7CE75F312489820600168DDA /* PetitionDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetitionDetailView.swift; sourceTree = "<group>"; };
-		7CE75F342489820700168DDA /* PetitionDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetitionDetailViewController.swift; sourceTree = "<group>"; };
 		7CE75F352489820700168DDA /* PetitionsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetitionsView.swift; sourceTree = "<group>"; };
 		8381E475248D7CEC00EA1E43 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 		83E9CACF2484A504001D173A /* LaunchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreen.swift; sourceTree = "<group>"; };
@@ -807,8 +803,6 @@
 			children = (
 				A91B077D24835CF700DB803C /* PetitionsController.swift */,
 				7CE75F352489820700168DDA /* PetitionsView.swift */,
-				7CE75F342489820700168DDA /* PetitionDetailViewController.swift */,
-				7CE75F312489820600168DDA /* PetitionDetailView.swift */,
 				DC4093DD248D8FB700C45D09 /* PetitionsCollectionViewManager.swift */,
 			);
 			path = Petitions;
@@ -1377,7 +1371,6 @@
 				C0594BFA248754A200260BAD /* UICollectionView++.swift in Sources */,
 				9EC6DD48248B7E4A006CC5A7 /* SingleSection.swift in Sources */,
 				A91B079824835CF700DB803C /* STNSize.swift in Sources */,
-				7CE75F432489B78400168DDA /* PetitionDetailView.swift in Sources */,
 				7CE75F412489B78400168DDA /* PetitionsController.swift in Sources */,
 				9E920267248C32440007AFCE /* UITraitCollection++.swift in Sources */,
 				9E974591248B8A5000DB5E32 /* FilterCategory.swift in Sources */,
@@ -1411,7 +1404,6 @@
 				9E2449A02485EA0B00B149DF /* strings.swift in Sources */,
 				DC969C552491FB2200B62598 /* HashtagViewCollectionViewCell.swift in Sources */,
 				A91B07C82484751700DB803C /* String+STN.swift in Sources */,
-				7CE75F462489B78400168DDA /* PetitionDetailViewController.swift in Sources */,
 				7419B4B5248A2E0800D466C8 /* PersonNewsTableViewCell.swift in Sources */,
 				A9B90579248FD8FE00F9EEFA /* HomeDeepLink.swift in Sources */,
 				A93367D6248985F5001F1E28 /* DispatchQueue+STN.swift in Sources */,
