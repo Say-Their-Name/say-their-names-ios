@@ -80,8 +80,8 @@ class ButtonContainerView: UIView {
             
             button.heightAnchor.constraint(equalToConstant: 50),
             button.topAnchor.constraint(equalTo: self.topAnchor, constant: 20),
-            button.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 32),
-            button.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -32)
+            button.leftAnchor.constraint(equalTo: self.leftAnchor, constant: Theme.Screens.DonationDetails.horizontalPadding),
+            button.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -Theme.Screens.DonationDetails.horizontalPadding)
         ])
     }
     
