@@ -23,7 +23,6 @@
 //  THE SOFTWARE.
 
 import UIKit
-import SafariServices
 
 enum PersonCellType: Equatable {
     case photo
@@ -296,9 +295,7 @@ extension PersonController: PersonCollectionViewCellDelegate {
     
     func didTapNewsItem(_ news: News) {
         if let url = URL(string: news.url) {
-            let vc = SFSafariViewController(url: url)
-            vc.modalPresentationStyle = .overFullScreen
-            self.present(vc, animated: true)
+            UIApplication.shared.open(url)
         }
     }
     
@@ -313,9 +310,7 @@ extension PersonController: HashtagCollectionViewCellDelegate {
     
     func didTapHashtag(_ hashtag: Hashtag) {
         if let url = URL(string: hashtag.link) {
-            let vc = SFSafariViewController(url: url)
-            vc.modalPresentationStyle = .overFullScreen
-            self.present(vc, animated: true)
+            UIApplication.shared.open(url)
         }
     }
 }

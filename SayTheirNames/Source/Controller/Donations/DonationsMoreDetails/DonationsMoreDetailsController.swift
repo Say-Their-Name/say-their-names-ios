@@ -23,7 +23,6 @@
 //  THE SOFTWARE.
 
 import UIKit
-import SafariServices
 
 final class DonationsMoreDetailsController: UIViewController {
 
@@ -214,9 +213,7 @@ extension DonationsMoreDetailsController: UICollectionViewDelegate {
             let hashtag = donation.hashTags[indexPath.row]
             
             if let url = URL(string: hashtag.link) {
-                let vc = SFSafariViewController(url: url)
-                vc.modalPresentationStyle = .overFullScreen
-                self.present(vc, animated: true)
+                UIApplication.shared.open(url)
             }
         }
     }
