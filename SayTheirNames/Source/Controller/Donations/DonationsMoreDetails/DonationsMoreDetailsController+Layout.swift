@@ -42,10 +42,6 @@ extension DonationsMoreDetailsController {
         
         // Section
         let section = NSCollectionLayoutSection(group: group)
-        section.contentInsets = NSDirectionalEdgeInsets(top: 0.0,
-                                                        leading: Theme.Screens.DonationDetails.horizontalPadding,
-                                                        bottom: 0.0,
-                                                        trailing: Theme.Screens.DonationDetails.horizontalPadding)
         
         // Supplementary
         let titleViewSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
@@ -72,10 +68,6 @@ extension DonationsMoreDetailsController {
         
         // Section
         let section = NSCollectionLayoutSection(group: group)
-        section.contentInsets = NSDirectionalEdgeInsets(top: 30.0,
-                                                        leading: Theme.Screens.DonationDetails.horizontalPadding,
-                                                        bottom: 20.0,
-                                                        trailing: Theme.Screens.DonationDetails.horizontalPadding)
         
         // Photo Supplementary View
         let photoViewSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(420))
@@ -102,10 +94,6 @@ extension DonationsMoreDetailsController {
         
         // Section
         let section = NSCollectionLayoutSection(group: group)
-        section.contentInsets = NSDirectionalEdgeInsets(top: Theme.Components.Padding.small,
-                                                        leading: Theme.Screens.DonationDetails.horizontalPadding,
-                                                        bottom: Theme.Components.Padding.small,
-                                                        trailing: Theme.Screens.DonationDetails.horizontalPadding)
         
         // Supplementary
         let titleViewSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(22.5))
@@ -129,10 +117,6 @@ extension DonationsMoreDetailsController {
         
         // Section
         let section = NSCollectionLayoutSection(group: group)
-        section.contentInsets = NSDirectionalEdgeInsets(top: Theme.Components.Padding.small,
-                                                        leading: Theme.Screens.DonationDetails.horizontalPadding,
-                                                        bottom: Theme.Components.Padding.small,
-                                                        trailing: Theme.Screens.DonationDetails.horizontalPadding)
         section.interGroupSpacing = Theme.Components.Padding.medium
         section.orthogonalScrollingBehavior = .continuous
         

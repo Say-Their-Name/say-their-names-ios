@@ -310,23 +310,36 @@ final class DonationsMoreDetailsController: UIViewController {
                 return section
             }
             
+            let layoutSection: NSCollectionLayoutSection
+            let topInset: CGFloat
+            
             switch section {
             // Title section layout
             case .title:
-                return DonationsMoreDetailsController.titleLayout()
+                topInset = Theme.Components.Padding.large
+                layoutSection = DonationsMoreDetailsController.titleLayout()
                 
             // Description section layout
             case .description:
-                return DonationsMoreDetailsController.descriptionLayout()
+                topInset = Theme.Components.Padding.small
+                layoutSection = DonationsMoreDetailsController.descriptionLayout()
                 
             // Social Media Hashtags section layout
             case .socialMedia:
-                return DonationsMoreDetailsController.hashtagLayout()
+                topInset = Theme.Components.Padding.small
+                layoutSection = DonationsMoreDetailsController.hashtagLayout()
                 
             // Outcome Section
             case .outcome:
-                return DonationsMoreDetailsController.outcomeLayout()
+                topInset = Theme.Components.Padding.small
+                layoutSection = DonationsMoreDetailsController.outcomeLayout()
             }
+            
+            layoutSection.contentInsets = NSDirectionalEdgeInsets(top: topInset,
+                                                                  leading: Theme.Screens.DonationDetails.horizontalPadding,
+                                                                  bottom: Theme.Components.Padding.small,
+                                                                  trailing: Theme.Screens.DonationDetails.horizontalPadding)
+            return layoutSection
         }
         
         let config = UICollectionViewCompositionalLayoutConfiguration()
