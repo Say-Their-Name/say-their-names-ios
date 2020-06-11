@@ -72,6 +72,9 @@ internal enum L10n {
     /// SOME HISTORY ON THE SAY THEIR NAME MOVEMENT
     internal static let title = L10n.tr("Localizable", "more_history.title")
   }
+  
+  // View GoFundMe Page
+  internal static let viewGoFundMePage = L10n.tr("Localizable", "viewGoFundMePage")
 
   internal enum Person {
     /// Age
