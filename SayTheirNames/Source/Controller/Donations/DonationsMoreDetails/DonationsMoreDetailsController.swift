@@ -25,6 +25,9 @@
 import UIKit
 
 final class DonationsMoreDetailsController: UIViewController {
+
+    @DependencyInject private var network: NetworkRequestor
+
     // MARK: - Section Layout Kind
     enum DonationSectionLayoutKind: Int, CaseIterable {
         case title = 0
@@ -92,6 +95,22 @@ final class DonationsMoreDetailsController: UIViewController {
         collectionView.dataSource = self
         view.accessibilityIdentifier = AccessibilityIdentifers.view
         donationButtonContainerView.accessibilityIdentifier = AccessibilityIdentifers.donationButtonContainerView
+        
+        // Fetch Donation Details
+        self.network.fetchDonationDetails(with: donation.identifier) { [weak self] in
+            switch $0 {
+            case .success(let page):
+                self?.configure(with: page.donation)
+
+            case .failure(let error):
+                Log.print(error)
+             }
+        }
+    }
+    
+    private func configure(with donation: Donation) {
+        self.donation = donation
+        self.collectionView.reloadData()
     }
     
     // MARK: - Class Method
