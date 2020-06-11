@@ -34,6 +34,7 @@ class HashtagView: UIView {
     
     // MARK: - Configure Subview
     private func configureView() {
+        let mediumPadding = Theme.Components.Padding.medium
         layer.borderWidth = 1.5
         layer.borderColor = UIColor(asset: STNAsset.Color.primaryLabel).cgColor
         hashtagLabel.anchor(superView: self,
@@ -41,7 +42,7 @@ class HashtagView: UIView {
                             leading: leadingAnchor,
                             bottom: bottomAnchor,
                             trailing: trailingAnchor,
-                            padding: UIEdgeInsets(top: 5, left: 15, bottom: 5, right: 15), size: .zero)
+                            padding: UIEdgeInsets(top: 5, left: mediumPadding, bottom: 5, right: mediumPadding), size: .zero)
     }
     private func updateCGColors() {
         layer.borderColor = UIColor(asset: STNAsset.Color.primaryLabel).cgColor
