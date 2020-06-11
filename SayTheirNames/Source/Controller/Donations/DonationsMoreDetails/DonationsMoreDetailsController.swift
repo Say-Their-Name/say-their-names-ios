@@ -73,7 +73,7 @@ final class DonationsMoreDetailsController: UIViewController {
     // MARK: - View
     private lazy var collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: Self.donationMoreDetailsCVLayout)
-        collectionView.backgroundColor = .clear
+        collectionView.backgroundColor = UIColor(asset: STNAsset.Color.background)
         return collectionView
     }()
     

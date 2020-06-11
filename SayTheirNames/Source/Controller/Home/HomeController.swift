@@ -182,8 +182,7 @@ extension HomeController: UICollectionViewDelegateFlowLayout {
 
         if collectionView === locationCollectionView {
             // nothing for now
-        }
-        else if collectionView === peopleCollectionView {
+        } else if collectionView === peopleCollectionView {
             // People CollectionView
             
             guard let selectedPerson = peopleDataSourceHelper.person(at: indexPath.item) else { return }
