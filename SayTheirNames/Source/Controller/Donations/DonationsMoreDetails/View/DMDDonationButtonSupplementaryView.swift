@@ -25,8 +25,7 @@
 import UIKit
 
 class DMDDonationButtonSupplementaryView: UICollectionReusableView {
-    // MARK: - Property
-    static let reuseIdentifier = "donations-more-details-button-view"
+
     private var buttonPressedAction: (() -> Void)?
     
     // MARK: - View

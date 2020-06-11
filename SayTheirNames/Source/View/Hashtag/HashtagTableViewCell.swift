@@ -146,7 +146,7 @@ extension HashtagTableViewCell: UICollectionViewDelegate, UICollectionViewDataSo
     
     // Set the data for each cell (color and color name)
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! HashtagViewCollectionViewCell
+        let cell: HashtagViewCollectionViewCell = collectionView.dequeueCell(for: indexPath)
         let hashtag = hashtags[indexPath.row]
         cell.setupHashtag(hashtag)
         return cell

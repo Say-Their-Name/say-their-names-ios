@@ -53,8 +53,6 @@ final class DonationsMoreDetailsController: UIViewController {
     var donation: Donation!
     
     internal let emptyKind = "empty-kind"
-    internal let emptyCellIdentifier = "empty-cell-identifier"
-    internal let emptyViewIdentifier = "empty-view-identifier"
     
     private let navigationBarTextAttributes = [
         NSAttributedString.Key.foregroundColor: UIColor(asset: STNAsset.Color.navBarForeground),
@@ -133,20 +131,17 @@ final class DonationsMoreDetailsController: UIViewController {
                               size: CGSize.zero)
         
         setupDonationButton()
-        
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: emptyCellIdentifier)
-        collectionView.register(DMDTitleCell.self, forCellWithReuseIdentifier: DMDTitleCell.reuseIdentifier)
-        collectionView.register(DMDTextContentCell.self, forCellWithReuseIdentifier: DMDTextContentCell.reuseIdentifier)
-        collectionView.register(HashtagViewCollectionViewCell.self, forCellWithReuseIdentifier: HashtagViewCollectionViewCell.reuseIdentifier)
-        collectionView.register(UICollectionReusableView.self,
-                                forSupplementaryViewOfKind: emptyKind,
-                                withReuseIdentifier: emptyViewIdentifier)
-        collectionView.register(DMDPhotoSupplementaryView.self,
-                                forSupplementaryViewOfKind: DonationsMoreDetailsController.photoSupplementaryView,
-                                withReuseIdentifier: DMDPhotoSupplementaryView.reuseIdentifier)
-        collectionView.register(DMDSectionTitleSupplementaryView.self,
-                                forSupplementaryViewOfKind: DonationsMoreDetailsController.sectionTitleSupplementaryView,
-                                withReuseIdentifier: DMDSectionTitleSupplementaryView.reuseIdentifier)
+
+        collectionView.register(cellType: UICollectionViewCell.self)
+        collectionView.register(cellType: DMDTitleCell.self)
+        collectionView.register(cellType: DMDTextContentCell.self)
+        collectionView.register(cellType: HashtagViewCollectionViewCell.self)
+        collectionView.registerReusableSupplementaryView(reusableViewType: UICollectionReusableView.self,
+                                                         forKind: emptyKind)
+        collectionView.registerReusableSupplementaryView(reusableViewType: DMDPhotoSupplementaryView.self,
+                                                         forKind: DonationsMoreDetailsController.photoSupplementaryView)
+        collectionView.registerReusableSupplementaryView(reusableViewType: DMDSectionTitleSupplementaryView.self,
+                                                         forKind: DonationsMoreDetailsController.sectionTitleSupplementaryView)
     }
     
     private func setupNavigationBarItems() {
