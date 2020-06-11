@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1846CA472491F17D00792086 /* ShareService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1846CA462491F17D00792086 /* ShareService.swift */; };
 		1897247B248D766F00836B62 /* FeatureFlags.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1897247A248D766F00836B62 /* FeatureFlags.swift */; };
 		18BE76CE248EF57A004100EE /* Result+STN.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BE76CD248EF57A004100EE /* Result+STN.swift */; };
 		18BE76D2248EF9D5004100EE /* AFError+STN.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BE76D1248EF9D5004100EE /* AFError+STN.swift */; };
@@ -196,6 +197,7 @@
 
 /* Begin PBXFileReference section */
 		00E6A528018ECB54700AB99B /* Pods-SayTheirNamesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SayTheirNamesTests.release.xcconfig"; path = "Target Support Files/Pods-SayTheirNamesTests/Pods-SayTheirNamesTests.release.xcconfig"; sourceTree = "<group>"; };
+		1846CA462491F17D00792086 /* ShareService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareService.swift; sourceTree = "<group>"; };
 		1897247A248D766F00836B62 /* FeatureFlags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureFlags.swift; sourceTree = "<group>"; };
 		18BE76CD248EF57A004100EE /* Result+STN.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Result+STN.swift"; sourceTree = "<group>"; };
 		18BE76D1248EF9D5004100EE /* AFError+STN.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AFError+STN.swift"; sourceTree = "<group>"; };
@@ -896,6 +898,7 @@
 				A91B07B724846B0C00DB803C /* DependencyContainer.swift */,
 				7A5BFA182488821500BC265A /* DateFormatterService.swift */,
 				DCC41CDE249135A300DEAE7E /* MetadataService.swift */,
+				1846CA462491F17D00792086 /* ShareService.swift */,
 				A9B90570248F425C00F9EEFA /* Deep Linking */,
 				9E7DBAE7248481DA00635A56 /* ImageDownloader */,
 				A91B07BE2484704200DB803C /* Navigator */,
@@ -1433,6 +1436,7 @@
 				A93367D3248985B6001F1E28 /* Link.swift in Sources */,
 				D7F3F638248D3FBA00F66E72 /* DMDTitleCell.swift in Sources */,
 				9EC6DD4C248B82DD006CC5A7 /* DonationFilterViewManager.swift in Sources */,
+				1846CA472491F17D00792086 /* ShareService.swift in Sources */,
 				B386F958248526C70037A38D /* Location.swift in Sources */,
 				7C47A93524873F1200B8D3BE /* HomeView.swift in Sources */,
 				A91B07A524835CF700DB803C /* UIColor+STN.swift in Sources */,
