@@ -25,3 +25,6 @@ for lang in "${LANGS[@]}"; do
   echo "\nDownlading $lang ...."
   curl -u $KEY: $(download_url $lang) > $(destination_path $lang)
 done
+
+echo "Running SwiftGen ...."
+Pods/SwiftGen/bin/swiftgen config run

@@ -4,7 +4,7 @@
  * Release: Working copy
  * Locale: fr, French
  * Exported by: Say Their Names
- * Exported at: Thu, 11 Jun 2020 23:31:49 +0200
+ * Exported at: Thu, 11 Jun 2020 23:57:15 +0200
  */
 
 /* loco:5ee29770f904c5151c1a2061
@@ -108,9 +108,6 @@ Copyright © 2020 Franck-Stephane Ndame Mpouli. All rights reserved. */
 /* loco:5ee29770f904c5151c1a2080 */
 "get_involved.slack.button" = "JOINDRE LE CANAL SLACK";
 
-/* loco:5ee29770f904c5151c1a2081 */
-"get_involved.slack.url" = "https://saytheirnames.slack.com/join/shared_invite/zt-eqjuatz7-fgh3zPRXIKiiXsC1Vf3oZA#/";
-
 /* loco:5ee29770f904c5151c1a2082
  * Get Involved - Developer */
 "get_involved.developer.title" = "PARTICIPER EN TANT QUE DÉVELOPPEUR WEB?";
@@ -118,18 +115,12 @@ Copyright © 2020 Franck-Stephane Ndame Mpouli. All rights reserved. */
 /* loco:5ee29770f904c5151c1a2083 */
 "get_involved.developer.button" = "VOIR LE CODE SOURCE";
 
-/* loco:5ee29770f904c5151c1a2084 */
-"get_involved.developer.url" = "https://github.com/Say-Their-Name/";
-
 /* loco:5ee29770f904c5151c1a2085
  * Get Involved - Twitter */
 "get_involved.twitter.title" = "VENEZ NOUS REJOINDRE SUR TWITTER";
 
 /* loco:5ee29770f904c5151c1a2086 */
 "get_involved.twitter.button" = "SUIVEZ NOUS";
-
-/* loco:5ee29770f904c5151c1a2087 */
-"get_involved.twitter.url" = "https://twitter.com/SayTheirName_io";
 
 /* loco:5ee29770f904c5151c1a2088
  * More */
