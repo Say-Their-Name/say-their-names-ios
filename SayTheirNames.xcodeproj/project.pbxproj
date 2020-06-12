@@ -884,7 +884,7 @@
 				7A5BFA182488821500BC265A /* DateFormatterService.swift */,
 				DCC41CDE249135A300DEAE7E /* MetadataService.swift */,
 				1846CA462491F17D00792086 /* ShareService.swift */,
-				A9B90570248F425C00F9EEFA /* Deep Linking */,
+				A9B90570248F425C00F9EEFA /* DeepLinking */,
 				9E7DBAE7248481DA00635A56 /* ImageDownloader */,
 				A91B07BE2484704200DB803C /* Navigator */,
 				A93367C1248983B1001F1E28 /* Networking */,
@@ -929,7 +929,7 @@
 			path = Requestors;
 			sourceTree = "<group>";
 		};
-		A9B90570248F425C00F9EEFA /* Deep Linking */ = {
+		A9B90570248F425C00F9EEFA /* DeepLinking */ = {
 			isa = PBXGroup;
 			children = (
 				A9B90571248F482800F9EEFA /* DeepLink.swift */,
@@ -938,7 +938,7 @@
 				A9F2830E24903042004283ED /* DeepLinkSupport.swift */,
 				A9B90575248F535200F9EEFA /* Deep Links */,
 			);
-			path = "Deep Linking";
+			path = DeepLinking;
 			sourceTree = "<group>";
 		};
 		A9B90575248F535200F9EEFA /* Deep Links */ = {
