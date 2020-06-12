@@ -31,7 +31,11 @@ extension DonationsMoreDetailsController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if section == DonationSectionLayoutKind.socialMedia.rawValue {
+        guard let section = sectionAtIndex(section) else {
+            return 0
+        }
+        
+        if section == .socialMedia {
             return data.entity.hashtags.count
         }
         
@@ -39,76 +43,85 @@ extension DonationsMoreDetailsController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        switch indexPath.section {
+        guard let section = sectionAtIndex(indexPath.section) else {
+            let cell: UICollectionViewCell = collectionView.dequeueCell(for: indexPath)
+            return cell
+        }
+        
+        switch section {
         // Title Section
-        case DonationSectionLayoutKind.title.rawValue:
+        case DonationSectionLayoutKind.title:
             let titleCell: DMDTitleCell = collectionView.dequeueCell(for: indexPath)
             titleCell.setTitle(data.entity.title)
             return titleCell
             
         // Decription Section
-        case DonationSectionLayoutKind.description.rawValue:
+        case DonationSectionLayoutKind.description:
             let textCell: DMDTextContentCell = collectionView.dequeueCell(for: indexPath)
             textCell.setContent(text: data.entity.description)
             return textCell
             
         // Outcome Section
-        case DonationSectionLayoutKind.outcome.rawValue:
+        case DonationSectionLayoutKind.outcome:
             let textCell: DMDTextContentCell = collectionView.dequeueCell(for: indexPath)
             textCell.setContent(text: data.entity.description)
-            textCell.isHidden = !FeatureFlags.dmdOutcomeSectionEnabled
             return textCell
             
         // Social Media Hashtags Section
-        case DonationSectionLayoutKind.socialMedia.rawValue:
+        case DonationSectionLayoutKind.socialMedia:
             let hashtagCell: HashtagViewCollectionViewCell = collectionView.dequeueCell(for: indexPath)
             let hashtag = data.entity.hashtags[indexPath.row]
             hashtagCell.setupHashtag(hashtag)
             return hashtagCell
-            
-        default:
-            let cell: UICollectionViewCell = collectionView.dequeueCell(for: indexPath)
-            return cell
         }
     }
-
+    
     func collectionView(_ collectionView: UICollectionView,
                         viewForSupplementaryElementOfKind kind: String,
                         at indexPath: IndexPath) -> UICollectionReusableView {
+        
+        let emptyView = { () -> UICollectionReusableView in
+            let view: UICollectionReusableView = collectionView.dequeueReusableSupplementaryView(forKind: self.emptyKind, for: indexPath)
+            return view
+        }
+        
+        guard let section = sectionAtIndex(indexPath.section) else {
+            return emptyView()
+        }
+        
         switch kind {
         case DonationsMoreDetailsController.photoSupplementaryView:
             // PhotoSupplementaryView
             let photoView: DMDPhotoSupplementaryView = collectionView.dequeueReusableSupplementaryView(forKind: kind,
                                                                                                        for: indexPath)
-                switch data.entity.type?.id {
-                case DonationTypes.movement.id:
-                    photoView.configure(withURLString: data.entity.bannerImagePath)
-                default:
-                    photoView.configure(withURLString: data.entity.person?.images.first?.personURL)
-                }
-
-                return photoView
-
+            switch data.entity.type?.id {
+            case DonationTypes.movement.id:
+                photoView.configure(withURLString: data.entity.bannerImagePath)
+            default:
+                photoView.configure(withURLString: data.entity.person?.images.first?.personURL)
+            }
+            
+            return photoView
+            
         case DonationsMoreDetailsController.sectionTitleSupplementaryView:
             // SectionTitleSupplementaryView
             let titleView: DMDSectionTitleSupplementaryView = collectionView.dequeueReusableSupplementaryView(forKind: kind,
                                                                                                               for: indexPath)
-                switch indexPath.section {
-                case DonationSectionLayoutKind.description.rawValue:
-                    titleView.setTitle(text: L10n.description.localizedUppercase)
-                case DonationSectionLayoutKind.outcome.rawValue:
-                    titleView.setTitle(text: L10n.Person.outcome.localizedUppercase)
-                    titleView.isHidden = !FeatureFlags.dmdOutcomeSectionEnabled
-                case DonationSectionLayoutKind.socialMedia.rawValue:
-                    titleView.setTitle(text: L10n.Person.hashtags.localizedUppercase)
-                default:
-                    return UICollectionReusableView(frame: .zero)
-                }
-                
-                return titleView
+            switch section {
+            case DonationSectionLayoutKind.description:
+                titleView.setTitle(text: L10n.description.localizedUppercase)
+            case DonationSectionLayoutKind.outcome:
+                titleView.setTitle(text: L10n.Person.outcome.localizedUppercase)
+            case DonationSectionLayoutKind.socialMedia:
+                titleView.setTitle(text: L10n.Person.hashtags.localizedUppercase)
+            default:
+                return emptyView()
+            }
+            
+            return titleView
+            
         default:
-            let view: UICollectionReusableView = collectionView.dequeueReusableSupplementaryView(forKind: emptyKind, for: indexPath)
-            return view
+            return emptyView()
         }
     }
     

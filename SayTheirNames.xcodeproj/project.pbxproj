@@ -50,8 +50,6 @@
 		7CAD53EA248A32FC001CFF08 /* PeopleNetworkRequestorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAD53E9248A32FC001CFF08 /* PeopleNetworkRequestorTests.swift */; };
 		7CE75F402489B78400168DDA /* PetitionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE75F352489820700168DDA /* PetitionsView.swift */; };
 		7CE75F412489B78400168DDA /* PetitionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B077D24835CF700DB803C /* PetitionsController.swift */; };
-		7CE75F432489B78400168DDA /* PetitionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE75F312489820600168DDA /* PetitionDetailView.swift */; };
-		7CE75F462489B78400168DDA /* PetitionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE75F342489820700168DDA /* PetitionDetailViewController.swift */; };
 		83E9CAD02484A504001D173A /* LaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E9CACF2484A504001D173A /* LaunchScreen.swift */; };
 		83E9CAD22484A514001D173A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83E9CAD12484A514001D173A /* LaunchScreen.xib */; };
 		83E9CAD42484A5DC001D173A /* UIViewController+TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E9CAD32484A5DC001D173A /* UIViewController+TabBar.swift */; };
@@ -210,6 +208,7 @@
 		3A33EF64248ABC7500580D1E /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		3A33EF66248AC1D700580D1E /* UIEdgeInsets+init.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets+init.swift"; sourceTree = "<group>"; };
 		4E09B7306596AE2549FC2488 /* Pods_SayTheirNames.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SayTheirNames.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B0D13302492EC5100E81132 /* Say Their Names.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Say Their Names.entitlements"; sourceTree = "<group>"; };
 		5B3ED73C2481C9F50033FF79 /* Say Their Names.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Say Their Names.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B3ED7482481CA000033FF79 /* Image.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Image.xcassets; sourceTree = "<group>"; };
 		5B3ED74B2481CA000033FF79 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -248,16 +247,12 @@
 		7CAD53E5248A2AEE001CFF08 /* DonationsNetworkRequestorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationsNetworkRequestorTests.swift; sourceTree = "<group>"; };
 		7CAD53E7248A326F001CFF08 /* PetitionsNetworkRequestorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetitionsNetworkRequestorTests.swift; sourceTree = "<group>"; };
 		7CAD53E9248A32FC001CFF08 /* PeopleNetworkRequestorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleNetworkRequestorTests.swift; sourceTree = "<group>"; };
-		7CE75F312489820600168DDA /* PetitionDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetitionDetailView.swift; sourceTree = "<group>"; };
-		7CE75F342489820700168DDA /* PetitionDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetitionDetailViewController.swift; sourceTree = "<group>"; };
 		7CE75F352489820700168DDA /* PetitionsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetitionsView.swift; sourceTree = "<group>"; };
 		8381E475248D7CEC00EA1E43 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 		83E9CACF2484A504001D173A /* LaunchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreen.swift; sourceTree = "<group>"; };
 		83E9CAD12484A514001D173A /* LaunchScreen.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		83E9CAD32484A5DC001D173A /* UIViewController+TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+TabBar.swift"; sourceTree = "<group>"; };
 		83E9CAD62484A6A2001D173A /* LaunchScreenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenTests.swift; sourceTree = "<group>"; };
-		846B629F2487CCFF00C0D1D5 /* ru-RU */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "ru-RU"; path = "ru-RU.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
-		846B62A02487CD1900C0D1D5 /* ru-RU */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "ru-RU"; path = "ru-RU.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		8E1ECBEF24908EC2009E6E44 /* DeepLinkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkTests.swift; sourceTree = "<group>"; };
 		8E4155A32490605800333D76 /* JSONDataModelAPIs.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = JSONDataModelAPIs.xcassets; sourceTree = "<group>"; };
 		8E4155A5249076CA00333D76 /* ModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTests.swift; sourceTree = "<group>"; };
@@ -343,6 +338,7 @@
 		A9F2830E24903042004283ED /* DeepLinkSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkSupport.swift; sourceTree = "<group>"; };
 		B3168336248C3BF400C03DEB /* UIButton++.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton++.swift"; sourceTree = "<group>"; };
 		B336C6D5248E4BBA00A1AECB /* Paginator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Paginator.swift; sourceTree = "<group>"; };
+		B35AEE222492DDCD005F2AAF /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B365F45B248FD6340007FC31 /* PaginatorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaginatorTests.swift; sourceTree = "<group>"; };
 		B386F9542482FB540037A38D /* UIFontSTNTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontSTNTests.swift; sourceTree = "<group>"; };
 		B386F957248526C70037A38D /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
@@ -452,6 +448,7 @@
 		5B3ED73E2481C9F50033FF79 /* SayTheirNames */ = {
 			isa = PBXGroup;
 			children = (
+				5B0D13302492EC5100E81132 /* Say Their Names.entitlements */,
 				A91B076424835CF700DB803C /* Source */,
 				A91B07B424835D8700DB803C /* Resources */,
 			);
@@ -796,8 +793,6 @@
 			children = (
 				A91B077D24835CF700DB803C /* PetitionsController.swift */,
 				7CE75F352489820700168DDA /* PetitionsView.swift */,
-				7CE75F342489820700168DDA /* PetitionDetailViewController.swift */,
-				7CE75F312489820600168DDA /* PetitionDetailView.swift */,
 				DC4093DD248D8FB700C45D09 /* PetitionsCollectionViewManager.swift */,
 			);
 			path = Petitions;
@@ -1146,11 +1141,11 @@
 			knownRegions = (
 				en,
 				Base,
-				"ru-RU",
 				fr,
 				"pt-BR",
 				ar,
 				ko,
+				ru,
 			);
 			mainGroup = 5B3ED7332481C9F40033FF79;
 			productRefGroup = 5B3ED73D2481C9F50033FF79 /* Products */;
@@ -1366,7 +1361,6 @@
 				C0594BFA248754A200260BAD /* UICollectionView++.swift in Sources */,
 				9EC6DD48248B7E4A006CC5A7 /* SingleSection.swift in Sources */,
 				A91B079824835CF700DB803C /* STNSize.swift in Sources */,
-				7CE75F432489B78400168DDA /* PetitionDetailView.swift in Sources */,
 				7CE75F412489B78400168DDA /* PetitionsController.swift in Sources */,
 				9E920267248C32440007AFCE /* UITraitCollection++.swift in Sources */,
 				9E974591248B8A5000DB5E32 /* FilterCategory.swift in Sources */,
@@ -1399,7 +1393,6 @@
 				9E2449A02485EA0B00B149DF /* strings.swift in Sources */,
 				DC969C552491FB2200B62598 /* HashtagViewCollectionViewCell.swift in Sources */,
 				A91B07C82484751700DB803C /* String+STN.swift in Sources */,
-				7CE75F462489B78400168DDA /* PetitionDetailViewController.swift in Sources */,
 				7419B4B5248A2E0800D466C8 /* PersonNewsTableViewCell.swift in Sources */,
 				A9B90579248FD8FE00F9EEFA /* HomeDeepLink.swift in Sources */,
 				A93367D6248985F5001F1E28 /* DispatchQueue+STN.swift in Sources */,
@@ -1514,7 +1507,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				5B3ED74B2481CA000033FF79 /* Base */,
-				846B629F2487CCFF00C0D1D5 /* ru-RU */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -1523,11 +1515,11 @@
 			isa = PBXVariantGroup;
 			children = (
 				9E24499C2485E98C00B149DF /* Base */,
-				846B62A02487CD1900C0D1D5 /* ru-RU */,
 				8E94BA59248A0A4100242FBA /* fr */,
 				D4BA10D0248A8F7300E29A3F /* pt-BR */,
 				5E531926248D191F00021996 /* ar */,
 				8381E475248D7CEC00EA1E43 /* ko */,
+				B35AEE222492DDCD005F2AAF /* ru */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -1656,9 +1648,10 @@
 			baseConfigurationReference = 39C05132613A992F23ECED58 /* Pods-SayTheirNames.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "SayTheirNames/Say Their Names.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = "";
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/SayTheirNames/Resources/Info.plist";
@@ -1680,9 +1673,10 @@
 			baseConfigurationReference = 72373A43202B7215526324F7 /* Pods-SayTheirNames.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "SayTheirNames/Say Their Names.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Franck Ndame (Q93T3ZJQ58)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = "";
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/SayTheirNames/Resources/Info.plist";

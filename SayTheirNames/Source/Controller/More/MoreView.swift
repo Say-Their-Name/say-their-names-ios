@@ -24,6 +24,12 @@
 
 import UIKit
 
+private enum MoreLinks {
+    static let github = "https://github.com/Say-Their-Name/"
+    static let slack = "https://saytheirnames.slack.com/join/shared_invite/zt-eqjuatz7-fgh3zPRXIKiiXsC1Vf3oZA#/"
+    static let twitter = "https://twitter.com/SayTheirName_io"
+}
+
 /// The UI for More
 final class MoreView: UIView {
     
@@ -207,7 +213,7 @@ private extension MoreView {
 private extension MoreView {
     
     @objc func openSlackPage(_ sender: Any) {
-        guard let url = URL(string: L10n.GetInvolved.Slack.url) else {
+        guard let url = URL(string: MoreLinks.slack) else {
             assertionFailure("Failed to create slack url")
             return
         }
@@ -216,7 +222,7 @@ private extension MoreView {
     }
     
     @objc func openTwitterPage(_ sender: Any) {
-        guard let url = URL(string: L10n.GetInvolved.Twitter.url) else {
+        guard let url = URL(string: MoreLinks.twitter) else {
             assertionFailure("Failed to create twitter url")
             return
         }
@@ -225,7 +231,7 @@ private extension MoreView {
     }
     
     @objc func openRepositoryPage(_ sender: Any) {
-        guard let url = URL(string: L10n.GetInvolved.Developer.url) else {
+        guard let url = URL(string: MoreLinks.github) else {
             assertionFailure("Failed to create repo url")
             return
         }

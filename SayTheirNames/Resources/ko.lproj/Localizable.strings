@@ -1,58 +1,132 @@
-/* 
-  Localizable.strings
-  SayTheirNames
+/*
+ * Loco ios export: iOS Localizable.strings
+ * Project: Say Their Names
+ * Release: Working copy
+ * Locale: ko, Korean
+ * Exported by: Say Their Names
+ * Exported at: Fri, 12 Jun 2020 02:39:02 +0200
+ */
 
-  Created by Kyle Lee on 6/1/20.
-  Edited by @cdowney102 on 6/5/20.
-  Copyright © 2020 Franck-Stephane Ndame Mpouli. All rights reserved.
-*/
-
+/* loco:5ee29770f904c5151c1a2061 */
 "home" = "홈";
-"donations" = "기부하기";
-"petitions" = "청원하기";
-"about" = "요약";
-"cancel"= "취소";
-"find_out_more" = "더 알아보기";
-"verified" = "검증된 사이트";
-"filter_all" = "전체";
-"filter_businesses" = "업체 (목록)";
-"filter_protesters" = "시위자 (명단)";
-"filter_victims" = "희생자 (명단)";
-"share" = "공유하기";
-"close" = "닫기";
-"say_their_names" = "희생자들의 이름을 외쳐봅니다";
-"bookmark" = "북마크";
-"search" = "검색 /검색하기";
-"person.say_their_names" = "희생자들의 이름을 외쳐봅니다";
-"person.age" = "나이";
-"person.children" = "희생자 자녀 수";
-"person.location" = "지역";
-"person.their_story" = "희생자의 스토리";
-"person.outcome" = "그 후 스토리";
-"person.news" = "뉴스";
-"person.media" = "미디어";
-"person.hashtags" = "해시태그";
 
+/* loco:5ee29770f904c5151c1a2062 */
+"donations" = "기부하기";
+
+/* loco:5ee29770f904c5151c1a2063 */
+"petitions" = "청원하기";
+
+/* loco:5ee29770f904c5151c1a2064 */
+"about" = "요약";
+
+/* loco:5ee29770f904c5151c1a2065 */
+"cancel" = "취소";
+
+/* loco:5ee29770f904c5151c1a2066 */
+"find_out_more" = "더 알아보기";
+
+/* loco:5ee29770f904c5151c1a2067 */
+"verified" = "검증된 사이트";
+
+/* loco:5ee29770f904c5151c1a2068 */
+"filter_all" = "전체";
+
+/* loco:5ee29770f904c5151c1a2069 */
+"filter_businesses" = "업체 (목록)";
+
+/* loco:5ee29770f904c5151c1a206a */
+"filter_protesters" = "시위자 (명단)";
+
+/* loco:5ee29770f904c5151c1a206b */
+"filter_victims" = "희생자 (명단)";
+
+/* loco:5ee29770f904c5151c1a206c */
+"share" = "공유하기";
+
+/* loco:5ee29770f904c5151c1a206d */
+"close" = "닫기";
+
+/* loco:5ee29770f904c5151c1a206e */
+"say_their_names" = "희생자들의 이름을 외쳐봅니다";
+
+/* loco:5ee29770f904c5151c1a206f */
+"bookmark" = "북마크";
+
+/* loco:5ee29770f904c5151c1a2070 */
+"search" = "검색 /검색하기";
+
+/* loco:5ee29770f904c5151c1a2071 */
 "donate" = "Donate";
+
+/* loco:5ee29770f904c5151c1a2072 */
+"DONATE NOW" = "DONATE NOW";
+
+/* loco:5ee29770f904c5151c1a2073 */
 "description" = "Description";
 
-// Get Involved - Slack
+/* loco:5ee29770f904c5151c1a2074 */
+"person.say_their_names" = "희생자들의 이름을 외쳐봅니다";
+
+/* loco:5ee29770f904c5151c1a2075 */
+"person.age" = "나이";
+
+/* loco:5ee29770f904c5151c1a2076 */
+"person.children" = "희생자 자녀 수";
+
+/* loco:5ee29770f904c5151c1a2077 */
+"person.location" = "지역";
+
+/* loco:5ee29770f904c5151c1a2078 */
+"person.their_story" = "희생자의 스토리";
+
+/* loco:5ee29770f904c5151c1a2079 */
+"person.outcome" = "그 후 스토리";
+
+/* loco:5ee29770f904c5151c1a207a */
+"person.news" = "뉴스";
+
+/* loco:5ee29770f904c5151c1a207b */
+"person.media" = "미디어";
+
+/* loco:5ee29770f904c5151c1a207c */
+"person.hashtags" = "해시태그";
+
+/* loco:5ee29770f904c5151c1a207d */
+"person.hashtagCopyTip" = "Press and hold to copy";
+
+/* loco:5ee29770f904c5151c1a207e */
+"person.copied" = "Copied";
+
+/* loco:5ee29770f904c5151c1a207f
+ * Get Involved - Slack */
 "get_involved.slack.title" = "HOW DO I GET INVOLVED?";
+
+/* loco:5ee29770f904c5151c1a2080 */
 "get_involved.slack.button" = "JOIN OUR SLACK CHANNEL";
-"get_involved.slack.url" = "https://saytheirnames.slack.com/join/shared_invite/zt-eqjuatz7-fgh3zPRXIKiiXsC1Vf3oZA#/";
 
-// Get Involved - Developer
+/* loco:5ee29770f904c5151c1a2082
+ * Get Involved - Developer */
 "get_involved.developer.title" = "HOW DO I GET INVOLVED AS A DEVELOPER?";
+
+/* loco:5ee29770f904c5151c1a2083 */
 "get_involved.developer.button" = "VIEW OUR GITHUB";
-"get_involved.developer.url" = "https://github.com/Say-Their-Name/";
 
-// Get Involved - Twitter
+/* loco:5ee29770f904c5151c1a2085
+ * Get Involved - Twitter */
 "get_involved.twitter.title" = "JOIN US ON TWITTER";
-"get_involved.twitter.button" = "FOLLOW US";
-"get_involved.twitter.url" = "https://twitter.com/SayTheirName_io";
 
-// More
+/* loco:5ee29770f904c5151c1a2086 */
+"get_involved.twitter.button" = "FOLLOW US";
+
+/* loco:5ee29770f904c5151c1a2088
+ * More */
 "more_history.aboutTitle" = "SOME HISTORY ON THE SAY THEIR NAME MOVEMENT";
+
+/* loco:5ee29770f904c5151c1a2089 */
 "more_history.aboutDesc" = "Say Their Names is a social movement to raise awareness for all the black victims of racial inequality all around the world. This movement is in support of the overall Black Lives Matter movement and aims to highlight individuals affected by anti-Black Violence. Say Their Names movement calls attention and demands justice for all victims.";
 
+/* loco:5ee29770f904c5151c1a208a */
 "massive_thank_you" = "A MASSIVE THANK YOU TO EVERYONE INVOLVED";
+
+/* loco:5ee2ce86663b704aa41688f2 */
+"sign" = "Sign this petition";
