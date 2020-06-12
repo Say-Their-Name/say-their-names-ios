@@ -18,6 +18,8 @@
 		3A33EF65248ABC7500580D1E /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A33EF64248ABC7500580D1E /* Theme.swift */; };
 		3A33EF67248AC1D700580D1E /* UIEdgeInsets+init.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A33EF66248AC1D700580D1E /* UIEdgeInsets+init.swift */; };
 		4B3810E42B5E6D69FEA97B00 /* Pods_SayTheirNames.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E09B7306596AE2549FC2488 /* Pods_SayTheirNames.framework */; };
+		5B0D132B249265B200E81132 /* HeroContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0D132A249265B200E81132 /* HeroContent.swift */; };
+		5B0D132F24926C6000E81132 /* HeroTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0D132E24926C6000E81132 /* HeroTextCell.swift */; };
 		5B3ED7492481CA000033FF79 /* Image.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B3ED7482481CA000033FF79 /* Image.xcassets */; };
 		5B3ED74C2481CA000033FF79 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B3ED74A2481CA000033FF79 /* LaunchScreen.storyboard */; };
 		5D456A3B24870CDF009FAD34 /* LocationCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D456A3A24870CDF009FAD34 /* LocationCollectionViewDataSource.swift */; };
@@ -210,6 +212,8 @@
 		3A33EF64248ABC7500580D1E /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		3A33EF66248AC1D700580D1E /* UIEdgeInsets+init.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets+init.swift"; sourceTree = "<group>"; };
 		4E09B7306596AE2549FC2488 /* Pods_SayTheirNames.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SayTheirNames.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B0D132A249265B200E81132 /* HeroContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroContent.swift; sourceTree = "<group>"; };
+		5B0D132E24926C6000E81132 /* HeroTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroTextCell.swift; sourceTree = "<group>"; };
 		5B0D13302492EC5100E81132 /* Say Their Names.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Say Their Names.entitlements"; sourceTree = "<group>"; };
 		5B3ED73C2481C9F50033FF79 /* Say Their Names.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Say Their Names.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B3ED7482481CA000033FF79 /* Image.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Image.xcassets; sourceTree = "<group>"; };
@@ -417,6 +421,14 @@
 				3A33EF64248ABC7500580D1E /* Theme.swift */,
 			);
 			path = Theme;
+			sourceTree = "<group>";
+		};
+		5B0D132D24926C3F00E81132 /* Hero */ = {
+			isa = PBXGroup;
+			children = (
+				5B0D132E24926C6000E81132 /* HeroTextCell.swift */,
+			);
+			path = Hero;
 			sourceTree = "<group>";
 		};
 		5B3ED7332481C9F40033FF79 = {
@@ -760,10 +772,10 @@
 		A91B077224835CF700DB803C /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				A91B077424835CF700DB803C /* Person */,
 				5D456A3924870C9F009FAD34 /* CollectionViewDataSource */,
 				A91B077324835CF700DB803C /* HomeController.swift */,
 				7C47A93424873F1200B8D3BE /* HomeView.swift */,
-				A91B077424835CF700DB803C /* Person */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -828,6 +840,7 @@
 				A9AC832B248B33770000A851 /* Search.swift */,
 				74D9FDCC248FC01600E06C0C /* Shareable.swift */,
 				74D9FDCE248FC9FB00E06C0C /* Media.swift */,
+				5B0D132A249265B200E81132 /* HeroContent.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -849,6 +862,7 @@
 		A91B078A24835CF700DB803C /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				5B0D132D24926C3F00E81132 /* Hero */,
 				EEC3A1D52483D60C001E7754 /* Search */,
 				A91B078B24835CF700DB803C /* Person */,
 			);
@@ -1330,6 +1344,7 @@
 				9E5F937D248C1F2D00CB57BF /* STNNavigationBar.swift in Sources */,
 				24671846248E1E1A006F14B5 /* Hashtag.swift in Sources */,
 				D7F3F639248D3FBA00F66E72 /* DMDPhotoSupplementaryView.swift in Sources */,
+				5B0D132B249265B200E81132 /* HeroContent.swift in Sources */,
 				7A829508248F0DDC00A8D7D8 /* MoreCard.swift in Sources */,
 				A93367C9248983B1001F1E28 /* PetitionsNetworkRequestor.swift in Sources */,
 				A93367CB248983B1001F1E28 /* Environment.swift in Sources */,
@@ -1418,6 +1433,7 @@
 				D787FC9D248B36B3001FC6FF /* HashtagView.swift in Sources */,
 				A91B07AE24835CF700DB803C /* PersonHeaderCell.swift in Sources */,
 				3A33EF67248AC1D700580D1E /* UIEdgeInsets+init.swift in Sources */,
+				5B0D132F24926C6000E81132 /* HeroTextCell.swift in Sources */,
 				A91B079724835CF700DB803C /* UIView++.swift in Sources */,
 				7CE75F402489B78400168DDA /* PetitionsView.swift in Sources */,
 				A91B07AD24835CF700DB803C /* PersonCell.swift in Sources */,
@@ -1651,7 +1667,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = Q93T3ZJQ58;
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/SayTheirNames/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1676,7 +1692,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Franck Ndame (Q93T3ZJQ58)";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 4;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = Q93T3ZJQ58;
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/SayTheirNames/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (

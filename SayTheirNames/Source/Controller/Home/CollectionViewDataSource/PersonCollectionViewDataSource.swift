@@ -25,24 +25,27 @@
 import UIKit
 
 final class PersonCollectionViewDataSourceHelper {
-
+    
     enum Section: Hashable {
         case carousel
         case main
+        case header
     }
-
+    
     enum SectionData: Hashable {
         case person(Person)
         case header(HeaderCellContent)
+        case hero(HeroContent)
     }
     
     typealias PersonCollectionViewDataSource = UICollectionViewDiffableDataSource<Section, SectionData>
-
+    
     let dataSource: PersonCollectionViewDataSource
     
     init(collectionView: UICollectionView) {
         collectionView.register(cellType: PersonCell.self)
         collectionView.register(cellType: CarouselCollectionViewCell.self)
+        collectionView.register(cellType: HeroTextCell.self)
         
         self.dataSource =
             PersonCollectionViewDataSource(collectionView: collectionView) { (collectionView, indexPath, item) -> UICollectionViewCell? in
@@ -55,7 +58,7 @@ final class PersonCollectionViewDataSourceHelper {
                     // TODO: fix accessibility
                     //            header.accessibilityNavigationStyle = .separate
                     return cell
-
+                    
                 case .person(let person):
                     let cell: PersonCell = collectionView.dequeueCell(for: indexPath)
                     cell.configure(with: person)
@@ -64,16 +67,33 @@ final class PersonCollectionViewDataSourceHelper {
                     cell.accessibilityNavigationStyle = .automatic
                     cell.accessibilityLabel = "\(person.fullName)"
                     return cell
+                    
+                case .hero(let heroData):
+                    let cell: HeroTextCell =  collectionView.dequeueCell(for: indexPath)
+                    cell.configure(with: heroData)
+                    cell.accessibilityIdentifier = "heroCell\(indexPath.item)"
+                    cell.isAccessibilityElement = true
+                    cell.accessibilityNavigationStyle = .automatic
+                    cell.accessibilityLabel = "\(heroData.title ?? "")"
+                    return cell
                 }
         }
     }
     
     func setPeople(_ people: [Person], carouselData: [HeaderCellContent]) {
         var snapShot = NSDiffableDataSourceSnapshot<Section, SectionData>()
+    
+        snapShot.appendSections([.header])
+        snapShot.appendItems([SectionData.hero(HeroContent(
+            title: "#BLACKLIVESMATTER",
+            body: "Delayed justice is injustice. Join the fight for justice. Sign petitions and donate today."
+        ))])
+        
         if carouselData.isEmpty == false {
             snapShot.appendSections([.carousel])
             snapShot.appendItems(carouselData.map({ SectionData.header($0) }))
         }
+        
         snapShot.appendSections([.main])
         snapShot.appendItems(people.map({ SectionData.person($0) }))
         dataSource.apply(snapShot)
@@ -99,14 +119,15 @@ final class PersonCollectionViewDataSourceHelper {
             return nil
         }
     }
-
+    
     func section(at index: Int) -> Section {
         let allSections = dataSource.snapshot().sectionIdentifiers
         return allSections[index]
     }
     
-    var hasAnyItems: Bool {
-        let allItems = dataSource.snapshot().itemIdentifiers
-        return allItems.isEmpty == false
+    var hasPeople: Bool {
+        let allMainItems = dataSource.snapshot().itemIdentifiers(inSection: Section.main)
+        return allMainItems.isEmpty == false
     }
+
 }

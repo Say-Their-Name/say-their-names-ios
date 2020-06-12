@@ -83,11 +83,11 @@ extension UIFont {
         static var bannerSubitle: UIFont { UIFont.dynamicCustomFont(
             fontName: FontName.karlaRegular.rawValue,
             textStyle: .body) }
-
-        // 21 on figma but this yields 22 on default
-        static var navBarTitle: UIFont { UIFont.fixedCustomFont(
-            fontName: FontName.karlaRegular.rawValue,
-            size: 22) }
+      
+        // 21 on figma but this yields 19 on default
+        static var navBarTitle: UIFont { UIFont.dynamicCustomFont(
+            fontName: FontName.karlaBold.rawValue,
+            textStyle: .title3) }
         
         // 13
         static var tabButtonTitle: UIFont { UIFont.fixedCustomFont(
