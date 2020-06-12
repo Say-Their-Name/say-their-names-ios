@@ -67,11 +67,11 @@ final class DonationsMoreDetailsController: UIViewController {
     @DependencyInject private var shareService: ShareService
 
     // MARK: - Section Layout Kind
-    enum DonationSectionLayoutKind: Int, CaseIterable {
-        case title = 0
-        case description = 1
-        case outcome = 2
-        case socialMedia = 3
+    enum DonationSectionLayoutKind: CaseIterable {
+        case title
+        case description
+        case outcome
+        case socialMedia
     }
     
     // MARK: - Accessibility Identifiers
@@ -95,11 +95,14 @@ final class DonationsMoreDetailsController: UIViewController {
         NSAttributedString.Key.foregroundColor: UIColor(asset: STNAsset.Color.navBarForeground),
         NSAttributedString.Key.font: UIFont.STN.navBarTitle
     ]
-
+    
+    private(set) var sections: [DonationSectionLayoutKind] = []
+    
     // MARK: - Initialization
     required init(data: Data) {
         self.data = data
         super.init(nibName: nil, bundle: nil)
+        self.configure(with: data, reloadingData: false)
     }
     
     @available(*, unavailable)
@@ -109,7 +112,7 @@ final class DonationsMoreDetailsController: UIViewController {
     
     // MARK: - View
     private lazy var collectionView: UICollectionView = {
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: Self.donationMoreDetailsCVLayout)
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout)
         collectionView.backgroundColor = UIColor(asset: STNAsset.Color.background)
         return collectionView
     }()
@@ -163,9 +166,28 @@ final class DonationsMoreDetailsController: UIViewController {
         }
     }
     
-    private func configure(with data: Data) {
+    private func configure(with data: Data, reloadingData reloadData: Bool = true) {
+        var sections: [DonationSectionLayoutKind] = [.title]
+        if data.entity.description.isEmpty == false {
+            sections.append(.description)
+        }
+        if FeatureFlags.dmdOutcomeSectionEnabled && data.entity.outcome.isEmpty == false {
+            sections.append(.outcome)
+        }
+        if data.entity.hashtags.isEmpty == false {
+            sections.append(.socialMedia)
+        }
+        self.sections = sections
         self.data = data
-        self.collectionView.reloadData()
+        
+        if reloadData {
+            self.collectionView.reloadData()
+        }
+    }
+    
+    func sectionAtIndex(_ index: Int) -> DonationSectionLayoutKind? {
+        guard sections.indices.contains(index) else { return nil }
+        return sections[index]
     }
     
     // MARK: - Class Method
@@ -263,6 +285,69 @@ final class DonationsMoreDetailsController: UIViewController {
     @objc private func shareAction(_ sender: Any) {
         self.present(self.shareService.share(items: [self.data.entity.shareable]), animated: true)
     }
+    
+    private lazy var collectionViewLayout: UICollectionViewLayout = {
+        let horizontalPadding: CGFloat = Theme.Screens.DonationDetails.horizontalPadding
+        
+        // UICollectionViewCompositionalLayout in a layout provider
+        let layout = UICollectionViewCompositionalLayout { [weak self]
+            (sectionIndex: Int,
+            _ : NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection in
+            
+            guard let self = self, let section = self.sectionAtIndex(sectionIndex) else {
+                // Item
+                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
+                let item = NSCollectionLayoutItem(layoutSize: itemSize)
+                
+                // Group
+                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(1.0))
+                let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitem: item, count: 1)
+                
+                // Section
+                let section = NSCollectionLayoutSection(group: group)
+                section.contentInsets = NSDirectionalEdgeInsets(top: 0.0, leading: horizontalPadding, bottom: 0.0, trailing: horizontalPadding)
+                
+                return section
+            }
+            
+            let layoutSection: NSCollectionLayoutSection
+            let topInset: CGFloat
+            
+            switch section {
+            // Title section layout
+            case .title:
+                topInset = Theme.Components.Padding.large
+                layoutSection = DonationsMoreDetailsController.titleLayout()
+                
+            // Description section layout
+            case .description:
+                topInset = Theme.Components.Padding.small
+                layoutSection = DonationsMoreDetailsController.descriptionLayout()
+                
+            // Social Media Hashtags section layout
+            case .socialMedia:
+                topInset = Theme.Components.Padding.small
+                layoutSection = DonationsMoreDetailsController.hashtagLayout()
+                
+            // Outcome Section
+            case .outcome:
+                topInset = Theme.Components.Padding.small
+                layoutSection = DonationsMoreDetailsController.outcomeLayout()
+            }
+            
+            layoutSection.contentInsets = NSDirectionalEdgeInsets(top: topInset,
+                                                                  leading: Theme.Screens.DonationDetails.horizontalPadding,
+                                                                  bottom: Theme.Components.Padding.small,
+                                                                  trailing: Theme.Screens.DonationDetails.horizontalPadding)
+            return layoutSection
+        }
+        
+        let config = UICollectionViewCompositionalLayoutConfiguration()
+        config.interSectionSpacing = Theme.Screens.DonationDetails.intersectionSpacing
+        
+        layout.configuration = config
+        return layout
+    }()
 }
 
 // MARK: UICollectionViewDelegate
@@ -270,7 +355,7 @@ final class DonationsMoreDetailsController: UIViewController {
 extension DonationsMoreDetailsController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if indexPath.section == DonationSectionLayoutKind.socialMedia.rawValue {
+        if sectionAtIndex(indexPath.section) == .socialMedia {
             let hashtag = data.entity.hashtags[indexPath.row]
             
             if let url = URL(string: hashtag.link) {

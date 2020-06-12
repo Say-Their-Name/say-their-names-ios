@@ -97,7 +97,6 @@ class PersonInfoTableViewCell: UITableViewCell {
     
     lazy var nameLabel: UILabel = {
         let label = UILabel(frame: .zero)
-        label.text = "FIRSTNAME LAST"
         label.textColor = UIColor(asset: STNAsset.Color.detailLabel)
         label.font = UIFont.STN.bannerTitle
         label.numberOfLines = 0
@@ -141,7 +140,6 @@ class PersonInfoTableViewCell: UITableViewCell {
     
     lazy var ageLabel: UILabel = {
         let label = UILabel()
-        label.text = "46"
         label.textColor = UIColor(asset: STNAsset.Color.detailLabel)
         label.font = UIFont.STN.detailViewField
         label.numberOfLines = 1
@@ -152,7 +150,6 @@ class PersonInfoTableViewCell: UITableViewCell {
     
     lazy var childrenLabel: UILabel = {
         let label = UILabel()
-        label.text = "2"
         label.textColor = UIColor(asset: STNAsset.Color.detailLabel)
         label.font = UIFont.STN.detailViewField
         label.numberOfLines = 1
@@ -163,7 +160,6 @@ class PersonInfoTableViewCell: UITableViewCell {
     
     lazy var locationLabel: UILabel = {
         let label = UILabel()
-        label.text = "Missisippi, Denver Cloud Source, United States of America"
         label.textColor = UIColor(asset: STNAsset.Color.detailLabel)
         label.font = UIFont.STN.detailViewField
         label.numberOfLines = 0
@@ -224,6 +220,6 @@ class PersonInfoTableViewCell: UITableViewCell {
         verticalSeparatorView.anchor(size: Theme.Screens.Home.Person.Info.verticalSeperatorSize)
         horizontalSeparatorView.anchor(size: Theme.Screens.Home.Person.Info.horizontalSeperatorSize)
         secondHorizontalSeparatorView.anchor(size: Theme.Screens.Home.Person.Info.horizontalSeperatorSize)
-
+        backgroundColor = STNAsset.Color.background.color
     }
 }
