@@ -96,10 +96,10 @@ final class HomeView: UIView {
                 let mainSection = NSCollectionLayoutSection(group: group)
                 section = mainSection
                 
-            case .hero:
+            case .header:
                 let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
                 let layoutItem = NSCollectionLayoutItem(layoutSize: itemSize)
-                let height = Theme.Screens.Home.CellSize.heroHeight
+                let height = Theme.Screens.Home.CellSize.headerHeight
                 let columns = 1
                 let layoutGroupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(height))
                 let group = NSCollectionLayoutGroup.horizontal(layoutSize: layoutGroupSize, subitem: layoutItem, count: columns)
@@ -143,7 +143,6 @@ final class HomeView: UIView {
         let collections = UIView()
         collections.backgroundColor = .systemBackground
         addSubview(collections)
-        
         locationCollectionView.backgroundColor = .systemBackground
         peopleCollectionView.backgroundColor = .systemBackground
         

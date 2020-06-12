@@ -29,7 +29,7 @@ final class PersonCollectionViewDataSourceHelper {
     enum Section: Hashable {
         case carousel
         case main
-        case hero
+        case header
     }
     
     enum SectionData: Hashable {
@@ -72,7 +72,6 @@ final class PersonCollectionViewDataSourceHelper {
                     let cell: HeroTextCell =  collectionView.dequeueCell(for: indexPath)
                     cell.configure(with: heroData)
                     cell.accessibilityIdentifier = "heroCell\(indexPath.item)"
-                    cell.backgroundColor = .purple
                     cell.isAccessibilityElement = true
                     cell.accessibilityNavigationStyle = .automatic
                     cell.accessibilityLabel = "\(heroData.title ?? "")"
@@ -88,9 +87,11 @@ final class PersonCollectionViewDataSourceHelper {
             snapShot.appendSections([.carousel])
             snapShot.appendItems(carouselData.map({ SectionData.header($0) }))
         }
-//        snapShot.appendSections([.hero])
-        snapShot.appendSections([.hero])
-        snapShot.appendItems([SectionData.hero(HeroContent(title: "Test", body: "123456"))])
+        snapShot.appendSections([.header])
+        snapShot.appendItems([SectionData.hero(HeroContent(
+            title: "#BLACKLIVESMATTER",
+            body: "Delayed justice is injustice. Join the fight for justice. Sign petitions and donate today."
+        ))])
         snapShot.appendSections([.main])
         snapShot.appendItems(people.map({ SectionData.person($0) }))
         dataSource.apply(snapShot)
