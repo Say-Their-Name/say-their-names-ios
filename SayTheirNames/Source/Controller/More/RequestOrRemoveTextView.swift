@@ -34,7 +34,6 @@ class RequestOrRemoveTextView: UITextView {
         isScrollEnabled = false
         showsVerticalScrollIndicator = false
         showsHorizontalScrollIndicator = false
-        textColor = STNAsset.Color.primaryLabel.color
         
         setupAttributedString()
     }
@@ -44,6 +43,7 @@ class RequestOrRemoveTextView: UITextView {
         let attributedString = NSMutableAttributedString.createHyperink(for: MoreLinks.twitter, in: text, as: L10n.twitter)
         attributedString.addAttribute(.font, value: UIFont.STN.ctaBody, range: NSMakeRange(0, attributedString.length))
         self.attributedText = attributedString
+        textColor = UIColor.label
     }
     
     required init?(coder: NSCoder) {
