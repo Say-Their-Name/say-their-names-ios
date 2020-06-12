@@ -87,8 +87,3 @@ public enum Log {
         return result
     }
 }
-
-// MARK: - Loggable
-@objc protocol Loggable {
-    func desc() -> String
-}
