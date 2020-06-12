@@ -22,10 +22,11 @@
 			<key>CFBundleTypeRole</key>
 			<string>None</string>
 			<key>CFBundleURLName</key>
-			<string>stn.Say-Their-Names</string>
+			<string>saytheirnames.io</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>stn</string>
+				<string>stnio</string>
 			</array>
 		</dict>
 	</array>
