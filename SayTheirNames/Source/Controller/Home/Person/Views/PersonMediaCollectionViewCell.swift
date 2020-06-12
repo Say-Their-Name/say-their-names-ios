@@ -60,4 +60,10 @@ class PersonMediaCollectionViewCell: UICollectionViewCell {
     func updateCell(with mediaUrl: String){
         mediaImageView.populate(withURL: mediaUrl)
     }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        self.mediaImageView.image = nil
+    }
 }
