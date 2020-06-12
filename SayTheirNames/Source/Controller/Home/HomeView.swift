@@ -97,12 +97,11 @@ final class HomeView: UIView {
                 section = mainSection
                 
             case .header:
-                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
-                let layoutItem = NSCollectionLayoutItem(layoutSize: itemSize)
                 let height = Theme.Screens.Home.CellSize.headerHeight
-                let columns = 1
-                let layoutGroupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(height))
-                let group = NSCollectionLayoutGroup.horizontal(layoutSize: layoutGroupSize, subitem: layoutItem, count: columns)
+                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(height))
+                let layoutItem = NSCollectionLayoutItem(layoutSize: itemSize)
+                let layoutGroupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(height))
+                let group = NSCollectionLayoutGroup.horizontal(layoutSize: layoutGroupSize, subitems: [layoutItem])
                 group.interItemSpacing = .fixed(Self.horizontalPaddingBetween)
                 let heroSection = NSCollectionLayoutSection(group: group)
                 section = heroSection
