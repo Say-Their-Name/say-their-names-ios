@@ -193,19 +193,19 @@ private extension MoreView {
         
         switch section {
         case .about:
-            label.text = L10n.AboutThisProject.title
+            label.text = L10n.AboutThisProject.title.localizedUppercase
         case .history:
-            label.text = L10n.MoreHistory.aboutTitle
+            label.text = L10n.MoreHistory.aboutTitle.localizedUppercase
         case .request:
-            label.text = L10n.RequestEditOrRemoval.title
+            label.text = L10n.RequestEditOrRemoval.title.localizedUppercase
         case .didWeMissSomeone:
-            label.text = L10n.didWeMissSomeone
+            label.text = L10n.didWeMissSomeone.localizedUppercase
         case .contribution:
-            label.text = L10n.GetInvolved.Slack.title
+            label.text = L10n.GetInvolved.Slack.title.localizedUppercase
         case .developer:
-            label.text = L10n.GetInvolved.Developer.title
+            label.text = L10n.GetInvolved.Developer.title.localizedUppercase
         case .twitter:
-            label.text = L10n.GetInvolved.Twitter.title
+            label.text = L10n.GetInvolved.Twitter.title.localizedUppercase
         }
         
         return label
@@ -232,16 +232,16 @@ private extension MoreView {
         
         switch section {
         case .didWeMissSomeone:
-            button.setTitle(L10n.requestToAddNewName, for: .normal)
+            button.setTitle(L10n.requestToAddNewName.localizedUppercase.localizedUppercase, for: .normal)
             button.addTarget(self, action: #selector(openRequestPage(_:)), for: .touchUpInside)
         case .contribution:
-            button.setTitle(L10n.GetInvolved.Slack.button, for: .normal)
+            button.setTitle(L10n.GetInvolved.Slack.button.localizedUppercase, for: .normal)
             button.addTarget(self, action: #selector(openSlackPage(_:)), for: .touchUpInside)
         case .developer:
-            button.setTitle(L10n.GetInvolved.Developer.button, for: .normal)
+            button.setTitle(L10n.GetInvolved.Developer.button.localizedUppercase, for: .normal)
             button.addTarget(self, action: #selector(openRepositoryPage(_:)), for: .touchUpInside)
         case .twitter:
-            button.setTitle(L10n.GetInvolved.Twitter.button, for: .normal)
+            button.setTitle(L10n.GetInvolved.Twitter.button.localizedUppercase, for: .normal)
             button.addTarget(self, action: #selector(openTwitterPage(_:)), for: .touchUpInside)
         default:
             break

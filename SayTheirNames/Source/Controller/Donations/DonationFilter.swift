@@ -30,11 +30,11 @@ enum DonationFilter {
         case .all:
             return L10n.filterAll
         case .businesses:
-            return L10n.filterBusinesses
+            return L10n.filterBusinesses.localizedUppercase
         case .protesters:
-            return L10n.filterProtesters
+            return L10n.filterProtesters.localizedUppercase
         case .victims:
-            return L10n.filterVictims
+            return L10n.filterVictims.localizedUppercase
         }
     }
 }
