@@ -28,13 +28,13 @@ final class HeroTextCell: UICollectionViewCell {
     
     private let title: UILabel = {
        let label = UILabel()
-        label.font = UIFont(name: "Karla-Bold", size: 21)
+        label.font = UIFont.STN.detailViewTitle
         return label
     }()
     
     private let body: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Karla-Regular", size: 17)
+        label.font = UIFont.STN.bannerSubitle
         label.numberOfLines = 0
         return label
     }()
@@ -51,13 +51,13 @@ final class HeroTextCell: UICollectionViewCell {
     
     fileprivate func configureView() {
         layer.borderWidth = 1.5
-        layer.borderColor = UIColor.black.withAlphaComponent(0.8).cgColor
+        layer.borderColor = UIColor.black.withAlphaComponent(0.75).cgColor
         title.anchor(
             superView: self, top: topAnchor, leading: leadingAnchor,
-            padding: .init(top: 24, left: 16))
+            padding: .init(top: Theme.Components.Padding.semiLarge, left: Theme.Components.Padding.medium))
         body.anchor(
             superView: self, top: title.bottomAnchor, leading: leadingAnchor, trailing: trailingAnchor,
-            padding: .init(top: 8, left: 16, right: 32))
+            padding: .init(top: Theme.Components.Padding.small, left: Theme.Components.Padding.medium, right: Theme.Components.Padding.semiLarge))
     }
     
 }

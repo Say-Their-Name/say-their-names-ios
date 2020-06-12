@@ -34,6 +34,7 @@ enum Theme {
             static let tiny: CGFloat = 4
             static let small: CGFloat = 8
             static let medium: CGFloat = 16
+            static let semiLarge: CGFloat = 24
             static let large: CGFloat = 32
             static let extraLarge: CGFloat = 40
             static let big: CGFloat = 48

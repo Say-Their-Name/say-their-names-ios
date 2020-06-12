@@ -84,7 +84,7 @@ extension UIFont {
             fontName: FontName.karlaRegular.rawValue,
             textStyle: .body) }
 
-        // 21 on figma but this yields 22 on default
+        // 21 on figma but this yields 19 on default
         static var navBarTitle: UIFont { UIFont.dynamicCustomFont(
             fontName: FontName.karlaBold.rawValue,
             textStyle: .title3) }
