@@ -82,7 +82,7 @@ final class PersonCollectionViewDataSourceHelper {
     func appendPeople(_ people: [Person]) {
         var snapshot = dataSource.snapshot()
         guard snapshot.sectionIdentifiers.contains(.main) else {
-            print("Main section doesn't exist!!")
+            Log.print("Main section doesn't exist!!")
             return
         }
         snapshot.appendItems(people.map({ SectionData.person($0) }), toSection: .main)
