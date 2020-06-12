@@ -57,7 +57,7 @@ class PersonMediaCollectionViewCell: UICollectionViewCell {
         ])
     }
     
-    func updateCell(with mediaUrl: String){
+    func updateCell(with mediaUrl: String) {
         mediaImageView.populate(withURL: mediaUrl)
     }
     

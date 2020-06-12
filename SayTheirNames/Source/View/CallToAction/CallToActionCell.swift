@@ -134,7 +134,7 @@ final class CallToActionCell: UICollectionViewCell {
         actionButton.setTitle(cta.actionTitle, for: .normal)
         bodyLabel.text = cta.body
         if FeatureFlags.callToActionCellImageShown {
-            cta.imagePath.flatMap { imageView.populate(withURL: $0) }
+            imageView.populate(withURL: cta.imagePath)
             tagView.isHidden = cta.tag == nil || cta.tag?.isEmpty == true
             cta.tag.flatMap { tagView.setTitle(to: $0) }
         }
