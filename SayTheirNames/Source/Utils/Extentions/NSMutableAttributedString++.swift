@@ -1,6 +1,8 @@
 //
-//  DonationFilter.swift
+//  NSAttributedString.swift
 //  SayTheirNames
+//
+//  Copyright (c) 2020 Say Their Names Team (https://github.com/Say-Their-Name)
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -22,23 +24,13 @@
 
 import Foundation
 
-enum DonationFilter {
-    case all, businesses, protesters, victims
+extension NSMutableAttributedString {
     
-    var title: String {
-        switch self {
-        case .all:
-            return L10n.filterAll
-        case .businesses:
-            return L10n.filterBusinesses.localizedUppercase
-        case .protesters:
-            return L10n.filterProtesters.localizedUppercase
-        case .victims:
-            return L10n.filterVictims.localizedUppercase
-        }
+    static func createHyperink(for path: String, in string: String, as substring: String) -> NSMutableAttributedString {
+        let nsString = NSString(string: string)
+        let substringRange = nsString.range(of: substring)
+        let attributedString = NSMutableAttributedString(string: string)
+        attributedString.addAttribute(.link, value: path, range: substringRange)
+        return attributedString
     }
-}
-
-extension DonationFilter: FilterCategory {
-    var name: String { title }
 }

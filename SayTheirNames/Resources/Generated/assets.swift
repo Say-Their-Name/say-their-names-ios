@@ -63,6 +63,7 @@ internal enum STNAsset {
     internal static let settingsActive = ImageAsset(name: "settings_active")
     internal static let shareDark = ImageAsset(name: "share_dark")
     internal static let shareWhite = ImageAsset(name: "share_white")
+    internal static let twitterLogo = ImageAsset(name: "twitter_logo")
     internal static let livesMatter = ImageAsset(name: "lives_matter")
     internal static let manInRedJacket = ImageAsset(name: "man_in_red_jacket")
     internal static let mediaImage1 = ImageAsset(name: "media_image_1")

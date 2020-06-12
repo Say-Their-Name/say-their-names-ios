@@ -27,20 +27,12 @@ import UIKit
 final class MoreCard: UIView {
     
     private lazy var contentCard: UIView = {
-        let logo = UIImageView(image: UIImage(asset: STNAsset.Image.stnLogoWhite))
         
         let label = UILabel()
         label.text = L10n.sayTheirNames.localizedUppercase
         label.textColor = STNAsset.Color.white.color
         label.font = UIFont.STN.bannerTitle
         label.adjustsFontSizeToFitWidth = true
-        label.translatesAutoresizingMaskIntoConstraints = false
-        
-        let header = UIStackView(arrangedSubviews: [logo, label])
-        header.axis = .horizontal
-        header.alignment = .center
-        header.spacing = 8
-        header.translatesAutoresizingMaskIntoConstraints = false
         
         let hashTag = UILabel()
         hashTag.text = "#BLACKLIVESMATTER"
@@ -48,25 +40,41 @@ final class MoreCard: UIView {
         hashTag.textColor = STNAsset.Color.white.color
         hashTag.adjustsFontSizeToFitWidth = true
         hashTag.numberOfLines = Theme.Components.LineLimit.single
-        hashTag.translatesAutoresizingMaskIntoConstraints = false
         
-        let vStack = UIStackView(arrangedSubviews: [header, hashTag])
+        let header = UIStackView(arrangedSubviews: [label, hashTag])
+        header.axis = .vertical
+        header.spacing = Theme.Components.Padding.tiny
+        
+        let twitterLogo = UIImageView(image: UIImage(asset: STNAsset.Image.twitterLogo))
+        twitterLogo.heightAnchor.constraint(equalToConstant: Theme.Screens.About.card.logoHeight).isActive = true
+        twitterLogo.widthAnchor.constraint(equalToConstant: Theme.Screens.About.card.logoWidth).isActive = true
+
+        let followUsLabel = UILabel()
+        followUsLabel.text = L10n.GetInvolved.Twitter.title
+        followUsLabel.textColor = STNAsset.Color.white.color
+        followUsLabel.adjustsFontSizeToFitWidth = true
+       
+        let footer = UIStackView(arrangedSubviews: [twitterLogo, followUsLabel])
+        footer.alignment = .center
+        footer.spacing = Theme.Components.Padding.tiny
+        
+        let vStack = UIStackView(arrangedSubviews: [header, footer])
         vStack.axis = .vertical
-        vStack.alignment = .center
-        vStack.spacing = 10
-        vStack.translatesAutoresizingMaskIntoConstraints = false
+        vStack.alignment = .leading
+        vStack.distribution = .equalSpacing
         
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.backgroundColor = STNAsset.Color.cellBackground.color
-        imageView.addSubview(vStack)
         
-        NSLayoutConstraint.activate([
-            vStack.centerXAnchor.constraint(equalTo: imageView.centerXAnchor),
-            vStack.centerYAnchor.constraint(equalTo: imageView.centerYAnchor),
-            logo.heightAnchor.constraint(equalToConstant: 30),
-            logo.widthAnchor.constraint(equalToConstant: 20)
-        ])
+        let padding = Theme.Components.Padding.medium
+        
+        vStack.anchor(superView: imageView,
+                      top: imageView.topAnchor,
+                      leading: imageView.leadingAnchor,
+                      bottom: imageView.bottomAnchor,
+                      trailing: imageView.trailingAnchor,
+                      padding: UIEdgeInsets(padding, padding, padding, padding))
         
         return imageView
     }()
