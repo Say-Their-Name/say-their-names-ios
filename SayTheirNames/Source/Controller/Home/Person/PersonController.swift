@@ -307,7 +307,7 @@ extension PersonController: PersonCollectionViewCellDelegate {
     }
     
     func didTapMediaItem(_ media: Media) {
-        print("Did tap media")
+        Log.print("Did tap media")
     }
 }
 
