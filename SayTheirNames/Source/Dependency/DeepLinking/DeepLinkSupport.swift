@@ -26,7 +26,7 @@ import Foundation
 
 enum DeepLinkSupport {
     enum Schema {
-        static let stn = "stnio"
+        static let stn = "stn"
         static let https = "https"
         static let all = [Schema.stn, Schema.https]
     }
