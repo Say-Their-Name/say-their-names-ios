@@ -126,6 +126,24 @@ enum Theme {
                 
             }
         }
+        // Donation Details
+        enum DonationDetails {
+            static let horizontalPadding: CGFloat = 25
+            static let intersectionSpacing: CGFloat = 18
+        }
+        
+        // MARK: - About
+        enum About {
+            enum card {
+                static let logoHeight: CGFloat = 24
+                static let logoWidth: CGFloat = 24
+                static let multiplier: CGFloat = 0.6
+            }
+            
+            enum makeActionButton {
+                static let width: CGFloat = 50
+            }
+        }
         
     }
 }

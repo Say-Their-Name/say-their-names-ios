@@ -48,6 +48,7 @@ final class CallToActionCell: UICollectionViewCell {
         $0.textColor = UIColor(asset: STNAsset.Color.primaryLabel)
         $0.font = UIFont.STN.ctaTitle
         $0.numberOfLines = 2
+        $0.setContentHuggingPriority(.required, for: .vertical)
     }
     
     private lazy var bodyLabel = UILabel.create {
@@ -55,6 +56,7 @@ final class CallToActionCell: UICollectionViewCell {
         $0.textColor = UIColor(asset: STNAsset.Color.primaryLabel)
         $0.font = UIFont.STN.ctaBody
         $0.numberOfLines = 3
+        $0.setContentCompressionResistancePriority(.required, for: .vertical)
     }
     
     private lazy var actionButton = UIButton.create {
@@ -73,7 +75,7 @@ final class CallToActionCell: UICollectionViewCell {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.axis = .vertical
         $0.spacing = Self.stackViewSpacing
-        $0.distribution = .equalSpacing
+        $0.distribution = .fill
     }
     
     private lazy var containerView = UIView.create {
@@ -116,23 +118,27 @@ final class CallToActionCell: UICollectionViewCell {
             stackView.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: Self.defaultPadding),
             stackView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: Self.defaultPadding),
             stackView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -Self.defaultPadding),
-            stackView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -Self.defaultPadding),
+            stackView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -Self.defaultPadding).withPriority(.required - 0.1),
+            stackView.bottomAnchor.constraint(lessThanOrEqualTo: containerView.bottomAnchor, constant: -Self.defaultPadding),
+
             containerView.topAnchor.constraint(equalTo: guide.topAnchor),
             containerView.leadingAnchor.constraint(equalTo: guide.leadingAnchor),
             containerView.trailingAnchor.constraint(equalTo: guide.trailingAnchor),
             containerView.bottomAnchor.constraint(equalTo: guide.bottomAnchor)
         ])
+        
+        stackView.setCustomSpacing(Self.defaultPadding, after: bodyLabel)
     }
     
     func configure(with cta: CallToAction) {
         actionButton.setTitle(cta.actionTitle, for: .normal)
         bodyLabel.text = cta.body
         if FeatureFlags.callToActionCellImageShown {
-            cta.imagePath.flatMap { imageView.populate(withURL: $0) }
+            imageView.populate(withURL: cta.imagePath)
             tagView.isHidden = cta.tag == nil || cta.tag?.isEmpty == true
             cta.tag.flatMap { tagView.setTitle(to: $0) }
         }
-        titleLabel.text = cta.title
+        titleLabel.text = cta.title.localizedUppercase
         id = cta.id
     }
     
@@ -150,20 +156,6 @@ final class CallToActionCell: UICollectionViewCell {
         titleLabel.text = nil
     }
     
-    override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
-        setNeedsLayout()
-        layoutIfNeeded()
-        
-        let size = contentView.systemLayoutSizeFitting(layoutAttributes.size)
-        var frame = layoutAttributes.frame
-        frame.origin = .zero
-        frame.size.height = ceil(size.height)
-        // TODO: Need a better way of getting the width of the cell
-        frame.size.width = ceil(UIScreen.main.bounds.width)
-        layoutAttributes.frame = frame
-        
-        return layoutAttributes
-    }
     private func updateCGColors() {
         actionButton.layer.borderColor = UIColor(asset: STNAsset.Color.actionButton).cgColor
         containerView.layer.borderColor = UIColor(asset: STNAsset.Color.gray).cgColor
@@ -181,7 +173,14 @@ private extension CallToActionCell {
     static let actionButtonBorderWidth: CGFloat = 2
     static let actionButtonHeight: CGFloat = 50
     static let containerViewBorderWidth: CGFloat = 2
-    static let defaultPadding: CGFloat = 16
+    static let defaultPadding: CGFloat = Theme.Components.Padding.medium
     static let imageViewHeight: CGFloat = FeatureFlags.callToActionCellImageShown ? 125 : 0
     static let stackViewSpacing: CGFloat = 8
+}
+
+private extension NSLayoutConstraint {
+    func withPriority(_ priority: UILayoutPriority) -> NSLayoutConstraint {
+        self.priority = priority
+        return self
+    }
 }

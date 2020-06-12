@@ -24,121 +24,105 @@
 
 import UIKit
 
-// MARK: - DataSource
+// MARK: - Data Source
 extension DonationsMoreDetailsController: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 4
+        return sections.count
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if section == DonationSectionLayoutKind.socialMedia.rawValue {
-            return 4
+        guard let section = sectionAtIndex(section) else {
+            return 0
+        }
+        
+        if section == .socialMedia {
+            return data.entity.hashtags.count
         }
         
         return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        switch indexPath.section {
+        guard let section = sectionAtIndex(indexPath.section) else {
+            let cell: UICollectionViewCell = collectionView.dequeueCell(for: indexPath)
+            return cell
+        }
+        
+        switch section {
         // Title Section
-        case DonationSectionLayoutKind.title.rawValue:
-            guard let titleCell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: DMDTitleCell.reuseIdentifier,
-                for: indexPath) as? DMDTitleCell else {
-                    fatalError("Cannot create new cell")
-            }
-            
-            // Configure cell
-            titleCell.configure(for: donation)
+        case DonationSectionLayoutKind.title:
+            let titleCell: DMDTitleCell = collectionView.dequeueCell(for: indexPath)
+            titleCell.setTitle(data.entity.title)
             return titleCell
             
         // Decription Section
-        case DonationSectionLayoutKind.description.rawValue:
-            guard let textCell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: DMDTextContentCell.reuseIdentifier,
-                for: indexPath) as? DMDTextContentCell else {
-                    fatalError("Cannot create new cell")
-            }
-            
-            // Configure cell
-            textCell.setContent(text: donation.description)
+        case DonationSectionLayoutKind.description:
+            let textCell: DMDTextContentCell = collectionView.dequeueCell(for: indexPath)
+            textCell.setContent(text: data.entity.description)
             return textCell
             
         // Outcome Section
-        case DonationSectionLayoutKind.outcome.rawValue:
-            guard let textCell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: DMDTextContentCell.reuseIdentifier,
-                for: indexPath) as? DMDTextContentCell else {
-                    fatalError("Cannot create new cell")
-            }
-            
-            // Configure cell
-            textCell.setContent(text: donation.description)
-            textCell.isHidden = !FeatureFlags.dmdOutcomeSectionEnabled
+        case DonationSectionLayoutKind.outcome:
+            let textCell: DMDTextContentCell = collectionView.dequeueCell(for: indexPath)
+            textCell.setContent(text: data.entity.description)
             return textCell
             
         // Social Media Hashtags Section
-        case DonationSectionLayoutKind.socialMedia.rawValue:
-            guard let hashtagCell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: DMDHashtagCell.reuseIdentifier,
-                for: indexPath) as? DMDHashtagCell else {
-                    fatalError("Cannot create new cell")
-            }
-
+        case DonationSectionLayoutKind.socialMedia:
+            let hashtagCell: HashtagViewCollectionViewCell = collectionView.dequeueCell(for: indexPath)
+            let hashtag = data.entity.hashtags[indexPath.row]
+            hashtagCell.setupHashtag(hashtag)
             return hashtagCell
-            
-        default:
-            return collectionView.dequeueReusableCell(withReuseIdentifier: emptyCellIdentifier, for: indexPath)
         }
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         viewForSupplementaryElementOfKind kind: String,
                         at indexPath: IndexPath) -> UICollectionReusableView {
+        
+        let emptyView = { () -> UICollectionReusableView in
+            let view: UICollectionReusableView = collectionView.dequeueReusableSupplementaryView(forKind: self.emptyKind, for: indexPath)
+            return view
+        }
+        
+        guard let section = sectionAtIndex(indexPath.section) else {
+            return emptyView()
+        }
+        
         switch kind {
         case DonationsMoreDetailsController.photoSupplementaryView:
             // PhotoSupplementaryView
-            if let photoView = collectionView.dequeueReusableSupplementaryView(
-                ofKind: kind,
-                withReuseIdentifier: DMDPhotoSupplementaryView.reuseIdentifier,
-                for: indexPath) as? DMDPhotoSupplementaryView {
-                
-                switch donation.type?.id {
-                case DonationTypes.movement.id:
-                    photoView.configure(withURLString: donation.bannerImagePath)
-                default:
-                    photoView.configure(withURLString: donation.person?.images.first?.personURL)
-                }
-                
-                return photoView
+            let photoView: DMDPhotoSupplementaryView = collectionView.dequeueReusableSupplementaryView(forKind: kind,
+                                                                                                       for: indexPath)
+            switch data.entity.type?.id {
+            case DonationTypes.movement.id:
+                photoView.configure(withURLString: data.entity.bannerImagePath)
+            default:
+                photoView.configure(withURLString: data.entity.person?.images.first?.personURL)
             }
-    
+            
+            return photoView
+            
         case DonationsMoreDetailsController.sectionTitleSupplementaryView:
             // SectionTitleSupplementaryView
-            if let titleView = collectionView.dequeueReusableSupplementaryView(
-                ofKind: kind,
-                withReuseIdentifier: DMDSectionTitleSupplementaryView.reuseIdentifier,
-                for: indexPath) as? DMDSectionTitleSupplementaryView {
-                
-                switch indexPath.section {
-                case DonationSectionLayoutKind.description.rawValue:
-                    titleView.setTitle(text: L10n.description.localizedUppercase)
-                case DonationSectionLayoutKind.outcome.rawValue:
-                    titleView.setTitle(text: L10n.Person.outcome.localizedUppercase)
-                    titleView.isHidden = !FeatureFlags.dmdOutcomeSectionEnabled
-                case DonationSectionLayoutKind.socialMedia.rawValue:
-                    titleView.setTitle(text: L10n.Person.hashtags.localizedUppercase)
-                default:
-                    return UICollectionReusableView(frame: .zero)
-                }
-                
-                return titleView
+            let titleView: DMDSectionTitleSupplementaryView = collectionView.dequeueReusableSupplementaryView(forKind: kind,
+                                                                                                              for: indexPath)
+            switch section {
+            case DonationSectionLayoutKind.description:
+                titleView.setTitle(text: L10n.description.localizedUppercase)
+            case DonationSectionLayoutKind.outcome:
+                titleView.setTitle(text: L10n.Person.outcome.localizedUppercase)
+            case DonationSectionLayoutKind.socialMedia:
+                titleView.setTitle(text: L10n.Person.hashtags.localizedUppercase)
+            default:
+                return emptyView()
             }
+            
+            return titleView
+            
         default:
-            return collectionView.dequeueReusableSupplementaryView(ofKind: emptyKind, withReuseIdentifier: emptyViewIdentifier, for: indexPath)
+            return emptyView()
         }
-        
-        return collectionView.dequeueReusableSupplementaryView(ofKind: emptyKind, withReuseIdentifier: emptyViewIdentifier, for: indexPath)
     }
     
 }

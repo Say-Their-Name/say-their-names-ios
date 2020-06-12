@@ -40,7 +40,7 @@ final class LaunchScreen: UIView {
     static func createFromNib() -> LaunchScreen? {
         let bundle = Bundle(for: LaunchScreen.self)
         guard let view = bundle.loadNibNamed("LaunchScreen", owner: nil)?.first as? LaunchScreen else {
-            print("Can't load `LaunchScreen` from nib")
+            Log.print("Can't load `LaunchScreen` from nib")
             return nil
         }
         view.backgroundColor = UIColor(asset: STNAsset.Color.black)

@@ -81,7 +81,7 @@ final class HomeController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = UIColor(asset: STNAsset.Color.black)
         searchBar.setup(withController: self)
-        navigationItem.title = Strings.sayTheirNames.localizedUppercase
+        navigationItem.title = L10n.sayTheirNames.localizedUppercase
         setupCollectionView()
         setupSearchButton()
         setupPaginator()
@@ -89,6 +89,11 @@ final class HomeController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        if peopleDataSourceHelper.hasAnyItems == false {
+            self.paginator.loadNextPage()
+        }
+
         // Select first location by default
         // FIXME: can have multiple selected. need one source-of-truth here.
         guard FeatureFlags.filtersEnabled else { return }

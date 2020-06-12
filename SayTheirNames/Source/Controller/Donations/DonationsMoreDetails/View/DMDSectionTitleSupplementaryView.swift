@@ -25,14 +25,12 @@
 import UIKit
 
 class DMDSectionTitleSupplementaryView: UICollectionReusableView {
-    // MARK: - Property
-    static let reuseIdentifier = "donations-more-details-section-title-view"
     
     // MARK: - View
     lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.textColor = UIColor(asset: STNAsset.Color.primaryLabel)
-        label.font = UIFont(name: "Karla-Bold", size: 19)
+        label.font = UIFont.STN.sectionHeader
         label.numberOfLines = 1
         label.minimumScaleFactor = 0.5
         label.adjustsFontSizeToFitWidth = true

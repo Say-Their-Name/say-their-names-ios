@@ -1,33 +1,153 @@
 /*
-  Localizable.strings
-  SayTheirNames
+ * Loco ios export: iOS Localizable.strings
+ * Project: Say Their Names
+ * Release: Working copy
+ * Locale: ar, Arabic
+ * Exported by: Say Their Names
+ * Exported at: Fri, 12 Jun 2020 19:23:59 +0200
+ */
 
-  Created by Abdullah Alosaimi on 6/7/20.
-  Copyright © 2020 Franck-Stephane Ndame Mpouli. All rights reserved.
-*/
-
+/* loco:5ee29770f904c5151c1a2061 */
 "home" = "الرئيسية";
+
+/* loco:5ee29770f904c5151c1a2062 */
 "donations" = "التبرعات";
+
+/* loco:5ee29770f904c5151c1a2063 */
 "petitions" = "العرائض";
+
+/* loco:5ee29770f904c5151c1a2064 */
 "about" = "حول";
-"cancel"= "إلغاء";
+
+/* loco:5ee29770f904c5151c1a2065 */
+"cancel" = "إلغاء";
+
+/* loco:5ee29770f904c5151c1a2066 */
 "find_out_more" = "المزيد";
+
+/* loco:5ee29770f904c5151c1a2067 */
 "verified" = "موثق";
+
+/* loco:5ee29770f904c5151c1a2068 */
 "filter_all" = "الكل";
+
+/* loco:5ee29770f904c5151c1a2069 */
 "filter_businesses" = "المشاريع";
+
+/* loco:5ee29770f904c5151c1a206a */
 "filter_protesters" = "المتظاهرين";
+
+/* loco:5ee29770f904c5151c1a206b */
 "filter_victims" = "الضحايا";
+
+/* loco:5ee29770f904c5151c1a206c */
 "share" = "انشر";
+
+/* loco:5ee29770f904c5151c1a206d */
 "close" = "اغلاق";
+
+/* loco:5ee29770f904c5151c1a206e */
 "say_their_names" = "Say their names";
+
+/* loco:5ee29770f904c5151c1a206f */
 "bookmark" = "اضف الى العلامات المرجعية";
+
+/* loco:5ee29770f904c5151c1a2070 */
 "search" = "بحث";
+
+/* loco:5ee29770f904c5151c1a2071 */
+"donate" = "تبرع";
+
+/* loco:5ee29770f904c5151c1a2072 */
+"DONATE NOW" = "تبرع الآن";
+
+/* loco:5ee29770f904c5151c1a2073 */
+"description" = "الوصف";
+
+/* loco:5ee29770f904c5151c1a2074 */
 "person.say_their_names" = "Say their names";
+
+/* loco:5ee29770f904c5151c1a2075 */
 "person.age" = "العمر";
+
+/* loco:5ee29770f904c5151c1a2076 */
 "person.children" = "الأطفال";
+
+/* loco:5ee29770f904c5151c1a2077 */
 "person.location" = "المكان";
+
+/* loco:5ee29770f904c5151c1a2078 */
 "person.their_story" = "الحادثة";
+
+/* loco:5ee29770f904c5151c1a2079 */
 "person.outcome" = "النتيجة";
+
+/* loco:5ee29770f904c5151c1a207a */
 "person.news" = "أخبار";
+
+/* loco:5ee29770f904c5151c1a207b */
 "person.media" = "الوسائط";
+
+/* loco:5ee29770f904c5151c1a207c */
 "person.hashtags" = "الوسوم";
+
+/* loco:5ee29770f904c5151c1a207d */
+"person.hashtagCopyTip" = "اضغط مع الاستمرار للنسخ";
+
+/* loco:5ee29770f904c5151c1a207e */
+"person.copied" = "تم النسخ";
+
+/* loco:5ee29770f904c5151c1a207f
+ * Get Involved - Slack */
+"get_involved.slack.title" = "كيف اشارك كمصمم؟";
+
+/* loco:5ee29770f904c5151c1a2080 */
+"get_involved.slack.button" = "انضم لقناة SLACK الخاصة بنا";
+
+/* loco:5ee29770f904c5151c1a2082
+ * Get Involved - Developer */
+"get_involved.developer.title" = "كيف اشارك كمبرمج؟";
+
+/* loco:5ee29770f904c5151c1a2083 */
+"get_involved.developer.button" = "قم بزيارة صفحتنا على GitHub";
+
+/* loco:5ee29770f904c5151c1a2085
+ * Get Involved - Twitter */
+"get_involved.twitter.title" = "انضم إلينا على تويتر";
+
+/* loco:5ee29770f904c5151c1a2086 */
+"get_involved.twitter.button" = "تابعنا";
+
+/* loco:5ee29770f904c5151c1a2088
+ * More */
+"more_history.aboutTitle" = "تاريخ حركة قل أسمائهم";
+
+/* loco:5ee29770f904c5151c1a2089 */
+"more_history.aboutDesc" = "قل أسمائهم هي حركة اجتماعية لزيادة الوعي عن الضحايا السود الذين تعرضوا لعدم المساواة العرقية في جميع أنحاء العالم. تدعم هذه الحركة حركة حياة السود مهمة وتهدف إلى تسليط الضوء على الأفراد المتضررين من العنف ضد السود. حركة قل أسمائهم تلفت الانتباه وتطالب بالعدالة لجميع الضحايا.";
+
+/* loco:5ee29770f904c5151c1a208a */
+"massive_thank_you" = "A MASSIVE THANK YOU TO EVERYONE INVOLVED";
+
+/* loco:5ee2ce86663b704aa41688f2 */
+"sign" = "وقع العريضة";
+
+/* loco:5ee376d765812927aa78d0a2 */
+"about_this_project.title" = "عن هذا المشروع";
+
+/* loco:5ee376dd6ca9905dc077cd32 */
+"about-this-project-details" = "مرحبًا بكم في مشروع قل أسمائهم. هدفنا هو بناء منصة مفتوحة المصدر لزيادة الوعي بالظلم والاسماء المنسية التي تعرضت لعدم المساواة العرقي. نحن نسعى جاهدين للبحت وتحديد المنظمات الموثوقة لضمان وصول تبرعاتكم إلى أولئك الذين في امس الحاجة اليها.";
+
+/* loco:5ee376e9fefc8d5f7d7f0e72 */
+"request_edit_or_removal.title" = "طلب تعديل أو إزالة";
+
+/* loco:5ee376f7a2df5b67a6141ad6 */
+"request_edit_or_removal.details" = "إذا كنت ترغب في اقتراح تعديل على صفحة الضحية أو إذا كنت ممثلًا للضحية وتريد إزالة الضحية من هذا البرنامج، فيرجى التواصل معنا عن طريق تويتر.";
+
+/* loco:5ee376fed7ad1f1f67343376 */
+"twitter" = "تويتر";
+
+/* loco:5ee3770bbf547555e3273462 */
+"did_we_miss_someone" = "هل نسينا شخص ما؟";
+
+/* loco:5ee37712b985865d84496cd7 */
+"request_to_add_new_name" = "اطلب إضافة اسم";

@@ -1,5 +1,5 @@
 //
-//  PersonPhotoCell.swift
+//  RequestOrRemoveTextView.swift
 //  SayTheirNames
 //
 //  Copyright (c) 2020 Say Their Names Team (https://github.com/Say-Their-Name)
@@ -24,53 +24,33 @@
 
 import UIKit
 
-final class PersonPhotoCell: UICollectionViewCell {
+class RequestOrRemoveTextView: UITextView {
     
-    private let personImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFill
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.clipsToBounds = true
-        imageView.accessibilityIgnoresInvertColors = true
-        imageView.isAccessibilityElement = true
-        imageView.accessibilityLabel = "Photo"
-        return imageView
-    }()
-    
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        personImageView.image = nil
+    override init(frame: CGRect, textContainer: NSTextContainer?) {
+        super.init(frame: frame, textContainer: textContainer)
+        dataDetectorTypes = .link
+        isEditable = false
+        isSelectable = true
+        isScrollEnabled = false
+        showsVerticalScrollIndicator = false
+        showsHorizontalScrollIndicator = false
+        
+        setupAttributedString()
     }
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setup()
+    func setupAttributedString() {
+        let text = L10n.RequestEditOrRemoval.details
+        let attributedString = NSMutableAttributedString.createHyperink(for: MoreLinks.twitter, in: text, as: L10n.twitter)
+        attributedString.addAttribute(.font, value: UIFont.STN.ctaBody, range: NSRange(location: 0, length: attributedString.length))
+        self.attributedText = attributedString
+        textColor = UIColor.label
     }
     
-    @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    private func setup() {
-        addSubview(personImageView)
-        personImageView.fillSuperview()
-    }
-    
-    func setImage(withUrlString url: String) {
-        personImageView.populate(withURL: url)
-    }
-}
-
-// MARK: Design Constants
-extension PersonPhotoCell {
-    private static var aspectRatio: CGFloat { 0.7 }
-}
-
-extension PersonPhotoCell {
-    static func size(_ collectionView: UICollectionView) -> CGSize {
-        let size = collectionView.bounds.size
-        let width = size.height * aspectRatio
-        return CGSize(width: width, height: size.height)
+    override func draw(_ rect: CGRect) {
+        textContainer.lineFragmentPadding = 0
+        textContainerInset = .zero
     }
 }

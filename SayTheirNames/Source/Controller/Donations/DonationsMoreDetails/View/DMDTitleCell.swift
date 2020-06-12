@@ -25,17 +25,16 @@
 import UIKit
 
 final class DMDTitleCell: UICollectionViewCell {
-    // MARK: - Property
-    static let reuseIdentifier = "donations-more-details-title-cell"
     
     // MARK: - View
     private let titleLabel: UILabel = {
         let label = UILabel(frame: .zero)
-        label.numberOfLines = 0
+        label.numberOfLines = 2
         label.textAlignment = .center
-        label.adjustsFontSizeToFitWidth = true
-        label.font = UIFont.STN.title
+        label.font = UIFont.STN.ctaTitle
         label.isAccessibilityElement = true
+        label.setContentHuggingPriority(.required, for: .vertical)
+        label.setContentCompressionResistancePriority(.required, for: .vertical)
         return label
     }()
     
@@ -58,7 +57,7 @@ final class DMDTitleCell: UICollectionViewCell {
     }
     
     // MARK: - Configure Cell
-    func configure(for donation: Donation) {
-        titleLabel.text = donation.title
+    func setTitle(_ title: String) {
+        titleLabel.text = title.localizedUppercase
     }
 }

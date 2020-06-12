@@ -99,7 +99,7 @@ final class PersonCell: UICollectionViewCell {
     }
     
     func configure(with person: Person) {
-        profileImageView.populate(withURL: person.images.first?.personURL ?? "")
+        profileImageView.populate(withURL: person.images.first?.personURL)
         nameLabel.text = person.fullName.localizedUppercase
         dateOfIncidentLabel.text = self.dateFormatter.dateOfIncidentString(from: person.doi)
     }
@@ -142,7 +142,6 @@ final class PersonCell: UICollectionViewCell {
     }
     
     private func styleLabels() {
-
         nameLabel.font = UIFont.STN.cardTitle
         dateOfIncidentLabel.font = UIFont.STN.cardSubitle
     }
@@ -155,6 +154,14 @@ final class PersonCell: UICollectionViewCell {
         }
     }
 
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        self.profileImageView.image = nil
+        self.nameLabel.text = ""
+        self.dateOfIncidentLabel.text = ""
+    }
+    
     // MARK: - Handlers
         
     @objc private func didTapBookmark() {

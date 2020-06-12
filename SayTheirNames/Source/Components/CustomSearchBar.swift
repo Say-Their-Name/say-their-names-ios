@@ -41,7 +41,7 @@ class CustomSearchBar: UIView {
     }()
     private let cancelSearchButton: UIButton = {
         let button = UIButton()
-        button.setTitle(Strings.cancel, for: .normal)
+        button.setTitle(L10n.cancel, for: .normal)
         button.addTarget(self, action: #selector(hideSearchBar), for: .touchUpInside)
         return button
     }()
@@ -142,7 +142,7 @@ extension CustomSearchBar: UITableViewDataSource, UITableViewDelegate, UISearchB
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! SearchResultCell
+        let cell: SearchResultCell = tableView.dequeueCell(for: indexPath)
         cell.isSeperatorViewHidden = indexPath.row == searchResult.count - 1
         cell.data = searchResult[indexPath.row]
         return cell

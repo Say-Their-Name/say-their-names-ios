@@ -26,11 +26,18 @@ import Foundation
 import SDWebImage
 
 public extension UIImageView {
-    func populate(withURL url: String) {
+    
+    func populate(withURL url: String?) {
         self.sd_imageIndicator = SDWebImageActivityIndicator.gray
-      self.sd_setImage(
-        with: URL(string: url),
-        placeholderImage: UIImage(asset: STNAsset.Image.placeholder)
-      )
+        if let url = url {
+            self.sd_setImage(
+                with: URL(string: url),
+                placeholderImage: UIImage(asset: STNAsset.Image.placeholder)
+            )
+        }
+        else {
+            self.sd_cancelCurrentImageLoad()
+            self.image = UIImage(asset: STNAsset.Image.placeholder)
+        }
     }
 }

@@ -31,7 +31,6 @@ internal enum STNAsset {
     internal static let navBarBackground = ColorAsset(name: "navBarBackground")
     internal static let navBarForeground = ColorAsset(name: "navBarForeground")
     internal static let primaryLabel = ColorAsset(name: "primaryLabel")
-    internal static let red = ColorAsset(name: "red")
     internal static let secondaryLabel = ColorAsset(name: "secondaryLabel")
     internal static let separator = ColorAsset(name: "separator")
     internal static let strongHeader = ColorAsset(name: "strongHeader")
@@ -40,7 +39,6 @@ internal enum STNAsset {
     internal static let tabBarTint = ColorAsset(name: "tabBarTint")
     internal static let tabBarUnselectedItemTint = ColorAsset(name: "tabBarUnselectedItemTint")
     internal static let white = ColorAsset(name: "white")
-    internal static let yellow = ColorAsset(name: "yellow")
   }
   internal enum Image {
     internal static let like = ImageAsset(name: "Like")
@@ -65,6 +63,7 @@ internal enum STNAsset {
     internal static let settingsActive = ImageAsset(name: "settings_active")
     internal static let shareDark = ImageAsset(name: "share_dark")
     internal static let shareWhite = ImageAsset(name: "share_white")
+    internal static let twitterLogo = ImageAsset(name: "twitter_logo")
     internal static let livesMatter = ImageAsset(name: "lives_matter")
     internal static let manInRedJacket = ImageAsset(name: "man_in_red_jacket")
     internal static let mediaImage1 = ImageAsset(name: "media_image_1")

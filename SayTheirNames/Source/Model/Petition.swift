@@ -33,18 +33,21 @@ struct Petition: Decodable {
     let link: String
     let outcomeImagePath: String
     let person: Person?
+    let type: DonationType?
     let bannerImagePath: String
     let shareable: Shareable
-    
+    let hashtags: [Hashtag]
+
     enum CodingKeys: String, CodingKey {
-        case id, identifier, title, description, outcome, link, person
-        case outcomeImagePath = "outcome_img_url", bannerImagePath = "banner_img_url", shareable = "sharable_links"
+        case id, identifier, title, description, outcome, link, person, type
+        case outcomeImagePath = "outcome_img_url", bannerImagePath = "banner_img_url", shareable = "sharable_links",
+        hashtags = "hash_tags"
     }
     
     init(id: Int, identifier: String, title: String,
          description: String, outcome: String, link: String,
-         outcomeImagePath: String, person: Person?,
-         bannerImagePath: String, shareable: Shareable) {
+         outcomeImagePath: String, person: Person?, type: DonationType?,
+         bannerImagePath: String, shareable: Shareable, hashtags: [Hashtag]) {
         self.id = id
         self.identifier = identifier
         self.title = title
@@ -53,8 +56,10 @@ struct Petition: Decodable {
         self.link = link
         self.outcomeImagePath = outcomeImagePath
         self.person = person
+        self.type = type
         self.bannerImagePath = bannerImagePath
         self.shareable = shareable
+        self.hashtags = hashtags
     }
     
     init(from decoder: Decoder) throws {
@@ -68,8 +73,10 @@ struct Petition: Decodable {
         self.link = try container.decodeIfPresent(String.self, forKey: .link) ?? ""
         self.outcomeImagePath = try container.decodeIfPresent(String.self, forKey: .outcomeImagePath) ?? ""
         self.person = try container.decodeIfPresent(Person.self, forKey: .person) ?? Person(from: decoder)
+        self.type = try container.decodeIfPresent(DonationType.self, forKey: .type)
         self.bannerImagePath = try container.decodeIfPresent(String.self, forKey: .bannerImagePath) ?? ""
         self.shareable = try container.decodeIfPresent(Shareable.self, forKey: .shareable) ?? Shareable()
+        self.hashtags = try container.decodeIfPresent([Hashtag].self, forKey: .hashtags) ?? []
     }
 }
 
@@ -77,7 +84,7 @@ extension Petition: Hashable {}
 
 extension Petition: CallToAction {
     var actionTitle: String {
-        Strings.findOutMore
+        L10n.findOutMore.localizedUppercase
     }
     var body: String {
         description

@@ -25,11 +25,7 @@
 import UIKit
 
 class PersonMediaCollectionViewCell: UICollectionViewCell {
-    
-    static var reuseIdentifier: String {
-        return "\(Self.self)"
-    }
-    
+
     lazy var mediaImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(asset: STNAsset.Image.mediaImage2)
@@ -61,7 +57,13 @@ class PersonMediaCollectionViewCell: UICollectionViewCell {
         ])
     }
     
-    func updateCell(with mediaUrl: String){
+    func updateCell(with mediaUrl: String) {
         mediaImageView.populate(withURL: mediaUrl)
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        self.mediaImageView.image = nil
     }
 }

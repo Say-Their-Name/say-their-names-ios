@@ -53,7 +53,6 @@ class PersonNewsTableViewCell: UITableViewCell {
     
     lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "NEWS"
         label.textColor = UIColor(asset: STNAsset.Color.strongHeader)
         label.font = UIFont.STN.sectionHeader
         label.numberOfLines = 1

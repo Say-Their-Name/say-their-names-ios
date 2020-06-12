@@ -65,8 +65,15 @@ final class PetitionsController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
-        navigationItem.title = Strings.petitions.localizedUppercase
+        navigationItem.title = L10n.petitions.localizedUppercase
         setupPaginator()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if petitionsManager.hasAnyItems == false {
+            self.paginator.loadNextPage()
+        }
     }
     
     private func configure() {
@@ -94,8 +101,7 @@ final class PetitionsController: UIViewController {
     }
     
     private func showPetitionDetails(with petition: Petition) {
-        let detailVC = PetitionDetailViewController()
-        detailVC.petition = petition
+        let detailVC = DonationsMoreDetailsController(data: .petition(petition))
         let navigationController = UINavigationController(rootViewController: detailVC)
         
         self.present(navigationController, animated: true, completion: nil)
