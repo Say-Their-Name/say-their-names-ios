@@ -77,7 +77,7 @@ internal enum L10n {
     internal enum Slack {
       /// JOIN OUR SLACK CHANNEL
       internal static let button = L10n.tr("Localizable", "get_involved.slack.button")
-      /// HOW DO I GET INVOLVED AS A DESIGNER?
+      /// HOW DO I GET INVOLVED?
       internal static let title = L10n.tr("Localizable", "get_involved.slack.title")
     }
     internal enum Twitter {
@@ -91,7 +91,7 @@ internal enum L10n {
   internal enum MoreHistory {
     /// Say Their Names is a social movement to raise awareness for all the black victims of racial inequality all around the world. This movement is in support of the overall Black Lives Matter movement and aims to highlight individuals affected by anti-Black Violence. Say Their Names movement calls attention and demands justice for all victims.
     internal static let aboutDesc = L10n.tr("Localizable", "more_history.aboutDesc")
-    /// SOME HISTORY ON THE SAY THEIR NAME MOVEMENT
+    /// SOME HISTORY ON THE SAY THEIR NAMES MOVEMENT
     internal static let aboutTitle = L10n.tr("Localizable", "more_history.aboutTitle")
   }
 

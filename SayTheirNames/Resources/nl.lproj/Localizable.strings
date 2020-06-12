@@ -4,7 +4,7 @@
  * Release: Working copy
  * Locale: nl, Dutch; Flemish
  * Exported by: Say Their Names
- * Exported at: Fri, 12 Jun 2020 19:24:00 +0200
+ * Exported at: Fri, 12 Jun 2020 22:42:06 +0200
  */
 
 /* loco:5ee29770f904c5151c1a2061 */
@@ -120,7 +120,7 @@
 
 /* loco:5ee29770f904c5151c1a2088
  * More */
-"more_history.aboutTitle" = "GESCHIEDENIS OVER SAY THEIR NAMES BEWEGING ";
+"more_history.aboutTitle" = "GESCHIEDENIS OVER SAY THEIR NAMES BEWEGING";
 
 /* loco:5ee29770f904c5151c1a2089 */
 "more_history.aboutDesc" = "Say Their Names is een sociale beweging om het bewustzijn van alle slachtoffers van raciale ongelijkheid over de hele wereld te vergroten. Deze beweging ondersteunt de algehele Black Lives Matter beweging en heeft tot doel individuen te benadrukken die getroffen zijn door racistisch geweld. De beweging Say Their Names vraagt aandacht en eist gerechtigheid voor alle slachtoffers.";

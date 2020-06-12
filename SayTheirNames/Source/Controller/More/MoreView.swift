@@ -172,7 +172,7 @@ final class MoreView: UIView {
         
         NSLayoutConstraint.activate([
             moreCard.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: padding),
-            moreCard.trailingAnchor.constraint(equalTo: trailingAnchor, constant: padding),
+            moreCard.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -padding),
             moreCard.leadingAnchor.constraint(equalTo: leadingAnchor, constant: padding),
             moreCard.heightAnchor.constraint(equalTo: moreCard.widthAnchor, multiplier: Theme.Screens.About.card.multiplier)
         ])

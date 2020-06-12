@@ -255,7 +255,6 @@
 		7CAD53E7248A326F001CFF08 /* PetitionsNetworkRequestorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetitionsNetworkRequestorTests.swift; sourceTree = "<group>"; };
 		7CAD53E9248A32FC001CFF08 /* PeopleNetworkRequestorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleNetworkRequestorTests.swift; sourceTree = "<group>"; };
 		7CE75F352489820700168DDA /* PetitionsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetitionsView.swift; sourceTree = "<group>"; };
-		8381E475248D7CEC00EA1E43 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 		83E9CACF2484A504001D173A /* LaunchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreen.swift; sourceTree = "<group>"; };
 		83E9CAD12484A514001D173A /* LaunchScreen.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		83E9CAD32484A5DC001D173A /* UIViewController+TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+TabBar.swift"; sourceTree = "<group>"; };
@@ -358,7 +357,6 @@
 		C0594BF9248754A200260BAD /* UICollectionView++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView++.swift"; sourceTree = "<group>"; };
 		D107CEC59C11537D09D9DB2E /* Pods-Say Their Names.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Say Their Names.release.xcconfig"; path = "Target Support Files/Pods-Say Their Names/Pods-Say Their Names.release.xcconfig"; sourceTree = "<group>"; };
 		D42BC32C248E290E006A7F4B /* assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = assets.swift; sourceTree = "<group>"; };
-		D4BA10D0248A8F7300E29A3F /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		D639F16885E8E79F7E336CC2 /* Pods-Say Their Names.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Say Their Names.debug.xcconfig"; path = "Target Support Files/Pods-Say Their Names/Pods-Say Their Names.debug.xcconfig"; sourceTree = "<group>"; };
 		D757CF07248F3A9C008874B4 /* DonationTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationTypes.swift; sourceTree = "<group>"; };
 		D787FC9A248A71A3001FC6FF /* ImageWithBlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageWithBlurView.swift; sourceTree = "<group>"; };
@@ -1158,9 +1156,7 @@
 				en,
 				Base,
 				fr,
-				"pt-BR",
 				ar,
-				ko,
 				ru,
 				nl,
 			);
@@ -1536,9 +1532,7 @@
 			children = (
 				9E24499C2485E98C00B149DF /* Base */,
 				8E94BA59248A0A4100242FBA /* fr */,
-				D4BA10D0248A8F7300E29A3F /* pt-BR */,
 				5E531926248D191F00021996 /* ar */,
-				8381E475248D7CEC00EA1E43 /* ko */,
 				B35AEE222492DDCD005F2AAF /* ru */,
 				1846CA492493E9BA00792086 /* nl */,
 			);

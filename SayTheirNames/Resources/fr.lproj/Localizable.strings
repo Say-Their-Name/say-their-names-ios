@@ -4,7 +4,7 @@
  * Release: Working copy
  * Locale: fr, French
  * Exported by: Say Their Names
- * Exported at: Fri, 12 Jun 2020 19:23:59 +0200
+ * Exported at: Fri, 12 Jun 2020 22:42:06 +0200
  */
 
 /* loco:5ee29770f904c5151c1a2061 */
@@ -59,7 +59,7 @@
 "donate" = "Donner";
 
 /* loco:5ee29770f904c5151c1a2072 */
-"DONATE NOW" = "DONATE NOW";
+"DONATE NOW" = "Donner maintenant";
 
 /* loco:5ee29770f904c5151c1a2073 */
 "description" = "Description";
@@ -92,10 +92,10 @@
 "person.hashtags" = "Hashtags des réseaux sociaux";
 
 /* loco:5ee29770f904c5151c1a207d */
-"person.hashtagCopyTip" = "Press and hold to copy";
+"person.hashtagCopyTip" = "Appuyer et maintenir enfoncé pour copier";
 
 /* loco:5ee29770f904c5151c1a207e */
-"person.copied" = "Copied";
+"person.copied" = "Copié";
 
 /* loco:5ee29770f904c5151c1a207f
  * Get Involved - Slack */
@@ -123,31 +123,31 @@
 "more_history.aboutTitle" = "L'HISTOIRE DU MOUVEMENT DIS LEURS NOMS";
 
 /* loco:5ee29770f904c5151c1a2089 */
-"more_history.aboutDesc" = "Say Their Names is a social movement to raise awareness for all the black victims of racial inequality all around the world. This movement is in support of the overall Black Lives Matter movement and aims to highlight individuals affected by anti-Black Violence. Say Their Names movement calls attention and demands justice for all victims.";
+"more_history.aboutDesc" = "Dis Leurs Noms est un mouvement social qui a pour objectif d'accroître la prise de conscience sur les inégalités raciales de toutes les victimes de couleur de peau noire, dans le monde entier. Il supporte le mouvement Black Lives Matter, spécifiquement pour mettre en relief les individus affectés par la violence contre les Noirs. Le mouvement Dis Leurs Noms établit une prise de conscience des victimes de ces inégalités et demande justice.";
 
 /* loco:5ee29770f904c5151c1a208a */
 "massive_thank_you" = "UN GRAND MERCI A TOUS LES CONTRIBUTEURS";
 
 /* loco:5ee2ce86663b704aa41688f2 */
-"sign" = "Sign this petition";
+"sign" = "Signer la pétition";
 
 /* loco:5ee376d765812927aa78d0a2 */
-"about_this_project.title" = "About this project";
+"about_this_project.title" = "À propos de ce projet";
 
 /* loco:5ee376dd6ca9905dc077cd32 */
-"about-this-project-details" = "Welcome to the Say Their Names Project. Our aim is to build an open-source platform to raise awareness of the injustice and often forgotten names of racial inequality. We strive to identify and amplify verified organizations to ensure donations are reaching those who can make the most impact with it.";
+"about-this-project-details" = "Bienvenue sur le projet Dis Leurs Noms. Notre objectif est de construire une plateforme open source collaborative pour accroître la prise de conscience sur l'injustice et de commémorer les figures oubliées des inégalités raciales. Nous nous efforçons d'identifier et d'amplifier le travail des organizations agréés, pour s'assurer que vos dons financiers aient le plus d'impact.";
 
 /* loco:5ee376e9fefc8d5f7d7f0e72 */
-"request_edit_or_removal.title" = "REQUEST AN EDIT OR REMOVAL";
+"request_edit_or_removal.title" = "DEMANDER UNE MODIFICATION";
 
 /* loco:5ee376f7a2df5b67a6141ad6 */
-"request_edit_or_removal.details" = "If you would like to propose an edit to a victim page or if you are a representative of the victim and would like the victim to be removed from this directory please send us a message on Twitter.";
+"request_edit_or_removal.details" = "Si vous voulez proposer un changement d'une des pages des victimes, ou si vous représentez une des victimes et que vous souhaitez enlever le nom de ce répertoire, envoyez nous un message sur Twitter.";
 
 /* loco:5ee376fed7ad1f1f67343376 */
 "twitter" = "Twitter";
 
 /* loco:5ee3770bbf547555e3273462 */
-"did_we_miss_someone" = "DID WE MISS SOMEONE?";
+"did_we_miss_someone" = "MANQUE-T-IL QUELQU'UN ?";
 
 /* loco:5ee37712b985865d84496cd7 */
-"request_to_add_new_name" = "REQUEST TO ADD A NAME";
+"request_to_add_new_name" = "AJOUTER UN NOM";
