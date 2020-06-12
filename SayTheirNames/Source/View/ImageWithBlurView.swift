@@ -67,8 +67,7 @@ class ImageWithBlurView: UIView {
     
     // MARK: - Method
     public func setup(withURLString string: String?) {
-        guard let urlString = string else { return }
-        frontImageView.populate(withURL: urlString)
-        bgImageView.populate(withURL: urlString)
+        frontImageView.populate(withURL: string)
+        bgImageView.populate(withURL: string)
     }
 }
