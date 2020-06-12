@@ -30,7 +30,7 @@ class DMDSectionTitleSupplementaryView: UICollectionReusableView {
     lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.textColor = UIColor(asset: STNAsset.Color.primaryLabel)
-        label.font = UIFont.STN.bannerTitle
+        label.font = UIFont.STN.sectionHeader
         label.numberOfLines = 1
         label.minimumScaleFactor = 0.5
         label.adjustsFontSizeToFitWidth = true
