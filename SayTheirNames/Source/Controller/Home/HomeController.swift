@@ -90,7 +90,7 @@ final class HomeController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        if peopleDataSourceHelper.hasAnyItems == false {
+        if peopleDataSourceHelper.hasPeople == false {
             self.paginator.loadNextPage()
         }
 

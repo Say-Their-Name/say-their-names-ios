@@ -82,16 +82,18 @@ final class PersonCollectionViewDataSourceHelper {
     
     func setPeople(_ people: [Person], carouselData: [HeaderCellContent]) {
         var snapShot = NSDiffableDataSourceSnapshot<Section, SectionData>()
-        
-        if carouselData.isEmpty == false {
-            snapShot.appendSections([.carousel])
-            snapShot.appendItems(carouselData.map({ SectionData.header($0) }))
-        }
+    
         snapShot.appendSections([.header])
         snapShot.appendItems([SectionData.hero(HeroContent(
             title: "#BLACKLIVESMATTER",
             body: "Delayed justice is injustice. Join the fight for justice. Sign petitions and donate today."
         ))])
+        
+        if carouselData.isEmpty == false {
+            snapShot.appendSections([.carousel])
+            snapShot.appendItems(carouselData.map({ SectionData.header($0) }))
+        }
+        
         snapShot.appendSections([.main])
         snapShot.appendItems(people.map({ SectionData.person($0) }))
         dataSource.apply(snapShot)
@@ -123,8 +125,9 @@ final class PersonCollectionViewDataSourceHelper {
         return allSections[index]
     }
     
-    var hasAnyItems: Bool {
-        let allItems = dataSource.snapshot().itemIdentifiers
-        return allItems.isEmpty == false
+    var hasPeople: Bool {
+        let allMainItems = dataSource.snapshot().itemIdentifiers(inSection: Section.main)
+        return allMainItems.isEmpty == false
     }
+
 }
