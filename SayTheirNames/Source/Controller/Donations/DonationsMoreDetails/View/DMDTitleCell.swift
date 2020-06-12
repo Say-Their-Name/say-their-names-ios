@@ -30,7 +30,7 @@ final class DMDTitleCell: UICollectionViewCell {
     private let titleLabel: UILabel = {
         let label = UILabel(frame: .zero)
         label.numberOfLines = 0
-        label.textAlignment = .center
+        label.textAlignment = .natural
         label.adjustsFontSizeToFitWidth = true
         label.font = UIFont.STN.title
         label.isAccessibilityElement = true
