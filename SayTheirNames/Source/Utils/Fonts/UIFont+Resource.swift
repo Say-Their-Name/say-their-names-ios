@@ -85,14 +85,14 @@ extension UIFont {
             textStyle: .body) }
 
         // 21 on figma but this yields 22 on default
-        static var navBarTitle: UIFont { UIFont.dynamicCustomFont(
+        static var navBarTitle: UIFont { UIFont.fixedCustomFont(
             fontName: FontName.karlaRegular.rawValue,
-            textStyle: .title2) }
+            size: 22) }
         
         // 13
-        static var tabButtonTitle: UIFont { UIFont.dynamicCustomFont(
-            fontName: FontName.karlaBold.rawValue,
-            textStyle: .footnote) }
+        static var tabButtonTitle: UIFont { UIFont.fixedCustomFont(
+                fontName: FontName.karlaBold.rawValue,
+                size: 13) }
         
         static var verifiedTag: UIFont { UIFont.dynamicCustomFont(fontName: FontName.karlaBold.rawValue, textStyle: .footnote) }
 
