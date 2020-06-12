@@ -57,4 +57,9 @@ class DMDTextContentCell: UICollectionViewCell {
     func setContent(text: String) {
         contentTextLabel.text = text
     }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.contentTextLabel.text = ""
+    }
 }

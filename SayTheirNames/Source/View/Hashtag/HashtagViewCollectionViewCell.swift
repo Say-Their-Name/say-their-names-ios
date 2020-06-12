@@ -48,4 +48,10 @@ class HashtagViewCollectionViewCell: UICollectionViewCell {
     public func setupHashtag(_ hashtag: Hashtag) {
         hashtagView.hashtagLabel.text = hashtag.tag.localizedUppercase
     }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        hashtagView.hashtagLabel.text = ""
+    }
 }

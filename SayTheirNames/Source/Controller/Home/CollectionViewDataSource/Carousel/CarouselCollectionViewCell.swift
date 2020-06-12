@@ -93,4 +93,12 @@ final class CarouselCollectionViewCell: UICollectionViewCell {
                                      right: 0))
         }
     }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        self.titleLabel.text = ""
+        self.descriptionLabel.text = ""
+        self.imageView.image = nil
+    }
 }
