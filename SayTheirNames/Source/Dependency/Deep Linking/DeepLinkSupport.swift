@@ -26,13 +26,13 @@ import Foundation
 
 enum DeepLinkSupport {
     enum Schema {
-        static let stn = "stn"
+        static let stn = "stnio"
         static let https = "https"
         static let all = [Schema.stn, Schema.https]
     }
     
     enum Host {
-        static let `default` = "saytheirname.netlify.app"
+        static let `default` = "saytheirnames.io"
     }
 
     enum Path {
