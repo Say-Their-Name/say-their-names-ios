@@ -41,7 +41,7 @@ extension UIFont {
         }
         else {
             uiFont = UIFont.preferredFont(forTextStyle: textStyle)
-            print("Got invalid font \(fontName) with style \(textStyle). Using \(uiFont)")
+            Log.print("Got invalid font \(fontName) with style \(textStyle). Using \(uiFont)")
         }
         
         return uiFont
@@ -59,7 +59,7 @@ extension UIFont {
         }
         else {
             uiFont = UIFont.systemFont(ofSize: size)
-            print("Got invalid font \(fontName) with size \(size). Using \(uiFont)")
+            Log.print("Got invalid font \(fontName) with size \(size). Using \(uiFont)")
         }
         
         return uiFont

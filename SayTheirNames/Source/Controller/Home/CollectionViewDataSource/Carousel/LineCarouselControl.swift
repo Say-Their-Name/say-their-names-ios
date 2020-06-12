@@ -55,7 +55,7 @@ final class LineCarouselControl: UIControl {
     var numberOfPages: Int = 0 {
         didSet(oldValue) {
             for tag in 0 ..< numberOfPages {
-                print(tag)
+                Log.print(tag)
                 let line = getLineView()
                 line.tag = tag
                 self.numberOfLines.append(line)
@@ -86,7 +86,7 @@ final class LineCarouselControl: UIControl {
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        print("An error occured")
+        Log.print("An error occured")
     }
 
     // MARK: methods

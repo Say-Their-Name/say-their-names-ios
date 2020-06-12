@@ -103,7 +103,7 @@ final class DonationsController: UIViewController {
             return cell
         }
         filterManager.didSelectItem = { filter in
-            print(filter)
+            Log.print(filter)
         }
         ui.bindFilterManager(filterManager)
     }

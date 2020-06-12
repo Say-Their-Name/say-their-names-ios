@@ -68,7 +68,7 @@ class PersonNewsCollectionViewCell: UICollectionViewCell {
                             self?.loadingIndicator.stopAnimating()
                         }
                     case .failure(let error):
-                        print(url)
+                        Log.print(url)
                         DispatchQueue.main.async {
                             self?.loadingIndicator.stopAnimating()
                         }
