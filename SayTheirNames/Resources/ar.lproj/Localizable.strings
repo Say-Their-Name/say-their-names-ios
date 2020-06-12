@@ -4,7 +4,7 @@
  * Release: Working copy
  * Locale: ar, Arabic
  * Exported by: Say Their Names
- * Exported at: Fri, 12 Jun 2020 02:39:01 +0200
+ * Exported at: Fri, 12 Jun 2020 19:23:59 +0200
  */
 
 /* loco:5ee29770f904c5151c1a2061 */
@@ -56,13 +56,13 @@
 "search" = "بحث";
 
 /* loco:5ee29770f904c5151c1a2071 */
-"donate" = "Donate";
+"donate" = "تبرع";
 
 /* loco:5ee29770f904c5151c1a2072 */
-"DONATE NOW" = "DONATE NOW";
+"DONATE NOW" = "تبرع الآن";
 
 /* loco:5ee29770f904c5151c1a2073 */
-"description" = "Description";
+"description" = "الوصف";
 
 /* loco:5ee29770f904c5151c1a2074 */
 "person.say_their_names" = "Say their names";
@@ -92,41 +92,62 @@
 "person.hashtags" = "الوسوم";
 
 /* loco:5ee29770f904c5151c1a207d */
-"person.hashtagCopyTip" = "Press and hold to copy";
+"person.hashtagCopyTip" = "اضغط مع الاستمرار للنسخ";
 
 /* loco:5ee29770f904c5151c1a207e */
-"person.copied" = "Copied";
+"person.copied" = "تم النسخ";
 
 /* loco:5ee29770f904c5151c1a207f
  * Get Involved - Slack */
-"get_involved.slack.title" = "HOW DO I GET INVOLVED?";
+"get_involved.slack.title" = "كيف اشارك كمصمم؟";
 
 /* loco:5ee29770f904c5151c1a2080 */
-"get_involved.slack.button" = "JOIN OUR SLACK CHANNEL";
+"get_involved.slack.button" = "انضم لقناة SLACK الخاصة بنا";
 
 /* loco:5ee29770f904c5151c1a2082
  * Get Involved - Developer */
-"get_involved.developer.title" = "HOW DO I GET INVOLVED AS A DEVELOPER?";
+"get_involved.developer.title" = "كيف اشارك كمبرمج؟";
 
 /* loco:5ee29770f904c5151c1a2083 */
-"get_involved.developer.button" = "VIEW OUR GITHUB";
+"get_involved.developer.button" = "قم بزيارة صفحتنا على GitHub";
 
 /* loco:5ee29770f904c5151c1a2085
  * Get Involved - Twitter */
-"get_involved.twitter.title" = "JOIN US ON TWITTER";
+"get_involved.twitter.title" = "انضم إلينا على تويتر";
 
 /* loco:5ee29770f904c5151c1a2086 */
-"get_involved.twitter.button" = "FOLLOW US";
+"get_involved.twitter.button" = "تابعنا";
 
 /* loco:5ee29770f904c5151c1a2088
  * More */
-"more_history.aboutTitle" = "SOME HISTORY ON THE SAY THEIR NAME MOVEMENT";
+"more_history.aboutTitle" = "تاريخ حركة قل أسمائهم";
 
 /* loco:5ee29770f904c5151c1a2089 */
-"more_history.aboutDesc" = "Say Their Names is a social movement to raise awareness for all the black victims of racial inequality all around the world. This movement is in support of the overall Black Lives Matter movement and aims to highlight individuals affected by anti-Black Violence. Say Their Names movement calls attention and demands justice for all victims.";
+"more_history.aboutDesc" = "قل أسمائهم هي حركة اجتماعية لزيادة الوعي عن الضحايا السود الذين تعرضوا لعدم المساواة العرقية في جميع أنحاء العالم. تدعم هذه الحركة حركة حياة السود مهمة وتهدف إلى تسليط الضوء على الأفراد المتضررين من العنف ضد السود. حركة قل أسمائهم تلفت الانتباه وتطالب بالعدالة لجميع الضحايا.";
 
 /* loco:5ee29770f904c5151c1a208a */
 "massive_thank_you" = "A MASSIVE THANK YOU TO EVERYONE INVOLVED";
 
 /* loco:5ee2ce86663b704aa41688f2 */
-"sign" = "Sign this petition";
+"sign" = "وقع العريضة";
+
+/* loco:5ee376d765812927aa78d0a2 */
+"about_this_project.title" = "عن هذا المشروع";
+
+/* loco:5ee376dd6ca9905dc077cd32 */
+"about-this-project-details" = "مرحبًا بكم في مشروع قل أسمائهم. هدفنا هو بناء منصة مفتوحة المصدر لزيادة الوعي بالظلم والاسماء المنسية التي تعرضت لعدم المساواة العرقي. نحن نسعى جاهدين للبحت وتحديد المنظمات الموثوقة لضمان وصول تبرعاتكم إلى أولئك الذين في امس الحاجة اليها.";
+
+/* loco:5ee376e9fefc8d5f7d7f0e72 */
+"request_edit_or_removal.title" = "طلب تعديل أو إزالة";
+
+/* loco:5ee376f7a2df5b67a6141ad6 */
+"request_edit_or_removal.details" = "إذا كنت ترغب في اقتراح تعديل على صفحة الضحية أو إذا كنت ممثلًا للضحية وتريد إزالة الضحية من هذا البرنامج، فيرجى التواصل معنا عن طريق تويتر.";
+
+/* loco:5ee376fed7ad1f1f67343376 */
+"twitter" = "تويتر";
+
+/* loco:5ee3770bbf547555e3273462 */
+"did_we_miss_someone" = "هل نسينا شخص ما؟";
+
+/* loco:5ee37712b985865d84496cd7 */
+"request_to_add_new_name" = "اطلب إضافة اسم";
