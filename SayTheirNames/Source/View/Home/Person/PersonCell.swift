@@ -142,7 +142,6 @@ final class PersonCell: UICollectionViewCell {
     }
     
     private func styleLabels() {
-
         nameLabel.font = UIFont.STN.cardTitle
         dateOfIncidentLabel.font = UIFont.STN.cardSubitle
     }
@@ -155,6 +154,14 @@ final class PersonCell: UICollectionViewCell {
         }
     }
 
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        self.profileImageView.image = nil
+        self.nameLabel.text = ""
+        self.dateOfIncidentLabel.text = ""
+    }
+    
     // MARK: - Handlers
         
     @objc private func didTapBookmark() {
