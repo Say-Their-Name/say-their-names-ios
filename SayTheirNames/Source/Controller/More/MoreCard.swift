@@ -46,8 +46,8 @@ final class MoreCard: UIView {
         header.spacing = Theme.Components.Padding.tiny
         
         let twitterLogo = UIImageView(image: UIImage(asset: STNAsset.Image.twitterLogo))
-        twitterLogo.heightAnchor.constraint(equalToConstant: 25).isActive = true
-        twitterLogo.widthAnchor.constraint(equalToConstant: 25).isActive = true
+        twitterLogo.heightAnchor.constraint(equalToConstant: Theme.Screens.About.card.logoHeight).isActive = true
+        twitterLogo.widthAnchor.constraint(equalToConstant: Theme.Screens.About.card.logoWidth).isActive = true
 
         let followUsLabel = UILabel()
         followUsLabel.text = L10n.GetInvolved.Twitter.title
