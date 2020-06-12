@@ -4,7 +4,7 @@
  * Release: Working copy
  * Locale: pt-BR, Brazilian Portuguese
  * Exported by: Say Their Names
- * Exported at: Fri, 12 Jun 2020 19:23:58 +0200
+ * Exported at: Fri, 12 Jun 2020 21:09:02 +0200
  */
 
 /* loco:5ee29770f904c5151c1a2061 */
@@ -120,7 +120,7 @@
 
 /* loco:5ee29770f904c5151c1a2088
  * More */
-"more_history.aboutTitle" = "SOME HISTORY ON THE SAY THEIR NAME MOVEMENT";
+"more_history.aboutTitle" = "SOME HISTORY ON THE SAY THEIR NAMES MOVEMENT";
 
 /* loco:5ee29770f904c5151c1a2089 */
 "more_history.aboutDesc" = "Say Their Names is a social movement to raise awareness for all the black victims of racial inequality all around the world. This movement is in support of the overall Black Lives Matter movement and aims to highlight individuals affected by anti-Black Violence. Say Their Names movement calls attention and demands justice for all victims.";
