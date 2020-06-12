@@ -38,13 +38,13 @@ extension UIFont {
     enum STN {
         // 28
         static var title: UIFont { UIFont.dynamicCustomFont(
-        fontName: FontName.karlaBold.rawValue,
-        textStyle: .title1) }
+            fontName: FontName.karlaBold.rawValue,
+            textStyle: .title1) }
         
         // 18 on figma but this yields 17 on default
         static var body: UIFont { UIFont.dynamicCustomFont(
-        fontName: FontName.karlaRegular.rawValue,
-        textStyle: .body) }
+            fontName: FontName.karlaRegular.rawValue,
+            textStyle: .body) }
         
         // 17
         static var sectionHeader: UIFont { UIFont.dynamicCustomFont(fontName: FontName.karlaBold.rawValue, textStyle: .body) }
@@ -120,15 +120,17 @@ extension UIFont {
         static var fullBleedButton: UIFont { UIFont.dynamicCustomFont(fontName: FontName.karlaBold.rawValue, textStyle: .body) }
         
         /// Karla Bold - .body (17)
-        static let ctaTitle: UIFont = UIFont.dynamicCustomFont(
+        static var ctaTitle: UIFont { UIFont.dynamicCustomFont(
             fontName: FontName.karlaBold.rawValue,
             textStyle: .body
-        )
+            )
+        }
         
         /// Karla Regular - .subheadline (15)
-        static let ctaBody: UIFont = UIFont.dynamicCustomFont(
+        static var ctaBody: UIFont { UIFont.dynamicCustomFont(
             fontName: FontName.karlaRegular.rawValue,
             textStyle: .subheadline
-        )
+            )
+        }
     }
 }

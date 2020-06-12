@@ -59,7 +59,7 @@ extension DonationsMoreDetailsController {
     // Title Layout
     static func titleLayout() -> NSCollectionLayoutSection {
         // Item
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(50.0))
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(100.0))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         
         // Group
