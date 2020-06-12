@@ -256,7 +256,7 @@ private extension MoreView {
     
     @objc func openRequestPage(_ sender: Any) {
         guard let url = URL(string: MoreLinks.contributeToTheList) else {
-            assertionFailure("Failed to create slack url")
+            assertionFailure("Failed to create contribution url")
             return
         }
         
