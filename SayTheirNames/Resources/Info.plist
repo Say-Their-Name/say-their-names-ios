@@ -25,7 +25,7 @@
 			<string>saytheirnames.io</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>stnio</string>
+				<string>stn</string>
 			</array>
 		</dict>
 	</array>
