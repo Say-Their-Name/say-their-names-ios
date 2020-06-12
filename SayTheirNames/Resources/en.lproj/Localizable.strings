@@ -4,14 +4,10 @@
  * Release: Working copy
  * Locale: en, English 
  * Exported by: Say Their Names
- * Exported at: Thu, 11 Jun 2020 23:57:14 +0200
+ * Exported at: Fri, 12 Jun 2020 02:12:02 +0200
  */
 
-/* loco:5ee29770f904c5151c1a2061
- * Localizable.strings
-SayTheirNames
-Created by Abdullah Alosaimi on 6/7/20.
-Copyright © 2020 Franck-Stephane Ndame Mpouli. All rights reserved. */
+/* loco:5ee29770f904c5151c1a2061 */
 "home" = "Home";
 
 /* loco:5ee29770f904c5151c1a2062 */
