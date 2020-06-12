@@ -173,7 +173,7 @@ class PersonController: UIViewController {
     }
     
     @objc func shareAction(_ sender: Any) {
-        self.present(self.shareService.share(items: [self.person.shareable]), animated: true)
+        self.present(self.shareService.share(item: self.person.shareable), animated: true)
     }
     
     private func registerCells(to tableView: UITableView) {

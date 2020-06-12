@@ -283,7 +283,7 @@ final class DonationsMoreDetailsController: UIViewController {
     }
     
     @objc private func shareAction(_ sender: Any) {
-        self.present(self.shareService.share(items: [self.data.entity.shareable]), animated: true)
+        self.present(self.shareService.share(item: self.data.entity.shareable), animated: true)
     }
     
     private lazy var collectionViewLayout: UICollectionViewLayout = {
