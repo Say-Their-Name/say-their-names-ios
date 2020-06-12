@@ -27,7 +27,7 @@ import UIKit
 // MARK: - Data Source
 extension DonationsMoreDetailsController: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 4
+        return sections.count
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

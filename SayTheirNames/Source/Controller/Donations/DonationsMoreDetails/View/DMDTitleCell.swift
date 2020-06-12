@@ -29,11 +29,12 @@ final class DMDTitleCell: UICollectionViewCell {
     // MARK: - View
     private let titleLabel: UILabel = {
         let label = UILabel(frame: .zero)
-        label.numberOfLines = 0
-        label.textAlignment = .natural
-        label.adjustsFontSizeToFitWidth = true
-        label.font = UIFont.STN.title
+        label.numberOfLines = 2
+        label.textAlignment = .center
+        label.font = UIFont.STN.ctaTitle
         label.isAccessibilityElement = true
+        label.setContentHuggingPriority(.required, for: .vertical)
+        label.setContentCompressionResistancePriority(.required, for: .vertical)
         return label
     }()
     
@@ -57,6 +58,6 @@ final class DMDTitleCell: UICollectionViewCell {
     
     // MARK: - Configure Cell
     func setTitle(_ title: String) {
-        titleLabel.text = title
+        titleLabel.text = title.localizedUppercase
     }
 }
