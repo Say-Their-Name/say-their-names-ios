@@ -25,10 +25,12 @@
 import UIKit
 
 final class ShareService: Dependency {
-    public var items: [Shareable]?
 
-    func share(items: [Shareable]) -> UIActivityViewController {
-        let activityViewController = UIActivityViewController(activityItems: items.map { $0.base }, applicationActivities: nil)
+    func share(item: Shareable) -> UIActivityViewController {
+        guard let url = URL(string: item.base) else {
+            fatalError("Can't create URL for \(item.base)")
+        }
+        let activityViewController = UIActivityViewController(activityItems: [url], applicationActivities: nil)
         return activityViewController
     }
 }
