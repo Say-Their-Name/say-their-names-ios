@@ -91,11 +91,6 @@ final class DonationsMoreDetailsController: UIViewController {
     
     internal let emptyKind = "empty-kind"
     
-    private let navigationBarTextAttributes = [
-        NSAttributedString.Key.foregroundColor: UIColor(asset: STNAsset.Color.navBarForeground),
-        NSAttributedString.Key.font: UIFont.STN.navBarTitle
-    ]
-    
     private(set) var sections: [DonationSectionLayoutKind] = []
     
     // MARK: - Initialization
@@ -218,18 +213,12 @@ final class DonationsMoreDetailsController: UIViewController {
                                                          forKind: DonationsMoreDetailsController.photoSupplementaryView)
         collectionView.registerReusableSupplementaryView(reusableViewType: DMDSectionTitleSupplementaryView.self,
                                                          forKind: DonationsMoreDetailsController.sectionTitleSupplementaryView)
+        
         collectionView.contentInset.bottom = Theme.Components.Padding.medium
     }
     
     private func setupNavigationBarItems() {
-        // TODO: Once Theme.swift/etc gets added this may not be required
-        navigationController?.navigationBar.titleTextAttributes = self.navigationBarTextAttributes as [NSAttributedString.Key: Any]
-        
         self.title = L10n.sayTheirNames.localizedUppercase
-        self.navigationController?.navigationBar.titleTextAttributes =
-            [NSAttributedString.Key.foregroundColor: UIColor(asset: STNAsset.Color.navBarForeground) ?? .white,
-         NSAttributedString.Key.font: UIFont(name: "Karla-Regular", size: 19) ?? UIFont.systemFont(ofSize: 17)]
-
         let dismissButton = UIButton(type: .system)
         dismissButton.setImage(UIImage(asset: STNAsset.Image.close)?.withRenderingMode(.alwaysOriginal), for: .normal)
         dismissButton.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
@@ -247,7 +236,6 @@ final class DonationsMoreDetailsController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: shareButton)
         
         navigationController?.navigationBar.isTranslucent = false
-        navigationController?.navigationBar.barTintColor = STNAsset.Color.navBarBackground.color
     }
     
     private func setupDonationButton() {
