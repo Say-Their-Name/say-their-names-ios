@@ -257,8 +257,6 @@
 		83E9CAD12484A514001D173A /* LaunchScreen.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		83E9CAD32484A5DC001D173A /* UIViewController+TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+TabBar.swift"; sourceTree = "<group>"; };
 		83E9CAD62484A6A2001D173A /* LaunchScreenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenTests.swift; sourceTree = "<group>"; };
-		846B629F2487CCFF00C0D1D5 /* ru-RU */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "ru-RU"; path = "ru-RU.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
-		846B62A02487CD1900C0D1D5 /* ru-RU */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "ru-RU"; path = "ru-RU.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		8E1ECBEF24908EC2009E6E44 /* DeepLinkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkTests.swift; sourceTree = "<group>"; };
 		8E4155A32490605800333D76 /* JSONDataModelAPIs.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = JSONDataModelAPIs.xcassets; sourceTree = "<group>"; };
 		8E4155A5249076CA00333D76 /* ModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTests.swift; sourceTree = "<group>"; };
@@ -344,6 +342,7 @@
 		A9F2830E24903042004283ED /* DeepLinkSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkSupport.swift; sourceTree = "<group>"; };
 		B3168336248C3BF400C03DEB /* UIButton++.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton++.swift"; sourceTree = "<group>"; };
 		B336C6D5248E4BBA00A1AECB /* Paginator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Paginator.swift; sourceTree = "<group>"; };
+		B35AEE222492DDCD005F2AAF /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B365F45B248FD6340007FC31 /* PaginatorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaginatorTests.swift; sourceTree = "<group>"; };
 		B386F9542482FB540037A38D /* UIFontSTNTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontSTNTests.swift; sourceTree = "<group>"; };
 		B386F957248526C70037A38D /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
@@ -1148,11 +1147,11 @@
 			knownRegions = (
 				en,
 				Base,
-				"ru-RU",
 				fr,
 				"pt-BR",
 				ar,
 				ko,
+				ru,
 			);
 			mainGroup = 5B3ED7332481C9F40033FF79;
 			productRefGroup = 5B3ED73D2481C9F50033FF79 /* Products */;
@@ -1516,7 +1515,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				5B3ED74B2481CA000033FF79 /* Base */,
-				846B629F2487CCFF00C0D1D5 /* ru-RU */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -1525,11 +1523,11 @@
 			isa = PBXVariantGroup;
 			children = (
 				9E24499C2485E98C00B149DF /* Base */,
-				846B62A02487CD1900C0D1D5 /* ru-RU */,
 				8E94BA59248A0A4100242FBA /* fr */,
 				D4BA10D0248A8F7300E29A3F /* pt-BR */,
 				5E531926248D191F00021996 /* ar */,
 				8381E475248D7CEC00EA1E43 /* ko */,
+				B35AEE222492DDCD005F2AAF /* ru */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";

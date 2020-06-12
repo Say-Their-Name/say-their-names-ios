@@ -2,100 +2,100 @@
  * Loco ios export: iOS Localizable.strings
  * Project: Say Their Names
  * Release: Working copy
- * Locale: en, English 
+ * Locale: ru, Russian
  * Exported by: Say Their Names
  * Exported at: Fri, 12 Jun 2020 02:12:02 +0200
  */
 
 /* loco:5ee29770f904c5151c1a2061 */
-"home" = "Home";
+"home" = "Главная";
 
 /* loco:5ee29770f904c5151c1a2062 */
-"donations" = "Donations";
+"donations" = "Пожертвования";
 
 /* loco:5ee29770f904c5151c1a2063 */
-"petitions" = "Petitions";
+"petitions" = "Петиции";
 
 /* loco:5ee29770f904c5151c1a2064 */
-"about" = "About";
+"about" = "О приложении";
 
 /* loco:5ee29770f904c5151c1a2065 */
-"cancel" = "Cancel";
+"cancel" = "Отмена";
 
 /* loco:5ee29770f904c5151c1a2066 */
-"find_out_more" = "FIND OUT MORE";
+"find_out_more" = "УЗНАТЬ ПОДРОБНЕЕ";
 
 /* loco:5ee29770f904c5151c1a2067 */
-"verified" = "verified";
+"verified" = "Проверено";
 
 /* loco:5ee29770f904c5151c1a2068 */
-"filter_all" = "ALL";
+"filter_all" = "ВСЕ";
 
 /* loco:5ee29770f904c5151c1a2069 */
-"filter_businesses" = "BUSINESSES";
+"filter_businesses" = "ПРЕДПРИЯТИЯ";
 
 /* loco:5ee29770f904c5151c1a206a */
-"filter_protesters" = "PROTESTERS";
+"filter_protesters" = "ПРОТЕСТУЮЩИЕ";
 
 /* loco:5ee29770f904c5151c1a206b */
-"filter_victims" = "VICTIMS";
+"filter_victims" = "ЖЕРТВЫ";
 
 /* loco:5ee29770f904c5151c1a206c */
-"share" = "Share";
+"share" = "Поделиться";
 
 /* loco:5ee29770f904c5151c1a206d */
-"close" = "Close";
+"close" = "Закрыть";
 
 /* loco:5ee29770f904c5151c1a206e */
 "say_their_names" = "Say their names";
 
 /* loco:5ee29770f904c5151c1a206f */
-"bookmark" = "Bookmark";
+"bookmark" = "Закладки";
 
 /* loco:5ee29770f904c5151c1a2070 */
-"search" = "Search";
+"search" = "Поиск";
 
 /* loco:5ee29770f904c5151c1a2071 */
-"donate" = "Donate";
+"donate" = "Пожертвовать";
 
 /* loco:5ee29770f904c5151c1a2072 */
-"DONATE NOW" = "DONATE NOW";
+"DONATE NOW" = "Пожертвовать";
 
 /* loco:5ee29770f904c5151c1a2073 */
-"description" = "Description";
+"description" = "Описание";
 
 /* loco:5ee29770f904c5151c1a2074 */
 "person.say_their_names" = "Say their names";
 
 /* loco:5ee29770f904c5151c1a2075 */
-"person.age" = "Age";
+"person.age" = "Возраст";
 
 /* loco:5ee29770f904c5151c1a2076 */
-"person.children" = "Children";
+"person.children" = "Дети";
 
 /* loco:5ee29770f904c5151c1a2077 */
-"person.location" = "Location";
+"person.location" = "Местоположение";
 
 /* loco:5ee29770f904c5151c1a2078 */
-"person.their_story" = "Their Story";
+"person.their_story" = "История";
 
 /* loco:5ee29770f904c5151c1a2079 */
-"person.outcome" = "Outcome";
+"person.outcome" = "Результат";
 
 /* loco:5ee29770f904c5151c1a207a */
-"person.news" = "News";
+"person.news" = "Новости";
 
 /* loco:5ee29770f904c5151c1a207b */
-"person.media" = "Media";
+"person.media" = "СМИ";
 
 /* loco:5ee29770f904c5151c1a207c */
-"person.hashtags" = "Social Media Hashtags";
+"person.hashtags" = "Хештеги в социальных сетях";
 
 /* loco:5ee29770f904c5151c1a207d */
-"person.hashtagCopyTip" = "Press and hold to copy";
+"person.hashtagCopyTip" = "Нажмите и удерживайте, чтобы скопировать";
 
 /* loco:5ee29770f904c5151c1a207e */
-"person.copied" = "Copied";
+"person.copied" = "Скопировано";
 
 /* loco:5ee29770f904c5151c1a207f
  * Get Involved - Slack */
