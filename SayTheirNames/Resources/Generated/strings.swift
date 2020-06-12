@@ -58,24 +58,18 @@ internal enum L10n {
       internal static let button = L10n.tr("Localizable", "get_involved.developer.button")
       /// HOW DO I GET INVOLVED AS A DEVELOPER?
       internal static let title = L10n.tr("Localizable", "get_involved.developer.title")
-      /// https://github.com/Say-Their-Name/
-      internal static let url = L10n.tr("Localizable", "get_involved.developer.url")
     }
     internal enum Slack {
       /// JOIN OUR SLACK CHANNEL
       internal static let button = L10n.tr("Localizable", "get_involved.slack.button")
       /// HOW DO I GET INVOLVED?
       internal static let title = L10n.tr("Localizable", "get_involved.slack.title")
-      /// https://saytheirnames.slack.com/join/shared_invite/zt-eqjuatz7-fgh3zPRXIKiiXsC1Vf3oZA#/
-      internal static let url = L10n.tr("Localizable", "get_involved.slack.url")
     }
     internal enum Twitter {
       /// FOLLOW US
       internal static let button = L10n.tr("Localizable", "get_involved.twitter.button")
       /// JOIN US ON TWITTER
       internal static let title = L10n.tr("Localizable", "get_involved.twitter.title")
-      /// https://twitter.com/SayTheirName_io
-      internal static let url = L10n.tr("Localizable", "get_involved.twitter.url")
     }
   }
 
