@@ -4,7 +4,7 @@
  * Release: Working copy
  * Locale: ko, Korean
  * Exported by: Say Their Names
- * Exported at: Fri, 12 Jun 2020 22:42:06 +0200
+ * Exported at: Sat, 13 Jun 2020 00:30:59 +0200
  */
 
 /* loco:5ee29770f904c5151c1a2061 */
@@ -151,3 +151,6 @@
 
 /* loco:5ee37712b985865d84496cd7 */
 "request_to_add_new_name" = "REQUEST TO ADD A NAME";
+
+/* loco:5ee4006f0b8b33673137f992 */
+"people.hero_text" = "Delayed justice is injustice. Join the fight for justice. Sign petitions and donate today.";

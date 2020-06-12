@@ -95,6 +95,11 @@ internal enum L10n {
     internal static let aboutTitle = L10n.tr("Localizable", "more_history.aboutTitle")
   }
 
+  internal enum People {
+    /// Delayed justice is injustice. Join the fight for justice. Sign petitions and donate today.
+    internal static let heroText = L10n.tr("Localizable", "people.hero_text")
+  }
+
   internal enum Person {
     /// Age
     internal static let age = L10n.tr("Localizable", "person.age")
