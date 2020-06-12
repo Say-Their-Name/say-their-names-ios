@@ -162,17 +162,19 @@ final class MoreView: UIView {
         scrollView.addSubview(stack)
         addSubview(scrollView)
         
+        let padding = Theme.Components.Padding.medium
+        
         scrollView.anchor(superView: self, top: topAnchor, leading: leadingAnchor,
                           bottom: bottomAnchor, trailing: trailingAnchor, padding: .zero, size: .zero)
         stack.anchor(superView: scrollView, top: scrollView.topAnchor, leading: scrollView.leadingAnchor,
                      bottom: scrollView.bottomAnchor, trailing: scrollView.trailingAnchor,
-                           padding: UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20), size: .zero)
+                           padding: UIEdgeInsets(top: padding, left: padding, bottom: padding, right: padding), size: .zero)
         
         NSLayoutConstraint.activate([
-            moreCard.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 20),
-            moreCard.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            moreCard.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            moreCard.heightAnchor.constraint(equalTo: moreCard.widthAnchor, multiplier: 0.6)
+            moreCard.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: padding),
+            moreCard.trailingAnchor.constraint(equalTo: trailingAnchor, constant: padding),
+            moreCard.leadingAnchor.constraint(equalTo: leadingAnchor, constant: padding),
+            moreCard.heightAnchor.constraint(equalTo: moreCard.widthAnchor, multiplier: Theme.Screens.About.card.multiplier)
         ])
         
         moreCard.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(openTwitterPage(_:))))
@@ -226,7 +228,7 @@ private extension MoreView {
         button.layer.borderWidth = 2
         button.backgroundColor = STNAsset.Color.actionButton.color
         button.setTitleColor(STNAsset.Color.actionButtonTint.color, for: .normal)
-        button.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        button.heightAnchor.constraint(equalToConstant: Theme.Screens.About.makeActionButton.width).isActive = true
         
         switch section {
         case .didWeMissSomeone:
