@@ -16,7 +16,7 @@ function destination_path {
 # created by @hybridcattt
 KEY="L1dFmJVo4QFj08yySbMQWMo-RIvWcnZ5"
 
-LANGS=( "en" "ru" "pt-BR" "ar" "fr" "ko" )
+LANGS=( "en" "ru" "pt-BR" "ar" "fr" "ko", "nl" )
 
 echo "\nDownlading Base ...."
 curl -u $KEY: $(download_url "en") > $(destination_path "Base")
