@@ -41,7 +41,7 @@ class RequestOrRemoveTextView: UITextView {
     func setupAttributedString() {
         let text = L10n.RequestEditOrRemoval.details
         let attributedString = NSMutableAttributedString.createHyperink(for: MoreLinks.twitter, in: text, as: L10n.twitter)
-        attributedString.addAttribute(.font, value: UIFont.STN.ctaBody, range: NSMakeRange(0, attributedString.length))
+        attributedString.addAttribute(.font, value: UIFont.STN.ctaBody, range: NSRange(location: 0, length: attributedString.length))
         self.attributedText = attributedString
         textColor = UIColor.label
     }

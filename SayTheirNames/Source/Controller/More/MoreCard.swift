@@ -69,7 +69,12 @@ final class MoreCard: UIView {
         
         let padding = Theme.Components.Padding.medium
         
-        vStack.anchor(superView: imageView, top: imageView.topAnchor, leading: imageView.leadingAnchor, bottom: imageView.bottomAnchor, trailing: imageView.trailingAnchor, padding: UIEdgeInsets(padding, padding, padding, padding))
+        vStack.anchor(superView: imageView,
+                      top: imageView.topAnchor,
+                      leading: imageView.leadingAnchor,
+                      bottom: imageView.bottomAnchor,
+                      trailing: imageView.trailingAnchor,
+                      padding: UIEdgeInsets(padding, padding, padding, padding))
         
         return imageView
     }()
