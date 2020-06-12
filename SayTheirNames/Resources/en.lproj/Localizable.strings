@@ -4,7 +4,7 @@
  * Release: Working copy
  * Locale: en, English 
  * Exported by: Say Their Names
- * Exported at: Fri, 12 Jun 2020 02:39:00 +0200
+ * Exported at: Fri, 12 Jun 2020 17:13:33 +0200
  */
 
 /* loco:5ee29770f904c5151c1a2061 */
@@ -99,7 +99,7 @@
 
 /* loco:5ee29770f904c5151c1a207f
  * Get Involved - Slack */
-"get_involved.slack.title" = "HOW DO I GET INVOLVED?";
+"get_involved.slack.title" = "HOW DO I GET INVOLVED AS A DESIGNER?";
 
 /* loco:5ee29770f904c5151c1a2080 */
 "get_involved.slack.button" = "JOIN OUR SLACK CHANNEL";
@@ -130,3 +130,24 @@
 
 /* loco:5ee2ce86663b704aa41688f2 */
 "sign" = "Sign this petition";
+
+/* loco:5ee376d765812927aa78d0a2 */
+"about_this_project.title" = "About this project";
+
+/* loco:5ee376dd6ca9905dc077cd32 */
+"about-this-project-details" = "Welcome to the Say Their Names Project. Our aim is to build an open-source platform to raise awareness of the injustice and often forgotten names of racial inequality. We strive to identify and amplify verified organizations to ensure donations are reaching those who can make the most impact with it.";
+
+/* loco:5ee376e9fefc8d5f7d7f0e72 */
+"request_edit_or_removal.title" = "REQUEST AN EDIT OR REMOVAL";
+
+/* loco:5ee376f7a2df5b67a6141ad6 */
+"request_edit_or_removal.details" = "If you would like to propose an edit to a victim page or if you are a representative of the victim and would like the victim to be removed from this directory please send us a message on Twitter.";
+
+/* loco:5ee376fed7ad1f1f67343376 */
+"twitter" = "Twitter";
+
+/* loco:5ee3770bbf547555e3273462 */
+"did_we_miss_someone" = "DID WE MISS SOMEONE?";
+
+/* loco:5ee37712b985865d84496cd7 */
+"request_to_add_new_name" = "REQUEST TO ADD A NAME";

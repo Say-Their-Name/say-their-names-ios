@@ -22,6 +22,8 @@
 		5B3ED74C2481CA000033FF79 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B3ED74A2481CA000033FF79 /* LaunchScreen.storyboard */; };
 		5D456A3B24870CDF009FAD34 /* LocationCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D456A3A24870CDF009FAD34 /* LocationCollectionViewDataSource.swift */; };
 		5D456A3D248734CA009FAD34 /* PersonCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D456A3C248734CA009FAD34 /* PersonCollectionViewDataSource.swift */; };
+		5E1F4B192493B3E800DE6FB5 /* NSMutableAttributedString++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1F4B182493B3E800DE6FB5 /* NSMutableAttributedString++.swift */; };
+		5E1F4B1B2493BF4300DE6FB5 /* RequestOrRemoveTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1F4B1A2493BF4300DE6FB5 /* RequestOrRemoveTextView.swift */; };
 		5F62B732248975CF00ACE032 /* LocationCollectionViewDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F62B731248975CF00ACE032 /* LocationCollectionViewDataSourceTests.swift */; };
 		7419B4B3248A2E0800D466C8 /* PersonPhotoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7419B4AD248A2E0800D466C8 /* PersonPhotoTableViewCell.swift */; };
 		7419B4B4248A2E0800D466C8 /* PersonInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7419B4AE248A2E0800D466C8 /* PersonInfoTableViewCell.swift */; };
@@ -218,6 +220,8 @@
 		5B3ED7582481CA000033FF79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5D456A3A24870CDF009FAD34 /* LocationCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCollectionViewDataSource.swift; sourceTree = "<group>"; };
 		5D456A3C248734CA009FAD34 /* PersonCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonCollectionViewDataSource.swift; sourceTree = "<group>"; };
+		5E1F4B182493B3E800DE6FB5 /* NSMutableAttributedString++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributedString++.swift"; sourceTree = "<group>"; };
+		5E1F4B1A2493BF4300DE6FB5 /* RequestOrRemoveTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestOrRemoveTextView.swift; sourceTree = "<group>"; };
 		5E531926248D191F00021996 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5F62B731248975CF00ACE032 /* LocationCollectionViewDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCollectionViewDataSourceTests.swift; sourceTree = "<group>"; };
 		72373A43202B7215526324F7 /* Pods-SayTheirNames.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SayTheirNames.release.xcconfig"; path = "Target Support Files/Pods-SayTheirNames/Pods-SayTheirNames.release.xcconfig"; sourceTree = "<group>"; };
@@ -520,6 +524,7 @@
 				7A8294FF248B298E00A8D7D8 /* MoreController.swift */,
 				7A829501248B299C00A8D7D8 /* MoreView.swift */,
 				7A829507248F0DDC00A8D7D8 /* MoreCard.swift */,
+				5E1F4B1A2493BF4300DE6FB5 /* RequestOrRemoveTextView.swift */,
 			);
 			path = More;
 			sourceTree = "<group>";
@@ -721,6 +726,7 @@
 				3A33EF66248AC1D700580D1E /* UIEdgeInsets+init.swift */,
 				18BE76CD248EF57A004100EE /* Result+STN.swift */,
 				18BE76D1248EF9D5004100EE /* AFError+STN.swift */,
+				5E1F4B182493B3E800DE6FB5 /* NSMutableAttributedString++.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -1342,6 +1348,7 @@
 				D7F3F63B248D3FBA00F66E72 /* DMDTextContentCell.swift in Sources */,
 				9E7DBAF6248481DA00635A56 /* AsyncOperation.swift in Sources */,
 				A91B07C02484705400DB803C /* Navigator.swift in Sources */,
+				5E1F4B1B2493BF4300DE6FB5 /* RequestOrRemoveTextView.swift in Sources */,
 				A9B90577248F535F00F9EEFA /* PersonDeepLink.swift in Sources */,
 				DC969C572491FB9600B62598 /* HashtagTableViewCell.swift in Sources */,
 				A91B07BD24846ED700DB803C /* Log.swift in Sources */,
@@ -1424,6 +1431,7 @@
 				7CE75F402489B78400168DDA /* PetitionsView.swift in Sources */,
 				A91B07AD24835CF700DB803C /* PersonCell.swift in Sources */,
 				9E7DBAF2248481DA00635A56 /* ImageProvider.swift in Sources */,
+				5E1F4B192493B3E800DE6FB5 /* NSMutableAttributedString++.swift in Sources */,
 				A9B90581248FE41400F9EEFA /* AboutDeepLink.swift in Sources */,
 				D757CF08248F3A9C008874B4 /* DonationTypes.swift in Sources */,
 				A93367D3248985B6001F1E28 /* Link.swift in Sources */,
