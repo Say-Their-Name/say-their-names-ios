@@ -4,7 +4,7 @@
  * Release: Working copy
  * Locale: pt-BR, Brazilian Portuguese
  * Exported by: Say Their Names
- * Exported at: Fri, 12 Jun 2020 02:12:02 +0200
+ * Exported at: Fri, 12 Jun 2020 02:39:01 +0200
  */
 
 /* loco:5ee29770f904c5151c1a2061 */
@@ -127,3 +127,6 @@
 
 /* loco:5ee29770f904c5151c1a208a */
 "massive_thank_you" = "A MASSIVE THANK YOU TO EVERYONE INVOLVED";
+
+/* loco:5ee2ce86663b704aa41688f2 */
+"sign" = "Sign this petition";

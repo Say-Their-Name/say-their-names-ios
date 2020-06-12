@@ -261,9 +261,9 @@ final class DonationsMoreDetailsController: UIViewController {
         
         switch data {
         case .donation:
-            donationButtonContainerView.setButtonTitle(L10n.donateNow)
+            donationButtonContainerView.setButtonTitle(L10n.donateNow.localizedUppercase)
         case .petition:
-            donationButtonContainerView.setButtonTitle("Sign") // TODO: localize
+            donationButtonContainerView.setButtonTitle(L10n.sign.localizedUppercase)
         }
 
         donationButtonContainerView.translatesAutoresizingMaskIntoConstraints = false
