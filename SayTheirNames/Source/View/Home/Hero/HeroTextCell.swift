@@ -51,7 +51,8 @@ final class HeroTextCell: UICollectionViewCell {
     
     fileprivate func configureView() {
         layer.borderWidth = 1.5
-        layer.borderColor = UIColor.black.withAlphaComponent(0.75).cgColor
+        updateCGColors()
+        
         title.anchor(
             superView: self, top: topAnchor, leading: leadingAnchor,
             padding: .init(top: Theme.Components.Padding.semiLarge, left: Theme.Components.Padding.medium))
@@ -60,4 +61,12 @@ final class HeroTextCell: UICollectionViewCell {
             padding: .init(top: Theme.Components.Padding.small, left: Theme.Components.Padding.medium, right: Theme.Components.Padding.semiLarge))
     }
     
+    private func updateCGColors() {
+        layer.borderColor = STNAsset.Color.actionButton.color.cgColor
+    }
+
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        updateCGColors()
+    }
 }
