@@ -86,7 +86,7 @@ final class PersonCollectionViewDataSourceHelper {
         snapShot.appendSections([.header])
         snapShot.appendItems([SectionData.hero(HeroContent(
             title: "#BLACKLIVESMATTER",
-            body: "Delayed justice is injustice. Join the fight for justice. Sign petitions and donate today."
+            body: L10n.People.heroText
         ))])
         
         if carouselData.isEmpty == false {
