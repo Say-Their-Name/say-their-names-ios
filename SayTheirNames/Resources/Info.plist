@@ -26,6 +26,7 @@
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>stn</string>
+				<string>stinio</string>
 			</array>
 		</dict>
 	</array>
