@@ -64,7 +64,7 @@ extension DonationsMoreDetailsController {
         
         // Group
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: itemSize.heightDimension)
-        let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitem: item, count: 1)
+        let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
         
         // Section
         let section = NSCollectionLayoutSection(group: group)

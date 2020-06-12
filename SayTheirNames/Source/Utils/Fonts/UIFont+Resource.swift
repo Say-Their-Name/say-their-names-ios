@@ -119,10 +119,10 @@ extension UIFont {
         // 17
         static var fullBleedButton: UIFont { UIFont.dynamicCustomFont(fontName: FontName.karlaBold.rawValue, textStyle: .body) }
         
-        /// Karla Bold - .body (17)
+        /// Karla Bold - .title3 (20). 18 on Figma
         static var ctaTitle: UIFont { UIFont.dynamicCustomFont(
             fontName: FontName.karlaBold.rawValue,
-            textStyle: .body
+            textStyle: .title3
             )
         }
         

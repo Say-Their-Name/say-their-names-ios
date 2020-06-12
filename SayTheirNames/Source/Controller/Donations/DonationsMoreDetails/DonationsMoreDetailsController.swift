@@ -218,6 +218,7 @@ final class DonationsMoreDetailsController: UIViewController {
                                                          forKind: DonationsMoreDetailsController.photoSupplementaryView)
         collectionView.registerReusableSupplementaryView(reusableViewType: DMDSectionTitleSupplementaryView.self,
                                                          forKind: DonationsMoreDetailsController.sectionTitleSupplementaryView)
+        collectionView.contentInset.bottom = Theme.Components.Padding.medium
     }
     
     private func setupNavigationBarItems() {

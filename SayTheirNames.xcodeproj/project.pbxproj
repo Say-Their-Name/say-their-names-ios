@@ -1651,7 +1651,7 @@
 				CODE_SIGN_ENTITLEMENTS = "SayTheirNames/Say Their Names.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = "";
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/SayTheirNames/Resources/Info.plist";
@@ -1676,7 +1676,7 @@
 				CODE_SIGN_ENTITLEMENTS = "SayTheirNames/Say Their Names.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Franck Ndame (Q93T3ZJQ58)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = "";
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/SayTheirNames/Resources/Info.plist";
