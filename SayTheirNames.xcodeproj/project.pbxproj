@@ -228,6 +228,8 @@
 		5E1F4B1A2493BF4300DE6FB5 /* RequestOrRemoveTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestOrRemoveTextView.swift; sourceTree = "<group>"; };
 		5E531926248D191F00021996 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5F62B731248975CF00ACE032 /* LocationCollectionViewDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCollectionViewDataSourceTests.swift; sourceTree = "<group>"; };
+		71E4D76124946FB000ED0B5E /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		71E4D76224946FB100ED0B5E /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		72373A43202B7215526324F7 /* Pods-SayTheirNames.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SayTheirNames.release.xcconfig"; path = "Target Support Files/Pods-SayTheirNames/Pods-SayTheirNames.release.xcconfig"; sourceTree = "<group>"; };
 		7419B4AD248A2E0800D466C8 /* PersonPhotoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonPhotoTableViewCell.swift; sourceTree = "<group>"; };
 		7419B4AE248A2E0800D466C8 /* PersonInfoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonInfoTableViewCell.swift; sourceTree = "<group>"; };
@@ -1159,6 +1161,7 @@
 				ar,
 				ru,
 				nl,
+				es,
 			);
 			mainGroup = 5B3ED7332481C9F40033FF79;
 			productRefGroup = 5B3ED73D2481C9F50033FF79 /* Products */;
@@ -1523,6 +1526,7 @@
 			children = (
 				5B3ED74B2481CA000033FF79 /* Base */,
 				1846CA482493E9BA00792086 /* nl */,
+				71E4D76124946FB000ED0B5E /* es */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -1535,6 +1539,7 @@
 				5E531926248D191F00021996 /* ar */,
 				B35AEE222492DDCD005F2AAF /* ru */,
 				1846CA492493E9BA00792086 /* nl */,
+				71E4D76224946FB100ED0B5E /* es */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
