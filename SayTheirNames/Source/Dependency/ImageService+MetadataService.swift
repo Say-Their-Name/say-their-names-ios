@@ -1,5 +1,5 @@
 //
-//  ImageService.swift
+//  ImageService+MetadataService.swift
 //  SayTheirNames
 //
 //  Copyright (c) 2020 Say Their Names Team (https://github.com/Say-Their-Name)
@@ -24,8 +24,19 @@
 
 import UIKit
 
-/// A service responsible for orchestrating the downloading and caching of
-/// requested `UIImage`s
-final class ImageService: Dependency {
-
+final class ImageServiceBasedCache: MetadataImageCache {
+    
+    let imageService: ImageService
+    
+    init(imageService: ImageService) {
+        self.imageService = imageService
+    }
+    
+    func store(_ image: UIImage, with key: String) {
+        imageService.storeImage(image, forKey: key, completion: nil)
+    }
+    
+    func fetchImage(with key: String) -> UIImage? {
+        return imageService.imageFromCache(forKey: key)
+    }
 }
