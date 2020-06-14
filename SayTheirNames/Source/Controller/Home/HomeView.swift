@@ -130,8 +130,7 @@ final class HomeView: UIView {
     override func didMoveToSuperview() {
         super.didMoveToSuperview()
         createLayout()
-        backgroundColor = UIColor(asset: STNAsset.Color.background) // needed?
-        
+        backgroundColor = UIColor(asset: STNAsset.Color.background)
     }
     
     private var hasLayedOutSubviews = false
