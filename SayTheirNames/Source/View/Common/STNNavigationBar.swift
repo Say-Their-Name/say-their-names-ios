@@ -48,7 +48,7 @@ final class STNNavigationBar: UIView {
     }
     
     private func setupSelf() {
-        backgroundColor = UIColor(asset: STNAsset.Color.black)
+        backgroundColor = UIColor(asset: STNAsset.Color.background)
     }
     
     private func setupSubviews() {
