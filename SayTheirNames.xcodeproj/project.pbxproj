@@ -64,14 +64,7 @@
 		9E24499D2485E98C00B149DF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9E24499B2485E98C00B149DF /* Localizable.strings */; };
 		9E2449A02485EA0B00B149DF /* strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E24499F2485EA0B00B149DF /* strings.swift */; };
 		9E2449A32485EA7600B149DF /* Typealiases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2449A22485EA7600B149DF /* Typealiases.swift */; };
-		9E7DBAF0248481DA00635A56 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7DBAE8248481DA00635A56 /* ImageCache.swift */; };
 		9E7DBAF1248481DA00635A56 /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7DBAE9248481DA00635A56 /* ImageService.swift */; };
-		9E7DBAF2248481DA00635A56 /* ImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7DBAEA248481DA00635A56 /* ImageProvider.swift */; };
-		9E7DBAF3248481DA00635A56 /* DownloadOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7DBAEB248481DA00635A56 /* DownloadOperation.swift */; };
-		9E7DBAF4248481DA00635A56 /* ImageCreationOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7DBAEC248481DA00635A56 /* ImageCreationOperation.swift */; };
-		9E7DBAF5248481DA00635A56 /* FileDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7DBAED248481DA00635A56 /* FileDownloader.swift */; };
-		9E7DBAF6248481DA00635A56 /* AsyncOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7DBAEE248481DA00635A56 /* AsyncOperation.swift */; };
-		9E7DBAF7248481DA00635A56 /* FileDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7DBAEF248481DA00635A56 /* FileDataProvider.swift */; };
 		9E7DBAF9248481FC00635A56 /* Operation++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7DBAF8248481FC00635A56 /* Operation++.swift */; };
 		9E7DBAFC2484822A00635A56 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7DBAFB2484822A00635A56 /* Operators.swift */; };
 		9E920260248C2A080007AFCE /* CallToActionCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E92025F248C2A080007AFCE /* CallToActionCollectionView.swift */; };
@@ -266,14 +259,7 @@
 		9E24499C2485E98C00B149DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9E24499F2485EA0B00B149DF /* strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = strings.swift; sourceTree = "<group>"; };
 		9E2449A22485EA7600B149DF /* Typealiases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typealiases.swift; sourceTree = "<group>"; };
-		9E7DBAE8248481DA00635A56 /* ImageCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		9E7DBAE9248481DA00635A56 /* ImageService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
-		9E7DBAEA248481DA00635A56 /* ImageProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageProvider.swift; sourceTree = "<group>"; };
-		9E7DBAEB248481DA00635A56 /* DownloadOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadOperation.swift; sourceTree = "<group>"; };
-		9E7DBAEC248481DA00635A56 /* ImageCreationOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCreationOperation.swift; sourceTree = "<group>"; };
-		9E7DBAED248481DA00635A56 /* FileDownloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileDownloader.swift; sourceTree = "<group>"; };
-		9E7DBAEE248481DA00635A56 /* AsyncOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncOperation.swift; sourceTree = "<group>"; };
-		9E7DBAEF248481DA00635A56 /* FileDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileDataProvider.swift; sourceTree = "<group>"; };
 		9E7DBAF8248481FC00635A56 /* Operation++.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Operation++.swift"; sourceTree = "<group>"; };
 		9E7DBAFB2484822A00635A56 /* Operators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
 		9E92025F248C2A080007AFCE /* CallToActionCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallToActionCollectionView.swift; sourceTree = "<group>"; };
@@ -634,13 +620,6 @@
 		9E7DBAE7248481DA00635A56 /* ImageDownloader */ = {
 			isa = PBXGroup;
 			children = (
-				9E7DBAEE248481DA00635A56 /* AsyncOperation.swift */,
-				9E7DBAEB248481DA00635A56 /* DownloadOperation.swift */,
-				9E7DBAEF248481DA00635A56 /* FileDataProvider.swift */,
-				9E7DBAED248481DA00635A56 /* FileDownloader.swift */,
-				9E7DBAE8248481DA00635A56 /* ImageCache.swift */,
-				9E7DBAEC248481DA00635A56 /* ImageCreationOperation.swift */,
-				9E7DBAEA248481DA00635A56 /* ImageProvider.swift */,
 				9E7DBAE9248481DA00635A56 /* ImageService.swift */,
 			);
 			path = ImageDownloader;
@@ -1345,11 +1324,9 @@
 				A93367C9248983B1001F1E28 /* PetitionsNetworkRequestor.swift in Sources */,
 				A93367CB248983B1001F1E28 /* Environment.swift in Sources */,
 				9EC6DD4A248B7FC0006CC5A7 /* FiltersCollectionView.swift in Sources */,
-				9E7DBAF7248481DA00635A56 /* FileDataProvider.swift in Sources */,
 				A91B07A424835CF700DB803C /* UIFont+STN.swift in Sources */,
 				DC4093DE248D8FB700C45D09 /* PetitionsCollectionViewManager.swift in Sources */,
 				D7F3F63B248D3FBA00F66E72 /* DMDTextContentCell.swift in Sources */,
-				9E7DBAF6248481DA00635A56 /* AsyncOperation.swift in Sources */,
 				A91B07C02484705400DB803C /* Navigator.swift in Sources */,
 				5E1F4B1B2493BF4300DE6FB5 /* RequestOrRemoveTextView.swift in Sources */,
 				A9B90577248F535F00F9EEFA /* PersonDeepLink.swift in Sources */,
@@ -1359,7 +1336,6 @@
 				DB1887FF248A519600FDAEE3 /* LineCarouselControl.swift in Sources */,
 				DC969C522491E49F00B62598 /* DynamicHeightCalculable.swift in Sources */,
 				EEC3A1D42483D493001E7754 /* CustomSearchBar.swift in Sources */,
-				9E7DBAF5248481DA00635A56 /* FileDownloader.swift in Sources */,
 				9EC6DD46248B7853006CC5A7 /* CollectionViewManager.swift in Sources */,
 				D7A96091248A676A005E0153 /* ButtonContainerView.swift in Sources */,
 				9E92026D248C3F2F0007AFCE /* DonationsCollectionViewManager.swift in Sources */,
@@ -1389,7 +1365,6 @@
 				D787FC9B248A71A3001FC6FF /* ImageWithBlurView.swift in Sources */,
 				1897247B248D766F00836B62 /* FeatureFlags.swift in Sources */,
 				9E7DBAF9248481FC00635A56 /* Operation++.swift in Sources */,
-				9E7DBAF4248481DA00635A56 /* ImageCreationOperation.swift in Sources */,
 				DB188806248A51A800FDAEE3 /* CarouselCollectionViewCell.swift in Sources */,
 				F2725A8B24881A8E00507DC4 /* UITableViewCell++.swift in Sources */,
 				7A829502248B299C00A8D7D8 /* MoreView.swift in Sources */,
@@ -1412,7 +1387,6 @@
 				5D456A3D248734CA009FAD34 /* PersonCollectionViewDataSource.swift in Sources */,
 				DB188809248A8F1100FDAEE3 /* HeaderCellContent.swift in Sources */,
 				D42BC32D248E290E006A7F4B /* assets.swift in Sources */,
-				9E7DBAF3248481DA00635A56 /* DownloadOperation.swift in Sources */,
 				7A5BFA172488315D00BC265A /* DonationsView.swift in Sources */,
 				7A5BFA192488821500BC265A /* DateFormatterService.swift in Sources */,
 				7789A5952489979700737E14 /* UIImageView+STN.swift in Sources */,
@@ -1432,7 +1406,6 @@
 				A91B079724835CF700DB803C /* UIView++.swift in Sources */,
 				7CE75F402489B78400168DDA /* PetitionsView.swift in Sources */,
 				A91B07AD24835CF700DB803C /* PersonCell.swift in Sources */,
-				9E7DBAF2248481DA00635A56 /* ImageProvider.swift in Sources */,
 				5E1F4B192493B3E800DE6FB5 /* NSMutableAttributedString++.swift in Sources */,
 				A9B90581248FE41400F9EEFA /* AboutDeepLink.swift in Sources */,
 				D757CF08248F3A9C008874B4 /* DonationTypes.swift in Sources */,
@@ -1447,7 +1420,6 @@
 				83E9CAD42484A5DC001D173A /* UIViewController+TabBar.swift in Sources */,
 				DDB46E472492146F0008B4D9 /* CustomNavigationController.swift in Sources */,
 				7419B4B7248A2E0800D466C8 /* PersonNewsCollectionViewCell.swift in Sources */,
-				9E7DBAF0248481DA00635A56 /* ImageCache.swift in Sources */,
 				F2725A8D24881AF200507DC4 /* UITableView++.swift in Sources */,
 				A9B9056F248C90FB00F9EEFA /* UIApplication+STN.swift in Sources */,
 				A91B07A624835CF700DB803C /* UIDevice+STN.swift in Sources */,
