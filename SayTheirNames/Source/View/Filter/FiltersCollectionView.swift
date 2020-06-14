@@ -41,7 +41,7 @@ final class FiltersCollectionView: UICollectionView {
     }
     
     private func setupSelf() {
-        backgroundColor = .systemBackground
+        backgroundColor = UIColor(asset: STNAsset.Color.background)
     }
     
     override var intrinsicContentSize: CGSize {

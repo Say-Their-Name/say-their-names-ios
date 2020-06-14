@@ -51,7 +51,7 @@ final class DonationsView: UIView {
     
     /// Configures properties for the view itself
     private func setupSelf() {
-        backgroundColor = UIColor(asset: STNAsset.Color.black)
+        backgroundColor = UIColor(asset: STNAsset.Color.background)
     }
     
     /// Adds and configures constraints for subviews
