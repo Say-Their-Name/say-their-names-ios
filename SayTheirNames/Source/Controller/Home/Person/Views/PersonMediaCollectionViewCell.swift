@@ -26,6 +26,8 @@ import UIKit
 
 class PersonMediaCollectionViewCell: UICollectionViewCell {
 
+    @DependencyInject private var imageService: ImageService
+    
     lazy var mediaImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(asset: STNAsset.Image.mediaImage2)
@@ -58,7 +60,7 @@ class PersonMediaCollectionViewCell: UICollectionViewCell {
     }
     
     func updateCell(with mediaUrl: String) {
-        mediaImageView.populate(withURL: mediaUrl)
+        imageService.populate(imageView: mediaImageView, withURLString: mediaUrl)
     }
     
     override func prepareForReuse() {

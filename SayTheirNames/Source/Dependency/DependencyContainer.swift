@@ -31,19 +31,30 @@ protocol Dependency {
 
 // MARK: - DependencyContainer
 final class DependencyContainer: Dependency {
-    let navigator = Navigator()
-    let image = ImageService()
-    let dateFormatter = DateFormatterService()
-    let network = NetworkRequestor()
+    let navigator: Navigator
+    let image: ImageService
+    let dateFormatter: DateFormatterService
+    let network: NetworkRequestor
     let deepLinkHandler: DeepLinkHandler
-    let metadata = MetadataService()
-    let shareService = ShareService()
+    let metadata: MetadataService
+    let shareService: ShareService
     
     // MARK: - Init
     init() {
         Log.mode = .all
         Log.print("SayTheirNames Version: \(Bundle.versionBuildString)")
         Log.print("Starting Services")
+        
+        // When dependencies reference each other,
+        // they have to be passed directly
+        // because dependency injection is not setup yet
+        
+        self.navigator = Navigator()
+        self.image = ImageService()
+        self.dateFormatter = DateFormatterService()
+        self.network = NetworkRequestor()
+        self.metadata = MetadataService(imageCache: ImageServiceBasedCache(imageService: self.image))
+        self.shareService = ShareService()
         
         // Handler
         let deepLinkTypes: [DeepLink.Type] = [

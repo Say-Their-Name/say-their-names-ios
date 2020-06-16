@@ -1,5 +1,5 @@
 //
-//  UIImageView+STN.swift
+//  ImageService.swift
 //  SayTheirNames
 //
 //  Copyright (c) 2020 Say Their Names Team (https://github.com/Say-Their-Name)
@@ -22,22 +22,36 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-import Foundation
+import UIKit
 import SDWebImage
 
-public extension UIImageView {
+/// A service responsible for orchestrating the downloading and caching of
+/// requested `UIImage`s
+final class ImageService: Dependency {
     
-    func populate(withURL url: String?) {
-        self.sd_imageIndicator = SDWebImageActivityIndicator.gray
-        if let url = url {
-            self.sd_setImage(
-                with: URL(string: url),
+    func makeActivityIndicator() -> UIActivityIndicatorView {
+        return SDWebImageActivityIndicator.gray.indicatorView
+    }
+    
+    func storeImage(_ image: UIImage, forKey key: String, completion: (() -> Void)?) {
+        SDImageCache.shared.store(image, forKey: key, completion: completion)
+    }
+    
+    func imageFromCache(forKey key: String) -> UIImage? {
+        return SDImageCache.shared.imageFromCache(forKey: key, options: [], context: nil)
+    }
+    
+    func populate(imageView: UIImageView, withURLString urlString: String?) {
+        imageView.sd_imageIndicator = SDWebImageActivityIndicator.gray
+        if let urlString = urlString {
+            imageView.sd_setImage(
+                with: URL(string: urlString),
                 placeholderImage: UIImage(asset: STNAsset.Image.placeholder)
             )
         }
         else {
-            self.sd_cancelCurrentImageLoad()
-            self.image = UIImage(asset: STNAsset.Image.placeholder)
+            imageView.sd_cancelCurrentImageLoad()
+            imageView.image = UIImage(asset: STNAsset.Image.placeholder)
         }
     }
 }
