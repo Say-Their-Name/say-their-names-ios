@@ -1,0 +1,15 @@
+strings:
+  inputs: SayTheirNames/Resources/Base.lproj
+  filter: .+\.strings$
+  outputs:
+    - templateName: structured-swift4
+      output: SayTheirNames/Resources/Generated/strings.swift
+xcassets:
+    inputs:
+    - SayTheirNames/Resources/Image.xcassets
+    - SayTheirNames/Resources/Color.xcassets
+    outputs:
+    - templateName: swift4
+      output: SayTheirNames/Resources/Generated/assets.swift
+      params:
+        enumName: STNAsset

@@ -1,0 +1,44 @@
+disabled_rules:
+    - trailing_whitespace
+    - force_cast
+    - cyclomatic_complexity
+    - function_body_length
+    - nesting
+    - statement_position
+    - identifier_name 
+    - opening_brace
+    - type_name
+    - comma
+    - unused_optional_binding
+    - closure_parameter_position
+    - trailing_comma
+    - duplicate_enum_cases
+    - todo
+
+opt_in_rules:
+  - force_unwrapping
+  - discouraged_object_literal
+
+line_length: 150
+
+type_body_length:
+  - 300 # warning
+  - 400 # error
+
+file_length:
+  warning: 500
+  error: 600
+
+excluded: 
+  - Carthage
+  - Pods
+  - Vendors
+  - Frameworks
+  - Fastlane
+  
+custom_rules:
+  swiftgen_assets:
+    name: "SwiftGen Image Assets"
+    regex: '(UIImage)(\.init)?\(named: ?"?.+"?(, ?in:.+?, ?compatibleWith:.+?)?\)|#imageLiteral\(resourceName: ?".+"\)'
+    message: "Use STNImage.<asset> instead"
+    severity: error

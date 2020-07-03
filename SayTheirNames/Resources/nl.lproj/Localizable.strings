@@ -1,0 +1,156 @@
+/*
+ * Loco ios export: iOS Localizable.strings
+ * Project: Say Their Names
+ * Release: Working copy
+ * Locale: nl, Dutch; Flemish
+ * Exported by: Say Their Names
+ * Exported at: Sat, 13 Jun 2020 00:30:59 +0200
+ */
+
+/* loco:5ee29770f904c5151c1a2061 */
+"home" = "Home";
+
+/* loco:5ee29770f904c5151c1a2062 */
+"donations" = "Donaties";
+
+/* loco:5ee29770f904c5151c1a2063 */
+"petitions" = "Petities";
+
+/* loco:5ee29770f904c5151c1a2064 */
+"about" = "Over";
+
+/* loco:5ee29770f904c5151c1a2065 */
+"cancel" = "Annuleer";
+
+/* loco:5ee29770f904c5151c1a2066 */
+"find_out_more" = "MEER WETEN?";
+
+/* loco:5ee29770f904c5151c1a2067 */
+"verified" = "geverifieerd";
+
+/* loco:5ee29770f904c5151c1a2068 */
+"filter_all" = "ALLES";
+
+/* loco:5ee29770f904c5151c1a2069 */
+"filter_businesses" = "BEDRIJVEN";
+
+/* loco:5ee29770f904c5151c1a206a */
+"filter_protesters" = "PROTESTERS";
+
+/* loco:5ee29770f904c5151c1a206b */
+"filter_victims" = "SLACHTOFFERS";
+
+/* loco:5ee29770f904c5151c1a206c */
+"share" = "Delen";
+
+/* loco:5ee29770f904c5151c1a206d */
+"close" = "Sluit";
+
+/* loco:5ee29770f904c5151c1a206e */
+"say_their_names" = "Say their names";
+
+/* loco:5ee29770f904c5151c1a206f */
+"bookmark" = "Favoriet";
+
+/* loco:5ee29770f904c5151c1a2070 */
+"search" = "Zoek";
+
+/* loco:5ee29770f904c5151c1a2071 */
+"donate" = "Doneer";
+
+/* loco:5ee29770f904c5151c1a2072 */
+"DONATE NOW" = "DONEER NU";
+
+/* loco:5ee29770f904c5151c1a2073 */
+"description" = "Omschrijving";
+
+/* loco:5ee29770f904c5151c1a2074 */
+"person.say_their_names" = "Say their names";
+
+/* loco:5ee29770f904c5151c1a2075 */
+"person.age" = "Leeftijd";
+
+/* loco:5ee29770f904c5151c1a2076 */
+"person.children" = "Kinderen";
+
+/* loco:5ee29770f904c5151c1a2077 */
+"person.location" = "Lokatie";
+
+/* loco:5ee29770f904c5151c1a2078 */
+"person.their_story" = "Hun Verhaal";
+
+/* loco:5ee29770f904c5151c1a2079 */
+"person.outcome" = "Uitkomst";
+
+/* loco:5ee29770f904c5151c1a207a */
+"person.news" = "Nieuws";
+
+/* loco:5ee29770f904c5151c1a207b */
+"person.media" = "Media";
+
+/* loco:5ee29770f904c5151c1a207c */
+"person.hashtags" = "Social Media Hashtags";
+
+/* loco:5ee29770f904c5151c1a207d */
+"person.hashtagCopyTip" = "Long press om te kopieren";
+
+/* loco:5ee29770f904c5151c1a207e */
+"person.copied" = "Gekopieerd";
+
+/* loco:5ee29770f904c5151c1a207f
+ * Get Involved - Slack */
+"get_involved.slack.title" = "HOE KAN IK HELPEN ALS EEN DESIGNER?";
+
+/* loco:5ee29770f904c5151c1a2080 */
+"get_involved.slack.button" = "VOEG JE TOE AAN ONZE SLACK CHANNEL";
+
+/* loco:5ee29770f904c5151c1a2082
+ * Get Involved - Developer */
+"get_involved.developer.title" = "HOE KAN IK HELPEN AS EEN DEVELOPER?";
+
+/* loco:5ee29770f904c5151c1a2083 */
+"get_involved.developer.button" = "BEKIJK ONZE GITHUB";
+
+/* loco:5ee29770f904c5151c1a2085
+ * Get Involved - Twitter */
+"get_involved.twitter.title" = "VOLG ONS OP TWITTER";
+
+/* loco:5ee29770f904c5151c1a2086 */
+"get_involved.twitter.button" = "VOLG ONS";
+
+/* loco:5ee29770f904c5151c1a2088
+ * More */
+"more_history.aboutTitle" = "GESCHIEDENIS OVER SAY THEIR NAMES BEWEGING";
+
+/* loco:5ee29770f904c5151c1a2089 */
+"more_history.aboutDesc" = "Say Their Names is een sociale beweging om het bewustzijn van alle slachtoffers van raciale ongelijkheid over de hele wereld te vergroten. Deze beweging ondersteunt de algehele Black Lives Matter beweging en heeft tot doel individuen te benadrukken die getroffen zijn door racistisch geweld. De beweging Say Their Names vraagt aandacht en eist gerechtigheid voor alle slachtoffers.";
+
+/* loco:5ee29770f904c5151c1a208a */
+"massive_thank_you" = "HEEL ERG BEDANKT AAN IEDEREEN DIE HEEFT MEEGEWERKT";
+
+/* loco:5ee2ce86663b704aa41688f2 */
+"sign" = "Onderteken de petitie";
+
+/* loco:5ee376d765812927aa78d0a2 */
+"about_this_project.title" = "Over dit project";
+
+/* loco:5ee376dd6ca9905dc077cd32 */
+"about-this-project-details" = "Welkom bij het Say Their Names Project. Ons doel is om een open-source platform te bouwen om het bewustzijn van de vergeten namen van raciale ongelijkheid te vergroten. We streven ernaar om geverifieerde organisaties te identificeren en te versterken om ervoor te zorgen dat donaties diegene bereiken met de meeste impact.";
+
+/* loco:5ee376e9fefc8d5f7d7f0e72 */
+"request_edit_or_removal.title" = "VERZOEK TOT WIJZIGING OF VERWIJDERING";
+
+/* loco:5ee376f7a2df5b67a6141ad6 */
+"request_edit_or_removal.details" = "Wilt u een bewerking op een pagina voorstellen of vertegenwoordigd u een slachtoffer en wilt dat deze uit de directory wordt verwijderd, stuur ons dan een bericht op Twitter.";
+
+/* loco:5ee376fed7ad1f1f67343376 */
+"twitter" = "Twitter";
+
+/* loco:5ee3770bbf547555e3273462 */
+"did_we_miss_someone" = "MISSEN WE IEMAND?";
+
+/* loco:5ee37712b985865d84496cd7 */
+"request_to_add_new_name" = "VOEG NAAM TOE";
+
+/* loco:5ee4006f0b8b33673137f992 */
+"people.hero_text" = "Delayed justice is injustice. Join the fight for justice. Sign petitions and donate today.";
