@@ -12,7 +12,7 @@ via a Slack workspace, and to-dos are maintained via GitHub issues.
 Previously tickets were tracked on a
 [Trello board](https://trello.com/b/XhG385ND/say-their-names-ios), which is now deprecated. 
 
-If you would like to join the slack workspace, use [this link](https://join.slack.com/t/saytheirnames/shared_invite/zt-fsq1sahc-kPBAmM5rzpfZ6swqXsFQbA).
+If you would like to join the slack workspace, use [this link](https://bit.ly/say-their-names-slack).
 
 ## Useful resources
 
