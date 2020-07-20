@@ -143,8 +143,6 @@ extension CustomSearchBar: UITableViewDataSource, UITableViewDelegate, UISearchB
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: SearchResultCell = tableView.dequeueCell(for: indexPath)
-        cell.isSeperatorViewHidden = indexPath.row == searchResult.count - 1
-        cell.data = searchResult[indexPath.row]
         return cell
     }
     
