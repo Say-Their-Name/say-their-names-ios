@@ -132,5 +132,12 @@ extension UIFont {
             textStyle: .subheadline
             )
         }
+        
+        static var searchResultTitle: UIFont {
+            .dynamicCustomFont(
+                fontName: FontName.karlaBold.rawValue,
+                textStyle: .subheadline
+            )
+        }
     }
 }

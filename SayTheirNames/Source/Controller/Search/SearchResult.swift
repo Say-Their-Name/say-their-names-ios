@@ -1,5 +1,5 @@
 //
-//  FeatureFlags.swift
+//  SearchResult.swift
 //  SayTheirNames
 //
 //  Copyright (c) 2020 Say Their Names Team (https://github.com/Say-Their-Name)
@@ -22,19 +22,10 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-import Foundation
+import UIKit
 
-struct FeatureFlags {
-
-    /// Disabled for v1
-    static let bookmarksEnabled = false
-    static let filtersEnabled = false
-    static let searchEnabled = true
-
-    /// Disabled due to lack of data in the API
-    static let dmdOutcomeSectionEnabled = false
-
-    /// Disabled for v1, might be revisited later
-    static let carouselOnHome = false
-    static let callToActionCellImageShown = true
+protocol SearchResult {
+    var image: UIImage? { get }
+    var title: String { get }
+    var subtitle: String? { get }
 }
