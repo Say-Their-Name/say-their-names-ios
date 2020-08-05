@@ -156,6 +156,10 @@ class PersonController: UIViewController {
             switch result {
             case .success(let response):
                 self?.configure(with: response.person)
+                guard self?.person.donations.first != nil else {
+                    self?.donationButtonContainerView.button.isHidden = true
+                       return
+                   }
             case .failure(let error):
                 Log.print(error)
             }
