@@ -18,7 +18,7 @@ class ButtonContainerView: UIView {
     }
     
     // MARK: - View
-    public lazy var button: UIButton = {
+    private lazy var button: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle(buttonTitle.localizedUppercase, for: .normal)
         button.backgroundColor = UIColor(asset: STNAsset.Color.actionButton)

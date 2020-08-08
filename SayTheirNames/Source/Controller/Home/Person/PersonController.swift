@@ -137,6 +137,13 @@ class PersonController: UIViewController {
         return button
     }()
     
+    lazy var viewBlur: UIVisualEffectView = {
+        let blurEffect = UIBlurEffect(style: .systemChromeMaterial)
+        let blurredEffectView = UIVisualEffectView(effect: blurEffect)
+        blurredEffectView.frame = view.bounds
+        return blurredEffectView
+    }()
+    
     // TODO: Once Theme.swift/etc. gets added to the project this should get moved there.
     let navigationBarTextAttributes = [
         NSAttributedString.Key.foregroundColor: UIColor.white,
@@ -153,16 +160,24 @@ class PersonController: UIViewController {
         super.viewDidLoad()
         view.accessibilityIdentifier = "personView"
         self.network.fetchPersonDetails(with: person.identifier) { [weak self] result in
+            guard let self = self else { return }
+            
             switch result {
             case .success(let response):
-                self?.configure(with: response.person)
-                guard self?.person.donations.first != nil else {
-                    self?.donationButtonContainerView.button.isHidden = true
-                       return
+                self.configure(with: response.person)
+                
+                guard self.person.donations.first != nil else {
+                    self.donationButtonContainerView.removeFromSuperview()
+                    var viewConstraint: NSLayoutConstraint?
+                    viewConstraint = self.tableView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor)
+                    viewConstraint?.isActive = true
+                    return self.viewBlur.removeFromSuperview()
                    }
+               
             case .failure(let error):
                 Log.print(error)
             }
+            self.viewBlur.removeFromSuperview()
         }
     }
     
@@ -211,6 +226,7 @@ private extension PersonController {
         backgroundFistImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         setupTableView()
         setupDonationBottomView()
+        view.addSubview(viewBlur)
     }
     
     func setupTableView() {
