@@ -138,11 +138,11 @@ class PersonController: UIViewController {
     }()
     
     lazy var viewBlur: UIVisualEffectView = {
-          let blurEffect = UIBlurEffect(style: .systemChromeMaterial)
-          let blurredEffectView = UIVisualEffectView(effect: blurEffect)
-          blurredEffectView.frame = view.bounds
-          return blurredEffectView
-      }()
+        let blurEffect = UIBlurEffect(style: .systemChromeMaterial)
+        let blurredEffectView = UIVisualEffectView(effect: blurEffect)
+        blurredEffectView.frame = view.bounds
+        return blurredEffectView
+    }()
     
     // TODO: Once Theme.swift/etc. gets added to the project this should get moved there.
     let navigationBarTextAttributes = [
@@ -228,6 +228,7 @@ private extension PersonController {
         backgroundFistImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         setupTableView()
         setupDonationBottomView()
+        view.addSubview(viewBlur)
     }
     
     func setupTableView() {
