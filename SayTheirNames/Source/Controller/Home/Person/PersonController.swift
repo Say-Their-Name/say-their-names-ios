@@ -165,19 +165,10 @@ class PersonController: UIViewController {
             switch result {
             case .success(let response):
                 self.configure(with: response.person)
-                
-                guard self.person.donations.first != nil else {
-                    self.donationButtonContainerView.removeFromSuperview()
-                    var viewConstraint: NSLayoutConstraint?
-                    viewConstraint = self.tableView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor)
-                    viewConstraint?.isActive = true
-                    return self.viewBlur.removeFromSuperview()
-                   }
-               
+                self.hideDonationButton()
             case .failure(let error):
                 Log.print(error)
             }
-            self.viewBlur.removeFromSuperview()
         }
     }
     
@@ -213,6 +204,18 @@ class PersonController: UIViewController {
 
 // MARK: - UIView Setup Methods
 private extension PersonController {
+    
+    func hideDonationButton() {
+           guard self.person.donations.first != nil else {
+             self.donationButtonContainerView.removeFromSuperview()
+             var viewConstraint: NSLayoutConstraint?
+             viewConstraint = self.tableView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor)
+             viewConstraint?.isActive = true
+               
+             return self.viewBlur.removeFromSuperview()
+           }
+           self.viewBlur.removeFromSuperview()
+    }
     
     func setupNavigationBarItems() {
         title = L10n.Person.sayTheirNames.localizedUppercase
