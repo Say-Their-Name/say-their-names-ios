@@ -166,6 +166,7 @@ class PersonController: UIViewController {
                 self.configure(with: response.person)
                 self.hideDonationButton()
             case .failure(let error):
+                self.hideDonationButton()
                 Log.print(error)
             }
         }
