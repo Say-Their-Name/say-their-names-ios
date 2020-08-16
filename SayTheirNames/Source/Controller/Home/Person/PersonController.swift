@@ -176,6 +176,7 @@ class PersonController: UIViewController {
         super.loadView()
         setupNavigationBarItems()
         setupSubViews()
+        view.addSubview(viewBlur)
     }
     
     @objc func dismissAction(_ sender: Any) {
