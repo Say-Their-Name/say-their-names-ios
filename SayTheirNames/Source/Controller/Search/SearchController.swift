@@ -106,6 +106,7 @@ extension SearchController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let person = dataSource?.itemIdentifier(for: indexPath) else { return }
+        tableView.deselectRow(at: indexPath, animated: true)
         showDetails(for: person)
     }
 }
