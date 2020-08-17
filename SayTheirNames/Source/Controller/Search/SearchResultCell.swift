@@ -84,6 +84,8 @@ class SearchResultCell: UITableViewCell {
     
     func populate(with searchResult: SearchResult) {
         imgView.image = searchResult.image
+        imgView.isHidden = imgView.image == nil
+        
         titleLabel.text = searchResult.title.uppercased()
         subtitleLabel.text = searchResult.subtitle
         subtitleLabel.isHidden = searchResult.subtitle == nil
