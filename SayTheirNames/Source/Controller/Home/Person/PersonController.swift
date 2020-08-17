@@ -137,6 +137,13 @@ class PersonController: UIViewController {
         return button
     }()
     
+    private(set) lazy var viewBlur: UIVisualEffectView = {
+        let blurEffect = UIBlurEffect(style: .systemChromeMaterial)
+        let blurredEffectView = UIVisualEffectView(effect: blurEffect)
+        blurredEffectView.frame = view.bounds
+        return blurredEffectView
+    }()
+    
     // TODO: Once Theme.swift/etc. gets added to the project this should get moved there.
     let navigationBarTextAttributes = [
         NSAttributedString.Key.foregroundColor: UIColor.white,
@@ -153,10 +160,13 @@ class PersonController: UIViewController {
         super.viewDidLoad()
         view.accessibilityIdentifier = "personView"
         self.network.fetchPersonDetails(with: person.identifier) { [weak self] result in
+            guard let self = self else { return }
             switch result {
             case .success(let response):
-                self?.configure(with: response.person)
+                self.configure(with: response.person)
+                self.hideDonationButton()
             case .failure(let error):
+                self.hideDonationButton()
                 Log.print(error)
             }
         }
@@ -195,6 +205,17 @@ class PersonController: UIViewController {
 // MARK: - UIView Setup Methods
 private extension PersonController {
     
+    func hideDonationButton() {
+           guard self.person.donations.first != nil else {
+             self.donationButtonContainerView.removeFromSuperview()
+             let viewConstraint = self.tableView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor)
+             viewConstraint.isActive = true
+               
+             return self.viewBlur.removeFromSuperview()
+           }
+           self.viewBlur.removeFromSuperview()
+    }
+    
     func setupNavigationBarItems() {
         title = L10n.Person.sayTheirNames.localizedUppercase
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: dismissButton)
@@ -207,6 +228,7 @@ private extension PersonController {
         backgroundFistImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         setupTableView()
         setupDonationBottomView()
+        view.addSubview(viewBlur)
     }
     
     func setupTableView() {
