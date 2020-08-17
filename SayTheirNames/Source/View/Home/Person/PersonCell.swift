@@ -42,7 +42,10 @@ final class PersonCell: UICollectionViewCell {
         let lbl = UILabel()
         lbl.textColor = UIColor(asset: STNAsset.Color.primaryLabel)
         lbl.lineBreakMode = .byTruncatingTail
+        lbl.numberOfLines = 2
         lbl.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
+        lbl.setContentCompressionResistancePriority(.required - 1, for: .vertical)
+        lbl.setContentHuggingPriority(.required, for: .vertical)
         lbl.translatesAutoresizingMaskIntoConstraints = false
         lbl.isAccessibilityElement = true
         lbl.accessibilityLabel = lbl.text
@@ -55,6 +58,8 @@ final class PersonCell: UICollectionViewCell {
         lbl.lineBreakMode = .byTruncatingTail
         lbl.isAccessibilityElement = true
         lbl.translatesAutoresizingMaskIntoConstraints = false
+        lbl.setContentHuggingPriority(.required, for: .vertical)
+        lbl.setContentCompressionResistancePriority(.required, for: .vertical)
         return lbl
     }()
     
@@ -77,6 +82,7 @@ final class PersonCell: UICollectionViewCell {
         stack.spacing = 10
         stack.distribution = .fill
         stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.setContentHuggingPriority(.required, for: .vertical)
         return stack
     }()
     
@@ -112,23 +118,33 @@ final class PersonCell: UICollectionViewCell {
 
         containerStack.addArrangedSubview(profileImageView)
         containerStack.addArrangedSubview(labelsAndButtonContainer)
-        NSLayoutConstraint.activate([
+        
+        var constraints: [NSLayoutConstraint] = [
             nameLabel.topAnchor.constraint(equalTo: labelsAndButtonContainer.topAnchor),
             nameLabel.leadingAnchor.constraint(equalTo: labelsAndButtonContainer.leadingAnchor),
-            nameLabel.trailingAnchor.constraint(equalTo: bookmarkButton.leadingAnchor, constant: 4),
 
             dateOfIncidentLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor),
             dateOfIncidentLabel.leadingAnchor.constraint(equalTo: nameLabel.leadingAnchor),
-            dateOfIncidentLabel.bottomAnchor.constraint(equalTo: labelsAndButtonContainer.bottomAnchor, constant: -20),
+            dateOfIncidentLabel.bottomAnchor.constraint(lessThanOrEqualTo: labelsAndButtonContainer.bottomAnchor),
             dateOfIncidentLabel.trailingAnchor.constraint(equalTo: labelsAndButtonContainer.trailingAnchor),
 
-            bookmarkButton.topAnchor.constraint(equalTo: nameLabel.topAnchor),
-            bookmarkButton.trailingAnchor.constraint(equalTo: labelsAndButtonContainer.trailingAnchor),
-
-            profileImageView.heightAnchor.constraint(equalTo: containerStack.heightAnchor, multiplier: 0.8),
-
-            labelsAndButtonContainer.heightAnchor.constraint(greaterThanOrEqualTo: containerStack.heightAnchor, multiplier: 0.2, constant: -20)
-        ])
+            profileImageView.heightAnchor.constraint(equalToConstant: Theme.Screens.Home.CellSize.peopleHeight * 0.85),
+        ]
+        
+        if FeatureFlags.bookmarksEnabled {
+            constraints.append(contentsOf: [
+                nameLabel.trailingAnchor.constraint(equalTo: bookmarkButton.leadingAnchor, constant: 4),
+                bookmarkButton.trailingAnchor.constraint(equalTo: labelsAndButtonContainer.trailingAnchor),
+                bookmarkButton.topAnchor.constraint(equalTo: nameLabel.topAnchor),
+            ])
+        }
+        else {
+            constraints.append(contentsOf: [
+                nameLabel.trailingAnchor.constraint(equalTo: labelsAndButtonContainer.trailingAnchor)
+            ])
+        }
+        
+        NSLayoutConstraint.activate(constraints)
         
         containerStack.addArrangedSubview(profileImageView)
         containerStack.addArrangedSubview(labelsAndButtonContainer)
