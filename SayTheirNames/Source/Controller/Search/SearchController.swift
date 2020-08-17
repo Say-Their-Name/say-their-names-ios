@@ -71,14 +71,14 @@ final class SearchController: UIViewController {
         }
     }
     
-    func createSnapshot(with people: [Person]) {
+    private func createSnapshot(with people: [Person]) {
         var snapshot = NSDiffableDataSourceSnapshot<SingleSection, Person>()
         snapshot.appendSections([.main])
         snapshot.appendItems(people)
         dataSource?.apply(snapshot)
     }
     
-    func showDetails(for person: Person) {
+    private func showDetails(for person: Person) {
         let personController = PersonController()
         personController.person = person
         
@@ -103,6 +103,7 @@ extension SearchController: UISearchBarDelegate {
 }
 
 extension SearchController: UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let person = dataSource?.itemIdentifier(for: indexPath) else { return }
         showDetails(for: person)
