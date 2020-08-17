@@ -27,24 +27,31 @@ import UIKit
 class SearchResultCell: UITableViewCell {
 
     private lazy var imgView = UIImageView.create {
+        $0.translatesAutoresizingMaskIntoConstraints = false
         $0.tintColor = STNAsset.Color.inverse.color
     }
     
     private lazy var titleLabel = UILabel.create {
+        $0.translatesAutoresizingMaskIntoConstraints = false
         $0.font = UIFont.STN.searchResultTitle
+        $0.numberOfLines = 2
+        $0.setContentCompressionResistancePriority(.required, for: .vertical)
     }
     
     private lazy var subtitleLabel = UILabel.create {
+        $0.translatesAutoresizingMaskIntoConstraints = false
         $0.isHidden = true
     }
     
     private lazy var labelStackView = UIStackView.create {
+        $0.translatesAutoresizingMaskIntoConstraints = false
         $0.axis = .vertical
     }
     
     private lazy var contentStackView = UIStackView.create {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.axis = .horizontal
+        $0.alignment = .fill
         $0.spacing = 24
     }
     
@@ -70,8 +77,7 @@ class SearchResultCell: UITableViewCell {
         
         let guide = contentView.layoutMarginsGuide
         NSLayoutConstraint.activate([
-            imgView.widthAnchor.constraint(equalToConstant: Self.imgViewDimension),
-            imgView.heightAnchor.constraint(equalToConstant: Self.imgViewDimension),
+            imgView.widthAnchor.constraint(equalTo: imgView.heightAnchor),
             
             contentStackView.topAnchor.constraint(equalTo: guide.topAnchor),
             contentStackView.leadingAnchor.constraint(equalTo: guide.leadingAnchor),
@@ -100,8 +106,4 @@ class SearchResultCell: UITableViewCell {
         subtitleLabel.isHidden = true
     }
     
-}
-
-extension SearchResultCell {
-    private static let imgViewDimension: CGFloat = 24
 }
