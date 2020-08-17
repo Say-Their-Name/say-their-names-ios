@@ -137,7 +137,7 @@ class PersonController: UIViewController {
         return button
     }()
     
-    lazy var viewBlur: UIVisualEffectView = {
+    private(set) lazy var viewBlur: UIVisualEffectView = {
         let blurEffect = UIBlurEffect(style: .systemChromeMaterial)
         let blurredEffectView = UIVisualEffectView(effect: blurEffect)
         blurredEffectView.frame = view.bounds
