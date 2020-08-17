@@ -78,6 +78,7 @@ class SearchResultCell: UITableViewCell {
             contentStackView.trailingAnchor.constraint(equalTo: guide.trailingAnchor),
             contentStackView.bottomAnchor.constraint(equalTo: guide.bottomAnchor),
             
+            contentView.heightAnchor.constraint(greaterThanOrEqualToConstant: 60),
         ])
     }
     
