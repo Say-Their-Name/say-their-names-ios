@@ -208,9 +208,8 @@ private extension PersonController {
     func hideDonationButton() {
            guard self.person.donations.first != nil else {
              self.donationButtonContainerView.removeFromSuperview()
-             var viewConstraint: NSLayoutConstraint?
-             viewConstraint = self.tableView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor)
-             viewConstraint?.isActive = true
+             let viewConstraint = self.tableView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor)
+             viewConstraint.isActive = true
                
              return self.viewBlur.removeFromSuperview()
            }
