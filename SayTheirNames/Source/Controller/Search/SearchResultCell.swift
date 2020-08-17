@@ -55,11 +55,6 @@ class SearchResultCell: UITableViewCell {
         $0.spacing = 24
     }
     
-    private lazy var separatorView = UIView.create {
-        $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.backgroundColor = STNAsset.Color.separator.color
-    }
-    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupSubviews()
@@ -73,7 +68,6 @@ class SearchResultCell: UITableViewCell {
         labelStackView.addArrangedSubviews(titleLabel, subtitleLabel)
         contentStackView.addArrangedSubviews(imgView, labelStackView)
         contentView.addSubview(contentStackView)
-        contentView.addSubview(separatorView)
         
         let guide = contentView.layoutMarginsGuide
         NSLayoutConstraint.activate([
@@ -84,10 +78,6 @@ class SearchResultCell: UITableViewCell {
             contentStackView.trailingAnchor.constraint(equalTo: guide.trailingAnchor),
             contentStackView.bottomAnchor.constraint(equalTo: guide.bottomAnchor),
             
-            separatorView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            separatorView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            separatorView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            separatorView.heightAnchor.constraint(equalToConstant: 1)
         ])
     }
     
