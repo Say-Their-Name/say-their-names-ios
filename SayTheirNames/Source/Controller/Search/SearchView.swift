@@ -62,23 +62,23 @@ extension SearchResultsBackgroundView {
 }
 
 final class SearchView: UIView {
-    lazy var searchBar: UISearchBar = {
+    
+    private(set) lazy var searchBar: UISearchBar = {
         let searchBar = UISearchBar()
-        searchBar.placeholder = "Search for names"
-        
-        // Change text color
-        let textFieldInsideSearchBar = searchBar.value(forKey: "searchField") as? UITextField
-        textFieldInsideSearchBar?.textColor = STNAsset.Color.searchBarText.color
-        
+        searchBar.placeholder = "Search for names" // TODO: localize
+        searchBar.searchTextField.textColor = STNAsset.Color.searchBarText.color
         return searchBar
     }()
     
     private lazy var searchResultsBackground = SearchResultsBackgroundView()
     
-    lazy var searchResultsTableView: UITableView = {
+    private(set) lazy var searchResultsTableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .plain)
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.separatorStyle = .none
+        tableView.tableFooterView = UIView() // removing separators below cells
+        tableView.separatorInsetReference = .fromCellEdges
+        tableView.separatorInset = .zero
+        tableView.separatorColor = STNAsset.Color.separator.color
         tableView.backgroundView = searchResultsBackground
         return tableView
     }()

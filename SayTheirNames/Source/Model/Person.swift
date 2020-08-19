@@ -109,7 +109,7 @@ struct Person: Decodable {
 
 extension Person: SearchResult {
     var image: UIImage? {
-        STNAsset.Image.userCircle.image
+        nil // STNAsset.Image.userCircle.image
     }
     
     var title: String {
