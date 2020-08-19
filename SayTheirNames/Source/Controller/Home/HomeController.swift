@@ -74,17 +74,10 @@ final class HomeController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        homeView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(homeView)
-        homeView.peopleDataSource = peopleDataSourceHelper
-
-        homeView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        homeView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        homeView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        homeView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        
+    
         navigationItem.title = L10n.sayTheirNames.localizedUppercase
+        
+        setupHomeView()
         setupCollectionView()
         setupSearchButton()
         setupPaginator()
@@ -106,6 +99,17 @@ final class HomeController: UIViewController {
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
+    }
+    
+    private func setupHomeView() {
+        homeView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(homeView)
+        homeView.peopleDataSource = peopleDataSourceHelper
+
+        homeView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        homeView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        homeView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        homeView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
     }
     
     private func setupSearchButton() {
