@@ -1,5 +1,5 @@
 //
-//  ImageCache.swift
+//  ImageService.swift
 //  SayTheirNames
 //
 //  Copyright (c) 2020 Say Their Names Team (https://github.com/Say-Their-Name)
@@ -23,28 +23,35 @@
 //  THE SOFTWARE.
 
 import UIKit
+import SDWebImage
 
-/// A `NSCache` that stores and retrieves `UIImage`s by using
-/// `String` based APIs
-final class ImageCache: NSCache<NSString, UIImage> {
+/// A service responsible for orchestrating the downloading and caching of
+/// requested `UIImage`s
+final class ImageService: Dependency {
     
-    /// Saves the specified image to the cache
-    /// - Parameter image: The image to be cached
-    /// - Parameter key: The `String` key used to store the `UIImage`
-    /// in the cache. Likely the image URL
-    func cache(_ image: UIImage, for key: String) {
-        setObject(image, forKey: key as NSString)
+    func makeActivityIndicator() -> UIActivityIndicatorView {
+        return SDWebImageActivityIndicator.gray.indicatorView
     }
     
-    /// Attempts to retrieve an image by a `String` key
-    /// - Parameter key: The `String` key used to retrieve the `UIImage`
-    func image(for key: String) -> UIImage? {
-        object(forKey: key as NSString)
+    func storeImage(_ image: UIImage, forKey key: String, completion: (() -> Void)?) {
+        SDImageCache.shared.store(image, forKey: key, completion: completion)
     }
     
-    /// Removes the `UIImage` stored by the `String` key from the cache
-    /// - Parameter key: The `String` key that will be used to remove the `UIImage`
-    func removeImage(for key: String) {
-        removeObject(forKey: key as NSString)
+    func imageFromCache(forKey key: String) -> UIImage? {
+        return SDImageCache.shared.imageFromCache(forKey: key, options: [], context: nil)
+    }
+    
+    func populate(imageView: UIImageView, withURLString urlString: String?) {
+        imageView.sd_imageIndicator = SDWebImageActivityIndicator.gray
+        if let urlString = urlString {
+            imageView.sd_setImage(
+                with: URL(string: urlString),
+                placeholderImage: UIImage(asset: STNAsset.Image.placeholder)
+            )
+        }
+        else {
+            imageView.sd_cancelCurrentImageLoad()
+            imageView.image = UIImage(asset: STNAsset.Image.placeholder)
+        }
     }
 }

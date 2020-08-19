@@ -1,5 +1,5 @@
 //
-//  UIImageView+STN.swift
+//  UIViewController++.swift
 //  SayTheirNames
 //
 //  Copyright (c) 2020 Say Their Names Team (https://github.com/Say-Their-Name)
@@ -22,22 +22,13 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-import Foundation
-import SDWebImage
+import UIKit
 
-public extension UIImageView {
-    
-    func populate(withURL url: String?) {
-        self.sd_imageIndicator = SDWebImageActivityIndicator.gray
-        if let url = url {
-            self.sd_setImage(
-                with: URL(string: url),
-                placeholderImage: UIImage(asset: STNAsset.Image.placeholder)
-            )
-        }
-        else {
-            self.sd_cancelCurrentImageLoad()
-            self.image = UIImage(asset: STNAsset.Image.placeholder)
-        }
+extension UIViewController {
+    func hideBackButtonTitle() {
+        let backItem = UIBarButtonItem()
+        backItem.title = ""
+        backItem.tintColor = .white
+        navigationItem.backBarButtonItem = backItem
     }
 }

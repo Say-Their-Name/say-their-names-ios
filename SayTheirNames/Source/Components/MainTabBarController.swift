@@ -100,21 +100,25 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         let moreController = MoreController()
         let moreNC = CustomNavigationController(rootViewController: moreController)
                                     
+        homeNC.tabBarItem.accessibilityIdentifier = AccessibilityIdentifers.homeTabBarItem
         homeNC.tabBarItem.image = UIImage(asset: STNAsset.Image.gallery)
         homeNC.tabBarItem.selectedImage = UIImage(asset: STNAsset.Image.galleryActive)
         homeNC.tabBarItem.title = L10n.home
         homeNC.tabBarItem.imageInsets = UIEdgeInsets(top: Theme.Components.Padding.tiny)
         
+        donationsNC.tabBarItem.accessibilityIdentifier = AccessibilityIdentifers.donationsTabBarItem
         donationsNC.tabBarItem.image = UIImage(asset: STNAsset.Image.heart)
         donationsNC.tabBarItem.selectedImage = UIImage(asset: STNAsset.Image.heartActive)
         donationsNC.tabBarItem.title = L10n.donations
         donationsNC.tabBarItem.imageInsets = UIEdgeInsets(top: Theme.Components.Padding.tiny)
                        
+        petitionsNC.tabBarItem.accessibilityIdentifier = AccessibilityIdentifers.petitionsTabBarItem
         petitionsNC.tabBarItem.image = UIImage(asset: STNAsset.Image.petition)
         petitionsNC.tabBarItem.selectedImage = UIImage(asset: STNAsset.Image.petitionActive)
         petitionsNC.tabBarItem.title = L10n.petitions
         petitionsNC.tabBarItem.imageInsets = UIEdgeInsets(top: Theme.Components.Padding.tiny)
                 
+        moreNC.tabBarItem.accessibilityIdentifier = AccessibilityIdentifers.aboutTabBarItem
         moreNC.tabBarItem.image = UIImage(asset: STNAsset.Image.settings)
         moreNC.tabBarItem.selectedImage = UIImage(asset: STNAsset.Image.settingsActive)
         moreNC.tabBarItem.title = L10n.about
@@ -159,6 +163,13 @@ private extension MainTabBarController {
             launchView.removeFromSuperview()
             self.launchScreen = nil
         })
+    }
+
+    private enum AccessibilityIdentifers {
+        static let homeTabBarItem = "homeTabBar"
+        static let donationsTabBarItem = "donationsTabBar"
+        static let petitionsTabBarItem = "petitionsTabBar"
+        static let aboutTabBarItem = "aboutTabBar"
     }
 }
 

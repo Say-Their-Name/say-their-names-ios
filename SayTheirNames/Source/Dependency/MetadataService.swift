@@ -24,7 +24,6 @@
 
 import Foundation
 import LinkPresentation
-import SDWebImage
 
 struct LinkInformation: Hashable {
     let url: URL
@@ -53,14 +52,15 @@ final class MetadataService: Dependency {
     typealias MetadataResultHandler = ((Result<LPLinkMetadata, MetadataError>) -> Void)
     typealias LinkInformationHandler = ((Result<LinkInformation, LinkError>) -> Void)
     
+    let imageCache: MetadataImageCache
+
     private let queue = DispatchQueue(label: "stn.metadata-queue")
     private let resourceQueue = DispatchQueue(label: "stn.metadata-queue.resource")
     private var loadingOperations: [URL: OperationQueue] = [:]
-    private let imageCache: MetadataImageCache
     private let cache = NSCache<NSString, LPLinkMetadata>()
     
-    init() {
-        self.imageCache = SDImageCache.shared
+    init(imageCache: MetadataImageCache) {
+        self.imageCache = imageCache
     }
     
     // MARK: Public Methods
@@ -191,17 +191,5 @@ extension MetadataService {
                 }
             }
         }
-    }
-}
-
-// MARK: Image Caching
-
-extension SDImageCache: MetadataImageCache {
-    func store(_ image: UIImage, with key: String) {
-        SDImageCache.shared.store(image, forKey: key, completion: nil)
-    }
-    
-    func fetchImage(with key: String) -> UIImage? {
-        return SDImageCache.shared.imageFromCache(forKey: key, options: [], context: nil)
     }
 }

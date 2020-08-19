@@ -58,7 +58,6 @@ final class HomeController: UIViewController {
     }
 
     // MARK: - CONSTANTS
-    private let searchBar = CustomSearchBar()
 
     private let paginator: Paginator<Person, PersonsResponsePage>
     
@@ -79,8 +78,6 @@ final class HomeController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor(asset: STNAsset.Color.black)
-        searchBar.setup(withController: self)
         navigationItem.title = L10n.sayTheirNames.localizedUppercase
         setupCollectionView()
         setupSearchButton()
@@ -155,7 +152,8 @@ final class HomeController: UIViewController {
     // MARK: - Button Actions
     @objc private func searchButtonPressed(_ sender: Any) {
         UIImpactFeedbackGenerator().impactOccurred()
-        searchBar.show()
+        hideBackButtonTitle()
+        navigationController?.pushViewController(SearchController(), animated: true)
     }
     
     private func showPersonDetails(withPerson: Person) {
@@ -189,7 +187,7 @@ extension HomeController: UICollectionViewDelegateFlowLayout {
             // nothing for now
         } else if collectionView === peopleCollectionView {
             // People CollectionView
-            
+            guard peopleDataSourceHelper.section(at: indexPath.section) == .main else { return }
             guard let selectedPerson = peopleDataSourceHelper.person(at: indexPath.item) else { return }
             self.showPersonDetails(withPerson: selectedPerson)
         }

@@ -8,7 +8,10 @@
 
 import UIKit
 
-class ImageWithBlurView: UIView {
+final class ImageWithBlurView: UIView {
+    
+    @DependencyInject private var imageService: ImageService
+
     // MARK: - View
     lazy var visualEffectView: UIVisualEffectView = {
         let effect = UIBlurEffect(style: .dark)
@@ -67,7 +70,7 @@ class ImageWithBlurView: UIView {
     
     // MARK: - Method
     public func setup(withURLString string: String?) {
-        frontImageView.populate(withURL: string)
-        bgImageView.populate(withURL: string)
+        imageService.populate(imageView: frontImageView, withURLString: string)
+        imageService.populate(imageView: bgImageView, withURLString: string)
     }
 }

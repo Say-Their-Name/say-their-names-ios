@@ -26,7 +26,8 @@ import UIKit
 
 final class PersonCell: UICollectionViewCell {
     @DependencyInject private var dateFormatter: DateFormatterService
-    
+    @DependencyInject private var imageService: ImageService
+
     private lazy var profileImageView: UIImageView = {
         let imgV = UIImageView()
         imgV.contentMode = .scaleAspectFill
@@ -99,7 +100,7 @@ final class PersonCell: UICollectionViewCell {
     }
     
     func configure(with person: Person) {
-        profileImageView.populate(withURL: person.images.first?.personURL)
+        imageService.populate(imageView: profileImageView, withURLString: person.images.first?.personURL)
         nameLabel.text = person.fullName.localizedUppercase
         dateOfIncidentLabel.text = self.dateFormatter.dateOfIncidentString(from: person.doi)
     }
@@ -124,7 +125,7 @@ final class PersonCell: UICollectionViewCell {
             bookmarkButton.topAnchor.constraint(equalTo: nameLabel.topAnchor),
             bookmarkButton.trailingAnchor.constraint(equalTo: labelsAndButtonContainer.trailingAnchor),
 
-            profileImageView.heightAnchor.constraint(lessThanOrEqualTo: containerStack.heightAnchor, multiplier: 0.8),
+            profileImageView.heightAnchor.constraint(equalTo: containerStack.heightAnchor, multiplier: 0.8),
 
             labelsAndButtonContainer.heightAnchor.constraint(greaterThanOrEqualTo: containerStack.heightAnchor, multiplier: 0.2, constant: -20)
         ])

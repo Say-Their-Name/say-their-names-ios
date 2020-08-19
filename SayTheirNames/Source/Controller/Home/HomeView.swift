@@ -130,8 +130,7 @@ final class HomeView: UIView {
     override func didMoveToSuperview() {
         super.didMoveToSuperview()
         createLayout()
-        backgroundColor = UIColor(asset: STNAsset.Color.black) // needed?
-        
+        backgroundColor = UIColor(asset: STNAsset.Color.background)
     }
     
     private var hasLayedOutSubviews = false
@@ -140,10 +139,10 @@ final class HomeView: UIView {
         hasLayedOutSubviews = true        
 
         let collections = UIView()
-        collections.backgroundColor = .systemBackground
+        collections.backgroundColor = UIColor(asset: STNAsset.Color.background)
         addSubview(collections)
-        locationCollectionView.backgroundColor = .systemBackground
-        peopleCollectionView.backgroundColor = .systemBackground
+        locationCollectionView.backgroundColor = UIColor(asset: STNAsset.Color.background)
+        peopleCollectionView.backgroundColor = UIColor(asset: STNAsset.Color.background)
         
         collections.anchor(
             superView: self,
