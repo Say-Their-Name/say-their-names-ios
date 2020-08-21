@@ -71,14 +71,13 @@ final class HomeController: UIViewController {
     private var peopleCollectionView: UICollectionView { homeView.peopleCollectionView }    
     
     // MARK: - ClASS METHODS
-    override func loadView() {
-        self.view = homeView
-        homeView.peopleDataSource = peopleDataSourceHelper
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+    
         navigationItem.title = L10n.sayTheirNames.localizedUppercase
+        
+        setupHomeView()
         setupCollectionView()
         setupSearchButton()
         setupPaginator()
@@ -100,6 +99,17 @@ final class HomeController: UIViewController {
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
+    }
+    
+    private func setupHomeView() {
+        homeView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(homeView)
+        homeView.peopleDataSource = peopleDataSourceHelper
+
+        homeView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        homeView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        homeView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        homeView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
     }
     
     private func setupSearchButton() {
@@ -139,6 +149,8 @@ final class HomeController: UIViewController {
             .init(title: "#BLACKLIVESMATTER", description: "How to get involved")
             ] : []
         
+        self.peopleDataSourceHelper.setPeople([], carouselData: carouselData)
+
         paginator.firstPageDataLoadedHandler = { [weak self] (data: [Person]) in
             self?.peopleDataSourceHelper.setPeople(data, carouselData: carouselData)
         }
