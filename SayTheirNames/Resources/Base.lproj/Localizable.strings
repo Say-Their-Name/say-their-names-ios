@@ -4,7 +4,7 @@
  * Release: Working copy
  * Locale: en, English 
  * Exported by: Say Their Names
- * Exported at: Sat, 13 Jun 2020 04:22:34 +0200
+ * Exported at: Sat, 12 Sep 2020 23:55:01 +0200
  */
 
 /* loco:5ee29770f904c5151c1a2061 */
@@ -154,3 +154,6 @@
 
 /* loco:5ee4006f0b8b33673137f992 */
 "people.hero_text" = "Delayed justice is injustice. Join the fight for justice. Sign petitions and donate today.";
+
+/* loco:5f3c0ad0a68ecf2bc95d2ef3 */
+"search.placeholder" = "Search for names";
