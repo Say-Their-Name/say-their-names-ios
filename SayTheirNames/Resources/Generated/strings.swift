@@ -131,6 +131,11 @@ internal enum L10n {
     /// REQUEST AN EDIT OR REMOVAL
     internal static let title = L10n.tr("Localizable", "request_edit_or_removal.title")
   }
+
+  internal enum Search {
+    /// Search for names
+    internal static let placeholder = L10n.tr("Localizable", "search.placeholder")
+  }
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name

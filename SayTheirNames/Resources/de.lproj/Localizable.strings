@@ -1,0 +1,159 @@
+/*
+ * Loco ios export: iOS Localizable.strings
+ * Project: Say Their Names
+ * Release: Working copy
+ * Locale: de, German
+ * Exported by: Say Their Names
+ * Exported at: Sat, 12 Sep 2020 23:55:43 +0200
+ */
+
+/* loco:5ee29770f904c5151c1a2061 */
+"home" = "Startseite";
+
+/* loco:5ee29770f904c5151c1a2062 */
+"donations" = "Spenden";
+
+/* loco:5ee29770f904c5151c1a2063 */
+"petitions" = "Petitionen";
+
+/* loco:5ee29770f904c5151c1a2064 */
+"about" = "Über";
+
+/* loco:5ee29770f904c5151c1a2065 */
+"cancel" = "Abbrechen";
+
+/* loco:5ee29770f904c5151c1a2066 */
+"find_out_more" = "FINDE MEHR HERAUS";
+
+/* loco:5ee29770f904c5151c1a2067 */
+"verified" = "verifiziert";
+
+/* loco:5ee29770f904c5151c1a2068 */
+"filter_all" = "ALLE";
+
+/* loco:5ee29770f904c5151c1a2069 */
+"filter_businesses" = "GESCHÄFTE";
+
+/* loco:5ee29770f904c5151c1a206a */
+"filter_protesters" = "PROTESTIERENDE";
+
+/* loco:5ee29770f904c5151c1a206b */
+"filter_victims" = "OPFER";
+
+/* loco:5ee29770f904c5151c1a206c */
+"share" = "Teilen";
+
+/* loco:5ee29770f904c5151c1a206d */
+"close" = "Schließen";
+
+/* loco:5ee29770f904c5151c1a206e */
+"say_their_names" = "Sag deren Namen";
+
+/* loco:5ee29770f904c5151c1a206f */
+"bookmark" = "Lesezeichen";
+
+/* loco:5ee29770f904c5151c1a2070 */
+"search" = "Suche";
+
+/* loco:5ee29770f904c5151c1a2071 */
+"donate" = "Spende";
+
+/* loco:5ee29770f904c5151c1a2072 */
+"DONATE NOW" = "SPENDE JETZT";
+
+/* loco:5ee29770f904c5151c1a2073 */
+"description" = "Beschreibung";
+
+/* loco:5ee29770f904c5151c1a2074 */
+"person.say_their_names" = "Sag deren Namen";
+
+/* loco:5ee29770f904c5151c1a2075 */
+"person.age" = "Alter";
+
+/* loco:5ee29770f904c5151c1a2076 */
+"person.children" = "Kinder";
+
+/* loco:5ee29770f904c5151c1a2077 */
+"person.location" = "Ort";
+
+/* loco:5ee29770f904c5151c1a2078 */
+"person.their_story" = "Ihre Geschichte";
+
+/* loco:5ee29770f904c5151c1a2079 */
+"person.outcome" = "Ergebnis";
+
+/* loco:5ee29770f904c5151c1a207a */
+"person.news" = "Neuigkeiten";
+
+/* loco:5ee29770f904c5151c1a207b */
+"person.media" = "Medien";
+
+/* loco:5ee29770f904c5151c1a207c */
+"person.hashtags" = "Social Media Hashtags";
+
+/* loco:5ee29770f904c5151c1a207d */
+"person.hashtagCopyTip" = "Drücken und halten zum Kopieren";
+
+/* loco:5ee29770f904c5151c1a207e */
+"person.copied" = "Kopiert";
+
+/* loco:5ee29770f904c5151c1a207f
+ * Get Involved - Slack */
+"get_involved.slack.title" = "WIE KANN ICH MICH BETEILIGEN?";
+
+/* loco:5ee29770f904c5151c1a2080 */
+"get_involved.slack.button" = "TRITT UNSEREM SLACK KANAL BEI";
+
+/* loco:5ee29770f904c5151c1a2082
+ * Get Involved - Developer */
+"get_involved.developer.title" = "WIE KANN ICH MICH ALS ENTWICKLER BETEILIGEN?";
+
+/* loco:5ee29770f904c5151c1a2083 */
+"get_involved.developer.button" = "UNSER GITHUB ANSEHEN";
+
+/* loco:5ee29770f904c5151c1a2085
+ * Get Involved - Twitter */
+"get_involved.twitter.title" = "SCHLIEßE DICH UNS AUF TWITTER AN";
+
+/* loco:5ee29770f904c5151c1a2086 */
+"get_involved.twitter.button" = "FOLGE UNS";
+
+/* loco:5ee29770f904c5151c1a2088
+ * More */
+"more_history.aboutTitle" = "ETWAS GESCHICHTE ÜBER DIE \"SAY THEIR NAMES\" BEWEGUNG";
+
+/* loco:5ee29770f904c5151c1a2089 */
+"more_history.aboutDesc" = "Say Their Names ist eine soziale Bewegung zur Sensibilisierung für alle schwarzen Opfer von Rassenungleichheit auf der ganzen Welt. Diese Bewegung unterstützt die gesamte Black Lives Matter-Bewegung und hat zum Ziel, Personen hervorzuheben, die von anti-schwarzer Gewalt betroffen sind. Say Their Names Bewegung erregt Aufmerksamkeit und fordert Gerechtigkeit für alle Opfer.";
+
+/* loco:5ee29770f904c5151c1a208a */
+"massive_thank_you" = "EIN HERZLICHES DANKESCHÖN AN ALLE BETEILIGTEN";
+
+/* loco:5ee2ce86663b704aa41688f2 */
+"sign" = "Unterschreibe diese Petition";
+
+/* loco:5ee376d765812927aa78d0a2 */
+"about_this_project.title" = "Über das Projekt";
+
+/* loco:5ee376dd6ca9905dc077cd32 */
+"about-this-project-details" = "Willkommen zum \"Say Their Names\" Projekt. Unser Ziel ist es, eine Open-Source-Plattform aufzubauen, um das Bewusstsein für die Ungerechtigkeit und die oft vergessenen Namen der Rassenungleichheit zu schärfen. Wir bemühen uns, verifizierte Organisationen zu identifizieren und zu erweitern, um sicherzustellen, dass die Spenden diejenigen erreichen, die damit die größte Wirkung erzielen können.";
+
+/* loco:5ee376e9fefc8d5f7d7f0e72 */
+"request_edit_or_removal.title" = "EINE BEARBEITUNG ODER ENTFERNUNG BEANTRAGEN";
+
+/* loco:5ee376f7a2df5b67a6141ad6 */
+"request_edit_or_removal.details" = "Wenn Sie eine Änderung auf einer Opferseite vorschlagen möchten oder wenn Sie ein Vertreter des Opfers sind und möchten, dass das Opfer aus diesem Verzeichnis entfernt wird, senden Sie uns bitte eine Nachricht auf Twitter.";
+
+/* loco:5ee376fed7ad1f1f67343376 */
+"twitter" = "Twitter";
+
+/* loco:5ee3770bbf547555e3273462 */
+"did_we_miss_someone" = "HABEN WIR JEMANDEN VERGESSEN?";
+
+/* loco:5ee37712b985865d84496cd7 */
+"request_to_add_new_name" = "HINZUFÜGEN EINES NAMENS BEANTRAGEN";
+
+/* loco:5ee4006f0b8b33673137f992 */
+"people.hero_text" = "Verspätete Gerechtigkeit ist Ungerechtigkeit. Schließen Sie sich dem Kampf für Gerechtigkeit an. Unterzeichnen Sie Petitionen und spenden Sie noch heute.";
+
+/* loco:5f3c0ad0a68ecf2bc95d2ef3 */
+"search.placeholder" = "Suche nach Namen";
