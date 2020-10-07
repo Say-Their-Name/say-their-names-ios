@@ -26,7 +26,7 @@ import UIKit
 
 enum MoreLinks {
     static let github = "https://github.com/Say-Their-Name/"
-    static let slack = "https://saytheirnames.slack.com/join/shared_invite/zt-eqjuatz7-fgh3zPRXIKiiXsC1Vf3oZA#/"
+    static let slack = "https://bit.ly/join-our-saytheirnames-slack"
     static let twitter = "https://twitter.com/SayTheirName_io"
     static let contributeToTheList = "https://airtable.com/shr6Da28410B2Muy3"
 }

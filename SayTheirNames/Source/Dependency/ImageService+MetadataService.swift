@@ -1,5 +1,5 @@
 //
-//  FileDataProvider.swift
+//  ImageService+MetadataService.swift
 //  SayTheirNames
 //
 //  Copyright (c) 2020 Say Their Names Team (https://github.com/Say-Their-Name)
@@ -22,10 +22,21 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-import Foundation
+import UIKit
 
-/// Provides data for a file
-protocol FileDataProvider {
-    /// The file data
-    var fileData: Data? { get }
+final class ImageServiceBasedCache: MetadataImageCache {
+    
+    let imageService: ImageService
+    
+    init(imageService: ImageService) {
+        self.imageService = imageService
+    }
+    
+    func store(_ image: UIImage, with key: String) {
+        imageService.storeImage(image, forKey: key, completion: nil)
+    }
+    
+    func fetchImage(with key: String) -> UIImage? {
+        return imageService.imageFromCache(forKey: key)
+    }
 }

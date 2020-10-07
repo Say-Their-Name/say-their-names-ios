@@ -7,11 +7,11 @@
 //
 
 import UIKit
-import SDWebImage
 
 class PersonNewsCollectionViewCell: UICollectionViewCell {
  
     @DependencyInject private var metadata: MetadataService
+    @DependencyInject private var imageService: ImageService
     private var news: News?
 
     lazy var newsImageView: UIImageView = {
@@ -33,7 +33,7 @@ class PersonNewsCollectionViewCell: UICollectionViewCell {
     }()
     
     lazy var loadingIndicator: UIActivityIndicatorView = {
-        let view = SDWebImageActivityIndicator.gray.indicatorView
+        let view = imageService.makeActivityIndicator()
         view.hidesWhenStopped = true
         return view
     }()

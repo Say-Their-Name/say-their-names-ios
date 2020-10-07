@@ -66,6 +66,7 @@ final class CarouselCollectionViewCell: UICollectionViewCell {
         //setup cell
         configureView()
         configureText(data: data)
+        configureAccessibility(data: data)
     }
 
     private func configureText(data: HeaderCellContent) {
@@ -92,6 +93,11 @@ final class CarouselCollectionViewCell: UICollectionViewCell {
                                      bottom: 16,
                                      right: 0))
         }
+    }
+    
+    private func configureAccessibility(data: HeaderCellContent) {
+        let components: [String] = [data.title, data.description].compactMap { $0 }
+        accessibilityLabel = components.joined(separator: " ")
     }
     
     override func prepareForReuse() {

@@ -22,7 +22,7 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-import Foundation
+import UIKit
 
 struct Person: Decodable {
     let id: Int
@@ -104,6 +104,20 @@ struct Person: Decodable {
 
         let doi = try container.decodeIfPresent(TimeInterval.self, forKey: .doi) ?? 0
         self.doi = Date(timeIntervalSince1970: doi)
+    }
+}
+
+extension Person: SearchResult {
+    var image: UIImage? {
+        nil // STNAsset.Image.userCircle.image
+    }
+    
+    var title: String {
+        fullName
+    }
+    
+    var subtitle: String? {
+        nil
     }
 }
 

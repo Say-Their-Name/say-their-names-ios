@@ -53,6 +53,6 @@ class CallToActionCollectionView: UICollectionView {
     }
     
     private func setupSelf() {
-        backgroundColor = .systemBackground
+        backgroundColor = UIColor(asset: STNAsset.Color.background)
     }
 }

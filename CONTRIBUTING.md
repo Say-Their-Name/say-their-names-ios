@@ -8,10 +8,11 @@ get started.
 ## Community
 
 This project is run by a community of volunteers. The community communicates
-via a slack workspace, and to-dos are maintained on respective Trello boards.
-[Link to the iOS board](https://trello.com/b/XhG385ND/say-their-names-ios)
+via a Slack workspace, and to-dos are maintained via GitHub issues. 
+Previously tickets were tracked on a
+[Trello board](https://trello.com/b/XhG385ND/say-their-names-ios), which is now deprecated. 
 
-If you would like to join the slack workspace, use [this link](https://join.slack.com/t/saytheirnames/shared_invite/zt-eqjuatz7-fgh3zPRXIKiiXsC1Vf3oZA).
+If you would like to join the slack workspace, use [this link](https://bit.ly/join-our-saytheirnames-slack).
 
 ## Useful resources
 
@@ -38,16 +39,18 @@ development.
 
 ### Making a PR
 
-When making a PR, add a meaningful title and description.
+When making a PR, try to specify a meaningful title and description.
 
-If any development is done on the UI (additions or non-trivial changes), please
-include a screenshot of the change.
+If the PR resolves a tracked issue, mention it in the description.
+
+If any development is done on the UI (additions or non-trivial changes), it's 
+a good idea to include a screenshot of the change.
 
 Add `Say-Their-Name/ios` group as a reviewer, so all iOS contributors get a notification.
 
 ### Reviewing a PR
 
-Anyone is welcome to chip in with input on pull requests, the more the merrier.
+Anyone is welcome to chip in with input on pull requests, the more the merrier!
 
 When providing feedback try to be kind and keep in mind that everyone working on
 the project is a volunteer.
@@ -57,6 +60,7 @@ When you provide non-critical feedback or optional suggestions, use "Comment" or
 should block the PR.
 
 ### Commits
+
 We are using the following conventions to identify what the commit is doing:
 
 - **CHORE:** Any code level improvement, that doesn't affect the user directly.
@@ -112,11 +116,11 @@ Using Auto Layout helps with making interfaces adaptive, so it's encouraged to u
 
 ### Unit testing
 
-It is encouraged to include unit tests together with the code. That way we can
+It is encouraged to include unit tests together with the logic code. That way we can
 be sure that the code continues to work as the time goes.
-Please cover at least some scenarios, or even pair with
-someone on the task. Worst case, if unable to add tests,
-please create a to-do task on the iOS Trello board.
+Try to cover at least some scenarios, or even pair with
+someone on the task. If unable to add tests with the implementation,
+create a GitHub issue for adding corresponding coverage.
 
 There is no UI testing set up yet, though there is an ongoing effort.
 
@@ -143,11 +147,6 @@ Anyone can review a pull request, but only reviews of members with write access 
 
 When the PR is all-green (got required approvals and CI passed), anyone can merge the PR, unless mentioned in the comments not to. 
 If the PR has conflicts, sometimes one of the maintainers will resolve them to merge quickly, but generally the PR author is expected to bring the PR to a mergeable state and merge it.
-
-### Who moves cards on the Trello board?
-
-When you pick up a task, move the card from To-Do to In progress column, then to In Review when PR is created, and to Complete once the PR(s) are merged. 
-Sometimes maintainers might move cards if they are left in outdated state. 
 
 ### Who are the maintainers? 
 

@@ -29,6 +29,8 @@ final class CallToActionCell: UICollectionViewCell {
     var id: Int?
     var executeAction: ((Int?) -> Void)?
     
+    @DependencyInject private var imageService: ImageService
+
     private lazy var imageView = UIImageView.create {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.contentMode = .scaleAspectFill
@@ -134,7 +136,7 @@ final class CallToActionCell: UICollectionViewCell {
         actionButton.setTitle(cta.actionTitle, for: .normal)
         bodyLabel.text = cta.body
         if FeatureFlags.callToActionCellImageShown {
-            imageView.populate(withURL: cta.imagePath)
+            imageService.populate(imageView: imageView, withURLString: cta.imagePath)
             tagView.isHidden = cta.tag == nil || cta.tag?.isEmpty == true
             cta.tag.flatMap { tagView.setTitle(to: $0) }
         }

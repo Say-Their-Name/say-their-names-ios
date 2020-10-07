@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "1024.png",
+      "filename" : "user_circle.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "user_circle@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "user_circle@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
@@ -17,5 +19,8 @@
   "info" : {
     "author" : "xcode",
     "version" : 1
+  },
+  "properties" : {
+    "template-rendering-intent" : "template"
   }
 }

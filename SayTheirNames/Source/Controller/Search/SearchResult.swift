@@ -1,5 +1,5 @@
 //
-//  ImageProvider.swift
+//  SearchResult.swift
 //  SayTheirNames
 //
 //  Copyright (c) 2020 Say Their Names Team (https://github.com/Say-Their-Name)
@@ -24,7 +24,8 @@
 
 import UIKit
 
-/// Protocol that suggests the conformants provide a `UIImage`
-protocol ImageProvider {
+protocol SearchResult {
     var image: UIImage? { get }
+    var title: String { get }
+    var subtitle: String? { get }
 }

@@ -84,16 +84,33 @@ final class HomeView: UIView {
             
             case .main:
                 
+                let sizeCategory = layoutEnviroment.traitCollection.preferredContentSizeCategory
+                let heightMultiplier: CGFloat
+                if sizeCategory >= .accessibilityExtraLarge {
+                    heightMultiplier = 1.5
+                }
+                else if sizeCategory >= .accessibilityMedium {
+                    heightMultiplier = 1.3
+                }
+                else if sizeCategory >= .extraExtraLarge {
+                    heightMultiplier = 1.15
+                }
+                else {
+                    heightMultiplier = 1.0
+                }
+                
+                let height: CGFloat = Theme.Screens.Home.CellSize.peopleHeight * CGFloat(heightMultiplier)
+
                 let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
                 let layoutItem = NSCollectionLayoutItem(layoutSize: itemSize)
 
-                let height = Theme.Screens.Home.CellSize.peopleHeight
                 let columns = deviceWidth == .compact ? Theme.Screens.Home.Columns.compactScreenWidth : Theme.Screens.Home.Columns.wideScreenWidth
                 let layoutGroupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(height))
                 let group = NSCollectionLayoutGroup.horizontal(layoutSize: layoutGroupSize, subitem: layoutItem, count: columns)
                 group.interItemSpacing = .fixed(Self.horizontalPaddingBetween)
                 
                 let mainSection = NSCollectionLayoutSection(group: group)
+                mainSection.interGroupSpacing = Self.horizontalPaddingBetween * 2
                 section = mainSection
                 
             case .header:
@@ -130,8 +147,7 @@ final class HomeView: UIView {
     override func didMoveToSuperview() {
         super.didMoveToSuperview()
         createLayout()
-        backgroundColor = UIColor(asset: STNAsset.Color.black) // needed?
-        
+        backgroundColor = UIColor(asset: STNAsset.Color.background)
     }
     
     private var hasLayedOutSubviews = false
@@ -140,10 +156,10 @@ final class HomeView: UIView {
         hasLayedOutSubviews = true        
 
         let collections = UIView()
-        collections.backgroundColor = .systemBackground
+        collections.backgroundColor = UIColor(asset: STNAsset.Color.background)
         addSubview(collections)
-        locationCollectionView.backgroundColor = .systemBackground
-        peopleCollectionView.backgroundColor = .systemBackground
+        locationCollectionView.backgroundColor = UIColor(asset: STNAsset.Color.background)
+        peopleCollectionView.backgroundColor = UIColor(asset: STNAsset.Color.background)
         
         collections.anchor(
             superView: self,

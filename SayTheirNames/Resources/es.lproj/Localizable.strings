@@ -1,0 +1,156 @@
+/*
+ * Loco ios export: iOS Localizable.strings
+ * Project: Say Their Names
+ * Release: Working copy
+ * Locale: es, Spanish
+ * Exported by: Say Their Names
+ * Exported at: Sat, 13 Jun 2020 04:22:37 +0200
+ */
+
+/* loco:5ee29770f904c5151c1a2061 */
+"home" = "Inicio";
+
+/* loco:5ee29770f904c5151c1a2062 */
+"donations" = "Donaciones";
+
+/* loco:5ee29770f904c5151c1a2063 */
+"petitions" = "Peticiones";
+
+/* loco:5ee29770f904c5151c1a2064 */
+"about" = "Más Información";
+
+/* loco:5ee29770f904c5151c1a2065 */
+"cancel" = "Cancelar";
+
+/* loco:5ee29770f904c5151c1a2066 */
+"find_out_more" = "APRENDE MÁS";
+
+/* loco:5ee29770f904c5151c1a2067 */
+"verified" = "verificado";
+
+/* loco:5ee29770f904c5151c1a2068 */
+"filter_all" = "TODOS";
+
+/* loco:5ee29770f904c5151c1a2069 */
+"filter_businesses" = "EMPRESAS";
+
+/* loco:5ee29770f904c5151c1a206a */
+"filter_protesters" = "MANIFESTANTES";
+
+/* loco:5ee29770f904c5151c1a206b */
+"filter_victims" = "VÍCTIMAS";
+
+/* loco:5ee29770f904c5151c1a206c */
+"share" = "Compartir";
+
+/* loco:5ee29770f904c5151c1a206d */
+"close" = "Cerrar";
+
+/* loco:5ee29770f904c5151c1a206e */
+"say_their_names" = "Di sus nombres";
+
+/* loco:5ee29770f904c5151c1a206f */
+"bookmark" = "Marcar";
+
+/* loco:5ee29770f904c5151c1a2070 */
+"search" = "Buscar";
+
+/* loco:5ee29770f904c5151c1a2071 */
+"donate" = "Dona";
+
+/* loco:5ee29770f904c5151c1a2072 */
+"DONATE NOW" = "DONA AHORA";
+
+/* loco:5ee29770f904c5151c1a2073 */
+"description" = "Descripción";
+
+/* loco:5ee29770f904c5151c1a2074 */
+"person.say_their_names" = "Di sus nombres";
+
+/* loco:5ee29770f904c5151c1a2075 */
+"person.age" = "Edad";
+
+/* loco:5ee29770f904c5151c1a2076 */
+"person.children" = "Hijos";
+
+/* loco:5ee29770f904c5151c1a2077 */
+"person.location" = "Ubicación";
+
+/* loco:5ee29770f904c5151c1a2078 */
+"person.their_story" = "Su Historia";
+
+/* loco:5ee29770f904c5151c1a2079 */
+"person.outcome" = "Resultado";
+
+/* loco:5ee29770f904c5151c1a207a */
+"person.news" = "Noticias";
+
+/* loco:5ee29770f904c5151c1a207b */
+"person.media" = "Medios de Comunicación";
+
+/* loco:5ee29770f904c5151c1a207c */
+"person.hashtags" = "Hashtags de Redes Sociales";
+
+/* loco:5ee29770f904c5151c1a207d */
+"person.hashtagCopyTip" = "Mantenga presionado para copiar";
+
+/* loco:5ee29770f904c5151c1a207e */
+"person.copied" = "Copiado";
+
+/* loco:5ee29770f904c5151c1a207f
+ * Get Involved - Slack */
+"get_involved.slack.title" = "¿COMO PARTICIPO?";
+
+/* loco:5ee29770f904c5151c1a2080 */
+"get_involved.slack.button" = "PARTICIPA EN SLACK";
+
+/* loco:5ee29770f904c5151c1a2082
+ * Get Involved - Developer */
+"get_involved.developer.title" = "¿COMO PUEDO PARTICIPAR COMO UN PROGRAMADOR?";
+
+/* loco:5ee29770f904c5151c1a2083 */
+"get_involved.developer.button" = "VISITA NUESTRO GITHUB";
+
+/* loco:5ee29770f904c5151c1a2085
+ * Get Involved - Twitter */
+"get_involved.twitter.title" = "PARTICIPA EN TWITTER";
+
+/* loco:5ee29770f904c5151c1a2086 */
+"get_involved.twitter.button" = "SIGUENOS";
+
+/* loco:5ee29770f904c5151c1a2088
+ * More */
+"more_history.aboutTitle" = "UN POCO DE HISTORIA SOBRE EL MOVIMIENTO DI SUS NOMBRES";
+
+/* loco:5ee29770f904c5151c1a2089 */
+"more_history.aboutDesc" = "Di Sus Nombres es un movimiento social para aumentar conocimiento de todas la víctimas de piel oscura que han sufrido la injusticia social alrededor del mundo. Este movimiento apoya el movimiento Black Lives Matter y aspira a destacar los individuales que han sido afectados por la violencia contra las personas de piel oscura. El movimiento Di Sus Nombres llama atención a la injusticia y demanda justicia para todas las víctimas.";
+
+/* loco:5ee29770f904c5151c1a208a */
+"massive_thank_you" = "UN AGRADECIMIENTO MASIVO A TODOS LOS INVOLUCRADOS";
+
+/* loco:5ee2ce86663b704aa41688f2 */
+"sign" = "Firma la petición";
+
+/* loco:5ee376d765812927aa78d0a2 */
+"about_this_project.title" = "Sobre este projecto";
+
+/* loco:5ee376dd6ca9905dc077cd32 */
+"about-this-project-details" = "Bienvenido al projecto Di Sus Nombres. Nuestra misión es crear una plataforma de código abierto para aumentar el conocimiento de la injusticia y nombres que son olvidados frecuentemente por la injusticia racial. Nos esforzamos para identificar y ampliar organizaciones verificadas para asegurarnos que las donaciones lleguen a aquellos a los cuales el impacto sea major con ellas";
+
+/* loco:5ee376e9fefc8d5f7d7f0e72 */
+"request_edit_or_removal.title" = "SOLICITE UN CAMBIO O ELIMINACIÓN";
+
+/* loco:5ee376f7a2df5b67a6141ad6 */
+"request_edit_or_removal.details" = "Si esta interesado en proponer una modificación al perfil de una víctima o si es un representante de una víctima y quisiera la eliminación de la víctima de este directorio, por favor no dude en enviarnos un mensaje por Twitter.";
+
+/* loco:5ee376fed7ad1f1f67343376 */
+"twitter" = "Twitter";
+
+/* loco:5ee3770bbf547555e3273462 */
+"did_we_miss_someone" = "¿SE NOS OLVIDÓ ALGUIEN?";
+
+/* loco:5ee37712b985865d84496cd7 */
+"request_to_add_new_name" = "AGREGE SU NOMBRE";
+
+/* loco:5ee4006f0b8b33673137f992 */
+"people.hero_text" = "Justicia retrasada es injusticia. Únete a nosotros en la lucha por la justicia. Firma las peticiones y dona hoy.";
