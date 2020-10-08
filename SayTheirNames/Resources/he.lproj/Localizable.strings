@@ -4,7 +4,7 @@
  * Release: Working copy
  * Locale: he, Hebrew
  * Exported by: Say Their Names
- * Exported at: Sat, 03 Oct 2020 22:32:30 +0200
+ * Exported at: Thu, 08 Oct 2020 22:31:04 +0200
  */
 
 /* loco:5ee29770f904c5151c1a2061 */
@@ -14,7 +14,7 @@
 "donations" = "תרומות";
 
 /* loco:5ee29770f904c5151c1a2063 */
-"petitions" = "Petitions";
+"petitions" = "עתירות";
 
 /* loco:5ee29770f904c5151c1a2064 */
 "about" = "אודות";
@@ -35,10 +35,10 @@
 "filter_businesses" = "עסקים";
 
 /* loco:5ee29770f904c5151c1a206a */
-"filter_protesters" = "PROTESTERS";
+"filter_protesters" = "מפגינים";
 
 /* loco:5ee29770f904c5151c1a206b */
-"filter_victims" = "VICTIMS";
+"filter_victims" = "קורבנות";
 
 /* loco:5ee29770f904c5151c1a206c */
 "share" = "שתף";
@@ -89,10 +89,10 @@
 "person.media" = "מדיה";
 
 /* loco:5ee29770f904c5151c1a207c */
-"person.hashtags" = "Social Media Hashtags";
+"person.hashtags" = "האשטאגים למדיה חברתית";
 
 /* loco:5ee29770f904c5151c1a207d */
-"person.hashtagCopyTip" = "Press and hold to copy";
+"person.hashtagCopyTip" = "לחץ והחזק כדי להעתיק";
 
 /* loco:5ee29770f904c5151c1a207e */
 "person.copied" = "מועתק";
@@ -102,14 +102,14 @@
 "get_involved.slack.title" = "איך אני יכול לעזור?";
 
 /* loco:5ee29770f904c5151c1a2080 */
-"get_involved.slack.button" = "JOIN OUR SLACK CHANNEL";
+"get_involved.slack.button" = "להצטרף לערוץ ה״Slack״ שלנו";
 
 /* loco:5ee29770f904c5151c1a2082
  * Get Involved - Developer */
-"get_involved.developer.title" = "HOW DO I GET INVOLVED AS A DEVELOPER?";
+"get_involved.developer.title" = "איך ניתן להצטרף לצוות המפתחים שלנו?";
 
 /* loco:5ee29770f904c5151c1a2083 */
-"get_involved.developer.button" = "VIEW OUR GITHUB";
+"get_involved.developer.button" = "לריפו שלנו בגיטהאב";
 
 /* loco:5ee29770f904c5151c1a2085
  * Get Involved - Twitter */
@@ -120,10 +120,10 @@
 
 /* loco:5ee29770f904c5151c1a2088
  * More */
-"more_history.aboutTitle" = "SOME HISTORY ON THE SAY THEIR NAMES MOVEMENT";
+"more_history.aboutTitle" = "קצת רקע על תנועת ״אמרו את שמם״";
 
 /* loco:5ee29770f904c5151c1a2089 */
-"more_history.aboutDesc" = "Say Their Names is a social movement to raise awareness for all the black victims of racial inequality all around the world. This movement is in support of the overall Black Lives Matter movement and aims to highlight individuals affected by anti-Black Violence. Say Their Names movement calls attention and demands justice for all victims.";
+"more_history.aboutDesc" = "״אמרו את שמם״ היא תנועה חברתית להעלאת מודעות אודות קורבנות מגזענות ממוסדת בעולם. התנועה קיימת במקביל ובתור תנועה תומכת בתנועה הרחבה יותר של Black Lives Matter. מטרת התנועה היא להצביע באופן פרטני על אנשים שנפגעו מאלימות נגד שחורים. ״אמרו את שמם״ מנסה להפנות את תשומת לב החברה לסיפורים אישיים ודורש צדק לכלל הקורבנות.";
 
 /* loco:5ee29770f904c5151c1a208a */
 "massive_thank_you" = "תודה ענקית לכל המעורבים";
@@ -135,13 +135,13 @@
 "about_this_project.title" = "על פרויקט זה";
 
 /* loco:5ee376dd6ca9905dc077cd32 */
-"about-this-project-details" = "Welcome to the Say Their Names Project. Our aim is to build an open-source platform to raise awareness of the injustice and often forgotten names of racial inequality. We strive to identify and amplify verified organizations to ensure donations are reaching those who can make the most impact with it.";
+"about-this-project-details" = "ברוכים הבאים לפרויקט ״אמרו את שמם״. מטרתנו לבנות פלטפורמת אופנסורס על מנת להגביר מודעות למקרי אי צדק על רקע גזע ולהזכיר את שמותם הנשכחות של קורבנות עוול גזעני. אנו שואפים לזהות ולתמוך בארגונים מאומתים בכדי לוודא שתרומות מגיעות לידי אנשים שיכולים להשפיע ברמה הגבוהה ביותר.";
 
 /* loco:5ee376e9fefc8d5f7d7f0e72 */
 "request_edit_or_removal.title" = "לבקשת שינוי או מחיקה ";
 
 /* loco:5ee376f7a2df5b67a6141ad6 */
-"request_edit_or_removal.details" = "If you would like to propose an edit to a victim page or if you are a representative of the victim and would like the victim to be removed from this directory please send us a message on Twitter.";
+"request_edit_or_removal.details" = "אם תרצה להציע שינוי לעמוד הקורבן אי אם הינך נציג של הקורבן וברצונך למחוק את שמו מהאפליקציה, נא לפנות אלינו בהודעה פרטית בטוויטר";
 
 /* loco:5ee376fed7ad1f1f67343376 */
 "twitter" = "טוויטר";
@@ -156,4 +156,4 @@
 "people.hero_text" = "צדק מעוכב הוא אי צדק. הצטרף למאבק למען הצדק. חתום על עצומות ותרום היום.";
 
 /* loco:5f3c0ad0a68ecf2bc95d2ef3 */
-"search.placeholder" = "Search for names";
+"search.placeholder" = "חפש שמות";
