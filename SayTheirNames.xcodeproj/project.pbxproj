@@ -205,6 +205,7 @@
 		3A33EF64248ABC7500580D1E /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		3A33EF66248AC1D700580D1E /* UIEdgeInsets+init.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets+init.swift"; sourceTree = "<group>"; };
 		4E09B7306596AE2549FC2488 /* Pods_SayTheirNames.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SayTheirNames.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4F8169162532A5C900FBCB51 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5B0D132A249265B200E81132 /* HeroContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroContent.swift; sourceTree = "<group>"; };
 		5B0D132E24926C6000E81132 /* HeroTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroTextCell.swift; sourceTree = "<group>"; };
 		5B0D13302492EC5100E81132 /* Say Their Names.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Say Their Names.entitlements"; sourceTree = "<group>"; };
@@ -1136,6 +1137,7 @@
 				nl,
 				es,
 				de,
+				id,
 			);
 			mainGroup = 5B3ED7332481C9F40033FF79;
 			productRefGroup = 5B3ED73D2481C9F50033FF79 /* Products */;
@@ -1509,6 +1511,7 @@
 				1846CA492493E9BA00792086 /* nl */,
 				71E4D76224946FB100ED0B5E /* es */,
 				B4F32F92250D7B5900501DDB /* de */,
+				4F8169162532A5C900FBCB51 /* id */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
