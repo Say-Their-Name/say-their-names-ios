@@ -9,7 +9,7 @@ function download_url {
 }
 
 function destination_path {
-  echo "../SayTheirNames/Resources/$1.lproj/Localizable.strings"
+  echo "SayTheirNames/Resources/$1.lproj/Localizable.strings"
 }
 
 # this key is read-only so can be shared.
