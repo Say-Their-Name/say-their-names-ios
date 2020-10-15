@@ -1,6 +1,0 @@
-framework module Pods_SayTheirNamesTests {
-  umbrella header "Pods-SayTheirNamesTests-umbrella.h"
-
-  export *
-  module * { export * }
-}
