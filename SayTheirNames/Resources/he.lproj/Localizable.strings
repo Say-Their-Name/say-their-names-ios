@@ -1,0 +1,159 @@
+/*
+ * Loco ios export: iOS Localizable.strings
+ * Project: Say Their Names
+ * Release: Working copy
+ * Locale: he, Hebrew
+ * Exported by: Say Their Names
+ * Exported at: Thu, 08 Oct 2020 22:31:04 +0200
+ */
+
+/* loco:5ee29770f904c5151c1a2061 */
+"home" = "דף הבית";
+
+/* loco:5ee29770f904c5151c1a2062 */
+"donations" = "תרומות";
+
+/* loco:5ee29770f904c5151c1a2063 */
+"petitions" = "עתירות";
+
+/* loco:5ee29770f904c5151c1a2064 */
+"about" = "אודות";
+
+/* loco:5ee29770f904c5151c1a2065 */
+"cancel" = "ביטל";
+
+/* loco:5ee29770f904c5151c1a2066 */
+"find_out_more" = "למד עוד";
+
+/* loco:5ee29770f904c5151c1a2067 */
+"verified" = "מאומת";
+
+/* loco:5ee29770f904c5151c1a2068 */
+"filter_all" = "הכול";
+
+/* loco:5ee29770f904c5151c1a2069 */
+"filter_businesses" = "עסקים";
+
+/* loco:5ee29770f904c5151c1a206a */
+"filter_protesters" = "מפגינים";
+
+/* loco:5ee29770f904c5151c1a206b */
+"filter_victims" = "קורבנות";
+
+/* loco:5ee29770f904c5151c1a206c */
+"share" = "שתף";
+
+/* loco:5ee29770f904c5151c1a206d */
+"close" = "סגור";
+
+/* loco:5ee29770f904c5151c1a206e */
+"say_their_names" = "אומר את השמות שלהם";
+
+/* loco:5ee29770f904c5151c1a206f */
+"bookmark" = "סימניות";
+
+/* loco:5ee29770f904c5151c1a2070 */
+"search" = "חיפוש";
+
+/* loco:5ee29770f904c5151c1a2071 */
+"donate" = "תרום";
+
+/* loco:5ee29770f904c5151c1a2072 */
+"DONATE NOW" = "תרום עכשיו";
+
+/* loco:5ee29770f904c5151c1a2073 */
+"description" = "הסבר";
+
+/* loco:5ee29770f904c5151c1a2074 */
+"person.say_their_names" = "אומר את השמות שלהם";
+
+/* loco:5ee29770f904c5151c1a2075 */
+"person.age" = "גיל";
+
+/* loco:5ee29770f904c5151c1a2076 */
+"person.children" = "ילדים";
+
+/* loco:5ee29770f904c5151c1a2077 */
+"person.location" = "אתר";
+
+/* loco:5ee29770f904c5151c1a2078 */
+"person.their_story" = "הסיפור שלהם";
+
+/* loco:5ee29770f904c5151c1a2079 */
+"person.outcome" = "תוצאה";
+
+/* loco:5ee29770f904c5151c1a207a */
+"person.news" = "חדשות";
+
+/* loco:5ee29770f904c5151c1a207b */
+"person.media" = "מדיה";
+
+/* loco:5ee29770f904c5151c1a207c */
+"person.hashtags" = "האשטאגים למדיה חברתית";
+
+/* loco:5ee29770f904c5151c1a207d */
+"person.hashtagCopyTip" = "לחץ והחזק כדי להעתיק";
+
+/* loco:5ee29770f904c5151c1a207e */
+"person.copied" = "מועתק";
+
+/* loco:5ee29770f904c5151c1a207f
+ * Get Involved - Slack */
+"get_involved.slack.title" = "איך אני יכול לעזור?";
+
+/* loco:5ee29770f904c5151c1a2080 */
+"get_involved.slack.button" = "להצטרף לערוץ ה״Slack״ שלנו";
+
+/* loco:5ee29770f904c5151c1a2082
+ * Get Involved - Developer */
+"get_involved.developer.title" = "איך ניתן להצטרף לצוות המפתחים שלנו?";
+
+/* loco:5ee29770f904c5151c1a2083 */
+"get_involved.developer.button" = "לריפו שלנו בגיטהאב";
+
+/* loco:5ee29770f904c5151c1a2085
+ * Get Involved - Twitter */
+"get_involved.twitter.title" = "הצטרף אלינו בטוויטר";
+
+/* loco:5ee29770f904c5151c1a2086 */
+"get_involved.twitter.button" = "עקבו אחרינו";
+
+/* loco:5ee29770f904c5151c1a2088
+ * More */
+"more_history.aboutTitle" = "קצת רקע על תנועת ״אמרו את שמם״";
+
+/* loco:5ee29770f904c5151c1a2089 */
+"more_history.aboutDesc" = "״אמרו את שמם״ היא תנועה חברתית להעלאת מודעות אודות קורבנות מגזענות ממוסדת בעולם. התנועה קיימת במקביל ובתור תנועה תומכת בתנועה הרחבה יותר של Black Lives Matter. מטרת התנועה היא להצביע באופן פרטני על אנשים שנפגעו מאלימות נגד שחורים. ״אמרו את שמם״ מנסה להפנות את תשומת לב החברה לסיפורים אישיים ודורש צדק לכלל הקורבנות.";
+
+/* loco:5ee29770f904c5151c1a208a */
+"massive_thank_you" = "תודה ענקית לכל המעורבים";
+
+/* loco:5ee2ce86663b704aa41688f2 */
+"sign" = "חתום על עצומה זו";
+
+/* loco:5ee376d765812927aa78d0a2 */
+"about_this_project.title" = "על פרויקט זה";
+
+/* loco:5ee376dd6ca9905dc077cd32 */
+"about-this-project-details" = "ברוכים הבאים לפרויקט ״אמרו את שמם״. מטרתנו לבנות פלטפורמת אופנסורס על מנת להגביר מודעות למקרי אי צדק על רקע גזע ולהזכיר את שמותם הנשכחות של קורבנות עוול גזעני. אנו שואפים לזהות ולתמוך בארגונים מאומתים בכדי לוודא שתרומות מגיעות לידי אנשים שיכולים להשפיע ברמה הגבוהה ביותר.";
+
+/* loco:5ee376e9fefc8d5f7d7f0e72 */
+"request_edit_or_removal.title" = "לבקשת שינוי או מחיקה ";
+
+/* loco:5ee376f7a2df5b67a6141ad6 */
+"request_edit_or_removal.details" = "אם תרצה להציע שינוי לעמוד הקורבן אי אם הינך נציג של הקורבן וברצונך למחוק את שמו מהאפליקציה, נא לפנות אלינו בהודעה פרטית בטוויטר";
+
+/* loco:5ee376fed7ad1f1f67343376 */
+"twitter" = "טוויטר";
+
+/* loco:5ee3770bbf547555e3273462 */
+"did_we_miss_someone" = "האם שכחנו את מישהו?";
+
+/* loco:5ee37712b985865d84496cd7 */
+"request_to_add_new_name" = "בקש להוסיף שם";
+
+/* loco:5ee4006f0b8b33673137f992 */
+"people.hero_text" = "צדק מעוכב הוא אי צדק. הצטרף למאבק למען הצדק. חתום על עצומות ותרום היום.";
+
+/* loco:5f3c0ad0a68ecf2bc95d2ef3 */
+"search.placeholder" = "חפש שמות";

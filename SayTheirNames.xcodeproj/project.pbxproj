@@ -348,6 +348,8 @@
 		B4F32F92250D7B5900501DDB /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C013291C248ED25B006BB6D6 /* Color.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Color.xcassets; sourceTree = "<group>"; };
 		C0594BF9248754A200260BAD /* UICollectionView++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView++.swift"; sourceTree = "<group>"; };
+		CFBFCFDE2529243900B8C4AE /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		CFBFCFDF2529243A00B8C4AE /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D107CEC59C11537D09D9DB2E /* Pods-Say Their Names.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Say Their Names.release.xcconfig"; path = "Target Support Files/Pods-Say Their Names/Pods-Say Their Names.release.xcconfig"; sourceTree = "<group>"; };
 		D42BC32C248E290E006A7F4B /* assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = assets.swift; sourceTree = "<group>"; };
 		D639F16885E8E79F7E336CC2 /* Pods-Say Their Names.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Say Their Names.debug.xcconfig"; path = "Target Support Files/Pods-Say Their Names/Pods-Say Their Names.debug.xcconfig"; sourceTree = "<group>"; };
@@ -1137,7 +1139,8 @@
 				nl,
 				es,
 				de,
-				id,
+				he,
+        id
 			);
 			mainGroup = 5B3ED7332481C9F40033FF79;
 			productRefGroup = 5B3ED73D2481C9F50033FF79 /* Products */;
@@ -1497,6 +1500,7 @@
 				1846CA482493E9BA00792086 /* nl */,
 				71E4D76124946FB000ED0B5E /* es */,
 				B4F32F91250D7B5900501DDB /* de */,
+				CFBFCFDE2529243900B8C4AE /* he */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -1511,7 +1515,8 @@
 				1846CA492493E9BA00792086 /* nl */,
 				71E4D76224946FB100ED0B5E /* es */,
 				B4F32F92250D7B5900501DDB /* de */,
-				4F8169162532A5C900FBCB51 /* id */,
+				CFBFCFDF2529243A00B8C4AE /* he */,
+        4F8169162532A5C900FBCB51 /* id */
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
