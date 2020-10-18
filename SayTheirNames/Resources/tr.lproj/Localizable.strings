@@ -1,0 +1,160 @@
+/*
+ * Loco ios export: iOS Localizable.strings
+ * Project: Say Their Names
+ * Release: Working copy
+ * Locale: en, English 
+ * Exported by: Say Their Names
+ * Exported at: Thu, 08 Oct 2020 22:30:59 +0200
+ */
+
+/* loco:5ee29770f904c5151c1a2061 */
+"home" = "Anasayfa";
+
+/* loco:5ee29770f904c5151c1a2062 */
+"donations" = "Bağışlar";
+
+/* loco:5ee29770f904c5151c1a2063 */
+"petitions" = "Dilekçeler";
+
+/* loco:5ee29770f904c5151c1a2064 */
+"about" = "Hakkında";
+
+/* loco:5ee29770f904c5151c1a2065 */
+"cancel" = "Vazgeç";
+
+/* loco:5ee29770f904c5151c1a2066 */
+"find_out_more" = "DAHA FAZLA";
+
+/* loco:5ee29770f904c5151c1a2067 */
+"verified" = "onaylandı";
+
+/* loco:5ee29770f904c5151c1a2068 */
+"filter_all" = "TÜMÜ";
+
+/* loco:5ee29770f904c5151c1a2069 */
+"filter_businesses" = "İŞ";
+
+/* loco:5ee29770f904c5151c1a206a */
+"filter_protesters" = "PROTESTOCULAR";
+
+/* loco:5ee29770f904c5151c1a206b */
+"filter_victims" = "KURBANLAR";
+
+/* loco:5ee29770f904c5151c1a206c */
+"share" = "Paylaş";
+
+/* loco:5ee29770f904c5151c1a206d */
+"close" = "Kapat";
+
+/* loco:5ee29770f904c5151c1a206e */
+"say_their_names" = "Adlarını söyle";
+
+/* loco:5ee29770f904c5151c1a206f */
+"bookmark" = "Kaydet";
+
+/* loco:5ee29770f904c5151c1a2070 */
+"search" = "Ara";
+
+/* loco:5ee29770f904c5151c1a2071 */
+"donate" = "Bağış Yap";
+
+/* loco:5ee29770f904c5151c1a2072 */
+"DONATE NOW" = "BAĞIŞ YAP";
+
+/* loco:5ee29770f904c5151c1a2073 */
+"description" = "Açıklama";
+
+/* loco:5ee29770f904c5151c1a2074 */
+"person.say_their_names" = "Adlarını söyle";
+
+/* loco:5ee29770f904c5151c1a2075 */
+"person.age" = "Yaş";
+
+/* loco:5ee29770f904c5151c1a2076 */
+"person.children" = "Çocuklar";
+
+/* loco:5ee29770f904c5151c1a2077 */
+"person.location" = "Konum";
+
+/* loco:5ee29770f904c5151c1a2078 */
+"person.their_story" = "Öyküsü";
+
+/* loco:5ee29770f904c5151c1a2079 */
+"person.outcome" = "Sonuç";
+
+/* loco:5ee29770f904c5151c1a207a */
+"person.news" = "Haberler";
+
+/* loco:5ee29770f904c5151c1a207b */
+"person.media" = "Medya";
+
+/* loco:5ee29770f904c5151c1a207c */
+"person.hashtags" = "Sosyal Medya Etiketleri";
+
+/* loco:5ee29770f904c5151c1a207d */
+"person.hashtagCopyTip" = "Kopyalamak için basılı tutun";
+
+/* loco:5ee29770f904c5151c1a207e */
+"person.copied" = "Kopyalandı";
+
+/* loco:5ee29770f904c5151c1a207f
+ * Get Involved - Slack */
+"get_involved.slack.title" = "NASIL DAHİL OLURUM?";
+
+/* loco:5ee29770f904c5151c1a2080 */
+"get_involved.slack.button" = "SLACK KANALIMIZA KATILIN";
+
+/* loco:5ee29770f904c5151c1a2082
+ * Get Involved - Developer */
+"get_involved.developer.title" = "YAZILIMCI OLARAK NASIL DAHİL OLURUM?";
+
+/* loco:5ee29770f904c5151c1a2083 */
+"get_involved.developer.button" = "GITHUB'IMIZA BAKIN";
+
+/* loco:5ee29770f904c5151c1a2085
+ * Get Involved - Twitter */
+"get_involved.twitter.title" = "TWITTER'DA BİZE KATILIN";
+
+/* loco:5ee29770f904c5151c1a2086 */
+"get_involved.twitter.button" = "BİZİ TAKİP EDİN";
+
+/* loco:5ee29770f904c5151c1a2088
+ * More */
+"more_history.aboutTitle" = "ADLARINI SÖYLE HAREKETİ HAKKINDA BİLGİ";
+
+/* loco:5ee29770f904c5151c1a2089 */
+"more_history.aboutDesc" = "
+'Adlarını Söyle', dünya genelinde toplumsal eşitsizliğin siyahi kurbanları hakkında farkındalığı arttırmaya yönelik bir sosyal harekettir. Bu hareket, 'Siyahların Hayatları da Önemlidir' hareketi tarafından desteklenmektedir ve siyahi-karşıtı şiddetten etkilenmiş bireyleri göz önüne çıkarmayı hedefler. 'Adlarını Söyle' hareketi, tüm bunlara dikkat çeker ve tüm kurbanlar için adalet ister.";
+
+/* loco:5ee29770f904c5151c1a208a */
+"massive_thank_you" = "KATILAN HERKESE ÇOK TEŞEKKÜRLER";
+
+/* loco:5ee2ce86663b704aa41688f2 */
+"sign" = "Bu dilekçeyi imzala";
+
+/* loco:5ee376d765812927aa78d0a2 */
+"about_this_project.title" = "Proje hakkında";
+
+/* loco:5ee376dd6ca9905dc077cd32 */
+"about-this-project-details" = "Adlarını Söyle projesine hoşgeldiniz. Hedefimiz, sıklıkla; adaletsizliğin ve toplumsal eşitsizliğin unutulmuş isimleri hakkında farkındalığı arttırmak üzere bir açık kaynak platformu geliştirmek. Bağışların en etkili olabileceği yerlere ulaştığından emin olmak için, onaylanmış kurumları belirlemeye ve büyütmeye çabalıyoruz.";
+
+/* loco:5ee376e9fefc8d5f7d7f0e72 */
+"request_edit_or_removal.title" = "BİR DÜZENLEME VEYA SİLME TALEP ET";
+
+/* loco:5ee376f7a2df5b67a6141ad6 */
+"request_edit_or_removal.details" = "Eğer bir kurbanın sayfasını düzenlemeyi teklif etmek istiyorsanız veya bir kurbanın yakını olarak onun buradan silinmesini istiyorsanız, lütfen bize Twitter'dan bir mesaj gönderin.";
+
+/* loco:5ee376fed7ad1f1f67343376 */
+"twitter" = "Twitter";
+
+/* loco:5ee3770bbf547555e3273462 */
+"did_we_miss_someone" = "EKSİK BİRİ Mİ VAR?";
+
+/* loco:5ee37712b985865d84496cd7 */
+"request_to_add_new_name" = "İSİM EKLEME İSTEĞİ GÖNDER";
+
+/* loco:5ee4006f0b8b33673137f992 */
+"people.hero_text" = "Gecikmiş adalet, adalet değildir. Adalet için mücadeleye katıl. Dilekçe imzala ve bağış yap.";
+
+/* loco:5f3c0ad0a68ecf2bc95d2ef3 */
+"search.placeholder" = "İsim ara";

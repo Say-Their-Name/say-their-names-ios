@@ -378,6 +378,8 @@
 		EEC3A1DA2483D6B6001E7754 /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
 		F2725A8A24881A8D00507DC4 /* UITableViewCell++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell++.swift"; sourceTree = "<group>"; };
 		F2725A8C24881AF200507DC4 /* UITableView++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView++.swift"; sourceTree = "<group>"; };
+		FBEBD254253C82BA00B0FCEF /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		FBEBD255253C82BA00B0FCEF /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1139,6 +1141,7 @@
 				es,
 				de,
 				he,
+				tr,
 			);
 			mainGroup = 5B3ED7332481C9F40033FF79;
 			productRefGroup = 5B3ED73D2481C9F50033FF79 /* Products */;
@@ -1499,6 +1502,7 @@
 				71E4D76124946FB000ED0B5E /* es */,
 				B4F32F91250D7B5900501DDB /* de */,
 				CFBFCFDE2529243900B8C4AE /* he */,
+				FBEBD254253C82BA00B0FCEF /* tr */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -1514,6 +1518,7 @@
 				71E4D76224946FB100ED0B5E /* es */,
 				B4F32F92250D7B5900501DDB /* de */,
 				CFBFCFDF2529243A00B8C4AE /* he */,
+				FBEBD255253C82BA00B0FCEF /* tr */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
