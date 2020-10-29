@@ -4,11 +4,11 @@
  * Release: Working copy
  * Locale: pt-BR, Brazilian Portuguese
  * Exported by: Say Their Names
- * Exported at: Thu, 08 Oct 2020 22:31:01 +0200
+ * Exported at: Tue, 20 Oct 2020 12:59:04 +0200
  */
 
 /* loco:5ee29770f904c5151c1a2061 */
-"home" = "Home";
+"home" = "Início";
 
 /* loco:5ee29770f904c5151c1a2062 */
 "donations" = "Doações";
@@ -17,143 +17,143 @@
 "petitions" = "Petições";
 
 /* loco:5ee29770f904c5151c1a2064 */
-"about" = "About";
+"about" = "Informações";
 
 /* loco:5ee29770f904c5151c1a2065 */
 "cancel" = "Cancelar";
 
 /* loco:5ee29770f904c5151c1a2066 */
-"find_out_more" = "Saiba mais";
+"find_out_more" = "SAIBA MAIS";
 
 /* loco:5ee29770f904c5151c1a2067 */
 "verified" = "verificado";
 
 /* loco:5ee29770f904c5151c1a2068 */
-"filter_all" = "ALL";
+"filter_all" = "TODOS";
 
 /* loco:5ee29770f904c5151c1a2069 */
-"filter_businesses" = "BUSINESSES";
+"filter_businesses" = "EMPRESAS";
 
 /* loco:5ee29770f904c5151c1a206a */
-"filter_protesters" = "PROTESTERS";
+"filter_protesters" = "MANIFESTANTES";
 
 /* loco:5ee29770f904c5151c1a206b */
-"filter_victims" = "VICTIMS";
+"filter_victims" = "VÍTIMAS";
 
 /* loco:5ee29770f904c5151c1a206c */
-"share" = "Share";
+"share" = "Compartilhar";
 
 /* loco:5ee29770f904c5151c1a206d */
-"close" = "Close";
+"close" = "Fechar";
 
 /* loco:5ee29770f904c5151c1a206e */
 "say_their_names" = "Say their names";
 
 /* loco:5ee29770f904c5151c1a206f */
-"bookmark" = "Bookmark";
+"bookmark" = "Favoritos";
 
 /* loco:5ee29770f904c5151c1a2070 */
-"search" = "Search";
+"search" = "Pesquisa";
 
 /* loco:5ee29770f904c5151c1a2071 */
-"donate" = "Donate";
+"donate" = "DOAR";
 
 /* loco:5ee29770f904c5151c1a2072 */
-"DONATE NOW" = "DONATE NOW";
+"DONATE NOW" = "DOAR AGORA";
 
 /* loco:5ee29770f904c5151c1a2073 */
-"description" = "Description";
+"description" = "Descrição";
 
 /* loco:5ee29770f904c5151c1a2074 */
 "person.say_their_names" = "Say their names";
 
 /* loco:5ee29770f904c5151c1a2075 */
-"person.age" = "Age";
+"person.age" = "Idade";
 
 /* loco:5ee29770f904c5151c1a2076 */
-"person.children" = "Children";
+"person.children" = "Filhos";
 
 /* loco:5ee29770f904c5151c1a2077 */
-"person.location" = "Location";
+"person.location" = "Localização";
 
 /* loco:5ee29770f904c5151c1a2078 */
-"person.their_story" = "Their Story";
+"person.their_story" = "História da vítima";
 
 /* loco:5ee29770f904c5151c1a2079 */
-"person.outcome" = "Outcome";
+"person.outcome" = "Resultado";
 
 /* loco:5ee29770f904c5151c1a207a */
-"person.news" = "News";
+"person.news" = "Notícias";
 
 /* loco:5ee29770f904c5151c1a207b */
-"person.media" = "Media";
+"person.media" = "Mídia";
 
 /* loco:5ee29770f904c5151c1a207c */
-"person.hashtags" = "Social Media Hashtags";
+"person.hashtags" = "Hashtags em redes sociais";
 
 /* loco:5ee29770f904c5151c1a207d */
-"person.hashtagCopyTip" = "Press and hold to copy";
+"person.hashtagCopyTip" = "Pressione e segure para copiar";
 
 /* loco:5ee29770f904c5151c1a207e */
-"person.copied" = "Copied";
+"person.copied" = "Copiado";
 
 /* loco:5ee29770f904c5151c1a207f
  * Get Involved - Slack */
-"get_involved.slack.title" = "HOW DO I GET INVOLVED?";
+"get_involved.slack.title" = "COMO POSSO PARTICIPAR?";
 
 /* loco:5ee29770f904c5151c1a2080 */
-"get_involved.slack.button" = "JOIN OUR SLACK CHANNEL";
+"get_involved.slack.button" = "ENTRE NO NOSSO CANAL DO SLACK";
 
 /* loco:5ee29770f904c5151c1a2082
  * Get Involved - Developer */
-"get_involved.developer.title" = "HOW DO I GET INVOLVED AS A DEVELOPER?";
+"get_involved.developer.title" = "COMO POSSO PARTICIPAR COMO DESENVOLVEDOR?";
 
 /* loco:5ee29770f904c5151c1a2083 */
-"get_involved.developer.button" = "VIEW OUR GITHUB";
+"get_involved.developer.button" = "VEJA NOSSO GITHUB";
 
 /* loco:5ee29770f904c5151c1a2085
  * Get Involved - Twitter */
-"get_involved.twitter.title" = "JOIN US ON TWITTER";
+"get_involved.twitter.title" = "JUNTE-SE A NÓS NO TWITTER";
 
 /* loco:5ee29770f904c5151c1a2086 */
-"get_involved.twitter.button" = "FOLLOW US";
+"get_involved.twitter.button" = "SEGUIR";
 
 /* loco:5ee29770f904c5151c1a2088
  * More */
-"more_history.aboutTitle" = "SOME HISTORY ON THE SAY THEIR NAMES MOVEMENT";
+"more_history.aboutTitle" = "UM POUCO DA HISTÓRIA DO MOVIMENTO SAY THEIR NAMES";
 
 /* loco:5ee29770f904c5151c1a2089 */
-"more_history.aboutDesc" = "Say Their Names is a social movement to raise awareness for all the black victims of racial inequality all around the world. This movement is in support of the overall Black Lives Matter movement and aims to highlight individuals affected by anti-Black Violence. Say Their Names movement calls attention and demands justice for all victims.";
+"more_history.aboutDesc" = "Say Their Names (Diga o nome deles e delas) é um movimento social para conscientizar sobre todas as vítimas negras da desigualdade racial ao redor do mundo. Este movimento apoia o movimento geral Black Lives Matter (Vidas Negras Importam) e tem o objetivo de dar visibilidade a indivíduos afetados pela violência contra negros e negras. O movimento Say Their Names chama a atenção e exige justiça por todas as vítimas.";
 
 /* loco:5ee29770f904c5151c1a208a */
-"massive_thank_you" = "A MASSIVE THANK YOU TO EVERYONE INVOLVED";
+"massive_thank_you" = "MUITO OBRIGADO A TODOS OS ENVOLVIDOS";
 
 /* loco:5ee2ce86663b704aa41688f2 */
-"sign" = "Sign this petition";
+"sign" = "Assinar esta petição";
 
 /* loco:5ee376d765812927aa78d0a2 */
-"about_this_project.title" = "About this project";
+"about_this_project.title" = "Sobre este projeto";
 
 /* loco:5ee376dd6ca9905dc077cd32 */
-"about-this-project-details" = "Welcome to the Say Their Names Project. Our aim is to build an open-source platform to raise awareness of the injustice and often forgotten names of racial inequality. We strive to identify and amplify verified organizations to ensure donations are reaching those who can make the most impact with it.";
+"about-this-project-details" = "Seja bem vindo ao projeto Say Their Names. Nosso objetivo é construir uma plataforma de código aberto para conscientizar sobre a injustiça e os nomes frequentemente esquecidos das vítimas da desigualdade racial.";
 
 /* loco:5ee376e9fefc8d5f7d7f0e72 */
-"request_edit_or_removal.title" = "REQUEST AN EDIT OR REMOVAL";
+"request_edit_or_removal.title" = "SOLICITAR EDIÇÃO OU EXCLUSÃO";
 
 /* loco:5ee376f7a2df5b67a6141ad6 */
-"request_edit_or_removal.details" = "If you would like to propose an edit to a victim page or if you are a representative of the victim and would like the victim to be removed from this directory please send us a message on Twitter.";
+"request_edit_or_removal.details" = "Se você gostaria de propor a edição da página de uma vítima, ou se você é representante da vítima e gostaria que ela fosse removida deste arquivo, por favor, nos mande uma mensagem no Twitter.";
 
 /* loco:5ee376fed7ad1f1f67343376 */
 "twitter" = "Twitter";
 
 /* loco:5ee3770bbf547555e3273462 */
-"did_we_miss_someone" = "DID WE MISS SOMEONE?";
+"did_we_miss_someone" = "ESTÁ FALTANDO ALGUÉM?";
 
 /* loco:5ee37712b985865d84496cd7 */
-"request_to_add_new_name" = "REQUEST TO ADD A NAME";
+"request_to_add_new_name" = "SOLICITAR A INCLUSÃO DE UM NOME";
 
 /* loco:5ee4006f0b8b33673137f992 */
-"people.hero_text" = "Delayed justice is injustice. Join the fight for justice. Sign petitions and donate today.";
+"people.hero_text" = "Justiça atrasada é injustiça. Junte-se à luta por justiça. Assine petições e faça doações hoje.";
 
 /* loco:5f3c0ad0a68ecf2bc95d2ef3 */
-"search.placeholder" = "Search for names";
+"search.placeholder" = "Pesquisar por nomes";
